@@ -325,8 +325,35 @@ SLUG_HANDLERS = {
     "como-comprar-en-lovegobuy": lambda r, l: _howto_deep(l),
     "lovegobuy-review": lambda r, l: _trust_deep(l),
     "avis-lovegobuy": lambda r, l: _trust_deep(l),
-    "best-lovegobuy-spreadsheet": lambda r, l: _base_spreadsheet(r, l),
+    "best-lovegobuy-spreadsheet": lambda r, l: _best_spreadsheet_deep(r, l),
 }
+
+
+def _best_spreadsheet_deep(region: str, lang: str) -> list[tuple[str, str]]:
+    blocks = _base_spreadsheet(region, lang)
+    if lang != "nl":
+        return blocks
+    extra = [
+        (
+            "Hoe je de beste finds kiest (NL)",
+            "Sorteer op newest en open minstens drie vergelijkbare entries voor hetzelfde model. "
+            "Let op seller-rating in de community, gewicht in de listing en of er recente QC-foto's zijn gedeeld. "
+            "De 'beste' spreadsheet is degene die je het snelst naar een veilige Lovegobuy-order brengt — niet de hype-rij.",
+        ),
+        (
+            "Verzending en BTW naar Nederland",
+            "Combineer lichte kleding in één pakket; houd zware sneakers apart als de lijn dat voordeliger maakt. "
+            "BTW en invoerregels verschillen per pakket — lees de verzendgids op deze site voordat je betaalt voor international shipping.",
+        ),
+        (
+            "Interne links voor volgende stappen",
+            f'Na het browsen: <a href="/lovegobuy-verzending/">verzendgids</a>, '
+            f'<a href="/how-to-use-lovegobuy/">beginnersgids</a>, '
+            f'<a href="/lovegobuy-ervaringen/">ervaringen</a> en '
+            f'<a href="/is-lovegobuy-legit/">betrouwbaarheid</a>.',
+        ),
+    ]
+    return blocks + extra
 
 
 def merge_deep_sections(

@@ -284,12 +284,47 @@ PAGES: list[dict] = [
             faq=[("Is there one official best list?", "W2CLinks aggregates community finds — compare multiple picks.")],
         ),
         nl=_loc(
-            title=f"Beste Lovegobuy Spreadsheet ({YEAR})",
-            description="best lovegobuy spreadsheet / beste lovegobuy spreadsheet — KD-laag hangend fruit voor NL.",
-            h1="Beste Lovegobuy Spreadsheet",
-            intro="De zoekterm best lovegobuy spreadsheet wijst op curated ingangen voor sneakers en streetwear.",
-            sections=[("Startpunten", f'Open {SPREADSHEET} en filter op categorie of merk.')],
-            faq=[("Beste spreadsheet 2026?", "W2CLinks hub — filter op nieuwste finds.")],
+            title=f"Beste Lovegobuy Spreadsheet {YEAR} — NL Gids & W2CLinks",
+            description="Beste Lovegobuy spreadsheet voor Nederland: sneakers, hoodies en bags op W2CLinks. Filter, vergelijk QC en bestel via Lovegobuy.",
+            h1="Beste Lovegobuy Spreadsheet voor Nederland",
+            intro=(
+                "Zoek je de beste Lovegobuy spreadsheet voor NL? Start op W2CLinks met newest-sortering, "
+                "filter op sneakers of merken zoals Nike en Adidas, en rond af op Lovegobuy met QC en verzending."
+            ),
+            sections=[
+                (
+                    "Waarom W2CLinks de beste ingang is",
+                    f'Er is geen enkele officiële Excel-lijst — de beste Lovegobuy spreadsheet-ervaring is de live hub op '
+                    f'<a href="{SPREADSHEET}" target="_blank" rel="noopener">W2CLinks</a>: categorieën, merken en keyword-zoek.',
+                ),
+                (
+                    "Topcategorieën voor NL-kopers",
+                    f'Begin met <a href="{category_url("SNEAKERS")}" target="_blank" rel="noopener">SNEAKERS</a>, '
+                    f'<a href="{category_url("HOODIES")}" target="_blank" rel="noopener">HOODIES</a> of '
+                    f'<a href="{category_url("BAGS")}" target="_blank" rel="noopener">BAGS</a>. '
+                    "Sorteer op newest en vergelijk meerdere finds voordat je betaalt.",
+                ),
+                (
+                    "Registreren en bestellen",
+                    f'Na het kiezen van een find: registreer op Lovegobuy via '
+                    f'<a href="{REGISTER}" target="_blank" rel="sponsored noopener">invite W5RJX3</a>, '
+                    "plak de seller-link, controleer QC-foto's en kies daarna een verzendlijn naar Nederland.",
+                ),
+            ],
+            faq=[
+                (
+                    "Wat is de beste Lovegobuy spreadsheet in 2026?",
+                    "Voor Nederlandse kopers is de W2CLinks-hub met filters en newest-sort de meest praktische ingang — geen statische download.",
+                ),
+                (
+                    "Is best lovegobuy spreadsheet betrouwbaar?",
+                    "Finds zijn community-curated; controleer altijd QC, verkoper en gewicht vóór internationale verzending.",
+                ),
+                (
+                    "Hoe lang duurt verzending naar NL?",
+                    "Hangt af van lijn en gewicht — zie onze verzendgids; combineer lichte items om kosten te spreiden.",
+                ),
+            ],
         ),
         fr=_loc(
             title=f"Meilleur Lovegobuy Spreadsheet ({YEAR})",
