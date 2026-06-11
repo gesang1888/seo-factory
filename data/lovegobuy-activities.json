@@ -1,0 +1,59 @@
+{
+  "activities": [
+    {
+      "id": "coupon",
+      "title_zh": "\u65b0\u7528\u6237\u4f18\u60e0\u5238\u793c\u5305 $137",
+      "url": "https://www.lovegobuy.com/?invite_code=W5RJX3",
+      "image": "https://www.lovegobuy.com/uploads/10001/20260506/ecb439d8bae930a2c1acf2f67fc0e5a5.png",
+      "kind": "register_coupon",
+      "title_en": "New users: $137 coupon pack \u2014 register on Lovegobuy",
+      "title_es": "Nuevos usuarios: pack de cupones $137 \u2014 reg\u00edstrate en Lovegobuy",
+      "title_nl": "Nieuwe gebruikers: $137 couponpakket \u2014 registreer op Lovegobuy",
+      "title_it": "Nuovi utenti: pacchetto coupon $137 \u2014 registrati su Lovegobuy"
+    },
+    {
+      "id": "cashback",
+      "title_zh": "Share Unboxing \u2014 earn up to 100% cashback",
+      "url": "https://www.lovegobuy.com/activity",
+      "image": "https://www.lovegobuy.com/uploads/10001/20260603/d4914f0a83a532d8c0fe25b93073b9cb.png",
+      "kind": "campaign",
+      "title_en": "Share Unboxing \u2014 earn up to 100% cashback",
+      "title_es": "Comparte unboxing \u2014 hasta 100% cashback",
+      "title_nl": "Deel unboxing \u2014 tot 100% cashback",
+      "title_it": "Condividi unboxing \u2014 fino al 100% cashback"
+    },
+    {
+      "id": "qc",
+      "title_zh": "Update QC infos",
+      "url": "https://www.lovegobuy.com/",
+      "image": "https://www.lovegobuy.com/uploads/10001/20260603/8366380a1261fddeb3ca90e919efda86.png",
+      "kind": "campaign",
+      "title_en": "Update QC infos on Lovegobuy",
+      "title_es": "Actualiza informaci\u00f3n QC en Lovegobuy",
+      "title_nl": "QC-informatie bijwerken op Lovegobuy",
+      "title_it": "Aggiorna info QC su Lovegobuy"
+    },
+    {
+      "id": "referral",
+      "title_zh": "Invite friends \u2014 earn rewards",
+      "url": "https://www.lovegobuy.com/?invite_code=W5RJX3",
+      "image": "https://www.lovegobuy.com/uploads/10001/20260507/e0b056e10f3b8e5a435293dcdfaec22a.png",
+      "kind": "campaign",
+      "title_en": "Invite friends \u2014 Lovegobuy referral rewards",
+      "title_es": "Invita amigos \u2014 recompensas Lovegobuy",
+      "title_nl": "Nodig vrienden uit \u2014 Lovegobuy-beloningen",
+      "title_it": "Invita amici \u2014 premi Lovegobuy"
+    },
+    {
+      "id": "ticket",
+      "title_zh": "Service Ticket System Upgrade Notice",
+      "url": "https://www.lovegobuy.com/help",
+      "image": "https://www.lovegobuy.com/uploads/10001/20260506/3f698f8eb43cf678e615aa2ed645cccc.png",
+      "kind": "notice",
+      "title_en": "Service Ticket System upgrade notice",
+      "title_es": "Aviso: actualizaci\u00f3n del sistema de tickets",
+      "title_nl": "Mededeling: upgrade ticketsysteem",
+      "title_it": "Avviso: aggiornamento sistema ticket"
+    }
+  ]
+}

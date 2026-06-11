@@ -1,0 +1,38 @@
+# Data exports (keep structure, ignore raw files)
+data/semrush/*
+!data/semrush/.gitkeep
+data/gsc/*
+!data/gsc/.gitkeep
+data/products/*
+!data/products/.gitkeep
+
+# Generated output
+output/*
+!output/.gitkeep
+
+# Site-specific generated content (optional local builds)
+sites/*/dist/
+sites/*/.cache/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+credentials.json
+*.pem
+
+# OS & editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Python / Node (if added later)
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+dist/
+*.log

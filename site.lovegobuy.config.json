@@ -1,0 +1,69 @@
+{
+  "brand": "Lovegobuy",
+  "mainSite": {
+    "baseUrl": "https://w2clinks.com",
+    "spreadsheetUrl": "https://w2clinks.com/spreadsheet/",
+    "productsApiUrl": "https://w2clinks.com/public/typesense-search.php",
+    "categoryUrlPattern": "https://w2clinks.com/spreadsheet/?category={CATEGORY}&page=1&sort=newest",
+    "brandUrlPattern": "https://w2clinks.com/spreadsheet/?page=1&sort=newest&brand={brand}",
+    "productSearchUrlPattern": "https://w2clinks.com/spreadsheet/?page=1&sort=newest&keyword={keyword}"
+  },
+  "agentPlatform": {
+    "name": "Lovegobuy",
+    "baseUrl": "https://www.lovegobuy.com",
+    "helpCenterUrl": "https://www.lovegobuy.com/help",
+    "visualReferenceUrl": "https://www.lovegobuy.com/",
+    "faviconUrl": "https://www.lovegobuy.com/favicon.ico",
+    "faviconAsset": "assets/images/favicon.ico",
+    "logoAsset": "assets/images/lovegobuy-logo.png",
+    "invitationUrl": "https://www.lovegobuy.com/?invite_code=W5RJX3",
+    "logoSourceUrl": "https://www.lovegobuy.com/img/logo8.png",
+    "useTrademark": true,
+    "usePlatformIco": true,
+    "visualSimilarity": "lovegobuy-official"
+  },
+  "contact": {
+    "platformHelpUrl": "https://www.lovegobuy.com/help",
+    "platformRegisterUrl": "https://www.lovegobuy.com/?invite_code=W5RJX3",
+    "w2cSupportNote": "Product spreadsheet browsing is provided via W2CLinks. Order support is handled on Lovegobuy.",
+    "email": "support@lovegobuyguide.com",
+    "hours": "Mon–Sun 09:00–18:00 (UTC+8)",
+    "whatsappNumber": "+44 7856 544534",
+    "whatsappUrl": "https://wa.me/447856544534",
+    "whatsappDisplay": "WhatsApp: +44 7856 544534"
+  },
+  "hub": {
+    "categories": ["SNEAKERS", "SLIPPERS", "BOOTS", "BAGS", "CLOTHING", "HOODIES", "JACKETS", "PANTS", "TSHIRTS", "ACCESSORIES", "WATCHES", "ELECTRONICS"],
+    "brands": ["NIKE", "ADIDAS", "JORDAN", "NEW BALANCE", "ASICS", "PUMA", "SUPREME", "STONE ISLAND", "BALENCIAGA", "LOUIS VUITTON", "LULULEMON"]
+  },
+  "trustPages": ["about", "contact", "privacy-policy", "terms", "affiliate-disclosure", "partner-disclosure"],
+  "trustMessaging": {
+    "badge": "Independent Lovegobuy Spreadsheet Guide",
+    "footerNote": "Independent Lovegobuy spreadsheet resource — browse on W2CLinks, order on Lovegobuy."
+  },
+  "languages": [
+    {"code": "es-ES", "label": "Español", "domain": "lovegobuyspreadsheet.es"},
+    {"code": "it-IT", "label": "Italiano", "domain": "lovegobuyspreadsheet.it"},
+    {"code": "nl-NL", "label": "Nederlands", "domain": "lovegobuyspreadsheet.nl"},
+    {"code": "en-CA", "label": "English (CA)", "domain": "lovegobuyspreadsheet.ca"},
+    {"code": "en", "label": "English", "domain": "lovegobuyguide.com"}
+  ],
+  "currencies": [
+    {"code": "CNY", "symbol": "¥", "rateFromCny": 1},
+    {"code": "EUR", "symbol": "€", "rateFromCny": 0.127},
+    {"code": "CAD", "symbol": "$", "rateFromCny": 0.19}
+  ],
+  "defaultCurrencyByRegion": {
+    "ES": "EUR",
+    "IT": "EUR",
+    "NL": "EUR",
+    "CA": "CAD",
+    "EU": "EUR",
+    "INT": "EUR"
+  },
+  "externalLinkAttrs": {
+    "target": "_blank",
+    "rel": "noopener"
+  },
+  "officialClaimAllowed": false
+}

@@ -1,0 +1,68 @@
+{
+  "brand": "Kakobuy",
+  "mainSite": {
+    "baseUrl": "https://w2clinks.com",
+    "spreadsheetUrl": "https://w2clinks.com/spreadsheet/",
+    "productsApiUrl": "https://w2clinks.com/public/typesense-search.php",
+    "categoryUrlPattern": "https://w2clinks.com/spreadsheet/?category={CATEGORY}&page=1&sort=newest",
+    "brandUrlPattern": "https://w2clinks.com/spreadsheet/?page=1&sort=newest&brand={brand}",
+    "productSearchUrlPattern": "https://w2clinks.com/spreadsheet/?page=1&sort=newest&keyword={keyword}"
+  },
+  "agentPlatform": {
+    "name": "Kakobuy",
+    "baseUrl": "https://www.kakobuy.com",
+    "helpCenterUrl": "https://www.kakobuy.com/help",
+    "visualReferenceUrl": "https://www.kakobuy.com/",
+    "faviconUrl": "https://www.kakobuy.com/favicon.ico",
+    "faviconAsset": "assets/images/favicon.ico",
+    "logoAsset": "assets/images/kakobuy-logo.png",
+    "invitationUrl": "https://ikako.vip/r/yze69",
+    "logoSourceUrl": "https://nstatic.kakobuy.com/www/pic/kkb/logo.png",
+    "useTrademark": false,
+    "usePlatformIco": true,
+    "visualSimilarity": "kakobuy-like"
+  },
+  "contact": {
+    "platformHelpUrl": "https://www.kakobuy.com/help",
+    "platformRegisterUrl": "https://ikako.vip/r/yze69",
+    "w2cSupportNote": "Product spreadsheet browsing is provided via W2CLinks. Order support is handled on Kakobuy.",
+    "email": "support@kakobuytips.com",
+    "hours": "Mon–Sun 09:00–18:00 (UTC+8)",
+    "whatsappNumber": "+44 7856 544534",
+    "whatsappUrl": "https://wa.me/447856544534",
+    "whatsappDisplay": "WhatsApp: +44 7856 544534"
+  },
+  "hub": {
+    "categories": ["SNEAKERS", "SLIPPERS", "BOOTS", "BAGS", "CLOTHING", "HOODIES", "JACKETS", "PANTS", "TSHIRTS", "ACCESSORIES", "WATCHES", "ELECTRONICS"],
+    "brands": ["NIKE", "ADIDAS", "JORDAN", "NEW BALANCE", "ASICS", "PUMA", "SUPREME", "STONE ISLAND", "BALENCIAGA", "LOUIS VUITTON", "LULULEMON"]
+  },
+  "trustPages": ["about", "contact", "privacy-policy", "terms", "affiliate-disclosure", "partner-disclosure"],
+  "trustMessaging": {
+    "badge": "Independent Kakobuy Spreadsheet Guide",
+    "footerNote": "Independent Kakobuy spreadsheet resource — browse on W2CLinks, order on Kakobuy."
+  },
+  "languages": [
+    {"code": "es-ES", "label": "Español", "domain": "kakospreadsheet.es"},
+    {"code": "fr-FR", "label": "Français", "domain": "kakospreadsheet.fr"},
+    {"code": "en-CA", "label": "English (CA)", "domain": "kakospreadsheet.ca"},
+    {"code": "nl-NL", "label": "Nederlands", "domain": "kakospreadsheet.nl"},
+    {"code": "fi-FI", "label": "Suomi", "domain": "kakobuy.fi"}
+  ],
+  "currencies": [
+    {"code": "CNY", "symbol": "¥", "rateFromCny": 1},
+    {"code": "EUR", "symbol": "€", "rateFromCny": 0.127},
+    {"code": "CAD", "symbol": "$", "rateFromCny": 0.19}
+  ],
+  "defaultCurrencyByRegion": {
+    "ES": "EUR",
+    "FR": "EUR",
+    "NL": "EUR",
+    "CA": "CAD",
+    "FI": "EUR"
+  },
+  "externalLinkAttrs": {
+    "target": "_blank",
+    "rel": "noopener"
+  },
+  "officialClaimAllowed": false
+}

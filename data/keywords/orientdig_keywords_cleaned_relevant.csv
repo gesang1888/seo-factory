@@ -1,0 +1,125 @@
+country,kw_norm,Keyword,Volume,Keyword Difficulty,CPC (USD),Competitive Density,Intent,SERP Features,Number of Results,cluster,source_file,KD,score
+DE,orientdig,orientdig,1300,30.0,0.0,0.01,Navigational,"Sitelinks, Video carousel, Related searches",112.0,brand/nav,orientdig_broad-match_de_2026-06-07.xlsx,30.0,913.8613861386139
+DE,orientdig spreadsheet,orientdig spreadsheet,260,14.0,0.15,0.15,"Informational, Transactional","Sitelinks, Related searches",71.0,spreadsheet/finds,orientdig_broad-match_de_2026-06-07.xlsx,14.0,223.96039603960395
+DE,orientdig coupons,orientdig coupons,20,,0.0,0.02,,,,coupon/bonus,orientdig_broad-match_de_2026-06-07.xlsx,50.0,10.099009900990099
+DE,orientdig discord,orientdig discord,20,40.0,0.0,0.0,"Informational, Transactional","Sitelinks, People also ask, Related searches",106.0,support/product-longtail,orientdig_broad-match_de_2026-06-07.xlsx,40.0,12.07920792079208
+DE,orientdig erfahrungen,orientdig erfahrungen,20,25.0,0.0,0.0,Informational,,102.0,brand/nav,orientdig_broad-match_de_2026-06-07.xlsx,25.0,15.049504950495049
+DE,orientdig finds,orientdig finds,20,12.0,0.0,0.02,Informational,"Sitelinks, Video, Related searches",81.0,spreadsheet/finds,orientdig_broad-match_de_2026-06-07.xlsx,12.0,17.623762376237625
+DE,orientdig legit,orientdig legit,20,25.0,0.0,0.33,Informational,"Sitelinks, Video, Related searches",98.0,trust/review,orientdig_broad-match_de_2026-06-07.xlsx,25.0,15.049504950495049
+DE,orientdig qc,orientdig qc,20,34.0,0.0,0.33,Informational,"Sitelinks, Video carousel, Related searches",93.0,qc/photos,orientdig_broad-match_de_2026-06-07.xlsx,34.0,13.267326732673267
+DE,orientdig trustpilot,orientdig trustpilot,20,27.0,0.0,0.33,Transactional,"People also ask, Related searches",106.0,trust/review,orientdig_broad-match_de_2026-06-07.xlsx,27.0,14.653465346534654
+DE,orientdig codes,orientdig codes,10,19.0,0.0,0.33,Commercial,"Sitelinks, Video, People also ask, Related searches",84.0,coupon/bonus,orientdig_broad-match_de_2026-06-07.xlsx,19.0,8.118811881188119
+DE,orientdig links,orientdig links,10,20.0,0.0,0.0,Informational,"Sitelinks, Related searches",85.0,support/product-longtail,orientdig_broad-match_de_2026-06-07.xlsx,20.0,8.01980198019802
+DE,orientdig perfume,orientdig perfume,10,24.0,0.0,0.0,"Navigational, Transactional","Sitelinks, Video, Related searches, Popular products",155.0,support/product-longtail,orientdig_broad-match_de_2026-06-07.xlsx,24.0,7.623762376237623
+DE,orientdig reviews,orientdig reviews,10,27.0,0.0,0.0,Commercial,"Sitelinks, Video, People also ask",94.0,trust/review,orientdig_broad-match_de_2026-06-07.xlsx,27.0,7.326732673267327
+DE,qc orientdig,qc orientdig,10,0.0,0.0,0.0,Informational,Video carousel,98.0,qc/photos,orientdig_broad-match_de_2026-06-07.xlsx,0.0,10.0
+DE,credcal orientdig spreadsheet,credcal orientdig spreadsheet,0,21.0,0.0,0.0,Informational,"Sitelinks, Video, Related searches",1120.0,spreadsheet/finds,orientdig_broad-match_de_2026-06-07.xlsx,21.0,0.0
+ES,orientdig,orientdig,1300,52.0,0.0,0.01,Navigational,"Sitelinks, Image pack, Video carousel, People also ask, Related searches",111.0,brand/nav,orientdig_broad-match_es_2026-06-07.xlsx,52.0,630.6930693069307
+ES,orientdig spreadsheet,orientdig spreadsheet,90,15.0,0.15,0.26,Informational,"Sitelinks, Video, Related searches",70.0,spreadsheet/finds,orientdig_broad-match_es_2026-06-07.xlsx,15.0,76.63366336633663
+ES,como comprar en orientdig,como comprar en orientdig,20,27.0,0.0,0.0,Navigational,"Video, People also ask",160.0,how-to/guide,orientdig_broad-match_es_2026-06-07.xlsx,27.0,14.653465346534654
+ES,orientdig discord,orientdig discord,20,27.0,0.0,0.0,Informational,"Sitelinks, Video, People also ask, Related searches",101.0,support/product-longtail,orientdig_broad-match_es_2026-06-07.xlsx,27.0,14.653465346534654
+ES,orientdig finds,orientdig finds,20,35.0,0.0,0.04,Informational,"Sitelinks, Video, Related searches",79.0,spreadsheet/finds,orientdig_broad-match_es_2026-06-07.xlsx,35.0,13.069306930693068
+ES,orientdig shipping coupons,orientdig shipping coupons,20,10.0,0.0,0.0,Informational,"Sitelinks, Video, People also ask, Related searches",89.0,coupon/bonus,orientdig_broad-match_es_2026-06-07.xlsx,10.0,18.019801980198018
+ES,ona orientdig,ona orientdig,10,25.0,0.0,0.0,Navigational,"Sitelinks, Video",94.0,brand/nav,orientdig_broad-match_es_2026-06-07.xlsx,25.0,7.524752475247524
+ES,orientdig perfume,orientdig perfume,10,13.0,0.0,0.0,Informational,"Related searches, Popular products",169.0,support/product-longtail,orientdig_broad-match_es_2026-06-07.xlsx,13.0,8.712871287128714
+ES,orientdig qc,orientdig qc,10,18.0,0.0,0.0,Informational,"Sitelinks, Video, People also ask, Related searches",167.0,qc/photos,orientdig_broad-match_es_2026-06-07.xlsx,18.0,8.217821782178218
+ES,orientdig shipping,orientdig shipping,10,25.0,0.0,0.0,Navigational,"Sitelinks, Video carousel, Related searches",102.0,shipping/delivery,orientdig_broad-match_es_2026-06-07.xlsx,25.0,7.524752475247524
+ES,19kg orientdig,19kg orientdig,0,20.0,0.0,0.0,Informational,,558.0,brand/nav,orientdig_broad-match_es_2026-06-07.xlsx,20.0,0.0
+ES,credcal orientdig spreadsheet,credcal orientdig spreadsheet,0,23.0,0.0,0.0,Informational,"Sitelinks, Video, Related searches",1130.0,spreadsheet/finds,orientdig_broad-match_es_2026-06-07.xlsx,23.0,0.0
+ES,how to use coupons on orientdig,how to use coupons on orientdig,0,17.0,0.0,0.0,Informational,"Sitelinks, Video carousel, People also ask",97.0,coupon/bonus,orientdig_broad-match_es_2026-06-07.xlsx,17.0,0.0
+ES,links orientdig,links orientdig,0,24.0,0.0,0.0,"Informational, Transactional","Sitelinks, Video, Related searches",160.0,support/product-longtail,orientdig_broad-match_es_2026-06-07.xlsx,24.0,0.0
+ES,orientdig discount code,orientdig discount code,0,10.0,0.0,0.0,Informational,"Sitelinks, People also ask, Related searches",76.0,coupon/bonus,orientdig_broad-match_es_2026-06-07.xlsx,10.0,0.0
+ES,orientdig links,orientdig links,0,23.0,0.0,0.0,Informational,"Sitelinks, Video, Related searches",153.0,support/product-longtail,orientdig_broad-match_es_2026-06-07.xlsx,23.0,0.0
+ES,orientdig logo,orientdig logo,0,18.0,0.0,0.0,"Informational, Transactional","People also ask, Related searches",91.0,support/product-longtail,orientdig_broad-match_es_2026-06-07.xlsx,18.0,0.0
+ES,orientdigs,orientdigs,0,34.0,0.0,0.0,Navigational,"Sitelinks, Image pack, Video, Video carousel, People also ask, Related searches",112.0,brand/nav,orientdig_broad-match_es_2026-06-07.xlsx,34.0,0.0
+ES,qc orientdig,qc orientdig,0,42.0,0.0,0.33,Informational,"Sitelinks, Video carousel, People also ask, Related searches",160.0,qc/photos,orientdig_broad-match_es_2026-06-07.xlsx,42.0,0.0
+FR,orientdig,orientdig,880,45.0,0.0,0.01,Navigational,,61.0,brand/nav,user_screenshot_fr_2026-06-08,45.0,487.9207920792079
+FR,orientdig spreadsheet,orientdig spreadsheet,70,24.0,0.0,0.15,Informational,,39.0,spreadsheet/finds,user_screenshot_fr_2026-06-08,24.0,53.366336633663366
+FR,orientdig discord,orientdig discord,20,19.0,0.0,0.33,Informational,,43.0,support/product-longtail,user_screenshot_fr_2026-06-08,19.0,16.237623762376238
+FR,spreadsheet orientdig,spreadsheet orientdig,20,14.0,0.0,0.3,Informational,,30.0,spreadsheet/finds,user_screenshot_fr_2026-06-08,14.0,17.22772277227723
+FR,orientdig coupon,orientdig coupon,10,10.0,0.0,0.0,Commercial,,39.0,coupon/bonus,user_screenshot_fr_2026-06-08,10.0,9.009900990099009
+FR,ona orientdig,ona orientdig,0,21.0,0.0,0.0,Navigational,,32.0,brand/nav,user_screenshot_fr_2026-06-08,21.0,0.0
+FR,orientdig link,orientdig link,0,23.0,0.0,0.0,Informational,,34.0,support/product-longtail,user_screenshot_fr_2026-06-08,23.0,0.0
+IT,orientdig,orientdig,2400,42.0,0.0,0.0,Navigational,"Sitelinks, Video carousel, Related searches",83.0,brand/nav,orientdig_broad-match_it_2026-06-07.xlsx,42.0,1401.980198019802
+IT,orientdig spreadsheet,orientdig spreadsheet,210,6.0,0.15,0.22,Informational,"Sitelinks, Related searches",72.0,spreadsheet/finds,orientdig_broad-match_it_2026-06-07.xlsx,6.0,197.52475247524754
+IT,orientdig coupon,orientdig coupon,20,8.0,0.0,0.02,Informational,"Sitelinks, Related searches",95.0,coupon/bonus,orientdig_broad-match_it_2026-06-07.xlsx,8.0,18.415841584158414
+IT,orientdig coupon codes,orientdig coupon codes,20,13.0,0.0,0.0,Informational,"Sitelinks, People also ask, Related searches",79.0,coupon/bonus,orientdig_broad-match_it_2026-06-07.xlsx,13.0,17.425742574257427
+IT,orientdig coupons,orientdig coupons,20,15.0,0.0,0.33,Commercial,"Sitelinks, Video, People also ask, Related searches",99.0,coupon/bonus,orientdig_broad-match_it_2026-06-07.xlsx,15.0,17.02970297029703
+IT,orientdig discord,orientdig discord,20,27.0,0.0,0.0,"Informational, Transactional","Sitelinks, Video, People also ask, Related searches",102.0,support/product-longtail,orientdig_broad-match_it_2026-06-07.xlsx,27.0,14.653465346534654
+IT,orientdig finds,orientdig finds,20,12.0,0.0,0.07,Informational,"Sitelinks, Video, Related searches",81.0,spreadsheet/finds,orientdig_broad-match_it_2026-06-07.xlsx,12.0,17.623762376237625
+IT,spreadsheet orientdig,spreadsheet orientdig,20,3.0,0.0,0.57,"Informational, Transactional","Sitelinks, Related searches",70.0,spreadsheet/finds,orientdig_broad-match_it_2026-06-07.xlsx,3.0,19.405940594059405
+IT,is orientdig safe,is orientdig safe,10,27.0,0.0,0.0,Informational,"Sitelinks, Video, People also ask, Related searches",98.0,trust/review,"orientdig_broad-match_it_2026-06-07 (1).xlsx, orientdig_broad-match_it_2026-06-07.xlsx",27.0,7.326732673267327
+IT,orientdig reddit,orientdig reddit,10,25.0,0.0,0.0,Navigational,Related searches,109.0,support/product-longtail,orientdig_broad-match_it_2026-06-07.xlsx,25.0,7.524752475247524
+IT,converse x chrome hearts reps orientdig,converse x chrome hearts reps orientdig,0,24.0,0.0,0.0,Informational,"Sitelinks, Video, People also ask, Related searches",5170.0,support/product-longtail,orientdig_broad-match_it_2026-06-07.xlsx,24.0,0.0
+IT,how to use coupons on orientdig,how to use coupons on orientdig,0,9.0,0.0,0.0,Informational,"Sitelinks, Video, Video carousel, People also ask",91.0,coupon/bonus,"orientdig_broad-match_it_2026-06-07 (1).xlsx, orientdig_broad-match_it_2026-06-07.xlsx",9.0,0.0
+IT,orientdig converse,orientdig converse,0,19.0,0.0,0.0,"Informational, Transactional","Video, Related searches, Popular products",141000.0,support/product-longtail,orientdig_broad-match_it_2026-06-07.xlsx,19.0,0.0
+IT,orientdig pellepelle,orientdig pellepelle,0,4.0,0.0,0.0,Informational,"Video, Related searches, Popular products",389.0,support/product-longtail,orientdig_broad-match_it_2026-06-07.xlsx,4.0,0.0
+IT,orientdig spreedsheet,orientdig spreedsheet,0,0.0,0.0,0.0,Informational,"Sitelinks, Related searches",74.0,spreadsheet/finds,orientdig_broad-match_it_2026-06-07.xlsx,0.0,0.0
+NL,orientdig,orientdig,1900,41.0,0.0,0.0,Navigational,"Sitelinks, Video carousel, Related searches",108.0,brand/nav,orientdig_broad-match_nl_2026-06-07.xlsx,41.0,1128.7128712871288
+NL,orientdig spreadsheet,orientdig spreadsheet,390,14.0,0.15,0.16,Informational,"Sitelinks, Related searches, Ads bottom",70.0,spreadsheet/finds,orientdig_broad-match_nl_2026-06-07.xlsx,14.0,335.94059405940595
+NL,orientdig spreadsheets,orientdig spreadsheets,70,13.0,0.15,0.16,"Informational, Transactional",Sitelinks,70.0,spreadsheet/finds,orientdig_broad-match_nl_2026-06-07.xlsx,13.0,60.99009900990099
+NL,orientdig finds,orientdig finds,40,25.0,0.0,0.06,"Informational, Transactional","Sitelinks, Video carousel, Related searches",81.0,spreadsheet/finds,orientdig_broad-match_nl_2026-06-07.xlsx,25.0,30.099009900990097
+NL,orientdig coupons,orientdig coupons,20,21.0,0.0,0.33,Transactional,People also ask,84.0,coupon/bonus,orientdig_broad-match_nl_2026-06-07.xlsx,21.0,15.841584158415841
+NL,is orientdig safe,is orientdig safe,10,26.0,0.0,0.33,Informational,"Sitelinks, Video carousel, People also ask, Related searches",101.0,trust/review,orientdig_broad-match_nl_2026-06-07.xlsx,26.0,7.425742574257426
+NL,orientdig codes,orientdig codes,10,20.0,0.0,0.0,Transactional,"Sitelinks, People also ask, Related searches",88.0,coupon/bonus,orientdig_broad-match_nl_2026-06-07.xlsx,20.0,8.01980198019802
+NL,orientdig coupon codes,orientdig coupon codes,10,19.0,0.0,0.0,Transactional,"Sitelinks, People also ask",86.0,coupon/bonus,orientdig_broad-match_nl_2026-06-07.xlsx,19.0,8.118811881188119
+NL,orientdig shipping,orientdig shipping,10,24.0,0.0,0.0,"Navigational, Transactional","Sitelinks, Video carousel, Related searches",101.0,shipping/delivery,orientdig_broad-match_nl_2026-06-07.xlsx,24.0,7.623762376237623
+NL,orientdig trustpilot,orientdig trustpilot,10,27.0,0.0,0.0,Navigational,"Sitelinks, Video, People also ask",104.0,trust/review,orientdig_broad-match_nl_2026-06-07.xlsx,27.0,7.326732673267327
+NL,acne studios orientdig find,acne studios orientdig find,0,20.0,0.0,0.0,Informational,"Sitelinks, Video, People also ask, Knowledge panel, Related searches, Popular products",5720.0,spreadsheet/finds,orientdig_broad-match_nl_2026-06-07.xlsx,20.0,0.0
+NL,cnfans to orientdig,cnfans to orientdig,0,22.0,0.0,0.0,Informational,"Sitelinks, Video, Related searches",55.0,comparison/alternatives,orientdig_broad-match_nl_2026-06-07.xlsx,22.0,0.0
+NL,cnfans to orientdig link converter,cnfans to orientdig link converter,0,3.0,0.0,0.0,Informational,"Sitelinks, Video, People also ask",69.0,comparison/alternatives,orientdig_broad-match_nl_2026-06-07.xlsx,3.0,0.0
+NL,credcal orientdig spreadsheet,credcal orientdig spreadsheet,0,22.0,0.0,0.0,Informational,"Sitelinks, Video, Related searches",1120.0,spreadsheet/finds,orientdig_broad-match_nl_2026-06-07.xlsx,22.0,0.0
+NL,orientdig coupon code,orientdig coupon code,0,17.0,0.0,0.0,Transactional,"Sitelinks, People also ask",87.0,coupon/bonus,orientdig_broad-match_nl_2026-06-07.xlsx,17.0,0.0
+NL,orientdig shipping coupon,orientdig shipping coupon,0,10.0,0.0,0.0,Transactional,"Sitelinks, Video, People also ask",94.0,coupon/bonus,orientdig_broad-match_nl_2026-06-07.xlsx,10.0,0.0
+NL,spreadsheet orientdig,spreadsheet orientdig,0,9.0,0.0,0.22,Transactional,"Sitelinks, Related searches",63.0,spreadsheet/finds,orientdig_broad-match_nl_2026-06-07.xlsx,9.0,0.0
+UK,orientdig,orientdig,3600,40.0,0.0,0.0,,"Sitelinks, Video carousel, People also ask, Related searches",,brand/nav,orientdig_all-keywords_uk_2026-06-07.xlsx,40.0,2174.2574257425745
+UK,orient dig,orient dig,720,36.0,0.0,0.0,,"Sitelinks, Video, Video carousel, Related searches, Popular products",,brand/nav,orientdig_all-keywords_uk_2026-06-07.xlsx,36.0,463.36633663366337
+UK,orientdig spreadsheet,orientdig spreadsheet,590,13.0,0.15,0.15,,Sitelinks,,spreadsheet/finds,orientdig_all-keywords_uk_2026-06-07.xlsx,13.0,514.059405940594
+UK,how long does orientdig take to ship,how long does orientdig take to ship,20,22.0,0.0,0.33,,"Sitelinks, Video, People also ask, Related searches",106.0,shipping/delivery,orientdig_all-keywords_uk_2026-06-07 (1).xlsx,22.0,15.643564356435643
+UK,is orientdig legit,is orientdig legit,20,23.0,0.0,0.33,,"Sitelinks, Video carousel, People also ask, Related searches",101.0,trust/review,orientdig_all-keywords_uk_2026-06-07 (1).xlsx,23.0,15.445544554455445
+UK,is orientdig safe,is orientdig safe,20,24.0,0.0,0.33,,"Sitelinks, Video, People also ask",100.0,trust/review,orientdig_all-keywords_uk_2026-06-07 (1).xlsx,24.0,15.247524752475247
+UK,orientdig spreadsheet reddit,orientdig spreadsheet reddit,20,22.0,0.0,0.33,,Related searches,,spreadsheet/finds,orientdig_all-keywords_uk_2026-06-07.xlsx,22.0,15.643564356435643
+UK,what is orientdig,what is orientdig,20,10.0,0.0,0.33,,"Sitelinks, Video carousel, People also ask, Related searches",93.0,brand/nav,orientdig_all-keywords_uk_2026-06-07 (1).xlsx,10.0,18.019801980198018
+UK,how to use orientdig coupons,how to use orientdig coupons,10,22.0,0.0,0.0,,"Sitelinks, Video carousel, People also ask",97.0,coupon/bonus,orientdig_all-keywords_uk_2026-06-07 (1).xlsx,22.0,7.821782178217822
+UK,orient dig spreadsheet,orient dig spreadsheet,10,,0.0,0.13,,,,spreadsheet/finds,orientdig_all-keywords_uk_2026-06-07.xlsx,50.0,5.0495049504950495
+UK,credcal orientdig spreadsheet,credcal orientdig spreadsheet,0,19.0,0.0,0.0,,"Sitelinks, Video, Related searches",,spreadsheet/finds,orientdig_all-keywords_uk_2026-06-07.xlsx,19.0,0.0
+UK,how does orientdig work,how does orientdig work,0,26.0,0.0,0.0,,"Featured snippet, Sitelinks, Video, People also ask, Related searches",91.0,brand/nav,orientdig_all-keywords_uk_2026-06-07 (1).xlsx,26.0,0.0
+UK,how to use couple orientdig,how to use couple orientdig,0,21.0,0.0,0.0,,"Sitelinks, Video, People also ask",35200.0,how-to/guide,orientdig_all-keywords_uk_2026-06-07 (1).xlsx,21.0,0.0
+UK,is orientdig trustworthy,is orientdig trustworthy,0,22.0,0.0,0.0,,"Sitelinks, Video, People also ask, Related searches",103.0,brand/nav,orientdig_all-keywords_uk_2026-06-07 (1).xlsx,22.0,0.0
+UK,orient dig coupon,orient dig coupon,0,,0.0,0.33,,,,coupon/bonus,orientdig_all-keywords_uk_2026-06-07.xlsx,50.0,0.0
+UK,orient dig coupons,orient dig coupons,0,,0.0,0.0,,,,coupon/bonus,orientdig_all-keywords_uk_2026-06-07.xlsx,50.0,0.0
+UK,should i buy with orientdig,should i buy with orientdig,0,20.0,0.0,0.0,,"Sitelinks, Video, Video carousel, People also ask, Related searches",105.0,how-to/guide,orientdig_all-keywords_uk_2026-06-07 (1).xlsx,20.0,0.0
+US,orientdig,orientdig,2900,32.0,0.0,0.0,Navigational,"Sitelinks, Video, Video carousel, Related searches",115.0,brand/nav,orientdig_broad-match_us_2026-06-07.xlsx,32.0,1981.1881188118812
+US,orientdig spreadsheet,orientdig spreadsheet,320,0.0,0.15,0.1,Informational,"Sitelinks, Related searches",67.0,spreadsheet/finds,orientdig_broad-match_us_2026-06-07.xlsx,0.0,320.0
+US,is orientdig legit,is orientdig legit,50,23.0,0.0,0.33,Informational,"Sitelinks, Video carousel, People also ask, Related searches",102.0,trust/review,"orientdig_broad-match_us_2026-06-07 (1).xlsx, orientdig_broad-match_us_2026-06-07.xlsx",23.0,38.613861386138616
+US,best orientdig spreadsheet,best orientdig spreadsheet,30,0.0,0.0,0.04,Commercial,"Sitelinks, Video, Related searches",69.0,spreadsheet/finds,orientdig_broad-match_us_2026-06-07.xlsx,0.0,30.0
+US,orientdig shipping calculator,orientdig shipping calculator,30,14.0,0.0,0.0,Informational,"Sitelinks, Video carousel, People also ask, Related searches",104.0,shipping/delivery,orientdig_broad-match_us_2026-06-07.xlsx,14.0,25.84158415841584
+US,is orientdig safe,is orientdig safe,20,22.0,0.0,0.33,"Informational, Commercial","Sitelinks, Video, People also ask, Related searches",116.0,trust/review,"orientdig_broad-match_us_2026-06-07 (1).xlsx, orientdig_broad-match_us_2026-06-07.xlsx",22.0,15.643564356435643
+US,orientdig coupon,orientdig coupon,20,16.0,0.0,0.33,Transactional,"Sitelinks, Video, People also ask, Related searches",99.0,coupon/bonus,orientdig_broad-match_us_2026-06-07.xlsx,16.0,16.831683168316832
+US,orientdig coupon codes,orientdig coupon codes,20,6.0,0.0,0.0,Transactional,"Sitelinks, People also ask, Related searches",94.0,coupon/bonus,orientdig_broad-match_us_2026-06-07.xlsx,6.0,18.81188118811881
+US,orientdig coupons,orientdig coupons,20,15.0,0.0,0.33,Transactional,"Sitelinks, People also ask, Related searches",90.0,coupon/bonus,orientdig_broad-match_us_2026-06-07.xlsx,15.0,17.02970297029703
+US,orientdig customer service,orientdig customer service,20,2.0,0.0,0.33,Transactional,"Video, People also ask, Related searches",84.0,support/product-longtail,orientdig_broad-match_us_2026-06-07.xlsx,2.0,19.603960396039604
+US,orientdig payment methods,orientdig payment methods,20,4.0,0.0,0.0,"Informational, Navigational","Video, People also ask, Related searches",96.0,support/product-longtail,orientdig_broad-match_us_2026-06-07.xlsx,4.0,19.207920792079207
+US,orientdig reddit,orientdig reddit,20,20.0,0.0,0.33,Navigational,"Video, Related searches",106.0,support/product-longtail,orientdig_broad-match_us_2026-06-07.xlsx,20.0,16.03960396039604
+US,orientdig reviews,orientdig reviews,20,23.0,0.0,0.33,Commercial,"Sitelinks, Video carousel, People also ask, Related searches",99.0,trust/review,orientdig_broad-match_us_2026-06-07.xlsx,23.0,15.445544554455445
+US,orientdig shipping coupon,orientdig shipping coupon,20,6.0,0.0,0.0,Transactional,"Sitelinks, Video, People also ask, Related searches",98.0,coupon/bonus,orientdig_broad-match_us_2026-06-07.xlsx,6.0,18.81188118811881
+US,orientdig spreadsheet 2024,orientdig spreadsheet 2024,20,0.0,0.0,0.0,"Informational, Commercial","Sitelinks, Related searches",62.0,spreadsheet/finds,orientdig_broad-match_us_2026-06-07.xlsx,0.0,20.0
+US,orientdig spreadsheet reddit,orientdig spreadsheet reddit,20,19.0,0.0,0.33,"Navigational, Transactional",Related searches,94.0,spreadsheet/finds,orientdig_broad-match_us_2026-06-07.xlsx,19.0,16.237623762376238
+US,orientdig tracking,orientdig tracking,20,22.0,0.0,0.33,"Informational, Transactional","Sitelinks, Video, People also ask, Related searches",96.0,shipping/delivery,orientdig_broad-match_us_2026-06-07.xlsx,22.0,15.643564356435643
+US,reddit orientdig,reddit orientdig,20,20.0,0.0,0.33,Navigational,"Video, Related searches",107.0,support/product-longtail,orientdig_broad-match_us_2026-06-07.xlsx,20.0,16.03960396039604
+US,spreadsheet orientdig,spreadsheet orientdig,20,10.0,0.0,0.0,Transactional,"Sitelinks, People also ask, Related searches",62.0,spreadsheet/finds,orientdig_broad-match_us_2026-06-07.xlsx,10.0,18.019801980198018
+US,how long does orientdig take to deliver,how long does orientdig take to deliver,10,20.0,0.0,0.0,Informational,"Sitelinks, Video, People also ask, Related searches",110.0,shipping/delivery,"orientdig_broad-match_us_2026-06-07 (1).xlsx, orientdig_broad-match_us_2026-06-07.xlsx",20.0,8.01980198019802
+US,how to get 150 in orientdig,how to get 150 in orientdig,10,20.0,0.0,0.0,Informational,"Sitelinks, Video, People also ask",121000.0,how-to/guide,"orientdig_broad-match_us_2026-06-07 (1).xlsx, orientdig_broad-match_us_2026-06-07.xlsx",20.0,8.01980198019802
+US,how to order on orientdig,how to order on orientdig,10,20.0,0.0,0.0,Informational,"Sitelinks, Video, People also ask, Related searches",119.0,how-to/guide,"orientdig_broad-match_us_2026-06-07 (1).xlsx, orientdig_broad-match_us_2026-06-07.xlsx",20.0,8.01980198019802
+US,orientdig discord,orientdig discord,10,20.0,0.0,0.33,Transactional,"Sitelinks, Video, People also ask, Related searches",104.0,support/product-longtail,orientdig_broad-match_us_2026-06-07.xlsx,20.0,8.01980198019802
+US,orientdig qc,orientdig qc,10,38.0,0.0,0.33,Transactional,"Sitelinks, Video carousel",99.0,qc/photos,orientdig_broad-match_us_2026-06-07.xlsx,38.0,6.237623762376238
+US,orientdig spreadsheet 2025,orientdig spreadsheet 2025,10,0.0,0.0,0.33,Informational,"Sitelinks, Related searches",51.0,spreadsheet/finds,orientdig_broad-match_us_2026-06-07.xlsx,0.0,10.0
+US,orientdig trustpilot,orientdig trustpilot,10,22.0,0.0,0.33,Navigational,"Sitelinks, Video, People also ask, Related searches",104.0,trust/review,orientdig_broad-match_us_2026-06-07.xlsx,22.0,7.821782178217822
+US,credcal orientdig spreadsheet,credcal orientdig spreadsheet,0,16.0,0.0,0.0,Transactional,"Sitelinks, Video, Related searches",1130.0,spreadsheet/finds,orientdig_broad-match_us_2026-06-07.xlsx,16.0,0.0
+US,how to use coupons on orientdig,how to use coupons on orientdig,0,17.0,0.0,0.33,Transactional,"Sitelinks, Video, Video carousel, People also ask, Related searches",149.0,coupon/bonus,"orientdig_broad-match_us_2026-06-07 (1).xlsx, orientdig_broad-match_us_2026-06-07.xlsx",17.0,0.0
+US,is orientdig good,is orientdig good,0,19.0,0.0,0.33,Informational,"Sitelinks, Video, Video carousel, People also ask, Related searches",103.0,brand/nav,"orientdig_broad-match_us_2026-06-07 (1).xlsx, orientdig_broad-match_us_2026-06-07.xlsx",19.0,0.0
+US,orientdig coupon code,orientdig coupon code,0,4.0,0.0,0.0,Transactional,"Sitelinks, People also ask, Related searches",98.0,coupon/bonus,orientdig_broad-match_us_2026-06-07.xlsx,4.0,0.0
+US,orientdig shipping lines,orientdig shipping lines,0,16.0,0.0,0.0,Navigational,"Sitelinks, Video carousel, Related searches",110.0,shipping/delivery,orientdig_broad-match_us_2026-06-07.xlsx,16.0,0.0
+US,orientdig spreadsheet murphy reps spreadsheet,orientdig spreadsheet murphy reps spreadsheet,0,15.0,0.0,0.0,Informational,"Sitelinks, Video carousel, Related searches",11500.0,spreadsheet/finds,orientdig_broad-match_us_2026-06-07.xlsx,15.0,0.0
+US,orientdig.com reviews,orientdig.com reviews,0,19.0,0.0,0.0,Commercial,"Sitelinks, Video, People also ask, Related searches",97.0,trust/review,orientdig_broad-match_us_2026-06-07.xlsx,19.0,0.0
+US,sal ems orientdig reddit,sal ems orientdig reddit,0,16.0,0.0,0.0,"Navigational, Transactional","Video, Related searches",890.0,support/product-longtail,orientdig_broad-match_us_2026-06-07.xlsx,16.0,0.0

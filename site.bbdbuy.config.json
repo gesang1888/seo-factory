@@ -1,0 +1,67 @@
+{
+  "brand": "BBDBuy",
+  "mainSite": {
+    "baseUrl": "https://w2clinks.com",
+    "spreadsheetUrl": "https://w2clinks.com/spreadsheet/",
+    "productsApiUrl": "https://w2clinks.com/public/typesense-search.php",
+    "categoryUrlPattern": "https://w2clinks.com/spreadsheet/?category={CATEGORY}&page=1&sort=newest",
+    "brandUrlPattern": "https://w2clinks.com/spreadsheet/?page=1&sort=newest&brand={brand}",
+    "productSearchUrlPattern": "https://w2clinks.com/spreadsheet/?page=1&sort=newest&keyword={keyword}"
+  },
+  "agentPlatform": {
+    "name": "OrientDig",
+    "baseUrl": "https://orientdig.com",
+    "helpCenterUrl": "https://orientdig.com/help-center",
+    "helpApiBase": "https://orientdig.com/wp-json/wp/v2/help-center",
+    "visualReferenceUrl": "https://bbdbuy.com/",
+    "faviconUrl": "https://bbdbuy.com/uploads/20241228/6d32e25a7b3730177117fd5f5cf8f006.png",
+    "logoAsset": "assets/images/bbdbuy-logo.png",
+    "useTrademark": true,
+    "usePlatformIco": true,
+    "visualSimilarity": "bbdbuy-like"
+  },
+  "contact": {
+    "platformHelpUrl": "https://orientdig.com/help-center",
+    "platformRegisterUrl": "https://orientdig.com/register?ref=100246065",
+    "w2cSupportNote": "Product spreadsheet browsing is provided via W2CLinks. Order support is handled via our partner platform.",
+    "siteNote": "Independent BBDBuy spreadsheet resource — browse finds on W2CLinks and order via our partner platform.",
+    "email": "service@orientdig.com",
+    "hours": "Mon–Sun 09:00–18:00 (UTC+8)",
+    "whatsappNumber": "+44 7856 544534",
+    "whatsappUrl": "https://wa.me/447856544534",
+    "whatsappDisplay": "WhatsApp: +44 7856 544534"
+  },
+  "hub": {
+    "categories": ["SNEAKERS", "SLIPPERS", "BOOTS", "BAGS", "CLOTHING", "HOODIES", "JACKETS", "PANTS", "TSHIRTS", "ACCESSORIES", "WATCHES", "ELECTRONICS"],
+    "brands": ["NIKE", "ADIDAS", "JORDAN", "NEW BALANCE", "ASICS", "PUMA", "SUPREME", "STONE ISLAND", "BALENCIAGA", "LOUIS VUITTON"]
+  },
+  "trustPages": ["about", "contact", "privacy-policy", "terms", "affiliate-disclosure", "partner-disclosure"],
+  "trustMessaging": {
+    "badge": "Independent BBDBuy Spreadsheet Guide",
+    "footerNote": "Independent BBDBuy spreadsheet resource — browse finds on W2CLinks and order via our partner platform."
+  },
+  "languages": [
+    {"code": "en-GB", "label": "English (UK)", "domain": "bbdbuy.uk"},
+    {"code": "en-US", "label": "English (US)", "domain": "bbdbuy.us"},
+    {"code": "en-CA", "label": "English (CA)", "domain": "bbdbuy.ca"},
+    {"code": "it-IT", "label": "Italiano", "domain": "bbdbuy.it"}
+  ],
+  "currencies": [
+    {"code": "CNY", "symbol": "¥", "rateFromCny": 1},
+    {"code": "USD", "symbol": "$", "rateFromCny": 0.138},
+    {"code": "GBP", "symbol": "£", "rateFromCny": 0.109},
+    {"code": "EUR", "symbol": "€", "rateFromCny": 0.127},
+    {"code": "CAD", "symbol": "$", "rateFromCny": 0.19}
+  ],
+  "defaultCurrencyByRegion": {
+    "UK": "GBP",
+    "US": "USD",
+    "CA": "CAD",
+    "IT": "EUR"
+  },
+  "externalLinkAttrs": {
+    "target": "_blank",
+    "rel": "noopener"
+  },
+  "officialClaimAllowed": false
+}

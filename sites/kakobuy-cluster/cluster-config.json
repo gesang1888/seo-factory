@@ -1,0 +1,59 @@
+{
+  "brand": "Kakobuy",
+  "x_default_domain": "kakospreadsheet.ca",
+  "domains": [
+    {"id": "es", "domain": "kakospreadsheet.es", "lang": "es-ES", "currency": "EUR"},
+    {"id": "fr", "domain": "kakospreadsheet.fr", "lang": "fr-FR", "currency": "EUR"},
+    {"id": "ca", "domain": "kakospreadsheet.ca", "lang": "en-CA", "currency": "CAD"},
+    {"id": "nl", "domain": "kakospreadsheet.nl", "lang": "nl-NL", "currency": "EUR"},
+    {"id": "fi", "domain": "kakobuy.fi", "lang": "fi-FI", "currency": "EUR"}
+  ],
+  "gsc_sitemaps": [
+    "https://kakospreadsheet.es/sitemap.xml",
+    "https://kakospreadsheet.fr/sitemap.xml",
+    "https://kakospreadsheet.ca/sitemap.xml",
+    "https://kakospreadsheet.nl/sitemap.xml",
+    "https://kakobuy.fi/sitemap.xml"
+  ],
+  "gsc_p1_urls": [
+    "https://kakospreadsheet.es/",
+    "https://kakospreadsheet.es/kakobuy-spreadsheet/",
+    "https://kakospreadsheet.es/kakobuy-opiniones/",
+    "https://kakospreadsheet.es/kakobuy-coupon/",
+    "https://kakospreadsheet.es/es-kakobuy-confiable/",
+    "https://kakospreadsheet.es/envio-kakobuy-espana/",
+    "https://kakospreadsheet.es/kakobuy-qc/",
+
+    "https://kakospreadsheet.fr/",
+    "https://kakospreadsheet.fr/kakobuy-spreadsheet/",
+    "https://kakospreadsheet.fr/avis-kakobuy/",
+    "https://kakospreadsheet.fr/kakobuy-coupon/",
+    "https://kakospreadsheet.fr/livraison-kakobuy/",
+    "https://kakospreadsheet.fr/kakobuy-france/",
+    "https://kakospreadsheet.fr/is-kakobuy-legit/",
+
+    "https://kakospreadsheet.ca/",
+    "https://kakospreadsheet.ca/kakobuy-spreadsheet/",
+    "https://kakospreadsheet.ca/kakobuy-coupon/",
+    "https://kakospreadsheet.ca/best-kakobuy-spreadsheet/",
+    "https://kakospreadsheet.ca/is-kakobuy-legit/",
+    "https://kakospreadsheet.ca/kakobuy-shipping-to-canada/",
+    "https://kakospreadsheet.ca/kakobuy-canada/",
+
+    "https://kakospreadsheet.nl/",
+    "https://kakospreadsheet.nl/best-kakobuy-spreadsheet/",
+    "https://kakospreadsheet.nl/kakobuy-spreadsheet/",
+    "https://kakospreadsheet.nl/kakobuy-coupon/",
+    "https://kakospreadsheet.nl/kakobuy-ervaringen/",
+    "https://kakospreadsheet.nl/kakobuy-shipping/",
+    "https://kakospreadsheet.nl/kakobuy-verzending/",
+
+    "https://kakobuy.fi/",
+    "https://kakobuy.fi/kakobuy-spreadsheet/",
+    "https://kakobuy.fi/kakobuy-kokemuksia/",
+    "https://kakobuy.fi/kakobuy-toimitus/",
+    "https://kakobuy.fi/kakobuy-coupon/",
+    "https://kakobuy.fi/kakobuy-suomi/",
+    "https://kakobuy.fi/is-kakobuy-legit/"
+  ]
+}

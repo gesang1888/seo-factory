@@ -1,0 +1,40 @@
+{
+  "activities": [
+    {
+      "id": "1",
+      "title_zh": "\u65b0\u7528\u6237\u6ce8\u518c\u5373\u90013000\u5143\u4f18\u60e0\u5238\uff01\u4f18\u60e0\u4ee3\u8d2d\uff0c\u7701\u5fc3\u8f6c\u8fd0\u3002",
+      "url": "https://ikako.vip/r/yze69",
+      "image": "https://nstatic.kakobuy.com/banner/202601/31/c1b9b68cffdf0ac8fa28c89a4275e042.png",
+      "kind": "register_coupon",
+      "title_en": "New users: \u00a53000 coupon bundle \u2014 register on Kakobuy",
+      "title_es": "Nuevos usuarios: cup\u00f3n 3000 CNY \u2014 reg\u00edstrate en Kakobuy",
+      "title_fr": "Nouveaux utilisateurs : coupon 3000 CNY \u2014 inscrivez-vous",
+      "title_nl": "Nieuwe gebruikers: 3000 CNY coupon \u2014 registreer op Kakobuy",
+      "title_fi": "Uudet k\u00e4ytt\u00e4j\u00e4t: 3000 CNY kuponki \u2014 rekister\u00f6idy Kakobuyhin"
+    },
+    {
+      "id": "50",
+      "title_zh": "6\u6708\u4efd\u6d3b\u52d5\u958b\u59cb",
+      "url": "https://www.kakobuy.com/tipdetail?id=50",
+      "image": "https://nstatic.kakobuy.com/banner/202602/01/8d1ab6034ac0f85d928ab89ce692e0ff.png",
+      "kind": "campaign",
+      "title_en": "June 2026 Kakobuy campaign",
+      "title_es": "Campa\u00f1a Kakobuy junio 2026",
+      "title_fr": "Campagne Kakobuy juin 2026",
+      "title_nl": "Kakobuy campagne juni 2026",
+      "title_fi": "Kakobuy-kampanja kes\u00e4kuu 2026"
+    },
+    {
+      "id": "30",
+      "title_zh": "Kakobuy\u7f8e\u56fd\u7528\u6237\u5173\u7a0e\u76f8\u5173\u516c\u544a",
+      "url": "https://www.kakobuy.com/tipdetail?id=30",
+      "image": "https://kk-oss-srch-hk.kakobuy.com/banner/202606/08/ce7ba995e3cbf8b816e4bbb14cd58428.png",
+      "kind": "notice",
+      "title_en": "Kakobuy US customs & tariff notice",
+      "title_es": "Aviso de aranceles EE.UU. \u2014 Kakobuy",
+      "title_fr": "Annonce douanes / tarifs US \u2014 Kakobuy",
+      "title_nl": "Kakobuy mededeling VS-tarieven",
+      "title_fi": "Kakobuy Yhdysvaltain tariffi-ilmoitus"
+    }
+  ]
+}

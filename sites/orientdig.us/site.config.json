@@ -1,0 +1,65 @@
+{
+  "domain": "orientdig.us",
+  "brand": "OrientDig Spreadsheet",
+  "platform": "OrientDig",
+  "platformDomain": "orientdig.com",
+  "relationship": "Official authorized partner resource site",
+  "niche": "OrientDig spreadsheet, product finds, shipping, coupons, QC and how-to buying guides",
+  "language": "en",
+  "country": "United States",
+  "primaryKeyword": "orientdig spreadsheet",
+  "author": "OrientDig Spreadsheet Editorial Team",
+  "officialPlatformUrl": "https://orientdig.com",
+  "monetization": "affiliate, partner traffic, product spreadsheet, WhatsApp consultation",
+  "mainSite": {
+    "baseUrl": "https://w2clinks.com",
+    "spreadsheetUrl": "https://w2clinks.com/spreadsheet/",
+    "categoryUrlPattern": "https://w2clinks.com/spreadsheet/?category={CATEGORY}&page=1&sort=newest",
+    "brandUrlPattern": "https://w2clinks.com/spreadsheet/?page=1&sort=newest&brand={brand}",
+    "productSearchUrlPattern": "https://w2clinks.com/spreadsheet/?page=1&sort=newest&keyword={keyword}"
+  },
+  "contact": {
+    "whatsappNumber": "+44 7856 544534",
+    "whatsappUrl": "https://wa.me/447856544534",
+    "displayText": "WhatsApp: +44 7856 544534"
+  },
+  "server": {
+    "host": "31.97.41.31",
+    "user": "root",
+    "path": "/www/wwwroot/orientdig.us"
+  },
+  "locales": [
+    {
+      "code": "en-us",
+      "language": "English",
+      "country": "United States",
+      "currency": "USD",
+      "path": "/",
+      "primary": true
+    }
+  ],
+  "trustPages": [
+    "about",
+    "contact",
+    "privacy-policy",
+    "terms",
+    "affiliate-disclosure",
+    "partner-disclosure"
+  ],
+  "categories": [
+    "SNEAKERS",
+    "SLIPPERS",
+    "BOOTS",
+    "BAGS",
+    "CLOTHING",
+    "HOODIES",
+    "JACKETS",
+    "PANTS",
+    "TSHIRTS",
+    "ACCESSORIES",
+    "WATCHES",
+    "ELECTRONICS"
+  ],
+  "articles": [],
+  "commercialPages": []
+}
