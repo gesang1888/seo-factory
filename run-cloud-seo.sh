@@ -3,6 +3,13 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
+if [[ -f .env ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source .env
+  set +a
+fi
+
 if [[ -z "${CURSOR_API_KEY:-}" ]]; then
   echo "Export CURSOR_API_KEY first: https://cursor.com/dashboard/integrations" >&2
   exit 1
