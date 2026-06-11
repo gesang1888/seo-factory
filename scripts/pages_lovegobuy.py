@@ -356,27 +356,65 @@ PAGES: list[dict] = [
         cta=CTA_COUPONS,
         cta_href=REGISTER,
         en=_loc(
-            title=f"Lovegobuy Coupon Codes ({YEAR})",
-            description="lovegobuy coupon codes and coupons — how to apply invitation codes on Lovegobuy after browsing W2CLinks.",
+            title=f"Lovegobuy Coupon Codes ({YEAR}) — Canada & International",
+            description="lovegobuy coupon codes for Canadian buyers: $137 new-user pack, invite W5RJX3, and how to apply coupons after W2CLinks browsing.",
             h1="Lovegobuy Coupon Codes",
-            intro="Coupon searches often mean registration bonuses or shipping discounts on Lovegobuy checkout.",
+            intro=(
+                "Searches for lovegobuy coupon codes usually mean registration bonuses (e.g. the current $137 new-user "
+                "pack on Lovegobuy.com) or shipping-stage discounts — always confirm live rules in your dashboard."
+            ),
             sections=[
-                ("Register with invitation link", f'Use <a href="{REGISTER}" target="_blank" rel="noopener">our Lovegobuy registration link</a> for referral benefits.'),
-                ("How to apply coupons", "Enter codes during registration or parcel payment — check Lovegobuy help for current rules."),
+                (
+                    "Register with invitation link",
+                    f'Open finds on <a href="{SPREADSHEET}" target="_blank" rel="noopener">W2CLinks</a>, then register via '
+                    f'<a href="{REGISTER}" target="_blank" rel="sponsored noopener">invite code W5RJX3</a> before checkout.',
+                ),
+                (
+                    "Canada-specific notes",
+                    "Coupons reduce fees but rarely eliminate customs or GST/HST on import. Budget parcel weight and line "
+                    "choice separately — see our Canada shipping and legit guides for CBSA context.",
+                ),
+                (
+                    "How to apply coupons",
+                    "Enter eligible codes during registration or international parcel payment. "
+                    "Stale Reddit codes may not work — verify inside Lovegobuy before paying.",
+                ),
             ],
             faq=[
-                ("lovegobuy coupon codes?", "Policies change — verify inside Lovegobuy account."),
-                ("how to use coupons on lovegobuy?", "Apply at signup or checkout per Lovegobuy UI."),
+                ("lovegobuy coupon codes?", "Campaign amounts change — check Lovegobuy wallet after registering with W5RJX3."),
+                ("how to use coupons on lovegobuy?", "Apply at signup or parcel step per on-screen prompts."),
+                ("lovegobuy coupon codes Canada?", "Same account rules; import taxes are separate from coupon savings."),
                 ("Multiple coupons?", "Usually one active rule per step — read checkout notes."),
             ],
         ),
         es=_loc(
-            title=f"Cupón Lovegobuy — Códigos e Invitación ({YEAR})",
-            description="cupon lovegobuy, lovegobuy codes — cómo usar cupones en Lovegobuy.",
+            title=f"Cupón Lovegobuy {YEAR} — Códigos, Invitación y España",
+            description="cupon lovegobuy y lovegobuy coupon: pack $137, código W5RJX3 y cómo aplicar cupones tras buscar en W2CLinks.",
             h1="Cupón y códigos Lovegobuy",
-            intro="Las búsquedas de cupon lovegobuy suelen referirse a bonos de registro o envío.",
-            sections=[("Registro", f'<a href="{REGISTER}" target="_blank" rel="noopener">Enlace de invitación Lovegobuy</a>.')],
-            faq=[("¿Cómo usar cupones?", "Durante registro o pago del paquete en Lovegobuy.")],
+            intro=(
+                "Las búsquedas cupon lovegobuy y lovegobuy coupon en España suelen mezclar bonos de registro, "
+                "descuentos de envío y códigos de invitación — verifica siempre en tu cuenta Lovegobuy."
+            ),
+            sections=[
+                (
+                    "Registro con invitación",
+                    f'Explora finds en <a href="{SPREADSHEET}" target="_blank" rel="noopener">W2CLinks</a> y regístrate con '
+                    f'<a href="{REGISTER}" target="_blank" rel="sponsored noopener">invite W5RJX3</a>.',
+                ),
+                (
+                    "Pack de cupones actual",
+                    "Lovegobuy.com promociona un pack de cupones para nuevos usuarios (p. ej. $137) — importes y elegibilidad cambian.",
+                ),
+                (
+                    "Cupón vs aduanas",
+                    "Un cupón no sustituye posibles tasas de importación en España — revisa IVA y DUA en la guía de envío.",
+                ),
+            ],
+            faq=[
+                ("¿Cómo usar cupones en Lovegobuy?", "Durante registro o pago del paquete internacional."),
+                ("¿lovegobuy es confiable con cupones?", "Usa solo checkout oficial — evita códigos de terceros no verificados."),
+                ("¿Puedo combinar varios cupones?", "Normalmente una regla activa por paso."),
+            ],
         ),
         fr=_loc(
             title=f"Code Promo Lovegobuy — Coupons ({YEAR})",
@@ -466,18 +504,34 @@ PAGES: list[dict] = [
         cta=CTA_REGISTER,
         cta_href=REGISTER,
         en=_loc(
-            title="Is Lovegobuy Legit? Safety Guide for Buyers",
-            description="is lovegobuy legit, is lovegobuy safe, is lovegobuy real — trust signals without fake ratings.",
+            title="Is Lovegobuy Legit? Canada & International Safety Guide",
+            description="is lovegobuy legit, is lovegobuy safe, is lovegobuy real — QC workflow, payments and Canada import context.",
             h1="Is Lovegobuy Legit and Safe?",
-            intro="Legitimacy searches want QC proof, shipping track record, and payment clarity — not hype.",
+            intro=(
+                "Legitimacy searches want proof: QC photos, warehouse tracking, official checkout, and realistic customs "
+                "expectations — especially for Canada where CBSA screening adds time beyond agent processing."
+            ),
             sections=[
-                ("What to verify", "QC photos, warehouse timeline, refund policy on Lovegobuy help center."),
-                ("Red flags", "Unrealistic shipping promises or unofficial payment requests outside Lovegobuy."),
+                (
+                    "What to verify before shipping",
+                    "QC photos from multiple angles, warehouse inbound status, refund/exchange rules on Lovegobuy help, "
+                    f'and that you registered via <a href="{REGISTER}" target="_blank" rel="sponsored noopener">official Lovegobuy</a>.',
+                ),
+                (
+                    "Canada buyer checklist",
+                    "Read declared value rules, choose tracked lines when possible, and compare economy vs express for GST/HST risk. "
+                    "A legit agent does not promise zero customs holds.",
+                ),
+                (
+                    "Red flags",
+                    "Off-platform wire requests, cloned sites without QC step, or 'guaranteed 5-day DDP' claims without line proof.",
+                ),
             ],
             faq=[
-                ("is lovegobuy legit?", "Established agent with public QC workflow — do your own due diligence."),
-                ("is lovegobuy safe?", "Use official Lovegobuy checkout and review QC before shipping."),
-                ("lovegobuy scam?", "Avoid off-platform payments and unverified middlemen."),
+                ("is lovegobuy legit?", "Established agent model with QC warehouse workflow — verify policies yourself."),
+                ("is lovegobuy safe?", "Safer when you use official checkout, approve QC, and avoid unofficial middlemen."),
+                ("is lovegobuy real?", "Real service — but cross-border reps still carry seller and customs risk."),
+                ("lovegobuy scam?", "Scams often mimic agents; never pay outside Lovegobuy dashboard."),
             ],
         ),
         es=_loc(
@@ -614,15 +668,35 @@ PAGES: list[dict] = [
         cta=CTA_REGISTER,
         cta_href=REGISTER,
         es=_loc(
-            title=f"Lovegobuy Opiniones ({YEAR}) — ¿Es fiable?",
-            description="lovegobuy opiniones — reseñas y señales de confianza sin puntuaciones inventadas.",
+            title=f"Lovegobuy Opiniones {YEAR} — ¿Es fiable en España?",
+            description="lovegobuy opiniones: envío, QC, cupones y soporte. Guía independiente para compradores en España con W2CLinks.",
             h1="Opiniones sobre Lovegobuy",
-            intro="Las búsquedas lovegobuy opiniones piden experiencias reales de envío, QC y soporte.",
+            intro=(
+                "Las búsquedas lovegobuy opiniones mezclan reseñas de envío, tiempos de QC, cupones y soporte. "
+                "Esta guía resume señales útiles sin inventar puntuaciones — compara siempre hilos recientes."
+            ),
             sections=[
-                ("Fuentes", "Reddit, Discord, comunidades de replicas — compara opiniones recientes."),
-                ("Finds primero", f'Compara picks en <a href="{SPREADSHEET}" target="_blank" rel="noopener">W2CLinks</a> antes de pedir.'),
+                (
+                    "Dónde leer opiniones útiles",
+                    "Reddit (r/FashionReps, comunidades de replicas), Discord y foros en español — prioriza experiencias "
+                    "de los últimos 6–12 meses con fotos QC y números de seguimiento.",
+                ),
+                (
+                    "Workflow antes de opinar",
+                    f'Compara finds en <a href="{SPREADSHEET}" target="_blank" rel="noopener">W2CLinks</a>, registra con '
+                    f'<a href="{REGISTER}" target="_blank" rel="sponsored noopener">W5RJX3</a>, revisa QC y solo entonces envía a España.',
+                ),
+                (
+                    "Opiniones negativas frecuentes",
+                    "Retrasos aduaneros, líneas economy lentas o sellers que no envían al almacén — a menudo no son 'estafa' sino "
+                    "expectativas mal calibradas. Lee también nuestra guía de envío a España.",
+                ),
             ],
-            faq=[("¿Opiniones oficiales?", "Esta es una guía independiente, no el sitio de Lovegobuy.")],
+            faq=[
+                ("¿Lovegobuy opiniones son positivas?", "Varían por línea, peso y temporada — no hay una nota única oficial."),
+                ("¿Es fiable según opiniones?", "Agente conocido con QC — haz tu propia due diligence."),
+                ("¿Opiniones oficiales?", "Recurso partner independiente — pedidos y soporte en lovegobuy.com."),
+            ],
         ),
     ),
     _page(
@@ -631,12 +705,33 @@ PAGES: list[dict] = [
         cta=CTA_REGISTER,
         cta_href=REGISTER,
         es=_loc(
-            title="¿Lovegobuy es confiable? FAQ España",
-            description="lovegobuy es confiable — preguntas de confianza para compradores españoles.",
+            title=f"¿Lovegobuy es confiable? Guía España {YEAR}",
+            description="lovegobuy es confiable y es fiable: señales de confianza, QC, pagos y aduanas para compradores españoles.",
             h1="¿Lovegobuy es confiable?",
-            intro="Variante en español de búsquedas is lovegobuy legit / es confiable.",
-            sections=[("Señales positivas", "QC público, flujo de almacén documentado, checkout oficial.")],
-            faq=[("¿Es seguro comprar?", "Usa Lovegobuy oficial y revisa QC antes de enviar.")],
+            intro=(
+                "Búsquedas como lovegobuy es confiable, es fiable y is lovegobuy legit buscan lo mismo: "
+                "¿puedo pagar, recibir QC y enviar a España sin sorpresas?"
+            ),
+            sections=[
+                (
+                    "Señales de un agente confiable",
+                    "Fotos QC en almacén, panel de parcel con líneas rastreables, políticas publicadas y checkout solo en lovegobuy.com.",
+                ),
+                (
+                    "Qué hacer tú en España",
+                    "Declara valores coherentes, elige línea acorde al peso, revisa IVA/DUA y no pagues fuera de la plataforma.",
+                ),
+                (
+                    "Enlaces útiles",
+                    f'<a href="/lovegobuy-opiniones/">opiniones</a>, <a href="/envio-lovegobuy-espana/">envío España</a>, '
+                    f'<a href="/lovegobuy-coupon/">cupones</a> y <a href="/como-comprar-en-lovegobuy/">cómo comprar</a>.',
+                ),
+            ],
+            faq=[
+                ("¿Es seguro comprar en Lovegobuy?", "Más seguro con QC aprobado y pagos oficiales — riesgo de aduana sigue existiendo."),
+                ("¿Lovegobuy es una estafa?", "Evita intermediarios que piden transferencias externas."),
+                ("¿Cómo empezar?", f'Registra con <a href="{REGISTER}" target="_blank" rel="sponsored noopener">invitación W5RJX3</a>.'),
+            ],
         ),
     ),
     _page(
@@ -688,12 +783,33 @@ PAGES: list[dict] = [
         cta=CTA_REGISTER,
         cta_href=REGISTER,
         it=_loc(
-            title=f"Lovegobuy Recensioni ({YEAR}) — È affidabile?",
-            description="lovegobuy recensioni — opinioni e segnali di fiducia.",
+            title=f"Lovegobuy Recensioni {YEAR} — È affidabile?",
+            description="lovegobuy recensioni: spedizione, QC, coupon e supporto. Guida per acquirenti italiani con W2CLinks.",
             h1="Lovegobuy recensioni",
-            intro="Chi cerca lovegobuy recensioni vuole esperienze su spedizione, QC e supporto.",
-            sections=[("Fonti", "Reddit e community — confronta thread recenti.")],
-            faq=[("È ufficiale?", "Guida indipendente con link W2CLinks.")],
+            intro=(
+                "Chi cerca lovegobuy recensioni vuole capire tempi di spedizione verso l'Italia, qualità delle foto QC "
+                "e reattività del supporto — confronta sempre thread recenti, non screenshot vecchi."
+            ),
+            sections=[
+                (
+                    "Dove leggere recensioni utili",
+                    "Reddit, Discord e community replica — cerca parcel ID, peso reale e linea usata, non solo hype su un singolo find.",
+                ),
+                (
+                    "Flusso consigliato",
+                    f'Sfoglia <a href="{SPREADSHEET}" target="_blank" rel="noopener">W2CLinks</a>, registrati con '
+                    f'<a href="{REGISTER}" target="_blank" rel="sponsored noopener">W5RJX3</a>, approva QC e poi scegli la linea verso IT.',
+                ),
+                (
+                    "Recensioni negative comuni",
+                    "Dogana lenta, linee economy o seller che non spediscono al magazzino — spesso problemi di processo, non necessariamente truffa.",
+                ),
+            ],
+            faq=[
+                ("Lovegobuy è affidabile?", "Agente noto con workflow QC — fai due diligence personale."),
+                ("Le recensioni sono ufficiali?", "Guida partner indipendente — ordini su lovegobuy.com."),
+                ("Quanto ci mette la spedizione in Italia?", "Settimane tipiche — dipende da linea e dogana."),
+            ],
         ),
     ),
     _page(
@@ -731,12 +847,33 @@ PAGES: list[dict] = [
         cta=CTA_REGISTER,
         cta_href=REGISTER,
         nl=_loc(
-            title=f"Lovegobuy Ervaringen ({YEAR}) — Betrouwbaar?",
-            description="lovegobuy reviews, is lovegobuy betrouwbaar — ervaringen zonder nep scores.",
+            title=f"Lovegobuy Ervaringen {YEAR} — Betrouwbaar in NL?",
+            description="lovegobuy ervaringen en reviews: verzending naar Nederland, QC, coupons. Onafhankelijke gids met W2CLinks.",
             h1="Lovegobuy ervaringen",
-            intro="Zoekers willen ervaringen over verzending, QC en support.",
-            sections=[("Community", "Reddit r/FashionReps — recente threads.")],
-            faq=[("Betrouwbaar?", "Bekende agent — check zelf QC en policies.")],
+            intro=(
+                "lovegobuy ervaringen en is lovegobuy betrouwbaar horen bij dezelfde vraag: "
+                "hoe verloopt verzending naar NL, QC en support in de praktijk?"
+            ),
+            sections=[
+                (
+                    "Waar ervaringen nuttig zijn",
+                    "Reddit r/FashionReps en NL/EU threads — let op parcelgewicht, verzendlijn en recente data, niet alleen hype.",
+                ),
+                (
+                    "Aanbevolen workflow",
+                    f'Browse <a href="{SPREADSHEET}" target="_blank" rel="noopener">W2CLinks</a>, registreer met '
+                    f'<a href="{REGISTER}" target="_blank" rel="sponsored noopener">W5RJX3</a>, keur QC goed en kies daarna een lijn naar Nederland.',
+                ),
+                (
+                    "Veelgehoorde klachten",
+                    "Douane-vertraging, economy-lijnen of sellers die niet inbounden — vaak verwachtingsproblemen; zie verzendgids NL.",
+                ),
+            ],
+            faq=[
+                ("Is Lovegobuy betrouwbaar volgens ervaringen?", "Bekende agent met QC — eigen due diligence blijft nodig."),
+                ("Hoe lang duurt verzending NL?", "Weken typisch — afhankelijk van lijn en seizoen."),
+                ("Officiële reviews?", "Partner-gids — support en orders via lovegobuy.com."),
+            ],
         ),
     ),
     _page(
@@ -812,12 +949,30 @@ PAGES: list[dict] = [
         cta=CTA_REGISTER,
         cta_href=REGISTER,
         en=_loc(
-            title=f"Lovegobuy Europe Guide ({YEAR})",
-            description="lovegobuy europe — EU buyer guide with W2CLinks spreadsheet.",
+            title=f"Lovegobuy Europe Guide {YEAR} — EU Spreadsheet Hub",
+            description="lovegobuy europe: W2CLinks spreadsheet, VAT notes and Lovegobuy ordering for EU buyers on lovegobuyspreadsheet.eu.",
             h1="Lovegobuy Europe",
-            intro="Pan-European English guide for Lovegobuy spreadsheet workflow.",
-            sections=[SEC_SPREADSHEET, SEC_AGENT],
-            faq=[],
+            intro=(
+                "Pan-EU English hub for lovegobuy europe searches: browse community finds on W2CLinks, "
+                "order through Lovegobuy, and read country-specific shipping notes where available."
+            ),
+            sections=[
+                SEC_SPREADSHEET,
+                SEC_AGENT,
+                (
+                    "EU shipping snapshot",
+                    "VAT and IOSS rules differ by member state — economy lines save money but add time. "
+                    "Combine lighter items per parcel and compare tracked vs semi-tracked services.",
+                ),
+                (
+                    "Country sites in this cluster",
+                    "For localized guides see our ES, IT, NL and CA properties via hreflang — this .eu domain is the English pan-European entry.",
+                ),
+            ],
+            faq=[
+                ("Is Lovegobuy available in Europe?", "Yes — warehouse export to EU countries with line-dependent customs."),
+                ("Best starting point?", f'{SPREADSHEET} for finds, then register with invite W5RJX3 on Lovegobuy.'),
+            ],
         ),
     ),
     _page(
@@ -840,12 +995,33 @@ PAGES: list[dict] = [
         cta=CTA_REGISTER,
         cta_href=REGISTER,
         en=_loc(
-            title=f"Lovegobuy Guide ({YEAR}) — Spreadsheet & Agent Workflow",
-            description="lovegobuy guide — international resource hub on lovegobuyguide.com.",
+            title=f"Lovegobuy Guide {YEAR} — x-default Spreadsheet & Agent Hub",
+            description="lovegobuy guide on lovegobuyguide.com: W2CLinks spreadsheet, invite W5RJX3, shipping, QC and coupon workflows.",
             h1="Lovegobuy Guide",
-            intro="English hub: browse W2CLinks finds, order on Lovegobuy, read shipping and QC guides.",
-            sections=[SEC_SPREADSHEET, SEC_AGENT],
-            faq=[],
+            intro=(
+                "International English hub (hreflang x-default): discover finds on W2CLinks, paste links into Lovegobuy, "
+                "review QC photos, and ship with realistic customs expectations."
+            ),
+            sections=[
+                SEC_SPREADSHEET,
+                SEC_AGENT,
+                (
+                    "Core guides on this site",
+                    '<a href="/lovegobuy-spreadsheet/">spreadsheet</a>, <a href="/lovegobuy-shipping/">shipping</a>, '
+                    '<a href="/is-lovegobuy-legit/">legitimacy</a>, <a href="/lovegobuy-coupon/">coupons</a> and '
+                    '<a href="/how-to-use-lovegobuy/">how to use</a>.',
+                ),
+                (
+                    "Official promotions",
+                    "Lovegobuy.com may show a new-user coupon pack (e.g. $137) — confirm live amounts in your dashboard after "
+                    f'<a href="{REGISTER}" target="_blank" rel="sponsored noopener">registration</a>.',
+                ),
+            ],
+            faq=[
+                ("What is lovegobuyguide.com?", "Independent partner resource for spreadsheet discovery — orders on Lovegobuy."),
+                ("Where is the spreadsheet?", f'Live hub: <a href="{SPREADSHEET}" target="_blank" rel="noopener">W2CLinks</a>.'),
+                ("Invite code?", "W5RJX3 on official Lovegobuy registration."),
+            ],
         ),
     ),
     _page(

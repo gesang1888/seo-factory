@@ -184,6 +184,43 @@ def _shipping_deep(region: str, lang: str) -> list[tuple[str, str]]:
 
 
 def _trust_deep(lang: str) -> list[tuple[str, str]]:
+    if lang == "es":
+        return [
+            (
+                "Modelo de agente en lenguaje claro",
+                f"Lovegobuy ({PLATFORM}) compra en marketplaces chinos por ti. No compras directamente en tu moneda local — "
+                "pagas a un agente que inspecciona, almacena y envía. Es legítimo cuando entiendes cada paso.",
+            ),
+            (
+                "Señales de confianza en España",
+                "QC visible, envío internacional solo tras aprobación, soporte con ID de parcel y políticas en el help center. "
+                "Desconfía de promesas de cero aduana o pagos por transferencia externa.",
+            ),
+        ] + _trust_deep("en")[2:]
+    if lang == "it":
+        return [
+            (
+                "Modello agent in parole semplici",
+                f"Lovegobuy ({PLATFORM}) acquista per tuo conto su marketplace cinesi. Paghi un agente per QC, magazzino e spedizione — "
+                "non stai comprando direttamente dal brand nel tuo paese.",
+            ),
+            (
+                "Affidabilità per l'Italia",
+                "Foto QC, tracking parcel, checkout ufficiale e tempi doganali realistici. Evita pagamenti fuori piattaforma.",
+            ),
+        ] + _trust_deep("en")[2:]
+    if lang == "nl":
+        return [
+            (
+                "Agent-model uitgelegd",
+                f"Lovegobuy ({PLATFORM}) koopt namens jou op Chinese marketplaces. Je betaalt voor inbound, QC en internationale verzending — "
+                "niet rechtstreeks bij het merk in NL.",
+            ),
+            (
+                "Betrouwbaarheid voor Nederland",
+                "QC-foto's, parcel-tracking, officieel dashboard en eerlijke douane-verwachtingen. Geen betalingen buiten Lovegobuy.",
+            ),
+        ] + _trust_deep("en")[2:]
     return [
         (
             "Agent model in plain language",
