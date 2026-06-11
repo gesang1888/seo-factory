@@ -102,43 +102,89 @@ PAGES: list[dict] = [
         cta_href=SPREADSHEET,
         en=_loc(
             title=f"Lovegobuy Spreadsheet Guide — Finds, Coupons & Shipping ({YEAR})",
-            description="Independent Lovegobuy spreadsheet guide: browse finds on W2CLinks, coupon tips, shipping and QC basics for global buyers.",
+            description=(
+                "Independent Lovegobuy spreadsheet guide: browse community finds on W2CLinks, "
+                "$137 new-user coupons, shipping lines, QC workflow and invite code W5RJX3."
+            ),
             h1="Lovegobuy Spreadsheet: Finds, Coupons and Shipping Guide",
             intro=(
                 "Lovegobuy is a China shopping agent for Taobao, 1688, and Weidian. "
-                "This guide explains spreadsheet-style finds and links you to W2CLinks — not a fake local catalog."
+                "This partner guide explains spreadsheet-style finds on W2CLinks, how to register with invite W5RJX3, "
+                "and when to read QC photos before international shipping — not a fake local product catalog."
             ),
-            sections=[SEC_SPREADSHEET, SEC_AGENT, SEC_CATS],
+            sections=[
+                SEC_SPREADSHEET,
+                SEC_AGENT,
+                SEC_CATS,
+                (
+                    "New-user coupons and registration",
+                    f'Lovegobuy.com promotes a $137 coupon pack for new accounts — amounts change with campaigns. '
+                    f'Browse finds on <a href="{SPREADSHEET}" target="_blank" rel="noopener">W2CLinks</a> first, then register via '
+                    f'<a href="{REGISTER}" target="_blank" rel="sponsored noopener">invite W5RJX3</a> and confirm live bonuses in your wallet.',
+                ),
+                (
+                    "Shipping, QC and trust guides",
+                    'After warehouse inbound, review QC photos before submitting a parcel. '
+                    'See <a href="/lovegobuy-shipping/">shipping</a>, '
+                    '<a href="/lovegobuy-qc/">QC</a>, '
+                    '<a href="/is-lovegobuy-legit/">legitimacy</a> and '
+                    '<a href="/how-to-use-lovegobuy/">how to use Lovegobuy</a> for step-by-step notes.',
+                ),
+            ],
             faq=[
-                ("Is this the official Lovegobuy spreadsheet?", "No — independent guide. Spreadsheet links open W2CLinks."),
-                ("How do I open the Lovegobuy spreadsheet?", f"Use the button above or visit {SPREADSHEET}"),
-                ("Does Lovegobuy support Taobao and 1688?", "Yes — paste links or search by keyword on Lovegobuy."),
+                ("Is this the official Lovegobuy spreadsheet?", "No — independent partner guide. Spreadsheet links open W2CLinks."),
+                ("How do I open the Lovegobuy spreadsheet?", f"Use the button above or visit {SPREADSHEET} — filter by category or brand."),
+                ("Does Lovegobuy support Taobao and 1688?", "Yes — paste seller links or search by keyword on Lovegobuy."),
+                ("lovegobuy spreadsheet vs spreadsheets?", "Same W2CLinks hub — plural searches lead to the spreadsheet page."),
+                ("Where is the international hub?", "lovegobuyguide.com is the English x-default; country domains mirror locale guides."),
             ],
         ),
         es=_loc(
             title=f"Lovegobuy Spreadsheet España — Guía, Cupones y Envío ({YEAR})",
-            description="Guía independiente de lovegobuy spreadsheet: finds en W2CLinks, cupones, envío y QC para compradores en España.",
+            description=(
+                "Guía lovegobuy spreadsheet para España: finds en W2CLinks, cupón $137, código W5RJX3, "
+                "opiniones, envío y QC para compradores españoles."
+            ),
             h1="Lovegobuy Spreadsheet para España",
             intro=(
                 "Lovegobuy es un agente de compras en China para Taobao, 1688 y Weidian. "
-                "Esta guía explica el spreadsheet de finds y enlaza a W2CLinks."
+                "Esta guía partner explica el spreadsheet de finds en W2CLinks, registro con invitación W5RJX3 "
+                "y el flujo QC → envío internacional hacia España."
             ),
             sections=[
                 (
                     "Explorar finds en W2CLinks",
                     f'El spreadsheet en vivo está en <a href="{SPREADSHEET}" target="_blank" rel="noopener">'
-                    "w2clinks.com/spreadsheet/</a>. Filtra por categoría, marca o palabra clave.",
+                    "w2clinks.com/spreadsheet/</a>. Filtra por categoría, marca o palabra clave — "
+                    "no es un catálogo local falso.",
+                ),
+                (
+                    "Registro y cupones en España",
+                    f'Explora finds, luego regístrate con '
+                    f'<a href="{REGISTER}" target="_blank" rel="sponsored noopener">invite W5RJX3</a>. '
+                    "Lovegobuy.com promociona pack de cupones para nuevos usuarios (p. ej. $137) — verifica en tu cuenta.",
                 ),
                 (
                     "Pedir en Lovegobuy",
-                    f'Después de elegir un find, pega el enlace en <a href="{REGISTER}" target="_blank" rel="noopener">Lovegobuy</a>.',
+                    f'Pega el enlace del vendedor en <a href="{REGISTER}" target="_blank" rel="noopener">Lovegobuy</a> '
+                    f"({PLATFORM}), revisa fotos QC en almacén y solo entonces crea el paquete internacional.",
                 ),
                 SEC_CATS,
+                (
+                    "Guías relacionadas en español",
+                    'Lee <a href="/lovegobuy-opiniones/">opiniones</a>, '
+                    '<a href="/es-lovegobuy-confiable/">¿es confiable?</a>, '
+                    '<a href="/lovegobuy-coupon/">cupones</a>, '
+                    '<a href="/envio-lovegobuy-espana/">envío a España</a> y '
+                    '<a href="/como-comprar-en-lovegobuy/">cómo comprar</a>.',
+                ),
             ],
             faq=[
-                ("¿Es el spreadsheet oficial de Lovegobuy?", "No — guía independiente. Los enlaces abren W2CLinks."),
-                ("¿Lovegobuy es confiable?", "Lee nuestra página de opiniones y la guía de legitimidad."),
-                ("¿Cuánto tarda el envío a España?", "Varía según la línea — consulta la guía de envío."),
+                ("¿Es el spreadsheet oficial de Lovegobuy?", "No — guía partner independiente. Los enlaces abren W2CLinks."),
+                ("¿Lovegobuy es confiable?", "Lee opiniones y la página es-lovegobuy-confiable — usa solo checkout oficial."),
+                ("¿Cuánto tarda el envío a España?", "Semanas según línea y aduanas — consulta envio-lovegobuy-espana."),
+                ("¿lovegobuy spreedsheet?", "Variante ortográfica — mismo hub W2CLinks."),
+                ("¿Cómo usar cupones?", "Durante registro o pago del paquete — ver lovegobuy-coupon."),
             ],
         ),
         fr=_loc(
@@ -168,27 +214,95 @@ PAGES: list[dict] = [
         ),
         nl=_loc(
             title=f"Lovegobuy Spreadsheet Nederland — Gids, Coupons & Verzending ({YEAR})",
-            description="Onafhankelijke lovegobuy spreadsheet gids: finds op W2CLinks, coupons, verzending en QC voor Nederland.",
+            description=(
+                "lovegobuy spreadsheet gids voor NL: W2CLinks finds, coupon W5RJX3, $137 pakket, "
+                "verzending, QC en ervaringen voor Nederlandse kopers."
+            ),
             h1="Lovegobuy Spreadsheet voor Nederland",
             intro=(
                 "Lovegobuy is een China shopping agent voor Taobao, 1688 en Weidian. "
-                "Deze gids legt spreadsheet/finds uit via W2CLinks."
+                "Deze partner-gids legt spreadsheet/finds uit via W2CLinks, registratie met W5RJX3 "
+                "en het QC → internationale verzending pad naar Nederland."
             ),
             sections=[
                 (
                     "Browse finds op W2CLinks",
-                    f'Live spreadsheet: <a href="{SPREADSHEET}" target="_blank" rel="noopener">w2clinks.com/spreadsheet/</a>.',
+                    f'Live spreadsheet: <a href="{SPREADSHEET}" target="_blank" rel="noopener">w2clinks.com/spreadsheet/</a> — '
+                    "filter op categorie, merk of zoekwoord. Geen nep-inventaris op deze site.",
+                ),
+                (
+                    "Registratie en coupons",
+                    f'Browse eerst op W2CLinks, registreer via '
+                    f'<a href="{REGISTER}" target="_blank" rel="sponsored noopener">invite W5RJX3</a> '
+                    "en controleer het $137 couponpakket (bedragen wijzigen) in je Lovegobuy-wallet.",
                 ),
                 (
                     "Bestellen op Lovegobuy",
-                    f'Plak de verkoperlink op <a href="{REGISTER}" target="_blank" rel="noopener">Lovegobuy</a>.',
+                    f'Plak de verkoperlink op <a href="{REGISTER}" target="_blank" rel="noopener">Lovegobuy</a>, '
+                    "bekijk QC-foto's in het magazijn en dien daarna het pakket in.",
                 ),
                 SEC_CATS,
+                (
+                    "Verder lezen op deze site",
+                    'Zie <a href="/best-lovegobuy-spreadsheet/">best spreadsheet</a>, '
+                    '<a href="/lovegobuy-ervaringen/">ervaringen</a>, '
+                    '<a href="/lovegobuy-verzending/">verzending NL</a>, '
+                    '<a href="/lovegobuy-coupon/">coupon</a> en '
+                    '<a href="/is-lovegobuy-legit/">betrouwbaarheid</a>.',
+                ),
             ],
             faq=[
-                ("Is dit het officiële spreadsheet?", "Nee — onafhankelijke gids met W2CLinks-links."),
-                ("Is Lovegobuy betrouwbaar?", "Zie onze ervaringen-pagina."),
-                ("Hoe lang duurt verzending?", "Zie de verzendgids voor NL."),
+                ("Is dit het officiële spreadsheet?", "Nee — onafhankelijke partner-gids; productlinks openen W2CLinks."),
+                ("Is Lovegobuy betrouwbaar?", "Lees lovegobuy-ervaringen en is-lovegobuy-legit — gebruik alleen officieel dashboard."),
+                ("Hoe lang duurt verzending naar NL?", "Vaak meerdere weken — zie lovegobuy-verzending voor PostNL/DHL context."),
+                ("lovegobuy spreadsheet 2025/2026?", "W2CLinks-hub wordt doorlopend bijgewerkt — sorteer op newest."),
+                ("BTW en invoer?", "Coupons vervangen geen invoer/BTW — budget apart naast kortingen."),
+            ],
+        ),
+        it=_loc(
+            title=f"Lovegobuy Spreadsheet Italia — Guida, Coupon e Spedizione ({YEAR})",
+            description=(
+                "lovegobuy spreadsheet per l'Italia: finds su W2CLinks, coupon $137, codice W5RJX3, "
+                "recensioni, spedizione e QC per acquirenti italiani."
+            ),
+            h1="Lovegobuy Spreadsheet per l'Italia",
+            intro=(
+                "Lovegobuy è un agente di acquisti dalla Cina per Taobao, 1688 e Weidian. "
+                "Questa guida partner spiega il spreadsheet di finds su W2CLinks, registrazione con W5RJX3 "
+                "e il flusso QC → spedizione internazionale verso l'Italia."
+            ),
+            sections=[
+                (
+                    "Sfoglia finds su W2CLinks",
+                    f'Lo spreadsheet live è su <a href="{SPREADSHEET}" target="_blank" rel="noopener">'
+                    "w2clinks.com/spreadsheet/</a> — filtra per categoria, brand o parola chiave.",
+                ),
+                (
+                    "Registrazione e coupon",
+                    f'Esplora i finds, poi registrati con '
+                    f'<a href="{REGISTER}" target="_blank" rel="sponsored noopener">invite W5RJX3</a>. '
+                    "Lovegobuy.com promuove un pacchetto coupon per nuovi utenti (es. $137) — verifica nel wallet.",
+                ),
+                (
+                    "Ordina su Lovegobuy",
+                    f'Incolla il link venditore su <a href="{REGISTER}" target="_blank" rel="noopener">Lovegobuy</a> '
+                    f"({PLATFORM}), controlla le foto QC in magazzino e poi crea il pacco internazionale.",
+                ),
+                SEC_CATS,
+                (
+                    "Guide correlate in italiano",
+                    'Leggi <a href="/lovegobuy-recensioni/">recensioni</a>, '
+                    '<a href="/spedizione-lovegobuy/">spedizione Italia</a>, '
+                    '<a href="/lovegobuy-coupon/">coupon</a> e '
+                    '<a href="/how-to-use-lovegobuy/">guida principianti</a>.',
+                ),
+            ],
+            faq=[
+                ("È lo spreadsheet ufficiale Lovegobuy?", "No — guida partner indipendente; i link aprono W2CLinks."),
+                ("Lovegobuy è affidabile?", "Vedi lovegobuy-recensioni e usa solo checkout su lovegobuy.com."),
+                ("Quanto ci mette la spedizione in Italia?", "Settimane tipiche — dipende da linea e dogana."),
+                ("lovegobuy spreadsheet 2026?", "Hub W2CLinks aggiornato — ordina per newest."),
+                ("Come usare i coupon?", "Alla registrazione o al pagamento del pacco — vedi lovegobuy-coupon."),
             ],
         ),
         fi=_loc(
@@ -223,24 +337,71 @@ PAGES: list[dict] = [
         cta_href=SPREADSHEET,
         en=_loc(
             title=f"Lovegobuy Spreadsheet ({YEAR}) — Browse Finds on W2CLinks",
-            description="lovegobuy spreadsheet — browse community finds, categories and brands. All product actions open W2CLinks.",
+            description=(
+                "lovegobuy spreadsheet — browse community finds, categories and brands on W2CLinks. "
+                "Canada, international and EU buyers: paste links into Lovegobuy after QC review."
+            ),
             h1="Lovegobuy Spreadsheet",
-            intro="Searchers looking for lovegobuy spreadsheet want a browsable list of community finds with source links.",
-            sections=[SEC_SPREADSHEET, SEC_CATS, SEC_AGENT],
+            intro=(
+                "Searchers looking for lovegobuy spreadsheet want a live, filterable browse hub — not a static Excel file. "
+                "This page routes every product action to W2CLinks and explains the Lovegobuy order path after you pick a find."
+            ),
+            sections=[
+                SEC_SPREADSHEET,
+                SEC_CATS,
+                SEC_AGENT,
+                (
+                    "Workflow after you pick a find",
+                    "Copy the seller URL from W2CLinks → paste into Lovegobuy → pay → wait for warehouse inbound → "
+                    "review QC photos → submit parcel with a shipping line. Skipping QC is the most common first-order mistake.",
+                ),
+                (
+                    "Related guides",
+                    'Home hub: <a href="/">spreadsheet guide</a>. '
+                    'Trust: <a href="/is-lovegobuy-legit/">is Lovegobuy legit</a>. '
+                    'Savings: <a href="/lovegobuy-coupon/">coupons</a>. '
+                    'Canada: <a href="/lovegobuy-canada/">Canada notes</a>.',
+                ),
+            ],
             faq=[
-                ("lovegobuy spreadsheet vs spreadsheets?", "Same hub — plural searches lead here."),
-                ("best lovegobuy spreadsheet?", "See our best spreadsheet guide for curated entry points."),
+                ("lovegobuy spreadsheet vs spreadsheets?", "Same W2CLinks hub — plural searches lead here."),
+                ("best lovegobuy spreadsheet?", "See best-lovegobuy-spreadsheet for curated entry points and filters."),
+                ("spreadsheet lovegobuy keyword order?", "Same intent — open W2CLinks and sort by newest."),
+                ("Does this page host products?", "No — independent guide; checkout happens on Lovegobuy."),
             ],
         ),
         es=_loc(
-            title=f"Lovegobuy Spreadsheet ({YEAR}) — Tabla de Finds",
-            description="lovegobuy spreadsheet y spreedsheet — tabla de finds en W2CLinks con categorías y marcas.",
+            title=f"Lovegobuy Spreadsheet ({YEAR}) — Tabla de Finds en W2CLinks",
+            description=(
+                "lovegobuy spreadsheet y spreedsheet — tabla de finds en W2CLinks con categorías, marcas "
+                "y flujo Lovegobuy para España."
+            ),
             h1="Lovegobuy Spreadsheet",
-            intro="Los buscadores de lovegobuy spreadsheet quieren una lista navegable de finds con enlaces.",
-            sections=[SEC_SPREADSHEET, SEC_CATS, SEC_AGENT],
+            intro=(
+                "Los buscadores de lovegobuy spreadsheet quieren un hub vivo con filtros — no un Excel estático. "
+                "Esta página envía cada acción de producto a W2CLinks y explica el pedido en Lovegobuy tras elegir un find."
+            ),
+            sections=[
+                SEC_SPREADSHEET,
+                SEC_CATS,
+                SEC_AGENT,
+                (
+                    "Flujo tras elegir un find",
+                    "Copia URL del vendedor → pega en Lovegobuy → paga → inbound en almacén → fotos QC → paquete internacional.",
+                ),
+                (
+                    "Enlaces útiles",
+                    '<a href="/">guía principal</a>, '
+                    '<a href="/lovegobuy-opiniones/">opiniones</a>, '
+                    '<a href="/es-lovegobuy-confiable/">confiable</a>, '
+                    '<a href="/lovegobuy-coupon/">cupones</a>.',
+                ),
+            ],
             faq=[
                 ("¿lovegobuy spreedsheet?", "Variante ortográfica — mismo spreadsheet en W2CLinks."),
-                ("¿Mejor spreadsheet?", "Ver guía best/mejor spreadsheet."),
+                ("¿Mejor spreadsheet?", "Ver best-lovegobuy-spreadsheet o filtra por newest en W2CLinks."),
+                ("¿spreadsheet lovegobuy?", "Mismo intent — orden de palabras distinto."),
+                ("¿Esta página vende productos?", "No — guía partner; checkout en Lovegobuy."),
             ],
         ),
         fr=_loc(
@@ -252,12 +413,71 @@ PAGES: list[dict] = [
             faq=[("spreadsheet lovegobuy ?", "Même hub W2CLinks — ordre des mots différent.")],
         ),
         nl=_loc(
-            title=f"Lovegobuy Spreadsheet ({YEAR}) — Browse Finds",
-            description="lovegobuy spreadsheet 2025/2026 — community finds op W2CLinks met filters.",
+            title=f"Lovegobuy Spreadsheet ({YEAR}) — Browse Finds op W2CLinks",
+            description=(
+                "lovegobuy spreadsheet 2025/2026 — community finds op W2CLinks met filters, "
+                "Lovegobuy-workflow en links naar best spreadsheet / ervaringen."
+            ),
             h1="Lovegobuy Spreadsheet",
-            intro="Zoekers naar lovegobuy spreadsheet willen een doorbladerbare finds-lijst.",
-            sections=[SEC_SPREADSHEET, SEC_CATS, SEC_AGENT],
-            faq=[("lovegobuy spreadsheet 2025?", "W2CLinks hub wordt doorlopend bijgewerkt.")],
+            intro=(
+                "Zoekers naar lovegobuy spreadsheet willen een live hub met categorie- en merkfilters — "
+                "niet een statische download. Deze pagina stuurt elke productactie naar W2CLinks."
+            ),
+            sections=[
+                SEC_SPREADSHEET,
+                SEC_CATS,
+                SEC_AGENT,
+                (
+                    "Workflow na je find",
+                    "Kopieer verkoper-URL → plak in Lovegobuy → betaal → inbound magazijn → QC-foto's → internationaal pakket.",
+                ),
+                (
+                    "Gerelateerde pagina's",
+                    '<a href="/best-lovegobuy-spreadsheet/">best spreadsheet</a>, '
+                    '<a href="/lovegobuy-ervaringen/">ervaringen</a>, '
+                    '<a href="/lovegobuy-verzending/">verzending</a>.',
+                ),
+            ],
+            faq=[
+                ("lovegobuy spreadsheet 2025/2026?", "W2CLinks-hub wordt doorlopend bijgewerkt — sorteer op newest."),
+                ("best lovegobuy spreadsheet?", "Zie /best-lovegobuy-spreadsheet/ voor NL entry points."),
+                ("spreadsheet lovegobuy?", "Zelfde intent — andere woordvolgorde."),
+                ("Host deze pagina producten?", "Nee — partner-gids; checkout op Lovegobuy."),
+            ],
+        ),
+        it=_loc(
+            title=f"Lovegobuy Spreadsheet ({YEAR}) — Finds su W2CLinks",
+            description=(
+                "lovegobuy spreadsheet — finds community su W2CLinks con filtri, "
+                "workflow Lovegobuy e link a recensioni/spedizione Italia."
+            ),
+            h1="Lovegobuy Spreadsheet",
+            intro=(
+                "Chi cerca lovegobuy spreadsheet vuole un hub live con filtri — non un file Excel statico. "
+                "Questa pagina indirizza ogni azione prodotto verso W2CLinks."
+            ),
+            sections=[
+                SEC_SPREADSHEET,
+                SEC_CATS,
+                SEC_AGENT,
+                (
+                    "Workflow dopo il find",
+                    "Copia URL venditore → incolla su Lovegobuy → paga → inbound magazzino → foto QC → pacco internazionale.",
+                ),
+                (
+                    "Guide correlate",
+                    '<a href="/">guida home</a>, '
+                    '<a href="/lovegobuy-recensioni/">recensioni</a>, '
+                    '<a href="/spedizione-lovegobuy/">spedizione</a>, '
+                    '<a href="/lovegobuy-coupon/">coupon</a>.',
+                ),
+            ],
+            faq=[
+                ("lovegobuy spreadsheet 2026?", "Hub W2CLinks aggiornato — ordina per newest."),
+                ("spreadsheet lovegobuy?", "Stesso intent — ordine parole diverso."),
+                ("Questa pagina vende prodotti?", "No — guida partner; checkout su Lovegobuy."),
+                ("Miglior spreadsheet?", "Filtra per categoria su W2CLinks o leggi la home guide."),
+            ],
         ),
         fi=_loc(
             title=f"Lovegobuy Spreadsheet ({YEAR}) — Löydöt W2CLinksissä",
@@ -425,14 +645,47 @@ PAGES: list[dict] = [
             faq=[],
         ),
         nl=_loc(
-            title=f"Lovegobuy Coupon Code — Kortingscodes ({YEAR})",
-            description="lovegobuy coupon code, lovegobuy coupons — hoe coupon op Lovegobuy te gebruiken.",
+            title=f"Lovegobuy Coupon Code Nederland — Kortingscodes ({YEAR})",
+            description=(
+                "lovegobuy coupon code en lovegobuy coupons voor NL: $137 pakket, invite W5RJX3, "
+                "hoe coupon te gebruiken na W2CLinks browse en BTW/invoer context."
+            ),
             h1="Lovegobuy coupon en kortingscode",
-            intro="Coupon-zoekers willen registratiebonus of verzendkorting.",
-            sections=[("Registreren", f'<a href="{REGISTER}" target="_blank" rel="noopener">Lovegobuy uitnodigingslink</a>.')],
+            intro=(
+                "Coupon-zoekers in Nederland willen registratiebonus (bijv. $137 pakket op Lovegobuy.com), "
+                "verzendkorting of invite-code W5RJX3 — controleer altijd live regels in je dashboard, "
+                "niet verouderde Reddit-codes."
+            ),
+            sections=[
+                (
+                    "Browse eerst, registreer daarna",
+                    f'Shortlist finds op <a href="{SPREADSHEET}" target="_blank" rel="noopener">W2CLinks</a>, '
+                    f'registreer via <a href="{REGISTER}" target="_blank" rel="sponsored noopener">invite W5RJX3</a> '
+                    "en bevestig het couponpakket in je Lovegobuy-wallet vóór betaling.",
+                ),
+                (
+                    "$137 new-user pakket",
+                    "Lovegobuy.com promoot een $137 couponpakket voor nieuwe accounts — bedragen en voorwaarden wijzigen per campagne. "
+                    "Oudere threads kunnen andere bedragen noemen; vertrouw alleen je live account.",
+                ),
+                (
+                    "NL: coupon vs BTW/invoer",
+                    "Coupons verlagen fees of verzendkosten maar elimineren zelden invoer/BTW bij import naar Nederland. "
+                    "Budget gewicht en verzendlijn apart — zie <a href=\"/lovegobuy-verzending/\">verzendgids</a> "
+                    "en <a href=\"/lovegobuy-ervaringen/\">ervaringen</a>.",
+                ),
+                (
+                    "Hoe coupon toepassen",
+                    "Voer in aanmerking komende codes in bij registratie of internationale pakketbetaling. "
+                    "Meestal één actieve regel per stap — lees checkout-meldingen in Lovegobuy.",
+                ),
+            ],
             faq=[
-                ("how to use coupon on lovegobuy?", "Bij registratie of afrekenen in Lovegobuy."),
-                ("Meerdere coupons?", "Meestal één regel per stap."),
+                ("how to use coupon on lovegobuy?", "Bij registratie of pakketbetaling — volg prompts in Lovegobuy dashboard."),
+                ("lovegobuy coupon code Nederland?", "Zelfde accountregels als internationaal; importkosten zijn apart."),
+                ("Meerdere coupons?", "Meestal één regel per stap — geen stacken zonder bevestiging."),
+                ("Is W5RJX3 veilig?", "Officiële invite-link naar lovegobuy.com — geen betalingen buiten platform."),
+                ("Coupon na W2CLinks browse?", "Ja — browse eerst, registreer daarna zodat je weet wat je bestelt."),
             ],
         ),
         fi=_loc(

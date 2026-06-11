@@ -144,6 +144,30 @@ def _base_spreadsheet(region: str, lang: str) -> list[tuple[str, str]]:
                 "Lovegobuy.comin kampanjat (esim. $137 kuponkipaketti) muuttuvat; vahvista aina tililläsi.",
             ),
         ] + en[2:]
+    if lang == "it":
+        return [
+            (
+                "Cosa cercano davvero con lovegobuy spreadsheet",
+                "La maggior parte non cerca un Excel statico ma un hub W2CLinks filtrabile per categoria, brand e keyword. "
+                f"Questa risorsa partner spiega il flusso e indirizza ogni azione prodotto verso {SPREADSHEET}.",
+            ),
+            (
+                "Workflow passo passo",
+                "Apri lo spreadsheet, ordina per newest, filtra categoria o brand, copia il link sorgente in Lovegobuy, "
+                "paga, attendi inbound magazzino, controlla QC e solo poi crea il pacco internazionale verso l'Italia.",
+            ),
+            (
+                "Registrazione e coupon",
+                f"I nuovi utenti possono registrarsi con il link invito ({REGISTER}) — "
+                "le promozioni Lovegobuy.com (es. pacchetto $137) cambiano; verifica sempre nel wallet.",
+            ),
+            (
+                "Dogana e IVA verso l'Italia",
+                "I coupon non eliminano IVA o sdoganamento. Combina articoli leggeri quando possibile; "
+                "tieni sneakers pesanti in un pacco separato se la linea conviene. "
+                "Leggi spedizione-lovegobuy e lovegobuy-recensioni per contesto IT recente.",
+            ),
+        ] + en[3:]
     return en
 
 
@@ -250,6 +274,34 @@ def _trust_deep(lang: str) -> list[tuple[str, str]]:
 
 
 def _coupons_deep(lang: str) -> list[tuple[str, str]]:
+    if lang == "nl":
+        return [
+            (
+                "Hoe Lovegobuy-coupons echt werken",
+                "Coupons en verzendbonussen wijzigen per campagne. Sommige bij registratie, andere bij pakketindiening. "
+                "Deze gids publiceert geen vaste codes — verouderde Reddit-codes geven supportruis. "
+                "Controleer altijd in je Lovegobuy-dashboard vóór betaling.",
+            ),
+            (
+                "Slimme volgorde om te besparen",
+                f"Shortlist eerst op {SPREADSHEET}. Bevestig maat, seller en gewicht. "
+                "Pas daarna coupon toe bij betaling of pakketstap. Zware items combineren 'voor de coupon' "
+                "verhoogt verzendkosten vaak meer dan de korting.",
+            ),
+            (
+                "$137 new-user pakket (Lovegobuy.com)",
+                "Lovegobuy.com promoot een $137 couponpakket voor nieuwe registraties — bedragen wijzigen. "
+                f'Registreer via <a href="{REGISTER}" target="_blank" rel="sponsored noopener">{REGISTER}</a> '
+                "en bevestig de live bonus in je wallet. Oudere threads kunnen andere bedragen noemen.",
+            ),
+            (
+                "NL: invite vs willekeurige signup",
+                "Invite-links (W5RJX3) koppelen je account aan een referrer en kunnen partnerbonussen activeren. "
+                "Ze vervangen geen Lovegobuy-voorwaarden — QC, verzendlijnen en invoer/BTW blijven van toepassing. "
+                'Zie ook <a href="/lovegobuy-verzending/">verzending NL</a> en '
+                '<a href="/lovegobuy-ervaringen/">ervaringen</a>.',
+            ),
+        ]
     return [
         (
             "How Lovegobuy coupons actually work",
@@ -332,8 +384,92 @@ def _generic_deep(slug: str, region: str, lang: str) -> list[tuple[str, str]]:
     ]
 
 
+def _home_deep(region: str, lang: str) -> list[tuple[str, str]]:
+    blocks = _base_spreadsheet(region, lang)
+    extras: list[tuple[str, str]] = []
+    if region == "ES" and lang == "es":
+        extras = [
+            (
+                "Hub España: opiniones y confianza",
+                'Tras explorar W2CLinks, lee <a href="/lovegobuy-opiniones/">opiniones</a> y '
+                '<a href="/es-lovegobuy-confiable/">es lovegobuy confiable</a> antes del primer pedido. '
+                "Busca parcel ID y línea de envío en hilos recientes, no capturas antiguas.",
+            ),
+            (
+                "Envío y aduanas desde España",
+                'Consulta <a href="/envio-lovegobuy-espana/">envío Lovegobuy España</a> para IVA, DUA y tiempos realistas. '
+                "Un cupón no sustituye posibles tasas de importación.",
+            ),
+        ]
+    elif region == "IT" and lang == "it":
+        extras = [
+            (
+                "Hub Italia: recensioni e spedizione",
+                'Dopo W2CLinks leggi <a href="/lovegobuy-recensioni/">recensioni</a> e '
+                '<a href="/spedizione-lovegobuy/">spedizione Italia</a>. '
+                "Cerca parcel ID e peso reale nei thread recenti.",
+            ),
+            (
+                "lovegobuy.it vs lovegobuyspreadsheet.it",
+                "Entrambi i domini sono guide partner per acquirenti italiani — finds su W2CLinks, ordini su lovegobuy.com. "
+                "Nessuno ospita checkout o magazzino.",
+            ),
+        ]
+    elif region == "NL" and lang == "nl":
+        extras = [
+            (
+                "NL hub: best spreadsheet en ervaringen",
+                'Start met <a href="/best-lovegobuy-spreadsheet/">best lovegobuy spreadsheet</a>, '
+                'lees <a href="/lovegobuy-ervaringen/">ervaringen</a> en '
+                '<a href="/lovegobuy-verzending/">verzending</a> vóór je eerste pakket.',
+            ),
+            (
+                "lovegobuy.nl merk-domein",
+                "lovegobuy.nl en lovegobuyspreadsheet.nl delen dezelfde workflow: W2CLinks browse → Lovegobuy QC → verzending. "
+                "Coupons en invite W5RJX3 gelden op het officiële platform.",
+            ),
+        ]
+    elif region == "CA" and lang == "en":
+        extras = [
+            (
+                "Canada buyer checklist",
+                'Read <a href="/is-lovegobuy-legit/">is Lovegobuy legit</a> and '
+                '<a href="/lovegobuy-canada/">Lovegobuy Canada</a> for GST/HST and CBSA context. '
+                "Coupons reduce fees but rarely eliminate import charges.",
+            ),
+            (
+                "Spreadsheet → parcel planning",
+                "Heavy sneakers often justify a separate parcel from hoodies. Quote weight inside Lovegobuy before paying freight.",
+            ),
+        ]
+    elif region == "INT" and lang == "en":
+        extras = [
+            (
+                "International x-default hub",
+                "lovegobuyguide.com is the English x-default in hreflang. Country domains (ES, IT, NL, CA) mirror locale guides. "
+                "All product browse actions still open W2CLinks — not a regional fake catalog.",
+            ),
+            (
+                "Start here if you are new",
+                'Read <a href="/lovegobuy-guide/">full Lovegobuy guide</a>, '
+                '<a href="/how-to-use-lovegobuy/">how to use</a> and '
+                '<a href="/lovegobuy-coupon/">coupons</a> after your first W2CLinks session.',
+            ),
+        ]
+    elif region == "EU" and lang == "en":
+        extras = [
+            (
+                "Europe-wide shipping notes",
+                'See <a href="/lovegobuy-europe/">Lovegobuy Europe</a> and '
+                '<a href="/lovegobuy-shipping-eu/">shipping EU</a> for line selection across member states. '
+                "VAT and customs rules differ by destination — declare honestly.",
+            ),
+        ]
+    return blocks + extras
+
+
 SLUG_HANDLERS = {
-    "": lambda r, l: _base_spreadsheet(r, l),
+    "": lambda r, l: _home_deep(r, l),
     "lovegobuy-spreadsheet": lambda r, l: _base_spreadsheet(r, l),
     "lovegobuy-spreadsheets": lambda r, l: _base_spreadsheet(r, l),
     "lovegobuy-finds": lambda r, l: _base_spreadsheet(r, l) + [
