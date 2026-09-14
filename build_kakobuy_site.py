@@ -22,6 +22,7 @@ from scripts.domains_kakobuy import (  # noqa: E402
 from scripts.fetch_kakobuy_activities import refresh_activities  # noqa: E402
 from scripts.fetch_live_data import refresh_cache  # noqa: E402
 from scripts.pages_kakobuy import get_page, page_allowed  # noqa: E402
+from scripts.kakobuy_fi_local import build_kakobuy_fi  # noqa: E402
 from scripts.renderer_kakobuy import (  # noqa: E402
     copy_assets,
     render_page,
@@ -88,6 +89,9 @@ def build_domain(
     live_cache: dict,
     site_config: dict,
 ) -> int:
+    if domain == "kakobuy.fi":
+        return build_kakobuy_fi(DIST / domain)
+
     region = meta["region"]
     lang = meta["lang"]
     locale = meta["locale"]

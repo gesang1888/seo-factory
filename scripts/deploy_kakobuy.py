@@ -13,6 +13,7 @@ Prerequisites:
 Optional env:
   KAKOBUY_DEPLOY_HOST  (default: same as OrientDig/BBDBuy, 31.97.41.31)
   KAKOBUY_DEPLOY_USER  (default: root)
+  KAKOBUY_DEPLOY_ONLY=kakobuy.fi
   KAKOBUY_SKIP_CERTS=1
   KAKOBUY_SKIP_BAOTA=1
   KAKOBUY_SKIP_NGINX=1
@@ -50,6 +51,12 @@ CANONICAL_DOMAINS = list(KAKOBUY_DOMAINS.keys())
 PLURAL_DOMAINS = list(PLURAL_REDIRECTS.keys())
 ALL_DEPLOY_DOMAINS = CANONICAL_DOMAINS + PLURAL_DOMAINS
 
+_ONLY = os.environ.get("KAKOBUY_DEPLOY_ONLY", "").strip()
+if _ONLY:
+    ALL_DEPLOY_DOMAINS = [d for d in ALL_DEPLOY_DOMAINS if d == _ONLY]
+    CANONICAL_DOMAINS = [d for d in CANONICAL_DOMAINS if d == _ONLY]
+    PLURAL_REDIRECTS = {k: v for k, v in PLURAL_REDIRECTS.items() if k == _ONLY}
+
 HOST = os.environ.get(
     "KAKOBUY_DEPLOY_HOST",
     os.environ.get("BBDBUY_DEPLOY_HOST", os.environ.get("ORIENTDIG_DEPLOY_HOST", "31.97.41.31")),
@@ -64,7 +71,7 @@ VERIFY_NEEDLES: dict[str, str] = {
     "kakospreadsheet.fr": "Kakobuy",
     "kakospreadsheet.nl": "Kakobuy",
     "kakospreadsheet.ca": "Kakobuy",
-    "kakobuy.fi": "Kakobuy",
+    "kakobuy.fi": "Kakobuy Suomi",
 }
 
 
@@ -365,6 +372,22 @@ def main() -> None:
 
     print(f"{step}/{total} verify...")
     verify(client)
+    if "kakobuy.fi" in CANONICAL_DOMAINS:
+        print("=== verify kakobuy.fi product logic ===")
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakobuy.fi:443:127.0.0.1 https://kakobuy.fi/ "
+                "| grep -oiE 'W2CLinks|Search intent|euroina|Kakobuy Suomi|Avaa spreadsheet|25,5' | head -20",
+            )
+        )
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakobuy.fi:443:127.0.0.1 https://kakobuy.fi/kakobuy-spreadsheet/ "
+                "| grep -oiE 'sheet-product|Avaa Kakobuyssa|24 tuotetta|w2clinks' | head -20",
+            )
+        )
     client.close()
     print("kakobuy deploy done")
 

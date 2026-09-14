@@ -1,0 +1,6 @@
+/* Finnish local-site extras on top of the CZ layout. */
+.check-list{margin:0;padding-left:1.15em}
+.check-list li{margin:8px 0;line-height:1.6}
+.hero-proof-fi{right:22px;bottom:68px}
+@media(max-width:950px){.hero-proof-fi{right:9%;bottom:62px}}
+@media(max-width:680px){.hero-proof-fi{right:5%;bottom:42px}}
