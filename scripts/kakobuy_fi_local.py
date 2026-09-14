@@ -203,8 +203,14 @@ def fetch_w2c_products(*, page: int = 1, per_page: int = 24, category: str = "",
     return int(data.get("found") or len(hits)), hits
 
 
+ASSET_V = "20260914c"
+
+
 def asset(path: str) -> str:
-    return f"/{path.lstrip('/')}"
+    href = f"/{path.lstrip('/')}"
+    if path.endswith((".js", ".css")):
+        return f"{href}?v={ASSET_V}"
+    return href
 
 
 def image_src(path: str) -> str:
@@ -339,7 +345,7 @@ def footer() -> str:
 <div class="footer-bottom"><span>© <span data-year></span> kakobuy.fi</span>
 <span>Kakobuy.fi ei ole Kakobuyn virallinen sivusto.</span></div>
 </div></footer>
-<script src="/assets/site.js" defer></script>
+<script src="{esc(asset("assets/site.js"))}" defer></script>
 </body></html>"""
 
 
@@ -637,7 +643,7 @@ def page_spreadsheet(catalog: dict) -> str:
 <h1>Kakobuy Spreadsheet Suomelle</h1>
 <p>Tuotelinkit, kategoriat ja suuntaa-antavat hinnat euroina. Etsi tuote ja avaa tarjous suoraan Kakobuyssa.</p></section>
 <section class="container sheet-content" aria-label="Tuotelista">
-<div class="sheet-controls" hidden>
+<div class="sheet-controls">
 <div class="sheet-field"><label for="sheet-search">Hae tuotetta</label>
 <input type="search" id="sheet-search" placeholder="Esim. paita, reppu, Jordan" autocomplete="off" aria-controls="sheet-products"></div>
 <div class="sheet-field"><label for="sheet-category">Kategoria</label>
@@ -987,9 +993,9 @@ def page_404() -> str:
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sivua ei löytynyt – Kakobuy Suomi</title>
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="/assets/styles.css">
-<link rel="stylesheet" href="/assets/layout.css">
-<link rel="stylesheet" href="/assets/fi.css">
+<link rel="stylesheet" href="{esc(asset("assets/styles.css"))}">
+<link rel="stylesheet" href="{esc(asset("assets/layout.css"))}">
+<link rel="stylesheet" href="{esc(asset("assets/fi.css"))}">
 </head><body>
 <main class="article-hero"><div class="container">
 <h1>Sivua ei löytynyt</h1>

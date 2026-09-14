@@ -134,5 +134,6 @@
   }
 
   sheetControls.hidden = false;
+  if (typeof search.value !== "string") return;
   load();
 })();
