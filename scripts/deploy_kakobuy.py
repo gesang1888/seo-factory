@@ -17,6 +17,7 @@ Optional env:
   KAKOBUY_SKIP_CERTS=1
   KAKOBUY_SKIP_BAOTA=1
   KAKOBUY_SKIP_NGINX=1
+  W2CLINKS_API_KEY=...          # written to api/config.local.php, not committed
 """
 
 from __future__ import annotations
@@ -172,6 +173,26 @@ EOF
     print(run(client, script, timeout=180))
 
 
+def write_w2c_api_config(sftp: paramiko.SFTPClient, client: paramiko.SSHClient) -> None:
+    key = os.environ.get("W2CLINKS_API_KEY", "").strip()
+    if not key:
+        print("skip W2C API key file (W2CLINKS_API_KEY unset)")
+        return
+    escaped = key.replace("\\", "\\\\").replace("'", "\\'")
+    body = "<?php\nreturn ['api_key' => '" + escaped + "'];\n"
+    for domain in CANONICAL_DOMAINS:
+        remote_php = f"{WEBROOT}/{domain}/api/products.php"
+        try:
+            sftp.stat(remote_php)
+        except OSError:
+            continue
+        remote = f"{WEBROOT}/{domain}/api/config.local.php"
+        with sftp.file(remote, "w") as handle:
+            handle.write(body)
+        run(client, f"chown www:www {remote} && chmod 640 {remote}")
+        print(f"wrote API config for {domain}")
+
+
 def deploy_files(client: paramiko.SSHClient) -> None:
     sftp = client.open_sftp()
     for domain in ALL_DEPLOY_DOMAINS:
@@ -188,6 +209,7 @@ def deploy_files(client: paramiko.SSHClient) -> None:
         upload_tree(sftp, local, remote)
         run(client, f"chown -R www:www {remote}")
         print(f"uploaded {domain}")
+    write_w2c_api_config(sftp, client)
     sftp.close()
 
 
@@ -385,7 +407,15 @@ def main() -> None:
             run(
                 client,
                 "curl -sk --resolve kakobuy.fi:443:127.0.0.1 https://kakobuy.fi/kakobuy-spreadsheet/ "
-                "| grep -oiE 'sheet-product|Avaa Kakobuyssa|24 tuotetta|w2clinks' | head -20",
+                "| grep -oiE 'sheet-product|Avaa Kakobuyssa|api/products.php|24 tuotetta|W2CLinks' | head -20",
+            )
+        )
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakobuy.fi:443:127.0.0.1 "
+                "'https://kakobuy.fi/api/products.php?per_page=2&q=jordan' "
+                "| python3 -c \"import sys,json; d=json.load(sys.stdin); print('api', d.get('ok'), d.get('found'), len(d.get('hits') or []))\"",
             )
         )
     client.close()

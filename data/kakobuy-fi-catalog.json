@@ -1,249 +1,42 @@
 {
-  "checked": "2026-09-11",
+  "checked": "2026-09-14",
   "ecb_date": "2026-09-11",
   "cny_per_eur": 7.7762,
   "affcode": "yze69",
   "register_url": "https://ikako.vip/r/yze69",
   "categories": [
-    {"id": "kengat", "label": "Kengät", "fansheets": "https://fanssheets.com/shoes/"},
-    {"id": "paidat", "label": "T-paidat", "fansheets": "https://fanssheets.com/t-shirts/"},
-    {"id": "pelipaidat", "label": "Pelipaidat", "fansheets": "https://fanssheets.com/SportsJerseys/"},
-    {"id": "hupparit", "label": "Hupparit ja neuleet", "fansheets": "https://fanssheets.com/HoodiesSweaters/"},
-    {"id": "takit", "label": "Takit ja settit", "fansheets": "https://fanssheets.com/Jackets/"},
-    {"id": "housut", "label": "Housut ja shortsit", "fansheets": "https://fanssheets.com/PantsShorts/"},
-    {"id": "laukut", "label": "Laukut ja reput", "fansheets": "https://fanssheets.com/Bags/"},
-    {"id": "elektroniikka", "label": "Elektroniikka", "fansheets": "https://fanssheets.com/Electronics/"},
-    {"id": "tuoksut", "label": "Tuoksut", "fansheets": "https://fanssheets.com/Perfume/"},
-    {"id": "korut", "label": "Korut", "fansheets": "https://fansheets.com/Jewelry/"},
-    {"id": "asusteet", "label": "Asusteet", "fansheets": "https://fanssheets.com/Accessories/"},
-    {"id": "lapset", "label": "Lasten", "fansheets": "https://fansheets.com/Kids/"}
-  ],
-  "home_featured": [
-    "shoes-jordan-low",
-    "tshirt-disney",
-    "jersey-portugal",
-    "hoodie-essentials",
-    "jacket-firebird",
-    "bag-supreme",
-    "earbuds-marshall",
-    "perfume-guerlain"
-  ],
-  "products": [
-    {
-      "id": "shoes-jordan-low",
-      "category": "kengat",
-      "title": "Air Jordan 1 Low -tennarit",
-      "item_id": "7782832096",
-      "image": "assets/products/shoes-jordan-low.jpg",
-      "price_cny": 360,
-      "advice": "Vertaa pohjallisen pituutta sentteinä, älä pelkkää EU-kokoa. Tarkista varastokuvista kärki ja molemmat korot."
-    },
-    {
-      "id": "shoes-endorphin",
-      "category": "kengat",
-      "title": "Endorphin Speed 4 -juoksukengät",
-      "item_id": "7782804520",
-      "image": "assets/products/shoes-endorphin.jpg",
-      "price_cny": 258,
-      "advice": "Tarkista pohjallisen leveys ja pituus. Mallinimi tai katalogikuva ei takaa aitoutta eikä juoksuominaisuuksia."
-    },
-    {
-      "id": "tshirt-disney",
-      "category": "paidat",
-      "title": "Adidas × Disney -paita",
-      "item_id": "7782828108",
-      "image": "assets/products/tshirt-disney.jpg",
-      "price_cny": 140,
-      "advice": "Valitse musta tai valkoinen variantti yksityiskohtakuvan perusteella. Mittaa rinnankehys ja pituus omasta paidastasi."
-    },
-    {
-      "id": "tshirt-cactus",
-      "category": "paidat",
-      "title": "Cactus Jack: paidat ja shortsit",
-      "item_id": "7782824142",
-      "image": "assets/products/tshirt-cactus.jpg",
-      "price_cny": 109,
-      "advice": "Tarjous voi sisältää paitoja ja shortseja. Varmista, mikä kappale kuuluu valittuun hintaan; kuva ei välttämättä tarkoita koko settiä."
-    },
-    {
-      "id": "jersey-portugal",
-      "category": "pelipaidat",
-      "title": "Portugalin pelipaita 2026",
-      "item_id": "7782842018",
-      "image": "assets/products/jersey-portugal.jpg",
-      "price_cny": 135,
-      "advice": "Vahvista ennen maksua koti- tai vierasversio, nimi ja numero. Mukautetussa painatuksessa tarkista palautusehdot."
-    },
-    {
-      "id": "jersey-spain",
-      "category": "pelipaidat",
-      "title": "Espanjan pelipaita 2024",
-      "item_id": "7756501830",
-      "image": "assets/products/jersey-spain.jpg",
-      "price_cny": 99,
-      "advice": "Erota harjoitus- ja otteluversio. Tarkista rinnankehys ja hihat juuri valitusta mallista."
-    },
-    {
-      "id": "hoodie-essentials",
-      "category": "hupparit",
-      "title": "Essentials-huppari",
-      "item_id": "7756485822",
-      "image": "assets/products/hoodie-essentials.jpg",
-      "price_cny": 198,
-      "advice": "Arvioi väljä malli mitoista, ei kirjaimesta. Tarkista hihan pituus, materiaali ja kankaan paksuus."
-    },
-    {
-      "id": "sweater-adidas",
-      "category": "hupparit",
-      "title": "Adidas Originals -neule",
-      "item_id": "7756460358",
-      "image": "assets/products/sweater-adidas.jpg",
-      "price_cny": 239,
-      "advice": "Tarkista neuloksen koostumus ja pesuohje. Katso yksityiskohtakuvasta reunat ja silmukat."
-    },
-    {
-      "id": "jacket-firebird",
-      "category": "takit",
-      "title": "Firebird-setti",
-      "item_id": "7782786712",
-      "image": "assets/products/jacket-firebird.jpg",
-      "price_cny": 238,
-      "advice": "Varmista, sisältyykö hintaan takki ja housut. Vertaa ylä- ja alaosaa omiin mittoihisi erikseen."
-    },
-    {
-      "id": "jacket-palace",
-      "category": "takit",
-      "title": "Palace-setti",
-      "item_id": "7782786710",
-      "image": "assets/products/jacket-palace.jpg",
-      "price_cny": 238,
-      "advice": "Tarkista variantin sisältö ja lahkeen pituus. Toimitusarviossa laske molempien osien paino."
-    },
-    {
-      "id": "shorts-denim",
-      "category": "housut",
-      "title": "GG-farkkushortsit",
-      "item_id": "7782847864",
-      "image": "assets/products/shorts-denim.jpg",
-      "price_cny": 160,
-      "advice": "Mittaa vyötärö litteänä ja lahkeen pituus. Leikkaus voi vaihdella varianteittain; hinta varmistuu vasta valinnan jälkeen."
-    },
-    {
-      "id": "jeans-double-knee",
-      "category": "housut",
-      "title": "Carhartt Double Knee -farkut",
-      "item_id": "7756419026",
-      "image": "assets/products/jeans-double-knee.jpg",
-      "price_cny": 249,
-      "advice": "Vertaa vyötäröä, istumakorkeutta ja sisäsäären pituutta. Katso QC-kuvasta vahvistetut polvipaneelit."
-    },
-    {
-      "id": "bag-supreme",
-      "category": "laukut",
-      "title": "Mesh Panel -reppu",
-      "item_id": "7782842016",
-      "image": "assets/products/bag-supreme.jpg",
-      "price_cny": 130,
-      "advice": "Tarkista ulkomitat, taskut ja selkäpuoli. Kannettavalle pyydä vahvistus sisätaskun koosta."
-    },
-    {
-      "id": "bag-north-face",
-      "category": "laukut",
-      "title": "Supreme × The North Face -reppu",
-      "item_id": "7782804524",
-      "image": "assets/products/bag-north-face.jpg",
-      "price_cny": 130,
-      "advice": "Tarkista hihnojen kiinnitys ja vetoketjut. Vedeneristystä ei voi päätellä kuvasta; varmista myyjältä."
-    },
-    {
-      "id": "earbuds-marshall",
-      "category": "elektroniikka",
-      "title": "Minor III -kuulokkeet",
-      "item_id": "7495786776",
-      "image": "assets/products/earbuds-marshall.jpg",
-      "price_cny": 118,
-      "advice": "Varmista ennen ostoa, että valittu linja hyväksyy akkua sisältävän laitteen. Varastokuva ei testaa ääntä, paritusta eikä kestoa."
-    },
-    {
-      "id": "headphones-max",
-      "category": "elektroniikka",
-      "title": "AirPods Max -kuulokkeet",
-      "item_id": "7494168145",
-      "image": "assets/products/headphones-max.jpg",
-      "price_cny": 900,
-      "advice": "Tarkista liitin, yhteensopivuus ja tarjouksen todelliset toiminnot. Nimi ei ole aitoustodistus; akkutoimitus pitää varmistaa etukäteen."
-    },
-    {
-      "id": "perfume-guerlain",
-      "category": "tuoksut",
-      "title": "Guerlain-tuoksukokoelma",
-      "item_id": "7797449640",
-      "image": "assets/products/perfume-guerlain.jpg",
-      "price_cny": 149,
-      "advice": "Valitse tarkka nimi, tilavuus ja pitoisuus. Älä maksa, ennen kuin varmistat että linja hyväksyy hajuveden."
-    },
-    {
-      "id": "perfume-fleurs",
-      "category": "tuoksut",
-      "title": "Atelier des Fleurs Mini",
-      "item_id": "7797437810",
-      "image": "assets/products/perfume-fleurs.jpg",
-      "price_cny": 119,
-      "advice": "Pienoispulloissa tarkista yhden pullon tilavuus ja kappalemäärä. Kokoelman kuva ei välttämättä vastaa setin hintaa."
-    },
-    {
-      "id": "ring-ambush",
-      "category": "korut",
-      "title": "AMBUSH O-Ring -sormus",
-      "item_id": "7521868734",
-      "image": "assets/products/ring-ambush.jpg",
-      "price_cny": 890,
-      "advice": "Mittaa oman sormuksen sisähalkaisija millimetreinä. Varmista materiaali ja pinta, etenkin jos olet allerginen."
-    },
-    {
-      "id": "necklace-flower",
-      "category": "korut",
-      "title": "Kukkariipuskaulakoru",
-      "item_id": "7521858844",
-      "image": "assets/products/necklace-flower.jpg",
-      "price_cny": 180,
-      "advice": "Tarkista ketjun pituus, riipuksen koko ja perusmetalli. Lukituksen yksityiskohta on hyödyllisempi kuin mallikuva."
-    },
-    {
-      "id": "socks-al",
-      "category": "asusteet",
-      "title": "AL-sukkakokoelma",
-      "item_id": "7782863638",
-      "image": "assets/products/socks-al.jpg",
-      "price_cny": 55,
-      "advice": "Selvitä, onko hinta paria vai pakkausta kohti. Tarkista kokovalikoima ja koostumus, ei vain kuvan väri."
-    },
-    {
-      "id": "umbrella-check",
-      "category": "asusteet",
-      "title": "Ruudullinen kokoontaitettava sateenvarjo",
-      "item_id": "7757288176",
-      "image": "assets/products/umbrella-check.jpg",
-      "price_cny": 168,
-      "advice": "Tarkista pituus taitettuna ja halkaisija avattuna. Pyydä ennen lähetystä tarkistus avausmekanismista."
-    },
-    {
-      "id": "kids-polo",
-      "category": "lapset",
-      "title": "Lasten ruudullinen pikeepaita",
-      "item_id": "7751506989",
-      "image": "assets/products/kids-polo.jpg",
-      "price_cny": 170,
-      "advice": "Valitse koko lapsen pituuden ja vaatteen mittojen mukaan. Tarkista kankaan koostumus ja nappien kiinnitys."
-    },
-    {
-      "id": "kids-rain-boots",
-      "category": "lapset",
-      "title": "Lasten Handle It -kumisaappaat",
-      "item_id": "7703561108",
-      "image": "assets/products/kids-rain-boots.jpg",
-      "price_cny": 150,
-      "advice": "Vertaa jalkaterän pituutta saappaan sisämittaan ja jätä tilaa sukan varaan. Tarkista materiaali ja varren korkeus."
-    }
+    {"id": "SNEAKERS", "label": "Kengät", "group": "Jalkineet"},
+    {"id": "SLIPPERS", "label": "Tossut", "group": "Jalkineet"},
+    {"id": "T-SHIRT", "label": "T-paidat", "group": "Yläosat"},
+    {"id": "POLO", "label": "Polopaidat", "group": "Yläosat"},
+    {"id": "SHIRT", "label": "Paidat", "group": "Yläosat"},
+    {"id": "LONG SLEEVED", "label": "Pitkähihaiset", "group": "Yläosat"},
+    {"id": "HOODIE", "label": "Hupparit", "group": "Yläosat"},
+    {"id": "SWEATER", "label": "Neuleet", "group": "Yläosat"},
+    {"id": "SHAWL", "label": "Huivit", "group": "Yläosat"},
+    {"id": "JACKET", "label": "Takit", "group": "Takit"},
+    {"id": "SHELL JACKET", "label": "Kuoritakit", "group": "Takit"},
+    {"id": "FLEECE JACKET", "label": "Fleecetakit", "group": "Takit"},
+    {"id": "DOWN JACKETS", "label": "Untuvatakit", "group": "Takit"},
+    {"id": "VEST", "label": "Liivit", "group": "Takit"},
+    {"id": "TROUSERS", "label": "Housut", "group": "Alaosat"},
+    {"id": "SHORTS", "label": "Shortsit", "group": "Alaosat"},
+    {"id": "Jersey", "label": "Pelipaidat", "group": "Urheilu"},
+    {"id": "BAG", "label": "Laukut", "group": "Asusteet"},
+    {"id": "HAT", "label": "Hatut", "group": "Asusteet"},
+    {"id": "GLOVES", "label": "Käsineet", "group": "Asusteet"},
+    {"id": "BELT", "label": "Vyöt", "group": "Asusteet"},
+    {"id": "SOCKS", "label": "Sukat", "group": "Asusteet"},
+    {"id": "SCARF", "label": "Kaulahuivit", "group": "Asusteet"},
+    {"id": "GLASSES", "label": "Lasit", "group": "Asusteet"},
+    {"id": "WATCH", "label": "Kellot", "group": "Asusteet"},
+    {"id": "JEWELRY", "label": "Korut", "group": "Asusteet"},
+    {"id": "HEADGEAR", "label": "Päähineet", "group": "Asusteet"},
+    {"id": "EARMUFF", "label": "Korvaläpät", "group": "Asusteet"},
+    {"id": "UNDERWEAR", "label": "Alusvaatteet", "group": "Asusteet"},
+    {"id": "KNEEPAD", "label": "Polvisuojat", "group": "Asusteet"},
+    {"id": "Electronics", "label": "Elektroniikka", "group": "Muut"},
+    {"id": "CHILD", "label": "Lasten", "group": "Muut"},
+    {"id": "FEMALE STYLE", "label": "Naisten", "group": "Muut"}
   ]
 }

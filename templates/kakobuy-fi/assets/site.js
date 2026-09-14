@@ -29,7 +29,7 @@ document.querySelectorAll('[data-year]').forEach(item => {
 });
 
 const categorySelect = document.querySelector('#catalog-category');
-if (categorySelect) {
+if (categorySelect && !document.querySelector('#finds-grid')) {
   const groups = [...document.querySelectorAll('.catalog-group')];
   const count = document.querySelector('#catalog-count');
   const label = n => (n === 1 ? '1 tuote' : `${n} tuotetta`);

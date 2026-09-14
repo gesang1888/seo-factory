@@ -3,7 +3,12 @@
 from __future__ import annotations
 
 import json
+import os
+import re
 import shutil
+import ssl
+import urllib.parse
+import urllib.request
 from datetime import date
 from html import escape as esc
 from pathlib import Path
@@ -13,9 +18,16 @@ from xml.sax.saxutils import escape as xml_esc
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = ROOT / "data" / "kakobuy-fi-catalog.json"
 TEMPLATE_ASSETS = ROOT / "templates" / "kakobuy-fi" / "assets"
+API_PHP = ROOT / "templates" / "api" / "products.php"
 DOMAIN = "kakobuy.fi"
 BASE = f"https://{DOMAIN}"
 TODAY = date.today().isoformat()
+W2C_SEARCH = "https://w2clinks.com/public/typesense-search.php"
+ITEM_RE = re.compile(r"(wd|tb|ali|1688)_(\d+)", re.I)
+SSL_CTX = ssl.create_default_context()
+SSL_CTX.check_hostname = False
+SSL_CTX.verify_mode = ssl.CERT_NONE
+RUNTIME: dict = {}
 
 NAV = [
     ("", "Etusivu"),
@@ -76,32 +88,157 @@ def cat_map(catalog: dict) -> dict[str, dict]:
     return {c["id"]: c for c in catalog["categories"]}
 
 
-def product_map(catalog: dict) -> dict[str, dict]:
-    return {p["id"]: p for p in catalog["products"]}
+def eur_amount(cny: float | int | None, rate: float) -> int | None:
+    try:
+        return int(round(float(cny) / rate))  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        return None
 
 
-def eur_amount(cny: int, rate: float) -> int:
-    return int(round(cny / rate))
+def format_eur(cny: float | int | None, rate: float) -> str:
+    amount = eur_amount(cny, rate)
+    return "Hinta Kakobuyssa" if amount is None else f"≈ {amount} €"
 
 
-def format_eur(cny: int, rate: float) -> str:
-    return f"≈ {eur_amount(cny, rate)} €"
+def format_cny(cny: float | int | None) -> str:
+    try:
+        value = float(cny)  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        return ""
+    if value.is_integer():
+        return f"{int(value)} CNY"
+    return f"{str(value).replace('.', ',')} CNY"
 
 
-def weidian_url(item_id: str) -> str:
+def format_count(n: int) -> str:
+    return f"{n:,}".replace(",", "\u00a0")
+
+
+def parse_shop_item(url: str) -> tuple[str, str]:
+    match = ITEM_RE.search(url or "")
+    if not match:
+        return "", ""
+    prefix = match.group(1).lower()
+    shop = "weidian" if prefix == "wd" else "taobao" if prefix == "tb" else "1688"
+    return shop, match.group(2)
+
+
+def source_url(shop: str, item_id: str) -> str:
+    if not item_id:
+        return ""
+    if shop == "taobao":
+        return f"https://item.taobao.com/item.htm?id={item_id}"
+    if shop == "1688":
+        return f"https://detail.1688.com/offer/{item_id}.html"
     return f"https://weidian.com/item.html?itemID={item_id}"
 
 
-def kakobuy_url(item_id: str, affcode: str) -> str:
+def kakobuy_url(item_id: str, affcode: str, shop: str = "weidian") -> str:
+    src = source_url(shop, item_id)
+    if not src:
+        return "/kakobuy-spreadsheet/"
     return (
         "https://kakobuy.com/item/details?url="
-        + quote(weidian_url(item_id), safe="")
+        + quote(src, safe="")
         + f"&affcode={quote(affcode)}"
     )
 
 
+def http_json(url: str, timeout: int = 20) -> dict | None:
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": "KakobuyFiBuilder/1.0", "Accept": "application/json"},
+        )
+        with urllib.request.urlopen(req, context=SSL_CTX, timeout=timeout) as resp:
+            return json.loads(resp.read().decode("utf-8", errors="replace"))
+    except Exception:
+        return None
+
+
+def normalize_hit(raw: dict) -> dict | None:
+    shop, item_id = parse_shop_item(str(raw.get("url") or ""))
+    if not item_id:
+        return None
+    title = str(raw.get("title") or "").strip()
+    if not title:
+        return None
+    price = raw.get("price")
+    if price is None:
+        price = raw.get("price_cny")
+    try:
+        price_cny: float | None = float(price)
+    except (TypeError, ValueError):
+        price_cny = None
+    return {
+        "id": f"{shop}-{item_id}",
+        "title": title,
+        "item_id": item_id,
+        "shop": shop,
+        "image": str(raw.get("image") or ""),
+        "price_cny": price_cny,
+        "category": str(raw.get("category") or ""),
+        "brand": str(raw.get("brand") or ""),
+    }
+
+
+def fetch_w2c_products(*, page: int = 1, per_page: int = 24, category: str = "", q: str = "") -> tuple[int, list[dict]]:
+    params: dict[str, str | int] = {"page": page, "per_page": per_page, "sort": "newest"}
+    if q:
+        params["q"] = q
+    if category:
+        params["category"] = category
+    key = os.environ.get("W2CLINKS_API_KEY", "").strip()
+    if key:
+        params["api_key"] = key
+    data = http_json(W2C_SEARCH + "?" + urllib.parse.urlencode(params))
+    if not data:
+        return 0, []
+    hits = []
+    for row in data.get("hits") or []:
+        if isinstance(row, dict):
+            item = normalize_hit(row)
+            if item:
+                hits.append(item)
+    return int(data.get("found") or len(hits)), hits
+
+
 def asset(path: str) -> str:
     return f"/{path.lstrip('/')}"
+
+
+def image_src(path: str) -> str:
+    if path.startswith(("http://", "https://", "/")):
+        return path
+    return asset(path)
+
+
+def category_options_html(catalog: dict) -> str:
+    groups: dict[str, list[dict]] = {}
+    for cat in catalog["categories"]:
+        groups.setdefault(str(cat.get("group") or "Muut"), []).append(cat)
+    parts = []
+    for group, items in groups.items():
+        inner = "".join(
+            f'<option value="{esc(c["id"])}">{esc(c["label"])}</option>' for c in items
+        )
+        parts.append(f'<optgroup label="{esc(group)}">{inner}</optgroup>')
+    return "".join(parts)
+
+
+def catalog_boot_script() -> str:
+    catalog = RUNTIME.get("catalog") or {}
+    payload = {
+        "affcode": catalog.get("affcode", "yze69"),
+        "cnyPerEur": catalog.get("cny_per_eur", 7.7762),
+        "api": "/api/products.php",
+        "categories": [{"id": c["id"], "label": c["label"]} for c in catalog.get("categories", [])],
+    }
+    return (
+        "<script>window.KAKOBUY_FI="
+        + json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+        + ";</script>"
+    )
 
 
 def page_href(slug: str) -> str:
@@ -129,7 +266,7 @@ def head(
         *(extra_css or []),
     ]
     css_tags = "".join(f'<link rel="stylesheet" href="{esc(href)}">' for href in css)
-    js_tags = "".join(
+    js_tags = catalog_boot_script() + "".join(
         f'<script src="{esc(href)}" defer></script>' for href in (extra_js or [])
     )
     ld = "".join(
@@ -248,7 +385,7 @@ def json_ld_itemlist(name: str, products: list[dict], catalog: dict) -> str:
                 "@type": "ListItem",
                 "position": i,
                 "name": p["title"],
-                "url": kakobuy_url(p["item_id"], aff),
+                "url": kakobuy_url(p["item_id"], aff, p.get("shop") or "weidian"),
             }
         )
     return json.dumps(
@@ -287,45 +424,52 @@ def json_ld_faq(items: list[tuple[str, str]]) -> str:
 
 
 def sheet_card(p: dict, catalog: dict, cats: dict) -> str:
-    label = cats[p["category"]]["label"]
+    label = (cats.get(p["category"]) or {}).get("label") or p["category"] or "Muut"
     rate = catalog["cny_per_eur"]
-    href = kakobuy_url(p["item_id"], catalog["affcode"])
-    search = f"{p['title']} {label}"
+    href = kakobuy_url(p["item_id"], catalog["affcode"], p.get("shop") or "weidian")
+    cny = format_cny(p.get("price_cny"))
     return (
-        f'<li class="sheet-product" data-product-id="{esc(p["id"])}" data-category="{esc(p["category"])}" '
-        f'data-search="{esc(search)}">'
-        f'<img src="{esc(asset(p["image"]))}" width="750" height="750" alt="{esc(p["title"])}" loading="lazy" decoding="async">'
+        f'<li class="sheet-product" data-product-id="{esc(p["id"])}" data-category="{esc(p["category"])}">'
+        f'<img src="{esc(image_src(p["image"]))}" width="750" height="750" alt="{esc(p["title"])}" loading="lazy" decoding="async">'
         f'<div class="sheet-product-info"><span>{esc(label)}</span><h2>{esc(p["title"])}</h2></div>'
-        f'<div class="sheet-price"><strong>{esc(format_eur(p["price_cny"], rate))}</strong>'
-        f'<small>{p["price_cny"]} CNY</small></div>'
+        f'<div class="sheet-price"><strong>{esc(format_eur(p.get("price_cny"), rate))}</strong>'
+        f'<small>{esc(cny)}</small></div>'
         f'<a class="sheet-buy" href="{esc(href)}" target="_blank" rel="sponsored noopener noreferrer" '
         f'aria-label="Avaa {esc(p["title"])} Kakobuyssa (uusi välilehti)">Avaa Kakobuyssa ↗</a></li>'
     )
 
 
 def finds_card(p: dict, catalog: dict, cats: dict) -> str:
-    label = cats[p["category"]]["label"]
+    label = (cats.get(p["category"]) or {}).get("label") or p["category"] or "Muut"
     rate = catalog["cny_per_eur"]
-    href = kakobuy_url(p["item_id"], catalog["affcode"])
-    checked = catalog["checked"]
+    href = kakobuy_url(p["item_id"], catalog["affcode"], p.get("shop") or "weidian")
+    brand = f'<p class="catalog-advice">{esc(p["brand"])}</p>' if p.get("brand") else ""
+    cny = format_cny(p.get("price_cny"))
     return f"""<article class="catalog-card" data-product-id="{esc(p["id"])}">
 <a class="catalog-image" href="{esc(href)}" target="_blank" rel="sponsored noopener noreferrer" aria-label="{esc(p["title"])} – avaa Kakobuyssa">
-<img src="{esc(asset(p["image"]))}" width="750" height="750" alt="{esc(p["title"])}" loading="lazy" decoding="async"><span>{esc(label)}</span></a>
+<img src="{esc(image_src(p["image"]))}" width="750" height="750" alt="{esc(p["title"])}" loading="lazy" decoding="async"><span>{esc(label)}</span></a>
 <div class="catalog-body">
 <h3>{esc(p["title"])}</h3>
-<div class="catalog-meta"><strong>{esc(format_eur(p["price_cny"], rate))}</strong><small>{p["price_cny"]} CNY</small></div>
-<details class="catalog-tips"><summary>Mihin kiinnittää huomiota</summary>
-<p class="catalog-advice">{esc(p["advice"])}</p>
-<p class="catalog-checked">Katalogi tarkistettu <time datetime="{esc(checked)}">11.9.2026</time></p>
-</details>
+<div class="catalog-meta"><strong>{esc(format_eur(p.get("price_cny"), rate))}</strong><small>{esc(cny)}</small></div>
+{brand}
 <a class="text-link" href="{esc(href)}" target="_blank" rel="sponsored noopener noreferrer">Avaa Kakobuyssa ↗</a>
 </div></article>"""
 
 
+def format_fi_date(iso: str) -> str:
+    try:
+        y, m, d = iso.split("-")
+        return f"{int(d)}.{int(m)}.{y}"
+    except ValueError:
+        return iso
+
+
 def rate_note(catalog: dict) -> str:
+    checked = format_fi_date(str(catalog.get("checked") or TODAY))
+    ecb = format_fi_date(str(catalog.get("ecb_date") or TODAY))
     return (
-        f'Hinnat ja linkit tarkistettu <time datetime="{esc(catalog["checked"])}">11.9.2026</time>. '
-        f'Kurssi ECB:n mukaan <time datetime="{esc(catalog["ecb_date"])}">11.9.2026</time>: '
+        f'Hinnat ja linkit tarkistettu <time datetime="{esc(catalog["checked"])}">{esc(checked)}</time>. '
+        f'Kurssi ECB:n mukaan <time datetime="{esc(catalog["ecb_date"])}">{esc(ecb)}</time>: '
         f'1 EUR ≈ {str(catalog["cny_per_eur"]).replace(".", ",")} CNY, pyöristetty euroon. '
         "Kyse on tuotteen katalogihinnasta ilman toimitusta, kuluja tai tuontimaksuja. "
         "Valitun variantin hinta kannattaa varmistaa Kakobuyssa."
@@ -362,20 +506,22 @@ FAQ: list[tuple[str, str]] = [
 
 def page_home(catalog: dict) -> str:
     cats = cat_map(catalog)
-    pmap = product_map(catalog)
-    featured = [pmap[i] for i in catalog["home_featured"]]
+    found, live = RUNTIME.get("live") or (0, [])
+    featured = live[:8]
     rate = catalog["cny_per_eur"]
+    count_label = f"{format_count(found)}+" if found else "Tuhansia"
+    cat_count = len(catalog["categories"])
     cards = []
     for p in featured:
-        href = kakobuy_url(p["item_id"], catalog["affcode"])
-        label = cats[p["category"]]["label"]
+        href = kakobuy_url(p["item_id"], catalog["affcode"], p.get("shop") or "weidian")
+        label = (cats.get(p["category"]) or {}).get("label") or p["category"] or "Muut"
         cards.append(
             f'<a class="card catalog-card" href="{esc(href)}" target="_blank" rel="sponsored noopener noreferrer">'
-            f'<div class="catalog-image"><img src="{esc(asset(p["image"]))}" alt="{esc(p["title"])}" width="640" height="640" loading="lazy">'
+            f'<div class="catalog-image"><img src="{esc(image_src(p["image"]))}" alt="{esc(p["title"])}" width="640" height="640" loading="lazy">'
             f"<span>{esc(label)}</span></div>"
             f'<div class="catalog-body"><h3>{esc(p["title"])}</h3>'
-            f'<div class="catalog-meta"><strong>{esc(format_eur(p["price_cny"], rate))}</strong>'
-            f'<small>{p["price_cny"]} CNY</small></div></div></a>'
+            f'<div class="catalog-meta"><strong>{esc(format_eur(p.get("price_cny"), rate))}</strong>'
+            f'<small>{esc(format_cny(p.get("price_cny")))}</small></div></div></a>'
         )
     body = f"""
 <section class="hero"><div class="container hero-grid">
@@ -400,17 +546,17 @@ def page_home(catalog: dict) -> str:
 </div>
 </div></section>
 <section class="stats"><div class="container stats-grid">
-<div class="stat"><strong>24 tuotetta</strong><span>Tämän sivuston valikoimassa</span></div>
-<div class="stat"><strong>12 kategoriaa</strong><span>Kengistä asusteisiin</span></div>
+<div class="stat"><strong>{esc(count_label)} tuotetta</strong><span>Haettava katalogi tällä sivustolla</span></div>
+<div class="stat"><strong>{cat_count} kategoriaa</strong><span>Kengistä asusteisiin</span></div>
 <div class="stat"><strong>Hinnat euroina</strong><span>Suuntaa-antavasti, ilman toimitusta</span></div>
 </div></section>
 <section class="section"><div class="container">
-<div class="section-heading"><p class="kicker">Kahdeksan aloitusta</p>
+<div class="section-heading"><p class="kicker">Uusimmat löydöt</p>
 <h2>Kengät, vaatteet ja asusteet Kakobuy-linkeillä</h2>
 <p>Koko listaa voi hakea nimen perusteella tai rajata yhteen kategoriaan.</p></div>
 <div class="catalog-grid">{"".join(cards)}</div>
 <p class="catalog-note">Emme ole myyjä · hinta ja saatavuus kannattaa tarkistaa ennen tilausta
-<a class="text-link" href="/kakobuy-spreadsheet/">Kakobuy Spreadsheet · kaikki 24 tuotetta →</a></p>
+<a class="text-link" href="/kakobuy-spreadsheet/">Kakobuy Spreadsheet · hae koko katalogista →</a></p>
 <p class="catalog-price-note">{rate_note(catalog)}</p>
 </div></section>
 <section class="section soft"><div class="container">
@@ -445,31 +591,49 @@ def page_home(catalog: dict) -> str:
 <section class="cta"><div class="container"><div class="cta-box">
 <h2>Onko sinulla tuotelinkki?</h2>
 <p>Liitä se Kakobuyn hakuun. Jos etsit vielä ideoita, aloita spreadsheetistä.</p>
-<a class="button" href="/kakobuy-spreadsheet/">Selaa 24 tuotetta</a>
+<a class="button" href="/kakobuy-spreadsheet/">Selaa katalogia</a>
 </div></div></section>
 """
+    json_ld_blocks = [json_ld_website()]
+    if featured:
+        json_ld_blocks.append(json_ld_itemlist("Tuotevalikoima", featured, catalog))
     return wrap(
         "",
         "Kakobuy Spreadsheet Suomi – tuotteet, hinnat ja ohjeet",
         "Kakobuy Spreadsheet Suomelle: tuotekatsaus, haku nimen mukaan, kategoriat ja hinnat euroina. Linkit Kakobuysyn ja suomenkielinen ohje ensimmäiseen tilaukseen.",
         body,
         extra_css=[asset("assets/catalog.css")],
-        json_ld=[json_ld_website(), json_ld_itemlist("Tuotevalikoima", featured, catalog)],
+        json_ld=json_ld_blocks,
     )
 
 
 def page_spreadsheet(catalog: dict) -> str:
     cats = cat_map(catalog)
-    options = "".join(
-        f'<option value="{esc(c["id"])}">{esc(c["label"])}</option>' for c in catalog["categories"]
-    )
-    items = "".join(sheet_card(p, catalog, cats) for p in catalog["products"])
+    found, live = RUNTIME.get("live") or (0, [])
+    options = category_options_html(catalog)
+    items = "".join(sheet_card(p, catalog, cats) for p in live[:24])
+    extra_ids = [
+        "SNEAKERS",
+        "T-SHIRT",
+        "HOODIE",
+        "JACKET",
+        "TROUSERS",
+        "SHORTS",
+        "Jersey",
+        "BAG",
+        "HAT",
+        "Electronics",
+        "CHILD",
+        "JEWELRY",
+    ]
     extra = "".join(
-        f'<a href="{esc(c["fansheets"])}" target="_blank" rel="noopener noreferrer">{esc(c["label"])} <span aria-hidden="true">↗</span></a>'
+        f'<a href="/kakobuy-spreadsheet/?category={quote(c["id"])}" data-sheet-category="{esc(c["id"])}">{esc(c["label"])}</a>'
         for c in catalog["categories"]
+        if c["id"] in extra_ids
     )
+    count_label = f"{format_count(found)} tuotetta" if found else "Ladataan…"
     body = f"""
-<section class="container sheet-intro"><p class="kicker">Suomalainen valikoima · 24 tuotetta</p>
+<section class="container sheet-intro"><p class="kicker">Suomalainen valikoima · haettava katalogi</p>
 <h1>Kakobuy Spreadsheet Suomelle</h1>
 <p>Tuotelinkit, kategoriat ja suuntaa-antavat hinnat euroina. Etsi tuote ja avaa tarjous suoraan Kakobuyssa.</p></section>
 <section class="container sheet-content" aria-label="Tuotelista">
@@ -479,10 +643,11 @@ def page_spreadsheet(catalog: dict) -> str:
 <div class="sheet-field"><label for="sheet-category">Kategoria</label>
 <select id="sheet-category" aria-controls="sheet-products"><option value="all">Kaikki kategoriat</option>{options}</select></div>
 <button type="button" class="sheet-reset">Tyhjennä suodattimet</button>
-<output id="sheet-count" aria-live="polite">24 tuotetta</output>
+<output id="sheet-count" aria-live="polite">{esc(count_label)}</output>
 </div>
 <p class="sheet-disclosure">Hinnat ovat suuntaa-antavia, ilman toimitusta ja muita kuluja. Tuotelinkit ovat kumppanuuslinkkejä; voimme saada provision.</p>
 <ul id="sheet-products" class="sheet-products">{items}</ul>
+<nav id="sheet-pager" class="sheet-pager" aria-label="Sivutus" hidden></nav>
 <p class="sheet-empty" role="status" hidden>Tuotetta ei löytynyt. Kokeile lyhyempää nimeä tai toista kategoriaa.</p>
 <details class="sheet-method"><summary>Hinnat ja tarkistuspäivä</summary>
 <p>{rate_note(catalog)}</p>
@@ -490,54 +655,45 @@ def page_spreadsheet(catalog: dict) -> str:
 </details>
 </section>
 <section class="section soft" id="kategoriat"><div class="container">
-<div class="section-heading"><h2>Lisää tuotteita kategorioittain</h2>
-<p>Laajemman valikoiman löydät ulkoisesta katalogista. Linkit avaavat kategorian uuteen välilehteen.</p></div>
+<div class="section-heading"><h2>Selaa kategorioittain</h2>
+<p>Valitse kategoria, niin lista suodattuu tällä sivulla. Tuote avautuu Kakobuyssa.</p></div>
 <div class="sheet-categories">{extra}</div>
 </div></section>
 <section class="section"><div class="container sheet-help">
 <div><h2>Mikä on Kakobuy spreadsheet?</h2>
 <p>Tuotelinkkien lista, joka auttaa valitsemaan tavaraa Kakobuyn kautta. Tätä valikoimaa selaat selaimessa; kuvan vieressä on kategoria ja euromääräinen hinta.</p>
-<p>Haluatko koko- ja varianttivinkkejä? Katso <a href="/kakobuy-finds/">Kakobuy Finds tuotemuistiinpanoineen</a>.</p></div>
+<p>Haluatko korttinäkymän? Katso <a href="/kakobuy-finds/">Kakobuy Finds</a>.</p></div>
 <div><h2>Miten jatkaa valinnan jälkeen?</h2>
 <p>Avaa tuote Kakobuyssa, tarkista variantti ja ajantasainen hinta. Kun tavara on varastossa, käy QC-kuvat läpi ja vasta sitten valitse toimitus Suomeen.</p>
 <p><a href="/kuinka-kayttaa-kakobuyta/">Suomenkielinen ohje ensimmäiseen tilaukseen</a> · <a href="/kakobuy-toimitus/">Toimitus Suomeen</a></p></div>
 </div></section>
 """
+    json_ld_blocks = []
+    if live:
+        json_ld_blocks.append(
+            json_ld_itemlist("Kakobuy Spreadsheet – tuotteet hinnoilla euroina", live[:24], catalog)
+        )
     return wrap(
         "kakobuy-spreadsheet",
-        "Kakobuy Spreadsheet – 24 tuotetta hinnoilla euroina",
-        "Kakobuy Spreadsheet Suomelle: 24 tuotetta 12 kategoriassa. Hae nimen mukaan, vertaa hintoja euroina ja avaa tuote Kakobuyssa.",
+        "Kakobuy Spreadsheet – tuotteet hinnoilla euroina",
+        "Kakobuy Spreadsheet Suomelle: hae nimen mukaan, suodata kategoriasta, vertaa hintoja euroina ja avaa tuote Kakobuyssa.",
         body,
         extra_css=[asset("assets/spreadsheet.css")],
-        extra_js=[asset("assets/spreadsheet.js")],
-        json_ld=[json_ld_itemlist("Kakobuy Spreadsheet – 24 tuotetta hinnoilla euroina", catalog["products"], catalog)],
+        extra_js=[asset("assets/catalog-live.js"), asset("assets/spreadsheet.js")],
+        json_ld=json_ld_blocks,
     )
 
 
 def page_finds(catalog: dict) -> str:
     cats = cat_map(catalog)
-    groups = []
-    by_cat: dict[str, list[dict]] = {}
-    for p in catalog["products"]:
-        by_cat.setdefault(p["category"], []).append(p)
-    jump = []
-    for c in catalog["categories"]:
-        jump.append(f'<a href="#{esc(c["id"])}">{esc(c["label"])}</a>')
-        cards = "".join(finds_card(p, catalog, cats) for p in by_cat.get(c["id"], []))
-        groups.append(
-            f'<section class="catalog-group" id="{esc(c["id"])}" aria-labelledby="title-{esc(c["id"])}">'
-            f'<div class="catalog-group-heading"><h2 id="title-{esc(c["id"])}">{esc(c["label"])}</h2>'
-            f'<a class="text-link" href="{esc(c["fansheets"])}" target="_blank" rel="noopener noreferrer">Lisää katalogissa ↗</a></div>'
-            f'<div class="catalog-grid">{cards}</div></section>'
-        )
-    options = "".join(
-        f'<option value="{esc(c["id"])}">{esc(c["label"])}</option>' for c in catalog["categories"]
-    )
+    _found, live = RUNTIME.get("live") or (0, [])
+    options = category_options_html(catalog)
+    cards = "".join(finds_card(p, catalog, cats) for p in live[:24])
     body = f"""
 <section class="article-hero finds-hero"><div class="container">
-<span class="eyebrow">Valinnan muistiinpanot · 24 tuotetta</span>
+<span class="eyebrow">Uusimmat löydöt · hinnat euroina</span>
 <h1>Kakobuy Finds</h1>
-<p>Hinnat euroina sekä vinkit kokoihin, variantteihin ja toimitukseen. Nopeaan hakuun avaa <a class="text-link" href="/kakobuy-spreadsheet/">Kakobuy Spreadsheet</a>.</p>
+<p>Korttinäkymä katalogista. Nopeaan hakuun avaa <a class="text-link" href="/kakobuy-spreadsheet/">Kakobuy Spreadsheet</a>.</p>
 </div></section>
 <section class="section finds-catalog"><div class="container">
 <div class="catalog-context">
@@ -548,20 +704,26 @@ def page_finds(catalog: dict) -> str:
 <div class="catalog-filter" hidden>
 <label for="catalog-category">Näytä kategoria</label>
 <select id="catalog-category"><option value="all">Kaikki kategoriat</option>{options}</select>
-<output id="catalog-count">24 tuotetta</output>
+<output id="catalog-count">{esc(format_count(_found) + " tuotetta") if _found else "Ladataan…"}</output>
 </div>
-<div class="catalog-jump">{"".join(jump)}</div>
-<div class="catalog-groups">{"".join(groups)}</div>
+<div id="finds-grid" class="catalog-grid">{cards}</div>
+<p class="finds-empty sheet-empty" role="status" hidden>Tuotetta ei löytynyt tähän kategoriaan.</p>
 <p class="catalog-price-note">{rate_note(catalog)}</p>
 </div></section>
 """
+    json_ld_blocks = []
+    if live:
+        json_ld_blocks.append(
+            json_ld_itemlist("Kakobuy Finds – tuotteet hinnoilla euroina", live[:24], catalog)
+        )
     return wrap(
         "kakobuy-finds",
-        "Kakobuy Finds – 24 tuotetta hinnoilla euroina",
-        "Valikoima 24 tuotetta 12 kategoriassa: suuntaa-antavat hinnat euroina, linkit Kakobuysyn sekä konkreettiset vinkit kokoihin, variantteihin ja toimitukseen.",
+        "Kakobuy Finds – tuotteet hinnoilla euroina",
+        "Kakobuy Finds Suomelle: uusimmat tuotelöydöt hinnoilla euroina ja suorilla Kakobuy-linkeillä.",
         body,
         extra_css=[asset("assets/catalog.css")],
-        json_ld=[json_ld_itemlist("Kakobuy Finds – 24 tuotetta hinnoilla euroina", catalog["products"], catalog)],
+        extra_js=[asset("assets/catalog-live.js"), asset("assets/finds.js")],
+        json_ld=json_ld_blocks,
     )
 
 
@@ -905,29 +1067,40 @@ def assert_quality(out_dir: Path) -> None:
     home = (out_dir / "index.html").read_text(encoding="utf-8")
     sheet = (out_dir / "kakobuy-spreadsheet" / "index.html").read_text(encoding="utf-8")
     ship = (out_dir / "kakobuy-toimitus" / "index.html").read_text(encoding="utf-8")
-    for bad in ("W2CLinks", "Search intent", "Country guide", "w2clinks.com", "ALV 24%", "kakobuydocs.com"):
+    js = (out_dir / "assets" / "spreadsheet.js").read_text(encoding="utf-8")
+    php = (out_dir / "api" / "products.php").read_text(encoding="utf-8")
+    for bad in ("Search intent", "Country guide", "ALV 24%", "kakobuydocs.com", "W2CLinks", "fansheets.com"):
         if bad in home or bad in sheet or bad in ship:
             raise SystemExit(f"FI local site still contains {bad!r}")
-    if "lang=\"fi\"" not in home:
+    if 'lang="fi"' not in home:
         raise SystemExit("home missing lang=fi")
-    if sheet.count("sheet-product") < 24:
-        raise SystemExit("spreadsheet missing 24 products")
+    if "/api/products.php" not in sheet:
+        raise SystemExit("spreadsheet missing products API config")
+    if "$_GET['q']" not in php or "item_id" not in php:
+        raise SystemExit("products.php missing live search fields")
+    if "Avaa Kakobuyssa" not in js and "Avaa Kakobuyssa" not in sheet:
+        raise SystemExit("spreadsheet missing Kakobuy CTA")
     if "25,5" not in ship:
         raise SystemExit("shipping page missing 25.5% VAT")
     if "tulli.fi" not in ship:
         raise SystemExit("shipping page missing tulli.fi")
-    if "Avaa Kakobuyssa" not in sheet:
-        raise SystemExit("spreadsheet missing Kakobuy CTA")
     if "Etusivu" not in home or "Toimitus" not in home:
         raise SystemExit("Finnish nav missing")
+    if "24 tuotetta" in home or "24 tuotetta" in sheet:
+        raise SystemExit("FI site still hardcodes the 24-product CZ catalog")
 
 
 def build_kakobuy_fi(out_dir: Path) -> int:
     catalog = load_catalog()
+    RUNTIME["catalog"] = catalog
+    RUNTIME["live"] = fetch_w2c_products(page=1, per_page=24)
     if out_dir.exists():
         shutil.rmtree(out_dir)
     out_dir.mkdir(parents=True)
-    shutil.copytree(TEMPLATE_ASSETS, out_dir / "assets")
+    shutil.copytree(TEMPLATE_ASSETS, out_dir / "assets", ignore=shutil.ignore_patterns("products"))
+    api_dir = out_dir / "api"
+    api_dir.mkdir(parents=True)
+    shutil.copyfile(API_PHP, api_dir / "products.php")
 
     pages = {
         "": page_home(catalog),
