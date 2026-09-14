@@ -32,7 +32,7 @@ NAV = [
     ("kakobuy-finds", "Finds"),
     ("how-to-use-kakobuy", "How to buy"),
     ("kakobuy-shipping-to-canada", "Shipping"),
-    ("kakobuy-coupon", "Coupons"),
+    ("kakobuy-coupons", "Coupons"),
 ]
 
 PRIMARY_SLUGS = [
@@ -41,11 +41,10 @@ PRIMARY_SLUGS = [
     "kakobuy-finds",
     "how-to-use-kakobuy",
     "kakobuy-shipping-to-canada",
-    "kakobuy-coupon",
+    "kakobuy-coupons",
     "kakobuy-qc",
     "is-kakobuy-legit",
     "kakobuy-canada",
-    "best-kakobuy-spreadsheet",
     "kakobuy-warehouse",
     "kakobuy-payment-methods",
     "kakobuy-tracking",
@@ -59,7 +58,7 @@ PRIMARY_SLUGS = [
 
 REDIRECTS = {
     "kakobuy-spreadsheets": "/kakobuy-spreadsheet/",
-    "kakobuy-coupons": "/kakobuy-coupon/",
+    "kakobuy-coupon": "/kakobuy-coupons/",
     "kakobuy-shipping": "/kakobuy-shipping-to-canada/",
     "kakobuy-shipping-calculator": "/kakobuy-shipping-to-canada/",
     "is-kakobuy-safe": "/is-kakobuy-legit/",
@@ -185,7 +184,6 @@ def hreflang_tags(slug: str) -> str:
         "kakobuy-warehouse",
         "kakobuy-payment-methods",
         "kakobuy-tracking",
-        "best-kakobuy-spreadsheet",
         "kakobuy-discord",
         "terms",
     }
@@ -295,7 +293,7 @@ def footer() -> str:
 <div class="footer-col"><strong>Products</strong>
 <a href="/kakobuy-spreadsheet/">Spreadsheet</a>
 <a href="/kakobuy-finds/">Finds</a>
-<a href="/kakobuy-coupon/">Coupons</a></div>
+<a href="/kakobuy-coupons/">Coupons</a></div>
 <div class="footer-col"><strong>Info</strong>
 <a href="/about/">About</a>
 <a href="/privacy-policy/">Privacy</a>
@@ -626,7 +624,7 @@ def page_spreadsheet(catalog: dict) -> str:
     body = f"""
 <section class="container sheet-intro"><p class="kicker">Canadian catalog · searchable</p>
 <h1>Kakobuy Spreadsheet for Canada</h1>
-<p>Product links, categories and CAD estimates. Find an item and open the offer on Kakobuy.</p></section>
+<p>This is the Kakobuy spreadsheet Canadian buyers can actually search: live product links, CAD estimates and a Kakobuy checkout — not a frozen screenshot of someone else’s Google Sheet.</p></section>
 <section class="container sheet-content" aria-label="Product list">
 <div class="sheet-controls">
 <div class="sheet-field"><label for="sheet-search">Search products</label>
@@ -844,7 +842,7 @@ def page_coupon() -> str:
 </article></div>
 """
     return wrap(
-        "kakobuy-coupon",
+        "kakobuy-coupons",
         "Kakobuy coupon 2026 – 3000 CNY and September shipping subsidy",
         "Kakobuy coupons for Canadian buyers: new-user 3000 CNY bundle, September 10% shipping subsidy. Confirm the offer on your Kakobuy account.",
         body,
@@ -1266,7 +1264,7 @@ def build_kakobuy_ca(out_dir: Path) -> int:
         "kakobuy-finds": page_finds(catalog),
         "how-to-use-kakobuy": page_guide(),
         "kakobuy-shipping-to-canada": page_shipping(),
-        "kakobuy-coupon": page_coupon(),
+        "kakobuy-coupons": page_coupon(),
         "kakobuy-qc": page_qc(),
         "is-kakobuy-legit": page_legit(),
         "kakobuy-canada": page_canada(),
