@@ -203,12 +203,12 @@ def fetch_w2c_products(*, page: int = 1, per_page: int = 24, category: str = "",
     return int(data.get("found") or len(hits)), hits
 
 
-ASSET_V = "20260914c"
+ASSET_V = "20260914e"
 
 
 def asset(path: str) -> str:
     href = f"/{path.lstrip('/')}"
-    if path.endswith((".js", ".css")):
+    if path.endswith((".js", ".css", ".webp", ".png", ".ico")):
         return f"{href}?v={ASSET_V}"
     return href
 
@@ -296,11 +296,12 @@ def head(
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{esc(title)}">
 <meta name="twitter:description" content="{esc(description)}">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/favicon-v2-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/assets/favicon-v2-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon-v2.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#6548e8">
+<meta name="theme-color" content="#ff5722">
 {css_tags}
 {ld}
 {js_tags}
@@ -315,12 +316,20 @@ def header(current: str) -> str:
         links.append(f'<a href="{esc(href)}"{current_attr}>{esc(label)}</a>')
     return f"""<body>
 <a class="skip-link" href="#sisalto">Siirry sisältöön</a>
-<div class="announcement">Riippumaton opas suomalaisille ostajille · <a href="/affiliate-disclosure/">Miten tämä sivusto toimii</a></div>
+<div class="kb-promo"><div class="container">Syyskuun säästöt: 10 % toimitustukea · uudet käyttäjät 3000 CNY kuponkipaketti · <a href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Rekisteröidy Kakobuyhin</a></div></div>
 <header class="site-header"><div class="container nav">
 <a class="brand" href="/" aria-label="Kakobuy Suomi – etusivu"><span class="brand-mark">K</span><span>Kakobuy <small>Suomi</small></span></a>
-<nav class="nav-links" aria-label="Päävalikko">{"".join(links)}</nav>
-<div class="nav-actions"><button class="menu-button" type="button" aria-label="Avaa valikko" aria-expanded="false">☰</button></div>
+<form class="kb-head-search" action="/kakobuy-spreadsheet/" method="get" role="search">
+<label class="sr-only" for="kb-q">Hae tuotetta</label>
+<input id="kb-q" type="search" name="q" placeholder="Hae tuotetta tai liitä linkki" autocomplete="off">
+<button type="submit">Hae</button>
+</form>
+<div class="nav-actions">
+<a class="button small" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Rekisteröidy</a>
+<button class="menu-button" type="button" aria-label="Avaa valikko" aria-expanded="false">☰</button>
+</div>
 </div></header>
+<nav class="kb-subnav" aria-label="Päävalikko"><div class="container nav-links">{"".join(links)}</div></nav>
 <main id="sisalto">"""
 
 
@@ -535,6 +544,11 @@ def page_home(catalog: dict) -> str:
 <span class="eyebrow">Tuotelinkit · hinnat euroina</span>
 <h1>Kakobuy Spreadsheet<br><span class="gradient-text">Suomelle</span></h1>
 <p>Selaa tuotevalikoimaa yhdessä paikassa. Hae nimellä, valitse kategoria ja vertaa suuntaa-antavia hintoja euroina. Valittu tuote avautuu suoraan Kakobuyssa.</p>
+<form class="kb-hero-search" action="/kakobuy-spreadsheet/" method="get" role="search">
+<label class="sr-only" for="hero-q">Hae spreadsheetistä</label>
+<input id="hero-q" type="search" name="q" placeholder="Hae tuotetta, merkkiä tai liitä Weidian-linkki" autocomplete="off">
+<button type="submit">Hae</button>
+</form>
 <div class="hero-actions">
 <a class="button" href="/kakobuy-spreadsheet/">Avaa spreadsheet <span aria-hidden="true">→</span></a>
 <a class="button secondary" href="/kuinka-kayttaa-kakobuyta/">Miten osto toimii</a>
@@ -546,9 +560,34 @@ def page_home(catalog: dict) -> str:
 </div>
 </div>
 <div class="hero-visual hero-art">
-<img class="hero-art-image" src="/assets/hero.webp" width="1280" height="853" alt="Paketti, varaston QC-tarkistus ja toimitus Suomeen" fetchpriority="high">
-<div class="hero-proof hero-proof-qc"><span class="hero-proof-icon">✓</span><span><strong>QC varastossa</strong><small>Kuvat ennen lähetystä</small></span></div>
-<div class="hero-proof hero-proof-cz hero-proof-fi"><span class="hero-proof-icon">🇫🇮</span><span><strong>Toimitus Suomeen</strong><small>Valitset vasta tarkistuksen jälkeen</small></span></div>
+<img class="hero-art-image" src="{esc(asset('assets/hero.webp'))}" width="1152" height="864" alt="Kakobuy-toimitus Suomeen: varasto, QC ja paketti" fetchpriority="high">
+</div>
+</div></section>
+<section class="kb-offers"><div class="container">
+<div class="section-heading"><p class="kicker">Kakobuy.com · syyskuu 2026</p>
+<h2>Ajankohtaiset edut</h2>
+<p>Viralliset kampanjat Kakobuyssa. Ehdot, alennus ja voimassaolo vahvistetaan tilillä ennen maksua.</p></div>
+<div class="kb-offer-grid">
+<a class="kb-offer" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">
+<span class="kb-offer-tag">Toimitus</span>
+<strong>Syyskuun säästöt: 10 % toimitustukea</strong>
+<p>Sitewide-toimitustuki 8.–14.9.2026. Myönnetty tuki on käytettävissä 31.10.2026 asti.</p>
+<span class="text-link">Avaa kampanja Kakobuyssa ↗</span></a>
+<a class="kb-offer" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">
+<span class="kb-offer-tag">Uusi käyttäjä</span>
+<strong>3000 CNY kuponkipaketti ≈ 410 $</strong>
+<p>Rekisteröidy kutsulinkillä. Kupongit näkyvät lompakossa; spreadsheet ei lisää niitä automaattisesti.</p>
+<span class="text-link">Rekisteröidy ↗</span></a>
+<a class="kb-offer" href="/kakobuy-toimitus/">
+<span class="kb-offer-tag">EU</span>
+<strong>3 € tulli / paketti ja duty-free-linjat</strong>
+<p>Kakobuy tarjoaa EU-linjoja, joilla tullimaksu voi olla 3 € pakettia kohti. ALV 25,5 % Suomessa ratkaistaan tuonnissa.</p>
+<span class="text-link">Toimitus Suomeen →</span></a>
+<a class="kb-offer" href="/kuinka-kayttaa-kakobuyta/">
+<span class="kb-offer-tag">Ohje</span>
+<strong>How to buy + kutsu ystäviä</strong>
+<p>Tilaus, QC ja lähetys kuudessa vaiheessa. Kaverikutsut ja cash prizes ovat Kakobuy-tilin kampanjoita.</p>
+<span class="text-link">Avaa ostohje →</span></a>
 </div>
 </div></section>
 <section class="stats"><div class="container stats-grid">
@@ -906,16 +945,30 @@ def page_affiliate() -> str:
 def page_coupon() -> str:
     body = """
 <section class="article-hero"><div class="container">
-<h1>Kakobuy-kuponki</h1>
-<p>Uuden käyttäjän tarjoukset näkyvät Kakobuy-tilillä. Niitä ei sovelleta automaattisesti spreadsheet-selailuun.</p>
+<h1>Kakobuy-kuponki ja kampanjat</h1>
+<p>Syyskuu 2026: 10 % toimitustuki, uuden käyttäjän 3000 CNY kuponkipaketti ja EU-linjojen 3 € tulli. Vahvista aina Kakobuy-tilillä.</p>
 </div></section>
 <div class="container article-layout"><article class="article">
-<p>Rekisteröidy kutsulinkillä <a class="text-link" href="https://ikako.vip/r/yze69" target="_blank" rel="noopener noreferrer">ikako.vip/r/yze69</a>. Kampanjat (esim. uuden käyttäjän CNY-kuponki) muuttuvat; vahvista aina omalla tililläsi.</p>
-<p>Spreadsheet-selailu ei valitse toimituslinjaa eikä lisää kupongin automaattisesti. Hyvä sessio päättyy pakettisuunnitelmaan, ei satunnaiseen raskaaseen koriin.</p>
-<p><a class="button" href="/kakobuy-spreadsheet/">Siirry spreadsheetiin</a></p>
+<h2>Uuden käyttäjän 3000 CNY ≈ 410 $</h2>
+<p>Virallinen tarjous Kakobuy.comissa: rekisteröidy ja saat kuponkipaketin (noin 3000 CNY / 410 USD). Kupongit näkyvät lompakossa, yleensä toimitukseen. Spreadsheet-selailu ei lisää koodia automaattisesti.</p>
+<p>Rekisteröidy kutsulinkillä <a class="text-link" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">ikako.vip/r/yze69</a>. Lähde: <a href="https://www.kakobuy.com/tipdetail?id=1" target="_blank" rel="noopener noreferrer">kakobuy.com/tipdetail?id=1</a>.</p>
+<h2>Syyskuun säästöt — 10 % toimitustukea</h2>
+<p>Kampanja-aika 8.–14.9.2026 (Pekingin aika). Sitewide-toimitustuki 10 %. Myönnetty tuki on Kakobuyn mukaan käytettävissä 31.10.2026 asti. Tarkista tuotekohtainen kelpoisuus kassalla.</p>
+<p><a class="text-link" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">Avaa September Savings Kakobuyssa ↗</a></p>
+<h2>EU-linjat</h2>
+<p>Kakobuy ilmoittaa duty-free-linjoista EU:hun ja kategoriapohjaisesta <strong>3 euron tullista pakettia kohti</strong>. Suomen yleinen ALV on silti 25,5 %. Katso <a href="/kakobuy-toimitus/">toimitusopas</a>.</p>
+<h2>Kutsu ystäviä / Share &amp; earn</h2>
+<p>Käteispalkinnot ja kaverikutsut ovat Kakobuy-tilin kampanjoita. Niitä ei lunasteta tällä sivustolla.</p>
+<p><a class="button" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Rekisteröidy ja tarkista kupongit</a></p>
 </article></div>
 """
-    return wrap("kakobuy-coupon", "Kakobuy-kuponki ja alennuskoodit", "Kakobuy-kupongit suomalaisille ostajille: tarkista tarjous tilillä, spreadsheet ei lisää koodia automaattisesti.", body, og_type="article")
+    return wrap(
+        "kakobuy-coupon",
+        "Kakobuy-kuponki 2026 – 3000 CNY ja syyskuun toimitustuki",
+        "Kakobuy-kupongit suomalaisille: uuden käyttäjän 3000 CNY paketti, syyskuun 10 % toimitustuki ja EU 3 € tulli. Vahvista tarjous Kakobuy-tilillä.",
+        body,
+        og_type="article",
+    )
 
 
 def page_qc() -> str:
@@ -1092,6 +1145,10 @@ def assert_quality(out_dir: Path) -> None:
         raise SystemExit("shipping page missing tulli.fi")
     if "Etusivu" not in home or "Toimitus" not in home:
         raise SystemExit("Finnish nav missing")
+    if "kb-promo" not in home or "kakobuy-logo.png" not in (out_dir / "assets" / "fi.css").read_text(encoding="utf-8"):
+        raise SystemExit("FI site missing Kakobuy promo strip or official logo")
+    if "3000 CNY" not in home:
+        raise SystemExit("home missing latest Kakobuy coupon promo")
     if "24 tuotetta" in home or "24 tuotetta" in sheet:
         raise SystemExit("FI site still hardcodes the 24-product CZ catalog")
 
