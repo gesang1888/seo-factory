@@ -71,7 +71,7 @@ VERIFY_NEEDLES: dict[str, str] = {
     "kakospreadsheet.es": "Kakobuy",
     "kakospreadsheet.fr": "Kakobuy",
     "kakospreadsheet.nl": "Kakobuy",
-    "kakospreadsheet.ca": "Kakobuy",
+    "kakospreadsheet.ca": "Kakobuy Spreadsheet Canada",
     "kakobuy.fi": "Kakobuy Suomi",
 }
 
@@ -415,6 +415,30 @@ def main() -> None:
                 client,
                 "curl -sk --resolve kakobuy.fi:443:127.0.0.1 "
                 "'https://kakobuy.fi/api/products.php?per_page=2&q=jordan' "
+                "| python3 -c \"import sys,json; d=json.load(sys.stdin); print('api', d.get('ok'), d.get('found'), len(d.get('hits') or []))\"",
+            )
+        )
+    if "kakospreadsheet.ca" in CANONICAL_DOMAINS:
+        print("=== verify kakospreadsheet.ca product logic ===")
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakospreadsheet.ca:443:127.0.0.1 https://kakospreadsheet.ca/ "
+                "| grep -oiE 'W2CLinks|Search intent|prices in CAD|Kakobuy Spreadsheet Canada|Open spreadsheet|CBSA|3000 CNY' | head -20",
+            )
+        )
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakospreadsheet.ca:443:127.0.0.1 https://kakospreadsheet.ca/kakobuy-spreadsheet/ "
+                "| grep -oiE 'sheet-product|Open on Kakobuy|api/products.php|W2CLinks' | head -20",
+            )
+        )
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakospreadsheet.ca:443:127.0.0.1 "
+                "'https://kakospreadsheet.ca/api/products.php?per_page=2&q=jordan' "
                 "| python3 -c \"import sys,json; d=json.load(sys.stdin); print('api', d.get('ok'), d.get('found'), len(d.get('hits') or []))\"",
             )
         )

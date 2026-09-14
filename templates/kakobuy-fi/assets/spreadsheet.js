@@ -44,10 +44,15 @@
     pager.hidden = false;
     const prevDisabled = current <= 1 ? ' disabled' : '';
     const nextDisabled = current >= pages ? ' disabled' : '';
+    const i18n = Catalog.i18n || {};
+    const locale = i18n.locale || 'fi-FI';
+    const pageOf = (i18n.pageOf || 'Sivu {current} / {pages}')
+      .replace('{current}', current.toLocaleString(locale))
+      .replace('{pages}', pages.toLocaleString(locale));
     pager.innerHTML =
-      `<button type="button" class="sheet-page" data-page="${current - 1}"${prevDisabled}>Edellinen</button>` +
-      `<span>Sivu ${current.toLocaleString('fi-FI')} / ${pages.toLocaleString('fi-FI')}</span>` +
-      `<button type="button" class="sheet-page" data-page="${current + 1}"${nextDisabled}>Seuraava</button>`;
+      `<button type="button" class="sheet-page" data-page="${current - 1}"${prevDisabled}>${Catalog.esc(i18n.prev || 'Edellinen')}</button>` +
+      `<span>${Catalog.esc(pageOf)}</span>` +
+      `<button type="button" class="sheet-page" data-page="${current + 1}"${nextDisabled}>${Catalog.esc(i18n.next || 'Seuraava')}</button>`;
   }
 
   function load() {
@@ -71,9 +76,9 @@
         list.innerHTML = '';
         if (empty) {
           empty.hidden = false;
-          empty.textContent = 'Tuotteita ei voitu ladata. Yritä hetken kuluttua uudelleen.';
+          empty.textContent = (Catalog.i18n && Catalog.i18n.loadError) || 'Tuotteita ei voitu ladata. Yritä hetken kuluttua uudelleen.';
         }
-        if (count) count.textContent = '0 tuotetta';
+        if (count) count.textContent = (Catalog.i18n && Catalog.i18n.emptyCount) || '0 tuotetta';
         renderPager(0, 1);
       })
       .finally(function () {

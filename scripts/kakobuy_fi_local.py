@@ -203,7 +203,7 @@ def fetch_w2c_products(*, page: int = 1, per_page: int = 24, category: str = "",
     return int(data.get("found") or len(hits)), hits
 
 
-ASSET_V = "20260914e"
+ASSET_V = "20260914f"
 
 
 def asset(path: str) -> str:

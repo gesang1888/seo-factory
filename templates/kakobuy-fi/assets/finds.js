@@ -31,9 +31,9 @@
         grid.innerHTML = '';
         if (empty) {
           empty.hidden = false;
-          empty.textContent = 'Tuotteita ei voitu ladata. Yritä hetken kuluttua uudelleen.';
+          empty.textContent = (Catalog.i18n && Catalog.i18n.loadError) || 'Tuotteita ei voitu ladata. Yritä hetken kuluttua uudelleen.';
         }
-        if (count) count.textContent = '0 tuotetta';
+        if (count) count.textContent = (Catalog.i18n && Catalog.i18n.emptyCount) || '0 tuotetta';
       })
       .finally(function () {
         if (id === requestId) grid.removeAttribute('aria-busy');
