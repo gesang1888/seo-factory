@@ -21,7 +21,7 @@ NAV = [
     ("", "Etusivu"),
     ("kakobuy-spreadsheet", "Spreadsheet"),
     ("kakobuy-finds", "Valitut tuotteet"),
-    ("how-to-use-kakobuy", "Ostaminen"),
+    ("kuinka-kayttaa-kakobuyta", "Ostaminen"),
     ("kakobuy-toimitus", "Toimitus"),
     ("faq", "FAQ"),
 ]
@@ -30,7 +30,7 @@ PRIMARY_SLUGS = [
     "",
     "kakobuy-spreadsheet",
     "kakobuy-finds",
-    "how-to-use-kakobuy",
+    "kuinka-kayttaa-kakobuyta",
     "kakobuy-toimitus",
     "faq",
     "about",
@@ -46,12 +46,13 @@ PRIMARY_SLUGS = [
 REDIRECTS = {
     "spreadsheet.html": "/kakobuy-spreadsheet/",
     "finds.html": "/kakobuy-finds/",
-    "guide.html": "/how-to-use-kakobuy/",
+    "guide.html": "/kuinka-kayttaa-kakobuyta/",
     "shipping.html": "/kakobuy-toimitus/",
     "faq.html": "/faq/",
     "about.html": "/about/",
     "privacy.html": "/privacy-policy/",
     "disclaimer.html": "/affiliate-disclosure/",
+    "how-to-use-kakobuy": "/kuinka-kayttaa-kakobuyta/",
     "kakobuy-spreadsheets": "/kakobuy-spreadsheet/",
     "best-kakobuy-spreadsheet": "/kakobuy-spreadsheet/",
     "kakobuy-shipping": "/kakobuy-toimitus/",
@@ -187,7 +188,7 @@ def footer() -> str:
 <div><a class="brand" href="/"><span class="brand-mark">K</span><span>Kakobuy Suomi</span></a>
 <p class="footer-copy">Riippumaton suomenkielinen tuotevalikoima ja ohjeet Kakobuyn käyttöön.</p></div>
 <div class="footer-col"><strong>Opas</strong>
-<a href="/how-to-use-kakobuy/">Ostaminen</a>
+<a href="/kuinka-kayttaa-kakobuyta/">Ostaminen</a>
 <a href="/kakobuy-toimitus/">Toimitus</a>
 <a href="/faq/">FAQ</a></div>
 <div class="footer-col"><strong>Tuotteet</strong>
@@ -384,7 +385,7 @@ def page_home(catalog: dict) -> str:
 <p>Selaa tuotevalikoimaa yhdessä paikassa. Hae nimellä, valitse kategoria ja vertaa suuntaa-antavia hintoja euroina. Valittu tuote avautuu suoraan Kakobuyssa.</p>
 <div class="hero-actions">
 <a class="button" href="/kakobuy-spreadsheet/">Avaa spreadsheet <span aria-hidden="true">→</span></a>
-<a class="button secondary" href="/how-to-use-kakobuy/">Miten osto toimii</a>
+<a class="button secondary" href="/kuinka-kayttaa-kakobuyta/">Miten osto toimii</a>
 </div>
 <div class="trust-row" aria-label="Hyödyt">
 <span><i class="check">✓</i> Ei rekisteröitymistä tällä sivustolla</span>
@@ -419,7 +420,7 @@ def page_home(catalog: dict) -> str:
 <a class="card" href="/kakobuy-spreadsheet/"><div class="card-icon">▦</div><h3>Spreadsheet</h3>
 <p>Kategoriat ja tuotelinkit, kun et halua selailla kiinalaisia kauppapaikkoja tunnin ajan.</p>
 <span class="text-link">Avaa katalogi ↗</span></a>
-<a class="card" href="/how-to-use-kakobuy/"><div class="card-icon">1</div><h3>Ensimmäinen tilaus</h3>
+<a class="card" href="/kuinka-kayttaa-kakobuyta/"><div class="card-icon">1</div><h3>Ensimmäinen tilaus</h3>
 <p>Mitä maksetaan heti, mitä vasta varastossa, ja miksi QC-kuvia ei kannata kuitata sokeasti.</p></a>
 <a class="card" href="/kakobuy-toimitus/"><div class="card-icon">→</div><h3>Toimitus Suomeen</h3>
 <p>Todellinen vs. tilavuuspaino, yhdistäminen, seuranta sekä tulli ja ALV.</p></a>
@@ -499,7 +500,7 @@ def page_spreadsheet(catalog: dict) -> str:
 <p>Haluatko koko- ja varianttivinkkejä? Katso <a href="/kakobuy-finds/">Kakobuy Finds tuotemuistiinpanoineen</a>.</p></div>
 <div><h2>Miten jatkaa valinnan jälkeen?</h2>
 <p>Avaa tuote Kakobuyssa, tarkista variantti ja ajantasainen hinta. Kun tavara on varastossa, käy QC-kuvat läpi ja vasta sitten valitse toimitus Suomeen.</p>
-<p><a href="/how-to-use-kakobuy/">Suomenkielinen ohje ensimmäiseen tilaukseen</a> · <a href="/kakobuy-toimitus/">Toimitus Suomeen</a></p></div>
+<p><a href="/kuinka-kayttaa-kakobuyta/">Suomenkielinen ohje ensimmäiseen tilaukseen</a> · <a href="/kakobuy-toimitus/">Toimitus Suomeen</a></p></div>
 </div></section>
 """
     return wrap(
@@ -605,7 +606,7 @@ def page_guide() -> str:
 <a href="#virheet">Yleisimmät virheet</a></aside></div>
 """
     return wrap(
-        "how-to-use-kakobuy",
+        "kuinka-kayttaa-kakobuyta",
         "Miten ostaa Kakobuyn kautta – suomenkielinen ohje vaiheittain",
         "Täydellinen suomenkielinen ohje Kakobuy-ostoon: tuotelinkki, tilaus, varasto, QC-kuvat ja toimitus Suomeen.",
         body,
@@ -758,7 +759,7 @@ def page_qc() -> str:
 <div class="container article-layout"><article class="article">
 <p>Vertaa väri, kokolappu, kappalemäärä, saumat ja näkyvät viat. Älä kuittaa kuvia sokeasti. Jos jokin ei täsmää, avaa tiketti ennen linjan maksua.</p>
 <p>QC ei todista aitoutta. Se auttaa välttämään väärän värin, väärän koon tai rikkinäisen kappaleen lähettämisen Suomeen.</p>
-<p><a class="text-link" href="/how-to-use-kakobuy/#vaihe-4">Katso QC osana ostohjetta</a></p>
+<p><a class="text-link" href="/kuinka-kayttaa-kakobuyta/#vaihe-4">Katso QC osana ostohjetta</a></p>
 </article></div>
 """
     return wrap("kakobuy-qc", "Kakobuy QC – miten luet tarkistuskuvat", "Kakobuy QC-kuvat: mitä katsoa varastokuvista ennen lähettämistä Suomeen.", body, og_type="article")
@@ -778,7 +779,7 @@ def page_kokemuksia() -> str:
 <li>Älä usko yhteisön hypetystä laatutodisteeksi.</li>
 <li>Tulli ja ALV 25,5 % Suomessa eivät ole Kakobuyn “virhe”, vaan tuontisääntöjä.</li>
 </ul>
-<p><a class="button" href="/faq/">Avaa FAQ</a> <a class="button secondary" href="/how-to-use-kakobuy/">Ostamisen vaiheet</a></p>
+<p><a class="button" href="/faq/">Avaa FAQ</a> <a class="button secondary" href="/kuinka-kayttaa-kakobuyta/">Ostamisen vaiheet</a></p>
 </article></div>
 """
     return wrap("kakobuy-kokemuksia", "Kakobuy kokemuksia (2026) — Luotettava?", "Kakobuy kokemuksia suomalaisille: ei tekoarvioita. Tarkista QC, maksutapa ja tulli itse.", body, og_type="article")
@@ -932,7 +933,7 @@ def build_kakobuy_fi(out_dir: Path) -> int:
         "": page_home(catalog),
         "kakobuy-spreadsheet": page_spreadsheet(catalog),
         "kakobuy-finds": page_finds(catalog),
-        "how-to-use-kakobuy": page_guide(),
+        "kuinka-kayttaa-kakobuyta": page_guide(),
         "kakobuy-toimitus": page_shipping(),
         "faq": page_faq(),
         "about": page_about(),
