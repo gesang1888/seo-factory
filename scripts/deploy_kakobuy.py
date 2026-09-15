@@ -68,7 +68,7 @@ USER = os.environ.get(
 )
 
 VERIFY_NEEDLES: dict[str, str] = {
-    "kakospreadsheet.es": "Kakobuy",
+    "kakospreadsheet.es": "Kakobuy Spreadsheet España",
     "kakospreadsheet.fr": "Kakobuy",
     "kakospreadsheet.nl": "Kakobuy",
     "kakospreadsheet.ca": "Kakobuy Spreadsheet Canada",
@@ -415,6 +415,30 @@ def main() -> None:
                 client,
                 "curl -sk --resolve kakobuy.fi:443:127.0.0.1 "
                 "'https://kakobuy.fi/api/products.php?per_page=2&q=jordan' "
+                "| python3 -c \"import sys,json; d=json.load(sys.stdin); print('api', d.get('ok'), d.get('found'), len(d.get('hits') or []))\"",
+            )
+        )
+    if "kakospreadsheet.es" in CANONICAL_DOMAINS:
+        print("=== verify kakospreadsheet.es product logic ===")
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakospreadsheet.es:443:127.0.0.1 https://kakospreadsheet.es/ "
+                "| grep -oiE 'W2CLinks|Search intent|precios en euros|Kakobuy Spreadsheet España|Abrir spreadsheet|21 %|3000 CNY' | head -20",
+            )
+        )
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakospreadsheet.es:443:127.0.0.1 https://kakospreadsheet.es/kakobuy-spreadsheet/ "
+                "| grep -oiE 'sheet-product|Abrir en Kakobuy|api/products.php|W2CLinks' | head -20",
+            )
+        )
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakospreadsheet.es:443:127.0.0.1 "
+                "'https://kakospreadsheet.es/api/products.php?per_page=2&q=jordan' "
                 "| python3 -c \"import sys,json; d=json.load(sys.stdin); print('api', d.get('ok'), d.get('found'), len(d.get('hits') or []))\"",
             )
         )
