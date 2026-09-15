@@ -292,6 +292,7 @@ def footer() -> str:
 <div class="footer-col"><strong>Guía</strong>
 <a href="/como-comprar-en-kakobuy/">Cómo comprar</a>
 <a href="/envio-kakobuy-espana/">Envío a España</a>
+<a href="/kakobuy-opiniones/">Opiniones</a>
 <a href="/es-kakobuy-confiable/">¿Es confiable?</a></div>
 <div class="footer-col"><strong>Productos</strong>
 <a href="/kakobuy-spreadsheet/">Spreadsheet</a>
