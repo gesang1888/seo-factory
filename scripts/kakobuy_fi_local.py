@@ -203,7 +203,7 @@ def fetch_w2c_products(*, page: int = 1, per_page: int = 24, category: str = "",
     return int(data.get("found") or len(hits)), hits
 
 
-ASSET_V = "20260914f"
+ASSET_V = "20260915b"
 
 
 def asset(path: str) -> str:
@@ -316,7 +316,7 @@ def header(current: str) -> str:
         links.append(f'<a href="{esc(href)}"{current_attr}>{esc(label)}</a>')
     return f"""<body>
 <a class="skip-link" href="#sisalto">Siirry sisältöön</a>
-<div class="kb-promo"><div class="container">Syyskuun säästöt: 10 % toimitustukea · uudet käyttäjät 3000 CNY kuponkipaketti · <a href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Rekisteröidy Kakobuyhin</a></div></div>
+<div class="kb-promo"><div class="container">KAKOSEP 30.9 asti: 1300 CNY paketti + 10 % toimitus · uudet käyttäjät 3000 CNY · <a href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Rekisteröidy Kakobuyhin</a></div></div>
 <header class="site-header"><div class="container nav">
 <a class="brand" href="/" aria-label="Kakobuy Suomi – etusivu"><span class="brand-mark">K</span><span>Kakobuy <small>Suomi</small></span></a>
 <form class="kb-head-search" action="/kakobuy-spreadsheet/" method="get" role="search">
@@ -569,25 +569,25 @@ def page_home(catalog: dict) -> str:
 <p>Viralliset kampanjat Kakobuyssa. Ehdot, alennus ja voimassaolo vahvistetaan tilillä ennen maksua.</p></div>
 <div class="kb-offer-grid">
 <a class="kb-offer" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">
-<span class="kb-offer-tag">Toimitus</span>
-<strong>Syyskuun säästöt: 10 % toimitustukea</strong>
-<p>Sitewide-toimitustuki 8.–14.9.2026. Myönnetty tuki on käytettävissä 31.10.2026 asti.</p>
+<span class="kb-offer-tag">Koodi KAKOSEP</span>
+<strong>Syyskuun paketti 1300 CNY ≈ 167 € + extra 10 % toimitus</strong>
+<p>Lunastus 8.–30.9.2026 (Pekingin aika). Kakobuyssa: User Center → Coupons → Redeem, koodi <strong>KAKOSEP</strong>.</p>
 <span class="text-link">Avaa kampanja Kakobuyssa ↗</span></a>
 <a class="kb-offer" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">
 <span class="kb-offer-tag">Uusi käyttäjä</span>
 <strong>3000 CNY kuponkipaketti ≈ 410 $</strong>
 <p>Rekisteröidy kutsulinkillä. Kupongit näkyvät lompakossa; spreadsheet ei lisää niitä automaattisesti.</p>
 <span class="text-link">Rekisteröidy ↗</span></a>
+<a class="kb-offer" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">
+<span class="kb-offer-tag">10 % tuki</span>
+<strong>8.–14.9. myönnetty tuki käytössä 31.10.2026 asti</strong>
+<p>Sitewide-tuen hakuaika on päättynyt. Jos tuki on jo tilillä, Kakobuy ilmoittaa sen olevan käytettävissä 31.10. asti.</p>
+<span class="text-link">Säännöt Kakobuyssa ↗</span></a>
 <a class="kb-offer" href="/kakobuy-toimitus/">
 <span class="kb-offer-tag">EU</span>
 <strong>3 € tulli / paketti ja duty-free-linjat</strong>
 <p>Kakobuy tarjoaa EU-linjoja, joilla tullimaksu voi olla 3 € pakettia kohti. ALV 25,5 % Suomessa ratkaistaan tuonnissa.</p>
 <span class="text-link">Toimitus Suomeen →</span></a>
-<a class="kb-offer" href="/kuinka-kayttaa-kakobuyta/">
-<span class="kb-offer-tag">Ohje</span>
-<strong>How to buy + kutsu ystäviä</strong>
-<p>Tilaus, QC ja lähetys kuudessa vaiheessa. Kaverikutsut ja cash prizes ovat Kakobuy-tilin kampanjoita.</p>
-<span class="text-link">Avaa ostohje →</span></a>
 </div>
 </div></section>
 <section class="stats"><div class="container stats-grid">
@@ -946,26 +946,41 @@ def page_coupon() -> str:
     body = """
 <section class="article-hero"><div class="container">
 <h1>Kakobuy-kuponki ja kampanjat</h1>
-<p>Syyskuu 2026: 10 % toimitustuki, uuden käyttäjän 3000 CNY kuponkipaketti ja EU-linjojen 3 € tulli. Vahvista aina Kakobuy-tilillä.</p>
+<p>Virallinen kakobuy.com 15.9.2026: koodi <strong>KAKOSEP</strong> (1300 CNY paketti + extra 10 % toimitus 30.9 asti), uuden käyttäjän 3000 CNY, ja 10 % tuki käytössä 31.10 asti jos se ehdittiin myöntää. Vahvista aina Kakobuy-tilillä.</p>
 </div></section>
 <div class="container article-layout"><article class="article">
+<h2>KAKOSEP — 1300 CNY ≈ 167 € + extra 10 % toimitus</h2>
+<p>Kampanja 2 sivulla <a href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">kakobuy.com/tipdetail?id=55</a>. Aika: <strong>8.–30.9.2026</strong> (Pekingin aika). 15.9 koodi on yhä lunastettavissa.</p>
+<p>Koodi: <strong>KAKOSEP</strong>. Polku: User Center → Coupons → Redeem. Spreadsheet ei lisää koodia.</p>
+<p>Paketti (toimituskynnys CNY, Kakobuyn mukaan):</p>
+<ul>
+<li>1 × 10 % toimitus, ei minimiä</li>
+<li>1 × 300 CNY, kun toimitus yli 2000 CNY</li>
+<li>1 × 200 CNY yli 1500 CNY</li>
+<li>1 × 150 CNY yli 1000 CNY</li>
+<li>2 × 100 CNY yli 800 CNY</li>
+<li>3 × 80 CNY yli 500 CNY</li>
+<li>3 × 50 CNY yli 300 CNY</li>
+<li>2 × 30 CNY yli 21 CNY</li>
+</ul>
+<p>Prosenttialennuksia ei yhdistetä: lunasta paketti ja valitse kassalla se kuponki, joka säästää enemmän.</p>
 <h2>Uuden käyttäjän 3000 CNY ≈ 410 $</h2>
-<p>Virallinen tarjous Kakobuy.comissa: rekisteröidy ja saat kuponkipaketin (noin 3000 CNY / 410 USD). Kupongit näkyvät lompakossa, yleensä toimitukseen. Spreadsheet-selailu ei lisää koodia automaattisesti.</p>
+<p>Virallinen tarjous Kakobuy.comissa: rekisteröidy ja saat kuponkipaketin (noin 3000 CNY / 410 USD). Kupongit näkyvät lompakossa, yleensä toimitukseen.</p>
 <p>Rekisteröidy kutsulinkillä <a class="text-link" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">ikako.vip/r/yze69</a>. Lähde: <a href="https://www.kakobuy.com/tipdetail?id=1" target="_blank" rel="noopener noreferrer">kakobuy.com/tipdetail?id=1</a>.</p>
-<h2>Syyskuun säästöt — 10 % toimitustukea</h2>
-<p>Kampanja-aika 8.–14.9.2026 (Pekingin aika). Sitewide-toimitustuki 10 %. Myönnetty tuki on Kakobuyn mukaan käytettävissä 31.10.2026 asti. Tarkista tuotekohtainen kelpoisuus kassalla.</p>
-<p><a class="text-link" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">Avaa September Savings Kakobuyssa ↗</a></p>
+<h2>10 % sitewide-tuki — käytössä 31.10.2026 asti</h2>
+<p>Kampanja 1 samalla sivulla: tuen <em>hakuaika</em> oli 8.–14.9.2026 (Pekingin aika). Kakobuy ilmoittaa myönnetyn tuen olevan käytettävissä <strong>31.10.2026</strong> asti. 15.9 hakuaika on ohi; tarkista lompakko ja tuotesivu.</p>
 <h2>EU-linjat</h2>
 <p>Kakobuy ilmoittaa duty-free-linjoista EU:hun ja kategoriapohjaisesta <strong>3 euron tullista pakettia kohti</strong>. Suomen yleinen ALV on silti 25,5 %. Katso <a href="/kakobuy-toimitus/">toimitusopas</a>.</p>
 <h2>Kutsu ystäviä / Share &amp; earn</h2>
 <p>Käteispalkinnot ja kaverikutsut ovat Kakobuy-tilin kampanjoita. Niitä ei lunasteta tällä sivustolla.</p>
-<p><a class="button" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Rekisteröidy ja tarkista kupongit</a></p>
+<p><a class="button" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">Avaa September Savings / KAKOSEP</a>
+<a class="button secondary" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Rekisteröidy</a></p>
 </article></div>
 """
     return wrap(
         "kakobuy-coupon",
-        "Kakobuy-kuponki 2026 – 3000 CNY ja syyskuun toimitustuki",
-        "Kakobuy-kupongit suomalaisille: uuden käyttäjän 3000 CNY paketti, syyskuun 10 % toimitustuki ja EU 3 € tulli. Vahvista tarjous Kakobuy-tilillä.",
+        "Kakobuy-kuponki 2026 – KAKOSEP 1300 CNY ja 3000 CNY paketti",
+        "Kakobuy-kupongit suomalaisille: koodi KAKOSEP (1300 CNY + 10 % toimitus 30.9 asti) ja uuden käyttäjän 3000 CNY. Vahvista tarjous Kakobuy-tilillä.",
         body,
         og_type="article",
     )
@@ -1147,9 +1162,9 @@ def assert_quality(out_dir: Path) -> None:
         raise SystemExit("Finnish nav missing")
     if "kb-promo" not in home or "kakobuy-logo.png" not in (out_dir / "assets" / "fi.css").read_text(encoding="utf-8"):
         raise SystemExit("FI site missing Kakobuy promo strip or official logo")
-    if "3000 CNY" not in home:
+    if "3000 CNY" not in home or "KAKOSEP" not in home:
         raise SystemExit("home missing latest Kakobuy coupon promo")
-    if "24 tuotetta" in home or "24 tuotetta" in sheet:
+    if re.search(r"(?<![0-9\u00a0])24 tuotetta", home) or re.search(r"(?<![0-9\u00a0])24 tuotetta", sheet):
         raise SystemExit("FI site still hardcodes the 24-product CZ catalog")
 
 

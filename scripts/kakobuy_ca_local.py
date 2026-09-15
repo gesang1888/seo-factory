@@ -23,7 +23,7 @@ API_PHP = ROOT / "templates" / "api" / "products.php"
 DOMAIN = "kakospreadsheet.ca"
 BASE = f"https://{DOMAIN}"
 TODAY = date.today().isoformat()
-ASSET_V = "20260914f"
+ASSET_V = "20260915b"
 RUNTIME: dict = {}
 
 NAV = [
@@ -263,7 +263,7 @@ def header(current: str) -> str:
         links.append(f'<a href="{esc(href)}"{current_attr}>{esc(label)}</a>')
     return f"""<body>
 <a class="skip-link" href="#content">Skip to content</a>
-<div class="kb-promo"><div class="container">September Savings: 10% shipping subsidy · new users 3000 CNY coupon bundle · <a href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Register on Kakobuy</a></div></div>
+<div class="kb-promo"><div class="container">KAKOSEP until 30 Sep: ¥1300 pack + extra 10% off shipping · new users 3000 CNY · <a href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Register on Kakobuy</a></div></div>
 <header class="site-header"><div class="container nav">
 <a class="brand" href="/" aria-label="Kakobuy Spreadsheet Canada – home"><span class="brand-mark">K</span><span>Kakobuy <small>Canada</small></span></a>
 <form class="kb-head-search" action="/kakobuy-spreadsheet/" method="get" role="search">
@@ -513,25 +513,25 @@ def page_home(catalog: dict) -> str:
 <p>Official Kakobuy campaigns. Terms, discount and dates are confirmed on your account before payment.</p></div>
 <div class="kb-offer-grid">
 <a class="kb-offer" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">
-<span class="kb-offer-tag">Shipping</span>
-<strong>September Savings: 10% shipping subsidy</strong>
-<p>Sitewide shipping subsidy 8–14 Sep 2026. Granted credit can be used until 31 Oct 2026.</p>
+<span class="kb-offer-tag">Code KAKOSEP</span>
+<strong>September pack 1300 CNY ≈ C$269 + extra 10% off shipping</strong>
+<p>Redeem 8–30 Sep 2026 (Beijing time). On Kakobuy: User Center → Coupons → Redeem, code <strong>KAKOSEP</strong>.</p>
 <span class="text-link">Open campaign on Kakobuy ↗</span></a>
 <a class="kb-offer" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">
 <span class="kb-offer-tag">New user</span>
 <strong>3000 CNY coupon bundle ≈ C$620</strong>
 <p>Register with the invite link. Coupons appear in the wallet; browsing the spreadsheet does not apply them automatically.</p>
 <span class="text-link">Register ↗</span></a>
+<a class="kb-offer" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">
+<span class="kb-offer-tag">10% subsidy</span>
+<strong>Credit from 8–14 Sep, usable until 31 Oct 2026</strong>
+<p>The window to earn the sitewide subsidy has closed. If Kakobuy already granted it, they say it can be used until 31 Oct 2026.</p>
+<span class="text-link">See rules on Kakobuy ↗</span></a>
 <a class="kb-offer" href="/kakobuy-shipping-to-canada/">
 <span class="kb-offer-tag">Canada</span>
 <strong>CBSA, GST and duty-aware lines</strong>
 <p>Most China parcels to Canada are assessed for GST and may face duty or brokerage. Compare tax-prepaid lines on Kakobuy.</p>
 <span class="text-link">Shipping to Canada →</span></a>
-<a class="kb-offer" href="/how-to-use-kakobuy/">
-<span class="kb-offer-tag">Guide</span>
-<strong>How to buy + invite friends</strong>
-<p>Order, QC and ship in six steps. Friend invites and cash prizes are Kakobuy-account campaigns.</p>
-<span class="text-link">Open buying guide →</span></a>
 </div>
 </div></section>
 <section class="stats"><div class="container stats-grid">
@@ -825,26 +825,41 @@ def page_coupon() -> str:
     body = """
 <section class="article-hero"><div class="container">
 <h1>Kakobuy coupons and campaigns</h1>
-<p>September 2026: 10% shipping subsidy, new-user 3000 CNY coupon bundle, and Canada import costs that you still confirm on Kakobuy.</p>
+<p>Official on kakobuy.com on 15 Sep 2026: code <strong>KAKOSEP</strong> (¥1300 pack + extra 10% off shipping until 30 Sep), new-user 3000 CNY pack, and 10% subsidy credit usable until 31 Oct if already granted. Always confirm in the Kakobuy account.</p>
 </div></section>
 <div class="container article-layout"><article class="article">
+<h2>KAKOSEP — ¥1300 pack ≈ C$269 + extra 10% off shipping</h2>
+<p>Campaign 2 on <a href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">kakobuy.com/tipdetail?id=55</a>. Duration: <strong>8–30 Sep 2026</strong> (Beijing time). It is still redeemable on 15 Sep.</p>
+<p>Code: <strong>KAKOSEP</strong>. Path: User Center → Coupons → Redeem. This spreadsheet does not apply the code.</p>
+<p>The pack includes (shipping thresholds in CNY, per Kakobuy):</p>
+<ul>
+<li>1 × 10% off shipping, no minimum</li>
+<li>1 × ¥300 when shipping is over ¥2000</li>
+<li>1 × ¥200 over ¥1500</li>
+<li>1 × ¥150 over ¥1000</li>
+<li>2 × ¥100 over ¥800</li>
+<li>3 × ¥80 over ¥500</li>
+<li>3 × ¥50 over ¥300</li>
+<li>2 × ¥30 over ¥21</li>
+</ul>
+<p>Percentage coupons do not stack with each other: redeem the pack, then pick the coupon that saves more at checkout.</p>
 <h2>New-user 3000 CNY ≈ C$620</h2>
-<p>Official offer on Kakobuy.com: register and receive a coupon bundle (about 3000 CNY). Coupons show in the wallet, usually for shipping. Browsing the spreadsheet does not add a code automatically.</p>
+<p>Official offer on Kakobuy.com: register and receive a coupon bundle (about 3000 CNY / 410 USD). Coupons show in the wallet, usually for shipping.</p>
 <p>Register with invite link <a class="text-link" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">ikako.vip/r/yze69</a>. Source: <a href="https://www.kakobuy.com/tipdetail?id=1" target="_blank" rel="noopener noreferrer">kakobuy.com/tipdetail?id=1</a>.</p>
-<h2>September Savings — 10% shipping subsidy</h2>
-<p>Campaign window 8–14 Sep 2026 (Beijing time). Sitewide 10% shipping subsidy. Kakobuy says granted credit can be used until 31 Oct 2026. Check product eligibility at checkout.</p>
-<p><a class="text-link" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">Open September Savings on Kakobuy ↗</a></p>
+<h2>10% sitewide subsidy — credit until 31 Oct 2026</h2>
+<p>Campaign 1 on the same page: the window to <em>earn</em> the subsidy was 8–14 Sep 2026 (Beijing time). Kakobuy says granted credit can be used until <strong>31 Oct 2026</strong>. 15 Sep is after that signup window; check the wallet and the product page.</p>
 <h2>Canada lines</h2>
 <p>EU €3-per-parcel customs does not apply in Canada. Budget for GST, possible duty and brokerage, unless you pick a Kakobuy line that states tax is prepaid. See the <a href="/kakobuy-shipping-to-canada/">Canada shipping guide</a>.</p>
 <h2>Invite friends / Share &amp; earn</h2>
 <p>Cash prizes and friend invites are Kakobuy-account campaigns. They are not redeemed on this site.</p>
-<p><a class="button" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Register and check coupons</a></p>
+<p><a class="button" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">Open September Savings / KAKOSEP</a>
+<a class="button secondary" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Register</a></p>
 </article></div>
 """
     return wrap(
         "kakobuy-coupons",
-        "Kakobuy coupon 2026 – 3000 CNY and September shipping subsidy",
-        "Kakobuy coupons for Canadian buyers: new-user 3000 CNY bundle, September 10% shipping subsidy. Confirm the offer on your Kakobuy account.",
+        "Kakobuy coupon 2026 – KAKOSEP ¥1300 and 3000 CNY pack",
+        "Kakobuy coupons for Canadian buyers: code KAKOSEP (¥1300 pack + extra 10% off shipping until 30 Sep) and new-user 3000 CNY bundle. Confirm the offer on Kakobuy.",
         body,
         og_type="article",
     )
@@ -1237,7 +1252,7 @@ def assert_quality(out_dir: Path) -> None:
         raise SystemExit("Canada nav missing")
     if "kb-promo" not in home or "kakobuy-logo.png" not in (out_dir / "assets" / "fi.css").read_text(encoding="utf-8"):
         raise SystemExit("CA site missing Kakobuy promo strip or official logo")
-    if "3000 CNY" not in home:
+    if "3000 CNY" not in home or "KAKOSEP" not in home:
         raise SystemExit("home missing latest Kakobuy coupon promo")
     if "w2clinks.com/spreadsheet" in home:
         raise SystemExit("CA home still sends catalog traffic to W2CLinks spreadsheet")

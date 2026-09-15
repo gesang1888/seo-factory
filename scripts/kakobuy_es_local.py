@@ -23,7 +23,7 @@ API_PHP = ROOT / "templates" / "api" / "products.php"
 DOMAIN = "kakospreadsheet.es"
 BASE = f"https://{DOMAIN}"
 TODAY = date.today().isoformat()
-ASSET_V = "20260915a"
+ASSET_V = "20260915b"
 RUNTIME: dict = {}
 
 NAV = [
@@ -266,7 +266,7 @@ def header(current: str) -> str:
         links.append(f'<a href="{esc(href)}"{current_attr}>{esc(label)}</a>')
     return f"""<body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
-<div class="kb-promo"><div class="container">Ahorro de septiembre: 10 % de subvención de envío · nuevos usuarios pack 3000 CNY · <a href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Regístrate en Kakobuy</a></div></div>
+<div class="kb-promo"><div class="container">KAKOSEP hasta el 30.9: pack 1300 CNY + 10 % envío · nuevos usuarios 3000 CNY · <a href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Regístrate en Kakobuy</a></div></div>
 <header class="site-header"><div class="container nav">
 <a class="brand" href="/" aria-label="Kakobuy Spreadsheet España – inicio"><span class="brand-mark">K</span><span>Kakobuy <small>España</small></span></a>
 <form class="kb-head-search" action="/kakobuy-spreadsheet/" method="get" role="search">
@@ -517,25 +517,25 @@ def page_home(catalog: dict) -> str:
 <p>Campañas oficiales de Kakobuy. Condiciones, descuento y fechas se confirman en la cuenta antes de pagar.</p></div>
 <div class="kb-offer-grid">
 <a class="kb-offer" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">
-<span class="kb-offer-tag">Envío</span>
-<strong>Ahorro de septiembre: 10 % de subvención de envío</strong>
-<p>Subvención de envío en todo el sitio del 8 al 14.9.2026. El crédito concedido se puede usar hasta el 31.10.2026.</p>
+<span class="kb-offer-tag">Código KAKOSEP</span>
+<strong>Pack septiembre 1300 CNY ≈ 167 € + 10 % extra de envío</strong>
+<p>Canjeable del 8 al 30.9.2026 (hora de Pekín). En Kakobuy: Centro de usuario → Cupones → Canjear, código <strong>KAKOSEP</strong>.</p>
 <span class="text-link">Abrir campaña en Kakobuy ↗</span></a>
 <a class="kb-offer" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">
 <span class="kb-offer-tag">Usuario nuevo</span>
 <strong>Pack de cupones 3000 CNY ≈ 386 €</strong>
 <p>Regístrate con el enlace de invitación. Los cupones aparecen en el monedero; el spreadsheet no los aplica solo.</p>
 <span class="text-link">Registrarse ↗</span></a>
+<a class="kb-offer" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">
+<span class="kb-offer-tag">Subvención 10 %</span>
+<strong>Crédito de envío del 8–14.9, usable hasta el 31.10.2026</strong>
+<p>La ventana para obtener la subvención sitewide ya cerró. Si te la concedieron, Kakobuy indica que vale hasta el 31.10.2026.</p>
+<span class="text-link">Ver reglas en Kakobuy ↗</span></a>
 <a class="kb-offer" href="/envio-kakobuy-espana/">
 <span class="kb-offer-tag">UE / España</span>
 <strong>3 € de arancel / paquete y líneas duty-free</strong>
 <p>Kakobuy ofrece líneas a la UE con arancel de unos 3 € por paquete en partidas elegibles. El IVA 21 % en España se resuelve en la importación.</p>
 <span class="text-link">Envío a España →</span></a>
-<a class="kb-offer" href="/como-comprar-en-kakobuy/">
-<span class="kb-offer-tag">Guía</span>
-<strong>Cómo comprar + invita amigos</strong>
-<p>Pedido, QC y envío en seis pasos. Invitaciones y premios en efectivo son campañas de la cuenta Kakobuy.</p>
-<span class="text-link">Abrir guía →</span></a>
 </div>
 </div></section>
 <section class="stats"><div class="container stats-grid">
@@ -849,26 +849,41 @@ def page_coupon() -> str:
     body = """
 <section class="article-hero"><div class="container">
 <h1>Cupón Kakobuy y campañas</h1>
-<p>Septiembre 2026: 10 % de subvención de envío, pack de 3000 CNY para usuarios nuevos y arancel UE de 3 €. Confirma siempre en la cuenta de Kakobuy.</p>
+<p>Oficial en kakobuy.com el 15.9.2026: código <strong>KAKOSEP</strong> (pack 1300 CNY + 10 % extra de envío hasta el 30.9), pack nuevo usuario 3000 CNY, y crédito de subvención 10 % usable hasta el 31.10 si ya te lo concedieron. Confirma siempre en la cuenta.</p>
 </div></section>
 <div class="container article-layout"><article class="article">
+<h2>KAKOSEP — pack 1300 CNY ≈ 167 € + 10 % extra de envío</h2>
+<p>Campaña 2 de <a href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">kakobuy.com/tipdetail?id=55</a>. Duración: <strong>8–30.9.2026</strong> (hora de Pekín). Hoy 15.9 todavía se puede canjear.</p>
+<p>Código: <strong>KAKOSEP</strong>. Ruta: Centro de usuario → Cupones → Canjear. El spreadsheet no aplica el código.</p>
+<p>El pack incluye (umbrales en CNY de flete, según Kakobuy):</p>
+<ul>
+<li>1 × 10 % de envío, sin mínimo</li>
+<li>1 × 300 CNY si el envío supera 2000 CNY</li>
+<li>1 × 200 CNY si supera 1500 CNY</li>
+<li>1 × 150 CNY si supera 1000 CNY</li>
+<li>2 × 100 CNY si supera 800 CNY</li>
+<li>3 × 80 CNY si supera 500 CNY</li>
+<li>3 × 50 CNY si supera 300 CNY</li>
+<li>2 × 30 CNY si supera 21 CNY</li>
+</ul>
+<p>Los porcentajes no se combinan entre sí: canjea el pack y en caja elige el cupón que más descuente.</p>
 <h2>Usuario nuevo 3000 CNY ≈ 386 €</h2>
-<p>Oferta oficial en Kakobuy.com: regístrate y recibe un pack de cupones (unos 3000 CNY). Aparecen en el monedero, suele ser para envío. Navegar el spreadsheet no añade el código solo.</p>
+<p>Oferta oficial en Kakobuy.com: regístrate y recibe un pack de cupones (unos 3000 CNY / 410 USD). Aparecen en el monedero, suele ser para envío.</p>
 <p>Regístrate con el enlace <a class="text-link" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">ikako.vip/r/yze69</a>. Fuente: <a href="https://www.kakobuy.com/tipdetail?id=1" target="_blank" rel="noopener noreferrer">kakobuy.com/tipdetail?id=1</a>.</p>
-<h2>Ahorro de septiembre — 10 % de subvención de envío</h2>
-<p>Ventana 8–14.9.2026 (hora de Pekín). Subvención de envío del 10 % en el sitio. Kakobuy indica que el crédito concedido se puede usar hasta el 31.10.2026. Comprueba la elegibilidad del producto en caja.</p>
-<p><a class="text-link" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">Abrir September Savings en Kakobuy ↗</a></p>
+<h2>Subvención sitewide 10 % — crédito hasta el 31.10.2026</h2>
+<p>Campaña 1 de la misma página: ventana para <em>obtener</em> la subvención 8–14.9.2026 (hora de Pekín). Kakobuy indica que el crédito ya concedido se puede usar hasta el <strong>31.10.2026</strong>. El 15.9 ya no es la ventana de alta; comprueba el monedero y la ficha del producto.</p>
 <h2>Líneas UE</h2>
 <p>Kakobuy anuncia líneas duty-free a la UE y un <strong>arancel de 3 € por paquete</strong> en partidas elegibles. El IVA general en España sigue siendo el 21 %. Ver <a href="/envio-kakobuy-espana/">guía de envío</a>.</p>
 <h2>Invita amigos / Share &amp; earn</h2>
 <p>Premios en efectivo e invitaciones son campañas de la cuenta Kakobuy. No se canjean en este sitio.</p>
-<p><a class="button" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Regístrate y revisa cupones</a></p>
+<p><a class="button" href="https://www.kakobuy.com/tipdetail?id=55" target="_blank" rel="noopener noreferrer">Abrir September Savings / KAKOSEP</a>
+<a class="button secondary" href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Regístrate</a></p>
 </article></div>
 """
     return wrap(
         "kakobuy-coupon",
-        "Cupón Kakobuy 2026 – 3000 CNY y subvención de envío",
-        "Cupones Kakobuy para España: pack de 3000 CNY para nuevos usuarios y 10 % de subvención de envío en septiembre. Confirma la oferta en Kakobuy.",
+        "Cupón Kakobuy 2026 – KAKOSEP 1300 CNY y pack 3000 CNY",
+        "Cupones Kakobuy para España: código KAKOSEP (pack 1300 CNY + 10 % envío hasta el 30.9) y pack de 3000 CNY para nuevos usuarios. Confirma en Kakobuy.",
         body,
         og_type="article",
     )
@@ -1271,7 +1286,7 @@ def assert_quality(out_dir: Path) -> None:
         raise SystemExit("Spain nav missing")
     if "kb-promo" not in home or "kakobuy-logo.png" not in (out_dir / "assets" / "fi.css").read_text(encoding="utf-8"):
         raise SystemExit("ES site missing Kakobuy promo strip or official logo")
-    if "3000 CNY" not in home:
+    if "3000 CNY" not in home or "KAKOSEP" not in home:
         raise SystemExit("home missing latest Kakobuy coupon promo")
     if "w2clinks.com/spreadsheet" in home:
         raise SystemExit("ES home still sends catalog traffic to W2CLinks spreadsheet")

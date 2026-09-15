@@ -22,7 +22,7 @@ SSL_CTX.verify_mode = ssl.CERT_NONE
 DEFAULT_ACTIVITIES = [
     {
         "id": "55",
-        "title_zh": "SEPTEMBER SAVINGS ARE HERE! 10% shipping subsidy",
+        "title_zh": "SEPTEMBER SAVINGS: KAKOSEP ¥1300 pack + extra 10% off shipping (to 30 Sep); 10% subsidy credit to 31 Oct",
         "url": "https://www.kakobuy.com/tipdetail?id=55",
         "image": "https://nstatic.kakobuy.com/banner/202602/01/8d1ab6034ac0f85d928ab89ce692e0ff.png",
         "kind": "campaign",
@@ -52,11 +52,11 @@ TITLE_I18N: dict[str, dict[str, str]] = {
         "fi": "Uudet käyttäjät: 3000 CNY kuponkipaketti (≈ 410 $) — rekisteröidy Kakobuyhin",
     },
     "55": {
-        "en": "September Savings: 10% sitewide shipping subsidy (8–14 Sep, use by 31 Oct 2026)",
-        "es": "September Savings: 10% de subvención de envío (8–14 sep., válido hasta 31 oct 2026)",
-        "fr": "September Savings : 10 % de subvention livraison (8–14 sept., valable jusqu’au 31 oct. 2026)",
-        "nl": "September Savings: 10% verzendsubsidie (8–14 sep, geldig tot 31 okt 2026)",
-        "fi": "Syyskuun säästöt: 10 % toimitustuki (8.–14.9., käytettävissä 31.10.2026 asti)",
+        "en": "KAKOSEP: ¥1300 coupon pack + extra 10% off shipping (redeem by 30 Sep 2026)",
+        "es": "KAKOSEP: pack 1300 CNY + 10 % extra de envío (canje hasta el 30 sep 2026)",
+        "fr": "KAKOSEP : pack 1300 CNY + 10 % extra livraison (à utiliser avant le 30 sept. 2026)",
+        "nl": "KAKOSEP: 1300 CNY-pakket + extra 10% verzending (inwisselen tot 30 sep 2026)",
+        "fi": "KAKOSEP: 1300 CNY paketti + extra 10 % toimitus (lunastus 30.9.2026 asti)",
     },
     "eu3": {
         "en": "EU customs from €3 per parcel on eligible Kakobuy lines",
