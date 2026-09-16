@@ -94,11 +94,15 @@ REGION_EXCLUSIVE_SLUGS: dict[str, list[str]] = {
         "livraison-kakobuy",
         "kakobuy-france",
         "meilleur-kakobuy-spreadsheet",
+        "kako-buy",  # kako buy / kako-buy misspellings
+        "kako-spreadsheet",  # kako spreadsheet / kako-buy spreadsheet
     ],
     "NL": [
         "kakobuy-ervaringen",  # reviews + is kakobuy betrouwbaar
         "kakobuy-verzending",
-        "best-kakobuy-spreadsheet",  # KD 3% — prioritize on NL (also in COMMON)
+        "best-kakobuy-spreadsheet",  # KD 3% — nginx 301 to spreadsheet
+        "kako-buy",
+        "kako-spreadsheet",
     ],
     "CA": [
         "kakobuy-canada",  # canada cluster 10 words
@@ -136,8 +140,21 @@ SLUG_KEYWORDS: dict[str, dict[str, list[str]]] = {
     "kakobuy-spreadsheet": {
         "en": ["kakobuy spreadsheet", "kakobuy spreadsheets", "spreadsheet kakobuy"],
         "es": ["kakobuy spreadsheet", "kakobuy spreedsheet", "spreadsheet kakobuy"],
-        "fr": ["kakobuy spreadsheet", "spreadsheet kakobuy"],
-        "nl": ["kakobuy spreadsheet", "kakobuy spreadsheet 2025", "spreadsheet kakobuy"],
+        "fr": [
+            "kakobuy spreadsheet",
+            "spreadsheet kakobuy",
+            "kako spreadsheet",
+            "kako-spreadsheet",
+            "kako-buy spreadsheet",
+        ],
+        "nl": [
+            "kakobuy spreadsheet",
+            "kakobuy spreadsheet 2025",
+            "spreadsheet kakobuy",
+            "best kakobuy spreadsheet",
+            "beste kakobuy spreadsheet",
+            "kako spreadsheet",
+        ],
         "fi": ["kakobuy spreadsheet"],
     },
     "best-kakobuy-spreadsheet": {
@@ -186,6 +203,14 @@ SLUG_KEYWORDS: dict[str, dict[str, list[str]]] = {
     },
     "kakobuy-opiniones": {"es": ["kakobuy opiniones"]},
     "avis-kakobuy": {"fr": ["kakobuy avis"]},
+    "kako-buy": {
+        "fr": ["kako buy", "kako-buy", "kako buy spreadsheet"],
+        "nl": ["kako buy", "kako-buy", "kako buy spreadsheet"],
+    },
+    "kako-spreadsheet": {
+        "fr": ["kako spreadsheet", "kako-spreadsheet", "kako-buy spreadsheet"],
+        "nl": ["kako spreadsheet", "kako-spreadsheet", "kako-buy spreadsheet"],
+    },
     "kakobuy-ervaringen": {"nl": ["kakobuy reviews", "is kakobuy betrouwbaar"]},
     "kakobuy-canada": {"en": ["kakobuy canada"]},
     "kakobuy-kokemuksia": {"fi": ["kakobuy kokemuksia", "onko kakobuy luotettava"]},
