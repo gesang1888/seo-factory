@@ -94,6 +94,8 @@ REGION_EXCLUSIVE_SLUGS: dict[str, list[str]] = {
         "livraison-kakobuy",
         "kakobuy-france",
         "meilleur-kakobuy-spreadsheet",
+        "kako-buy",  # kako buy / kako-buy misspellings
+        "kako-spreadsheet",  # kako spreadsheet / kako-buy spreadsheet
     ],
     "NL": [
         "kakobuy-ervaringen",  # reviews + is kakobuy betrouwbaar
@@ -136,7 +138,13 @@ SLUG_KEYWORDS: dict[str, dict[str, list[str]]] = {
     "kakobuy-spreadsheet": {
         "en": ["kakobuy spreadsheet", "kakobuy spreadsheets", "spreadsheet kakobuy"],
         "es": ["kakobuy spreadsheet", "kakobuy spreedsheet", "spreadsheet kakobuy"],
-        "fr": ["kakobuy spreadsheet", "spreadsheet kakobuy"],
+        "fr": [
+            "kakobuy spreadsheet",
+            "spreadsheet kakobuy",
+            "kako spreadsheet",
+            "kako-spreadsheet",
+            "kako-buy spreadsheet",
+        ],
         "nl": ["kakobuy spreadsheet", "kakobuy spreadsheet 2025", "spreadsheet kakobuy"],
         "fi": ["kakobuy spreadsheet"],
     },
@@ -186,6 +194,10 @@ SLUG_KEYWORDS: dict[str, dict[str, list[str]]] = {
     },
     "kakobuy-opiniones": {"es": ["kakobuy opiniones"]},
     "avis-kakobuy": {"fr": ["kakobuy avis"]},
+    "kako-buy": {"fr": ["kako buy", "kako-buy", "kako buy spreadsheet"]},
+    "kako-spreadsheet": {
+        "fr": ["kako spreadsheet", "kako-spreadsheet", "kako-buy spreadsheet"]
+    },
     "kakobuy-ervaringen": {"nl": ["kakobuy reviews", "is kakobuy betrouwbaar"]},
     "kakobuy-canada": {"en": ["kakobuy canada"]},
     "kakobuy-kokemuksia": {"fi": ["kakobuy kokemuksia", "onko kakobuy luotettava"]},
