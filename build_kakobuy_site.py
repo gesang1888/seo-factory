@@ -26,6 +26,7 @@ from scripts.kakobuy_ca_local import build_kakobuy_ca  # noqa: E402
 from scripts.kakobuy_es_local import build_kakobuy_es  # noqa: E402
 from scripts.kakobuy_fi_local import build_kakobuy_fi  # noqa: E402
 from scripts.kakobuy_fr_local import build_kakobuy_fr  # noqa: E402
+from scripts.kakobuy_nl_local import build_kakobuy_nl  # noqa: E402
 from scripts.renderer_kakobuy import (  # noqa: E402
     copy_assets,
     render_page,
@@ -100,6 +101,8 @@ def build_domain(
         return build_kakobuy_es(DIST / domain)
     if domain == "kakospreadsheet.fr":
         return build_kakobuy_fr(DIST / domain)
+    if domain == "kakospreadsheet.nl":
+        return build_kakobuy_nl(DIST / domain)
 
     region = meta["region"]
     lang = meta["lang"]

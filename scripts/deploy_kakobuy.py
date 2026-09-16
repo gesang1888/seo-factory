@@ -70,7 +70,7 @@ USER = os.environ.get(
 VERIFY_NEEDLES: dict[str, str] = {
     "kakospreadsheet.es": "Kakobuy Spreadsheet España",
     "kakospreadsheet.fr": "Kakobuy Spreadsheet France",
-    "kakospreadsheet.nl": "Kakobuy",
+    "kakospreadsheet.nl": "Kakobuy Spreadsheet Nederland",
     "kakospreadsheet.ca": "Kakobuy Spreadsheet Canada",
     "kakobuy.fi": "Kakobuy Suomi",
 }
@@ -460,6 +460,44 @@ def main() -> None:
                 client,
                 "curl -sk --resolve kakospreadsheet.fr:443:127.0.0.1 "
                 "'https://kakospreadsheet.fr/api/products.php?per_page=2&q=jordan' "
+                "| python3 -c \"import sys,json; d=json.load(sys.stdin); print('api', d.get('ok'), d.get('found'), len(d.get('hits') or []))\"",
+            )
+        )
+    if "kakospreadsheet.nl" in CANONICAL_DOMAINS:
+        print("=== verify kakospreadsheet.nl product logic ===")
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakospreadsheet.nl:443:127.0.0.1 https://kakospreadsheet.nl/ "
+                "| grep -oiE 'W2CLinks|Search intent|prijzen in euro|Kakobuy Spreadsheet Nederland|Spreadsheet openen|21 %|3000 CNY|kako buy|betrouwbaar' | head -20",
+            )
+        )
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakospreadsheet.nl:443:127.0.0.1 https://kakospreadsheet.nl/kakobuy-spreadsheet/ "
+                "| grep -oiE 'sheet-product|Openen op Kakobuy|api/products.php|Beste Kakobuy|W2CLinks' | head -20",
+            )
+        )
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakospreadsheet.nl:443:127.0.0.1 https://kakospreadsheet.nl/kako-buy/ "
+                "| grep -oiE 'kako buy|kako-buy|Kakobuy' | head -12",
+            )
+        )
+        print(
+            run(
+                client,
+                "curl -skI --resolve kakospreadsheet.nl:443:127.0.0.1 https://kakospreadsheet.nl/best-kakobuy-spreadsheet/ "
+                "| grep -iE 'HTTP/|location'",
+            )
+        )
+        print(
+            run(
+                client,
+                "curl -sk --resolve kakospreadsheet.nl:443:127.0.0.1 "
+                "'https://kakospreadsheet.nl/api/products.php?per_page=2&q=jordan' "
                 "| python3 -c \"import sys,json; d=json.load(sys.stdin); print('api', d.get('ok'), d.get('found'), len(d.get('hits') or []))\"",
             )
         )
