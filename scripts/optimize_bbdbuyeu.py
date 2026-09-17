@@ -1175,9 +1175,84 @@ def _connect():
     return client
 
 
-def _run(client, cmd: str, timeout: int = 60) -> str:
-    _, stdout, stderr = client.exec_command(cmd, timeout=timeout)
-    return (stdout.read() + stderr.read()).decode(errors="replace").strip()
+SITEMAP_NGINX = """location = /sitemap.xml {
+    charset utf-8;
+    charset_types application/xml text/xml;
+    types { application/xml xml; }
+    default_type application/xml;
+    gzip on;
+    gzip_types application/xml text/xml;
+    try_files /sitemap.xml =404;
+    add_header Cache-Control "public, max-age=3600" always;
+}
+location = /sitemap-products.xml {
+    charset utf-8;
+    charset_types application/xml text/xml;
+    types { application/xml xml; }
+    default_type application/xml;
+    gzip on;
+    gzip_types application/xml text/xml;
+    try_files /sitemap-products.xml =404;
+    add_header Cache-Control "public, max-age=3600" always;
+}
+location = /robots.txt {
+    default_type text/plain;
+    try_files $uri =404;
+    add_header Cache-Control "public, max-age=3600" always;
+}
+location = /llms.txt {
+    default_type text/plain;
+    try_files /llms.txt =404;
+    add_header Cache-Control "public, max-age=3600" always;
+}
+"""
+
+
+def _ensure_nginx(client) -> None:
+    """Keep /api/products/ on PHP and sitemap XML types for GSC."""
+    payload = json.dumps(
+        {
+            "marker": "rewrite ^ /api/products.php last;",
+            "old": (
+                "    location /api/ {\n"
+                "        try_files $uri =404;\n"
+                '        add_header X-Robots-Tag "noindex, nofollow" always;\n'
+                "    }"
+            ),
+            "new": (
+                "    location = /api/ {\n"
+                "        return 404;\n"
+                '        add_header X-Robots-Tag "noindex, nofollow" always;\n'
+                "    }\n"
+                "    location ~ ^/api/products/?$ {\n"
+                "        rewrite ^ /api/products.php last;\n"
+                "    }"
+            ),
+            "desired": SITEMAP_NGINX,
+        }
+    )
+    print(
+        _run(
+            client,
+            "python3 -c "
+            + json.dumps(
+                "import json,subprocess\n"
+                "from pathlib import Path\n"
+                f"d=json.loads({payload!r})\n"
+                'p=Path("/www/server/panel/vhost/nginx/bbdbuyeu.net.conf")\n'
+                "t=p.read_text()\n"
+                "changed=False\n"
+                'if d["marker"] not in t and d["old"] in t:\n'
+                '    t=t.replace(d["old"], d["new"], 1); p.write_text(t); changed=True\n'
+                'ext=Path("/www/server/panel/vhost/nginx/extension/bbdbuyeu.net/gsc-sitemap.conf")\n'
+                'if (not ext.exists()) or "sitemap-products.xml" not in ext.read_text():\n'
+                '    ext.write_text(d["desired"]); changed=True\n'
+                'print("nginx-seo-patched" if changed else "nginx-seo-ok")\n'
+            )
+            + " && nginx -t && nginx -s reload",
+            timeout=30,
+        )
+    )
 
 
 def deploy(skip_products: bool = False, product_limit: int = 0) -> None:
@@ -1292,6 +1367,7 @@ def deploy(skip_products: bool = False, product_limit: int = 0) -> None:
         timeout=120,
     )
     print(stale)
+    _ensure_nginx(client)
     client.close()
     print("bbdbuyeu.net seo deploy done")
 
