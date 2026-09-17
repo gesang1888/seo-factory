@@ -276,61 +276,63 @@ def jsonld_script() -> str:
     return f'<script type="application/ld+json">{payload}</script>'
 
 
-ROBOTS_TXT = """User-Agent: *
+# Keep in sync with lit-buy-spreadsheet.com: allow search + AI crawlers on
+# HTML landings. Cloudflare "Block AI bots" still overrides this at the edge.
+_AI_ALLOW = """Allow: /
+Allow: /product/
+Allow: /blog/
+Allow: /allchinabuy-spreadsheet
+Allow: /acbuy-spreadsheet
+Allow: /tools/
+Allow: /customs-calculator
+Allow: /sizing-guide
+Allow: /compare-shopping-agents
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /admin/
+"""
+
+ROBOTS_TXT = f"""User-Agent: *
 Allow: /
 Disallow: /api/
 Disallow: /.bak
 Disallow: /admin/
 
 User-Agent: Googlebot
+{_AI_ALLOW}
+User-Agent: Googlebot-Image
 Allow: /
-Allow: /allchinabuy-spreadsheet
-Allow: /acbuy-spreadsheet
-Allow: /blog/
 Allow: /product/
-Allow: /tools/
-Allow: /customs-calculator
-Allow: /sizing-guide
-Allow: /compare-shopping-agents
 Disallow: /api/
+Disallow: /admin/
 
 User-Agent: Bingbot
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-
+{_AI_ALLOW}
 User-Agent: GPTBot
-Allow: /
-Allow: /allchinabuy-spreadsheet
-Allow: /acbuy-spreadsheet
-Allow: /blog/
-Disallow: /api/
-Disallow: /admin/
-
+{_AI_ALLOW}
 User-Agent: ChatGPT-User
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-
+{_AI_ALLOW}
+User-Agent: OAI-SearchBot
+{_AI_ALLOW}
 User-Agent: PerplexityBot
-Allow: /
-Allow: /blog/
-Allow: /allchinabuy-spreadsheet
-Disallow: /api/
-
+{_AI_ALLOW}
 User-Agent: Anthropic-AI
-Allow: /
-Disallow: /api/
-
+{_AI_ALLOW}
+User-Agent: ClaudeBot
+{_AI_ALLOW}
+User-Agent: Claude-SearchBot
+{_AI_ALLOW}
+User-Agent: Claude-User
+{_AI_ALLOW}
 User-Agent: Google-Extended
 Allow: /
+Allow: /product/
+Allow: /blog/
+Allow: /llms.txt
 
-User-Agent: OAI-SearchBot
+User-Agent: Applebot
 Allow: /
-Disallow: /api/
-
-User-Agent: ClaudeBot
-Allow: /
+Allow: /product/
 Disallow: /api/
 
 Sitemap: https://allchina-buy.com/sitemap.xml
@@ -892,6 +894,9 @@ def self_test() -> None:
     compare_html = compare_page()
     assert "Kakobuy" in compare_html and "application/ld+json" in compare_html
     _products_mod().self_test()
+    assert "User-Agent: GPTBot" in ROBOTS_TXT
+    assert "User-Agent: Claude-SearchBot" in ROBOTS_TXT
+    assert ROBOTS_TXT.count("Allow: /product/") >= 4
     print("self-test OK", types)
 
 
@@ -924,9 +929,9 @@ def _run(client, cmd: str, timeout: int = 60) -> str:
     return (stdout.read() + stderr.read()).decode(errors="replace").strip()
 
 
-def deploy() -> None:
+def deploy(skip_products: bool = False, product_limit: int = 0) -> None:
     html = fetch_homepage()
-    write_overlay(html)
+    write_overlay(html, products=not skip_products, product_limit=product_limit)
     patched = (OVERLAY / "index.html").read_text(encoding="utf-8")
     types = validate_jsonld(patched)
     print("json-ld", types)
@@ -1014,7 +1019,7 @@ def main() -> None:
         self_test()
         return
     if args.deploy:
-        deploy()
+        deploy(skip_products=args.skip_products, product_limit=args.product_limit)
         return
     source = args.file.read_text(encoding="utf-8") if args.file else fetch_homepage()
     write_overlay(source, products=not args.skip_products, product_limit=args.product_limit)
