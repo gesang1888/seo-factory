@@ -1,0 +1,54 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /.bak
+Disallow: /admin/
+
+User-Agent: Googlebot
+Allow: /
+Allow: /allchinabuy-spreadsheet
+Allow: /acbuy-spreadsheet
+Allow: /blog/
+Allow: /product/
+Disallow: /api/
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: GPTBot
+Allow: /
+Allow: /allchinabuy-spreadsheet
+Allow: /acbuy-spreadsheet
+Allow: /blog/
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: PerplexityBot
+Allow: /
+Allow: /blog/
+Allow: /allchinabuy-spreadsheet
+Disallow: /api/
+
+User-Agent: Anthropic-AI
+Allow: /
+Disallow: /api/
+
+User-Agent: Google-Extended
+Allow: /
+
+User-Agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+
+User-Agent: ClaudeBot
+Allow: /
+Disallow: /api/
+
+Sitemap: https://allchina-buy.com/sitemap.xml
