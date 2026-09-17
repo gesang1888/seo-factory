@@ -19,6 +19,7 @@ import shutil
 from datetime import date, timedelta
 from html import escape
 from pathlib import Path
+from xml.sax.saxutils import escape as xml_escape
 
 ROOT = Path(__file__).resolve().parents[1]
 OVERLAY = ROOT / "sites" / "allchina-buy.com" / "overlay"
@@ -482,16 +483,18 @@ def render_product_index(items: list[dict]) -> str:
 
 
 def write_sitemap(items: list[dict]) -> str:
-    urls = [
-        "  <url>"
-        f"<loc>{BASE}/product/{item['slug']}/</loc>"
-        f"<lastmod>{TODAY}</lastmod>"
-        "<changefreq>weekly</changefreq><priority>0.6</priority></url>"
-        for item in items
-    ]
+    urls = []
+    for item in items:
+        loc = xml_escape(f"{BASE}/product/{item['slug']}/", {'"': "&quot;", "'": "&apos;"})
+        urls.append(
+            "  <url>"
+            f"<loc>{loc}</loc>"
+            f"<lastmod>{TODAY}</lastmod>"
+            "<changefreq>weekly</changefreq><priority>0.6</priority></url>"
+        )
     return (
-        "<?xml version='1.0' encoding='utf-8'?>\n"
-        "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n"
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "\n".join(urls)
         + "\n</urlset>\n"
     )
@@ -544,6 +547,8 @@ def self_test() -> None:
     assert "AllChinaBuy spreadsheet" in html
     sm = write_sitemap([item])
     assert item["slug"] in sm
+    assert '<?xml version="1.0" encoding="UTF-8"?>' in sm
+    assert 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' in sm
     index_html = render_product_index([item, sibling])
     assert item["slug"] in index_html
     print("product self-test OK", item["slug"])
