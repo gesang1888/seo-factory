@@ -10,6 +10,10 @@ Allow: /allchinabuy-spreadsheet
 Allow: /acbuy-spreadsheet
 Allow: /blog/
 Allow: /product/
+Allow: /tools/
+Allow: /customs-calculator
+Allow: /sizing-guide
+Allow: /compare-shopping-agents
 Disallow: /api/
 
 User-Agent: Bingbot
@@ -52,3 +56,4 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://allchina-buy.com/sitemap.xml
+Sitemap: https://allchina-buy.com/sitemap-products.xml

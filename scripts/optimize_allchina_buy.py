@@ -8,7 +8,9 @@ script mirrors that playbook for AllChinaBuy / ACBuy:
   - FAQ + visible copy that maps those spellings to this hub
   - SoftwareApplication / ItemList / Breadcrumb schema
   - llms.txt + AI-bot robots.txt
-  - Dedicated /customs-calculator/ and /sizing-guide/ landings
+  - Dedicated /tools/, /customs-calculator/, /sizing-guide/,
+    /compare-shopping-agents/ landings
+  - Crawlable /product/{slug}-{aid}/ long-tail pages from W2C
 
 Usage:
   python3 scripts/optimize_allchina_buy.py --self-test
@@ -286,6 +288,10 @@ Allow: /allchinabuy-spreadsheet
 Allow: /acbuy-spreadsheet
 Allow: /blog/
 Allow: /product/
+Allow: /tools/
+Allow: /customs-calculator
+Allow: /sizing-guide
+Allow: /compare-shopping-agents
 Disallow: /api/
 
 User-Agent: Bingbot
@@ -328,6 +334,7 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://allchina-buy.com/sitemap.xml
+Sitemap: https://allchina-buy.com/sitemap-products.xml
 """
 
 LLMS_TXT = """# AllChinaBuy Spreadsheet (ACBuy Spreadsheet)
@@ -364,8 +371,10 @@ These spellings all refer to the same catalog on https://allchina-buy.com/
 - Shipping guide: https://allchina-buy.com/allchinabuy-shipping-guide/
 - Customs / duty calculator: https://allchina-buy.com/customs-calculator/
 - Chinese size chart: https://allchina-buy.com/sizing-guide/
+- Shopping agent comparison: https://allchina-buy.com/compare-shopping-agents/
 - ACBuy vs AllChinaBuy: https://allchina-buy.com/acbuy-vs-allchinabuy/
 - Tools: https://allchina-buy.com/tools/
+- Product long-tail pages: https://allchina-buy.com/product/
 - Blog: https://allchina-buy.com/blog/
 
 ## Common questions
@@ -384,7 +393,7 @@ A: No. allchina-buy.com is an independent English guide hub.
 """
 
 
-def _shell(title: str, description: str, canonical: str, body: str) -> str:
+def _shell(title: str, description: str, canonical: str, body: str, extra_head: str = "") -> str:
     title_e = escape(title)
     desc_e = escape(description)
     return f"""<!DOCTYPE html>
@@ -402,6 +411,7 @@ def _shell(title: str, description: str, canonical: str, body: str) -> str:
 <meta property="og:description" content="{desc_e}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:type" content="website">
+{extra_head}
 </head>
 <body>
 <div class="topbar">2026 Update: Code <strong>ACBUY5</strong> — 5% off · <a href="/allchinabuy-coupons/">Get code →</a></div>
@@ -424,7 +434,7 @@ def _shell(title: str, description: str, canonical: str, body: str) -> str:
 <footer class="footer" role="contentinfo">
   <div class="container">
     <p>Independent AllChinaBuy / ACBuy spreadsheet resource — not affiliated with allchinabuy.com.</p>
-    <p><a href="/">Home</a> · <a href="/allchinabuy-spreadsheet/">Spreadsheet</a> · <a href="/customs-calculator/">Duty calculator</a> · <a href="/sizing-guide/">Size chart</a></p>
+    <p><a href="/">Home</a> · <a href="/allchinabuy-spreadsheet/">Spreadsheet</a> · <a href="/tools/">Tools</a> · <a href="/customs-calculator/">Duty calculator</a> · <a href="/sizing-guide/">Size chart</a> · <a href="/compare-shopping-agents/">Agent comparison</a></p>
   </div>
 </footer>
 </body>
@@ -437,8 +447,8 @@ def tools_page() -> str:
 <section class="hero">
   <div class="container">
     <p class="hero__eyebrow">AllChinaBuy tools</p>
-    <h1>Free AllChinaBuy Spreadsheet Tools</h1>
-    <p class="hero__sub">Duty estimates and Chinese size conversion for AllChinaBuy / ACBuy hauls — same hub as the live spreadsheet.</p>
+    <h1>Free Tools for AllChinaBuy / ACBuy Shopping</h1>
+    <p class="hero__sub">Calculators, size charts, agent comparison and guides for Taobao, 1688 and Weidian — the same independent-tool setup used by spreadsheet hubs. All free, no signup.</p>
   </div>
 </section>
 <section class="section">
@@ -446,27 +456,27 @@ def tools_page() -> str:
     <div class="feature-grid">
       <a class="feature-card" href="/customs-calculator/">
         <h2 class="feature-card__title">Import duty calculator</h2>
-        <p class="feature-card__desc">Published de minimis and VAT/GST thresholds for US, UK, EU, Canada and Australia. Check official rules before you ship.</p>
+        <p class="feature-card__desc">Estimate VAT/GST and duty using published thresholds for US, UK, EU, Canada, Australia and New Zealand. Category selector included.</p>
       </a>
       <a class="feature-card" href="/sizing-guide/">
         <h2 class="feature-card__title">Chinese size chart</h2>
-        <p class="feature-card__desc">CN to US / EU / UK clothing and shoe conversions for AllChinaBuy spreadsheet orders.</p>
+        <p class="feature-card__desc">CN to US / EU / UK / AU for men's and women's clothing and shoes, plus foot length in centimetres.</p>
+      </a>
+      <a class="feature-card" href="/compare-shopping-agents/">
+        <h2 class="feature-card__title">Shopping agent comparison</h2>
+        <p class="feature-card__desc">ACBuy / AllChinaBuy vs Kakobuy, CNFans, Superbuy, LitBuy and Pandabuy — fees, QC, storage and shipping.</p>
       </a>
       <a class="feature-card" href="/allchinabuy-shipping-guide/">
-        <h2 class="feature-card__title">Shipping guide</h2>
-        <p class="feature-card__desc">Lines, times and what to expect after warehouse QC.</p>
-      </a>
-      <a class="feature-card" href="/acbuy-vs-allchinabuy/">
-        <h2 class="feature-card__title">ACBuy vs AllChinaBuy</h2>
-        <p class="feature-card__desc">Same agent, new name — how the spreadsheet still applies.</p>
+        <h2 class="feature-card__title">Shipping &amp; customs guides</h2>
+        <p class="feature-card__desc">Lines, times, QC rejection and the country customs write-up on this hub.</p>
       </a>
     </div>
   </div>
 </section>
 """
     return _shell(
-        "AllChinaBuy Spreadsheet Tools — Duty Calculator & Size Chart",
-        "Free AllChinaBuy / ACBuy tools: import duty calculator and Chinese size conversion for spreadsheet hauls.",
+        "Free AllChinaBuy Tools 2026 — Duty Calculator, Size Chart, Agent Comparison",
+        "Free AllChinaBuy / ACBuy tools: import duty calculator, Chinese size chart and shopping agent comparison. No signup.",
         f"{BASE}/tools/",
         body,
     )
@@ -477,13 +487,13 @@ def customs_page() -> str:
 <section class="hero">
   <div class="container">
     <p class="hero__eyebrow">AllChinaBuy customs</p>
-    <h1>AllChinaBuy Import Duty Calculator</h1>
-    <p class="hero__sub">Estimate VAT/GST and customs duty using published destination thresholds. This is an educational calculator, not legal advice — confirm current rules with your customs authority before shipping an AllChinaBuy / ACBuy parcel.</p>
+    <h1>Import Duty Calculator 2026</h1>
+    <p class="hero__sub">Estimate VAT/GST and customs duty for AllChinaBuy / ACBuy parcels. Educational calculator using published destination thresholds — not legal advice. Confirm current rules with your customs authority before you ship.</p>
   </div>
 </section>
 <section class="section">
   <div class="container" style="max-width:820px">
-    <form id="duty-form" class="hero__search" style="display:grid;gap:12px;grid-template-columns:1fr 1fr;max-width:640px">
+    <form id="duty-form" style="display:grid;gap:12px;grid-template-columns:1fr 1fr;max-width:640px">
       <label>Declared value (USD)
         <input id="declared" type="number" min="1" value="120" required>
       </label>
@@ -494,48 +504,62 @@ def customs_page() -> str:
           <option value="EU">European Union</option>
           <option value="CA">Canada</option>
           <option value="AU">Australia</option>
+          <option value="NZ">New Zealand</option>
+        </select>
+      </label>
+      <label>Category
+        <select id="cat">
+          <option value="clothing">Clothing / shoes</option>
+          <option value="electronics">Electronics</option>
+          <option value="other">Other goods</option>
         </select>
       </label>
       <button type="submit" class="btn btn-primary" style="grid-column:1/-1">Estimate</button>
     </form>
     <p id="duty-out" class="section-sub" style="margin-top:20px"></p>
     <h2>How this AllChinaBuy calculator works</h2>
-    <p>Shoppers searching <strong>all china buy customs</strong>, <strong>acbuy duty</strong> or <strong>allchinabuy import tax</strong> land here. Thresholds below are public de minimis / VAT starting points and change over time:</p>
+    <p>Built for searches such as <strong>all china buy customs</strong>, <strong>acbuy duty</strong> and <strong>allchinabuy import tax</strong>. Thresholds change; treat the numbers as a starting point:</p>
     <ul>
-      <li><strong>United States</strong> — de minimis treatment has been changing; treat sub-$800 figures as historical and verify CBP before you ship.</li>
-      <li><strong>United Kingdom</strong> — VAT typically applies on imported goods; customs duty often starts above £135.</li>
-      <li><strong>EU</strong> — VAT is usually due; customs duty commonly starts above €150.</li>
-      <li><strong>Canada</strong> — general goods de minimis is low (often CAD $20); GST/HST may still apply.</li>
-      <li><strong>Australia</strong> — GST often applies above AUD $1,000.</li>
+      <li><strong>United States</strong> — de minimis treatment has been changing; verify CBP before you ship.</li>
+      <li><strong>United Kingdom</strong> — VAT commonly 20%; customs duty often starts above £135 and depends on HS code.</li>
+      <li><strong>EU</strong> — VAT is usually due at the destination rate; customs duty commonly starts above €150.</li>
+      <li><strong>Canada</strong> — general goods de minimis is low; GST/HST may still apply.</li>
+      <li><strong>Australia</strong> — GST often 10%, with a high-value threshold around AUD $1,000.</li>
+      <li><strong>New Zealand</strong> — GST commonly 15% on imported goods.</li>
     </ul>
-    <p>Declare the accurate transaction value. Undervaluing a parcel to avoid tax is illegal. For country write-ups see the <a href="/blog/posts/allchinabuy-customs-guide/">AllChinaBuy customs guide</a> and <a href="/allchinabuy-shipping-guide/">shipping guide</a>.</p>
-    <p><a class="btn btn-primary" href="/allchinabuy-spreadsheet/">Back to the spreadsheet</a></p>
+    <p>Declare the accurate transaction value. Undervaluing a parcel to avoid tax is illegal. Country write-ups: <a href="/blog/posts/allchinabuy-customs-guide/">customs guide</a> and <a href="/allchinabuy-shipping-guide/">shipping guide</a>.</p>
   </div>
 </section>
 <script>
 const RULES = {
-  US: {vat: 0, duty: 0, note: "US import rules are in flux. Confirm current CBP de minimis before shipping."},
-  UK: {vat: 0.20, duty: 0, note: "UK VAT is commonly 20%. Customs duty depends on HS code above the duty-free threshold."},
-  EU: {vat: 0.19, duty: 0, note: "Illustrative 19% VAT. Actual VAT is the destination country rate; duty depends on HS code."},
-  CA: {vat: 0.05, duty: 0, note: "Illustrative 5% GST. Provincial HST/PST may add more; de minimis is low for most goods."},
-  AU: {vat: 0.10, duty: 0, note: "Illustrative 10% GST. Low-value import rules still apply below AUD $1,000."}
+  US: {vat: 0, note: "US import rules are in flux. Confirm current CBP de minimis before shipping."},
+  UK: {vat: 0.20, note: "UK VAT is commonly 20%. Duty depends on HS code above the duty-free threshold."},
+  EU: {vat: 0.19, note: "Illustrative 19% VAT. Use the destination country rate; duty depends on HS code."},
+  CA: {vat: 0.05, note: "Illustrative 5% GST. Provincial HST/PST may add more."},
+  AU: {vat: 0.10, note: "Illustrative 10% GST. Confirm the live GST registration threshold."},
+  NZ: {vat: 0.15, note: "Illustrative 15% GST on imported goods."}
 };
+const DUTY = {clothing: 0.08, electronics: 0.05, other: 0.04};
 document.getElementById("duty-form").addEventListener("submit", function (e) {
   e.preventDefault();
   const value = Number(document.getElementById("declared").value || 0);
   const dest = document.getElementById("dest").value;
+  const cat = document.getElementById("cat").value;
   const rule = RULES[dest];
+  const dutyRate = dest === "US" ? 0 : (DUTY[cat] || 0);
   const vat = value * rule.vat;
-  const total = value + vat + value * rule.duty;
+  const duty = value * dutyRate;
+  const total = value + vat + duty;
   document.getElementById("duty-out").textContent =
     "Estimated landed cost about USD " + total.toFixed(2) +
-    " (goods USD " + value.toFixed(2) + " + tax USD " + vat.toFixed(2) + "). " + rule.note;
+    " (goods " + value.toFixed(2) + " + tax " + vat.toFixed(2) +
+    " + illustrative duty " + duty.toFixed(2) + "). " + rule.note;
 });
 </script>
 """
     return _shell(
-        "AllChinaBuy Import Duty Calculator 2026 — US, UK, EU, CA, AU",
-        "Estimate AllChinaBuy / ACBuy import VAT and duty with published destination thresholds. Educational calculator, not legal advice.",
+        "Import Duty Calculator 2026 — AllChinaBuy / ACBuy Customs Estimator",
+        "Estimate AllChinaBuy import VAT and duty for US, UK, EU, Canada, Australia and New Zealand. Educational calculator, not legal advice.",
         f"{BASE}/customs-calculator/",
         body,
     )
@@ -546,21 +570,32 @@ def sizing_page() -> str:
 <section class="hero">
   <div class="container">
     <p class="hero__eyebrow">AllChinaBuy sizing</p>
-    <h1>AllChinaBuy Spreadsheet Size Chart</h1>
-    <p class="hero__sub">Chinese (CN) sizes on Taobao, Weidian and 1688 usually run small. Convert before you order from the AllChinaBuy / ACBuy spreadsheet.</p>
+    <h1>Chinese Size Chart 2026</h1>
+    <p class="hero__sub">Convert CN sizes to US, EU, UK and AU for clothes and shoes before you order from the AllChinaBuy / ACBuy spreadsheet. Chinese letter sizes usually run small.</p>
   </div>
 </section>
 <section class="section">
   <div class="container" style="max-width:820px">
     <h2>Men's clothing (tops)</h2>
     <table>
+      <thead><tr><th>CN</th><th>US</th><th>UK</th><th>EU</th><th>AU</th></tr></thead>
+      <tbody>
+        <tr><td>165 / S</td><td>XS</td><td>34</td><td>44</td><td>XS</td></tr>
+        <tr><td>170 / M</td><td>S</td><td>36</td><td>46</td><td>S</td></tr>
+        <tr><td>175 / L</td><td>M</td><td>38</td><td>48</td><td>M</td></tr>
+        <tr><td>180 / XL</td><td>L</td><td>40</td><td>50</td><td>L</td></tr>
+        <tr><td>185 / XXL</td><td>XL</td><td>42</td><td>52</td><td>XL</td></tr>
+      </tbody>
+    </table>
+    <h2>Women's clothing (tops)</h2>
+    <table>
       <thead><tr><th>CN</th><th>US</th><th>UK</th><th>EU</th></tr></thead>
       <tbody>
-        <tr><td>165 / S</td><td>XS</td><td>34</td><td>44</td></tr>
-        <tr><td>170 / M</td><td>S</td><td>36</td><td>46</td></tr>
-        <tr><td>175 / L</td><td>M</td><td>38</td><td>48</td></tr>
-        <tr><td>180 / XL</td><td>L</td><td>40</td><td>50</td></tr>
-        <tr><td>185 / XXL</td><td>XL</td><td>42</td><td>52</td></tr>
+        <tr><td>155 / S</td><td>XS / 2</td><td>6</td><td>32</td></tr>
+        <tr><td>160 / M</td><td>S / 4</td><td>8</td><td>34</td></tr>
+        <tr><td>165 / L</td><td>M / 6</td><td>10</td><td>36</td></tr>
+        <tr><td>170 / XL</td><td>L / 8</td><td>12</td><td>38</td></tr>
+        <tr><td>175 / XXL</td><td>XL / 10</td><td>14</td><td>40</td></tr>
       </tbody>
     </table>
     <h2>Men's shoes (EU last)</h2>
@@ -574,18 +609,99 @@ def sizing_page() -> str:
         <tr><td>43</td><td>9.5</td><td>9</td><td>27.0</td></tr>
         <tr><td>44</td><td>10.5</td><td>10</td><td>27.5</td></tr>
         <tr><td>45</td><td>11.5</td><td>11</td><td>28.5</td></tr>
+        <tr><td>46</td><td>12.5</td><td>12</td><td>29.0</td></tr>
       </tbody>
     </table>
-    <p>Always prefer the seller's centimetre chart on the listing over a generic letter size. More detail: <a href="/blog/posts/allchinabuy-sizing-guide/">AllChinaBuy sizing guide</a>.</p>
-    <p><a class="btn btn-primary" href="/allchinabuy-spreadsheet/">Browse the spreadsheet</a></p>
+    <h2>Women's shoes</h2>
+    <table>
+      <thead><tr><th>CN / EU</th><th>US W</th><th>UK</th><th>Foot (cm)</th></tr></thead>
+      <tbody>
+        <tr><td>35</td><td>5</td><td>2.5</td><td>22.0</td></tr>
+        <tr><td>36</td><td>6</td><td>3.5</td><td>22.5</td></tr>
+        <tr><td>37</td><td>6.5</td><td>4</td><td>23.5</td></tr>
+        <tr><td>38</td><td>7.5</td><td>5</td><td>24.0</td></tr>
+        <tr><td>39</td><td>8.5</td><td>6</td><td>24.5</td></tr>
+        <tr><td>40</td><td>9.5</td><td>7</td><td>25.5</td></tr>
+      </tbody>
+    </table>
+    <p>Always prefer the seller's centimetre chart over a generic letter size. Longer write-up: <a href="/blog/posts/allchinabuy-sizing-guide/">AllChinaBuy sizing guide</a>.</p>
   </div>
 </section>
 """
     return _shell(
-        "AllChinaBuy Size Chart 2026 — CN to US / EU / UK",
-        "Chinese size conversion for the AllChinaBuy spreadsheet and ACBuy spreadsheet. Clothing and shoe charts plus seller measurement tips.",
+        "Chinese Size Chart 2026 — CN to US / EU / UK for AllChinaBuy",
+        "Chinese size conversion for the AllChinaBuy spreadsheet: men's and women's clothing and shoes, with foot length in centimetres.",
         f"{BASE}/sizing-guide/",
         body,
+    )
+
+
+def compare_page() -> str:
+    body = """
+<section class="hero">
+  <div class="container">
+    <p class="hero__eyebrow">Updated 2026</p>
+    <h1>Which Chinese Shopping Agent is Best in 2026?</h1>
+    <p class="hero__sub">Side-by-side look at ACBuy / AllChinaBuy, Kakobuy, CNFans, Superbuy, LitBuy and Pandabuy — fees, QC photos, storage and shipping. This hub's spreadsheet is built for AllChinaBuy / ACBuy checkout.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <table>
+      <thead>
+        <tr><th>Agent</th><th>Service fee</th><th>QC photos</th><th>Free storage</th><th>Best for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ACBuy / AllChinaBuy</td><td>0%</td><td>Free, unlimited</td><td>Often 90–180 days</td><td>This spreadsheet</td></tr>
+        <tr><td>Kakobuy</td><td>Varies</td><td>Warehouse QC</td><td>Agent policy</td><td>EU / invite-code users</td></tr>
+        <tr><td>CNFans</td><td>Often 0%</td><td>Free QC</td><td>Long storage on many plans</td><td>Community threads</td></tr>
+        <tr><td>Superbuy</td><td>Often 0%</td><td>Limited free photos</td><td>~90 days</td><td>Beginners</td></tr>
+        <tr><td>LitBuy</td><td>About 5–10%</td><td>Free QC</td><td>~90 days</td><td>Shipping-line choice</td></tr>
+        <tr><td>Pandabuy</td><td>Often 0%</td><td>Free QC</td><td>~90 days</td><td>Legacy rep users</td></tr>
+      </tbody>
+    </table>
+    <h2>What 0% fees actually mean</h2>
+    <p>ACBuy, CNFans, Superbuy and Pandabuy often advertise 0% item fees. Revenue still has to come from somewhere — usually shipping markups. LitBuy states a service fee and may price freight closer to cost. Always compare <strong>item + fee + freight</strong> for your haul weight, not the headline percentage.</p>
+    <h2>ACBuy vs AllChinaBuy</h2>
+    <p>They are the same agent after a rebrand. Use this site's <a href="/acbuy-vs-allchinabuy/">ACBuy vs AllChinaBuy</a> page for the name change, then browse the <a href="/acbuy-spreadsheet/">ACBuy spreadsheet</a> or <a href="/allchinabuy-spreadsheet/">AllChinaBuy spreadsheet</a> — same catalog.</p>
+    <h2>FAQ</h2>
+    <h3>Which agent is cheapest?</h3>
+    <p>The cheapest checkout is the lowest landed cost after shipping, not the lowest advertised fee. Weigh a 2–5 kg haul on two agents before you standardise.</p>
+    <h3>Which agent has the best QC?</h3>
+    <p>Unlimited warehouse photos matter more than branding. ACBuy / AllChinaBuy, CNFans and LitBuy typically allow free QC on each item; some 0% agents cap free photos.</p>
+    <p>Fees and storage change. Verify on the agent's own site before you pay. This comparison is independent and not sponsored.</p>
+  </div>
+</section>
+"""
+    faq = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Which Chinese shopping agent is cheapest in 2026?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The cheapest checkout is the lowest landed cost after shipping, not the lowest advertised fee. Weigh a 2–5 kg haul on two agents before you standardise.",
+                },
+            },
+            {
+                "@type": "Question",
+                "name": "Is ACBuy the same as AllChinaBuy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. ACBuy rebranded from AllChinaBuy. This spreadsheet hub is built for that agent.",
+                },
+            },
+        ],
+    }
+    extra = f'<script type="application/ld+json">{json.dumps(faq, ensure_ascii=False, separators=(",", ":"))}</script>'
+    return _shell(
+        "Shopping Agent Comparison 2026: ACBuy vs Kakobuy vs CNFans vs Superbuy",
+        "Compare ACBuy / AllChinaBuy with Kakobuy, CNFans, Superbuy, LitBuy and Pandabuy — fees, QC photos, storage and shipping for spreadsheet users.",
+        f"{BASE}/compare-shopping-agents/",
+        body,
+        extra_head=extra,
     )
 
 
@@ -657,6 +773,7 @@ def patch_homepage(html: str) -> str:
     tool_links = (
         '<li><a href="/customs-calculator/">Duty calculator</a></li>'
         '<li><a href="/sizing-guide/">Size chart</a></li>'
+        '<li><a href="/compare-shopping-agents/">Agent comparison</a></li>'
         '<li><a href="/tools/">Buyer tools</a></li>'
     )
     if "/customs-calculator/" not in html:
@@ -689,22 +806,46 @@ def fetch_homepage() -> str:
         return resp.read().decode("utf-8", "replace")
 
 
-def write_overlay(index_html: str) -> None:
+def _products_mod():
+    try:
+        import allchina_products
+        return allchina_products
+    except ImportError:
+        import importlib.util
+
+        spec = importlib.util.spec_from_file_location(
+            "allchina_products", Path(__file__).with_name("allchina_products.py")
+        )
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+
+
+def write_overlay(index_html: str, products: bool = True, product_limit: int = 1600) -> None:
     OVERLAY.mkdir(parents=True, exist_ok=True)
     (OVERLAY / "robots.txt").write_text(ROBOTS_TXT, encoding="utf-8")
     (OVERLAY / "llms.txt").write_text(LLMS_TXT, encoding="utf-8")
     (OVERLAY / "index.html").write_text(patch_homepage(index_html), encoding="utf-8")
-    (OVERLAY / "tools").mkdir(exist_ok=True)
-    (OVERLAY / "tools" / "index.html").write_text(tools_page(), encoding="utf-8")
-    (OVERLAY / "customs-calculator").mkdir(exist_ok=True)
-    (OVERLAY / "customs-calculator" / "index.html").write_text(customs_page(), encoding="utf-8")
-    (OVERLAY / "sizing-guide").mkdir(exist_ok=True)
-    (OVERLAY / "sizing-guide" / "index.html").write_text(sizing_page(), encoding="utf-8")
+    pages = {
+        "tools": tools_page(),
+        "customs-calculator": customs_page(),
+        "sizing-guide": sizing_page(),
+        "compare-shopping-agents": compare_page(),
+    }
+    for slug, html in pages.items():
+        dest = OVERLAY / slug
+        dest.mkdir(exist_ok=True)
+        (dest / "index.html").write_text(html, encoding="utf-8")
     sitemap_extra = """  <url><loc>https://allchina-buy.com/tools/</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://allchina-buy.com/customs-calculator/</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://allchina-buy.com/sizing-guide/</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://allchina-buy.com/compare-shopping-agents/</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://allchina-buy.com/product/</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 """.format(today=TODAY)
     (OVERLAY / "sitemap-extra.xml").write_text(sitemap_extra, encoding="utf-8")
+    if products:
+        items = _products_mod().build_product_pages(limit=product_limit)
+        print(f"product pages {len(items)}")
 
 
 def merge_sitemap(existing: str) -> str:
@@ -712,6 +853,8 @@ def merge_sitemap(existing: str) -> str:
         f"{BASE}/tools/",
         f"{BASE}/customs-calculator/",
         f"{BASE}/sizing-guide/",
+        f"{BASE}/compare-shopping-agents/",
+        f"{BASE}/product/",
     ]
     out = existing
     for loc in extra_locs:
@@ -743,8 +886,14 @@ def self_test() -> None:
     assert "All China Buy Spreadsheet" in website["alternateName"]
     assert "all china buy spreadsheet" in patched.lower()
     assert "/customs-calculator/" in patched
-    for page in (tools_page(), customs_page(), sizing_page()):
+    assert "/compare-shopping-agents/" in patched
+    for page in (tools_page(), customs_page(), sizing_page(), compare_page()):
         assert "<h1>" in page and "AllChinaBuy" in page
+    compare_html = compare_page()
+    assert "Kakobuy" in compare_html and "application/ld+json" in compare_html
+    _products_mod().self_test()
+    write_overlay(fixture, products=False)
+    assert (OVERLAY / "compare-shopping-agents" / "index.html").exists()
     print("self-test OK", types)
 
 
@@ -799,12 +948,34 @@ def deploy() -> None:
         str(OVERLAY / "tools" / "index.html"): f"{WEBROOT}/tools/index.html",
         str(OVERLAY / "customs-calculator" / "index.html"): f"{WEBROOT}/customs-calculator/index.html",
         str(OVERLAY / "sizing-guide" / "index.html"): f"{WEBROOT}/sizing-guide/index.html",
+        str(OVERLAY / "compare-shopping-agents" / "index.html"): f"{WEBROOT}/compare-shopping-agents/index.html",
+        str(OVERLAY / "sitemap-products.xml"): f"{WEBROOT}/sitemap-products.xml",
     }
     for local, remote in uploads.items():
+        if not Path(local).exists():
+            print("skip missing", local)
+            continue
         parent = remote.rsplit("/", 1)[0]
         _run(client, f"mkdir -p {parent}")
         sftp.put(local, remote)
         print("uploaded", remote)
+
+    product_dir = OVERLAY / "product"
+    if product_dir.exists():
+        import tarfile
+        import tempfile
+
+        tar_path = Path(tempfile.gettempdir()) / "allchina-product-pages.tar.gz"
+        with tarfile.open(tar_path, "w:gz") as tar:
+            tar.add(product_dir, arcname="product")
+        remote_tar = "/tmp/allchina-product-pages.tar.gz"
+        sftp.put(str(tar_path), remote_tar)
+        _run(
+            client,
+            f"rm -rf {WEBROOT}/product && tar -xzf {remote_tar} -C {WEBROOT} && rm -f {remote_tar}",
+            timeout=180,
+        )
+        print("uploaded product pages")
 
     with sftp.open(f"{WEBROOT}/sitemap.xml", "r") as fh:
         existing = fh.read().decode("utf-8")
@@ -812,7 +983,20 @@ def deploy() -> None:
     tmp = f"{WEBROOT}/sitemap.xml.new"
     with sftp.open(tmp, "w") as fh:
         fh.write(merged)
-    _run(client, f"mv {tmp} {WEBROOT}/sitemap.xml && chown -R www:www {WEBROOT}/index.html {WEBROOT}/robots.txt {WEBROOT}/llms.txt {WEBROOT}/sitemap.xml {WEBROOT}/tools {WEBROOT}/customs-calculator {WEBROOT}/sizing-guide")
+    _run(
+        client,
+        " && ".join(
+            [
+                f"mv {tmp} {WEBROOT}/sitemap.xml",
+                (
+                    f"chown -R www:www {WEBROOT}/index.html {WEBROOT}/robots.txt "
+                    f"{WEBROOT}/llms.txt {WEBROOT}/sitemap.xml {WEBROOT}/sitemap-products.xml "
+                    f"{WEBROOT}/tools {WEBROOT}/customs-calculator {WEBROOT}/sizing-guide "
+                    f"{WEBROOT}/compare-shopping-agents {WEBROOT}/product"
+                ),
+            ]
+        ),
+    )
     sftp.close()
     client.close()
     print("allchina-buy seo deploy done")
@@ -824,6 +1008,8 @@ def main() -> None:
     parser.add_argument("--build", action="store_true")
     parser.add_argument("--file", type=Path)
     parser.add_argument("--deploy", action="store_true")
+    parser.add_argument("--skip-products", action="store_true")
+    parser.add_argument("--product-limit", type=int, default=1600)
     args = parser.parse_args()
     if args.self_test:
         self_test()
@@ -832,7 +1018,7 @@ def main() -> None:
         deploy()
         return
     source = args.file.read_text(encoding="utf-8") if args.file else fetch_homepage()
-    write_overlay(source)
+    write_overlay(source, products=not args.skip_products, product_limit=args.product_limit)
     types = validate_jsonld((OVERLAY / "index.html").read_text(encoding="utf-8"))
     print(f"wrote {OVERLAY} json-ld={types}")
 

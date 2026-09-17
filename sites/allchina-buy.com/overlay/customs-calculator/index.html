@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>AllChinaBuy Import Duty Calculator 2026 — US, UK, EU, CA, AU</title>
-<meta name="description" content="Estimate AllChinaBuy / ACBuy import VAT and duty with published destination thresholds. Educational calculator, not legal advice.">
+<title>Import Duty Calculator 2026 — AllChinaBuy / ACBuy Customs Estimator</title>
+<meta name="description" content="Estimate AllChinaBuy import VAT and duty for US, UK, EU, Canada, Australia and New Zealand. Educational calculator, not legal advice.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://allchina-buy.com/customs-calculator/">
 <link rel="stylesheet" href="/assets/css/main.css?v=seo20260917">
 <style>main table{width:100%;border-collapse:collapse;margin:16px 0}main th,main td{border-bottom:1px solid #e5e5e5;padding:8px 10px;text-align:left}main label{display:flex;flex-direction:column;gap:6px;font-size:.9rem}main select,main input[type=number]{padding:10px;border:1px solid #ddd;border-radius:8px}</style>
-<meta property="og:title" content="AllChinaBuy Import Duty Calculator 2026 — US, UK, EU, CA, AU">
-<meta property="og:description" content="Estimate AllChinaBuy / ACBuy import VAT and duty with published destination thresholds. Educational calculator, not legal advice.">
+<meta property="og:title" content="Import Duty Calculator 2026 — AllChinaBuy / ACBuy Customs Estimator">
+<meta property="og:description" content="Estimate AllChinaBuy import VAT and duty for US, UK, EU, Canada, Australia and New Zealand. Educational calculator, not legal advice.">
 <meta property="og:url" content="https://allchina-buy.com/customs-calculator/">
 <meta property="og:type" content="website">
+
 </head>
 <body>
 <div class="topbar">2026 Update: Code <strong>ACBUY5</strong> — 5% off · <a href="/allchinabuy-coupons/">Get code →</a></div>
@@ -34,13 +35,13 @@
 <section class="hero">
   <div class="container">
     <p class="hero__eyebrow">AllChinaBuy customs</p>
-    <h1>AllChinaBuy Import Duty Calculator</h1>
-    <p class="hero__sub">Estimate VAT/GST and customs duty using published destination thresholds. This is an educational calculator, not legal advice — confirm current rules with your customs authority before shipping an AllChinaBuy / ACBuy parcel.</p>
+    <h1>Import Duty Calculator 2026</h1>
+    <p class="hero__sub">Estimate VAT/GST and customs duty for AllChinaBuy / ACBuy parcels. Educational calculator using published destination thresholds — not legal advice. Confirm current rules with your customs authority before you ship.</p>
   </div>
 </section>
 <section class="section">
   <div class="container" style="max-width:820px">
-    <form id="duty-form" class="hero__search" style="display:grid;gap:12px;grid-template-columns:1fr 1fr;max-width:640px">
+    <form id="duty-form" style="display:grid;gap:12px;grid-template-columns:1fr 1fr;max-width:640px">
       <label>Declared value (USD)
         <input id="declared" type="number" min="1" value="120" required>
       </label>
@@ -51,42 +52,56 @@
           <option value="EU">European Union</option>
           <option value="CA">Canada</option>
           <option value="AU">Australia</option>
+          <option value="NZ">New Zealand</option>
+        </select>
+      </label>
+      <label>Category
+        <select id="cat">
+          <option value="clothing">Clothing / shoes</option>
+          <option value="electronics">Electronics</option>
+          <option value="other">Other goods</option>
         </select>
       </label>
       <button type="submit" class="btn btn-primary" style="grid-column:1/-1">Estimate</button>
     </form>
     <p id="duty-out" class="section-sub" style="margin-top:20px"></p>
     <h2>How this AllChinaBuy calculator works</h2>
-    <p>Shoppers searching <strong>all china buy customs</strong>, <strong>acbuy duty</strong> or <strong>allchinabuy import tax</strong> land here. Thresholds below are public de minimis / VAT starting points and change over time:</p>
+    <p>Built for searches such as <strong>all china buy customs</strong>, <strong>acbuy duty</strong> and <strong>allchinabuy import tax</strong>. Thresholds change; treat the numbers as a starting point:</p>
     <ul>
-      <li><strong>United States</strong> — de minimis treatment has been changing; treat sub-$800 figures as historical and verify CBP before you ship.</li>
-      <li><strong>United Kingdom</strong> — VAT typically applies on imported goods; customs duty often starts above £135.</li>
-      <li><strong>EU</strong> — VAT is usually due; customs duty commonly starts above €150.</li>
-      <li><strong>Canada</strong> — general goods de minimis is low (often CAD $20); GST/HST may still apply.</li>
-      <li><strong>Australia</strong> — GST often applies above AUD $1,000.</li>
+      <li><strong>United States</strong> — de minimis treatment has been changing; verify CBP before you ship.</li>
+      <li><strong>United Kingdom</strong> — VAT commonly 20%; customs duty often starts above £135 and depends on HS code.</li>
+      <li><strong>EU</strong> — VAT is usually due at the destination rate; customs duty commonly starts above €150.</li>
+      <li><strong>Canada</strong> — general goods de minimis is low; GST/HST may still apply.</li>
+      <li><strong>Australia</strong> — GST often 10%, with a high-value threshold around AUD $1,000.</li>
+      <li><strong>New Zealand</strong> — GST commonly 15% on imported goods.</li>
     </ul>
-    <p>Declare the accurate transaction value. Undervaluing a parcel to avoid tax is illegal. For country write-ups see the <a href="/blog/posts/allchinabuy-customs-guide/">AllChinaBuy customs guide</a> and <a href="/allchinabuy-shipping-guide/">shipping guide</a>.</p>
-    <p><a class="btn btn-primary" href="/allchinabuy-spreadsheet/">Back to the spreadsheet</a></p>
+    <p>Declare the accurate transaction value. Undervaluing a parcel to avoid tax is illegal. Country write-ups: <a href="/blog/posts/allchinabuy-customs-guide/">customs guide</a> and <a href="/allchinabuy-shipping-guide/">shipping guide</a>.</p>
   </div>
 </section>
 <script>
 const RULES = {
-  US: {vat: 0, duty: 0, note: "US import rules are in flux. Confirm current CBP de minimis before shipping."},
-  UK: {vat: 0.20, duty: 0, note: "UK VAT is commonly 20%. Customs duty depends on HS code above the duty-free threshold."},
-  EU: {vat: 0.19, duty: 0, note: "Illustrative 19% VAT. Actual VAT is the destination country rate; duty depends on HS code."},
-  CA: {vat: 0.05, duty: 0, note: "Illustrative 5% GST. Provincial HST/PST may add more; de minimis is low for most goods."},
-  AU: {vat: 0.10, duty: 0, note: "Illustrative 10% GST. Low-value import rules still apply below AUD $1,000."}
+  US: {vat: 0, note: "US import rules are in flux. Confirm current CBP de minimis before shipping."},
+  UK: {vat: 0.20, note: "UK VAT is commonly 20%. Duty depends on HS code above the duty-free threshold."},
+  EU: {vat: 0.19, note: "Illustrative 19% VAT. Use the destination country rate; duty depends on HS code."},
+  CA: {vat: 0.05, note: "Illustrative 5% GST. Provincial HST/PST may add more."},
+  AU: {vat: 0.10, note: "Illustrative 10% GST. Confirm the live GST registration threshold."},
+  NZ: {vat: 0.15, note: "Illustrative 15% GST on imported goods."}
 };
+const DUTY = {clothing: 0.08, electronics: 0.05, other: 0.04};
 document.getElementById("duty-form").addEventListener("submit", function (e) {
   e.preventDefault();
   const value = Number(document.getElementById("declared").value || 0);
   const dest = document.getElementById("dest").value;
+  const cat = document.getElementById("cat").value;
   const rule = RULES[dest];
+  const dutyRate = dest === "US" ? 0 : (DUTY[cat] || 0);
   const vat = value * rule.vat;
-  const total = value + vat + value * rule.duty;
+  const duty = value * dutyRate;
+  const total = value + vat + duty;
   document.getElementById("duty-out").textContent =
     "Estimated landed cost about USD " + total.toFixed(2) +
-    " (goods USD " + value.toFixed(2) + " + tax USD " + vat.toFixed(2) + "). " + rule.note;
+    " (goods " + value.toFixed(2) + " + tax " + vat.toFixed(2) +
+    " + illustrative duty " + duty.toFixed(2) + "). " + rule.note;
 });
 </script>
 
@@ -94,7 +109,7 @@ document.getElementById("duty-form").addEventListener("submit", function (e) {
 <footer class="footer" role="contentinfo">
   <div class="container">
     <p>Independent AllChinaBuy / ACBuy spreadsheet resource — not affiliated with allchinabuy.com.</p>
-    <p><a href="/">Home</a> · <a href="/allchinabuy-spreadsheet/">Spreadsheet</a> · <a href="/customs-calculator/">Duty calculator</a> · <a href="/sizing-guide/">Size chart</a></p>
+    <p><a href="/">Home</a> · <a href="/allchinabuy-spreadsheet/">Spreadsheet</a> · <a href="/tools/">Tools</a> · <a href="/customs-calculator/">Duty calculator</a> · <a href="/sizing-guide/">Size chart</a> · <a href="/compare-shopping-agents/">Agent comparison</a></p>
   </div>
 </footer>
 </body>
