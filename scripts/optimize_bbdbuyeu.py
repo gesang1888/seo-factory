@@ -752,7 +752,7 @@ def compare_page() -> str:
     <h2>What 0% fees actually mean</h2>
     <p>BBDBuy, CNFans, Superbuy and Pandabuy often advertise 0% item fees. Revenue still has to come from somewhere — usually shipping markups. LitBuy states a service fee and may price freight closer to cost. Always compare <strong>item + fee + freight</strong> for your haul weight, not the headline percentage.</p>
     <h2>BBDBuy vs BBDBuyEU</h2>
-    <p>W2C labels this catalog <strong>bbdbuy</strong>; checkout is <strong>BBDBuyEU</strong> on bbdbuyeu.com. That is a sheet-vs-agent naming split, not an AllChinaBuy/ACBuy-style rebrand. Browse the <a href="/bbdbuyeu-spreadsheet/">BBDBuyEU spreadsheet</a> or the W2C bbdbuy sheet — same rows.</p>
+    <p>W2C lists this catalog as <strong>bbdbuy</strong>. Checkout is <strong>BBDBuyEU</strong> on bbdbuyeu.com. Browse the <a href="/bbdbuyeu-spreadsheet/">BBDBuyEU spreadsheet</a> or the W2C bbdbuy sheet — same product rows, QC photos and live links.</p>
     <h2>FAQ</h2>
     <h3>Which agent is cheapest?</h3>
     <p>The cheapest checkout is the lowest landed cost after shipping, not the lowest advertised fee. Weigh a 2–5 kg haul on two agents before you standardise.</p>
@@ -1129,7 +1129,8 @@ def self_test() -> None:
         assert "<h1>" in page and "BBDBuyEU" in page
     compare_html = compare_page()
     assert "Kakobuy" in compare_html and "application/ld+json" in compare_html
-    assert "not an AllChinaBuy/ACBuy-style rebrand" in compare_html
+    assert "AllChinaBuy" not in compare_html and "ACBuy" not in compare_html
+    assert "bbdbuyeu.com" in compare_html and "W2C lists this catalog as" in compare_html
     _products_mod().self_test()
     directory = (
         "<html><head></head><body>"
