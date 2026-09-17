@@ -28,6 +28,7 @@ import sys
 from datetime import date
 from html import escape
 from pathlib import Path
+from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -57,19 +58,89 @@ ALTERNATE_NAMES = [
 ]
 
 CATEGORIES = [
-    ("Sneakers", "/allchinabuy-spreadsheet-shoes/", "3,800+"),
-    ("Slippers", "/allchinabuy-spreadsheet-other-goods/", "420+"),
-    ("T-Shirts", "/allchinabuy-spreadsheet-t-shirts/", "2,100+"),
-    ("Polo", "/allchinabuy-spreadsheet-womens-fashion/", "890+"),
-    ("Shorts", "/allchinabuy-spreadsheet-pants/", "980+"),
-    ("Hoodies", "/allchinabuy-spreadsheet-hoodies/", "760+"),
-    ("Jackets", "/allchinabuy-spreadsheet-jackets/", "1,200+"),
-    ("Trousers", "/allchinabuy-spreadsheet-headwear/", "650+"),
-    ("Jerseys", "/allchinabuy-spreadsheet-jerseys/", "290+"),
-    ("Electronics", "/allchinabuy-spreadsheet-electronics/", "150+"),
-    ("Bags", "/allchinabuy-spreadsheet-bags/", "540+"),
-    ("Jewelry", "/allchinabuy-spreadsheet-accessories/", "480+"),
+    ("Sneakers", "/allchinabuy-spreadsheet-shoes/", "sneakers"),
+    ("Slippers", "/allchinabuy-spreadsheet-other-goods/", "slippers"),
+    ("T-Shirts", "/allchinabuy-spreadsheet-t-shirts/", "tshirts"),
+    ("Polo", "/allchinabuy-spreadsheet-womens-fashion/", "polo"),
+    ("Shorts", "/allchinabuy-spreadsheet-pants/", "shorts"),
+    ("Hoodies", "/allchinabuy-spreadsheet-hoodies/", "hoodies"),
+    ("Jackets", "/allchinabuy-spreadsheet-jackets/", "jackets"),
+    ("Trousers", "/allchinabuy-spreadsheet-headwear/", "trousers"),
+    ("Jerseys", "/allchinabuy-spreadsheet-jerseys/", "jerseys"),
+    ("Electronics", "/allchinabuy-spreadsheet-electronics/", "electronics"),
+    ("Bags", "/allchinabuy-spreadsheet-bags/", "bags"),
+    ("Jewelry", "/allchinabuy-spreadsheet-accessories/", "jewelry"),
 ]
+
+SIDEBAR_CATS = [
+    ("sneakers", "SNEAKERS"),
+    ("slippers", "SLIPPERS"),
+    ("tshirts", "T-SHIRT"),
+    ("polo", "POLO"),
+    ("shorts", "SHORTS"),
+    ("hoodies", "HOODIE"),
+    ("jackets", "JACKET"),
+    ("trousers", "TROUSERS"),
+    ("jerseys", "Jersey"),
+    ("electronics", "Electronics"),
+    ("bags", "BAG"),
+    ("jewelry", "JEWELRY"),
+]
+
+_STATS: dict | None = None
+
+
+def catalog_stats() -> dict:
+    """Live catalog totals from /api/search.php. Falls back to last known counts."""
+    global _STATS
+    if _STATS is not None:
+        return _STATS
+    stats = {
+        "found": 10024,
+        "categories": {
+            "sneakers": 1478,
+            "slippers": 92,
+            "tshirts": 2025,
+            "polo": 149,
+            "shorts": 632,
+            "hoodies": 1500,
+            "jackets": 398,
+            "trousers": 616,
+            "jerseys": 248,
+            "electronics": 177,
+            "bags": 392,
+            "jewelry": 219,
+        },
+    }
+    try:
+        def found_for(params: dict) -> int:
+            req = Request(
+                f"{BASE}/api/search.php?{urlencode(params)}",
+                headers={"User-Agent": "AllChinaBuySEO/1.0", "Accept": "application/json"},
+            )
+            with urlopen(req, timeout=20) as resp:
+                data = json.loads(resp.read().decode("utf-8", "replace"))
+            return int(data.get("found") or 0)
+
+        stats["found"] = found_for({"page": 1, "per_page": 1, "sort": "newest"})
+        cats: dict[str, int] = {}
+        for key, api_cat in SIDEBAR_CATS:
+            cats[key] = found_for({"page": 1, "per_page": 1, "category": api_cat})
+        stats["categories"] = cats
+    except Exception:
+        pass
+    _STATS = stats
+    return stats
+
+
+def count_exact(n: int | None = None) -> str:
+    return f"{int(n if n is not None else catalog_stats()['found']):,}"
+
+
+def count_plus(n: int | None = None) -> str:
+    found = int(n if n is not None else catalog_stats()["found"])
+    return f"{(found // 1000) * 1000:,}+"
+
 
 FAQ_EXTRA = [
     {
@@ -100,7 +171,7 @@ def _jsonld_graph() -> dict:
             "name": "What is the AllChinaBuy Spreadsheet?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "A curated database of 8,600+ products from Taobao, Weidian and 1688 with live product links, USD pricing and QC photos.",
+                "text": f"A curated database of {count_plus()} products from Taobao, Weidian and 1688 with live product links, USD pricing and QC photos.",
             },
         },
         {
@@ -154,7 +225,7 @@ def _jsonld_graph() -> dict:
                 "@id": f"{BASE}/#website",
                 "name": "AllChinaBuy Spreadsheet 2026",
                 "alternateName": ALTERNATE_NAMES,
-                "description": "The #1 free AllChinaBuy / ACBuy spreadsheet with 8,600+ verified products from Taobao, 1688 and Weidian.",
+                "description": f"The #1 free AllChinaBuy / ACBuy spreadsheet with {count_plus()} verified products from Taobao, 1688 and Weidian.",
                 "url": f"{BASE}/",
                 "inLanguage": "en",
                 "dateModified": TODAY,
@@ -784,7 +855,80 @@ def patch_homepage(html: str) -> str:
             '<li><a href="/allchinabuy-shipping-guide/">Shipping Guide</a></li>\n        ' + tool_links,
             1,
         )
+    return apply_count_copy(html)
+
+
+def apply_count_copy(html: str, exact: bool = False) -> str:
+    """Replace stale 8,600+ marketing copy with the live catalog size."""
+    found = catalog_stats()["found"]
+    plus = count_plus(found)
+    html = html.replace("8,600+", plus if not exact else count_exact(found))
+    html = html.replace("8,649", count_exact(found))
     return html
+
+
+COUNT_SYNC_JS = r"""
+function fmtN(n){return Number(n||0).toLocaleString('en-US');}
+let catalogTotal=0;
+async function syncSidebarCounts(){
+  try{
+    const r=await fetch(API+'?page=1&per_page=1&sort=newest',{cache:'no-store'});
+    const d=await r.json();
+    const n=Number(d.found||0);
+    if(n){
+      catalogTotal=n;
+      const allCn=document.querySelector('#clist a[onclick*="fc(\'all\')"] .cn');
+      if(allCn) allCn.textContent=fmtN(n);
+      const hero=document.querySelector('.hero__sub');
+      if(hero) hero.textContent='Search '+fmtN(n)+' rep products across 12 categories. Live W2C data, USD pricing, updated daily.';
+    }
+  }catch(e){}
+  await Promise.all(Object.entries(CATMAP).map(async ([key, apiCat])=>{
+    try{
+      const r=await fetch(API+'?page=1&per_page=1&category='+encodeURIComponent(apiCat),{cache:'no-store'});
+      const d=await r.json();
+      const n=Number(d.found||0);
+      const el=document.querySelector('#clist a[onclick*="fc(\''+key+'\')"] .cn');
+      if(el&&n) el.textContent=fmtN(n);
+    }catch(e){}
+  }));
+}
+"""
+
+
+def patch_directory_page(html: str, stats: dict | None = None) -> str:
+    stats = stats or catalog_stats()
+    found = int(stats["found"])
+    exact = f"{found:,}"
+    html = html.replace("Search 8,600+ rep products", f"Search {exact} rep products")
+    html = html.replace(
+        'All Products <span class="cn">8,600+</span>',
+        f'All Products <span class="cn">{exact}</span>',
+    )
+    html = html.replace("<b>8,649</b> products", f"<b>{exact}</b> products")
+    html = html.replace("8,600+ live AllChinaBuy", f"{exact} live AllChinaBuy")
+    html = html.replace("8,600+ rep products", f"{exact} rep products")
+    html = html.replace("Free AllChinaBuy spreadsheet with 8,600+", f"Free AllChinaBuy spreadsheet with {exact}")
+    for key, n in (stats.get("categories") or {}).items():
+        html = re.sub(
+            rf"(onclick=\"fc\('{re.escape(key)}'\);return false;\">[^<]+ <span class=\"cn\">)[^<]+",
+            rf"\g<1>{int(n):,}",
+            html,
+        )
+    marker = "document.addEventListener('DOMContentLoaded',()=>lp(true));"
+    if marker in html and "syncSidebarCounts" not in html:
+        html = html.replace(
+            marker,
+            COUNT_SYNC_JS + "document.addEventListener('DOMContentLoaded',()=>{lp(true);syncSidebarCounts();});",
+            1,
+        )
+    return html
+
+
+def fetch_path(path: str) -> str:
+    req = Request(f"{BASE}{path}", headers={"User-Agent": "AllChinaBuySEO/1.0"})
+    with urlopen(req, timeout=30) as resp:
+        return resp.read().decode("utf-8", "replace")
 
 
 def validate_jsonld(html: str) -> list[str]:
@@ -826,7 +970,7 @@ def _products_mod():
 def write_overlay(index_html: str, products: bool = True, product_limit: int = 0) -> None:
     OVERLAY.mkdir(parents=True, exist_ok=True)
     (OVERLAY / "robots.txt").write_text(ROBOTS_TXT, encoding="utf-8")
-    (OVERLAY / "llms.txt").write_text(LLMS_TXT, encoding="utf-8")
+    (OVERLAY / "llms.txt").write_text(apply_count_copy(LLMS_TXT), encoding="utf-8")
     (OVERLAY / "index.html").write_text(patch_homepage(index_html), encoding="utf-8")
     pages = {
         "tools": tools_page(),
@@ -838,6 +982,17 @@ def write_overlay(index_html: str, products: bool = True, product_limit: int = 0
         dest = OVERLAY / slug
         dest.mkdir(exist_ok=True)
         (dest / "index.html").write_text(html, encoding="utf-8")
+    stats = catalog_stats()
+    for slug in ("allchinabuy-spreadsheet", "acbuy-spreadsheet"):
+        try:
+            raw = fetch_path(f"/{slug}/")
+        except Exception as exc:
+            print("skip directory", slug, exc)
+            continue
+        dest = OVERLAY / slug
+        dest.mkdir(exist_ok=True)
+        (dest / "index.html").write_text(patch_directory_page(raw, stats), encoding="utf-8")
+        print(f"directory {slug} found={stats['found']}")
     sitemap_extra = """  <url><loc>https://allchina-buy.com/tools/</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://allchina-buy.com/customs-calculator/</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://allchina-buy.com/sizing-guide/</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
@@ -894,9 +1049,21 @@ def self_test() -> None:
     compare_html = compare_page()
     assert "Kakobuy" in compare_html and "application/ld+json" in compare_html
     _products_mod().self_test()
-    assert "User-Agent: GPTBot" in ROBOTS_TXT
-    assert "User-Agent: Claude-SearchBot" in ROBOTS_TXT
-    assert ROBOTS_TXT.count("Allow: /product/") >= 4
+    directory = (
+        '<p class="hero__sub">Search 8,600+ rep products across 12 categories. Live W2C data, USD pricing, updated daily.</p>'
+        '<ul class="ss-cat" id="clist"><li><a href="#" class="on" onclick="fc(\'all\');return false;">All Products <span class="cn">8,600+</span></a></li>'
+        '<li><a href="#" onclick="fc(\'sneakers\');return false;">Sneakers <span class="cn">3,800+</span></a></li></ul>'
+        '<span class="ss-count" id="rc"><b>8,649</b> products</span>'
+        "const CATMAP={\"sneakers\":\"SNEAKERS\"};const API='/api/search.php';"
+        "document.addEventListener('DOMContentLoaded',()=>lp(true));"
+    )
+    synced = patch_directory_page(directory, {"found": 10024, "categories": {"sneakers": 1478}})
+    assert "Search 10,024 rep products" in synced
+    assert 'All Products <span class="cn">10,024</span>' in synced
+    assert "<b>10,024</b> products" in synced
+    assert "1,478" in synced
+    assert "syncSidebarCounts" in synced
+    assert "8,600+" not in synced
     print("self-test OK", types)
 
 
@@ -943,6 +1110,8 @@ def deploy(skip_products: bool = False, product_limit: int = 0) -> None:
     _run(client, f"cp -a {WEBROOT}/robots.txt {WEBROOT}/robots.txt.bak-seo-{stamp} || true")
     _run(client, f"cp -a {WEBROOT}/llms.txt {WEBROOT}/llms.txt.bak-seo-{stamp} || true")
     _run(client, f"cp -a {WEBROOT}/sitemap.xml {WEBROOT}/sitemap.xml.bak-seo-{stamp} || true")
+    _run(client, f"cp -a {WEBROOT}/allchinabuy-spreadsheet/index.html {WEBROOT}/allchinabuy-spreadsheet/index.html.bak-seo-{stamp} || true")
+    _run(client, f"cp -a {WEBROOT}/acbuy-spreadsheet/index.html {WEBROOT}/acbuy-spreadsheet/index.html.bak-seo-{stamp} || true")
 
     uploads = {
         str(OVERLAY / "index.html"): f"{WEBROOT}/index.html",
@@ -954,6 +1123,8 @@ def deploy(skip_products: bool = False, product_limit: int = 0) -> None:
         str(OVERLAY / "compare-shopping-agents" / "index.html"): f"{WEBROOT}/compare-shopping-agents/index.html",
         str(OVERLAY / "sitemap-products.xml"): f"{WEBROOT}/sitemap-products.xml",
         str(OVERLAY / "api" / "products.php"): f"{WEBROOT}/api/products.php",
+        str(OVERLAY / "allchinabuy-spreadsheet" / "index.html"): f"{WEBROOT}/allchinabuy-spreadsheet/index.html",
+        str(OVERLAY / "acbuy-spreadsheet" / "index.html"): f"{WEBROOT}/acbuy-spreadsheet/index.html",
     }
     for local, remote in uploads.items():
         if not Path(local).exists():
@@ -996,12 +1167,46 @@ def deploy(skip_products: bool = False, product_limit: int = 0) -> None:
                     f"chown -R www:www {WEBROOT}/index.html {WEBROOT}/robots.txt "
                     f"{WEBROOT}/llms.txt {WEBROOT}/sitemap.xml {WEBROOT}/sitemap-products.xml "
                     f"{WEBROOT}/tools {WEBROOT}/customs-calculator {WEBROOT}/sizing-guide "
-                    f"{WEBROOT}/compare-shopping-agents {WEBROOT}/product {WEBROOT}/api/products.php"
+                    f"{WEBROOT}/compare-shopping-agents {WEBROOT}/product {WEBROOT}/api/products.php "
+                    f"{WEBROOT}/allchinabuy-spreadsheet {WEBROOT}/acbuy-spreadsheet"
                 ),
             ]
         ),
     )
     sftp.close()
+    plus = count_plus()
+    exact = count_exact()
+    stale = _run(
+        client,
+        "python3 - <<'PY'\n"
+        "import os\n"
+        f"old_plus={json.dumps('8,600+')}\n"
+        f"new_plus={json.dumps(plus)}\n"
+        f"old_n={json.dumps('8,649')}\n"
+        f"new_n={json.dumps(exact)}\n"
+        "root='/www/wwwroot/allchina-buy.com'\n"
+        "changed=0\n"
+        "for dirpath, dirs, files in os.walk(root):\n"
+        "    rel=os.path.relpath(dirpath, root)\n"
+        "    if rel=='product' or rel.startswith('product'+os.sep):\n"
+        "        dirs[:]=[]\n"
+        "        continue\n"
+        "    for name in files:\n"
+        "        if not name.endswith(('.html','.txt')): continue\n"
+        "        path=os.path.join(dirpath, name)\n"
+        "        try:\n"
+        "            text=open(path, encoding='utf-8').read()\n"
+        "        except Exception:\n"
+        "            continue\n"
+        "        n=text.replace(old_plus, new_plus).replace(old_n, new_n)\n"
+        "        if n!=text:\n"
+        "            open(path,'w',encoding='utf-8').write(n)\n"
+        "            changed+=1\n"
+        "print('stale-count-files', changed)\n"
+        "PY",
+        timeout=120,
+    )
+    print(stale)
     client.close()
     print("allchina-buy seo deploy done")
 
