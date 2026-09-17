@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import urllib.parse
@@ -22,7 +23,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OVERLAY = ROOT / "sites" / "allchina-buy.com" / "overlay"
 CACHE = ROOT / "sites" / "allchina-buy.com" / "products.json"
-W2C_PRODUCTS = "https://w2clinks.com/public/typesense-search.php"
+# Live AllChinaBuy catalog API (proxies the W2C typesense feed). Optional
+# ALLCHINA_PRODUCTS_API_KEY is sent if the upstream starts requiring it.
+PRODUCT_API = os.environ.get(
+    "ALLCHINA_PRODUCTS_API",
+    "https://allchina-buy.com/api/search.php",
+)
+PRODUCT_API_FALLBACK = "https://w2clinks.com/public/typesense-search.php"
 W2C_BASE = "https://w2clinks.com"
 BASE = "https://allchina-buy.com"
 REGISTER = "https://allchinabuy.com"
@@ -78,6 +85,9 @@ CATEGORY_PATHS = {
     "BAG": "/allchinabuy-spreadsheet-bags/",
     "ACCESSORIES": "/allchinabuy-spreadsheet-accessories/",
     "WATCH": "/allchinabuy-spreadsheet-accessories/",
+    "HAT": "/allchinabuy-spreadsheet-headwear/",
+    "BELT": "/allchinabuy-spreadsheet-accessories/",
+    "JEWELRY": "/allchinabuy-spreadsheet-accessories/",
     "ELECTRONICS": "/allchinabuy-spreadsheet-electronics/",
     "JERSEY": "/allchinabuy-spreadsheet-jerseys/",
     "POLO": "/allchinabuy-spreadsheet-womens-fashion/",
@@ -87,13 +97,24 @@ CATEGORY_PATHS = {
 }
 
 
+def _api_headers() -> dict[str, str]:
+    headers = {"User-Agent": "AllChinaBuySEO/1.0", "Accept": "application/json"}
+    key = (os.environ.get("ALLCHINA_PRODUCTS_API_KEY") or os.environ.get("PRODUCTS_API_KEY") or "").strip()
+    if key:
+        headers["X-API-KEY"] = key
+        headers["api-key"] = key
+        headers["Authorization"] = f"Bearer {key}"
+    return headers
+
+
 def http_json(url: str) -> dict:
-    req = urllib.request.Request(
-        url,
-        headers={"User-Agent": "AllChinaBuySEO/1.0", "Accept": "application/json"},
-    )
+    req = urllib.request.Request(url, headers=_api_headers())
     with urllib.request.urlopen(req, context=SSL_CTX, timeout=30) as resp:
         return json.loads(resp.read().decode("utf-8", "replace"))
+
+
+def product_api_base() -> str:
+    return PRODUCT_API or PRODUCT_API_FALLBACK
 
 
 def slugify(text: str) -> str:
@@ -154,6 +175,9 @@ def describe(item: dict) -> str:
         "ELECTRONICS": "Confirm voltage, plug type and that the listing is the exact model you want.",
         "T-SHIRT": "Chinese letter sizes often run small; use the centimetre chart on the listing.",
         "SHORTS": "Check inseam and waist in centimetres rather than the tagged letter size.",
+        "BAG": "Inspect stitching, zipper pull and logo placement on QC photos.",
+        "BAGS": "Inspect stitching, zipper pull and logo placement on QC photos.",
+        "TROUSERS": "Check waist and inseam in centimetres rather than the tagged letter size.",
     }.get((item.get("category") or "").upper(), "Review warehouse QC photos before you approve international shipping.")
     return (
         f"{title} is a {cat} row in the AllChinaBuy spreadsheet, sourced from {platform} "
@@ -182,55 +206,75 @@ def normalize(hit: dict) -> dict | None:
         "brand": str(hit.get("brand") or ""),
         "price": hit.get("price") if hit.get("price") is not None else 0,
         "platform": infer_platform(url + " " + str(hit.get("image") or "")),
+        "indexable": bool(hit.get("indexable", True)),
     }
     item["slug"] = f"{slugify(title)}-{item['aid']}"
     item["description"] = describe(item)
     return item
 
 
-def fetch_products(limit: int = 1600) -> list[dict]:
+def fetch_page(page: int, category: str | None = None, per_page: int = 60) -> dict:
+    params = {"page": page, "per_page": per_page, "sort": "newest"}
+    if category:
+        params["category"] = category
+    qs = urllib.parse.urlencode(params)
+    url = f"{product_api_base()}?{qs}"
+    try:
+        return http_json(url)
+    except Exception:
+        if product_api_base() != PRODUCT_API_FALLBACK:
+            return http_json(f"{PRODUCT_API_FALLBACK}?{qs}")
+        raise
+
+
+def fetch_products(limit: int = 0) -> list[dict]:
+    """Pull the live spreadsheet catalog. limit<=0 means the entire feed."""
     seen: set[int] = set()
     items: list[dict] = []
-    for cat, quota in CATEGORY_QUOTAS:
-        page = 1
-        got = 0
-        while got < quota and len(items) < limit:
-            qs = urllib.parse.urlencode(
-                {"page": page, "per_page": 60, "sort": "newest", "category": cat}
-            )
-            data = http_json(f"{W2C_PRODUCTS}?{qs}")
-            hits = data.get("hits") or []
-            if not hits:
-                break
-            for hit in hits:
-                row = normalize(hit)
-                if not row or row["aid"] in seen:
-                    continue
-                seen.add(row["aid"])
-                items.append(row)
-                got += 1
-                if got >= quota or len(items) >= limit:
-                    break
-            page += 1
-            if page > 12:
-                break
-    # Fill remainder from unfiltered newest.
-    page = 1
-    while len(items) < limit and page <= 20:
-        qs = urllib.parse.urlencode({"page": page, "per_page": 60, "sort": "newest"})
-        data = http_json(f"{W2C_PRODUCTS}?{qs}")
-        hits = data.get("hits") or []
-        if not hits:
-            break
+
+    def ingest(hits: list) -> None:
         for hit in hits:
+            if hit.get("indexable") is False:
+                continue
             row = normalize(hit)
             if not row or row["aid"] in seen:
                 continue
             seen.add(row["aid"])
             items.append(row)
-            if len(items) >= limit:
+
+    # Category quotas first so long-tail URLs are not 1600 identical hoodies.
+    for cat, quota in CATEGORY_QUOTAS:
+        page = 1
+        got = 0
+        while got < quota:
+            data = fetch_page(page, category=cat)
+            hits = data.get("hits") or []
+            if not hits:
                 break
-        page += 1
+            before = len(items)
+            ingest(hits)
+            got += len(items) - before
+            page += 1
+            if page > 20:
+                break
+
+    first = fetch_page(1)
+    found = int(first.get("found") or 0)
+    ingest(first.get("hits") or [])
+    per_page = int(first.get("per_page") or 60) or 60
+    total_pages = max(1, (found + per_page - 1) // per_page) if found else 1
+    if limit > 0:
+        total_pages = min(total_pages, max(1, (limit + per_page - 1) // per_page))
+    for page in range(2, total_pages + 1):
+        data = fetch_page(page)
+        hits = data.get("hits") or []
+        if not hits:
+            break
+        ingest(hits)
+        if limit > 0 and len(items) >= limit:
+            break
+    if limit > 0:
+        items = items[:limit]
     return items
 
 
@@ -453,14 +497,15 @@ def write_sitemap(items: list[dict]) -> str:
     )
 
 
-def build_product_pages(items: list[dict] | None = None, limit: int = 1600) -> list[dict]:
+def build_product_pages(items: list[dict] | None = None, limit: int = 0) -> list[dict]:
     if items is None:
         if CACHE.exists():
             items = json.loads(CACHE.read_text(encoding="utf-8"))
         else:
             items = fetch_products(limit=limit)
             CACHE.write_text(json.dumps(items, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    items = items[:limit]
+    if limit > 0:
+        items = items[:limit]
     attach_related(items)
     product_root = OVERLAY / "product"
     if product_root.exists():
@@ -508,7 +553,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--self-test", action="store_true")
     parser.add_argument("--fetch", action="store_true")
-    parser.add_argument("--limit", type=int, default=1600)
+    parser.add_argument("--limit", type=int, default=0, help="0 = entire catalog from the product API")
     args = parser.parse_args()
     if args.self_test:
         self_test()
@@ -518,7 +563,8 @@ def main() -> None:
         CACHE.write_text(json.dumps(items, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         print(f"cached {len(items)} products -> {CACHE}")
     else:
-        items = json.loads(CACHE.read_text(encoding="utf-8"))[: args.limit]
+        cached = json.loads(CACHE.read_text(encoding="utf-8"))
+        items = cached if args.limit <= 0 else cached[: args.limit]
     built = build_product_pages(items, limit=args.limit)
     print(f"wrote {len(built)} product pages")
 

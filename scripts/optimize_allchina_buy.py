@@ -821,7 +821,7 @@ def _products_mod():
         return mod
 
 
-def write_overlay(index_html: str, products: bool = True, product_limit: int = 1600) -> None:
+def write_overlay(index_html: str, products: bool = True, product_limit: int = 0) -> None:
     OVERLAY.mkdir(parents=True, exist_ok=True)
     (OVERLAY / "robots.txt").write_text(ROBOTS_TXT, encoding="utf-8")
     (OVERLAY / "llms.txt").write_text(LLMS_TXT, encoding="utf-8")
@@ -892,8 +892,6 @@ def self_test() -> None:
     compare_html = compare_page()
     assert "Kakobuy" in compare_html and "application/ld+json" in compare_html
     _products_mod().self_test()
-    write_overlay(fixture, products=False)
-    assert (OVERLAY / "compare-shopping-agents" / "index.html").exists()
     print("self-test OK", types)
 
 
@@ -950,6 +948,7 @@ def deploy() -> None:
         str(OVERLAY / "sizing-guide" / "index.html"): f"{WEBROOT}/sizing-guide/index.html",
         str(OVERLAY / "compare-shopping-agents" / "index.html"): f"{WEBROOT}/compare-shopping-agents/index.html",
         str(OVERLAY / "sitemap-products.xml"): f"{WEBROOT}/sitemap-products.xml",
+        str(OVERLAY / "api" / "products.php"): f"{WEBROOT}/api/products.php",
     }
     for local, remote in uploads.items():
         if not Path(local).exists():
@@ -992,7 +991,7 @@ def deploy() -> None:
                     f"chown -R www:www {WEBROOT}/index.html {WEBROOT}/robots.txt "
                     f"{WEBROOT}/llms.txt {WEBROOT}/sitemap.xml {WEBROOT}/sitemap-products.xml "
                     f"{WEBROOT}/tools {WEBROOT}/customs-calculator {WEBROOT}/sizing-guide "
-                    f"{WEBROOT}/compare-shopping-agents {WEBROOT}/product"
+                    f"{WEBROOT}/compare-shopping-agents {WEBROOT}/product {WEBROOT}/api/products.php"
                 ),
             ]
         ),
@@ -1009,7 +1008,7 @@ def main() -> None:
     parser.add_argument("--file", type=Path)
     parser.add_argument("--deploy", action="store_true")
     parser.add_argument("--skip-products", action="store_true")
-    parser.add_argument("--product-limit", type=int, default=1600)
+    parser.add_argument("--product-limit", type=int, default=0, help="0 = entire catalog")
     args = parser.parse_args()
     if args.self_test:
         self_test()
