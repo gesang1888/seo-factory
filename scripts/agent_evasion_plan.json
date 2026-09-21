@@ -1,0 +1,3180 @@
+{
+  "goal": "完全规避 scaled content / thin affiliation / doorway / scraping。国家站=当地分站。",
+  "traffic": "宝塔最新约1000行 gref/gbot。",
+  "rules": [
+    "不同代理永不互301",
+    "不同国家永不互301",
+    "同一国家只留ccTLD分站，spreadsheet别名并进去",
+    "分站按cssbuy.fr标准加深",
+    "SKU noindex",
+    "零来路先noindex"
+  ],
+  "gold": {
+    "php": "cssbuy.fr 等",
+    "tools": "allchina-buy.com, bbdbuyeu.net",
+    "search": "usfansspreadsheet.net, w2clinks.com"
+  },
+  "agents": {
+    "ACBuy": {
+      "hub": null,
+      "countries": {
+        "CA": {
+          "branch": "acbuyspreadsheets.ca",
+          "aliases": [],
+          "gref": {
+            "acbuyspreadsheets.ca": 2
+          }
+        },
+        "NL": {
+          "branch": "acbuyspreadsheets.nl",
+          "aliases": [],
+          "gref": {
+            "acbuyspreadsheets.nl": 7
+          }
+        }
+      }
+    },
+    "AllChinaBuy": {
+      "hub": "allchina-buy.com",
+      "countries": {
+        "GLOBAL": {
+          "branch": "allchina-buy.com",
+          "aliases": [],
+          "gref": {
+            "allchina-buy.com": 7
+          }
+        },
+        "CA": {
+          "branch": "allchinabuyspreadsheet.ca",
+          "aliases": [],
+          "gref": {
+            "allchinabuyspreadsheet.ca": 21
+          }
+        },
+        "NL": {
+          "branch": "allchinabuyspreadsheet.nl",
+          "aliases": [],
+          "gref": {
+            "allchinabuyspreadsheet.nl": 10
+          }
+        },
+        "UK": {
+          "branch": "allchinabuyspreadsheets.co.uk",
+          "aliases": [],
+          "gref": {
+            "allchinabuyspreadsheets.co.uk": 13
+          }
+        }
+      }
+    },
+    "BBDBuy": {
+      "hub": null,
+      "countries": {
+        "CA": {
+          "branch": "bbdbuy.ca",
+          "aliases": [
+            "bbdbuyspreadsheet.ca"
+          ],
+          "gref": {
+            "bbdbuy.ca": 40,
+            "bbdbuyspreadsheet.ca": 17
+          }
+        },
+        "IT": {
+          "branch": "bbdbuy.it",
+          "aliases": [],
+          "gref": {
+            "bbdbuy.it": 3
+          }
+        },
+        "UK": {
+          "branch": "bbdbuy.uk",
+          "aliases": [
+            "bbdbuyspreadsheet.uk"
+          ],
+          "gref": {
+            "bbdbuy.uk": 31,
+            "bbdbuyspreadsheet.uk": 34
+          }
+        },
+        "US": {
+          "branch": "bbdbuy.us",
+          "aliases": [
+            "bbdbuyspreadsheet.us"
+          ],
+          "gref": {
+            "bbdbuy.us": 38,
+            "bbdbuyspreadsheet.us": 2
+          }
+        },
+        "DE": {
+          "branch": "bbdbuyspreadsheet.de",
+          "aliases": [],
+          "gref": {
+            "bbdbuyspreadsheet.de": 30
+          }
+        }
+      }
+    },
+    "BBDBuyEU": {
+      "hub": "bbdbuyeu.net",
+      "countries": {
+        "GLOBAL": {
+          "branch": "bbdbuyeu.net",
+          "aliases": [
+            "bbdbuyeuspreadsheet.com"
+          ],
+          "gref": {
+            "bbdbuyeu.net": 0,
+            "bbdbuyeuspreadsheet.com": 19
+          }
+        }
+      }
+    },
+    "BaseTao": {
+      "hub": "basetaospreadsheet.com",
+      "countries": {
+        "GLOBAL": {
+          "branch": "basetaospreadsheet.com",
+          "aliases": [],
+          "gref": {
+            "basetaospreadsheet.com": 4
+          }
+        }
+      }
+    },
+    "CNShopper": {
+      "hub": "cnshopper.net",
+      "countries": {
+        "GLOBAL": {
+          "branch": "cnshopper.net",
+          "aliases": [
+            "cnshopperspreadsheet.net"
+          ],
+          "gref": {
+            "cnshopper.net": 0,
+            "cnshopperspreadsheet.net": 3
+          }
+        }
+      }
+    },
+    "CSSBuy": {
+      "hub": null,
+      "countries": {
+        "AT": {
+          "branch": "cssbuy.at",
+          "aliases": [],
+          "gref": {
+            "cssbuy.at": 30
+          }
+        },
+        "ES": {
+          "branch": "cssbuy.es",
+          "aliases": [
+            "cssbuyspreadsheet.es"
+          ],
+          "gref": {
+            "cssbuy.es": 8,
+            "cssbuyspreadsheet.es": 2
+          }
+        },
+        "FR": {
+          "branch": "cssbuy.fr",
+          "aliases": [
+            "cssbuyspreadsheet.fr"
+          ],
+          "gref": {
+            "cssbuy.fr": 7,
+            "cssbuyspreadsheet.fr": 19
+          }
+        },
+        "IT": {
+          "branch": "cssbuy.it",
+          "aliases": [
+            "cssbuyspreadsheet.it"
+          ],
+          "gref": {
+            "cssbuy.it": 11,
+            "cssbuyspreadsheet.it": 31
+          }
+        },
+        "NL": {
+          "branch": "cssbuy.nl",
+          "aliases": [
+            "cssbuyspreadsheet.nl"
+          ],
+          "gref": {
+            "cssbuy.nl": 2,
+            "cssbuyspreadsheet.nl": 42
+          }
+        },
+        "CA": {
+          "branch": "cssbuyspreadsheet.ca",
+          "aliases": [],
+          "gref": {
+            "cssbuyspreadsheet.ca": 35
+          }
+        },
+        "EU": {
+          "branch": "cssbuyspreadsheet.eu",
+          "aliases": [],
+          "gref": {
+            "cssbuyspreadsheet.eu": 33
+          }
+        },
+        "UK": {
+          "branch": "cssbuyspreadsheet.uk",
+          "aliases": [],
+          "gref": {
+            "cssbuyspreadsheet.uk": 22
+          }
+        },
+        "DE": {
+          "branch": "cssbuyspreadsheets.de",
+          "aliases": [],
+          "gref": {
+            "cssbuyspreadsheets.de": 57
+          }
+        },
+        "US": {
+          "branch": "cssbuyspreadsheets.us",
+          "aliases": [],
+          "gref": {
+            "cssbuyspreadsheets.us": 28
+          }
+        }
+      }
+    },
+    "FansBuy": {
+      "hub": "fansbuysheets.net",
+      "countries": {
+        "UK": {
+          "branch": "fansbuy.co.uk",
+          "aliases": [
+            "fansbuyspreadsheet.uk"
+          ],
+          "gref": {
+            "fansbuy.co.uk": 25,
+            "fansbuyspreadsheet.uk": 10
+          }
+        },
+        "EU": {
+          "branch": "fansbuy.eu",
+          "aliases": [
+            "fansbuyspreadsheet.eu"
+          ],
+          "gref": {
+            "fansbuy.eu": 2,
+            "fansbuyspreadsheet.eu": 2
+          }
+        },
+        "NL": {
+          "branch": "fansbuy.nl",
+          "aliases": [],
+          "gref": {
+            "fansbuy.nl": 6
+          }
+        },
+        "GLOBAL": {
+          "branch": "fansbuysheets.net",
+          "aliases": [
+            "fansspreadsheet.net",
+            "fansspreadsheets.net"
+          ],
+          "gref": {
+            "fansbuysheets.net": 31,
+            "fansspreadsheet.net": 22,
+            "fansspreadsheets.net": 6
+          }
+        },
+        "DE": {
+          "branch": "fansbuyspreadsheet.de",
+          "aliases": [],
+          "gref": {
+            "fansbuyspreadsheet.de": 1
+          }
+        }
+      }
+    },
+    "FashionReps": {
+      "hub": "fashionrepsspreadsheet.com",
+      "countries": {
+        "GLOBAL": {
+          "branch": "fashionrepsspreadsheet.com",
+          "aliases": [
+            "fashionrepsfind.com"
+          ],
+          "gref": {
+            "fashionrepsfind.com": 2,
+            "fashionrepsspreadsheet.com": 4
+          }
+        }
+      }
+    },
+    "HipoBuy": {
+      "hub": null,
+      "countries": {
+        "AT": {
+          "branch": "hipobuy.at",
+          "aliases": [],
+          "gref": {
+            "hipobuy.at": 9
+          }
+        },
+        "GLOBAL": {
+          "branch": "hipobuyspreadsheet.net",
+          "aliases": [
+            "hipobuyreview.com"
+          ],
+          "gref": {
+            "hipobuyreview.com": 5,
+            "hipobuyspreadsheet.net": 28
+          }
+        },
+        "UK": {
+          "branch": "hipobuyspreadsheet.co.uk",
+          "aliases": [
+            "hipobuyspreadsheets.uk"
+          ],
+          "gref": {
+            "hipobuyspreadsheet.co.uk": 3,
+            "hipobuyspreadsheets.uk": 4
+          }
+        },
+        "EU": {
+          "branch": "hipobuyspreadsheet.eu",
+          "aliases": [],
+          "gref": {
+            "hipobuyspreadsheet.eu": 34
+          }
+        },
+        "NL": {
+          "branch": "hipobuyspreadsheet.nl",
+          "aliases": [],
+          "gref": {
+            "hipobuyspreadsheet.nl": 21
+          }
+        },
+        "US": {
+          "branch": "hipobuyspreadsheet.us",
+          "aliases": [],
+          "gref": {
+            "hipobuyspreadsheet.us": 7
+          }
+        }
+      }
+    },
+    "HubBuy": {
+      "hub": "hubbuy.net",
+      "countries": {
+        "GLOBAL": {
+          "branch": "hubbuy.net",
+          "aliases": [
+            "hubbuyspreadsheet.net"
+          ],
+          "gref": {
+            "hubbuy.net": 18,
+            "hubbuyspreadsheet.net": 7
+          }
+        }
+      }
+    },
+    "KakoBuy": {
+      "hub": "kakobuydocs.com",
+      "countries": {
+        "FI": {
+          "branch": "kakobuy.fi",
+          "aliases": [],
+          "gref": {
+            "kakobuy.fi": 44
+          }
+        },
+        "GLOBAL": {
+          "branch": "kakobuydocs.com",
+          "aliases": [
+            "kakobuytips.com"
+          ],
+          "gref": {
+            "kakobuydocs.com": 41,
+            "kakobuytips.com": 1
+          }
+        },
+        "CA": {
+          "branch": "kakospreadsheet.ca",
+          "aliases": [],
+          "gref": {
+            "kakospreadsheet.ca": 73
+          }
+        },
+        "ES": {
+          "branch": "kakospreadsheet.es",
+          "aliases": [],
+          "gref": {
+            "kakospreadsheet.es": 34
+          }
+        },
+        "FR": {
+          "branch": "kakospreadsheet.fr",
+          "aliases": [],
+          "gref": {
+            "kakospreadsheet.fr": 10
+          }
+        },
+        "NL": {
+          "branch": "kakospreadsheet.nl",
+          "aliases": [],
+          "gref": {
+            "kakospreadsheet.nl": 6
+          }
+        }
+      }
+    },
+    "LitBuy": {
+      "hub": "litbuyspreadsheetnow.com",
+      "countries": {
+        "AT": {
+          "branch": "litbuy.at",
+          "aliases": [],
+          "gref": {
+            "litbuy.at": 2
+          }
+        },
+        "EU": {
+          "branch": "litbuyspreadsheet.eu",
+          "aliases": [],
+          "gref": {
+            "litbuyspreadsheet.eu": 7
+          }
+        },
+        "IT": {
+          "branch": "litbuyspreadsheet.it",
+          "aliases": [],
+          "gref": {
+            "litbuyspreadsheet.it": 0
+          }
+        },
+        "UK": {
+          "branch": "litbuyspreadsheet.me.uk",
+          "aliases": [],
+          "gref": {
+            "litbuyspreadsheet.me.uk": 4
+          }
+        },
+        "GLOBAL": {
+          "branch": "litbuyspreadsheetnow.com",
+          "aliases": [],
+          "gref": {
+            "litbuyspreadsheetnow.com": 3
+          }
+        },
+        "CA": {
+          "branch": "litbuyspreadsheets.ca",
+          "aliases": [],
+          "gref": {
+            "litbuyspreadsheets.ca": 4
+          }
+        },
+        "ES": {
+          "branch": "litbuyspreadsheets.es",
+          "aliases": [],
+          "gref": {
+            "litbuyspreadsheets.es": 3
+          }
+        },
+        "NL": {
+          "branch": "litbuyspreadsheets.nl",
+          "aliases": [],
+          "gref": {
+            "litbuyspreadsheets.nl": 0
+          }
+        },
+        "US": {
+          "branch": "litbuyspreadsheets.us",
+          "aliases": [],
+          "gref": {
+            "litbuyspreadsheets.us": 0
+          }
+        },
+        "FR": {
+          "branch": "litspreadsheet.fr",
+          "aliases": [],
+          "gref": {
+            "litspreadsheet.fr": 1
+          }
+        }
+      }
+    },
+    "LoveGoBuy": {
+      "hub": "lovegobuyguide.com",
+      "countries": {
+        "IT": {
+          "branch": "lovegobuy.it",
+          "aliases": [
+            "lovegobuyspreadsheet.it"
+          ],
+          "gref": {
+            "lovegobuy.it": 10,
+            "lovegobuyspreadsheet.it": 4
+          }
+        },
+        "NL": {
+          "branch": "lovegobuy.nl",
+          "aliases": [
+            "lovegobuyspreadsheet.nl"
+          ],
+          "gref": {
+            "lovegobuy.nl": 3,
+            "lovegobuyspreadsheet.nl": 34
+          }
+        },
+        "GLOBAL": {
+          "branch": "lovegobuyguide.com",
+          "aliases": [],
+          "gref": {
+            "lovegobuyguide.com": 20
+          }
+        },
+        "CA": {
+          "branch": "lovegobuyspreadsheet.ca",
+          "aliases": [],
+          "gref": {
+            "lovegobuyspreadsheet.ca": 7
+          }
+        },
+        "ES": {
+          "branch": "lovegobuyspreadsheet.es",
+          "aliases": [],
+          "gref": {
+            "lovegobuyspreadsheet.es": 1
+          }
+        },
+        "EU": {
+          "branch": "lovegobuyspreadsheet.eu",
+          "aliases": [],
+          "gref": {
+            "lovegobuyspreadsheet.eu": 1
+          }
+        }
+      }
+    },
+    "MuleBuy": {
+      "hub": null,
+      "countries": {
+        "GLOBAL": {
+          "branch": "bestmulebuysheets.com",
+          "aliases": [],
+          "gref": {
+            "bestmulebuysheets.com": 8
+          }
+        },
+        "FR": {
+          "branch": "mulebuy.fr",
+          "aliases": [],
+          "gref": {
+            "mulebuy.fr": 23
+          }
+        },
+        "UK": {
+          "branch": "mulebuyspreadsheets.co.uk",
+          "aliases": [],
+          "gref": {
+            "mulebuyspreadsheets.co.uk": 2
+          }
+        },
+        "ES": {
+          "branch": "mulebuyspreadsheets.es",
+          "aliases": [],
+          "gref": {
+            "mulebuyspreadsheets.es": 12
+          }
+        },
+        "US": {
+          "branch": "mulebuyspreadsheets.us",
+          "aliases": [],
+          "gref": {
+            "mulebuyspreadsheets.us": 8
+          }
+        }
+      }
+    },
+    "MyCNBox": {
+      "hub": "mycnboxhaul.com",
+      "countries": {
+        "UK": {
+          "branch": "mycnbox.co.uk",
+          "aliases": [],
+          "gref": {
+            "mycnbox.co.uk": 42
+          }
+        },
+        "DE": {
+          "branch": "mycnbox.de",
+          "aliases": [],
+          "gref": {
+            "mycnbox.de": 0
+          }
+        },
+        "ES": {
+          "branch": "mycnbox.es",
+          "aliases": [],
+          "gref": {
+            "mycnbox.es": 11
+          }
+        },
+        "EU": {
+          "branch": "mycnbox.eu",
+          "aliases": [],
+          "gref": {
+            "mycnbox.eu": 9
+          }
+        },
+        "FR": {
+          "branch": "mycnbox.fr",
+          "aliases": [],
+          "gref": {
+            "mycnbox.fr": 1
+          }
+        },
+        "NL": {
+          "branch": "mycnbox.nl",
+          "aliases": [],
+          "gref": {
+            "mycnbox.nl": 27
+          }
+        },
+        "PL": {
+          "branch": "mycnbox.pl",
+          "aliases": [],
+          "gref": {
+            "mycnbox.pl": 13
+          }
+        },
+        "GLOBAL": {
+          "branch": "mycnboxhaul.com",
+          "aliases": [],
+          "gref": {
+            "mycnboxhaul.com": 0
+          }
+        }
+      }
+    },
+    "OOPBuy": {
+      "hub": null,
+      "countries": {
+        "IT": {
+          "branch": "oopbuyspreadsheets.it",
+          "aliases": [],
+          "gref": {
+            "oopbuyspreadsheets.it": 0
+          }
+        }
+      }
+    },
+    "OOTDBuy": {
+      "hub": "ootdbuyspreadsheet.net",
+      "countries": {
+        "NL": {
+          "branch": "ootdbuy.nl",
+          "aliases": [],
+          "gref": {
+            "ootdbuy.nl": 7
+          }
+        },
+        "CA": {
+          "branch": "ootdbuyspreadsheet.ca",
+          "aliases": [],
+          "gref": {
+            "ootdbuyspreadsheet.ca": 4
+          }
+        },
+        "UK": {
+          "branch": "ootdbuyspreadsheet.co.uk",
+          "aliases": [],
+          "gref": {
+            "ootdbuyspreadsheet.co.uk": 18
+          }
+        },
+        "DE": {
+          "branch": "ootdbuyspreadsheet.de",
+          "aliases": [],
+          "gref": {
+            "ootdbuyspreadsheet.de": 4
+          }
+        },
+        "GLOBAL": {
+          "branch": "ootdbuyspreadsheet.net",
+          "aliases": [
+            "ootdbuyspreadsheet.org"
+          ],
+          "gref": {
+            "ootdbuyspreadsheet.net": 4,
+            "ootdbuyspreadsheet.org": 5
+          }
+        },
+        "US": {
+          "branch": "ootdbuyspreadsheet.us",
+          "aliases": [],
+          "gref": {
+            "ootdbuyspreadsheet.us": 0
+          }
+        }
+      }
+    },
+    "OrientDig": {
+      "hub": "orientdig.us",
+      "countries": {
+        "AT": {
+          "branch": "orientdig.at",
+          "aliases": [],
+          "gref": {
+            "orientdig.at": 10
+          }
+        },
+        "ES": {
+          "branch": "orientdig.es",
+          "aliases": [],
+          "gref": {
+            "orientdig.es": 11
+          }
+        },
+        "FR": {
+          "branch": "orientdig.fr",
+          "aliases": [
+            "orientdigspreadsheet.fr",
+            "orientdigspreadsheets.fr"
+          ],
+          "gref": {
+            "orientdig.fr": 4,
+            "orientdigspreadsheet.fr": 20,
+            "orientdigspreadsheets.fr": 0
+          }
+        },
+        "US": {
+          "branch": "orientdig.us",
+          "aliases": [
+            "orientdigspreadsheet.us"
+          ],
+          "gref": {
+            "orientdig.us": 36,
+            "orientdigspreadsheet.us": 7
+          }
+        },
+        "DE": {
+          "branch": "orientdigspreadsheet.de",
+          "aliases": [
+            "orientdigspreadsheets.de"
+          ],
+          "gref": {
+            "orientdigspreadsheet.de": 4,
+            "orientdigspreadsheets.de": 1
+          }
+        },
+        "IT": {
+          "branch": "orientdigspreadsheet.it",
+          "aliases": [],
+          "gref": {
+            "orientdigspreadsheet.it": 1
+          }
+        },
+        "NL": {
+          "branch": "orientdigspreadsheet.nl",
+          "aliases": [
+            "orientdigspreadsheets.nl"
+          ],
+          "gref": {
+            "orientdigspreadsheet.nl": 2,
+            "orientdigspreadsheets.nl": 0
+          }
+        },
+        "UK": {
+          "branch": "orientdigspreadsheet.uk",
+          "aliases": [
+            "orientdigspreadsheets.uk"
+          ],
+          "gref": {
+            "orientdigspreadsheet.uk": 7,
+            "orientdigspreadsheets.uk": 2
+          }
+        }
+      }
+    },
+    "SugarGoo": {
+      "hub": "sugargoospreadsheetnow.com",
+      "countries": {
+        "AT": {
+          "branch": "sugargoo.at",
+          "aliases": [],
+          "gref": {
+            "sugargoo.at": 0
+          }
+        },
+        "AU": {
+          "branch": "sugargoospreadsheet.au",
+          "aliases": [],
+          "gref": {
+            "sugargoospreadsheet.au": 5
+          }
+        },
+        "ES": {
+          "branch": "sugargoospreadsheet.es",
+          "aliases": [],
+          "gref": {
+            "sugargoospreadsheet.es": 22
+          }
+        },
+        "GLOBAL": {
+          "branch": "sugargoospreadsheetnow.com",
+          "aliases": [],
+          "gref": {
+            "sugargoospreadsheetnow.com": 15
+          }
+        },
+        "DE": {
+          "branch": "sugargoospreadsheets.de",
+          "aliases": [],
+          "gref": {
+            "sugargoospreadsheets.de": 0
+          }
+        },
+        "FR": {
+          "branch": "sugargoospreadsheets.fr",
+          "aliases": [],
+          "gref": {
+            "sugargoospreadsheets.fr": 1
+          }
+        },
+        "NL": {
+          "branch": "sugargoospreadsheets.nl",
+          "aliases": [],
+          "gref": {
+            "sugargoospreadsheets.nl": 0
+          }
+        },
+        "UK": {
+          "branch": "sugargoospreadsheets.uk",
+          "aliases": [],
+          "gref": {
+            "sugargoospreadsheets.uk": 7
+          }
+        },
+        "US": {
+          "branch": "sugargoospreadsheets.us",
+          "aliases": [],
+          "gref": {
+            "sugargoospreadsheets.us": 1
+          }
+        },
+        "CA": {
+          "branch": "sugargoospreadsheets2026.ca",
+          "aliases": [],
+          "gref": {
+            "sugargoospreadsheets2026.ca": 1
+          }
+        }
+      }
+    },
+    "Superbuy": {
+      "hub": null,
+      "countries": {
+        "CA": {
+          "branch": "superbuyspreadsheets.ca",
+          "aliases": [],
+          "gref": {
+            "superbuyspreadsheets.ca": 0
+          }
+        },
+        "IT": {
+          "branch": "superbuyspreadsheets.it",
+          "aliases": [],
+          "gref": {
+            "superbuyspreadsheets.it": 3
+          }
+        },
+        "US": {
+          "branch": "superbuyspreadsheets.us",
+          "aliases": [],
+          "gref": {
+            "superbuyspreadsheets.us": 10
+          }
+        }
+      }
+    },
+    "UNKNOWN": {
+      "hub": null,
+      "countries": {}
+    },
+    "USFans": {
+      "hub": "usfansspreadsheet.net",
+      "countries": {
+        "UK": {
+          "branch": "usfansspreadsheet.co.uk",
+          "aliases": [
+            "usfansspreadsheet.uk"
+          ],
+          "gref": {
+            "usfansspreadsheet.co.uk": 47,
+            "usfansspreadsheet.uk": 11
+          }
+        },
+        "GLOBAL": {
+          "branch": "usfansspreadsheet.net",
+          "aliases": [],
+          "gref": {
+            "usfansspreadsheet.net": 14
+          }
+        },
+        "NL": {
+          "branch": "usfansspreadsheet.nl",
+          "aliases": [],
+          "gref": {
+            "usfansspreadsheet.nl": 28
+          }
+        }
+      }
+    },
+    "WeMimi": {
+      "hub": "wemimi.net",
+      "countries": {
+        "GLOBAL": {
+          "branch": "wemimi.net",
+          "aliases": [
+            "wemimispreadsheet.com"
+          ],
+          "gref": {
+            "wemimi.net": 4,
+            "wemimispreadsheet.com": 2
+          }
+        }
+      }
+    }
+  },
+  "hosts": [
+    {
+      "host": "acbuyspreadsheets.ca",
+      "agent": "ACBuy",
+      "country": "CA",
+      "now": "live",
+      "gref": 2,
+      "gbot": 2,
+      "mb": 41.1,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "acbuyspreadsheets.nl",
+      "agent": "ACBuy",
+      "country": "NL",
+      "now": "live",
+      "gref": 7,
+      "gbot": 7,
+      "mb": 6.9,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "allchina-buy.com",
+      "agent": "AllChinaBuy",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 7,
+      "gbot": 5,
+      "mb": 67.3,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "allchinabuyspreadsheet.ca",
+      "agent": "AllChinaBuy",
+      "country": "CA",
+      "now": "live",
+      "gref": 21,
+      "gbot": 21,
+      "mb": 8.1,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "allchinabuyspreadsheet.nl",
+      "agent": "AllChinaBuy",
+      "country": "NL",
+      "now": "live",
+      "gref": 10,
+      "gbot": 10,
+      "mb": 9.6,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "allchinabuyspreadsheets.co.uk",
+      "agent": "AllChinaBuy",
+      "country": "UK",
+      "now": "live",
+      "gref": 13,
+      "gbot": 12,
+      "mb": 7.8,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "basetaospreadsheet.com",
+      "agent": "BaseTao",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 4,
+      "gbot": 0,
+      "mb": 29.0,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "bbdbuy.ca",
+      "agent": "BBDBuy",
+      "country": "CA",
+      "now": "live",
+      "gref": 40,
+      "gbot": 11,
+      "mb": 9.9,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "bbdbuy.it",
+      "agent": "BBDBuy",
+      "country": "IT",
+      "now": "live",
+      "gref": 3,
+      "gbot": 0,
+      "mb": 10.5,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "bbdbuy.uk",
+      "agent": "BBDBuy",
+      "country": "UK",
+      "now": "live",
+      "gref": 31,
+      "gbot": 19,
+      "mb": 11.9,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "bbdbuy.us",
+      "agent": "BBDBuy",
+      "country": "US",
+      "now": "live",
+      "gref": 38,
+      "gbot": 24,
+      "mb": 9.7,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "bbdbuyeu.net",
+      "agent": "BBDBuyEU",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 20.6,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "bbdbuyeuspreadsheet.com",
+      "agent": "BBDBuyEU",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 19,
+      "gbot": 13,
+      "mb": 9.5,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://bbdbuyeu.net/",
+      "batch": "P0",
+      "why": "BBDBuyEU GLOBAL 并进分站 bbdbuyeu.net"
+    },
+    {
+      "host": "bbdbuyspreadsheet.ca",
+      "agent": "BBDBuy",
+      "country": "CA",
+      "now": "live",
+      "gref": 17,
+      "gbot": 16,
+      "mb": 6.2,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://bbdbuy.ca/",
+      "batch": "P0",
+      "why": "BBDBuy CA 并进分站 bbdbuy.ca"
+    },
+    {
+      "host": "bbdbuyspreadsheet.de",
+      "agent": "BBDBuy",
+      "country": "DE",
+      "now": "live",
+      "gref": 30,
+      "gbot": 10,
+      "mb": 7.5,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "bbdbuyspreadsheet.uk",
+      "agent": "BBDBuy",
+      "country": "UK",
+      "now": "live",
+      "gref": 34,
+      "gbot": 18,
+      "mb": 8.3,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://bbdbuy.uk/",
+      "batch": "P0",
+      "why": "BBDBuy UK 并进分站 bbdbuy.uk"
+    },
+    {
+      "host": "bbdbuyspreadsheet.us",
+      "agent": "BBDBuy",
+      "country": "US",
+      "now": "live",
+      "gref": 2,
+      "gbot": 0,
+      "mb": 8.8,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://bbdbuy.us/",
+      "batch": "P0",
+      "why": "BBDBuy US 并进分站 bbdbuy.us"
+    },
+    {
+      "host": "bestlolobuyspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 32,
+      "gbot": 30,
+      "mb": 10.6,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "bestmulebuysheets.com",
+      "agent": "MuleBuy",
+      "country": "GLOBAL",
+      "now": "410",
+      "gref": 8,
+      "gbot": 8,
+      "mb": 15.6,
+      "s500": 0,
+      "action": "keep_410",
+      "batch": "done",
+      "why": "薄克隆已410"
+    },
+    {
+      "host": "boonspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 54,
+      "gbot": 11,
+      "mb": 4.5,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "cnshopper.net",
+      "agent": "CNShopper",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 33.7,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "cnshopperspreadsheet.net",
+      "agent": "CNShopper",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 3,
+      "gbot": 2,
+      "mb": 16.8,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://cnshopper.net/",
+      "batch": "P1",
+      "why": "CNShopper GLOBAL 并进分站 cnshopper.net"
+    },
+    {
+      "host": "cssbuy.at",
+      "agent": "CSSBuy",
+      "country": "AT",
+      "now": "live",
+      "gref": 30,
+      "gbot": 10,
+      "mb": 11.7,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "cssbuy.es",
+      "agent": "CSSBuy",
+      "country": "ES",
+      "now": "live",
+      "gref": 8,
+      "gbot": 7,
+      "mb": 15.0,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "cssbuy.fr",
+      "agent": "CSSBuy",
+      "country": "FR",
+      "now": "live",
+      "gref": 7,
+      "gbot": 7,
+      "mb": 29.4,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "cssbuy.it",
+      "agent": "CSSBuy",
+      "country": "IT",
+      "now": "live",
+      "gref": 11,
+      "gbot": 7,
+      "mb": 11.8,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "cssbuy.nl",
+      "agent": "CSSBuy",
+      "country": "NL",
+      "now": "live",
+      "gref": 2,
+      "gbot": 2,
+      "mb": 11.7,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "cssbuyspreadsheet.ca",
+      "agent": "CSSBuy",
+      "country": "CA",
+      "now": "live",
+      "gref": 35,
+      "gbot": 10,
+      "mb": 12.7,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "cssbuyspreadsheet.es",
+      "agent": "CSSBuy",
+      "country": "ES",
+      "now": "live",
+      "gref": 2,
+      "gbot": 2,
+      "mb": 14.3,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://cssbuy.es/",
+      "batch": "P1",
+      "why": "CSSBuy ES 并进分站 cssbuy.es"
+    },
+    {
+      "host": "cssbuyspreadsheet.eu",
+      "agent": "CSSBuy",
+      "country": "EU",
+      "now": "live",
+      "gref": 33,
+      "gbot": 14,
+      "mb": 13.6,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "cssbuyspreadsheet.fr",
+      "agent": "CSSBuy",
+      "country": "FR",
+      "now": "live",
+      "gref": 19,
+      "gbot": 7,
+      "mb": 14.9,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://cssbuy.fr/",
+      "batch": "P0",
+      "why": "CSSBuy FR 并进分站 cssbuy.fr"
+    },
+    {
+      "host": "cssbuyspreadsheet.it",
+      "agent": "CSSBuy",
+      "country": "IT",
+      "now": "live",
+      "gref": 31,
+      "gbot": 8,
+      "mb": 15.1,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://cssbuy.it/",
+      "batch": "P0",
+      "why": "CSSBuy IT 并进分站 cssbuy.it"
+    },
+    {
+      "host": "cssbuyspreadsheet.nl",
+      "agent": "CSSBuy",
+      "country": "NL",
+      "now": "live",
+      "gref": 42,
+      "gbot": 15,
+      "mb": 15.9,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://cssbuy.nl/",
+      "batch": "P0",
+      "why": "CSSBuy NL 并进分站 cssbuy.nl"
+    },
+    {
+      "host": "cssbuyspreadsheet.uk",
+      "agent": "CSSBuy",
+      "country": "UK",
+      "now": "live",
+      "gref": 22,
+      "gbot": 4,
+      "mb": 12.6,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "cssbuyspreadsheets.de",
+      "agent": "CSSBuy",
+      "country": "DE",
+      "now": "live",
+      "gref": 57,
+      "gbot": 22,
+      "mb": 13.3,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "cssbuyspreadsheets.us",
+      "agent": "CSSBuy",
+      "country": "US",
+      "now": "live",
+      "gref": 28,
+      "gbot": 12,
+      "mb": 13.9,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "dgobuyspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "410",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 6.5,
+      "s500": 0,
+      "action": "keep_410",
+      "batch": "done",
+      "why": "薄克隆已410"
+    },
+    {
+      "host": "eastmallspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 52,
+      "gbot": 26,
+      "mb": 2.4,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "esgobuyspreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "410",
+      "gref": 7,
+      "gbot": 7,
+      "mb": 3.8,
+      "s500": 0,
+      "action": "keep_410",
+      "batch": "done",
+      "why": "薄克隆已410"
+    },
+    {
+      "host": "fansbuy.co.uk",
+      "agent": "FansBuy",
+      "country": "UK",
+      "now": "live",
+      "gref": 25,
+      "gbot": 2,
+      "mb": 6.3,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "fansbuy.eu",
+      "agent": "FansBuy",
+      "country": "EU",
+      "now": "live",
+      "gref": 2,
+      "gbot": 2,
+      "mb": 6.0,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "fansbuy.nl",
+      "agent": "FansBuy",
+      "country": "NL",
+      "now": "live",
+      "gref": 6,
+      "gbot": 6,
+      "mb": 7.8,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "fansbuysheets.net",
+      "agent": "FansBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 31,
+      "gbot": 27,
+      "mb": 7.7,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "fansbuyspreadsheet.de",
+      "agent": "FansBuy",
+      "country": "DE",
+      "now": "live",
+      "gref": 1,
+      "gbot": 1,
+      "mb": 8.0,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "fansbuyspreadsheet.eu",
+      "agent": "FansBuy",
+      "country": "EU",
+      "now": "live",
+      "gref": 2,
+      "gbot": 2,
+      "mb": 7.6,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://fansbuy.eu/",
+      "batch": "P1",
+      "why": "FansBuy EU 并进分站 fansbuy.eu"
+    },
+    {
+      "host": "fansbuyspreadsheet.uk",
+      "agent": "FansBuy",
+      "country": "UK",
+      "now": "live",
+      "gref": 10,
+      "gbot": 10,
+      "mb": 6.3,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://fansbuy.co.uk/",
+      "batch": "P0",
+      "why": "FansBuy UK 并进分站 fansbuy.co.uk"
+    },
+    {
+      "host": "fansspreadsheet.net",
+      "agent": "FansBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 22,
+      "gbot": 0,
+      "mb": 10.5,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://fansbuysheets.net/",
+      "batch": "P0",
+      "why": "FansBuy GLOBAL 并进分站 fansbuysheets.net"
+    },
+    {
+      "host": "fansspreadsheets.net",
+      "agent": "FansBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 6,
+      "gbot": 6,
+      "mb": 6.4,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://fansbuysheets.net/",
+      "batch": "P0",
+      "why": "FansBuy GLOBAL 并进分站 fansbuysheets.net"
+    },
+    {
+      "host": "fashionrepsfind.com",
+      "agent": "FashionReps",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 2,
+      "gbot": 0,
+      "mb": 113.5,
+      "s500": 687,
+      "action": "301_alias",
+      "target": "https://fashionrepsspreadsheet.com/",
+      "batch": "P1",
+      "why": "FashionReps GLOBAL 并进分站 fashionrepsspreadsheet.com"
+    },
+    {
+      "host": "fashionrepsspreadsheet.com",
+      "agent": "FashionReps",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 4,
+      "gbot": 4,
+      "mb": 307.0,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "fishgoospreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 32,
+      "gbot": 32,
+      "mb": 18.5,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "fsbuyspreadsheet.org",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "410",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 0.0,
+      "s500": 0,
+      "action": "keep_410",
+      "batch": "done",
+      "why": "薄克隆已410"
+    },
+    {
+      "host": "fsbuyspreadsheets.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 22,
+      "gbot": 22,
+      "mb": 5.2,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "goatedspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 16,
+      "gbot": 18,
+      "mb": 4.7,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "gtspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 66,
+      "gbot": 25,
+      "mb": 4.0,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "hipobuy.at",
+      "agent": "HipoBuy",
+      "country": "AT",
+      "now": "live",
+      "gref": 9,
+      "gbot": 8,
+      "mb": 7.3,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "hipobuyreview.com",
+      "agent": "HipoBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 5,
+      "gbot": 5,
+      "mb": 22.8,
+      "s500": 0,
+      "action": "wait_then_301",
+      "target": "https://hipobuyspreadsheet.net/",
+      "batch": "P0",
+      "why": "hipobuyspreadsheet.net 仍5xx，修好再301"
+    },
+    {
+      "host": "hipobuyspreadsheet.co.uk",
+      "agent": "HipoBuy",
+      "country": "UK",
+      "now": "live",
+      "gref": 3,
+      "gbot": 3,
+      "mb": 9.5,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "hipobuyspreadsheet.eu",
+      "agent": "HipoBuy",
+      "country": "EU",
+      "now": "live",
+      "gref": 34,
+      "gbot": 34,
+      "mb": 10.2,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "hipobuyspreadsheet.net",
+      "agent": "HipoBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 28,
+      "gbot": 0,
+      "mb": 75.0,
+      "s500": 454,
+      "action": "fix_5xx_then_deepen",
+      "batch": "P0",
+      "why": "先修5xx"
+    },
+    {
+      "host": "hipobuyspreadsheet.nl",
+      "agent": "HipoBuy",
+      "country": "NL",
+      "now": "live",
+      "gref": 21,
+      "gbot": 22,
+      "mb": 11.6,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "hipobuyspreadsheet.us",
+      "agent": "HipoBuy",
+      "country": "US",
+      "now": "live",
+      "gref": 7,
+      "gbot": 6,
+      "mb": 8.0,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "hipobuyspreadsheets.uk",
+      "agent": "HipoBuy",
+      "country": "UK",
+      "now": "live",
+      "gref": 4,
+      "gbot": 4,
+      "mb": 6.0,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://hipobuyspreadsheet.co.uk/",
+      "batch": "P1",
+      "why": "HipoBuy UK 并进分站 hipobuyspreadsheet.co.uk"
+    },
+    {
+      "host": "hoospreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "410",
+      "gref": 12,
+      "gbot": 12,
+      "mb": 3.3,
+      "s500": 0,
+      "action": "keep_410",
+      "batch": "done",
+      "why": "薄克隆已410"
+    },
+    {
+      "host": "hubbuy.net",
+      "agent": "HubBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 18,
+      "gbot": 7,
+      "mb": 146.7,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "hubbuyspreadsheet.net",
+      "agent": "HubBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 7,
+      "gbot": 7,
+      "mb": 18.6,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://hubbuy.net/",
+      "batch": "P0",
+      "why": "HubBuy GLOBAL 并进分站 hubbuy.net"
+    },
+    {
+      "host": "itaobuyspreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 1,
+      "gbot": 0,
+      "mb": 17.9,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "joyagoospreadsheets.de",
+      "agent": "UNKNOWN",
+      "country": "DE",
+      "now": "410",
+      "gref": 2,
+      "gbot": 2,
+      "mb": 5.5,
+      "s500": 0,
+      "action": "keep_410",
+      "batch": "done",
+      "why": "薄克隆已410"
+    },
+    {
+      "host": "kakobuy.fi",
+      "agent": "KakoBuy",
+      "country": "FI",
+      "now": "live",
+      "gref": 44,
+      "gbot": 42,
+      "mb": 7.9,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "kakobuydocs.com",
+      "agent": "KakoBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 41,
+      "gbot": 22,
+      "mb": 11.4,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "kakobuytips.com",
+      "agent": "KakoBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 1,
+      "gbot": 1,
+      "mb": 10.8,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://kakobuydocs.com/",
+      "batch": "P0",
+      "why": "KakoBuy GLOBAL 并进分站 kakobuydocs.com"
+    },
+    {
+      "host": "kakospreadsheet.ca",
+      "agent": "KakoBuy",
+      "country": "CA",
+      "now": "live",
+      "gref": 73,
+      "gbot": 48,
+      "mb": 6.5,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "kakospreadsheet.es",
+      "agent": "KakoBuy",
+      "country": "ES",
+      "now": "live",
+      "gref": 34,
+      "gbot": 13,
+      "mb": 6.6,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "kakospreadsheet.fr",
+      "agent": "KakoBuy",
+      "country": "FR",
+      "now": "live",
+      "gref": 10,
+      "gbot": 10,
+      "mb": 7.6,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "kakospreadsheet.nl",
+      "agent": "KakoBuy",
+      "country": "NL",
+      "now": "live",
+      "gref": 6,
+      "gbot": 6,
+      "mb": 7.9,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "litbuy.at",
+      "agent": "LitBuy",
+      "country": "AT",
+      "now": "live",
+      "gref": 2,
+      "gbot": 0,
+      "mb": 10.8,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "litbuyspreadsheet.eu",
+      "agent": "LitBuy",
+      "country": "EU",
+      "now": "live",
+      "gref": 7,
+      "gbot": 9,
+      "mb": 11.0,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "litbuyspreadsheet.it",
+      "agent": "LitBuy",
+      "country": "IT",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 6.7,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "litbuyspreadsheet.me.uk",
+      "agent": "LitBuy",
+      "country": "UK",
+      "now": "live",
+      "gref": 4,
+      "gbot": 4,
+      "mb": 10.0,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "litbuyspreadsheetnow.com",
+      "agent": "LitBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 3,
+      "gbot": 2,
+      "mb": 24.8,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "litbuyspreadsheets.ca",
+      "agent": "LitBuy",
+      "country": "CA",
+      "now": "live",
+      "gref": 4,
+      "gbot": 3,
+      "mb": 8.6,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "litbuyspreadsheets.es",
+      "agent": "LitBuy",
+      "country": "ES",
+      "now": "live",
+      "gref": 3,
+      "gbot": 3,
+      "mb": 8.2,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "litbuyspreadsheets.nl",
+      "agent": "LitBuy",
+      "country": "NL",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 9.7,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "litbuyspreadsheets.us",
+      "agent": "LitBuy",
+      "country": "US",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 13.1,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "litspreadsheet.fr",
+      "agent": "LitBuy",
+      "country": "FR",
+      "now": "live",
+      "gref": 1,
+      "gbot": 1,
+      "mb": 8.1,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "lolospreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 20,
+      "gbot": 21,
+      "mb": 10.8,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "lovegobuy.it",
+      "agent": "LoveGoBuy",
+      "country": "IT",
+      "now": "live",
+      "gref": 10,
+      "gbot": 10,
+      "mb": 7.0,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "lovegobuy.nl",
+      "agent": "LoveGoBuy",
+      "country": "NL",
+      "now": "live",
+      "gref": 3,
+      "gbot": 3,
+      "mb": 8.8,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "lovegobuyguide.com",
+      "agent": "LoveGoBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 20,
+      "gbot": 20,
+      "mb": 9.0,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "lovegobuyspreadsheet.ca",
+      "agent": "LoveGoBuy",
+      "country": "CA",
+      "now": "live",
+      "gref": 7,
+      "gbot": 7,
+      "mb": 8.0,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "lovegobuyspreadsheet.es",
+      "agent": "LoveGoBuy",
+      "country": "ES",
+      "now": "live",
+      "gref": 1,
+      "gbot": 0,
+      "mb": 6.4,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "lovegobuyspreadsheet.eu",
+      "agent": "LoveGoBuy",
+      "country": "EU",
+      "now": "live",
+      "gref": 1,
+      "gbot": 1,
+      "mb": 8.6,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "lovegobuyspreadsheet.it",
+      "agent": "LoveGoBuy",
+      "country": "IT",
+      "now": "live",
+      "gref": 4,
+      "gbot": 4,
+      "mb": 7.9,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://lovegobuy.it/",
+      "batch": "P0",
+      "why": "LoveGoBuy IT 并进分站 lovegobuy.it"
+    },
+    {
+      "host": "lovegobuyspreadsheet.nl",
+      "agent": "LoveGoBuy",
+      "country": "NL",
+      "now": "live",
+      "gref": 34,
+      "gbot": 34,
+      "mb": 9.2,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://lovegobuy.nl/",
+      "batch": "P0",
+      "why": "LoveGoBuy NL 并进分站 lovegobuy.nl"
+    },
+    {
+      "host": "mulebuy.fr",
+      "agent": "MuleBuy",
+      "country": "FR",
+      "now": "live",
+      "gref": 23,
+      "gbot": 12,
+      "mb": 12.9,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "mulebuyspreadsheets.co.uk",
+      "agent": "MuleBuy",
+      "country": "UK",
+      "now": "live",
+      "gref": 2,
+      "gbot": 2,
+      "mb": 6.3,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "mulebuyspreadsheets.es",
+      "agent": "MuleBuy",
+      "country": "ES",
+      "now": "live",
+      "gref": 12,
+      "gbot": 12,
+      "mb": 5.9,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "mulebuyspreadsheets.us",
+      "agent": "MuleBuy",
+      "country": "US",
+      "now": "live",
+      "gref": 8,
+      "gbot": 8,
+      "mb": 8.1,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "mycnbox.co.uk",
+      "agent": "MyCNBox",
+      "country": "UK",
+      "now": "live",
+      "gref": 42,
+      "gbot": 40,
+      "mb": 7.4,
+      "s500": 714,
+      "action": "fix_5xx_then_deepen",
+      "batch": "P0",
+      "why": "先修5xx"
+    },
+    {
+      "host": "mycnbox.de",
+      "agent": "MyCNBox",
+      "country": "DE",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 6.3,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "mycnbox.es",
+      "agent": "MyCNBox",
+      "country": "ES",
+      "now": "live",
+      "gref": 11,
+      "gbot": 10,
+      "mb": 5.4,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "mycnbox.eu",
+      "agent": "MyCNBox",
+      "country": "EU",
+      "now": "live",
+      "gref": 9,
+      "gbot": 7,
+      "mb": 7.8,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "mycnbox.fr",
+      "agent": "MyCNBox",
+      "country": "FR",
+      "now": "live",
+      "gref": 1,
+      "gbot": 1,
+      "mb": 6.5,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "mycnbox.nl",
+      "agent": "MyCNBox",
+      "country": "NL",
+      "now": "live",
+      "gref": 27,
+      "gbot": 20,
+      "mb": 6.2,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "mycnbox.pl",
+      "agent": "MyCNBox",
+      "country": "PL",
+      "now": "live",
+      "gref": 13,
+      "gbot": 7,
+      "mb": 5.3,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "mycnboxhaul.com",
+      "agent": "MyCNBox",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 14.8,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "oopbuyspreadsheets.it",
+      "agent": "OOPBuy",
+      "country": "IT",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 4.4,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "ootdbuy.nl",
+      "agent": "OOTDBuy",
+      "country": "NL",
+      "now": "live",
+      "gref": 7,
+      "gbot": 6,
+      "mb": 6.9,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "ootdbuyspreadsheet.ca",
+      "agent": "OOTDBuy",
+      "country": "CA",
+      "now": "live",
+      "gref": 4,
+      "gbot": 4,
+      "mb": 6.9,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "ootdbuyspreadsheet.co.uk",
+      "agent": "OOTDBuy",
+      "country": "UK",
+      "now": "live",
+      "gref": 18,
+      "gbot": 16,
+      "mb": 8.3,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "ootdbuyspreadsheet.de",
+      "agent": "OOTDBuy",
+      "country": "DE",
+      "now": "live",
+      "gref": 4,
+      "gbot": 4,
+      "mb": 6.5,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "ootdbuyspreadsheet.net",
+      "agent": "OOTDBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 4,
+      "gbot": 4,
+      "mb": 23.9,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "ootdbuyspreadsheet.org",
+      "agent": "OOTDBuy",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 5,
+      "gbot": 5,
+      "mb": 9.9,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://ootdbuyspreadsheet.net/",
+      "batch": "P1",
+      "why": "OOTDBuy GLOBAL 并进分站 ootdbuyspreadsheet.net"
+    },
+    {
+      "host": "ootdbuyspreadsheet.us",
+      "agent": "OOTDBuy",
+      "country": "US",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 6.7,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "orientdig.at",
+      "agent": "OrientDig",
+      "country": "AT",
+      "now": "live",
+      "gref": 10,
+      "gbot": 10,
+      "mb": 8.2,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "orientdig.es",
+      "agent": "OrientDig",
+      "country": "ES",
+      "now": "live",
+      "gref": 11,
+      "gbot": 11,
+      "mb": 8.8,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "orientdig.fr",
+      "agent": "OrientDig",
+      "country": "FR",
+      "now": "live",
+      "gref": 4,
+      "gbot": 4,
+      "mb": 14.2,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "orientdig.us",
+      "agent": "OrientDig",
+      "country": "US",
+      "now": "live",
+      "gref": 36,
+      "gbot": 22,
+      "mb": 18.4,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "orientdigspreadsheet.de",
+      "agent": "OrientDig",
+      "country": "DE",
+      "now": "live",
+      "gref": 4,
+      "gbot": 4,
+      "mb": 9.5,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "orientdigspreadsheet.fr",
+      "agent": "OrientDig",
+      "country": "FR",
+      "now": "live",
+      "gref": 20,
+      "gbot": 20,
+      "mb": 9.5,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://orientdig.fr/",
+      "batch": "P0",
+      "why": "OrientDig FR 并进分站 orientdig.fr"
+    },
+    {
+      "host": "orientdigspreadsheet.it",
+      "agent": "OrientDig",
+      "country": "IT",
+      "now": "live",
+      "gref": 1,
+      "gbot": 1,
+      "mb": 9.3,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "orientdigspreadsheet.nl",
+      "agent": "OrientDig",
+      "country": "NL",
+      "now": "live",
+      "gref": 2,
+      "gbot": 2,
+      "mb": 8.7,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "orientdigspreadsheet.uk",
+      "agent": "OrientDig",
+      "country": "UK",
+      "now": "live",
+      "gref": 7,
+      "gbot": 7,
+      "mb": 11.5,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "orientdigspreadsheet.us",
+      "agent": "OrientDig",
+      "country": "US",
+      "now": "live",
+      "gref": 7,
+      "gbot": 7,
+      "mb": 8.5,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://orientdig.us/",
+      "batch": "P0",
+      "why": "OrientDig US 并进分站 orientdig.us"
+    },
+    {
+      "host": "orientdigspreadsheets.de",
+      "agent": "OrientDig",
+      "country": "DE",
+      "now": "live",
+      "gref": 1,
+      "gbot": 1,
+      "mb": 7.1,
+      "s500": 5,
+      "action": "301_alias",
+      "target": "https://orientdigspreadsheet.de/",
+      "batch": "P1",
+      "why": "OrientDig DE 并进分站 orientdigspreadsheet.de"
+    },
+    {
+      "host": "orientdigspreadsheets.fr",
+      "agent": "OrientDig",
+      "country": "FR",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 7.8,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://orientdig.fr/",
+      "batch": "P1",
+      "why": "OrientDig FR 并进分站 orientdig.fr"
+    },
+    {
+      "host": "orientdigspreadsheets.nl",
+      "agent": "OrientDig",
+      "country": "NL",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 8.3,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://orientdigspreadsheet.nl/",
+      "batch": "P1",
+      "why": "OrientDig NL 并进分站 orientdigspreadsheet.nl"
+    },
+    {
+      "host": "orientdigspreadsheets.uk",
+      "agent": "OrientDig",
+      "country": "UK",
+      "now": "live",
+      "gref": 2,
+      "gbot": 2,
+      "mb": 10.4,
+      "s500": 11,
+      "action": "301_alias",
+      "target": "https://orientdigspreadsheet.uk/",
+      "batch": "P1",
+      "why": "OrientDig UK 并进分站 orientdigspreadsheet.uk"
+    },
+    {
+      "host": "ossbuyspreadsheets.org",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 18,
+      "gbot": 19,
+      "mb": 2.8,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "pantherbuy.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "410",
+      "gref": 5,
+      "gbot": 3,
+      "mb": 14.0,
+      "s500": 0,
+      "action": "keep_410",
+      "batch": "done",
+      "why": "薄克隆已410"
+    },
+    {
+      "host": "pikospreadsheets.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 34,
+      "gbot": 37,
+      "mb": 4.4,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "pingubuyspreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 19,
+      "gbot": 20,
+      "mb": 1.9,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "repsicon.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 11,
+      "gbot": 11,
+      "mb": 0.1,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "rizzitgospreadsheets.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "410",
+      "gref": 10,
+      "gbot": 11,
+      "mb": 2.4,
+      "s500": 0,
+      "action": "keep_410",
+      "batch": "done",
+      "why": "薄克隆已410"
+    },
+    {
+      "host": "shipzobuyspreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "410",
+      "gref": 6,
+      "gbot": 6,
+      "mb": 1.9,
+      "s500": 0,
+      "action": "keep_410",
+      "batch": "done",
+      "why": "薄克隆已410"
+    },
+    {
+      "host": "spanbuyspreadsheets.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 29,
+      "gbot": 29,
+      "mb": 2.6,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "sugargoo.at",
+      "agent": "SugarGoo",
+      "country": "AT",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 11.9,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "sugargoospreadsheet.au",
+      "agent": "SugarGoo",
+      "country": "AU",
+      "now": "live",
+      "gref": 5,
+      "gbot": 5,
+      "mb": 17.6,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "sugargoospreadsheet.es",
+      "agent": "SugarGoo",
+      "country": "ES",
+      "now": "live",
+      "gref": 22,
+      "gbot": 9,
+      "mb": 11.1,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "sugargoospreadsheetnow.com",
+      "agent": "SugarGoo",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 15,
+      "gbot": 15,
+      "mb": 12.6,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "sugargoospreadsheets.de",
+      "agent": "SugarGoo",
+      "country": "DE",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 11.5,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "sugargoospreadsheets.fr",
+      "agent": "SugarGoo",
+      "country": "FR",
+      "now": "live",
+      "gref": 1,
+      "gbot": 2,
+      "mb": 10.0,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "sugargoospreadsheets.nl",
+      "agent": "SugarGoo",
+      "country": "NL",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 11.3,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "sugargoospreadsheets.uk",
+      "agent": "SugarGoo",
+      "country": "UK",
+      "now": "live",
+      "gref": 7,
+      "gbot": 7,
+      "mb": 9.2,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "sugargoospreadsheets.us",
+      "agent": "SugarGoo",
+      "country": "US",
+      "now": "live",
+      "gref": 1,
+      "gbot": 0,
+      "mb": 10.6,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "sugargoospreadsheets2026.ca",
+      "agent": "SugarGoo",
+      "country": "CA",
+      "now": "live",
+      "gref": 1,
+      "gbot": 1,
+      "mb": 7.6,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "superbuyspreadsheets.ca",
+      "agent": "Superbuy",
+      "country": "CA",
+      "now": "live",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 7.1,
+      "s500": 0,
+      "action": "hold_noindex",
+      "batch": "P2",
+      "why": "零来路先noindex"
+    },
+    {
+      "host": "superbuyspreadsheets.it",
+      "agent": "Superbuy",
+      "country": "IT",
+      "now": "live",
+      "gref": 3,
+      "gbot": 3,
+      "mb": 8.3,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P1",
+      "why": "少量来路 P1"
+    },
+    {
+      "host": "superbuyspreadsheets.us",
+      "agent": "Superbuy",
+      "country": "US",
+      "now": "live",
+      "gref": 10,
+      "gbot": 10,
+      "mb": 9.8,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "tigspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "410",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 4.0,
+      "s500": 0,
+      "action": "keep_410",
+      "batch": "done",
+      "why": "薄克隆已410"
+    },
+    {
+      "host": "usfansspreadsheet.co.uk",
+      "agent": "USFans",
+      "country": "UK",
+      "now": "live",
+      "gref": 47,
+      "gbot": 46,
+      "mb": 4.5,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "usfansspreadsheet.net",
+      "agent": "USFans",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 14,
+      "gbot": 9,
+      "mb": 26.5,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "usfansspreadsheet.nl",
+      "agent": "USFans",
+      "country": "NL",
+      "now": "live",
+      "gref": 28,
+      "gbot": 26,
+      "mb": 4.5,
+      "s500": 0,
+      "action": "deepen_branch",
+      "batch": "P0",
+      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+    },
+    {
+      "host": "usfansspreadsheet.uk",
+      "agent": "USFans",
+      "country": "UK",
+      "now": "live",
+      "gref": 11,
+      "gbot": 11,
+      "mb": 5.0,
+      "s500": 0,
+      "action": "301_alias",
+      "target": "https://usfansspreadsheet.co.uk/",
+      "batch": "P0",
+      "why": "USFans UK 并进分站 usfansspreadsheet.co.uk"
+    },
+    {
+      "host": "vigorspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "410",
+      "gref": 9,
+      "gbot": 9,
+      "mb": 4.0,
+      "s500": 0,
+      "action": "keep_410",
+      "batch": "done",
+      "why": "薄克隆已410"
+    },
+    {
+      "host": "w2cclothes.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 0,
+      "gbot": 0,
+      "mb": 14.3,
+      "s500": 0,
+      "action": "keep_301",
+      "target": "https://w2crep.org/",
+      "batch": "done",
+      "why": "w2c双胞胎"
+    },
+    {
+      "host": "w2clinks.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 62,
+      "gbot": 1,
+      "mb": 342.1,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "w2crep.org",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 4,
+      "gbot": 4,
+      "mb": 14.3,
+      "s500": 0,
+      "action": "deepen_hub",
+      "batch": "P0",
+      "why": "已有来路枢纽"
+    },
+    {
+      "host": "w2cshoes.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "now": "keep",
+      "gref": 2,
+      "gbot": 0,
+      "mb": 11.2,
+      "s500": 0,
+      "action": "keep_301",
+      "target": "https://w2crep.org/",
+      "batch": "done",
+      "why": "w2c双胞胎"
+    },
+    {
+      "host": "wemimi.net",
+      "agent": "WeMimi",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 4,
+      "gbot": 3,
+      "mb": 54.5,
+      "s500": 598,
+      "action": "fix_5xx_then_deepen",
+      "batch": "P0",
+      "why": "先修5xx"
+    },
+    {
+      "host": "wemimispreadsheet.com",
+      "agent": "WeMimi",
+      "country": "GLOBAL",
+      "now": "live",
+      "gref": 2,
+      "gbot": 2,
+      "mb": 17.1,
+      "s500": 0,
+      "action": "wait_then_301",
+      "target": "https://wemimi.net/",
+      "batch": "P0",
+      "why": "wemimi.net 仍5xx，修好再301"
+    }
+  ],
+  "summary": {
+    "by_action": {
+      "deepen_branch": 76,
+      "deepen_hub": 28,
+      "301_alias": 27,
+      "keep_410": 11,
+      "hold_noindex": 12,
+      "wait_then_301": 2,
+      "fix_5xx_then_deepen": 3,
+      "keep_301": 2
+    },
+    "p0_deepen": [
+      "allchina-buy.com",
+      "allchinabuyspreadsheet.ca",
+      "allchinabuyspreadsheet.nl",
+      "allchinabuyspreadsheets.co.uk",
+      "bbdbuy.ca",
+      "bbdbuy.uk",
+      "bbdbuy.us",
+      "bbdbuyeu.net",
+      "bbdbuyspreadsheet.de",
+      "bestlolobuyspreadsheet.com",
+      "boonspreadsheet.com",
+      "cssbuy.at",
+      "cssbuy.es",
+      "cssbuy.fr",
+      "cssbuy.it",
+      "cssbuy.nl",
+      "cssbuyspreadsheet.ca",
+      "cssbuyspreadsheet.eu",
+      "cssbuyspreadsheet.uk",
+      "cssbuyspreadsheets.de",
+      "cssbuyspreadsheets.us",
+      "eastmallspreadsheet.com",
+      "fansbuy.co.uk",
+      "fansbuysheets.net",
+      "fishgoospreadsheet.net",
+      "fsbuyspreadsheets.com",
+      "goatedspreadsheet.com",
+      "gtspreadsheet.com",
+      "hipobuy.at",
+      "hipobuyspreadsheet.eu",
+      "hipobuyspreadsheet.net",
+      "hipobuyspreadsheet.nl",
+      "hubbuy.net",
+      "itaobuyspreadsheet.net",
+      "kakobuy.fi",
+      "kakobuydocs.com",
+      "kakospreadsheet.ca",
+      "kakospreadsheet.es",
+      "kakospreadsheet.fr",
+      "lolospreadsheet.com",
+      "lovegobuy.it",
+      "lovegobuyguide.com",
+      "mulebuy.fr",
+      "mulebuyspreadsheets.es",
+      "mulebuyspreadsheets.us",
+      "mycnbox.co.uk",
+      "mycnbox.es",
+      "mycnbox.eu",
+      "mycnbox.nl",
+      "mycnbox.pl",
+      "ootdbuyspreadsheet.co.uk",
+      "orientdig.at",
+      "orientdig.es",
+      "orientdig.us",
+      "ossbuyspreadsheets.org",
+      "pikospreadsheets.net",
+      "pingubuyspreadsheet.net",
+      "repsicon.com",
+      "spanbuyspreadsheets.com",
+      "sugargoospreadsheet.es",
+      "sugargoospreadsheetnow.com",
+      "superbuyspreadsheets.us",
+      "usfansspreadsheet.co.uk",
+      "usfansspreadsheet.net",
+      "usfansspreadsheet.nl",
+      "w2clinks.com",
+      "w2crep.org",
+      "wemimi.net"
+    ],
+    "p0_301": [
+      "bbdbuyeuspreadsheet.com → bbdbuyeu.net (gref 19→0)",
+      "bbdbuyspreadsheet.ca → bbdbuy.ca (gref 17→40)",
+      "bbdbuyspreadsheet.uk → bbdbuy.uk (gref 34→31)",
+      "bbdbuyspreadsheet.us → bbdbuy.us (gref 2→38)",
+      "cssbuyspreadsheet.fr → cssbuy.fr (gref 19→7)",
+      "cssbuyspreadsheet.it → cssbuy.it (gref 31→11)",
+      "cssbuyspreadsheet.nl → cssbuy.nl (gref 42→2)",
+      "fansbuyspreadsheet.uk → fansbuy.co.uk (gref 10→25)",
+      "fansspreadsheet.net → fansbuysheets.net (gref 22→31)",
+      "fansspreadsheets.net → fansbuysheets.net (gref 6→31)",
+      "hubbuyspreadsheet.net → hubbuy.net (gref 7→18)",
+      "kakobuytips.com → kakobuydocs.com (gref 1→41)",
+      "lovegobuyspreadsheet.it → lovegobuy.it (gref 4→10)",
+      "lovegobuyspreadsheet.nl → lovegobuy.nl (gref 34→3)",
+      "orientdigspreadsheet.fr → orientdig.fr (gref 20→4)",
+      "orientdigspreadsheet.us → orientdig.us (gref 7→36)",
+      "usfansspreadsheet.uk → usfansspreadsheet.co.uk (gref 11→47)"
+    ],
+    "p1_n": 39,
+    "p2_n": 12
+  }
+}
