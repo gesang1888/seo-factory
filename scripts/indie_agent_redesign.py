@@ -83,8 +83,33 @@ def nav_html(site: dict) -> str:
     return "\n".join(bits)
 
 
+HEADINGS = {
+    "ledger": ("Volumetric hold", "Reject before you pack", "Wrong tool if"),
+    "dock": ("The 90-day calendar", "Photos while you wait", "Do not pick EastMallBuy if"),
+    "terminal": ("Wallet before warehouse", "GL before the ¥1000 is spent", "Skip the stack if"),
+    "fieldnotes": ("Unlabeled 1688 inbound", "Three shots Yupoo never shows", "Overkill when"),
+    "runway": ("Hold the SKU", "Fail conditions", "Not a mall if"),
+    "ticket": ("One query string", "Discount is not QC", "Already have an account?"),
+    "stencil": ("Numeric onboarding", "Invite is not a catalog", "The .org twin is gone"),
+    "opsboard": ("Notes on the order ID", "QC is the other desk", "Browsers should leave"),
+    "relay": ("Try the agent before you recruit", "Photos ≠ member freight", "Ignore 15% when"),
+    "harbor": ("Bundle vs banner", "Free pack can add volume", "One-item shippers"),
+    "stamp": ("Points expire, parcels do not wait", "Do not GL for cashback", "Noisy if you hate apps"),
+    "channel": ("Weigh station for EU products", "Size is not a line choice", "If iTaoBuy has no destination"),
+    "billboard": ("Clip the pile first", "Expiry is not a GL", "15% is a type field"),
+}
+
+
+def footer_text(site: dict) -> str:
+    return (
+        f"{site['host']} only writes about {site['agent']}. "
+        f"{site['angle'].split('.')[0]}. "
+        "Customs and declared value follow the destination's own rules — this page will not pick a number for you."
+    )
+
+
 def faq_html(site: dict) -> str:
-    parts = ["<section><h2>Questions this hub actually answers</h2>"]
+    parts = [f"<section><h2>{esc(site['agent'])} notes that are not a cloned FAQ</h2>"]
     for q, a in site["faq"]:
         parts.append(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>")
     parts.append("</section>")
@@ -150,14 +175,14 @@ def shell(site: dict, title: str, desc: str, canonical: str, page: str, body: st
 </head>
 <body class="layout-{esc(layout)}">
 <header>
-  <p class="note">{esc(site['agent'])} · independent hub · {esc(site['host'])}</p>
+  <p class="note">{esc(site['agent'])} · {esc(site['host'])} · {esc(site['invite_label'])} {esc(site.get('invite') or 'in-app')}</p>
   <nav>{nav_html(site)}</nav>
 </header>
 <main>
 {body}
 </main>
 <footer>
-  <p class="note">Independent notes about {esc(site['agent'])}. Not {esc(site['agent'])}'s official site. Not a doorway to other agent domains. Educational shipping notes only — follow your destination's customs rules.</p>
+  <p class="note">{esc(footer_text(site))}</p>
 </footer>
 </body>
 </html>
@@ -165,10 +190,11 @@ def shell(site: dict, title: str, desc: str, canonical: str, page: str, body: st
 
 
 def home_body(site: dict) -> str:
+    h1, h2, h3 = HEADINGS[site["theme"]["layout"]]
     cards = [
-        ("Warehouse", site["warehouse"]),
-        ("QC", site["qc"]),
-        ("Who should skip it", site["who_not"]),
+        (h1, site["warehouse"]),
+        (h2, site["qc"]),
+        (h3, site["who_not"]),
     ]
     card_html = "\n".join(
         f'<article class="card"><h2>{esc(h)}</h2><p>{esc(p)}</p></article>' for h, p in cards
@@ -178,12 +204,17 @@ def home_body(site: dict) -> str:
         extra = f'<aside class="card"><h2>Sister document</h2><p>QC pass/fail lives on <a href="https://bestlolobuyspreadsheet.com/">bestlolobuyspreadsheet.com</a>. This page stays on parcel SOP.</p></aside>'
     if site["theme"]["layout"] == "runway":
         extra = f'<aside class="card"><h2>Sister document</h2><p>Warehouse-to-tracking SOP lives on <a href="https://lolospreadsheet.com/">lolospreadsheet.com</a>. This page stays on QC triage.</p></aside>'
+    cta = (
+        f"Attach {site['invite']} on {site['agent']}"
+        if site.get("invite")
+        else f"Open the {site['agent']} account"
+    )
     return f"""
 <section class="hero">
   <h1>{esc(site['home_h1'])}</h1>
   <p>{esc(site['lead'])}</p>
   <p>{esc(site['angle'])}</p>
-  <p><a class="cta" href="{esc(site['register'])}">Open {esc(site['agent'])}</a></p>
+  <p><a class="cta" href="{esc(site['register'])}">{esc(cta)}</a></p>
 </section>
 <section class="grid">
 {card_html}
@@ -250,8 +281,27 @@ Sitemap: https://{site['host']}/sitemap.xml
 """
 
 
+def public_url(rel: str) -> str:
+    rel = rel.lstrip("/")
+    if rel == "index.html":
+        return "/"
+    if rel.endswith("/index.html"):
+        return "/" + rel[: -len("index.html")]
+    return "/" + rel
+
+
+def page_rel(site: dict, key: str, default: str) -> str:
+    return site.get("page_files", {}).get(key, default)
+
+
 def sitemap_xml(site: dict) -> str:
-    urls = ["/", "/start/", "/shipping/", "/coupons/"]
+    rels = [
+        "index.html",
+        page_rel(site, "start", "start/index.html"),
+        page_rel(site, "shipping", "shipping/index.html"),
+        page_rel(site, "coupons", "coupons/index.html"),
+    ]
+    urls = [public_url(r) for r in rels]
     body = "\n".join(
         f"  <url><loc>https://{site['host']}{u}</loc><changefreq>weekly</changefreq></url>"
         for u in urls
@@ -282,14 +332,11 @@ def ia_collapse_conf(site: dict) -> str:
     ]
     if host == "fishgoospreadsheet.net":
         lines += [
-            "rewrite ^/beginner-guide\\.html$ /start/ permanent;",
-            "rewrite ^/coupons\\.html$ /coupons/ permanent;",
             'location ~ ^/fishgoo-[a-z0-9-]+-spreadsheet { add_header X-Robots-Tag "noindex, follow" always; try_files $uri $uri/ $uri/index.html =404; }',
         ]
     if host in {"lolospreadsheet.com", "bestlolobuyspreadsheet.com"}:
         lines += [
             "rewrite ^/spreadsheet/?$ / permanent;",
-            "rewrite ^/guides/?$ /start/ permanent;",
             'location ^~ /brand/ { add_header X-Robots-Tag "noindex, follow" always; try_files $uri $uri/ $uri/index.html =404; }',
             'location ^~ /category/ { add_header X-Robots-Tag "noindex, follow" always; try_files $uri $uri/ $uri/index.html =404; }',
         ]
@@ -303,6 +350,9 @@ def ia_collapse_conf(site: dict) -> str:
 
 def write_overlay(site: dict) -> Path:
     out = ROOT / "sites" / site["host"] / "overlay"
+    start_rel = page_rel(site, "start", "start/index.html")
+    ship_rel = page_rel(site, "shipping", "shipping/index.html")
+    coup_rel = page_rel(site, "coupons", "coupons/index.html")
     pages = {
         "index.html": shell(
             site,
@@ -312,27 +362,27 @@ def write_overlay(site: dict) -> Path:
             "home",
             home_body(site),
         ),
-        "start/index.html": shell(
+        start_rel: shell(
             site,
             site["start_title"],
             f"How to place a first {site['agent']} order.",
-            f"https://{site['host']}/start/",
+            f"https://{site['host']}{public_url(start_rel)}",
             "start",
             start_body(site),
         ),
-        "shipping/index.html": shell(
+        ship_rel: shell(
             site,
             site["ship_title"],
             site["ship_body"][:160],
-            f"https://{site['host']}/shipping/",
+            f"https://{site['host']}{public_url(ship_rel)}",
             "shipping",
             ship_body(site),
         ),
-        "coupons/index.html": shell(
+        coup_rel: shell(
             site,
             site["coupon_title"],
             site["coupon_body"][:160],
-            f"https://{site['host']}/coupons/",
+            f"https://{site['host']}{public_url(coup_rel)}",
             "coupons",
             coupon_body(site),
         ),
@@ -376,17 +426,14 @@ def deploy(bt: Baota, dry_run: bool = False) -> None:
     for site in AGENTS:
         host = site["host"]
         overlay = write_overlay(site)
-        mapping = {
-            f"/www/wwwroot/{host}/index.html": (overlay / "index.html").read_text(),
-            f"/www/wwwroot/{host}/start/index.html": (overlay / "start/index.html").read_text(),
-            f"/www/wwwroot/{host}/shipping/index.html": (overlay / "shipping/index.html").read_text(),
-            f"/www/wwwroot/{host}/coupons/index.html": (overlay / "coupons/index.html").read_text(),
-            f"/www/wwwroot/{host}/robots.txt": (overlay / "robots.txt").read_text(),
-            f"/www/wwwroot/{host}/sitemap.xml": (overlay / "sitemap.xml").read_text(),
-            f"/www/server/panel/vhost/nginx/extension/{host}/ia-collapse.conf": (
-                overlay / "nginx-ia-collapse.conf"
-            ).read_text(),
-        }
+        mapping = {}
+        for rel in overlay.rglob("*"):
+            if not rel.is_file():
+                continue
+            if rel.name == "nginx-ia-collapse.conf":
+                mapping[f"/www/server/panel/vhost/nginx/extension/{host}/ia-collapse.conf"] = rel.read_text()
+                continue
+            mapping[f"/www/wwwroot/{host}/{rel.relative_to(overlay)}"] = rel.read_text()
         if dry_run:
             print(host, "dry-run", len(mapping), "files")
             continue

@@ -142,7 +142,12 @@
         "accent": "#c2410c",
         "font": "Newsreader, Iowan Old Style, Georgia, serif"
       },
-      "nav": [["Buyer notes", "/"], ["Workflow", "/start/"], ["Bills", "/shipping/"], ["Coupons", "/coupons/"]],
+      "nav": [["Buyer notes", "/"], ["Workflow", "/beginner-guide.html"], ["Bills", "/fishgoo-shipping-lines-2026.html"], ["Coupons", "/coupons.html"]],
+      "page_files": {
+        "start": "beginner-guide.html",
+        "shipping": "fishgoo-shipping-lines-2026.html",
+        "coupons": "coupons.html"
+      },
       "home_title": "FishGoo buyer notes — Yupoo albums vs Weidian carts",
       "home_h1": "FishGoo workflow for mixed Yupoo / Weidian / 1688 hauls",
       "lead": "FishGoo users usually do not start from a Taobao search box. They start from a Yupoo album or a Weidian shop, then ask the agent to turn a lookbook into a payable cart. This hub is that translation layer — not a copy of a shared W2C catalog.",
@@ -310,7 +315,12 @@
         "accent": "#365314",
         "font": "IBM Plex Sans, Segoe UI, sans-serif"
       },
-      "nav": [["Parcel SOP", "/"], ["Order desk", "/start/"], ["Pack & lines", "/shipping/"], ["Wallet", "/coupons/"]],
+      "nav": [["Parcel SOP", "/"], ["Order desk", "/start/"], ["Pack & lines", "/guides/shipping/"], ["Wallet", "/guides/coupons/"]],
+      "page_files": {
+        "start": "start/index.html",
+        "shipping": "guides/shipping/index.html",
+        "coupons": "guides/coupons/index.html"
+      },
       "home_title": "LoLoBuy parcel SOP — warehouse to tracking, independent of lolobuy.com marketing",
       "home_h1": "lolospreadsheet.com is the LoLoBuy operations desk",
       "lead": "This domain is an independent operations handbook for LoLoBuy orders. It is not lolobuy.com and it is not the QC-triage sister bestlolobuyspreadsheet.com. It also no longer embeds a third-party finds mall.",

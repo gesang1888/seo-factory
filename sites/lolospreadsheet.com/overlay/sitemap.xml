@@ -2,6 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://lolospreadsheet.com/</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://lolospreadsheet.com/start/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://lolospreadsheet.com/shipping/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://lolospreadsheet.com/coupons/</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://lolospreadsheet.com/guides/shipping/</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://lolospreadsheet.com/guides/coupons/</loc><changefreq>weekly</changefreq></url>
 </urlset>
