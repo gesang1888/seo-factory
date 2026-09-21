@@ -1,0 +1,233 @@
+"""USFans spreadsheet SEO overlay: keep URLs, 301 map, satellite domains.
+
+Canonical host is usfansspreadsheet.net only. Sibling ccTLDs are 301'd.
+"""
+
+from __future__ import annotations
+
+CANONICAL_HOST = "usfansspreadsheet.net"
+CANONICAL_ORIGIN = f"https://{CANONICAL_HOST}"
+REGISTER_URL = "https://usfans.com/register?ref=7BJBAJ"
+CNY_TO_USD = 0.139
+
+SATELLITE_DOMAINS = [
+    "usfansspreadsheet.uk",
+    "usfansspreadsheet.co.uk",
+    "usfansspreadsheet.nl",
+    "usfansspreadsheet.org",
+]
+
+# Paths that stay indexed. Directory URLs are stored without a trailing file.
+KEEP_PATHS: list[str] = [
+    "/",
+    "/usfans-spreadsheet/",
+    "/categories/",
+    "/shoes.html",
+    "/hoodies.html",
+    "/t-shirts.html",
+    "/jackets.html",
+    "/pants.html",
+    "/bags.html",
+    "/accessories.html",
+    "/electronics.html",
+    "/headwear.html",
+    "/jersey.html",
+    "/clothing.html",
+    "/other.html",
+    "/guide.html",
+    "/faq.html",
+    "/vs.html",
+    "/is-usfans-legit/",
+    "/usfans-coupons/",
+    "/usfans-shipping-guide/",
+    "/usfans-shipping-lines/",
+    "/usfans-shipping-uk/",
+    "/usfans-shipping-usa/",
+    "/usfans-shipping-eu/",
+    "/usfans-shipping-australia/",
+    "/usfans-customs-guide/",
+    "/usfans-sizing-guide/",
+    "/usfans-qc-photos/",
+    "/usfans-first-order-guide/",
+    "/usfans-haul-weight-guide/",
+    "/usfans-1688-guide/",
+    "/usfans-taobao-weidian-guide/",
+    "/usfans-reddit-community/",
+    "/blog/",
+    "/blog/posts/best-usfans-shoes-2026/",
+    "/blog/posts/how-to-use-usfans-spreadsheet-2026/",
+    "/blog/posts/usfans-qc-photo-guide/",
+    "/blog/posts/usfans-shipping-tips/",
+    "/blog/posts/usfans-vs-pandabuy-2026/",
+    "/es/",
+    "/es/como-comprar-usfans/",
+    "/pl/",
+    "/pl/jak-kupowac-usfans/",
+]
+
+# Duplicate "spreadsheet" landings collapse onto the homepage or the live sheet.
+SPREADSHEET_DUPES: dict[str, str] = {
+    "/usfans-spreadsheet-2026/": "/",
+    "/usfans-spreadsheet-link/": "/",
+    "/official-usfans-spreadsheet/": "/",
+    "/usfansspreadsheet-org/": "/",
+    "/usfans-spreadsheet-download/": "/",
+    "/usfans-spreadsheet-mobile/": "/usfans-spreadsheet/",
+    "/usfans-spreadsheet-for-usa/": "/usfans-shipping-usa/",
+    "/usfans-google-sheets-alternative/": "/usfans-spreadsheet/",
+    "/usfans-w2c-spreadsheet/": "/usfans-spreadsheet/",
+    "/usfans-rep-spreadsheet/": "/usfans-spreadsheet/",
+    "/usfans-best-batches-2026/": "/",
+}
+
+# Thin brand/doorway shells → a real category or the live search.
+BRAND_REDIRECTS: dict[str, str] = {
+    "/usfans-amiri-spreadsheet/": "/usfans-spreadsheet/?q=Amiri",
+    "/usfans-arcteryx-spreadsheet/": "/jackets.html",
+    "/usfans-asics-spreadsheet/": "/shoes.html",
+    "/usfans-bags-spreadsheet/": "/bags.html",
+    "/usfans-balenciaga-spreadsheet/": "/usfans-spreadsheet/?q=Balenciaga",
+    "/usfans-bape-spreadsheet/": "/usfans-spreadsheet/?q=Bape",
+    "/usfans-belt-spreadsheet/": "/accessories.html",
+    "/usfans-bottega-veneta-spreadsheet/": "/bags.html",
+    "/usfans-canada-goose-spreadsheet/": "/jackets.html",
+    "/usfans-cargo-pants-spreadsheet/": "/pants.html",
+    "/usfans-chrome-hearts-spreadsheet/": "/usfans-spreadsheet/?q=Chrome%20Hearts",
+    "/usfans-corteiz-spreadsheet/": "/usfans-spreadsheet/?q=Corteiz",
+    "/usfans-cp-company-spreadsheet/": "/jackets.html",
+    "/usfans-dior-spreadsheet/": "/usfans-spreadsheet/?q=Dior",
+    "/usfans-dunk-spreadsheet/": "/shoes.html",
+    "/usfans-electronics-spreadsheet/": "/electronics.html",
+    "/usfans-essentials-spreadsheet/": "/usfans-spreadsheet/?q=Essentials",
+    "/usfans-fear-of-god-spreadsheet/": "/usfans-spreadsheet/?q=Fear%20of%20God",
+    "/usfans-gallery-dept-spreadsheet/": "/usfans-spreadsheet/?q=Gallery%20Dept",
+    "/usfans-gucci-spreadsheet/": "/usfans-spreadsheet/?q=Gucci",
+    "/usfans-hellstar-spreadsheet/": "/usfans-spreadsheet/?q=Hellstar",
+    "/usfans-hermes-spreadsheet/": "/usfans-spreadsheet/?q=Hermes",
+    "/usfans-hoka-spreadsheet/": "/shoes.html",
+    "/usfans-hoodies-spreadsheet/": "/hoodies.html",
+    "/usfans-jersey-spreadsheet/": "/jersey.html",
+    "/usfans-jordan-spreadsheet/": "/shoes.html",
+    "/usfans-loewe-spreadsheet/": "/usfans-spreadsheet/?q=Loewe",
+    "/usfans-louis-vuitton-spreadsheet/": "/usfans-spreadsheet/?q=Louis%20Vuitton",
+    "/usfans-luxury-reps-spreadsheet/": "/categories/",
+    "/usfans-maison-margiela-spreadsheet/": "/usfans-spreadsheet/?q=Maison%20Margiela",
+    "/usfans-miu-miu-spreadsheet/": "/usfans-spreadsheet/?q=Miu%20Miu",
+    "/usfans-moncler-spreadsheet/": "/jackets.html",
+    "/usfans-new-balance-spreadsheet/": "/shoes.html",
+    "/usfans-nike-tech-fleece/": "/hoodies.html",
+    "/usfans-off-white-spreadsheet/": "/usfans-spreadsheet/?q=Off%20White",
+    "/usfans-palace-spreadsheet/": "/usfans-spreadsheet/?q=Palace",
+    "/usfans-prada-spreadsheet/": "/usfans-spreadsheet/?q=Prada",
+    "/usfans-rick-owens-spreadsheet/": "/usfans-spreadsheet/?q=Rick%20Owens",
+    "/usfans-salomon-spreadsheet/": "/shoes.html",
+    "/usfans-sneakers-spreadsheet/": "/shoes.html",
+    "/usfans-stone-island-spreadsheet/": "/usfans-spreadsheet/?q=Stone%20Island",
+    "/usfans-streetwear-spreadsheet/": "/clothing.html",
+    "/usfans-stussy-spreadsheet/": "/usfans-spreadsheet/?q=Stussy",
+    "/usfans-sunglasses-spreadsheet/": "/accessories.html",
+    "/usfans-supreme-spreadsheet/": "/usfans-spreadsheet/?q=Supreme",
+    "/usfans-trapstar-spreadsheet/": "/usfans-spreadsheet/?q=Trapstar",
+    "/usfans-travis-scott-spreadsheet/": "/shoes.html",
+    "/usfans-van-cleef-spreadsheet/": "/accessories.html",
+    "/usfans-vintage-tee-spreadsheet/": "/t-shirts.html",
+    "/usfans-vlone-spreadsheet/": "/usfans-spreadsheet/?q=Vlone",
+    "/usfans-watch-spreadsheet/": "/accessories.html",
+    "/usfans-yeezy-spreadsheet/": "/shoes.html",
+    "/usfans-vs-jadeship/": "/vs.html",
+    "/usfans-vs-pandabuy-spreadsheet/": "/vs.html",
+    "/usfans-chinareptools-alternative/": "/usfans-spreadsheet/",
+    "/usfans-maisonlooks-alternative/": "/usfans-spreadsheet/",
+    "/usfans-budget-finds/": "/usfans-spreadsheet/",
+}
+
+
+def thin_redirects() -> dict[str, str]:
+    merged = dict(SPREADSHEET_DUPES)
+    merged.update(BRAND_REDIRECTS)
+    return merged
+
+
+def path_variants(path: str) -> list[str]:
+    """Slash and non-slash variants for nginx/Cloudflare."""
+    if path == "/":
+        return ["/"]
+    variants = {path}
+    if path.endswith("/"):
+        variants.add(path.rstrip("/"))
+    else:
+        variants.add(path + "/")
+    return sorted(variants)
+
+
+def overlay_file_for_keep(path: str) -> str:
+    if path == "/":
+        return "index.html"
+    if path.endswith(".html"):
+        return path.lstrip("/")
+    return path.strip("/") + "/index.html"
+
+
+def overlay_file_for_redirect(path: str) -> str:
+    slug = path.strip("/")
+    return f"{slug}/index.html"
+
+
+def hreflang_for_path(path: str) -> list[tuple[str, str]]:
+    """Only emit alternates that actually exist."""
+    origin = CANONICAL_ORIGIN
+    if path == "/":
+        return [
+            ("en", f"{origin}/"),
+            ("es", f"{origin}/es/"),
+            ("pl", f"{origin}/pl/"),
+            ("x-default", f"{origin}/"),
+        ]
+    if path == "/es/":
+        return [
+            ("en", f"{origin}/"),
+            ("es", f"{origin}/es/"),
+            ("pl", f"{origin}/pl/"),
+            ("x-default", f"{origin}/"),
+        ]
+    if path == "/pl/":
+        return [
+            ("en", f"{origin}/"),
+            ("es", f"{origin}/es/"),
+            ("pl", f"{origin}/pl/"),
+            ("x-default", f"{origin}/"),
+        ]
+    if path == "/es/como-comprar-usfans/":
+        return [
+            ("en", f"{origin}/guide.html"),
+            ("es", f"{origin}/es/como-comprar-usfans/"),
+            ("pl", f"{origin}/pl/jak-kupowac-usfans/"),
+            ("x-default", f"{origin}/guide.html"),
+        ]
+    if path == "/pl/jak-kupowac-usfans/":
+        return [
+            ("en", f"{origin}/guide.html"),
+            ("es", f"{origin}/es/como-comprar-usfans/"),
+            ("pl", f"{origin}/pl/jak-kupowac-usfans/"),
+            ("x-default", f"{origin}/guide.html"),
+        ]
+    loc = f"{origin}{path}"
+    return [("en", loc), ("x-default", loc)]
+
+
+def hreflang_html(path: str) -> str:
+    lines = ['  <!-- usfans-hreflang: same-host language versions only -->']
+    for code, url in hreflang_for_path(path):
+        lines.append(f'<link rel="alternate" hreflang="{code}" href="{url}" />')
+    return "\n".join(lines)
+
+
+INDEPENDENT_BANNER = """<div class="independent-banner" role="note">
+  Independent USFans spreadsheet index — not affiliated with USFans.com.
+  Some outbound links are affiliate referrals and may earn a commission at no extra cost to you.
+</div>"""
+
+INDEPENDENT_FOOTER_BLURB = (
+    "Independent USFans spreadsheet index — curated finds with QC photos and USD pricing. "
+    "Updated when the catalog changes."
+)

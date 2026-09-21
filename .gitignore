@@ -10,6 +10,10 @@ data/products/*
 output/*
 !output/.gitkeep
 
+# Live-site assets pulled only for local overlay preview
+sites/usfansspreadsheet.net/overlay/styles.css
+sites/usfansspreadsheet.net/overlay/usfanslogo.png
+
 # Site-specific generated content (optional local builds)
 sites/*/dist/
 sites/*/.cache/
