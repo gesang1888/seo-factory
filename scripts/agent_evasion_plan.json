@@ -1,6 +1,12 @@
 {
   "goal": "完全规避 scaled content / thin affiliation / doorway / scraping。国家站=当地分站。",
-  "traffic": "宝塔最新约1000行 gref/gbot。",
+  "traffic": "宝塔最新约1000行 gref/gbot。落地以 GSC Search Analytics 为准，gref 只作补充。",
+  "gsc": {
+    "service_account": "cursor-gsc-reader@decent-line-506507-q4.iam.gserviceaccount.com",
+    "properties": 152,
+    "reader": "scripts/gsc_service_account.py",
+    "note": "Baota gref 把 cssbuyspreadsheet.nl(42) 排在 cssbuy.nl(2) 前面；GSC 28天是 cssbuy.nl 30点击/1266展示，spreadsheet.nl 仅 3点击。PHP 分站已达 cssbuy.fr 质量（词 Jaccard≈0.19），别名用路径映射 301，禁止 $request_uri 把 /guides/ 打到 404。"
+  },
   "rules": [
     "不同代理永不互301",
     "不同国家永不互301",
