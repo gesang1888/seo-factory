@@ -1,0 +1,53 @@
+{
+  "generated": "2026-09-21",
+  "gsc_note": "GSC API was not available. Decisions use Google referrer + Googlebot HTML hits from the latest Baota access-log sample (~1000 lines). Threshold: gref>=10 keep a 301; otherwise 410.",
+  "usfans": {
+    "canonical": "https://usfansspreadsheet.net/",
+    "redirect_301": [
+      "usfansspreadsheet.uk",
+      "usfansspreadsheet.nl",
+      "usfansspreadsheet.co.uk"
+    ],
+    "note": "HTTP/www already 301'd to .net; this pass closes the HTTPS apex clones (byte-identical homepages, coupons, legit pages)."
+  },
+  "w2c": {
+    "canonical": "https://w2crep.org/",
+    "redirect_301": ["w2cclothes.com", "w2cshoes.com"],
+    "note": "Homepages were identical clones branded as w2cReps / w2crep.org."
+  },
+  "product_noindex": {
+    "hosts": ["allchina-buy.com", "bbdbuyeu.net"],
+    "action": "X-Robots-Tag noindex,follow on /product/; empty sitemap-products.xml; drop product URLs from sitemap.xml and robots.txt. Pages stay crawlable so Google can drop them from the index."
+  },
+  "indie": {
+    "canonical_if_301": "https://w2clinks.com/",
+    "redirect_301": [
+      "boonspreadsheet.com",
+      "eastmallspreadsheet.com",
+      "gtspreadsheet.com",
+      "fishgoospreadsheet.net",
+      "bestlolobuyspreadsheet.com",
+      "pikospreadsheets.net",
+      "fsbuyspreadsheets.com",
+      "lolospreadsheet.com",
+      "spanbuyspreadsheets.com",
+      "pingubuyspreadsheet.net",
+      "ossbuyspreadsheets.org",
+      "itaobuyspreadsheet.net",
+      "goatedspreadsheet.com"
+    ],
+    "gone_410": [
+      "hoospreadsheet.net",
+      "vigorspreadsheet.com",
+      "esgobuyspreadsheet.net",
+      "bestmulebuysheets.com",
+      "shipzobuyspreadsheet.net",
+      "pantherbuy.net",
+      "rizzitgospreadsheets.net",
+      "joyagoospreadsheets.de",
+      "tigspreadsheet.com",
+      "dgobuyspreadsheet.com",
+      "fsbuyspreadsheet.org"
+    ]
+  }
+}
