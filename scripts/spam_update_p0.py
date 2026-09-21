@@ -35,19 +35,12 @@ location ^~ /product/ {
     try_files $uri $uri/ $uri/index.html =404;
 }
 """
-SITEMAP_NOCACHE = """# spam-update-p0: origin must not let CF edge-cache hide robots/sitemap edits.
-location = /robots.txt {
-    add_header Cache-Control "no-cache, must-revalidate" always;
-}
-location = /sitemap.xml {
-    default_type application/xml;
-    add_header Cache-Control "no-cache, must-revalidate" always;
-}
-location = /sitemap-products.xml {
-    default_type application/xml;
-    add_header Cache-Control "no-cache, must-revalidate" always;
-}
-"""
+SITEMAP_CACHE_OLD = 'add_header Cache-Control "public, max-age=3600" always;'
+SITEMAP_CACHE_NEW = 'add_header Cache-Control "no-cache, must-revalidate" always;'
+SITEMAP_CACHE_FILES = [
+    "/www/server/panel/vhost/nginx/allchina-buy.com.conf",
+    "/www/server/panel/vhost/nginx/extension/bbdbuyeu.net/gsc-sitemap.conf",
+]
 USFANS_REWRITE = """# spam-update-p0: identical clone — collapse HTTPS apex onto .net
 return 301 https://usfansspreadsheet.net$request_uri;
 """
@@ -154,6 +147,16 @@ def harden_410_conf(host: str, conf: str) -> str:
     return out
 
 
+def patch_sitemap_cache_control(conf: str) -> str:
+    """Flip robots/sitemap Cache-Control from 1h public to no-cache.
+
+    These two files only use max-age=3600 on discovery endpoints. Nested
+    `types { ... }` blocks break a location-regex replace, so swap the
+    header globally in the file.
+    """
+    return conf.replace(SITEMAP_CACHE_OLD, SITEMAP_CACHE_NEW)
+
+
 def w2c_redirect_conf(domain: str, original: str) -> str:
     cert = f"/www/server/panel/vhost/cert/{domain}/fullchain.pem"
     key = f"/www/server/panel/vhost/cert/{domain}/privkey.pem"
@@ -221,13 +224,40 @@ def apply(bt: Baota, dry_run: bool = False) -> dict:
             f"/www/wwwroot/{host}/sitemap.xml": (overlay / "sitemap.xml").read_text(),
             f"/www/wwwroot/{host}/sitemap-products.xml": EMPTY_SITEMAP,
             f"/www/server/panel/vhost/nginx/extension/{host}/product-noindex.conf": PRODUCT_NOINDEX,
-            f"/www/server/panel/vhost/nginx/extension/{host}/sitemap-nocache.conf": SITEMAP_NOCACHE,
         }
         for path, data in mapping.items():
             if dry_run:
                 step(f"put {path}", f"dry-run bytes={len(data)}")
                 continue
             step(f"put {path}", bt.put(path, data))
+
+    # 3b) Existing robots/sitemap locations already set max-age=3600 — patch those
+    # instead of adding duplicate location blocks (nginx emerg).
+    for path in SITEMAP_CACHE_FILES:
+        original = bt.get(path)
+        if original is None:
+            step(f"sitemap cache {path}", "missing")
+            continue
+        new = patch_sitemap_cache_control(original)
+        if new == original:
+            step(f"sitemap cache {path}", "already no-cache or no matching locations")
+            continue
+        if dry_run:
+            step(f"sitemap cache {path}", "dry-run")
+            continue
+        step(f"sitemap cache {path}", bt.put(path, new))
+    for host in INV["product_noindex"]["hosts"]:
+        leftover = f"/www/server/panel/vhost/nginx/extension/{host}/sitemap-nocache.conf"
+        if dry_run:
+            step(f"drop leftover {leftover}", "dry-run")
+            continue
+        existed = bt.get(leftover)
+        if existed is None:
+            continue
+        step(
+            f"empty leftover {leftover}",
+            bt.put(leftover, "# leftover duplicate location file; kept empty on purpose\n"),
+        )
 
     # 4) Indie clones
     for host in INV["indie"]["redirect_301"]:
@@ -239,7 +269,10 @@ def apply(bt: Baota, dry_run: bool = False) -> dict:
         try:
             new = patch_indie_conf(original, "301")
         except ValueError as e:
-            step(f"indie 301 {host}", str(e))
+            if "return 301 https://w2clinks.com/" in original:
+                step(f"indie 301 {host}", "already patched")
+            else:
+                step(f"indie 301 {host}", str(e))
             continue
         if dry_run:
             step(f"indie 301 {host}", "dry-run patched")
