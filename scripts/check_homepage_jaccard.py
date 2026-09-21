@@ -33,6 +33,9 @@ FILES = [
     ROOT / "sites/orientdig.es/overlay/index.html",
     ROOT / "sites/orientdig.at/overlay/index.html",
     ROOT / "sites/orientdig.fr/overlay/index.html",
+    ROOT / "sites/fansbuy.co.uk/overlay/index.html",
+    ROOT / "sites/fansbuysheets.net/overlay/index.html",
+    ROOT / "sites/mulebuy.fr/overlay/index.html",
 ]
 
 
