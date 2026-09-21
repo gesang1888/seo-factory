@@ -1867,7 +1867,7 @@
       "s500": 0,
       "action": "deepen_branch",
       "batch": "P0",
-      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+      "why": "GSC 4点击首页 + 3点击 /is-kakobuy-legit/（Siirretään→/kakobuy-kokemuksia/）+ 2点击 /kakobuy-shipping/（→/kakobuy-toimitus/）。只加深 index.html；英文 slug 跳转留下。"
     },
     {
       "host": "kakobuydocs.com",
@@ -1907,7 +1907,7 @@
       "s500": 0,
       "action": "deepen_branch",
       "batch": "P0",
-      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+      "why": "gref 73 高、GSC 仅 3点击（首页+coupons）。加深首页，禁止并进 kakobuydocs.com。"
     },
     {
       "host": "kakospreadsheet.es",
@@ -1920,7 +1920,7 @@
       "s500": 0,
       "action": "deepen_branch",
       "batch": "P0",
-      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+      "why": "GSC 16点击在 /kakobuy-coupon/（222展示），首页仅1。禁止301该URL；只PUT index.html。内页 envio/opiniones 留下。"
     },
     {
       "host": "kakospreadsheet.fr",
@@ -1933,7 +1933,7 @@
       "s500": 0,
       "action": "deepen_branch",
       "batch": "P0",
-      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+      "why": "GSC 1点击首页。加深以免与 ES/NL 薄模板互拷。内页 /livraison-kakobuy/ 留下。不并进 .es。"
     },
     {
       "host": "kakospreadsheet.nl",
@@ -1946,7 +1946,7 @@
       "s500": 0,
       "action": "deepen_branch",
       "batch": "P1",
-      "why": "少量来路 P1"
+      "why": "GSC 2点击首页。加深以免与 FR/ES 薄模板互拷。内页 /kakobuy-verzending/ 留下。"
     },
     {
       "host": "litbuy.at",

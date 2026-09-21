@@ -1,48 +1,78 @@
 <!doctype html>
-<html lang="fi">
+<html lang="fi-FI">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KakoBuy Finland agent desk — Posti</title>
-<meta name="description" content="KakoBuy country desk (FI/CA/ES/FR/NL). Docs/tips hosts are operator manuals. Suomessa viimeinen kilometri on usein Posti. Älä käytä Saksan hintaa.">
+<title>Kakobuy Suomi — Posti, ALV ja suomenkielinen ostaminen</title>
+<meta name="description" content="kakobuy.fi on Kakobuyn Suomen desk: Posti-last mile, ALV/tulli ja GSC-klikatut URL:t (etusivu, kokemuksia, toimitus, kuinka käyttää). Ei Espanjan cupón-sivua eikä Kanadan CAD-deskia.">
 <link rel="canonical" href="https://kakobuy.fi/">
+<link rel="alternate" hreflang="fi-FI" href="https://kakobuy.fi/">
+<link rel="alternate" hreflang="es-ES" href="https://kakospreadsheet.es/">
+<link rel="alternate" hreflang="en-CA" href="https://kakospreadsheet.ca/">
+<link rel="alternate" hreflang="fr-FR" href="https://kakospreadsheet.fr/">
+<link rel="alternate" hreflang="nl-NL" href="https://kakospreadsheet.nl/">
 <meta name="robots" content="index,follow">
 <style>
-:root { --accent:#0369a1; }
-body { margin:0; font-family: Georgia, ui-serif, serif; background:#f7f5f0; color:#1c1917; line-height:1.55; }
-header,main,footer { max-width:44rem; margin:0 auto; padding:1.2rem; }
-a.cta { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:.7rem 1rem; border-radius:.6rem; }
-.note { color:#57534e; font-size:.92rem; }
-h1 { font-size:clamp(1.6rem,4vw,2.2rem); }
-h2 { font-size:1.15rem; }
+:root { --ink:#1c1917; --muted:#57534e; --bg:#eef4f1; --card:#fff; --accent:#0f766e; }
+body { margin:0; font-family: Georgia, ui-serif, serif; background:var(--bg); color:var(--ink); line-height:1.55; }
+header, main, footer { max-width:46rem; margin:0 auto; padding:1.25rem; }
+.note { color:var(--muted); font-size:.92rem; }
+h1 { font-size:clamp(1.55rem,4vw,2.15rem); }
+h2 { font-size:1.18rem; margin-top:1.8rem; }
+table { width:100%; border-collapse:collapse; background:var(--card); }
+th, td { border:1px solid #cce3dc; padding:.55rem .65rem; text-align:left; font-size:.95rem; }
+th { background:#ccfbf1; }
+a.cta { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:.7rem 1rem; border-radius:.5rem; }
+.box { background:var(--card); padding:1rem 1.1rem; border-radius:.5rem; }
+nav.local a { margin-right:1rem; }
+code { background:#ecfdf5; padding:.05rem .3rem; }
 </style>
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebPage", "name": "KakoBuy Finland agent desk — Posti", "inLanguage": "fi-FI", "about": "KakoBuy", "url": "https://kakobuy.fi/", "isPartOf": {"@type": "WebSite", "name": "KakoBuy Finland agent desk", "url": "https://kakobuy.fi/"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is kakobuy.fi the same site as other KakoBuy country domains?", "acceptedAnswer": {"@type": "Answer", "text": "No. kakobuy.fi is the Finland agent desk. Other KakoBuy ccTLDs stay independent local sites."}}, {"@type": "Question", "name": "How should I read a KakoBuy quote for Posti?", "acceptedAnswer": {"@type": "Answer", "text": "Suomalainen toimitusosoite. Posti-tuotteet tällä deskillä."}}, {"@type": "Question", "name": "Does this page tell me what value to declare on a Finland haul?", "acceptedAnswer": {"@type": "Answer", "text": "ALV/tulli seuraa valittua tuotetta. Ei aliarvostusohjeita."}}]}]</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Kakobuy Suomi — Posti ja ALV","inLanguage":"fi-FI","url":"https://kakobuy.fi/","about":"Kakobuy","isPartOf":{"@type":"WebSite","name":"Kakobuy Suomi","url":"https://kakobuy.fi/"}}</script>
 </head>
 <body>
 <header>
-  <p class="note">KakoBuy · Finland · kakobuy.fi · agent desk</p>
+  <p class="note">Kakobuy · Suomi · kakobuy.fi · ei kakospreadsheet.es eikä .ca</p>
+  <nav class="local">
+    <a href="/kakobuy-suomi/">Kakobuy Suomi</a>
+    <a href="/kakobuy-toimitus/">Toimitus / Tulli</a>
+    <a href="/kakobuy-kokemuksia/">Kokemuksia</a>
+    <a href="/kuinka-kayttaa-kakobuyta/">Ostaminen</a>
+    <a href="/kakobuy-spreadsheet/">Spreadsheet</a>
+    <a href="/kakobuy-coupon/">Kuponki</a>
+  </nav>
 </header>
 <main>
-  <h1>KakoBuy agent desk for Finland (EUR)</h1>
-  <p>KakoBuy country desk (FI/CA/ES/FR/NL). Docs/tips hosts are operator manuals.</p>
-  <p>KakoBuy country desk. Finland (Posti), Canada, Spain, France and the Netherlands each have their own host. kakobuydocs / tips style hostnames — if present — are operator manuals, not country doorways.</p>
-  <p>Suomessa viimeinen kilometri on usein Posti. Älä käytä Saksan hintaa.</p>
-  <p lang="en">Finnish last-mile is often Posti. Do not reuse a German price.</p>
-  <p>KakoBuy .fi on Suomen desk (Posti). Saksan tai Ruotsin sivua ei saa 301:llä tähän.</p>
-  <h2>Country agent desk — register and last-mile product names</h2>
-  <p>Bare country host: where readers open an account and learn the last-mile product names this destination uses. Spreadsheet hosts on the same ccTLD store QC logs. Do not turn this URL into a copy of another country’s homepage with the TLD swapped.</p>
-  <p>Suomalainen toimitusosoite. Posti-tuotteet tällä deskillä.</p>
-  <p>ALV/tulli seuraa valittua tuotetta. Ei aliarvostusohjeita.</p>
-  <p>kakobuy.fi is only the Finland desk for KakoBuy. Other KakoBuy country hosts (for example Spain and Netherlands) stay on their own ccTLDs and must not 301 here.</p>
-  <p>No other KakoBuy hostname shares this country TLD in the panel.</p>
-  <h2>FAQ — kakobuy.fi</h2>
-  <h3>Is kakobuy.fi the same site as other KakoBuy country domains?</h3><p>No. kakobuy.fi is the Finland agent desk. Other KakoBuy ccTLDs stay independent local sites.</p>
-<h3>How should I read a KakoBuy quote for Posti?</h3><p>Suomalainen toimitusosoite. Posti-tuotteet tällä deskillä.</p>
-<h3>Does this page tell me what value to declare on a Finland haul?</h3><p>ALV/tulli seuraa valittua tuotetta. Ei aliarvostusohjeita.</p>
-  <p><a class="cta" href="https://www.kakobuy.com/">Open KakoBuy for Finland</a></p>
+  <h1>Kakobuy suomalaiseen osoitteeseen (EUR, Posti-last mile)</h1>
+  <p>Tämä hostname on <strong>Suomen desk</strong>. Espanjan cupón-URL (<a href="https://kakospreadsheet.es/kakobuy-coupon/">kakospreadsheet.es/kakobuy-coupon/</a>) ei saa 301:tä tänne. Kanadan CAD-desk on <a href="https://kakospreadsheet.ca/">kakospreadsheet.ca</a>. AllChinaBuy ja MyCNBox ovat eri agentteja.</p>
+  <p>Kampanjakoodi <code>KAKOSEP</code> ja uuden käyttäjän 3000 CNY -paketti: lue ehdot uudelleen kuponkisivulta. Rekisteröinti <a href="https://ikako.vip/r/yze69">ikako.vip/r/yze69</a> jos Kakobuyn tipdetail vielä näyttää sen.</p>
+
+  <h2>GSC jo klikkaa näitä polkuja — älä poista ohjauksia</h2>
+  <ul>
+    <li>Etusivu — 4 klikkausta / 61 näyttöä (28 pv).</li>
+    <li><a href="/is-kakobuy-legit/">/is-kakobuy-legit/</a> (3 klikkausta) on suomenkielinen “Siirretään…”-ohjaus <a href="/kakobuy-kokemuksia/">/kakobuy-kokemuksia/</a> -sivulle. Pidä molemmat.</li>
+    <li><a href="/kakobuy-shipping/">/kakobuy-shipping/</a> (2 klikkausta) ohjaa <a href="/kakobuy-toimitus/">/kakobuy-toimitus/</a> -sivulle (Posti, ALV, Tulli).</li>
+    <li>Vaiheittainen ostaminen: <a href="/kuinka-kayttaa-kakobuyta/">/kuinka-kayttaa-kakobuyta/</a>.</li>
+  </ul>
+
+  <h2>Mitä Kakobuy-tarjouksesta luetaan Suomessa</h2>
+  <table>
+    <thead><tr><th>Näyttö</th><th>FI-tulkinta</th></tr></thead>
+    <tbody>
+      <tr><td>Osoitekirja</td><td>Suomalainen osoite → EUR. Espanjan IVA-taulukko tai CAD-screenshot ei kuulu tähän.</td></tr>
+      <tr><td>Varastokuva</td><td>Pakattu kilo syntyy vasta QC:n jälkeen. Weidian-grammat eivät ole lasku.</td></tr>
+      <tr><td>Linjakortti</td><td>Mainitseeko SKU Postin / Suomi-tuotteen? “Halvin linja” ei ole Posti-tuote.</td></tr>
+      <tr><td>ALV / Tulli</td><td>Seuraa valittua kuljetustuotetta (IOSS / tax-paid tai ei). Tämä sivu ei valitse ilmoitettavaa arvoa.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Tulli — vain selitys</h2>
+  <div class="box">
+    <p>Suomen ALV ja tulli noudattavat Kakobuysta ostamaasi linjaa. <strong>Ei aliarvostusohjeita.</strong> Pidempi teksti: <a href="/kakobuy-toimitus/">kakobuy-toimitus</a>.</p>
+  </div>
+  <p><a class="cta" href="https://ikako.vip/r/yze69">Avaa Kakobuy (sitten Suomen osoite sovelluksessa)</a></p>
 </main>
 <footer>
-  <p class="note">kakobuy.fi is the Finland agent desk for KakoBuy. Independent notes, not the official KakoBuy site. Different agents stay on their own hosts.</p>
+  <p class="note">Riippumaton Suomen desk. kakospreadsheet.es/.ca/.fr/.nl ja kakobuydocs.com ovat eri dokumentteja.</p>
 </footer>
 </body>
 </html>

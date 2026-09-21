@@ -25,6 +25,11 @@ FILES = [
     ROOT / "sites/allchinabuyspreadsheets.co.uk/overlay/index.html",
     ROOT / "sites/allchinabuyspreadsheet.ca/overlay/index.html",
     ROOT / "sites/allchinabuyspreadsheet.nl/overlay/index.html",
+    ROOT / "sites/kakospreadsheet.es/overlay/index.html",
+    ROOT / "sites/kakobuy.fi/overlay/index.html",
+    ROOT / "sites/kakospreadsheet.ca/overlay/index.html",
+    ROOT / "sites/kakospreadsheet.fr/overlay/index.html",
+    ROOT / "sites/kakospreadsheet.nl/overlay/index.html",
 ]
 
 
