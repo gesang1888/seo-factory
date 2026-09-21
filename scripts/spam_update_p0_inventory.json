@@ -1,0 +1,59 @@
+{
+  "generated": "2026-09-21",
+  "gsc_note": "GSC API was not available. Decisions use Google referrer + Googlebot HTML hits from the latest Baota access-log sample (~1000 lines). Threshold: gref>=10 keep a 301; otherwise 410. Cloudflare robots/sitemap edge cache (max-age=3600) can hide origin updates until TTL; origin Cache-Control is no-cache. Owner should remove sitemap-products.xml in GSC after cache expires.",
+  "indie_notes": {
+    "vigorspreadsheet.com": "HTTP and HTTPS each had location / try_files; patcher must replace every block, not only the first.",
+    "pantherbuy.net": "Apex HTTPS 301'd to www; www is 410. Harden apex to 410 so Google does not follow a 301 into Gone."
+  },
+  "usfans": {
+    "canonical": "https://usfansspreadsheet.net/",
+    "redirect_301": [
+      "usfansspreadsheet.uk",
+      "usfansspreadsheet.nl",
+      "usfansspreadsheet.co.uk"
+    ],
+    "note": "HTTP/www already 301'd to .net; this pass closes the HTTPS apex clones (byte-identical homepages, coupons, legit pages)."
+  },
+  "w2c": {
+    "canonical": "https://w2crep.org/",
+    "redirect_301": ["w2cclothes.com", "w2cshoes.com"],
+    "note": "Homepages were identical clones branded as w2cReps / w2crep.org."
+  },
+  "product_noindex": {
+    "hosts": ["allchina-buy.com", "bbdbuyeu.net"],
+    "action": "X-Robots-Tag noindex,follow on /product/; empty sitemap-products.xml; drop product URLs from sitemap.xml and robots.txt. Pages stay crawlable so Google can drop them from the index."
+  },
+  "indie": {
+    "independent_agents": [
+      "boonspreadsheet.com",
+      "eastmallspreadsheet.com",
+      "gtspreadsheet.com",
+      "fishgoospreadsheet.net",
+      "bestlolobuyspreadsheet.com",
+      "pikospreadsheets.net",
+      "fsbuyspreadsheets.com",
+      "lolospreadsheet.com",
+      "spanbuyspreadsheets.com",
+      "pingubuyspreadsheet.net",
+      "ossbuyspreadsheets.org",
+      "itaobuyspreadsheet.net",
+      "goatedspreadsheet.com"
+    ],
+    "independent_note": "These are separate shopping-agent hubs. Do not 301 them to w2clinks.com (doorway). Redesign: scripts/indie_agent_redesign.py — unique copy, collapsed cookie-cutter URLs, no shared catalog.",
+    "canonical_if_301": null,
+    "redirect_301": [],
+    "gone_410": [
+      "hoospreadsheet.net",
+      "vigorspreadsheet.com",
+      "esgobuyspreadsheet.net",
+      "bestmulebuysheets.com",
+      "shipzobuyspreadsheet.net",
+      "pantherbuy.net",
+      "rizzitgospreadsheets.net",
+      "joyagoospreadsheets.de",
+      "tigspreadsheet.com",
+      "dgobuyspreadsheet.com",
+      "fsbuyspreadsheet.org"
+    ]
+  }
+}
