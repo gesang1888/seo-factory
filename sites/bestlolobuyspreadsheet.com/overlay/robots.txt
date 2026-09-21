@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /start/
+Allow: /shipping/
+Allow: /coupons/
+Disallow: /api/
+Disallow: /assets/
+Disallow: /brand/
+Disallow: /category/
+
+Sitemap: https://bestlolobuyspreadsheet.com/sitemap.xml
