@@ -6,13 +6,15 @@
     "pantherbuy.net": "Apex HTTPS 301'd to www; www is 410. Harden apex to 410 so Google does not follow a 301 into Gone."
   },
   "usfans": {
-    "canonical": "https://usfansspreadsheet.net/",
-    "redirect_301": [
+    "canonical": null,
+    "country_independent": [
+      "usfansspreadsheet.net",
       "usfansspreadsheet.uk",
       "usfansspreadsheet.nl",
       "usfansspreadsheet.co.uk"
     ],
-    "note": "HTTP/www already 301'd to .net; this pass closes the HTTPS apex clones (byte-identical homepages, coupons, legit pages)."
+    "redirect_301": [],
+    "note": "Same agent, different countries — keep independent local sites. Do not 301 uk/nl/co.uk onto .net."
   },
   "w2c": {
     "canonical": "https://w2crep.org/",

@@ -1,0 +1,1394 @@
+{
+  "policy": "One agent family per cluster. Country TLDs stay independent local sites. Do not 301 UK/NL/DE onto a .net/.us doorway.",
+  "sites": [
+    {
+      "host": "acbuyspreadsheets.ca",
+      "agent": "ACBuy",
+      "country": "CA",
+      "status": "live"
+    },
+    {
+      "host": "acbuyspreadsheets.nl",
+      "agent": "ACBuy",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "allchina-buy.com",
+      "agent": "AllChinaBuy",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "allchinabuyspreadsheet.ca",
+      "agent": "AllChinaBuy",
+      "country": "CA",
+      "status": "live"
+    },
+    {
+      "host": "allchinabuyspreadsheet.nl",
+      "agent": "AllChinaBuy",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "allchinabuyspreadsheets.co.uk",
+      "agent": "AllChinaBuy",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "basetaospreadsheet.com",
+      "agent": "BaseTao",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "bbdbuy.ca",
+      "agent": "BBDBuy",
+      "country": "CA",
+      "status": "live"
+    },
+    {
+      "host": "bbdbuy.it",
+      "agent": "BBDBuy",
+      "country": "IT",
+      "status": "live"
+    },
+    {
+      "host": "bbdbuy.uk",
+      "agent": "BBDBuy",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "bbdbuy.us",
+      "agent": "BBDBuy",
+      "country": "US",
+      "status": "live"
+    },
+    {
+      "host": "bbdbuyeu.net",
+      "agent": "BBDBuyEU",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "bbdbuyeuspreadsheet.com",
+      "agent": "BBDBuyEU",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "bbdbuyspreadsheet.ca",
+      "agent": "BBDBuy",
+      "country": "CA",
+      "status": "live"
+    },
+    {
+      "host": "bbdbuyspreadsheet.de",
+      "agent": "BBDBuy",
+      "country": "DE",
+      "status": "live"
+    },
+    {
+      "host": "bbdbuyspreadsheet.uk",
+      "agent": "BBDBuy",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "bbdbuyspreadsheet.us",
+      "agent": "BBDBuy",
+      "country": "US",
+      "status": "live"
+    },
+    {
+      "host": "bestlolobuyspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "bestmulebuysheets.com",
+      "agent": "MuleBuy",
+      "country": "GLOBAL",
+      "status": "410"
+    },
+    {
+      "host": "boonspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "cnshopper.net",
+      "agent": "CNShopper",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "cnshopperspreadsheet.net",
+      "agent": "CNShopper",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "cssbuy.at",
+      "agent": "CSSBuy",
+      "country": "AT",
+      "status": "live"
+    },
+    {
+      "host": "cssbuy.es",
+      "agent": "CSSBuy",
+      "country": "ES",
+      "status": "live"
+    },
+    {
+      "host": "cssbuy.fr",
+      "agent": "CSSBuy",
+      "country": "FR",
+      "status": "live"
+    },
+    {
+      "host": "cssbuy.it",
+      "agent": "CSSBuy",
+      "country": "IT",
+      "status": "live"
+    },
+    {
+      "host": "cssbuy.nl",
+      "agent": "CSSBuy",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "cssbuyspreadsheet.ca",
+      "agent": "CSSBuy",
+      "country": "CA",
+      "status": "live"
+    },
+    {
+      "host": "cssbuyspreadsheet.es",
+      "agent": "CSSBuy",
+      "country": "ES",
+      "status": "live"
+    },
+    {
+      "host": "cssbuyspreadsheet.eu",
+      "agent": "CSSBuy",
+      "country": "EU",
+      "status": "live"
+    },
+    {
+      "host": "cssbuyspreadsheet.fr",
+      "agent": "CSSBuy",
+      "country": "FR",
+      "status": "live"
+    },
+    {
+      "host": "cssbuyspreadsheet.it",
+      "agent": "CSSBuy",
+      "country": "IT",
+      "status": "live"
+    },
+    {
+      "host": "cssbuyspreadsheet.nl",
+      "agent": "CSSBuy",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "cssbuyspreadsheet.uk",
+      "agent": "CSSBuy",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "cssbuyspreadsheets.de",
+      "agent": "CSSBuy",
+      "country": "DE",
+      "status": "live"
+    },
+    {
+      "host": "cssbuyspreadsheets.us",
+      "agent": "CSSBuy",
+      "country": "US",
+      "status": "live"
+    },
+    {
+      "host": "dgobuyspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "410"
+    },
+    {
+      "host": "eastmallspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "esgobuyspreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "410"
+    },
+    {
+      "host": "fansbuy.co.uk",
+      "agent": "FansBuy",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "fansbuy.eu",
+      "agent": "FansBuy",
+      "country": "EU",
+      "status": "live"
+    },
+    {
+      "host": "fansbuy.nl",
+      "agent": "FansBuy",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "fansbuysheets.net",
+      "agent": "FansBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "fansbuyspreadsheet.de",
+      "agent": "FansBuy",
+      "country": "DE",
+      "status": "live"
+    },
+    {
+      "host": "fansbuyspreadsheet.eu",
+      "agent": "FansBuy",
+      "country": "EU",
+      "status": "live"
+    },
+    {
+      "host": "fansbuyspreadsheet.uk",
+      "agent": "FansBuy",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "fansspreadsheet.net",
+      "agent": "FansBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "fansspreadsheets.net",
+      "agent": "FansBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "fashionrepsfind.com",
+      "agent": "FashionReps",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "fashionrepsspreadsheet.com",
+      "agent": "FashionReps",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "fishgoospreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "fsbuyspreadsheet.org",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "410"
+    },
+    {
+      "host": "fsbuyspreadsheets.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "goatedspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "gtspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "hipobuy.at",
+      "agent": "HipoBuy",
+      "country": "AT",
+      "status": "live"
+    },
+    {
+      "host": "hipobuyreview.com",
+      "agent": "HipoBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "hipobuyspreadsheet.co.uk",
+      "agent": "HipoBuy",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "hipobuyspreadsheet.eu",
+      "agent": "HipoBuy",
+      "country": "EU",
+      "status": "live"
+    },
+    {
+      "host": "hipobuyspreadsheet.net",
+      "agent": "HipoBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "hipobuyspreadsheet.nl",
+      "agent": "HipoBuy",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "hipobuyspreadsheet.us",
+      "agent": "HipoBuy",
+      "country": "US",
+      "status": "live"
+    },
+    {
+      "host": "hipobuyspreadsheets.uk",
+      "agent": "HipoBuy",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "hoospreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "410"
+    },
+    {
+      "host": "hubbuy.net",
+      "agent": "HubBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "hubbuyspreadsheet.net",
+      "agent": "HubBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "itaobuyspreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "joyagoospreadsheets.de",
+      "agent": "UNKNOWN",
+      "country": "DE",
+      "status": "410"
+    },
+    {
+      "host": "kakobuy.fi",
+      "agent": "KakoBuy",
+      "country": "FI",
+      "status": "live"
+    },
+    {
+      "host": "kakobuydocs.com",
+      "agent": "KakoBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "kakobuytips.com",
+      "agent": "KakoBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "kakospreadsheet.ca",
+      "agent": "KakoBuy",
+      "country": "CA",
+      "status": "live"
+    },
+    {
+      "host": "kakospreadsheet.es",
+      "agent": "KakoBuy",
+      "country": "ES",
+      "status": "live"
+    },
+    {
+      "host": "kakospreadsheet.fr",
+      "agent": "KakoBuy",
+      "country": "FR",
+      "status": "live"
+    },
+    {
+      "host": "kakospreadsheet.nl",
+      "agent": "KakoBuy",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "litbuy.at",
+      "agent": "LitBuy",
+      "country": "AT",
+      "status": "live"
+    },
+    {
+      "host": "litbuyspreadsheet.eu",
+      "agent": "LitBuy",
+      "country": "EU",
+      "status": "live"
+    },
+    {
+      "host": "litbuyspreadsheet.it",
+      "agent": "LitBuy",
+      "country": "IT",
+      "status": "live"
+    },
+    {
+      "host": "litbuyspreadsheet.me.uk",
+      "agent": "LitBuy",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "litbuyspreadsheetnow.com",
+      "agent": "LitBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "litbuyspreadsheets.ca",
+      "agent": "LitBuy",
+      "country": "CA",
+      "status": "live"
+    },
+    {
+      "host": "litbuyspreadsheets.es",
+      "agent": "LitBuy",
+      "country": "ES",
+      "status": "live"
+    },
+    {
+      "host": "litbuyspreadsheets.nl",
+      "agent": "LitBuy",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "litbuyspreadsheets.us",
+      "agent": "LitBuy",
+      "country": "US",
+      "status": "live"
+    },
+    {
+      "host": "litspreadsheet.fr",
+      "agent": "LitBuy",
+      "country": "FR",
+      "status": "live"
+    },
+    {
+      "host": "lolospreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "lovegobuy.it",
+      "agent": "LoveGoBuy",
+      "country": "IT",
+      "status": "live"
+    },
+    {
+      "host": "lovegobuy.nl",
+      "agent": "LoveGoBuy",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "lovegobuyguide.com",
+      "agent": "LoveGoBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "lovegobuyspreadsheet.ca",
+      "agent": "LoveGoBuy",
+      "country": "CA",
+      "status": "live"
+    },
+    {
+      "host": "lovegobuyspreadsheet.es",
+      "agent": "LoveGoBuy",
+      "country": "ES",
+      "status": "live"
+    },
+    {
+      "host": "lovegobuyspreadsheet.eu",
+      "agent": "LoveGoBuy",
+      "country": "EU",
+      "status": "live"
+    },
+    {
+      "host": "lovegobuyspreadsheet.it",
+      "agent": "LoveGoBuy",
+      "country": "IT",
+      "status": "live"
+    },
+    {
+      "host": "lovegobuyspreadsheet.nl",
+      "agent": "LoveGoBuy",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "mulebuy.fr",
+      "agent": "MuleBuy",
+      "country": "FR",
+      "status": "live"
+    },
+    {
+      "host": "mulebuyspreadsheets.co.uk",
+      "agent": "MuleBuy",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "mulebuyspreadsheets.es",
+      "agent": "MuleBuy",
+      "country": "ES",
+      "status": "live"
+    },
+    {
+      "host": "mulebuyspreadsheets.us",
+      "agent": "MuleBuy",
+      "country": "US",
+      "status": "live"
+    },
+    {
+      "host": "mycnbox.co.uk",
+      "agent": "MyCNBox",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "mycnbox.de",
+      "agent": "MyCNBox",
+      "country": "DE",
+      "status": "live"
+    },
+    {
+      "host": "mycnbox.es",
+      "agent": "MyCNBox",
+      "country": "ES",
+      "status": "live"
+    },
+    {
+      "host": "mycnbox.eu",
+      "agent": "MyCNBox",
+      "country": "EU",
+      "status": "live"
+    },
+    {
+      "host": "mycnbox.fr",
+      "agent": "MyCNBox",
+      "country": "FR",
+      "status": "live"
+    },
+    {
+      "host": "mycnbox.nl",
+      "agent": "MyCNBox",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "mycnbox.pl",
+      "agent": "MyCNBox",
+      "country": "PL",
+      "status": "live"
+    },
+    {
+      "host": "mycnboxhaul.com",
+      "agent": "MyCNBox",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "oopbuyspreadsheets.it",
+      "agent": "OOPBuy",
+      "country": "IT",
+      "status": "live"
+    },
+    {
+      "host": "ootdbuy.nl",
+      "agent": "OOTDBuy",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "ootdbuyspreadsheet.ca",
+      "agent": "OOTDBuy",
+      "country": "CA",
+      "status": "live"
+    },
+    {
+      "host": "ootdbuyspreadsheet.co.uk",
+      "agent": "OOTDBuy",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "ootdbuyspreadsheet.de",
+      "agent": "OOTDBuy",
+      "country": "DE",
+      "status": "live"
+    },
+    {
+      "host": "ootdbuyspreadsheet.net",
+      "agent": "OOTDBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "ootdbuyspreadsheet.org",
+      "agent": "OOTDBuy",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "ootdbuyspreadsheet.us",
+      "agent": "OOTDBuy",
+      "country": "US",
+      "status": "live"
+    },
+    {
+      "host": "orientdig.at",
+      "agent": "OrientDig",
+      "country": "AT",
+      "status": "live"
+    },
+    {
+      "host": "orientdig.es",
+      "agent": "OrientDig",
+      "country": "ES",
+      "status": "live"
+    },
+    {
+      "host": "orientdig.fr",
+      "agent": "OrientDig",
+      "country": "FR",
+      "status": "live"
+    },
+    {
+      "host": "orientdig.us",
+      "agent": "OrientDig",
+      "country": "US",
+      "status": "live"
+    },
+    {
+      "host": "orientdigspreadsheet.de",
+      "agent": "OrientDig",
+      "country": "DE",
+      "status": "live"
+    },
+    {
+      "host": "orientdigspreadsheet.fr",
+      "agent": "OrientDig",
+      "country": "FR",
+      "status": "live"
+    },
+    {
+      "host": "orientdigspreadsheet.it",
+      "agent": "OrientDig",
+      "country": "IT",
+      "status": "live"
+    },
+    {
+      "host": "orientdigspreadsheet.nl",
+      "agent": "OrientDig",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "orientdigspreadsheet.uk",
+      "agent": "OrientDig",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "orientdigspreadsheet.us",
+      "agent": "OrientDig",
+      "country": "US",
+      "status": "live"
+    },
+    {
+      "host": "orientdigspreadsheets.de",
+      "agent": "OrientDig",
+      "country": "DE",
+      "status": "live"
+    },
+    {
+      "host": "orientdigspreadsheets.fr",
+      "agent": "OrientDig",
+      "country": "FR",
+      "status": "live"
+    },
+    {
+      "host": "orientdigspreadsheets.nl",
+      "agent": "OrientDig",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "orientdigspreadsheets.uk",
+      "agent": "OrientDig",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "ossbuyspreadsheets.org",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "pantherbuy.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "410"
+    },
+    {
+      "host": "pikospreadsheets.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "pingubuyspreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "repsicon.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "rizzitgospreadsheets.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "410"
+    },
+    {
+      "host": "shipzobuyspreadsheet.net",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "410"
+    },
+    {
+      "host": "spanbuyspreadsheets.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "sugargoo.at",
+      "agent": "SugarGoo",
+      "country": "AT",
+      "status": "live"
+    },
+    {
+      "host": "sugargoospreadsheet.au",
+      "agent": "SugarGoo",
+      "country": "AU",
+      "status": "live"
+    },
+    {
+      "host": "sugargoospreadsheet.es",
+      "agent": "SugarGoo",
+      "country": "ES",
+      "status": "live"
+    },
+    {
+      "host": "sugargoospreadsheetnow.com",
+      "agent": "SugarGoo",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "sugargoospreadsheets.de",
+      "agent": "SugarGoo",
+      "country": "DE",
+      "status": "live"
+    },
+    {
+      "host": "sugargoospreadsheets.fr",
+      "agent": "SugarGoo",
+      "country": "FR",
+      "status": "live"
+    },
+    {
+      "host": "sugargoospreadsheets.nl",
+      "agent": "SugarGoo",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "sugargoospreadsheets.uk",
+      "agent": "SugarGoo",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "sugargoospreadsheets.us",
+      "agent": "SugarGoo",
+      "country": "US",
+      "status": "live"
+    },
+    {
+      "host": "sugargoospreadsheets2026.ca",
+      "agent": "SugarGoo",
+      "country": "CA",
+      "status": "live"
+    },
+    {
+      "host": "superbuyspreadsheets.ca",
+      "agent": "Superbuy",
+      "country": "CA",
+      "status": "live"
+    },
+    {
+      "host": "superbuyspreadsheets.it",
+      "agent": "Superbuy",
+      "country": "IT",
+      "status": "live"
+    },
+    {
+      "host": "superbuyspreadsheets.us",
+      "agent": "Superbuy",
+      "country": "US",
+      "status": "live"
+    },
+    {
+      "host": "tigspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "410"
+    },
+    {
+      "host": "usfansspreadsheet.co.uk",
+      "agent": "USFans",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "usfansspreadsheet.net",
+      "agent": "USFans",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "usfansspreadsheet.nl",
+      "agent": "USFans",
+      "country": "NL",
+      "status": "live"
+    },
+    {
+      "host": "usfansspreadsheet.uk",
+      "agent": "USFans",
+      "country": "UK",
+      "status": "live"
+    },
+    {
+      "host": "vigorspreadsheet.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "410"
+    },
+    {
+      "host": "w2cclothes.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "w2clinks.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "w2crep.org",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "w2cshoes.com",
+      "agent": "UNKNOWN",
+      "country": "GLOBAL",
+      "status": "keep"
+    },
+    {
+      "host": "wemimi.net",
+      "agent": "WeMimi",
+      "country": "GLOBAL",
+      "status": "live"
+    },
+    {
+      "host": "wemimispreadsheet.com",
+      "agent": "WeMimi",
+      "country": "GLOBAL",
+      "status": "live"
+    }
+  ],
+  "by_agent": {
+    "ACBuy": {
+      "CA": [
+        "acbuyspreadsheets.ca"
+      ],
+      "NL": [
+        "acbuyspreadsheets.nl"
+      ]
+    },
+    "AllChinaBuy": {
+      "GLOBAL": [
+        "allchina-buy.com"
+      ],
+      "CA": [
+        "allchinabuyspreadsheet.ca"
+      ],
+      "NL": [
+        "allchinabuyspreadsheet.nl"
+      ],
+      "UK": [
+        "allchinabuyspreadsheets.co.uk"
+      ]
+    },
+    "BBDBuy": {
+      "CA": [
+        "bbdbuy.ca",
+        "bbdbuyspreadsheet.ca"
+      ],
+      "IT": [
+        "bbdbuy.it"
+      ],
+      "UK": [
+        "bbdbuy.uk",
+        "bbdbuyspreadsheet.uk"
+      ],
+      "US": [
+        "bbdbuy.us",
+        "bbdbuyspreadsheet.us"
+      ],
+      "DE": [
+        "bbdbuyspreadsheet.de"
+      ]
+    },
+    "BBDBuyEU": {
+      "GLOBAL": [
+        "bbdbuyeu.net",
+        "bbdbuyeuspreadsheet.com"
+      ]
+    },
+    "BaseTao": {
+      "GLOBAL": [
+        "basetaospreadsheet.com"
+      ]
+    },
+    "CNShopper": {
+      "GLOBAL": [
+        "cnshopper.net",
+        "cnshopperspreadsheet.net"
+      ]
+    },
+    "CSSBuy": {
+      "AT": [
+        "cssbuy.at"
+      ],
+      "ES": [
+        "cssbuy.es",
+        "cssbuyspreadsheet.es"
+      ],
+      "FR": [
+        "cssbuy.fr",
+        "cssbuyspreadsheet.fr"
+      ],
+      "IT": [
+        "cssbuy.it",
+        "cssbuyspreadsheet.it"
+      ],
+      "NL": [
+        "cssbuy.nl",
+        "cssbuyspreadsheet.nl"
+      ],
+      "CA": [
+        "cssbuyspreadsheet.ca"
+      ],
+      "EU": [
+        "cssbuyspreadsheet.eu"
+      ],
+      "UK": [
+        "cssbuyspreadsheet.uk"
+      ],
+      "DE": [
+        "cssbuyspreadsheets.de"
+      ],
+      "US": [
+        "cssbuyspreadsheets.us"
+      ]
+    },
+    "FansBuy": {
+      "UK": [
+        "fansbuy.co.uk",
+        "fansbuyspreadsheet.uk"
+      ],
+      "EU": [
+        "fansbuy.eu",
+        "fansbuyspreadsheet.eu"
+      ],
+      "NL": [
+        "fansbuy.nl"
+      ],
+      "GLOBAL": [
+        "fansbuysheets.net",
+        "fansspreadsheet.net",
+        "fansspreadsheets.net"
+      ],
+      "DE": [
+        "fansbuyspreadsheet.de"
+      ]
+    },
+    "FashionReps": {
+      "GLOBAL": [
+        "fashionrepsfind.com",
+        "fashionrepsspreadsheet.com"
+      ]
+    },
+    "HipoBuy": {
+      "AT": [
+        "hipobuy.at"
+      ],
+      "GLOBAL": [
+        "hipobuyreview.com",
+        "hipobuyspreadsheet.net"
+      ],
+      "UK": [
+        "hipobuyspreadsheet.co.uk",
+        "hipobuyspreadsheets.uk"
+      ],
+      "EU": [
+        "hipobuyspreadsheet.eu"
+      ],
+      "NL": [
+        "hipobuyspreadsheet.nl"
+      ],
+      "US": [
+        "hipobuyspreadsheet.us"
+      ]
+    },
+    "HubBuy": {
+      "GLOBAL": [
+        "hubbuy.net",
+        "hubbuyspreadsheet.net"
+      ]
+    },
+    "KakoBuy": {
+      "FI": [
+        "kakobuy.fi"
+      ],
+      "GLOBAL": [
+        "kakobuydocs.com",
+        "kakobuytips.com"
+      ],
+      "CA": [
+        "kakospreadsheet.ca"
+      ],
+      "ES": [
+        "kakospreadsheet.es"
+      ],
+      "FR": [
+        "kakospreadsheet.fr"
+      ],
+      "NL": [
+        "kakospreadsheet.nl"
+      ]
+    },
+    "LitBuy": {
+      "AT": [
+        "litbuy.at"
+      ],
+      "EU": [
+        "litbuyspreadsheet.eu"
+      ],
+      "IT": [
+        "litbuyspreadsheet.it"
+      ],
+      "UK": [
+        "litbuyspreadsheet.me.uk"
+      ],
+      "GLOBAL": [
+        "litbuyspreadsheetnow.com"
+      ],
+      "CA": [
+        "litbuyspreadsheets.ca"
+      ],
+      "ES": [
+        "litbuyspreadsheets.es"
+      ],
+      "NL": [
+        "litbuyspreadsheets.nl"
+      ],
+      "US": [
+        "litbuyspreadsheets.us"
+      ],
+      "FR": [
+        "litspreadsheet.fr"
+      ]
+    },
+    "LoveGoBuy": {
+      "IT": [
+        "lovegobuy.it",
+        "lovegobuyspreadsheet.it"
+      ],
+      "NL": [
+        "lovegobuy.nl",
+        "lovegobuyspreadsheet.nl"
+      ],
+      "GLOBAL": [
+        "lovegobuyguide.com"
+      ],
+      "CA": [
+        "lovegobuyspreadsheet.ca"
+      ],
+      "ES": [
+        "lovegobuyspreadsheet.es"
+      ],
+      "EU": [
+        "lovegobuyspreadsheet.eu"
+      ]
+    },
+    "MuleBuy": {
+      "GLOBAL": [
+        "bestmulebuysheets.com"
+      ],
+      "FR": [
+        "mulebuy.fr"
+      ],
+      "UK": [
+        "mulebuyspreadsheets.co.uk"
+      ],
+      "ES": [
+        "mulebuyspreadsheets.es"
+      ],
+      "US": [
+        "mulebuyspreadsheets.us"
+      ]
+    },
+    "MyCNBox": {
+      "UK": [
+        "mycnbox.co.uk"
+      ],
+      "DE": [
+        "mycnbox.de"
+      ],
+      "ES": [
+        "mycnbox.es"
+      ],
+      "EU": [
+        "mycnbox.eu"
+      ],
+      "FR": [
+        "mycnbox.fr"
+      ],
+      "NL": [
+        "mycnbox.nl"
+      ],
+      "PL": [
+        "mycnbox.pl"
+      ],
+      "GLOBAL": [
+        "mycnboxhaul.com"
+      ]
+    },
+    "OOPBuy": {
+      "IT": [
+        "oopbuyspreadsheets.it"
+      ]
+    },
+    "OOTDBuy": {
+      "NL": [
+        "ootdbuy.nl"
+      ],
+      "CA": [
+        "ootdbuyspreadsheet.ca"
+      ],
+      "UK": [
+        "ootdbuyspreadsheet.co.uk"
+      ],
+      "DE": [
+        "ootdbuyspreadsheet.de"
+      ],
+      "GLOBAL": [
+        "ootdbuyspreadsheet.net",
+        "ootdbuyspreadsheet.org"
+      ],
+      "US": [
+        "ootdbuyspreadsheet.us"
+      ]
+    },
+    "OrientDig": {
+      "AT": [
+        "orientdig.at"
+      ],
+      "ES": [
+        "orientdig.es"
+      ],
+      "FR": [
+        "orientdig.fr",
+        "orientdigspreadsheet.fr",
+        "orientdigspreadsheets.fr"
+      ],
+      "US": [
+        "orientdig.us",
+        "orientdigspreadsheet.us"
+      ],
+      "DE": [
+        "orientdigspreadsheet.de",
+        "orientdigspreadsheets.de"
+      ],
+      "IT": [
+        "orientdigspreadsheet.it"
+      ],
+      "NL": [
+        "orientdigspreadsheet.nl",
+        "orientdigspreadsheets.nl"
+      ],
+      "UK": [
+        "orientdigspreadsheet.uk",
+        "orientdigspreadsheets.uk"
+      ]
+    },
+    "SugarGoo": {
+      "AT": [
+        "sugargoo.at"
+      ],
+      "AU": [
+        "sugargoospreadsheet.au"
+      ],
+      "ES": [
+        "sugargoospreadsheet.es"
+      ],
+      "GLOBAL": [
+        "sugargoospreadsheetnow.com"
+      ],
+      "DE": [
+        "sugargoospreadsheets.de"
+      ],
+      "FR": [
+        "sugargoospreadsheets.fr"
+      ],
+      "NL": [
+        "sugargoospreadsheets.nl"
+      ],
+      "UK": [
+        "sugargoospreadsheets.uk"
+      ],
+      "US": [
+        "sugargoospreadsheets.us"
+      ],
+      "CA": [
+        "sugargoospreadsheets2026.ca"
+      ]
+    },
+    "Superbuy": {
+      "CA": [
+        "superbuyspreadsheets.ca"
+      ],
+      "IT": [
+        "superbuyspreadsheets.it"
+      ],
+      "US": [
+        "superbuyspreadsheets.us"
+      ]
+    },
+    "UNKNOWN": {
+      "GLOBAL": [
+        "bestlolobuyspreadsheet.com",
+        "boonspreadsheet.com",
+        "dgobuyspreadsheet.com",
+        "eastmallspreadsheet.com",
+        "esgobuyspreadsheet.net",
+        "fishgoospreadsheet.net",
+        "fsbuyspreadsheet.org",
+        "fsbuyspreadsheets.com",
+        "goatedspreadsheet.com",
+        "gtspreadsheet.com",
+        "hoospreadsheet.net",
+        "itaobuyspreadsheet.net",
+        "lolospreadsheet.com",
+        "ossbuyspreadsheets.org",
+        "pantherbuy.net",
+        "pikospreadsheets.net",
+        "pingubuyspreadsheet.net",
+        "repsicon.com",
+        "rizzitgospreadsheets.net",
+        "shipzobuyspreadsheet.net",
+        "spanbuyspreadsheets.com",
+        "tigspreadsheet.com",
+        "vigorspreadsheet.com",
+        "w2cclothes.com",
+        "w2clinks.com",
+        "w2crep.org",
+        "w2cshoes.com"
+      ],
+      "DE": [
+        "joyagoospreadsheets.de"
+      ]
+    },
+    "USFans": {
+      "UK": [
+        "usfansspreadsheet.co.uk",
+        "usfansspreadsheet.uk"
+      ],
+      "GLOBAL": [
+        "usfansspreadsheet.net"
+      ],
+      "NL": [
+        "usfansspreadsheet.nl"
+      ]
+    },
+    "WeMimi": {
+      "GLOBAL": [
+        "wemimi.net",
+        "wemimispreadsheet.com"
+      ]
+    }
+  }
+}

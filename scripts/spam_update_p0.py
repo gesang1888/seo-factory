@@ -195,13 +195,14 @@ def apply(bt: Baota, dry_run: bool = False) -> dict:
         report["steps"].append({"name": name, "result": result})
         print(name, result if isinstance(result, str) else json.dumps(result, ensure_ascii=False)[:240])
 
-    # 1) USFans HTTPS apex → .net via rewrite include (HTTP/www already 301).
-    for host in INV["usfans"]["redirect_301"]:
-        path = f"/www/server/panel/vhost/rewrite/{host}.conf"
-        if dry_run:
-            step(f"usfans rewrite {host}", "dry-run")
-            continue
-        step(f"usfans rewrite {host}", bt.put(path, USFANS_REWRITE))
+    # 1) USFans country sites stay independent (do not collapse onto .net).
+    if INV.get("usfans", {}).get("redirect_301"):
+        for host in INV["usfans"]["redirect_301"]:
+            path = f"/www/server/panel/vhost/rewrite/{host}.conf"
+            if dry_run:
+                step(f"usfans rewrite {host}", "dry-run")
+                continue
+            step(f"usfans rewrite {host}", bt.put(path, USFANS_REWRITE))
 
     # 2) w2cclothes / w2cshoes → w2crep.org
     for host in INV["w2c"]["redirect_301"]:
