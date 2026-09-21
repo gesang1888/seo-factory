@@ -40,3 +40,5 @@ dist/
 # Generated 10k product HTML clones — do not index or commit
 sites/*/overlay/product/
 sites/*/overlay/products.json
+sites/*/products.json
+
