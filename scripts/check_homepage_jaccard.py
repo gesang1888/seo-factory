@@ -22,6 +22,9 @@ FILES = [
     ROOT / "sites/usfansspreadsheet.nl/overlay/index.html",
     ROOT / "sites/mycnbox.co.uk/overlay/index.html",
     ROOT / "sites/mycnbox.nl/overlay/index.html",
+    ROOT / "sites/allchinabuyspreadsheets.co.uk/overlay/index.html",
+    ROOT / "sites/allchinabuyspreadsheet.ca/overlay/index.html",
+    ROOT / "sites/allchinabuyspreadsheet.nl/overlay/index.html",
 ]
 
 

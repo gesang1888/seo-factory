@@ -992,7 +992,7 @@
       "s500": 0,
       "action": "deepen_hub",
       "batch": "P0",
-      "why": "已有来路枢纽"
+      "why": "GSC 163点击在枢纽首页。index.php + 工具/SKU，禁止 PUT 国家模板。"
     },
     {
       "host": "allchinabuyspreadsheet.ca",
@@ -1005,7 +1005,7 @@
       "s500": 0,
       "action": "deepen_branch",
       "batch": "P0",
-      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+      "why": "GSC 10点击在首页。内页 shipping/legit 留下；不动 allchina-buy.com。"
     },
     {
       "host": "allchinabuyspreadsheet.nl",
@@ -1018,7 +1018,7 @@
       "s500": 0,
       "action": "deepen_branch",
       "batch": "P0",
-      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+      "why": "GSC 0点击但 shipping 44展示。加深首页以免三国薄模板互拷。"
     },
     {
       "host": "allchinabuyspreadsheets.co.uk",
@@ -1031,7 +1031,7 @@
       "s500": 0,
       "action": "deepen_branch",
       "batch": "P0",
-      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+      "why": "GSC 15点击在首页。内页 shipping/spreadsheet-2026 留下；不动枢纽。"
     },
     {
       "host": "basetaospreadsheet.com",
@@ -2325,7 +2325,7 @@
       "s500": 0,
       "action": "deepen_branch",
       "batch": "P0",
-      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+      "why": "GSC 10点击在首页 pos 3.5。内页 spreadsheet/refund 留下，只加深 index.html。"
     },
     {
       "host": "mycnbox.pl",
