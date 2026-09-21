@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /start/
+Allow: /shipping/
+Allow: /coupons/
+Disallow: /api/
+Disallow: /assets/
+
+Sitemap: https://pikospreadsheets.net/sitemap.xml

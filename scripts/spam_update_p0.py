@@ -259,26 +259,27 @@ def apply(bt: Baota, dry_run: bool = False) -> dict:
             bt.put(leftover, "# leftover duplicate location file; kept empty on purpose\n"),
         )
 
-    # 4) Indie clones
-    for host in INV["indie"]["redirect_301"]:
-        nginx = f"/www/server/panel/vhost/nginx/{host}.conf"
-        original = bt.get(nginx)
-        if original is None:
-            step(f"indie 301 {host}", "missing nginx conf")
-            continue
-        try:
-            new = patch_indie_conf(original, "301")
-        except ValueError as e:
-            if "return 301 https://w2clinks.com/" in original:
-                step(f"indie 301 {host}", "already patched")
-            else:
-                step(f"indie 301 {host}", str(e))
-            continue
-        if dry_run:
-            step(f"indie 301 {host}", "dry-run patched")
-            continue
-        bt.put(nginx + ".bak-spam-p0", original)
-        step(f"indie 301 {host}", bt.put(nginx, new))
+    # 4) Remaining thin clones (410). Independent agent hubs are NOT 301'd.
+    if INV["indie"].get("redirect_301"):
+        for host in INV["indie"]["redirect_301"]:
+            nginx = f"/www/server/panel/vhost/nginx/{host}.conf"
+            original = bt.get(nginx)
+            if original is None:
+                step(f"indie 301 {host}", "missing nginx conf")
+                continue
+            try:
+                new = patch_indie_conf(original, "301")
+            except ValueError as e:
+                if "return 301 https://w2clinks.com/" in original:
+                    step(f"indie 301 {host}", "already patched")
+                else:
+                    step(f"indie 301 {host}", str(e))
+                continue
+            if dry_run:
+                step(f"indie 301 {host}", "dry-run patched")
+                continue
+            bt.put(nginx + ".bak-spam-p0", original)
+            step(f"indie 301 {host}", bt.put(nginx, new))
 
     for host in INV["indie"]["gone_410"]:
         nginx = f"/www/server/panel/vhost/nginx/{host}.conf"

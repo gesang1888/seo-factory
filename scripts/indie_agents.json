@@ -1,0 +1,552 @@
+{
+  "generated": "2026-09-21",
+  "policy": "Keep each shopping-agent hub independent. Do not 301 them to w2clinks.com (that is a doorway). Collapse cookie-cutter URL variants onto a small unique page set. Do not copy the same resource template across domains. Catalog grids that proxy w2clinks.com are removed from the primary crawl path.",
+  "agents": [
+    {
+      "host": "boonspreadsheet.com",
+      "agent": "BoonBuy",
+      "slug": "boonbuy",
+      "register": "https://boonbuy.com/register?inviteCode=G8ZWVJI95",
+      "invite": "G8ZWVJI95",
+      "invite_label": "invite code",
+      "theme": {
+        "layout": "ledger",
+        "bg": "#f4efe4",
+        "ink": "#1d1912",
+        "accent": "#9a3412",
+        "font": "Iowan Old Style, Palatino, Georgia, serif"
+      },
+      "nav": [["Haul math", "/"], ["First parcel", "/start/"], ["Lines", "/shipping/"], ["Codes", "/coupons/"]],
+      "home_title": "BoonBuy haul math — weigh the parcel before you click ship",
+      "home_h1": "BoonBuy is a first-haul freight notebook, not a generic agent portal",
+      "lead": "This site only covers BoonBuy. It does not rank other agents and it does not send you through a shared product grid. The useful question on a first BoonBuy order is volumetric: shoe boxes and winter jackets eat dimensional weight faster than the item price suggests.",
+      "angle": "New-user shipping off (up to 30%) plus invite G8ZWVJI95 only matters after you know the line's weight break. BoonBuy users who skip that step treat the coupon as a discount on a number they have not seen yet.",
+      "warehouse": "Park goods in BoonBuy's warehouse until the haul is dense enough that one outbound parcel beats three thin ones. Do not assume unlimited free days — check the current storage clock in the BoonBuy app before you let a haul sit through a sales week.",
+      "qc": "BoonBuy QC photos are a go/no-go gate, not a fashion lookbook. Reject on glue stains, asymmetry, and size-tag mismatch before you submit the parcel. Re-QC costs time; shipping a reject costs more.",
+      "who_not": "Skip BoonBuy if you need same-week branded triangular shipping paperwork or if you only buy from one domestic boutique. It is a China marketplace agent (Weidian / Taobao / 1688), not a US return desk.",
+      "faq": [
+        ["Does the 30% shipping offer apply to every line?", "No. Read the BoonBuy coupon drawer for the line names it actually attaches to. Volumetric lines and private lines are often excluded."],
+        ["When should I ship vs wait?", "Ship when added storage fees would exceed the extra freight of a second parcel. That crossover is haul-specific; this page does not invent a universal day count."],
+        ["Is this BoonBuy.com?", "No. Independent notes for people already using BoonBuy. Register on BoonBuy itself with G8ZWVJI95 if you want the invite attached."]
+      ],
+      "start_title": "First BoonBuy order — submit, QC, then pick a line",
+      "start_steps": [
+        "Create the BoonBuy account from BoonBuy's own register URL and attach invite G8ZWVJI95 before the first payment.",
+        "Paste the marketplace link (Weidian / Taobao / 1688) into BoonBuy submit. Do not rewrite the seller SKU.",
+        "Wait for warehouse photos. Check measurements against the seller's size chart, not against a generic US size.",
+        "Only then open shipping quotes. Apply G8ZWVJI95 / new-user freight off on a line that lists the coupon as eligible.",
+        "Declare the commercial value your destination customs process asks for. This site does not coach under-declaration."
+      ],
+      "ship_title": "BoonBuy lines: dimensional weight first, ETA second",
+      "ship_body": "Compare BoonBuy lines by the heavier of actual kg vs volumetric kg. A US EMS-like product and a EU-tax-inclusive product are not interchangeable just because both say 8–12 days. Open the live quote in BoonBuy for the destination postcode; screenshots on other blogs go stale when fuel surcharges move.",
+      "ship_points": ["Weigh the packed haul in BoonBuy before you lock a coupon.", "Tax-prepaid EU lines cost more up front and reduce surprise bills later.", "Sensitive goods (batteries, liquids) silently drop you onto a slower line."],
+      "coupon_title": "BoonBuy codes that actually attach: G8ZWVJI95",
+      "coupon_body": "The invite G8ZWVJI95 is a registration attachment, not a stackable storewide percent. Pair it with BoonBuy's current new-user freight drawer. If a screenshot says 30% off everything, ignore it — open the coupon list inside the logged-in BoonBuy account.",
+      "offers": [["G8ZWVJI95", "Invite, attach at register"], ["New-user freight", "Up to 30% on eligible lines — confirm in-app"]]
+    },
+    {
+      "host": "eastmallspreadsheet.com",
+      "agent": "EastMallBuy",
+      "slug": "eastmallbuy",
+      "register": "https://www.eastmallbuy.com/web/#/register?inviter=cnfd85269032661",
+      "invite": "cnfd85269032661",
+      "invite_label": "inviter id",
+      "theme": {
+        "layout": "dock",
+        "bg": "#eef6f2",
+        "ink": "#10231c",
+        "accent": "#0f766e",
+        "font": "Source Sans 3, Avenir Next, system-ui, sans-serif"
+      },
+      "nav": [["Storage clock", "/"], ["Intake", "/start/"], ["Outbound", "/shipping/"], ["Offers", "/coupons/"]],
+      "home_title": "EastMallBuy storage clock — 90 days is the product",
+      "home_h1": "EastMallBuy for haul builders who actually use the warehouse",
+      "lead": "EastMallBuy's differentiator on this hub is time in warehouse, not another cloned “complete resource” page. Ninety days of storage only helps if you place staggered Weidian orders on purpose and ship once.",
+      "angle": "Monthly free-shipping giveaways and points-for-coupon swaps are secondary. If you ship every item as it lands, you are paying EastMallBuy rates without using the reason to pick this agent.",
+      "warehouse": "Treat the EastMallBuy warehouse like a calendar: inbound QC this week, inbound next week, one outbound when the pallet is boringly complete. Photograph the storage-fee schedule in the app; promotions that say 90 days free still have overtime rules.",
+      "qc": "Free or cheap QC is useful only if you wait for it. Returning a size before consolidation is cheaper than returning a finished parcel. EastMallBuy photos should be checked against the seller's measurement table, not against Instagram.",
+      "who_not": "If you need same-day outbound or you refuse to hold goods, EastMallBuy's storage story is wasted. Use an agent that prices speed, not dwell time.",
+      "faq": [
+        ["What is inviter cnfd85269032661?", "An EastMallBuy register attachment. Add it on their register page, not as a freight coupon at checkout."],
+        ["Do points expire?", "Points and giveaway coupons follow EastMallBuy's own wallet rules. This hub does not invent expiry dates — open the wallet."],
+        ["Why isn't there a 10,000-product catalog here?", "Because copying the same SKU list onto every agent domain is the thin-affiliate pattern. Use EastMallBuy search."]
+      ],
+      "start_title": "EastMallBuy intake: hold, then consolidate",
+      "start_steps": [
+        "Register on EastMallBuy with inviter cnfd85269032661.",
+        "Submit links as they drop; do not wait to discover a seller before creating the order.",
+        "Mark each inbound as hold until the haul list is complete.",
+        "QC as photos arrive. Exchange at the warehouse while the rest is still inbound.",
+        "One outbound parcel. Apply wallet coupons only on the quote screen that lists them."
+      ],
+      "ship_title": "EastMallBuy outbound after the dwell",
+      "ship_body": "The shipping page on a storage-first agent is the last chapter. Quotes change after the packed weight is known. EastMallBuy lines should be compared on the packed haul, not on a 500 g estimate you typed on day one.",
+      "ship_points": ["Re-quote after packing, never from the first item's weight.", "Giveaway free-shipping, if you win one, usually binds to named lines.", "90 days is not a dare; overtime storage can erase the coupon."],
+      "coupon_title": "EastMallBuy offers: inviter, points, monthly giveaway",
+      "coupon_body": "Three different wallets: inviter id at register, points you exchange, and occasional free-shipping draws. They do not all stack. The inviter cnfd85269032661 does not replace a freight coupon you still have to clip in the EastMallBuy coupon centre.",
+      "offers": [["cnfd85269032661", "Inviter id at register"], ["Points exchange", "In-wallet coupon, not a public code"], ["Monthly giveaway", "Free-shipping draws — check EastMallBuy live"]]
+    },
+    {
+      "host": "gtspreadsheet.com",
+      "agent": "GTbuy",
+      "slug": "gtbuy",
+      "register": "https://gtbuy.com/register?inviteCode=P8C60T0D7",
+      "invite": "P8C60T0D7",
+      "invite_label": "invite code",
+      "theme": {
+        "layout": "terminal",
+        "bg": "#0b1220",
+        "ink": "#dbeafe",
+        "accent": "#38bdf8",
+        "font": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+      },
+      "nav": [["Stack order", "/"], ["Submit", "/start/"], ["Quote", "/shipping/"], ["Wallet", "/coupons/"]],
+      "home_title": "GTbuy coupon stack order — ¥1000 then freight, not the other way around",
+      "home_h1": "GTbuy: apply the new-user stack in the order the wallet allows",
+      "lead": "GTbuy currently advertises a ¥1000-class new-user coupon plus doubled 30% shipping windows. Those are two instruments. People who punch both into the same field get neither.",
+      "angle": "Invite P8C60T0D7 belongs on the GTbuy register URL. The ¥1000-class coupon usually wants a minimum merchandise subtotal. The 2×30% shipping window wants an eligible line and a calendar date. Sequence them; do not mash them.",
+      "warehouse": "GTbuy warehouse photos are the checkpoint between merchandise coupons and freight coupons. You cannot honestly quote freight until the inbound is weighed.",
+      "qc": "If the ¥1000-class coupon is merchandise-only, a QC reject that you still ship wastes the coupon on goods you will not wear. Cancel or exchange first.",
+      "who_not": "If you hate reading coupon constraints, GTbuy's stacked welcome package will feel broken. It is not broken; it is conditional.",
+      "faq": [
+        ["What does 2×30% mean?", "Two shipping-off events or a doubled window — confirm inside GTbuy. It is not 60% off one line."],
+        ["Where does P8C60T0D7 go?", "GTbuy register inviteCode. It is not the ¥1000 coupon code."],
+        ["Can I use this site as a GTbuy clone of other agent blogs?", "No. Only GTbuy wallet mechanics live here."]
+      ],
+      "start_title": "GTbuy submit checklist",
+      "start_steps": [
+        "Register at GTbuy with inviteCode P8C60T0D7.",
+        "Clip the ¥1000-class coupon in the GTbuy wallet and read its minimum subtotal.",
+        "Submit marketplace links. Do not split one seller's set across two orders if the coupon needs a single subtotal.",
+        "QC, then pack.",
+        "Open freight quotes during the 30% window and only on eligible lines."
+      ],
+      "ship_title": "GTbuy freight after the merchandise coupon is spent",
+      "ship_body": "Merchandise coupons change what you send; freight coupons change how you send it. Re-quote GTbuy shipping after packing. A 30% off banner on the home page is not a locked rate on a 6 kg volumetric box.",
+      "ship_points": ["Eligible lines are listed in the GTbuy coupon detail, not on this page.", "Doubled 30% windows expire; screenshot the end date.", "Private lines often sit outside welcome freight deals."],
+      "coupon_title": "GTbuy wallet: P8C60T0D7, ¥1000-class, 30% freight",
+      "coupon_body": "Three labels, three slots. P8C60T0D7 at register. ¥1000-class on goods that meet the minimum. 30% (sometimes run twice) on named shipping products. If GTbuy's UI refuses a stack, trust the UI.",
+      "offers": [["P8C60T0D7", "Register inviteCode"], ["¥1000-class new-user", "Merchandise minimum applies"], ["2×30% shipping", "Eligible lines / dated window"]]
+    },
+    {
+      "host": "fishgoospreadsheet.net",
+      "agent": "FishGoo",
+      "slug": "fishgoo",
+      "register": "https://www.fishgoo.com/",
+      "invite": "",
+      "invite_label": "account",
+      "theme": {
+        "layout": "fieldnotes",
+        "bg": "#fff8ef",
+        "ink": "#3b2f2a",
+        "accent": "#c2410c",
+        "font": "Newsreader, Iowan Old Style, Georgia, serif"
+      },
+      "nav": [["Buyer notes", "/"], ["Workflow", "/start/"], ["Bills", "/shipping/"], ["Coupons", "/coupons/"]],
+      "home_title": "FishGoo buyer notes — Yupoo albums vs Weidian carts",
+      "home_h1": "FishGoo workflow for mixed Yupoo / Weidian / 1688 hauls",
+      "lead": "FishGoo users usually do not start from a Taobao search box. They start from a Yupoo album or a Weidian shop, then ask the agent to turn a lookbook into a payable cart. This hub is that translation layer — not a copy of a shared W2C catalog.",
+      "angle": "Reddit threads help you learn the QC vocabulary (GL/RL). They do not replace FishGoo's own order form. If an album has no SKU, you still owe FishGoo a measurable size and a colorway string.",
+      "warehouse": "FishGoo inbound from 1688 factory shops often arrives unlabeled. Photograph the SKU card you sent in the remarks so QC can match it.",
+      "qc": "Yupoo lighting lies. Ask FishGoo for a photo of the tag, the sole, and a tape on the insole — three shots that a lifestyle album never includes.",
+      "who_not": "If you only buy from one Taobao supermarket with live SKUs, FishGoo's Yupoo-heavy workflow is overhead. Use a simpler agent.",
+      "faq": [
+        ["Where is the 10k product index?", "Removed from this hub. Brand-microsite copies of the same finds are scaled content. Search inside FishGoo or the seller album."],
+        ["Do you still link a shared spreadsheet domain?", "No. That turned every agent site into a doorway. FishGoo orders stay on FishGoo."],
+        ["Telegram?", "Community chat is optional. Orders and payments stay in the FishGoo account."]
+      ],
+      "start_title": "FishGoo: album → remarks → QC shots",
+      "start_steps": [
+        "Open FishGoo and create the account on their site/app.",
+        "Paste the Yupoo / Weidian / 1688 URL. In remarks, write size, colorway, and the album page number.",
+        "If the seller uses a code (M, L, 42.5), copy it exactly. Do not convert to US sizes in the remarks.",
+        "When QC lands, check tag + measurement + defect close-up.",
+        "Ship from FishGoo's own line list. Keep bills; they are how you debug a seized parcel later."
+      ],
+      "ship_title": "FishGoo real bills beat generic ETA tables",
+      "ship_body": "This hub's shipping notes prefer actual billed kg and named lines over “8–12 days worldwide”. Save the FishGoo PDF/invoice. If a line is tax-prepaid, the bill should show it; if not, budget a separate customs process at destination.",
+      "ship_points": ["Keep the invoice with tracking.", "Batteries in Yupoo gadgets change the available FishGoo lines.", "Do not reuse another agent's volumetric formula."],
+      "coupon_title": "FishGoo coupons live in FishGoo, not in a cloned table",
+      "coupon_body": "FishGoo runs its own new-user and freight events. This page will not reprint a fake universal code list that every other agent hub also shows. Open FishGoo's coupon centre after you log in.",
+      "offers": [["In-app coupon centre", "Source of truth"], ["New-user freight", "Only if FishGoo currently lists one"]]
+    },
+    {
+      "host": "bestlolobuyspreadsheet.com",
+      "agent": "LoLoBuy",
+      "slug": "lolobuy",
+      "register": "https://www.lolobuy.com/index?inviteCode=2pgzy",
+      "invite": "2pgzy",
+      "invite_label": "invite code",
+      "theme": {
+        "layout": "runway",
+        "bg": "#111111",
+        "ink": "#fafafa",
+        "accent": "#f59e0b",
+        "font": "Inter, Helvetica Neue, sans-serif"
+      },
+      "nav": [["QC triage", "/"], ["How to reject", "/start/"], ["Ship after GL", "/shipping/"], ["2pgzy", "/coupons/"]],
+      "home_title": "Best LoLoBuy QC triage — pass/fail, not a cloned catalog",
+      "home_h1": "Use LoLoBuy QC photos as a reject tool, not a storefront",
+      "lead": "bestlolobuyspreadsheet.com is the QC-triage twin of LoLoBuy — it is not another doorway into a shared finds grid. Sister site lolospreadsheet.com covers warehouse-to-parcel operations. This one covers what to do in the 20 seconds after LoLoBuy drops photos.",
+      "angle": "Invite 2pgzy is the LoLoBuy register code. It does not grade QC for you. A “best” spreadsheet that only mirrors someone else's category tiles is still thin affiliation.",
+      "warehouse": "Leave goods in LoLoBuy warehouse while you decide. A GL (green light) is your decision, not the agent's.",
+      "qc": "Fail on: mismatched tongue labels, glue on midsoles, crooked collars, size tags that disagree with the insole stamp. Pass only if those three agree. Ask for a second photo instead of hoping the defect is lighting.",
+      "who_not": "If you want a browseable 10k SKU mall, this domain will disappoint you on purpose. LoLoBuy's own search is the catalog.",
+      "faq": [
+        ["How is this different from lolospreadsheet.com?", "That site is the order SOP. This site is QC pass/fail. Two jobs, two URLs, one agent."],
+        ["What is 2pgzy?", "LoLoBuy inviteCode on lolobuy.com register."],
+        ["Why remove W2C category tiles?", "They made both LoLoBuy domains look like mirrors of the same aggregator."]
+      ],
+      "start_title": "LoLoBuy QC loop",
+      "start_steps": [
+        "Register on LoLoBuy with 2pgzy.",
+        "Submit the seller link. In remarks, request tag + measurement + defect close-up.",
+        "When photos arrive, compare to the seller's size table. Measure the tape in the photo against the claimed cm.",
+        "RL (red light) returns or exchanges at warehouse. Do not pack a maybe.",
+        "GL, then move to shipping on LoLoBuy — or read lolospreadsheet.com for the parcel SOP."
+      ],
+      "ship_title": "Ship only after GL",
+      "ship_body": "Freight quotes on a haul that still has RL items are fiction. Finish QC on LoLoBuy, then quote. Sensitive goods that failed a line's rules should be removed before you pay freight.",
+      "ship_points": ["No GL, no ship.", "Remove RL items from the parcel, do not hide them.", "Insurance, if LoLoBuy offers it, is not QC."],
+      "coupon_title": "LoLoBuy invite 2pgzy",
+      "coupon_body": "2pgzy attaches at https://www.lolobuy.com/index?inviteCode=2pgzy. Additional LoLoBuy freight coupons appear in their wallet. This QC hub will not invent extra codes.",
+      "offers": [["2pgzy", "LoLoBuy register invite"]]
+    },
+    {
+      "host": "pikospreadsheets.net",
+      "agent": "PikoBuy",
+      "slug": "pikobuy",
+      "register": "https://www.pikobuy.com/register?invitedCode=CXUV75&inviteUserId=1004307",
+      "invite": "CXUV75",
+      "invite_label": "invitedCode",
+      "theme": {
+        "layout": "ticket",
+        "bg": "#fdf2f8",
+        "ink": "#4a044e",
+        "accent": "#a21caf",
+        "font": "Trebuchet MS, Segoe UI, sans-serif"
+      },
+      "nav": [["Ticket CXUV75", "/"], ["Register path", "/start/"], ["After weigh", "/shipping/"], ["What stacks", "/coupons/"]],
+      "home_title": "PikoBuy invitedCode CXUV75 — one ticket, one register URL",
+      "home_h1": "PikoBuy discounts start at register, not in a fake coupon encyclopedia",
+      "lead": "PikoBuy's public offer on this hub is a 30% shipping window tied to invitedCode CXUV75 and inviteUserId 1004307. That is a register ticket. Sites that reprint the same “every working code 2026” table for PikoBuy, FSBuy and GTbuy are the thin-affiliate pattern.",
+      "angle": "If you already have a PikoBuy account, pasting CXUV75 later usually does nothing. Create the account from the URL that already contains both query params.",
+      "warehouse": "Once inbound, PikoBuy behaves like other agents: photos, then packed weight. The 30% is worthless until that weight exists.",
+      "qc": "PikoBuy QC is still on you. A registration discount does not mean the seller sent the right size.",
+      "who_not": "Existing PikoBuy users hunting a new 30% should read the in-app coupon centre instead of re-registering.",
+      "faq": [
+        ["Why two query params?", "PikoBuy wants invitedCode CXUV75 and inviteUserId 1004307 together on /register."],
+        ["Is 30% forever?", "No. It is a new-user / campaign window. Confirm in PikoBuy."],
+        ["Shared WhatsApp from other agent blogs?", "Not used here. PikoBuy's own support channel only."]
+      ],
+      "start_title": "PikoBuy register path",
+      "start_steps": [
+        "Open the PikoBuy register URL with CXUV75 and inviteUserId 1004307 already in the query string.",
+        "Do not create the account from a clean /register and try to backfill the code.",
+        "Submit the first Weidian/Taobao link.",
+        "QC photos, then weigh.",
+        "Apply any remaining freight coupon on an eligible PikoBuy line."
+      ],
+      "ship_title": "PikoBuy 30% is a line filter",
+      "ship_body": "Open PikoBuy quotes and look at which products still show the 30% badge. If the cheap line dropped the badge, you are comparing a discounted slow line to a full-price fast line — that is a different decision.",
+      "ship_points": ["Badge on the line, or it does not apply.", "Volumetric shoes can erase a 30% headline.", "Campaign calendars beat blog tables."],
+      "coupon_title": "PikoBuy CXUV75 only",
+      "coupon_body": "This hub lists the register ticket, not a cloned 12-row coupon spreadsheet. Extra PikoBuy codes, if any, appear after login.",
+      "offers": [["CXUV75", "invitedCode"], ["1004307", "inviteUserId"]]
+    },
+    {
+      "host": "fsbuyspreadsheets.com",
+      "agent": "FSBuy",
+      "slug": "fsbuy",
+      "register": "https://fsbuy.com?invite_id=2824716",
+      "invite": "2824716",
+      "invite_label": "invite_id",
+      "theme": {
+        "layout": "stencil",
+        "bg": "#f8fafc",
+        "ink": "#0f172a",
+        "accent": "#1d4ed8",
+        "font": "Arial Narrow, Arial, sans-serif"
+      },
+      "nav": [["invite_id", "/"], ["Open FSBuy", "/start/"], ["30% lines", "/shipping/"], ["ID 2824716", "/coupons/"]],
+      "home_title": "FSBuy invite_id 2824716 — numeric onboarding, not a slogan page",
+      "home_h1": "FSBuy uses an invite_id, so stop hunting a 6-letter coupon",
+      "lead": "FSBuy onboarding on this hub is the query parameter invite_id=2824716 on fsbuy.com. That is a different mechanic from BoonBuy-style inviteCode strings. Copying a “complete FSBuy resource” from a PikoBuy HTML skin is how these domains got treated as one doorway.",
+      "angle": "The advertised 30% shipping off follows the account created with that invite_id. If you land on fsbuy.com without the query string, you are not in the same funnel.",
+      "warehouse": "FSBuy warehouse QC still happens in FSBuy. This domain will not host a second product database.",
+      "qc": "Check FSBuy photos the same day they arrive. Numeric invite IDs do not extend QC windows.",
+      "who_not": "If you already have FSBuy and only wanted a blog of 12,400 products, that scaled index is exactly what we are not rebuilding.",
+      "faq": [
+        ["Is 2824716 a freight coupon?", "It is an invite_id on the FSBuy entry URL."],
+        ["fsbuyspreadsheet.org returned 410.", "Correct. The .org twin was a doorway. This .com hub is the FSBuy site."],
+        ["Where did the 12,400+ products go?", "They were a cloned catalog. Use FSBuy search."]
+      ],
+      "start_title": "FSBuy from invite_id to first QC",
+      "start_steps": [
+        "Open https://fsbuy.com?invite_id=2824716 and create the account from that landing.",
+        "Submit the marketplace URL inside FSBuy.",
+        "QC, exchange if needed.",
+        "Pack, then look for the 30% badge on FSBuy lines.",
+        "Pay freight in FSBuy. Keep the tracking that FSBuy generates."
+      ],
+      "ship_title": "FSBuy 30% shipping is still a quote",
+      "ship_body": "invite_id gets you into the campaign. The packed kg decides whether 30% is money or marketing. FSBuy will show the discounted number only on lines that still participate.",
+      "ship_points": ["Enter via 2824716.", "Re-quote after pack.", "Do not use the retired .org domain."],
+      "coupon_title": "FSBuy invite_id 2824716",
+      "coupon_body": "One public identifier. Anything else belongs in the FSBuy coupon centre after login.",
+      "offers": [["2824716", "invite_id on fsbuy.com"]]
+    },
+    {
+      "host": "lolospreadsheet.com",
+      "agent": "LoLoBuy",
+      "slug": "lolobuy",
+      "register": "https://www.lolobuy.com/index?inviteCode=2pgzy",
+      "invite": "2pgzy",
+      "invite_label": "invite code",
+      "theme": {
+        "layout": "opsboard",
+        "bg": "#f3f4f6",
+        "ink": "#111827",
+        "accent": "#365314",
+        "font": "IBM Plex Sans, Segoe UI, sans-serif"
+      },
+      "nav": [["Parcel SOP", "/"], ["Order desk", "/start/"], ["Pack & lines", "/shipping/"], ["Wallet", "/coupons/"]],
+      "home_title": "LoLoBuy parcel SOP — warehouse to tracking, independent of lolobuy.com marketing",
+      "home_h1": "lolospreadsheet.com is the LoLoBuy operations desk",
+      "lead": "This domain is an independent operations handbook for LoLoBuy orders. It is not lolobuy.com and it is not the QC-triage sister bestlolobuyspreadsheet.com. It also no longer embeds a third-party finds mall.",
+      "angle": "The job here is: submit → warehouse notes → packed weight → line choice → tracking. QC pass/fail lives on the sister site. Mixing both jobs on both domains duplicated the same HTML.",
+      "warehouse": "Write internal notes in LoLoBuy (order ID, size, whether RL is pending). Consolidation errors start when two pending RL items sit in a parcel you already paid to ship.",
+      "qc": "Do not GL from this SOP page. Open the photos. If you want a reject checklist, use bestlolobuyspreadsheet.com.",
+      "who_not": "Casual browsers looking for sneaker tiles should use LoLoBuy search, not this SOP.",
+      "faq": [
+        ["Independent from lolobuy.com?", "Yes. We do not pretend to be the agent. Register on LoLoBuy with 2pgzy."],
+        ["Why two LoLoBuy domains?", "QC triage vs parcel SOP. Different documents, same agent."],
+        ["W2C catalog?", "Removed. It turned this SOP into a doorway."]
+      ],
+      "start_title": "LoLoBuy order desk",
+      "start_steps": [
+        "Register on LoLoBuy with inviteCode 2pgzy.",
+        "Submit links. Store the LoLoBuy order IDs in a note you control.",
+        "Send QC decisions (the other hub if you want a rubric).",
+        "When every line is GL or removed, request packing.",
+        "Pay the LoLoBuy freight quote. Save tracking + invoice."
+      ],
+      "ship_title": "LoLoBuy pack then quote",
+      "ship_body": "Operations failure mode is quoting a 2 kg estimate and paying a 5 kg volumetric shoe haul. LoLoBuy packed weight is the input. Lines that forbid batteries or branded boxes will disappear only after you declare the contents honestly in LoLoBuy.",
+      "ship_points": ["Packed kg is the SOP input.", "Remove RL before paying freight.", "Tracking lives in LoLoBuy, not on this handbook."],
+      "coupon_title": "LoLoBuy 2pgzy on the official register",
+      "coupon_body": "Same invite as the QC sister site because it is the same agent. Extra freight coupons are inside LoLoBuy.",
+      "offers": [["2pgzy", "lolobuy.com inviteCode"]]
+    },
+    {
+      "host": "spanbuyspreadsheets.com",
+      "agent": "SpanBuy",
+      "slug": "spanbuy",
+      "register": "https://spanbuy.com/zh-cn/register?invite=MTIxOTEz",
+      "invite": "MTIxOTEz",
+      "invite_label": "invite",
+      "theme": {
+        "layout": "relay",
+        "bg": "#fff7ed",
+        "ink": "#7c2d12",
+        "accent": "#ea580c",
+        "font": "Verdana, Geneva, sans-serif"
+      },
+      "nav": [["Referral desk", "/"], ["Join", "/start/"], ["QC photos", "/shipping/"], ["¥2 + 15%", "/coupons/"]],
+      "home_title": "SpanBuy referral desk — ¥2 coupon and up to 15% invite commission",
+      "home_h1": "SpanBuy for people who actually use invites, not a cloned resource shell",
+      "lead": "SpanBuy's public mechanic on this hub is the invite string MTIxOTEz plus a small shipping coupon (¥2 class) and a buyer-side referral commission that SpanBuy quotes up to 15%. That is a different product from “QC inspection photos” alone — almost every agent now takes QC photos.",
+      "angle": "If you are not inviting anyone, the 15% story is irrelevant; then SpanBuy is just another warehouse. Judge it on the ¥2 coupon and the QC photos they attach, not on a generic “complete SpanBuy resource” headline.",
+      "warehouse": "SpanBuy QC photos should arrive before you decide to refer a friend. Do not recruit into an agent you have not received a parcel from.",
+      "qc": "Member shipping discounts and QC photos are separate switches. A sharp photo set does not mean the member freight rate applied.",
+      "who_not": "If referral programmes get you banned at work or you do not want to share invite links, ignore the 15% and evaluate SpanBuy only as a buyer.",
+      "faq": [
+        ["What is MTIxOTEz?", "SpanBuy invite query on their /zh-cn/register URL."],
+        ["Is 15% guaranteed?", "SpanBuy says up to 15%. Their dashboard is authoritative."],
+        ["¥2 shipping coupon?", "A welcome-class coupon. It will not cover a 4 kg parcel."]
+      ],
+      "start_title": "SpanBuy join path",
+      "start_steps": [
+        "Register at SpanBuy with invite=MTIxOTEz.",
+        "Place a small order so you see SpanBuy QC photos yourself.",
+        "Clip the ¥2-class coupon on an eligible first outbound.",
+        "Only then, if you want, share your own SpanBuy invite from their dashboard.",
+        "Commission, if any, posts in SpanBuy's own records."
+      ],
+      "ship_title": "SpanBuy QC photos vs member freight",
+      "ship_body": "Open the quote. If a member discount is present it will show as a line item. QC photo quality is not that line item. International ETAs still depend on the product you pick inside SpanBuy.",
+      "ship_points": ["¥2 coupon has a floor; read it.", "Member rates ≠ tax prepaid.", "Referral cash is not a shipping refund."],
+      "coupon_title": "SpanBuy MTIxOTEz, ¥2, commission",
+      "coupon_body": "Invite at register, ¥2-class coupon in the wallet, commission only if SpanBuy credits it. Three ledgers.",
+      "offers": [["MTIxOTEz", "invite query"], ["¥2-class shipping", "Welcome coupon"], ["Up to 15%", "Referral commission in SpanBuy"]]
+    },
+    {
+      "host": "pingubuyspreadsheet.net",
+      "agent": "PinguBuy",
+      "slug": "pingubuy",
+      "register": "https://www.pingubuy.com/register?invite=T3JkV1pPMjM=",
+      "invite": "T3JkV1pPMjM=",
+      "invite_label": "invite",
+      "theme": {
+        "layout": "harbor",
+        "bg": "#e0f2fe",
+        "ink": "#0c4a6e",
+        "accent": "#0369a1",
+        "font": "Nunito, Trebuchet MS, sans-serif"
+      },
+      "nav": [["Free QC bundle", "/"], ["Check-in", "/start/"], ["90-day hold", "/shipping/"], ["Invite", "/coupons/"]],
+      "home_title": "PinguBuy free QC, photos and packaging — the bundle is the pitch",
+      "home_h1": "PinguBuy: 90-day storage plus QC/photo/pack included",
+      "lead": "PinguBuy's pitch on this hub is a service bundle: free QC, free photography, free packaging, and a 90-day storage clock. Coupons as service-fee offsets sit on top. If a page only swaps the word PinguBuy into the EastMallBuy HTML, you cannot tell those bundles apart — which is the cross-domain copy problem.",
+      "angle": "Invite T3JkV1pPMjM= belongs on pingubuy.com/register. Storage and free QC are why you would wait. If PinguBuy later meters photography, believe the app, not an old banner.",
+      "warehouse": "Ninety days is for assembling a haul while QC photos land for free. It is not a warehouse you rent to third parties.",
+      "qc": "Free QC still needs your eyes. Packaging-for-free does not mean branded boxes survive the line you pick later.",
+      "who_not": "One-item buyers who ship tomorrow do not use 90 days or free packaging. Pick a speed-priced agent.",
+      "faq": [
+        ["Why does the invite look encoded?", "PinguBuy passes invite=T3JkV1pPMjM= as a query string. Paste the whole register URL."],
+        ["Free packaging vs branded packaging?", "Free mailer/protection is not a gift-box guarantee."],
+        ["Same 90 days as EastMallBuy?", "Similar clock, different company, different overtime rules. Read PinguBuy's."]
+      ],
+      "start_title": "PinguBuy check-in",
+      "start_steps": [
+        "Register with the invite query T3JkV1pPMjM=.",
+        "Submit links. Expect QC photos without paying a QC add-on, if the bundle is still live.",
+        "Hold in warehouse up to the stated free days.",
+        "Ask for packaged photos before you accept the packed weight.",
+        "Quote PinguBuy lines on that packed weight."
+      ],
+      "ship_title": "PinguBuy: hold, then outbound",
+      "ship_body": "Because storage is part of the pitch, the shipping page is about the day you stop holding. Packed photos should match the carton you pay for. If free packaging added filler, volumetric weight can rise — that is still your quote.",
+      "ship_points": ["Packed photos before pay.", "90 days is a cap, not a target.", "Service-fee coupons are not freight insurance."],
+      "coupon_title": "PinguBuy invite T3JkV1pPMjM=",
+      "coupon_body": "Register invite plus whatever service-fee coupons PinguBuy currently converts from campaigns. No cloned “all working codes” table.",
+      "offers": [["T3JkV1pPMjM=", "register invite query"], ["Service-fee coupons", "In PinguBuy wallet"]]
+    },
+    {
+      "host": "ossbuyspreadsheets.org",
+      "agent": "OSSBuy",
+      "slug": "ossbuy",
+      "register": "https://www.ossbuy.com/",
+      "invite": "da8m1b0gpf6ser8fdovg",
+      "invite_label": "app link token",
+      "theme": {
+        "layout": "stamp",
+        "bg": "#fafafa",
+        "ink": "#1c1917",
+        "accent": "#b45309",
+        "font": "Georgia, ui-serif, serif"
+      },
+      "nav": [["Points loop", "/"], ["App intake", "/start/"], ["Flash freight", "/shipping/"], ["¥10 signup", "/coupons/"]],
+      "home_title": "OSSBuy points loop — 40 points, ¥10 signup, flash freight caps",
+      "home_h1": "OSSBuy is a points and flash-sale agent, not a twin of SpanBuy",
+      "lead": "OSSBuy's own loop is points (40-class grants), a ¥10-class credit when a signup lands, flash discounts on goods/freight/store, and share-for-cashback. Those numbers live in OSSBuy. This .org hub exists to explain that loop — not to reprint the EastMallBuy sentence with OSSBuy swapped in.",
+      "angle": "The allapp.link token da8m1b0gpf6ser8fdovg is an app deep link, not a coupon you type into a freight box. Open OSSBuy via their site or that link, then watch the daily freight/goods cap (OSSBuy has advertised up to ¥40/day class caps).",
+      "warehouse": "Flash freight is useless if the haul is still inbound. Points you earn today may not clip onto a parcel you pack next month — read OSSBuy expiry.",
+      "qc": "Cashback for sharing is marketing. QC is still a photo check. Do not GL because you want the share bonus.",
+      "who_not": "If you refuse app deep links and points wallets, OSSBuy will feel noisy. Use a simpler inviteCode agent.",
+      "faq": [
+        ["Is the allapp.link the official site?", "It is OSSBuy's app link. ossbuy.com is the web front."],
+        ["¥10 per signup?", "That is OSSBuy's advertised grant. Their wallet is the ledger."],
+        ["¥40/day cap?", "A campaign cap on discounts, not a shipping insurance limit."]
+      ],
+      "start_title": "OSSBuy app intake",
+      "start_steps": [
+        "Open ossbuy.com or the OSSBuy app link, create the account, confirm points landed.",
+        "Submit marketplace URLs inside OSSBuy.",
+        "QC without spending flash-sale budget on goods you will RL.",
+        "Pack on a day when a freight flash still has budget under the daily cap.",
+        "Clip points/cashback only where OSSBuy shows them as available."
+      ],
+      "ship_title": "OSSBuy flash freight is a budget, not a rate card",
+      "ship_body": "A daily cap means the first parcels of the day may see the discount and later ones may not. Re-open the OSSBuy quote. Do not screenshot a morning rate for an evening pack.",
+      "ship_points": ["Daily cap can exhaust.", "Points expiry ≠ parcel ETA.", "Cashback is post-purchase in OSSBuy's rules."],
+      "coupon_title": "OSSBuy points, ¥10 grants, flash caps",
+      "coupon_body": "No single immortal coupon code. The public token is the app link; the money is in points and timed flashes.",
+      "offers": [["da8m1b0gpf6ser8fdovg", "app link token"], ["40-class points / ¥10 signup", "Wallet grants"], ["Flash caps", "Goods/freight/store, daily ceiling"]]
+    },
+    {
+      "host": "itaobuyspreadsheet.net",
+      "agent": "iTaoBuy",
+      "slug": "itaobuy",
+      "register": "https://www.itaobuy.com/",
+      "invite": "",
+      "invite_label": "account",
+      "theme": {
+        "layout": "channel",
+        "bg": "#f8fafc",
+        "ink": "#1e3a5f",
+        "accent": "#2563eb",
+        "font": "Segoe UI, Roboto, sans-serif"
+      },
+      "nav": [["EU lines", "/"], ["How to buy", "/start/"], ["Yanwen / ECMS / RM / EMS", "/shipping/"], ["New-user freight", "/coupons/"]],
+      "home_title": "iTaoBuy EU lines — Yanwen, ECMS, Royal Mail, EMS compared",
+      "home_h1": "iTaoBuy for destination-line shopping, especially Europe",
+      "lead": "iTaoBuy already had a shipping-line page that named Yanwen, ECMS, Royal Mail and EMS. That is the unique job of this domain. A 10,000-find grid copied from an aggregator is not. This redesign keeps the line comparison and drops the shared catalog.",
+      "angle": "New-user freight off (iTaoBuy has run 40%-class promotions) only applies after you pick a participating line. Yanwen-class products and Royal Mail-class products do not share the same restrictions or tax behaviour.",
+      "warehouse": "iTaoBuy warehouse is the weigh station between a 40% banner and a real bill. Packed kg plus the line's volumetric divisor decide the number.",
+      "qc": "QC remains in iTaoBuy. Line choice does not fix a wrong size.",
+      "who_not": "If you only ship to a country iTaoBuy does not list, this EU-heavy noteset will not help. Open iTaoBuy's destination picker first.",
+      "faq": [
+        ["Are the 10k finds still the homepage?", "No. Scaled SKU copies across agent domains were the spam-update risk."],
+        ["Which line is cheapest?", "The one iTaoBuy quotes for your packed kg and postcode, not a blog table."],
+        ["40% off shipping?", "A new-user campaign when iTaoBuy runs it. Confirm in their help/coupon centre."]
+      ],
+      "start_title": "iTaoBuy how to buy without the fake mall",
+      "start_steps": [
+        "Create the iTaoBuy account on itaobuy.com.",
+        "Submit Taobao/Weidian/1688 links in iTaoBuy.",
+        "QC, then pack.",
+        "On the quote screen, compare Yanwen / ECMS / Royal Mail / EMS (and anything iTaoBuy added) against restrictions.",
+        "Pay in iTaoBuy. Use their tracking, not a third-party mall URL."
+      ],
+      "ship_title": "iTaoBuy: Yanwen, ECMS, Royal Mail, EMS",
+      "ship_body": "Yanwen-class: often economy, more restrictions. ECMS-class: commercial last mile, watch tax-prepaid flags. Royal Mail-class: UK last mile identity, not a magic cheap EU key. EMS-class: faster, pricier, fewer surprises on tracking. iTaoBuy's live quote still wins over this paragraph.",
+      "ship_points": ["Restrictions differ by line (batteries, liquids, brands).", "Tax-prepaid is a product attribute, not a country myth.", "40% banners name eligible products — read them."],
+      "coupon_title": "iTaoBuy new-user freight campaigns",
+      "coupon_body": "iTaoBuy publishes new-user shipping promotions on their own site (they have run 40%-class events). This hub will not mint a fake code. Open iTaoBuy coupons after login.",
+      "offers": [["itaobuy.com coupon centre", "Source of truth"], ["New-user freight", "When iTaoBuy lists an eligible line"]]
+    },
+    {
+      "host": "goatedspreadsheet.com",
+      "agent": "GoatedBuy",
+      "slug": "goatedbuy",
+      "register": "https://www.goatedbuy.com/#/pages/account/register?invite-code=mwrnen",
+      "invite": "mwrnen",
+      "invite_label": "invite-code",
+      "theme": {
+        "layout": "billboard",
+        "bg": "#18181b",
+        "ink": "#f4f4f5",
+        "accent": "#a3e635",
+        "font": "Oswald, Impact, sans-serif"
+      },
+      "nav": [["¥5290 stack", "/"], ["Clip then buy", "/start/"], ["15% lines", "/shipping/"], ["mwrnen", "/coupons/"]],
+      "home_title": "GoatedBuy ¥5290-class welcome stack — read the exclusions",
+      "home_h1": "GoatedBuy welcome coupons are large and tightly fenced",
+      "lead": "GoatedBuy advertises a ¥5290-class new-user coupon pile plus a 15% off hook and invite-code mwrnen. Large piles are where people get surprised: merchandise-only slices, minimums, and freight that never sees the 15%. This hub exists to slow that click down.",
+      "angle": "mwrnen is a hash-router invite on goatedbuy.com register. If you open the site without #/pages/account/register?invite-code=mwrnen you may create a naked account.",
+      "warehouse": "Spend merchandise coupons on goods you will actually GL. A ¥5290-class wallet does not make QC optional.",
+      "qc": "Welcome stacks create pressure to “use it before it expires”. That is how bad pairs get shipped. Expiry is not a reason to GL.",
+      "who_not": "If you only needed a 15% freight code and not a layered wallet, the ¥5290 headline will distract you. Read each coupon's type field in GoatedBuy.",
+      "faq": [
+        ["Is ¥5290 one code?", "Usually a pile of smaller coupons. GoatedBuy's wallet lists the split."],
+        ["Does 15% hit freight?", "Only if that coupon's type says shipping and the line is eligible."],
+        ["Same HTML as GTbuy?", "Not anymore. GTbuy is a ¥1000 + double-30% story. GoatedBuy is a large fenced pile."]
+      ],
+      "start_title": "GoatedBuy: clip, then submit",
+      "start_steps": [
+        "Register via the GoatedBuy hash URL with invite-code=mwrnen.",
+        "Open the wallet. Note which coupons are goods vs freight vs expired.",
+        "Submit links that can actually consume a goods coupon (minimums).",
+        "QC without panicking about expiry; RL if needed.",
+        "Pack, then apply freight 15% only on eligible GoatedBuy lines."
+      ],
+      "ship_title": "GoatedBuy 15% is not the ¥5290 pile",
+      "ship_body": "Quote after packing. If the 15% coupon is shipping-typed, it still may exclude private lines. The ¥5290-class goods coupons will not subtract from this freight screen.",
+      "ship_points": ["Type field in the wallet is law.", "Hash-router invite must survive the first load.", "Expiry ≠ GL."],
+      "coupon_title": "GoatedBuy mwrnen and the fenced pile",
+      "coupon_body": "invite-code mwrnen at register. The ¥5290-class pile and 15% off are separate wallet rows. Read them inside GoatedBuy.",
+      "offers": [["mwrnen", "invite-code on register hash URL"], ["¥5290-class pile", "Mostly merchandise, fenced"], ["15% off", "Only if typed as freight / eligible"]]
+    }
+  ]
+}

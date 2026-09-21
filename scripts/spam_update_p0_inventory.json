@@ -24,8 +24,7 @@
     "action": "X-Robots-Tag noindex,follow on /product/; empty sitemap-products.xml; drop product URLs from sitemap.xml and robots.txt. Pages stay crawlable so Google can drop them from the index."
   },
   "indie": {
-    "canonical_if_301": "https://w2clinks.com/",
-    "redirect_301": [
+    "independent_agents": [
       "boonspreadsheet.com",
       "eastmallspreadsheet.com",
       "gtspreadsheet.com",
@@ -40,6 +39,9 @@
       "itaobuyspreadsheet.net",
       "goatedspreadsheet.com"
     ],
+    "independent_note": "These are separate shopping-agent hubs. Do not 301 them to w2clinks.com (doorway). Redesign: scripts/indie_agent_redesign.py — unique copy, collapsed cookie-cutter URLs, no shared catalog.",
+    "canonical_if_301": null,
+    "redirect_301": [],
     "gone_410": [
       "hoospreadsheet.net",
       "vigorspreadsheet.com",
