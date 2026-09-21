@@ -35,6 +35,19 @@ location ^~ /product/ {
     try_files $uri $uri/ $uri/index.html =404;
 }
 """
+SITEMAP_NOCACHE = """# spam-update-p0: origin must not let CF edge-cache hide robots/sitemap edits.
+location = /robots.txt {
+    add_header Cache-Control "no-cache, must-revalidate" always;
+}
+location = /sitemap.xml {
+    default_type application/xml;
+    add_header Cache-Control "no-cache, must-revalidate" always;
+}
+location = /sitemap-products.xml {
+    default_type application/xml;
+    add_header Cache-Control "no-cache, must-revalidate" always;
+}
+"""
 USFANS_REWRITE = """# spam-update-p0: identical clone — collapse HTTPS apex onto .net
 return 301 https://usfansspreadsheet.net$request_uri;
 """
@@ -99,15 +112,45 @@ class Baota:
         return self.api("/system?action=ServiceAdmin", {"name": "nginx", "type": "reload"})
 
 
-def patch_indie_conf(conf: str, action: str) -> str:
+TRY_FILES_LOCATION = [
+    r"location\s+/\s*\{\s*try_files \$uri \$uri/ \$uri/index\.html =404;\s*\}",
+    r"location\s+/\s*\{\s*try_files \$uri \$uri/ =404;\s*\}",
+]
+
+
+def indie_location(action: str) -> str:
     if action == "301":
-        new = "location / { return 301 https://w2clinks.com/; }"
-    else:
-        new = "location / { return 410; }"
-    pattern = r"location\s+/\s*\{\s*try_files \$uri \$uri/ \$uri/index\.html =404;\s*\}"
-    out, n = re.subn(pattern, new, conf, count=1)
-    if n != 1:
-        raise ValueError(f"try_files location / not uniquely found (n={n})")
+        return "location / { return 301 https://w2clinks.com/; }"
+    return "location / { return 410; }"
+
+
+def replace_try_files_locations(conf: str, action: str) -> tuple[str, int]:
+    """Replace every HTTP/HTTPS `location / { try_files ... }` block."""
+    new = indie_location(action)
+    total = 0
+    out = conf
+    for pattern in TRY_FILES_LOCATION:
+        out, n = re.subn(pattern, new, out)
+        total += n
+    return out, total
+
+
+def patch_indie_conf(conf: str, action: str) -> str:
+    out, n = replace_try_files_locations(conf, action)
+    if n == 0:
+        raise ValueError("try_files location / not uniquely found")
+    return out
+
+
+def harden_410_conf(host: str, conf: str) -> str:
+    """Close leftover HTTPS try_files and apex→www chains on gone hosts."""
+    out, _ = replace_try_files_locations(conf, "410")
+    if host == "pantherbuy.net":
+        out = re.sub(
+            r"return 301 https://www\.pantherbuy\.net(?:\$request_uri|/)?;",
+            "return 410;",
+            out,
+        )
     return out
 
 
@@ -178,6 +221,7 @@ def apply(bt: Baota, dry_run: bool = False) -> dict:
             f"/www/wwwroot/{host}/sitemap.xml": (overlay / "sitemap.xml").read_text(),
             f"/www/wwwroot/{host}/sitemap-products.xml": EMPTY_SITEMAP,
             f"/www/server/panel/vhost/nginx/extension/{host}/product-noindex.conf": PRODUCT_NOINDEX,
+            f"/www/server/panel/vhost/nginx/extension/{host}/sitemap-nocache.conf": SITEMAP_NOCACHE,
         }
         for path, data in mapping.items():
             if dry_run:
@@ -211,13 +255,17 @@ def apply(bt: Baota, dry_run: bool = False) -> dict:
             continue
         try:
             new = patch_indie_conf(original, "410")
-        except ValueError as e:
-            step(f"indie 410 {host}", str(e))
+        except ValueError:
+            new = original
+        new = harden_410_conf(host, new)
+        if new == original:
+            step(f"indie 410 {host}", "already hardened")
             continue
         if dry_run:
             step(f"indie 410 {host}", "dry-run patched")
             continue
-        bt.put(nginx + ".bak-spam-p0", original)
+        if bt.get(nginx + ".bak-spam-p0") is None:
+            bt.put(nginx + ".bak-spam-p0", original)
         step(f"indie 410 {host}", bt.put(nginx, new))
 
     if not dry_run:

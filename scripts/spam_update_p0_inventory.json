@@ -1,6 +1,10 @@
 {
   "generated": "2026-09-21",
-  "gsc_note": "GSC API was not available. Decisions use Google referrer + Googlebot HTML hits from the latest Baota access-log sample (~1000 lines). Threshold: gref>=10 keep a 301; otherwise 410.",
+  "gsc_note": "GSC API was not available. Decisions use Google referrer + Googlebot HTML hits from the latest Baota access-log sample (~1000 lines). Threshold: gref>=10 keep a 301; otherwise 410. Cloudflare robots/sitemap edge cache (max-age=3600) can hide origin updates until TTL; origin Cache-Control is no-cache. Owner should remove sitemap-products.xml in GSC after cache expires.",
+  "indie_notes": {
+    "vigorspreadsheet.com": "HTTP and HTTPS each had location / try_files; patcher must replace every block, not only the first.",
+    "pantherbuy.net": "Apex HTTPS 301'd to www; www is 410. Harden apex to 410 so Google does not follow a 301 into Gone."
+  },
   "usfans": {
     "canonical": "https://usfansspreadsheet.net/",
     "redirect_301": [
