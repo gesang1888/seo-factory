@@ -2469,7 +2469,7 @@
       "s500": 0,
       "action": "deepen_branch",
       "batch": "P0",
-      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+      "why": "GSC 1点击首页；/orientdig-erfahrungen/ 16展示。只加深 index.html，不并进 .es，不 301 spreadsheet.de。"
     },
     {
       "host": "orientdig.es",
@@ -2482,7 +2482,7 @@
       "s500": 0,
       "action": "deepen_branch",
       "batch": "P0",
-      "why": "当地分站/枢纽：按 cssbuy.fr 加深，承接并入的别名流量"
+      "why": "GSC 3点击首页 pos 5.2；shipping 1点击/37展示，shipping-coupons 1点击。只PUT index.html。不并进 .us。"
     },
     {
       "host": "orientdig.fr",
@@ -2494,8 +2494,8 @@
       "mb": 14.2,
       "s500": 0,
       "action": "deepen_branch",
-      "batch": "P1",
-      "why": "少量来路 P1"
+      "batch": "P0",
+      "why": "GSC 0点击但首页10展示。加深以免与 ES 薄模板互拷。spreadsheet.fr 本轮不 301。"
     },
     {
       "host": "orientdig.us",

@@ -1,48 +1,74 @@
 <!doctype html>
-<html lang="de">
+<html lang="de-AT">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OrientDig Austria agent desk — Österreichische Post</title>
-<meta name="description" content="OrientDig agent workflow for this country only. No sister-ccTLD funnel. Österreich ist nicht Deutschland: anderes Last-Mile-Produkt, anderer Quote-Screen.">
+<title>OrientDig Österreich — Österreichische Post, nicht DHL DE</title>
+<meta name="description" content="orientdig.at ist der Österreich-Desk von OrientDig: EUR nach AT-Adresse, Österreichische Post statt DHL Deutschland, plus die bestehende Erfahrungen-Seite. Nicht orientdig.es, nicht die .de-Spreadsheet-Alias.">
 <link rel="canonical" href="https://orientdig.at/">
+<link rel="alternate" hreflang="de-AT" href="https://orientdig.at/">
+<link rel="alternate" hreflang="es-ES" href="https://orientdig.es/">
+<link rel="alternate" hreflang="fr-FR" href="https://orientdig.fr/">
 <meta name="robots" content="index,follow">
 <style>
-:root { --accent:#7c3aed; }
-body { margin:0; font-family: Georgia, ui-serif, serif; background:#f7f5f0; color:#1c1917; line-height:1.55; }
-header,main,footer { max-width:44rem; margin:0 auto; padding:1.2rem; }
-a.cta { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:.7rem 1rem; border-radius:.6rem; }
-.note { color:#57534e; font-size:.92rem; }
-h1 { font-size:clamp(1.6rem,4vw,2.2rem); }
-h2 { font-size:1.15rem; }
+:root { --ink:#1c1917; --muted:#57534e; --bg:#eef2f7; --card:#fff; --accent:#5b21b6; }
+body { margin:0; font-family: Georgia, ui-serif, serif; background:var(--bg); color:var(--ink); line-height:1.55; }
+header, main, footer { max-width:46rem; margin:0 auto; padding:1.25rem; }
+.note { color:var(--muted); font-size:.92rem; }
+h1 { font-size:clamp(1.55rem,4vw,2.15rem); }
+h2 { font-size:1.18rem; margin-top:1.8rem; }
+table { width:100%; border-collapse:collapse; background:var(--card); }
+th, td { border:1px solid #c7d2fe; padding:.55rem .65rem; text-align:left; font-size:.95rem; }
+th { background:#e0e7ff; }
+a.cta { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:.7rem 1rem; border-radius:.5rem; }
+.box { background:var(--card); padding:1rem 1.1rem; border-radius:.5rem; }
+nav.local a { margin-right:1rem; }
 </style>
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebPage", "name": "OrientDig Austria agent desk — Österreichische Post", "inLanguage": "de-AT", "about": "OrientDig", "url": "https://orientdig.at/", "isPartOf": {"@type": "WebSite", "name": "OrientDig Austria agent desk", "url": "https://orientdig.at/"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is orientdig.at the same site as other OrientDig country domains?", "acceptedAnswer": {"@type": "Answer", "text": "No. orientdig.at is the Austria agent desk. Other OrientDig ccTLDs stay independent local sites."}}, {"@type": "Question", "name": "How should I read a OrientDig quote for Österreichische Post?", "acceptedAnswer": {"@type": "Answer", "text": "Konto mit österreichischer Adresse. Nicht das deutsche DHL-Menü."}}, {"@type": "Question", "name": "Does this page tell me what value to declare on a Austria haul?", "acceptedAnswer": {"@type": "Answer", "text": "Einfuhr folgt dem gebuchten Produkt. Keine Unterdeklaration."}}]}]</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"OrientDig Österreich — Österreichische Post","inLanguage":"de-AT","url":"https://orientdig.at/","about":"OrientDig","isPartOf":{"@type":"WebSite","name":"OrientDig Österreich","url":"https://orientdig.at/"}}</script>
 </head>
 <body>
 <header>
-  <p class="note">OrientDig · Austria · orientdig.at · agent desk</p>
+  <p class="note">OrientDig · Österreich · orientdig.at · nicht DHL Deutschland</p>
+  <nav class="local">
+    <a href="/orientdig-erfahrungen/">Erfahrungen</a>
+    <a href="/orientdig-shipping/">Versand AT</a>
+    <a href="/is-orientdig-legit/">Legit?</a>
+    <a href="/how-to-use-orientdig/">Anleitung</a>
+    <a href="/orientdig-coupons/">Gutscheine</a>
+    <a href="/orientdig-spreadsheet/">Spreadsheet</a>
+  </nav>
 </header>
 <main>
-  <h1>OrientDig agent desk for Austria (EUR)</h1>
-  <p>OrientDig agent workflow for this country only. No sister-ccTLD funnel.</p>
-  <p>OrientDig is a separate purchasing agent with its own register URL and QC queue. This country page follows OrientDig’s packed-kg screen and the line names that agent actually sells. It is not a CSSBuy skin and not a doorway onto another OrientDig TLD.</p>
-  <p>Österreich ist nicht Deutschland: anderes Last-Mile-Produkt, anderer Quote-Screen.</p>
-  <p lang="en">Austria is not Germany — different last-mile product, different quote.</p>
-  <p>OrientDig auf .at ist Österreich — Österreichische Post, nicht DHL Deutschland. Die .de-Domain desselben Agenten ist ein anderes Dokument.</p>
-  <h2>Country agent desk — register and last-mile product names</h2>
-  <p>Bare country host: where readers open an account and learn the last-mile product names this destination uses. Spreadsheet hosts on the same ccTLD store QC logs. Do not turn this URL into a copy of another country’s homepage with the TLD swapped.</p>
-  <p>Konto mit österreichischer Adresse. Nicht das deutsche DHL-Menü.</p>
-  <p>Einfuhr folgt dem gebuchten Produkt. Keine Unterdeklaration.</p>
-  <p>orientdig.at is only the Austria desk for OrientDig. Other OrientDig country hosts (for example United States and Germany) stay on their own ccTLDs and must not 301 here.</p>
-  <p>No other OrientDig hostname shares this country TLD in the panel.</p>
-  <h2>FAQ — orientdig.at</h2>
-  <h3>Is orientdig.at the same site as other OrientDig country domains?</h3><p>No. orientdig.at is the Austria agent desk. Other OrientDig ccTLDs stay independent local sites.</p>
-<h3>How should I read a OrientDig quote for Österreichische Post?</h3><p>Konto mit österreichischer Adresse. Nicht das deutsche DHL-Menü.</p>
-<h3>Does this page tell me what value to declare on a Austria haul?</h3><p>Einfuhr folgt dem gebuchten Produkt. Keine Unterdeklaration.</p>
-  <p><a class="cta" href="https://orientdig.com/register">Open OrientDig for Austria</a></p>
+  <h1>OrientDig an eine österreichische Adresse (EUR, Österreichische Post)</h1>
+  <p>Diese Hostname ist der <strong>Österreich-Desk</strong>. Search Console hat 1 Klick auf die Startseite und Impressionen auf <a href="/orientdig-erfahrungen/">/orientdig-erfahrungen/</a> (16) sowie <a href="/is-orientdig-legit/">/is-orientdig-legit/</a> (15). Das spanische Desk <a href="https://orientdig.es/">orientdig.es</a> (Correos/IVA) darf nicht hierher 301-en. <a href="https://orientdigspreadsheet.de/">orientdigspreadsheet.de</a> ist ein anderes Land — Alias später, nicht in diesem Schritt.</p>
+  <p>Gutscheine stehen in der OrientDig-App. Diese Seite druckt keine festen Codes. AT-Versandnotizen: <a href="/orientdig-shipping/">/orientdig-shipping/</a> (AT 2026 — Zeiten &amp; Linien).</p>
+
+  <h2>Was auf .at schon existiert (CMS bleibt)</h2>
+  <ul>
+    <li><a href="/orientdig-erfahrungen/">Erfahrungen</a> — QC, Zoll, keine garantierten Lieferzeiten.</li>
+    <li><a href="/orientdig-shipping/">Versand AT</a> — Linien nach QC, nicht eine DE-DHL-Tabelle.</li>
+    <li>Anleitung / Legit: <a href="/how-to-use-orientdig/">how-to</a>, <a href="/is-orientdig-legit/">is-orientdig-legit</a>.</li>
+  </ul>
+
+  <h2>Was ein AT-Quote zeigen muss</h2>
+  <table>
+    <thead><tr><th>Screen</th><th>AT-Lesart</th></tr></thead>
+    <tbody>
+      <tr><td>Adressbuch</td><td>Österreichische Adresse → EUR. Ein Correos-Screenshot aus Spanien ist der falsche Beleg.</td></tr>
+      <tr><td>Lagerfoto</td><td>Erst danach gibt es Packkilo. Weidian-Gramm sind keine Rechnung.</td></tr>
+      <tr><td>Linie</td><td>Nennt die SKU Österreichische Post / ein AT-Produkt? „Günstig“ ≠ DHL Deutschland.</td></tr>
+      <tr><td>Einfuhr</td><td>Folgt dem gebuchten Produkt (IOSS oder nicht). Keine Unterdeklaration hier.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Zoll — nur Erklärung</h2>
+  <div class="box">
+    <p>Einfuhr folgt der Linie, die du in OrientDig kaufst. <strong>Diese Seite wählt keinen deklarierten Wert.</strong> Länger: <a href="/orientdig-erfahrungen/">Erfahrungen</a>.</p>
+  </div>
+  <p><a class="cta" href="https://orientdig.com/register">OrientDig öffnen (dann AT-Adresse in der App)</a></p>
 </main>
 <footer>
-  <p class="note">orientdig.at is the Austria agent desk for OrientDig. Independent notes, not the official OrientDig site. Different agents stay on their own hosts.</p>
+  <p class="note">Unabhängige AT-Notizen. orientdig.es, orientdig.fr und orientdigspreadsheet.de bleiben andere Dokumente.</p>
 </footer>
 </body>
 </html>

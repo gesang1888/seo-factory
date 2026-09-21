@@ -30,6 +30,9 @@ FILES = [
     ROOT / "sites/kakospreadsheet.ca/overlay/index.html",
     ROOT / "sites/kakospreadsheet.fr/overlay/index.html",
     ROOT / "sites/kakospreadsheet.nl/overlay/index.html",
+    ROOT / "sites/orientdig.es/overlay/index.html",
+    ROOT / "sites/orientdig.at/overlay/index.html",
+    ROOT / "sites/orientdig.fr/overlay/index.html",
 ]
 
 
