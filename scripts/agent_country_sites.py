@@ -54,6 +54,16 @@ KEEP_AS_IS = {
     )
 )
 
+# Host-aware PHP app at cssbuy-lite/public — already unique per Host / language.
+# Do not PUT a static index.html into /www/wwwroot/{host}/ (nginx root is the shared public dir).
+SHARED_PHP_APPS = {
+    "cssbuy.at",
+    "cssbuy.es",
+    "cssbuy.fr",
+    "cssbuy.it",
+    "cssbuy.nl",
+}
+
 AGENT_PATTERNS = [
     ("bbdbuyeu", "BBDBuyEU"),
     ("allchinabuy", "AllChinaBuy"),
@@ -767,6 +777,9 @@ def apply(bt: Baota, inventory: dict, dry_run: bool = False) -> None:
         overlay = ROOT / "sites" / row["host"] / "overlay" / "index.html"
         overlay.parent.mkdir(parents=True, exist_ok=True)
         overlay.write_text(html_doc)
+        if row["host"] in SHARED_PHP_APPS:
+            print("skip put shared-php", row["host"])
+            continue
         if dry_run:
             print("dry-run page", row["host"])
             continue
