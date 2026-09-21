@@ -2257,10 +2257,10 @@
       "gref": 42,
       "gbot": 40,
       "mb": 7.4,
-      "s500": 714,
-      "action": "fix_5xx_then_deepen",
+      "s500": 0,
+      "action": "deepen_branch",
       "batch": "P0",
-      "why": "先修5xx"
+      "why": "5xx 已消失。GSC 14点击在首页；内页 spreadsheet/shipping/coupons 留下，只加深 index.html。"
     },
     {
       "host": "mycnbox.de",
