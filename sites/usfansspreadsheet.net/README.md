@@ -34,3 +34,14 @@ python3 scripts/build_usfans_overlay.py --check
 ```
 
 Needs `data/usfans/homepage-products.json`. Keep-page chrome patches read snapshots from `/tmp/usfans-keep` when present.
+
+## Deploy to the Baota VPS
+
+`usfansspreadsheet.net` / `.uk` / `.nl` / `.co.uk` live on `/www/wwwroot`. `.org` is on Hostinger, not this machine.
+
+```bash
+export USFANS_DEPLOY_PASS='...'
+python3 scripts/deploy_usfans.py
+```
+
+The script overlays HTML onto the existing `.net` docroot (keeps `api/`, `styles.css`, images), writes thin-page 301s into the nginx extension include, and points the sibling ccTLD vhosts at `https://usfansspreadsheet.net$request_uri`.
