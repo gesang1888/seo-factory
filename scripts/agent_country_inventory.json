@@ -911,7 +911,7 @@
       "host": "usfansspreadsheet.net",
       "agent": "USFans",
       "country": "GLOBAL",
-      "status": "live"
+      "status": "keep"
     },
     {
       "host": "usfansspreadsheet.nl",
