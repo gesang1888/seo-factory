@@ -40,6 +40,10 @@ FILES = [
     ROOT / "sites/sugargoospreadsheets.uk/overlay/index.html",
     ROOT / "sites/sugargoospreadsheets.fr/overlay/index.html",
     ROOT / "sites/sugargoospreadsheets2026.ca/overlay/index.html",
+    ROOT / "sites/bbdbuy.it/overlay/index.html",
+    ROOT / "sites/mycnbox.eu/overlay/index.html",
+    ROOT / "sites/mycnbox.pl/overlay/index.html",
+    ROOT / "sites/mycnbox.fr/overlay/index.html",
 ]
 
 
