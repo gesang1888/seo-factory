@@ -36,6 +36,10 @@ FILES = [
     ROOT / "sites/fansbuy.co.uk/overlay/index.html",
     ROOT / "sites/fansbuysheets.net/overlay/index.html",
     ROOT / "sites/mulebuy.fr/overlay/index.html",
+    ROOT / "sites/sugargoospreadsheet.au/overlay/index.html",
+    ROOT / "sites/sugargoospreadsheets.uk/overlay/index.html",
+    ROOT / "sites/sugargoospreadsheets.fr/overlay/index.html",
+    ROOT / "sites/sugargoospreadsheets2026.ca/overlay/index.html",
 ]
 
 
