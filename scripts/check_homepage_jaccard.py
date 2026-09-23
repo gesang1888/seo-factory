@@ -57,6 +57,9 @@ FILES = [
     ROOT / "sites/mycnbox.de/overlay/index.html",
     ROOT / "sites/fansbuy.nl/overlay/index.html",
     ROOT / "sites/fansbuy.eu/overlay/index.html",
+    ROOT / "sites/lovegobuyspreadsheet.es/overlay/index.html",
+    ROOT / "sites/acbuyspreadsheets.nl/overlay/index.html",
+    ROOT / "sites/mycnboxhaul.com/overlay/index.html",
 ]
 
 
