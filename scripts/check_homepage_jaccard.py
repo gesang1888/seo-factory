@@ -88,6 +88,10 @@ FILES = [
     ROOT / "sites/ootdbuy.nl/overlay/index.html",
     ROOT / "sites/hipobuyspreadsheet.nl/overlay/index.html",
     ROOT / "sites/litbuyspreadsheets.us/overlay/index.html",
+    ROOT / "sites/bbdbuyspreadsheet.de/overlay/index.html",
+    ROOT / "sites/ootdbuyspreadsheet.us/overlay/index.html",
+    ROOT / "sites/litbuyspreadsheet.me.uk/overlay/index.html",
+    ROOT / "sites/lovegobuyspreadsheet.ca/overlay/index.html",
 ]
 
 
