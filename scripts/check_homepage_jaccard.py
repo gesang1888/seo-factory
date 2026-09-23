@@ -76,6 +76,10 @@ FILES = [
     ROOT / "sites/orientdigspreadsheet.de/overlay/index.html",
     ROOT / "sites/mulebuyspreadsheets.co.uk/overlay/index.html",
     ROOT / "sites/hipobuy.at/overlay/index.html",
+    ROOT / "sites/superbuyspreadsheets.it/overlay/index.html",
+    ROOT / "sites/superbuyspreadsheets.us/overlay/index.html",
+    ROOT / "sites/orientdigspreadsheet.us/overlay/index.html",
+    ROOT / "sites/sugargoospreadsheets.de/overlay/index.html",
 ]
 
 
