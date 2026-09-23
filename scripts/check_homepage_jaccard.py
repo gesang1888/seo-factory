@@ -97,6 +97,13 @@ FILES = [
     ROOT / "sites/mulebuyspreadsheets.es/overlay/index.html",
     ROOT / "sites/orientdigspreadsheet.nl/overlay/index.html",
     ROOT / "sites/ootdbuyspreadsheet.de/overlay/index.html",
+    ROOT / "sites/ootdbuyspreadsheet.org/overlay/index.html",
+    ROOT / "sites/ootdbuyspreadsheet.net/overlay/index.html",
+    ROOT / "sites/sugargoospreadsheetnow.com/overlay/index.html",
+    ROOT / "sites/sugargoospreadsheets.nl/overlay/index.html",
+    ROOT / "sites/wemimispreadsheet.com/overlay/index.html",
+    ROOT / "sites/oopbuyspreadsheets.it/overlay/index.html",
+    ROOT / "sites/hubbuyspreadsheet.net/overlay/index.html",
 ]
 
 
