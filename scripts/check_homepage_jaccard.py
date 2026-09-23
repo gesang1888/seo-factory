@@ -48,6 +48,10 @@ FILES = [
     ROOT / "sites/litbuy.at/overlay/index.html",
     ROOT / "sites/litbuyspreadsheet.it/overlay/index.html",
     ROOT / "sites/litbuyspreadsheets.ca/overlay/index.html",
+    ROOT / "sites/lovegobuy.nl/overlay/index.html",
+    ROOT / "sites/lovegobuyspreadsheet.nl/overlay/index.html",
+    ROOT / "sites/lovegobuy.it/overlay/index.html",
+    ROOT / "sites/mycnbox.es/overlay/index.html",
 ]
 
 
