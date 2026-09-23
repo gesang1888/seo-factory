@@ -44,6 +44,10 @@ FILES = [
     ROOT / "sites/mycnbox.eu/overlay/index.html",
     ROOT / "sites/mycnbox.pl/overlay/index.html",
     ROOT / "sites/mycnbox.fr/overlay/index.html",
+    ROOT / "sites/basetaospreadsheet.com/overlay/index.html",
+    ROOT / "sites/litbuy.at/overlay/index.html",
+    ROOT / "sites/litbuyspreadsheet.it/overlay/index.html",
+    ROOT / "sites/litbuyspreadsheets.ca/overlay/index.html",
 ]
 
 
