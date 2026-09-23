@@ -64,6 +64,10 @@ FILES = [
     ROOT / "sites/hipobuyspreadsheet.co.uk/overlay/index.html",
     ROOT / "sites/litbuyspreadsheet.eu/overlay/index.html",
     ROOT / "sites/fansbuyspreadsheet.de/overlay/index.html",
+    ROOT / "sites/litbuyspreadsheets.es/overlay/index.html",
+    ROOT / "sites/litspreadsheet.fr/overlay/index.html",
+    ROOT / "sites/litbuyspreadsheets.nl/overlay/index.html",
+    ROOT / "sites/hipobuyspreadsheets.uk/overlay/index.html",
 ]
 
 
