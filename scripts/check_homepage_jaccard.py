@@ -92,6 +92,11 @@ FILES = [
     ROOT / "sites/ootdbuyspreadsheet.us/overlay/index.html",
     ROOT / "sites/litbuyspreadsheet.me.uk/overlay/index.html",
     ROOT / "sites/lovegobuyspreadsheet.ca/overlay/index.html",
+    ROOT / "sites/sugargoospreadsheet.es/overlay/index.html",
+    ROOT / "sites/sugargoo.at/overlay/index.html",
+    ROOT / "sites/mulebuyspreadsheets.es/overlay/index.html",
+    ROOT / "sites/orientdigspreadsheet.nl/overlay/index.html",
+    ROOT / "sites/ootdbuyspreadsheet.de/overlay/index.html",
 ]
 
 
