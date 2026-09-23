@@ -60,6 +60,10 @@ FILES = [
     ROOT / "sites/lovegobuyspreadsheet.es/overlay/index.html",
     ROOT / "sites/acbuyspreadsheets.nl/overlay/index.html",
     ROOT / "sites/mycnboxhaul.com/overlay/index.html",
+    ROOT / "sites/kakobuydocs.com/overlay/index.html",
+    ROOT / "sites/hipobuyspreadsheet.co.uk/overlay/index.html",
+    ROOT / "sites/litbuyspreadsheet.eu/overlay/index.html",
+    ROOT / "sites/fansbuyspreadsheet.de/overlay/index.html",
 ]
 
 
