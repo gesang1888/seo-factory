@@ -140,6 +140,25 @@ def patch_shipping(html: str, key: str) -> str:
     meta_old = "Complete Hipobuy shipping guide: all lines compared, delivery times for USA/UK/AU/CA and a free interactive calculator. Updated 2026."
     meta_new = f"HipoBuy shipping to {dest}: official estimator snapshot {DATE} for 1000 g / 35×25×10 cm plus the on-page calculator. Educational customs notes only."
     html = html.replace(meta_old, meta_new)
+    titles = {
+        "at": None,  # already German
+        "nl": (
+            "Hipobuy Shipping Calculator 2026 — Rates, Times &amp; Costs",
+            "HipoBuy verzendkosten naar Nederland — lab 29 Sep 2026",
+        ),
+        "us": (
+            "Hipobuy Shipping Calculator US — USPS, UPS &amp; USD",
+            "HipoBuy shipping to the United States — lab 29 Sep 2026",
+        ),
+        "ukhaul": (
+            "Hipobuy Shipping Calculator UK — Royal Mail, GBP &amp; Costs",
+            "HipoBuy UK haul shipping lines — lab 29 Sep 2026",
+        ),
+    }
+    pair = titles.get(key)
+    if pair:
+        html = html.replace(f"<title>{pair[0]}</title>", f"<title>{pair[1]}</title>")
+        html = html.replace(f'content="{pair[0]}"', f'content="{pair[1]}"')
     return html
 
 
@@ -543,6 +562,35 @@ def patch_howto(html: str, key: str) -> str:
         html,
         flags=re.S,
     )
+    howto_titles = {
+        "at": (
+            "Hipobuy anmelden: Spreadsheet nutzen 2026",
+            "HipoBuy in Österreich nutzen: vom Konto bis zur Sendung",
+        ),
+        "nl": (
+            "How to use the Hipobuy Spreadsheet",
+            "HipoBuy in Nederland: van account tot levering",
+        ),
+        "us": (
+            "How to use the Hipobuy Spreadsheet",
+            "How to use HipoBuy for a United States haul",
+        ),
+        "uk": (
+            "How to use the Hipobuy Spreadsheet",
+            "How to use HipoBuy on the UK spreadsheet desk",
+        ),
+        "eu": (
+            "How to use the Hipobuy Spreadsheet",
+            "How to use HipoBuy on the EU coupon desk",
+        ),
+        "ukhaul": (
+            "How to use the Hipobuy Spreadsheet",
+            "How to use the HipoBuy UK haul log",
+        ),
+    }
+    old_t, new_t = howto_titles[key]
+    html = html.replace(f"<title>{old_t}</title>", f"<title>{new_t}</title>")
+    html = html.replace(f'content="{old_t}"', f'content="{new_t}"')
     # Local meta: drop English clone descriptions where we have a unique H1
     return html, n
 
