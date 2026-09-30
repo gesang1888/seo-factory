@@ -341,7 +341,7 @@ HOWTO["at"] = how_to_article(
         "hipobuyspreadsheet.nl ist PostNL/DHL-NL. hipobuyspreadsheet.eu ist der Coupon-Desk für beliebige Mitgliedstaaten. hipobuy.at bleibt Österreich. Kein hreflang-Cluster und kein gemeinsames 301.",
         "<h2 class=\"ph\">14. FAQ, kurz</h2>",
         "Kann ich die USA-700-g-Zelle verwenden? Nein, das ist die englische Hülle. Kann ich LitBuy-Tracking hier erklären? Nein, anderer Agent. Kann der Invite in den Title? Nein, nur Coupon-URL und App. Braucht jede Sendung Versicherung? Das entscheidest du in HipoBuy anhand der gebuchten Linie, nicht anhand eines pauschalen Satzes auf dieser Seite.",
-        "<p><a href=\"/hipobuy-shipping-guide/\">Weiter zur AT-Versandtabelle</a> · <a href=\"/hipobuy-coupons/\">Coupons</a> · <a href=\"/#katalog\">Katalog</a></p>",
+        "<p><a href=\"/hipobuy-shipping-guide/\">Weiter zur AT-Versandtabelle</a> · <a href=\"/hipobuy-coupons/\">Coupons</a> · <a href=\"/\">Katalog</a></p>",
     ],
     extra=EXTRA["at"],
 )
@@ -379,7 +379,7 @@ HOWTO["nl"] = how_to_article(
         "hipobuy.at is Österreichische Post/DHL-AT. hipobuyspreadsheet.eu is de coupon-desk. Dit .nl-bestand blijft Nederland. Geen gedeelde 301.",
         "<h2 class=\"ph\">14. Korte FAQ</h2>",
         "Mag ik de USA-700&nbsp;g-cel gebruiken? Nee. Is ootdbuy.nl dezelfde agent? Nee. Hoort de invite in de title? Nee — coupon-URL en app. Verzekering? Alleen in HipoBuy per geboekte lijn, niet als vaste zin hier.",
-        "<p><a href=\"/hipobuy-shipping-guide/\">Naar de NL-lijntabel</a> · <a href=\"/hipobuy-coupons/\">Coupons</a> · <a href=\"/#katalog\">Catalogus</a></p>",
+        "<p><a href=\"/hipobuy-shipping-guide/\">Naar de NL-lijntabel</a> · <a href=\"/hipobuy-coupons/\">Coupons</a> · <a href=\"/\">Catalogus</a></p>",
     ],
     extra=EXTRA["nl"],
 )
@@ -455,7 +455,7 @@ HOWTO["uk"] = how_to_article(
         "hipobuyspreadsheets.uk keeps line codes and the spreadsheet log. This .co.uk host keeps coupons and sizing. Neither 301s to .net.",
         "<h2 class=\"ph\">14. Short FAQ</h2>",
         "Can I size from the Weidian title only? No. Can the invite live in the homepage title? No. Is Northern Ireland the same SKU as mainland GB? Often not — read the live line.",
-        "<p><a href=\"/hipobuy-coupons/\">Coupon centre</a> · <a href=\"/blog/posts/hipobuy-sizing-guide/\">UK sizing</a> · <a href=\"/#katalog\">Catalogue</a></p>",
+        "<p><a href=\"/hipobuy-coupons/\">Coupon centre</a> · <a href=\"/blog/posts/hipobuy-sizing-guide/\">UK sizing</a> · <a href=\"/\">Catalogue</a></p>",
     ],
     extra=EXTRA["uk"],
 )
@@ -531,7 +531,7 @@ HOWTO["ukhaul"] = how_to_article(
         "Already lands on /hipobuy-shipping-guide/. No third shipping tree, no 301 onto .co.uk.",
         "<h2 class=\"ph\">14. Short FAQ</h2>",
         "Is this host the coupon centre? No. May we merge UK TLDs? No. Invite in the title? No — coupon URL and app.",
-        "<p><a href=\"/hipobuy-shipping-guide/\">UK shipping lab</a> · <a href=\"/#katalog\">Catalogue</a> · <a href=\"/hipobuy-coupons/\">Coupons</a></p>",
+        "<p><a href=\"/hipobuy-shipping-guide/\">UK shipping lab</a> · <a href=\"/\">Catalogue</a> · <a href=\"/hipobuy-coupons/\">Coupons</a></p>",
     ],
     extra=EXTRA["ukhaul"],
 )

@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CMS_HOME = ROOT / "sites/hipobuy-shared/cms-home"
 
-from hipobuy_trust_chrome import GLOSS, MAIL, labels  # noqa: E402
+from hipobuy_trust_chrome import EST, GLOSS, MAIL, labels  # noqa: E402
 
 INVITE = "VGEICZNX0"
 REG = f"https://hipobuy.com/register?inviteCode={INVITE}"
@@ -96,6 +96,20 @@ CAT_CSS = """
 .sk{animation:pulse 1.5s ease-in-out infinite}.skim{background:var(--g5);aspect-ratio:1}.skl{height:11px;background:var(--g5);border-radius:4px;margin-bottom:7px}.skl.sh{width:55%}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 @media(max-width:768px){.mw{grid-template-columns:1fr}.sb{position:static}}
+#home-trust{max-width:1100px;margin:0 auto;padding:8px 24px 8px}
+#home-trust .sec{padding:36px 0 8px}
+#home-trust .faq-item.open .faq-a{max-height:1600px}
+.ncard{border:1px solid var(--g5);border-radius:var(--rl);padding:16px 18px;margin-bottom:12px;background:var(--wh)}
+.ncard h3{font-size:15px;font-weight:600;margin-bottom:6px;color:var(--bk);letter-spacing:-.2px}
+.ncard p{font-size:13.5px;color:var(--g3);line-height:1.7;margin:0}
+.home-more{margin:4px 0 8px;font-size:13px;font-weight:600}
+.tw{overflow-x:auto;margin:16px 0;border:1px solid var(--g5);border-radius:var(--rl)}
+.tw table{width:100%;border-collapse:collapse;font-size:13px}
+.tw th,.tw td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--g5);vertical-align:top}
+.tw th{background:var(--g6);font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--g4);font-weight:700}
+.tw .mv{font-family:var(--m);font-weight:600;color:var(--acc);white-space:nowrap}
+.tw tr:last-child td{border-bottom:none}
+.tw code{font-family:var(--m);font-size:12px}
 """
 
 SIDE_CATS = [
@@ -250,6 +264,260 @@ document.addEventListener('DOMContentLoaded',function(){{
 """
 
 
+_CHEV = (
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
+    '<polyline points="6 9 12 15 18 9"/></svg>'
+)
+
+
+def _band_copy(key: str) -> dict[str, str]:
+    if key == "at":
+        return {
+            "faq_h": "Häufige Fragen",
+            "faq_sub": "Dieselben fünfzehn Fragen wie auf der Hilfeseite, hier auf der Startseite mit der grünen CMS-Leiste.",
+            "faq_more": "Alle 15 Fragen auf der Hilfeseite",
+            "news_h": "Was wir geprüft haben",
+            "news_sub": "Datierte Checks, kein Firmenblog. Volle Texte bleiben unter Neuigkeiten.",
+            "news_more": "Alle Checks mit Datum",
+            "lab_h": "Versandlabor · 29 Sep 2026",
+            "lab_sub": "Öffentlicher Schätzer, Karton 1000 g / 35×25×10 cm, Ziel Austria. Snapshot, kein Checkout.",
+            "lab_more": "Ganzer Versandguide und Rechner",
+            "lab_foot": "Die USA/UK-Vorlagetabelle steht nur auf der Versandseite. Hier gilt die Labortabelle vom 29 Sep 2026.",
+        }
+    if key == "nl":
+        return {
+            "faq_h": "Veelgestelde vragen",
+            "faq_sub": "Dezelfde vijftien vragen als op de hulppagina, hier op de homepage in de groene CMS-balk.",
+            "faq_more": "Alle 15 vragen op de hulppagina",
+            "news_h": "Wat we hebben nagemeten",
+            "news_sub": "Gedateerde checks, geen bedrijfsblog. Volledige teksten staan onder Nieuws.",
+            "news_more": "Alle checks met datum",
+            "lab_h": "Verzendlab · 29 sep 2026",
+            "lab_sub": "Publieke estimator, doos 1000 g / 35×25×10 cm, bestemming Netherlands. Snapshot, geen checkout.",
+            "lab_more": "Volledige verzendgids en rekenmachine",
+            "lab_foot": "De USA/UK-sjabloontabel staat alleen op de verzendpagina. Hier geldt de labtabel van 29 sep 2026.",
+        }
+    job = {
+        "uk": (
+            "Coupon-desk FAQ — same fifteen questions as /help/, in this green bar.",
+            "Dated checks. Full write-ups stay on /news/.",
+            "GB estimator snapshot on this coupon host so landed cost is not a surprise. Haul-log dollars also live on hipobuyspreadsheets.uk.",
+        ),
+        "eu": (
+            "Coupon-desk FAQ — same fifteen questions as /help/, in this green bar.",
+            "Dated checks. This TLD is not a destination code.",
+            "Pick a member-state country in the official estimator. Spain-only line counts stay on hipobuy.es.",
+        ),
+        "us": (
+            "Same fifteen questions as /help/, on this homepage in the green CMS bar.",
+            "Dated checks. Full write-ups stay on /news/.",
+            "Public estimator, carton 1000 g / 35×25×10 cm, destination United States. Snapshot, not checkout.",
+        ),
+        "ukhaul": (
+            "Haul-log FAQ — same fifteen questions as /help/, in this green bar.",
+            "Dated checks. This host is not a 301 onto .co.uk.",
+            "Public estimator, carton 1000 g / 35×25×10 cm, destination United Kingdom. Snapshot, not checkout.",
+        ),
+    }[key]
+    return {
+        "faq_h": "FAQ",
+        "faq_sub": job[0],
+        "faq_more": "All 15 questions on the help page",
+        "news_h": "What we checked",
+        "news_sub": job[1],
+        "news_more": "All dated checks",
+        "lab_h": "Shipping lab · 29 Sep 2026",
+        "lab_sub": job[2],
+        "lab_more": "Full shipping guide and calculator",
+        "lab_foot": "The USA/UK/AU/CA template grid lives on the shipping page. Use the 29 Sep 2026 table here.",
+    }
+
+
+def _help_news_articles(key: str, d: dict) -> tuple[str, str]:
+    from hipobuy_trust_pages import (  # noqa: WPS433
+        help_at,
+        help_en,
+        help_nl,
+        news_at,
+        news_en,
+        news_nl,
+    )
+
+    if key == "at":
+        return help_at(d)[2], news_at(d)[2]
+    if key == "nl":
+        return help_nl(d)[2], news_nl(d)[2]
+    flavour = {"uk": "uk", "eu": "eu", "us": "us", "ukhaul": "haul"}[key]
+    return help_en(d, flavour)[2], news_en(d, flavour)[2]
+
+
+def _faq_items(article: str) -> list[tuple[str, str]]:
+    pairs = re.findall(
+        r'<h3 class="ph">(.*?)</h3>\s*<p class="pp">(.*?)</p>',
+        article,
+        flags=re.S,
+    )
+    out = []
+    for q, a in pairs:
+        q_txt = re.sub(r"<[^>]+>", "", q).strip()
+        out.append((q_txt, a.strip()))
+    return out
+
+
+def _news_cards(article: str, limit: int = 5) -> list[tuple[str, str]]:
+    pairs = re.findall(
+        r'<h2 class="ph">(.*?)</h2>\s*(?:<figure[\s\S]*?</figure>\s*)?<p class="pp">(.*?)</p>',
+        article,
+        flags=re.S,
+    )
+    checks = []
+    rest = []
+    for h, p in pairs:
+        h_txt = re.sub(r"<[^>]+>", "", h).strip()
+        if re.search(r"^Check\s+\d+", h_txt, flags=re.I):
+            checks.append((h_txt, p.strip()))
+        else:
+            rest.append((h_txt, p.strip()))
+    return (checks or rest)[:limit]
+
+
+def _customs_note(key: str, d: dict, ship: str) -> str:
+    customs = d.get("customs") or ""
+    ioss = d.get("ioss") or ""
+    if key == "at":
+        return (
+            f'<p class="pp">Wer Abgaben zahlt, steht auf der Live-SKU '
+            f"(tax free / prepaid / Empfänger). "
+            f'<a href="{customs}">BMF Zoll</a>'
+            + (f' · <a href="{ioss}">IOSS / Kommission</a>' if ioss else "")
+            + " (Orientierung oft 150&nbsp;€). "
+            "<strong>Keine Unterdeklaration.</strong> "
+            f'<a href="{EST}">Schätzer mit Ziel Austria öffnen</a> · '
+            f'<a href="{ship}">Versandguide</a>.</p>'
+        )
+    if key == "nl":
+        return (
+            f'<p class="pp">Invoer volgt de geboekte lijn. '
+            f'<a href="{customs}">Belastingdienst Douane</a>'
+            + (f' · <a href="{ioss}">IOSS</a>' if ioss else "")
+            + ". <strong>Geen onderwaardering.</strong> "
+            f'<a href="{EST}">Estimator met bestemming Netherlands</a> · '
+            f'<a href="{ship}">Verzendgids</a>.</p>'
+        )
+    if key == "us":
+        return (
+            f'<p class="pp">US treatment follows the booked SKU. '
+            f'<a href="{customs}">CBP duty overview</a>. '
+            "This desk does not invent a de-minimis dollar figure. "
+            "<strong>No under-declaration tips.</strong> "
+            f'<a href="{EST}">Official estimator, destination United States</a> · '
+            f'<a href="{ship}">Shipping guide</a>.</p>'
+        )
+    if key == "eu":
+        return (
+            f'<p class="pp">The estimator needs a member-state country code, not “EU”. '
+            f'<a href="{ioss or customs}">European Commission VAT e-commerce / IOSS</a> '
+            "(often discussed around €150 for certain distance sales). "
+            "Spain-only freight copy stays on hipobuy.es. "
+            "<strong>No declared-value coaching.</strong> "
+            f'<a href="{EST}">Open the official estimator</a> · '
+            f'<a href="{ship}">Shipping guide</a>.</p>'
+        )
+    return (
+        f'<p class="pp">UK import VAT/duty follow the carrier SKU. '
+        f'<a href="{customs}">GOV.UK goods sent from abroad</a>. '
+        "<strong>No declared-value coaching.</strong> "
+        f'<a href="{EST}">Official estimator, destination United Kingdom</a> · '
+        f'<a href="{ship}">Shipping guide</a>.</p>'
+    )
+
+
+def _lab_home(key: str, d: dict, foot: str) -> str:
+    from hipobuy_desk_copy import SHIP_H1, lab_block
+
+    code = d.get("dest")
+    if not code:
+        return f"""
+<aside class="cb info hipo-lab-note" id="estimator-lab" style="display:block">
+  <div>
+    <strong>Official HipoBuy estimator · 29 Sep 2026</strong>
+    The .eu TLD is not a destination. Pick ES, IE, IT… in-app. IOSS is a SKU you read the morning you book.
+    Spain-only line counts stay on hipobuy.es. <strong>No declared-value coaching.</strong>
+  </div>
+</aside>
+<p class="pp">{escape(foot)}</p>
+"""
+    if key in SHIP_H1:
+        intro = SHIP_H1[key][4]
+        dest_label = SHIP_H1[key][3]
+        lab_code = SHIP_H1[key][2]
+    else:
+        lab_code = code
+        dest_label = d.get("dest_label") or code
+        intro = (
+            "Cheapest carriable on the lab day: HIPO-RoyalMail-GB-1 about $23.83. "
+            "This .co.uk host still ranks coupons; the table is here so landed cost is not a surprise."
+        )
+    lab = lab_block(lab_code, dest_label, intro)
+    lab = re.sub(
+        r'<p class="pp">The generic USA/UK/AU/CA.*?</p>\s*',
+        f'<p class="pp">{foot}</p>\n',
+        lab,
+        count=1,
+        flags=re.S,
+    )
+    return lab
+
+
+def _trust_band(key: str, d: dict) -> str:
+    L = labels(key)
+    C = _band_copy(key)
+    s = d["slugs"]
+    ship = "/guides/shipping/" if key == "us" else "/hipobuy-shipping-guide/"
+    help_html, news_html = _help_news_articles(key, d)
+    faqs = _faq_items(help_html)
+    if len(faqs) < 15:
+        raise RuntimeError(f"{key}: homepage FAQ parsed {len(faqs)} questions, need 15")
+    news = _news_cards(news_html)
+    faq_blocks = []
+    for i, (q, a) in enumerate(faqs):
+        opened = " open" if i == 0 else ""
+        faq_blocks.append(
+            f'<div class="faq-item{opened}">'
+            f'<div class="faq-q" onclick="toggleFaq(this)">{escape(q)}{_CHEV}</div>'
+            f'<div class="faq-a">{a}</div></div>'
+        )
+    news_blocks = []
+    for h, p in news:
+        news_blocks.append(f'<article class="ncard"><h3>{escape(h)}</h3><p>{p}</p></article>')
+    lab = _lab_home(key, d, C["lab_foot"])
+    customs = _customs_note(key, d, ship)
+    return f"""
+<div id="home-trust">
+  <section class="sec" id="faq" style="padding-top:28px">
+    <h2 class="stit">{escape(C["faq_h"])}</h2>
+    <p class="ssub">{escape(C["faq_sub"]).strip()}</p>
+    {"".join(faq_blocks)}
+    <p class="home-more"><a href="/{s["help"]}/">{escape(C["faq_more"])} →</a></p>
+  </section>
+  <section class="sec" id="news" style="padding-top:12px">
+    <h2 class="stit">{escape(C["news_h"])}</h2>
+    <p class="ssub">{escape(C["news_sub"])}</p>
+    {"".join(news_blocks)}
+    <p class="home-more"><a href="/{s["news"]}/">{escape(C["news_more"])} →</a></p>
+  </section>
+  <section class="sec" id="lab" style="padding-top:12px">
+    <h2 class="stit">{escape(C["lab_h"])}</h2>
+    <p class="ssub">{escape(C["lab_sub"])}</p>
+    {lab}
+    {customs}
+    <p class="home-more"><a href="{ship}">{escape(C["lab_more"])} →</a>
+      · <a href="{EST}">{escape(L["est"])} →</a></p>
+  </section>
+</div>
+"""
+
+
 def _rewrite_ccards(html: str) -> str:
     def repl(m: re.Match) -> str:
         href = m.group(1)
@@ -293,19 +561,13 @@ def build_cms_home(key: str, d: dict) -> str:
     html = _drop_sheet_cta(html)
     html = _rewrite_ccards(html)
     block = _catalog_block(key, d)
-    html = re.sub(
-        r"(</section>\s*)(<article class=\"w2c-prose)",
-        r"\1" + block + r"\2",
-        html,
-        count=1,
-    )
-    if 'id="catalog"' not in html:
-        html = re.sub(
-            r"(</section>)",
-            r"\1\n" + block,
-            html,
-            count=1,
-        )
+    band = _trust_band(key, d)
+    needle = '<article class="w2c-prose'
+    idx = html.find(needle)
+    if idx >= 0:
+        html = html[:idx] + block + band + html[idx:]
+    elif 'id="catalog"' not in html:
+        html = html.replace("</section>", "</section>\n" + block + band, 1)
     # editorial inbox in footer copyright strip
     html = re.sub(
         r'(<div class="fb">)',

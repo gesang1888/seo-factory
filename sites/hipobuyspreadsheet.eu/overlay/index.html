@@ -192,6 +192,20 @@ img{max-width:100%;display:block}
 .sk{animation:pulse 1.5s ease-in-out infinite}.skim{background:var(--g5);aspect-ratio:1}.skl{height:11px;background:var(--g5);border-radius:4px;margin-bottom:7px}.skl.sh{width:55%}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 @media(max-width:768px){.mw{grid-template-columns:1fr}.sb{position:static}}
+#home-trust{max-width:1100px;margin:0 auto;padding:8px 24px 8px}
+#home-trust .sec{padding:36px 0 8px}
+#home-trust .faq-item.open .faq-a{max-height:1600px}
+.ncard{border:1px solid var(--g5);border-radius:var(--rl);padding:16px 18px;margin-bottom:12px;background:var(--wh)}
+.ncard h3{font-size:15px;font-weight:600;margin-bottom:6px;color:var(--bk);letter-spacing:-.2px}
+.ncard p{font-size:13.5px;color:var(--g3);line-height:1.7;margin:0}
+.home-more{margin:4px 0 8px;font-size:13px;font-weight:600}
+.tw{overflow-x:auto;margin:16px 0;border:1px solid var(--g5);border-radius:var(--rl)}
+.tw table{width:100%;border-collapse:collapse;font-size:13px}
+.tw th,.tw td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--g5);vertical-align:top}
+.tw th{background:var(--g6);font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--g4);font-weight:700}
+.tw .mv{font-family:var(--m);font-weight:600;color:var(--acc);white-space:nowrap}
+.tw tr:last-child td{border-bottom:none}
+.tw code{font-family:var(--m);font-size:12px}
 
 </style>
 </head>
@@ -410,6 +424,38 @@ document.addEventListener('DOMContentLoaded',function(){
   lp(true);
 });
 </script>
+
+<div id="home-trust">
+  <section class="sec" id="faq" style="padding-top:28px">
+    <h2 class="stit">FAQ</h2>
+    <p class="ssub">Coupon-desk FAQ — same fifteen questions as /help/, in this green bar.</p>
+    <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)">Does HipoBuy sell the items?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">No. It is a purchasing agent: it buys from third-party Chinese shops in your name, stores the goods, then books an international line after you confirm warehouse photos.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Language of the official site<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">The official language selector includes several European languages plus English and Chinese. Our 29 Sep 2026 lab used the public estimator API. Address format still has to match the destination country.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Why is the on-site catalogue empty?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">English index. Spanish/French/German queries often return zero cards. Coupon desk does not clone hipobuy.es.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many payments?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Two: goods plus China domestic first, international freight after QC photos. You can consolidate in warehouse.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Why USD?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">USD is the platform default. Switching the selector to EUR/GBP has been observed to change the symbol without converting the number. Treat figures as dollars. Open <a href="https://hipobuy.com/estimation">hipobuy.com/estimation</a> before you book.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Volumetric weight?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Usually L×W×H/8000. Billed = max(actual, volumetric). Lab carton 29 Sep 2026: 1000&nbsp;g, 35×25×10&nbsp;cm, clothes/common goods.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Who pays duties?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">The Commission explains IOSS for certain low-value distance sales (often discussed around €150) at <a href="https://taxation-customs.ec.europa.eu/vat-e-commerce_en">https://taxation-customs.ec.europa.eu/vat-e-commerce_en</a>. The estimator still needs a country code (ES, IE, IT…), not “EU”. Spain-specific freight copy lives on hipobuy.es, not here. <strong>No declared-value coaching.</strong></div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I combine orders?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Yes. Storage limits are in official help and can change.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">QC photos?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Yes, plus optional extra photos. Disputes are easier while goods remain in the warehouse.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What cannot ship?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Tobacco, alcohol, medicines, banned goods. Liquids/powders/pastes may need extra paperwork.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Lighter than estimated?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Official FAQ covers estimated vs actual billed weight and excess postage refunds.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Where do I claim?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Only on hipobuy.com. <a href="https://hipobuy.com/help">Official help</a> · <a href="https://discord.gg/ePA4XhmBWX">Discord</a> · <a href="https://www.reddit.com/r/Hipobuy_/">Reddit</a>.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Invite in the title?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">No. VGEICZNX0 lives on the coupon URL and is re-typed in-app.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I pay?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">The official site lists PayPal, Visa, Mastercard and wallet top-up. Balance refunds are in their FAQ, not on this desk.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Why restricted or price zero?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">The source link is not buyable through the agent, or the price could not be read. Do not count on a card without a real price and variants. HipoBuy also says it cannot buy cross-border marketplace listings.</div></div>
+    <p class="home-more"><a href="/help/">All 15 questions on the help page →</a></p>
+  </section>
+  <section class="sec" id="news" style="padding-top:12px">
+    <h2 class="stit">What we checked</h2>
+    <p class="ssub">Dated checks. This TLD is not a destination code.</p>
+    <article class="ncard"><h3>Check 1 · 29 Sep 2026</h3><p>We did not invent a Spain line table on this host — hipobuy.es already covers ES. On 29 Sep 2026 we measured AT/NL/GB/US via the public estimator API (destination must be a country code, never “EU”). This desk’s ranked job remains coupons; IOSS is a SKU you read in-app the morning you book.</p></article><article class="ncard"><h3>Check 2 · Currency selector</h3><p>USD figures kept their digits when the official UI was switched toward euro (documented 29 Aug 2026). Lab amounts on this desk are USD.</p></article><article class="ncard"><h3>Check 3 · 30 Sep 2026 · catalogue API</h3><p>/hipobuyspreadsheet.eu spreadsheet called /api/products/ and got 404 until nginx rewrote the directory to index.php. After the fix, English w2clinks hits and absolute image URLs on w2clinks.com.</p></article><article class="ncard"><h3>Check 4 · Official estimator beats HTML</h3><p>Rates move. We do not coach declared value. Re-run in-app after QC photos. The public tool is <a href="https://hipobuy.com/estimation">https://hipobuy.com/estimation</a> — this HTML is a snapshot, not checkout.</p></article><article class="ncard"><h3>Check 5 · language of the app vs the catalogue</h3><p>The official language selector includes several European languages. The finds index stays English. Spanish, French or German queries often return zero cards; sneakers/hoodie fill the grid. This coupon desk does not clone hipobuy.es Spanish search. On 30 Sep 2026 /api/products/ 404ed until nginx reached index.php.</p></article>
+    <p class="home-more"><a href="/news/">All dated checks →</a></p>
+  </section>
+  <section class="sec" id="lab" style="padding-top:12px">
+    <h2 class="stit">Shipping lab · 29 Sep 2026</h2>
+    <p class="ssub">Pick a member-state country in the official estimator. Spain-only line counts stay on hipobuy.es.</p>
+    
+<aside class="cb info hipo-lab-note" id="estimator-lab" style="display:block">
+  <div>
+    <strong>Official HipoBuy estimator · 29 Sep 2026</strong>
+    The .eu TLD is not a destination. Pick ES, IE, IT… in-app. IOSS is a SKU you read the morning you book.
+    Spain-only line counts stay on hipobuy.es. <strong>No declared-value coaching.</strong>
+  </div>
+</aside>
+<p class="pp">The USA/UK/AU/CA template grid lives on the shipping page. Use the 29 Sep 2026 table here.</p>
+
+    <p class="pp">The estimator needs a member-state country code, not “EU”. <a href="https://taxation-customs.ec.europa.eu/vat-e-commerce_en">European Commission VAT e-commerce / IOSS</a> (often discussed around €150 for certain distance sales). Spain-only freight copy stays on hipobuy.es. <strong>No declared-value coaching.</strong> <a href="https://hipobuy.com/estimation">Open the official estimator</a> · <a href="/hipobuy-shipping-guide/">Shipping guide</a>.</p>
+    <p class="home-more"><a href="/hipobuy-shipping-guide/">Full shipping guide and calculator →</a>
+      · <a href="https://hipobuy.com/estimation">Official estimator →</a></p>
+  </section>
+</div>
 <article class="w2c-prose ac-whatis">
   <h2>What is the Hipobuy spreadsheet — and why Europe searches for it</h2>
   <p>The keyword <strong>hipobuy spreadsheet</strong> (~1,400 monthly volume in target markets; ~1.4K global, KD 28%) shows buyers want a curated list before using a China shopping agent. <strong>hipobuyspreadsheet.eu</strong> is an independent SEO hub — we do not sell products. The <strong>live spreadsheet with prices, QC photos, and seller links</strong> is on <a href="https://w2clinks.com/spreadsheet/" target="_blank" rel="noopener">w2clinks.com/spreadsheet/</a>; checkout via <a href="https://hipobuy.com/register?inviteCode=VGEICZNX0" target="_blank" rel="noopener sponsored">Hipobuy</a> with invite code <code>VGEICZNX0</code>.</p>

@@ -1191,9 +1191,22 @@ def _validate() -> None:
                 raise SystemExit(f"{key}/{slug} too short: {n}")
         home = homepage_html(key, d)
         hn = _wc(home)
-        print(f"{'OK' if hn >= 800 else 'SHORT':5} {key}/home words={hn}")
+        nfaq = len(re.findall(r'class="faq-item', home))
+        print(f"{'OK' if hn >= 800 else 'SHORT':5} {key}/home words={hn} faq={nfaq}")
         if hn < 800:
             raise SystemExit(f"{key}/home too short: {hn}")
+        if nfaq < 15:
+            raise SystemExit(f"{key}/home FAQ accordion {nfaq}, need 15")
+        for token in (
+            'id="catalog"',
+            'id="home-trust"',
+            'id="estimator-lab"',
+            'id="faq"',
+            'id="news"',
+            'id="lab"',
+        ):
+            if token not in home:
+                raise SystemExit(f"{key}/home missing {token}")
         essay = shipping_essay(key, d)
         en = _wc(essay)
         print(f"{'OK' if en >= 220 else 'SHORT':5} {key}/ship-essay words={en}")
@@ -1214,6 +1227,11 @@ def _put_media(client, sftp, host: str, bak: str, uploaded: list[str]) -> None:
 def main() -> None:
     _validate()
     if "--dry" in sys.argv:
+        for key, d in HOSTS.items():
+            home = homepage_html(key, d)
+            d["overlay"].parent.mkdir(parents=True, exist_ok=True)
+            d["overlay"].write_text(home, encoding="utf-8")
+            print("wrote", d["overlay"], "bytes", d["overlay"].stat().st_size)
         print("dry-run ok")
         return
     client = _connect()
