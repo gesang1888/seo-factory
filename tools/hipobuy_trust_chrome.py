@@ -576,7 +576,7 @@ def vol_calc_widget(key: str) -> str:
     var H=+document.getElementById('vol-h').value||0;
     var G=+document.getElementById('vol-g').value||0;
     var D=+document.getElementById('vol-d').value||8000;
-    var vol=Math.round(L*W*H/D);
+    var vol=Math.round(L*W*H/D*1000);
     var billed=Math.ceil(Math.max(G,vol)/100)*100;
     var el=document.getElementById('vol-out');
     if(el) el.innerHTML='{out_v}: <b>'+vol+' g</b> · {out_b}: <b>'+billed+' g</b>. {escape(title)} — not checkout.';
