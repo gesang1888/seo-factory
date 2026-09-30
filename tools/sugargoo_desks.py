@@ -592,6 +592,15 @@ def _catalog(key: str) -> str:
 (function(){{
   var PAPI='/api/products/';
   var q='';
+  var W2C_IMG='https://w2clinks.com';
+  function absImg(u){{
+    if(!u) return '';
+    u=String(u);
+    if(/^https?:\\/\\//i.test(u)) return u;
+    if(u.indexOf('//')===0) return 'https:'+u;
+    if(u.charAt(0)==='/') return W2C_IMG+u;
+    return W2C_IMG+'/'+u.replace(/^\\/+/, '');
+  }}
   function render(data){{
     var items=data.items||data.products||[];
     var g=document.getElementById('sg-grid');
@@ -602,7 +611,8 @@ def _catalog(key: str) -> str:
       var el=document.createElement('article');
       el.className='sg-card';
       var img=document.createElement('img');
-      img.src=it.image||''; img.alt=it.title||''; img.loading='lazy';
+      img.src=absImg(it.image||''); img.alt=it.title||''; img.loading='lazy';
+      img.referrerPolicy='no-referrer'; img.decoding='async';
       var b=document.createElement('div'); b.className='b';
       var t=document.createElement('div'); t.className='t'; t.textContent=it.title||'';
       var p=document.createElement('div'); p.className='pr'; p.textContent=(it.currency||'')+' '+(it.price||'');
