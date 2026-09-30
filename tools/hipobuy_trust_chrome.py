@@ -18,6 +18,8 @@ INVITE = "VGEICZNX0"
 SHOT_OFF = "/media/official-home-20260930.png"
 SHOT_EST = "/media/estimator-20260930.png"
 SHOT_CAT = "/media/at-spreadsheet-20260930.png"
+SHOT_WH = "/media/warehouse-qc-20260930.png"
+SHOT_REST = "/media/restricted-item-20260930.png"
 
 THEMES = {
     "at": ("#7c2d12", "#9a3412", "#f6efe6", "#fed7aa", "#ffedd5"),
@@ -518,6 +520,76 @@ def localize_cms_nav(html: str, key: str, d: dict) -> str:
     return html
 
 
+def vol_calc_widget(key: str) -> str:
+    """Geometry only: L×W×H / divisor vs actual grams. Not a checkout quote."""
+    if key == "at":
+        title = "Volumengewicht rechnen (kein Preis)"
+        note = (
+            "Nur Geometrie. Preis kennt nur der offizielle Schätzer. "
+            "Die meisten AT-Luftlinien teilen durch 8000; manche EUB-SKU durch 6000. "
+            "Fakturiert wird das Maximum, oft auf 100&nbsp;g aufgerundet."
+        )
+        lab_l, lab_w, lab_h, lab_g, lab_d = "Länge cm", "Breite cm", "Höhe cm", "Istgewicht g", "Teiler"
+        out_v, out_b = "Volumengewicht", "Fakturiert (max, 100 g)"
+    elif key == "nl":
+        title = "Volumgewicht berekenen (geen prijs)"
+        note = (
+            "Alleen meetkunde. De prijs staat in de officiële estimator. "
+            "De meeste NL-luchtlijnen delen door 8000; sommige EUB-SKU’s door 6000. "
+            "Factuur = maximum, vaak afgerond op 100&nbsp;g."
+        )
+        lab_l, lab_w, lab_h, lab_g, lab_d = "Lengte cm", "Breedte cm", "Hoogte cm", "Echt gewicht g", "Deler"
+        out_v, out_b = "Volumgewicht", "Gefactureerd (max, 100 g)"
+    else:
+        title = "Volumetric weight (not a price)"
+        note = (
+            "Geometry only. Live dollars sit in the official estimator. "
+            "Most air SKUs divide by 8000; some EUB products use 6000. "
+            "Billed = max(actual, volumetric), often rounded up to 100&nbsp;g."
+        )
+        lab_l, lab_w, lab_h, lab_g, lab_d = "Length cm", "Width cm", "Height cm", "Actual g", "Divisor"
+        out_v, out_b = "Volumetric", "Billed (max, 100 g)"
+    return f"""
+<div class="vol" id="vol-calc" style="border:1px solid var(--g5,#e5e5e5);border-radius:16px;padding:16px 18px;margin:16px 0">
+  <strong>{escape(title)}</strong>
+  <p class="pp">{note}</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px">
+    <label>{escape(lab_l)}<br><input id="vol-l" type="number" min="1" value="35" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>{escape(lab_w)}<br><input id="vol-w" type="number" min="1" value="25" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>{escape(lab_h)}<br><input id="vol-h" type="number" min="1" value="10" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>{escape(lab_g)}<br><input id="vol-g" type="number" min="1" value="1000" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>{escape(lab_d)}<br>
+      <select id="vol-d" style="width:100%;height:36px;border:1.5px solid #e5e5e5;border-radius:8px">
+        <option value="8000" selected>/8000</option>
+        <option value="6000">/6000</option>
+        <option value="5000">/5000</option>
+      </select>
+    </label>
+  </div>
+  <p class="pp" id="vol-out" style="margin-top:12px;background:#F6FBF8;padding:12px 14px;border-radius:10px"></p>
+</div>
+<script>
+(function(){{
+  function hipoVol(){{
+    var L=+document.getElementById('vol-l').value||0;
+    var W=+document.getElementById('vol-w').value||0;
+    var H=+document.getElementById('vol-h').value||0;
+    var G=+document.getElementById('vol-g').value||0;
+    var D=+document.getElementById('vol-d').value||8000;
+    var vol=Math.round(L*W*H/D);
+    var billed=Math.ceil(Math.max(G,vol)/100)*100;
+    var el=document.getElementById('vol-out');
+    if(el) el.innerHTML='{out_v}: <b>'+vol+' g</b> · {out_b}: <b>'+billed+' g</b>. {escape(title)} — not checkout.';
+  }}
+  ['vol-l','vol-w','vol-h','vol-g','vol-d'].forEach(function(id){{
+    var n=document.getElementById(id); if(n) n.addEventListener(id==='vol-d'?'change':'input', hipoVol);
+  }});
+  hipoVol();
+}})();
+</script>
+"""
+
+
 def nine_states(key: str) -> str:
     if key == "at":
         rows = [
@@ -782,8 +854,12 @@ def shipping_essay(key: str, d: dict) -> str:
 <p class="pp">EU-Orientierung oft 150&nbsp;€ IOSS für bestimmte Fernverkäufe. Darüber können Zölle greifen. Konkrete Sätze stehen nicht in dieser HTML. <a href="{d["customs"]}">BMF Zoll</a> · <a href="{d["ioss"]}">IOSS / Kommission</a>. HipoBuy veröffentlicht zusätzlich eine eigene Schwellen-Tabelle und kennzeichnet sie als aus dem Internet gesammelt und nur orientierend — wir kopieren daraus keine erfundenen Euro-Beträge. <strong>Keine Unterdeklaration.</strong></p>
 <h2 class="ph">Volumengewicht am Laborkarton</h2>
 <p class="pp">35×25×10&nbsp;cm = 8750&nbsp;cm³. Durch 8000 = 1,094&nbsp;kg, auf den meisten AT-Luftlinien 1100&nbsp;g. Istgewicht war 1000&nbsp;g. Es zählt das Maximum. Der Rechner darunter macht nur die Volumen-Rechnung; den Preis kennt nur der offizielle Schätzer am Büchertag.</p>
+{vol_calc_widget("at")}
 <h2 class="ph">Verpackung und Bündeln</h2>
-<p class="pp">Schuhkarton entfernen, Folie, Vakuumbeutel: die App listet kostenlose und kostenpflichtige Optionen. Einmal gepackt sind Materialkosten oft nicht erstattbar. Mehrere Bestellungen in einem Karton sparen das Anfangsgewicht — solange nichts als Einzelsendung markiert ist. Ab etwa 10&nbsp;kg wirkt ein Karton kommerzieller; das ist Erklärung, kein Trick.</p>
+<p class="pp">Ein Schuhkarton um 33×22×12&nbsp;cm ist 8712&nbsp;cm³ → 1089&nbsp;g Volumen → oft 1100&nbsp;g fakturiert. Ohne Karton 30×20×12 = 7200&nbsp;cm³ → 900&nbsp;g, <em>wenn</em> das Volumen noch vor dem Istgewicht liegt. Liegt das Istgewicht schon höher, ändert Entfernen der Schachtel nichts. Die App trennt kostenlose Optionen (Schachtel entfernen, Folie, mit Limit) von kostenpflichtigen (Vakuum, Ecken). Einmal gepackt sind Materialkosten oft nicht erstattbar; Abbruch nach Pack kann 10&nbsp;CNY kosten — das steht in der Plattform-Hilfe, nicht als Trick.</p>
+<p class="pp">Mehrere Bestellungen in einem Karton zahlen das Anfangsgewicht einmal. Die offizielle Statusseite (eigene Aufnahme 30 Sep 2026, „Order Status Display“) nennt 90 Tage kostenloses Lager ab „Stored“. Artikel mit Einzelversand-Flag lassen sich nicht bündeln. Ab etwa 10&nbsp;kg wirkt ein Karton kommerzieller; das ist Erklärung, kein Zolltrick.</p>
+{fig(SHOT_WH, "Offizielle Order Status Display, eigene Aufnahme 30 Sep 2026. Stored = 90 Tage kostenloses Lager — dann bündeln.")}
+{fig(SHOT_REST, "Offizielle Declaration of Prohibited Products, eigene Aufnahme 30 Sep 2026. Tabak, Alkohol, Arzneimittel reisen nicht.")}
 <p class="pp">USD-Ziffern: Währungsschalter ändert oft nur das Symbol. {shot}</p>
 <p class="pp"><a href="/hilfe/">Hilfe</a> · <a href="/neuigkeiten/">Neuigkeiten</a> · <a href="/ueber-uns/">Über uns</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
 """
@@ -800,8 +876,13 @@ def shipping_essay(key: str, d: dict) -> str:
 <p class="pp"><a href="{d["customs"]}">Belastingdienst Douane</a> · <a href="{d["ioss"]}">IOSS</a>. HipoBuy heeft zelf een drempeltabel die het als internet-compilatie en slechts indicatief labelt — wij verzinnen daar geen eurobedragen bij. <strong>Geen onderwaardering.</strong></p>
 <h2 class="ph">Volumgewicht</h2>
 <p class="pp">35×25×10 cm = 8750 cm³ / 8000 ≈ 1,094 kg, op de meeste NL-luchtlijnen 1100&nbsp;g tegen 1000&nbsp;g echt. De rekenmachine hieronder doet alleen die som; de prijs staat in de officiële estimator.</p>
+{vol_calc_widget("nl")}
 <h2 class="ph">Verpakking en bundelen</h2>
-<p class="pp">Schoenendoos eraf, folie, vacuüm: de app scheidt gratis en betaalde opties. Eenmaal ingepakt zijn materiaalkosten vaak niet terug. Bundelen spaart het startgewicht. Vanaf ongeveer 10 kg oogt een doos commerciëler voor de douane — uitleg, geen truc. PostNL of DHL moet op de live-SKU staan, niet alleen „goedkope lijn“. {shot}</p>
+<p class="pp">Een schoenendoos van ongeveer 33×22×12 cm is 8712 cm³ → 1089&nbsp;g volume → vaak 1100&nbsp;g. Zonder doos 30×20×12 = 7200 cm³ → 900&nbsp;g, alleen als volume nog wint van het echte gewicht. Gratis-met-limiet versus betaald (vacuüm, hoeken) staat in de app. Eenmaal ingepakt zijn materiaalkosten vaak niet terug.</p>
+<p class="pp">Bundelen spaart het startgewicht. Officiële statuspagina (eigen opname 30 sep 2026) noemt 90 dagen gratis opslag vanaf Stored. Items gemarkeerd voor individuele verzending bundel je niet. Vanaf ongeveer 10 kg oogt een doos commerciëler — uitleg, geen truc. PostNL of DHL moet op de live-SKU staan, niet alleen „goedkope lijn“.</p>
+{fig(SHOT_WH, "Officiële Order Status Display, eigen opname 30 sep 2026. Stored = 90 dagen gratis opslag.")}
+{fig(SHOT_REST, "Officiële Declaration of Prohibited Products, eigen opname 30 sep 2026. Tabak, alcohol, geneesmiddelen reizen niet.")}
+<p class="pp">{shot}</p>
 <p class="pp"><a href="/hulp/">Hulp</a> · <a href="/nieuws/">Nieuws</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
 """
     elif key == "us":
@@ -816,9 +897,14 @@ def shipping_essay(key: str, d: dict) -> str:
 <p class="pp">Last-mile may collect before delivery, plus a handling fee the estimator omits.</p>
 <p class="pp"><a href="{d["customs"]}">CBP duty overview</a>. HipoBuy’s own destination-threshold table is labelled as gathered from the internet and indicative — we do not copy a dollar de-minimis into this HTML. <strong>No under-declaration tips.</strong></p>
 <h2 class="ph">Volumetric weight</h2>
-<p class="pp">Lab carton 1000&nbsp;g / 35×25×10&nbsp;cm: USPS-ZF1 billed actual 1000&nbsp;g; some integrator SKUs billed 1100–2000&nbsp;g volumetric on the same carton. The calculator below only does L×W×H/8000; live dollars sit in the official estimator.</p>
+<p class="pp">Lab carton 1000&nbsp;g / 35×25×10&nbsp;cm: USPS-ZF1 billed actual 1000&nbsp;g; some integrator SKUs billed 1100–2000&nbsp;g volumetric on the same carton. The calculator below only does L×W×H/divisor; live dollars sit in the official estimator.</p>
+{vol_calc_widget("us")}
 <h2 class="ph">Packing and consolidation</h2>
-<p class="pp">Shoe-box removal and wrap options are in-app, some free with limits. After pack, material fees often do not refund. Consolidation saves the first-weight band. Around 10 kg a carton starts to look commercial. {shot}</p>
+<p class="pp">A typical shoe box ~33×22×12 cm is 8712 cm³ → 1089&nbsp;g volumetric → often billed 1100&nbsp;g at /8000. Remove the box to ~30×20×12 and you drop to 900&nbsp;g only if volume still beats actual grams. If actual already wins, shoe-box removal does nothing. In-app packing splits free-with-limits from paid wrap. After pack, material fees often do not refund.</p>
+<p class="pp">Consolidation pays the first-weight band once. Official Order Status Display (own capture 30 Sep 2026) states 90 days free storage from Stored. Items flagged for individual shipping do not consolidate. Around 10 kg a carton starts to look commercial — explanation, not a CBP trick.</p>
+{fig(SHOT_WH, "Official Order Status Display, own capture 30 Sep 2026. Stored = 90 days free storage — that is when you consolidate.")}
+{fig(SHOT_REST, "Official Declaration of Prohibited Products, own capture 30 Sep 2026. Tobacco, alcohol, medicines do not travel.")}
+<p class="pp">{shot}</p>
 <p class="pp"><a href="/help/">Help</a> · <a href="/news/">News</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
 """
     elif key == "eu":
@@ -834,15 +920,40 @@ def shipping_essay(key: str, d: dict) -> str:
 <p class="pp"><a href="{d["ioss"]}">European Commission VAT e-commerce</a>. HipoBuy’s own EU row in its threshold table is labelled indicative. We do not invent rates. <strong>No declared-value coaching.</strong></p>
 <h2 class="ph">Volumetric weight</h2>
 <p class="pp">Same lab carton as AT/NL/GB: 35×25×10 cm often bills 1100&nbsp;g at /8000. There is no EU destination code — pick ES, IE, IT… Spain-only line counts stay on hipobuy.es.</p>
+{vol_calc_widget("eu")}
 <h2 class="ph">Packing and consolidation</h2>
-<p class="pp">Packing options and warehouse storage limits are official-help facts and can change. Consolidation saves first-weight; a 10 kg carton can look commercial. IOSS/fiscal treatment is still a SKU you read the morning you book, not a reason to clone hipobuy.es here. {shot}</p>
+<p class="pp">Packing options and warehouse storage limits are official-help facts and can change. Consolidation saves first-weight; a 10 kg carton can look commercial. IOSS/fiscal treatment is still a SKU you read the morning you book, not a reason to clone hipobuy.es here. Spain-only line counts stay on hipobuy.es.</p>
+{fig(SHOT_WH, "Official Order Status Display, own capture 30 Sep 2026. Stored = 90 days free storage. Destination is still a member-state code, not this TLD.")}
+{fig(SHOT_REST, "Official Declaration of Prohibited Products, own capture 30 Sep 2026. Same list for every member state.")}
+<p class="pp">{shot}</p>
+<p class="pp"><a href="/help/">Help</a> · <a href="/news/">News</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
+"""
+    elif key == "ukhaul":
+        body = f"""
+<h2 class="ph" id="hmrc">HMRC — three SKU labels, educational</h2>
+<p class="pp">This Nominet haul log does not invent a GBP de-minimis. Import VAT and duty follow the carrier SKU you book the morning the carton leaves the warehouse. <a href="{d["customs"]}">GOV.UK goods sent from abroad</a> is the tax source. HipoBuy’s own UK threshold row is labelled as gathered from the internet and indicative — we do not copy a made-up pound figure into this HTML. <strong>No declared-value coaching.</strong></p>
+<h3 class="ph">Tax free</h3>
+<p class="pp">Marketed as no extra collection at the door. HMRC can still inspect the parcel. The label does not delete the procedure.</p>
+<h3 class="ph">Prepaid Duty</h3>
+<p class="pp">Duties are collected with freight, so the list price is higher and the doorstep bill should be quieter. Read the live SKU, not this paragraph.</p>
+<h3 class="ph">Duties Payable by Recipient</h3>
+<p class="pp">A cheaper list price is not a cheaper landed cost if last-mile collects VAT/duty plus a handling fee the estimator omits. Compare only lines that share the same tax mode.</p>
+<p class="pp">Northern Ireland is often another carrier product. Do not assume the GB-1 Royal Mail SKU covers Belfast. If the estimator destination picker offers a separate NI option, use it. Coupons stay on hipobuyspreadsheet.co.uk; this .uk host is the haul log.</p>
+<h2 class="ph">Volumetric weight</h2>
+<p class="pp">Lab carton 35×25×10 cm = 8750 cm³. At /8000 that is about 1.094 kg, billed 1100&nbsp;g on many Royal Mail / Evri air SKUs even when actual is 1000&nbsp;g. Some EUB products divide by 6000. The widget below is geometry, not a checkout quote — live dollars sit in the official estimator with destination United Kingdom.</p>
+{vol_calc_widget("ukhaul")}
+<h2 class="ph">Packing, storage, prohibited goods</h2>
+<p class="pp">A shoe box around 33×22×12 cm is 8712 cm³ → about 1100&nbsp;g billed at /8000. Removing the box only helps when volume still beats actual grams. After pack, material fees often stay. Evri versus Royal Mail is a last-mile reading on the live SKU, not a homepage slogan.</p>
+<p class="pp">Official Order Status Display (own capture 30 Sep 2026) lists Stored with 90 days free storage — that is when you consolidate a haul instead of shipping each find. Items flagged for individual shipping do not go in the same carton. Around 10 kg a box starts to look commercial; that is an explanation, not an HMRC trick.</p>
+{fig(SHOT_WH, "Official Order Status Display, own capture 30 Sep 2026. Stored = 90 days free storage on this haul log.")}
+{fig(SHOT_REST, "Official Declaration of Prohibited Products, own capture 30 Sep 2026. Tobacco, alcohol, medicines do not travel to a GB address either.")}
+<p class="pp">{shot}</p>
 <p class="pp"><a href="/help/">Help</a> · <a href="/news/">News</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
 """
     else:
-        ni = " Northern Ireland is often another carrier product." if key == "ukhaul" else " This .co.uk host still ranks coupons; haul-log dollars live on hipobuyspreadsheets.uk."
         body = f"""
 <h2 class="ph" id="hmrc">HMRC — three SKU labels, educational</h2>
-<p class="pp">UK import VAT/duty follow the carrier SKU.{ni}</p>
+<p class="pp">UK import VAT/duty follow the carrier SKU. This .co.uk host still ranks coupons; haul-log dollars live on hipobuyspreadsheets.uk.</p>
 <h3 class="ph">Tax free</h3>
 <p class="pp">Marketed as no extra collection at the door. HMRC can still inspect.</p>
 <h3 class="ph">Prepaid Duty</h3>
@@ -852,8 +963,10 @@ def shipping_essay(key: str, d: dict) -> str:
 <p class="pp"><a href="{d["customs"]}">GOV.UK goods sent from abroad</a>. HipoBuy’s own UK threshold row is labelled indicative. <strong>No declared-value coaching.</strong></p>
 <h2 class="ph">Volumetric weight</h2>
 <p class="pp">Lab carton 35×25×10 cm often billed 1100&nbsp;g on Royal Mail / Evri air SKUs. 1000&nbsp;g actual still loses to volume on many lines. The calculator below is geometry, not a checkout quote.</p>
+{vol_calc_widget(key)}
 <h2 class="ph">Packing and consolidation</h2>
-<p class="pp">Shoe-box removal can drop billed weight when volume leads; it does nothing when actual weight already wins. After pack, material fees often stay. Evri versus Royal Mail is a last-mile reading on the live SKU, not a homepage slogan. {shot}</p>
+<p class="pp">A shoe box around 33×22×12 cm is 8712 cm³ → about 1100&nbsp;g billed at /8000. Removing it only helps when volume still beats actual grams. After pack, material fees often stay. Evri versus Royal Mail is a last-mile reading on the live SKU, not a homepage slogan.</p>
+<p class="pp">Official Order Status Display (own capture 30 Sep 2026) lists Stored with 90 days free storage — that is when you consolidate a haul. Northern Ireland is often another carrier product. {shot}</p>
 <p class="pp"><a href="/help/">Help</a> · <a href="/news/">News</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
 """
     est_p = (

@@ -16,10 +16,64 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CMS_HOME = ROOT / "sites/hipobuy-shared/cms-home"
 
-from hipobuy_trust_chrome import EST, GLOSS, MAIL, labels  # noqa: E402
+from hipobuy_trust_chrome import (  # noqa: E402
+    EST,
+    GLOSS,
+    MAIL,
+    SHOT_EST,
+    SHOT_REST,
+    SHOT_WH,
+    fig,
+    labels,
+)
 
 INVITE = "VGEICZNX0"
 REG = f"https://hipobuy.com/register?inviteCode={INVITE}"
+
+HOME_META = {
+    "at": {
+        "title": "Mit HipoBuy nach Österreich bestellen — aus China auf eine AT-Adresse",
+        "desc": "Unabhängiger AT-Desk: Einkaufsagent, Katalog auf dieser Startseite, Volumengewicht, Zollquellen. Lab 29 Sep 2026. Keine Unterdeklaration.",
+        "h1": "Mit <em>HipoBuy</em> nach Österreich bestellen",
+        "hsub": "Aus China auf eine österreichische Straße: der Agent kauft und lagert, du buchst die Linie. Katalog, FAQ und Versandlabor stehen auf dieser Startseite.",
+        "hbg": "Lab 29 Sep 2026",
+    },
+    "nl": {
+        "title": "Met HipoBuy naar Nederland verzenden — kopen in China op een NL-adres",
+        "desc": "Onafhankelijke NL-desk: inkoopagent, catalogus op deze homepage, volumgewicht, douanebronnen. Lab 29 sep 2026. Geen onderwaardering.",
+        "h1": "Met <em>HipoBuy</em> naar Nederland verzenden",
+        "hsub": "Uit China naar een Nederlands huisadres: de agent koopt en slaat op, jij boekt de lijn. Catalogus, FAQ en verzendlab staan op deze homepage.",
+        "hbg": "Lab 29 sep 2026",
+    },
+    "uk": {
+        "title": "Buy from China to the UK with HipoBuy — coupon desk",
+        "desc": "Independent .co.uk coupon desk: catalogue on this homepage, GB estimator snapshot, HMRC sources. Lab 29 Sep 2026. No declared-value coaching.",
+        "h1": "Buy from China to the <em>UK</em> with HipoBuy",
+        "hsub": "Coupon desk on .co.uk. Destination in the estimator is a GB address. Catalogue, FAQ and shipping lab sit on this homepage.",
+        "hbg": "Lab 29 Sep 2026",
+    },
+    "eu": {
+        "title": "HipoBuy EU coupon desk — pick a member state, not a TLD",
+        "desc": "Independent EU coupon desk. The estimator needs ES, IE, IT… not “EU”. Spain freight stays on hipobuy.es. Lab 29 Sep 2026.",
+        "h1": "HipoBuy coupons for <em>EU</em> buyers",
+        "hsub": "This TLD is not a destination. Open the official estimator with a member-state country. Catalogue and FAQ stay on this homepage.",
+        "hbg": "Lab 29 Sep 2026",
+    },
+    "us": {
+        "title": "Buy from China to the United States with HipoBuy",
+        "desc": "Independent US desk: catalogue on this homepage, estimator snapshot, CBP sources. Lab 29 Sep 2026. No under-declaration tips.",
+        "h1": "Using HipoBuy to ship from China to the <em>US</em>",
+        "hsub": "Purchasing agent to a US street: two payments, warehouse photos, then an international SKU. Catalogue, FAQ and lab on this homepage.",
+        "hbg": "Lab 29 Sep 2026",
+    },
+    "ukhaul": {
+        "title": "HipoBuy UK haul log — ship from China to a GB address",
+        "desc": "Independent Nominet haul log, not the .co.uk coupon desk. Royal Mail / Evri snapshot 29 Sep 2026. No declared-value coaching.",
+        "h1": "Using HipoBuy to ship a <em>UK haul</em> from China",
+        "hsub": "Haul log on .uk. Destination is a GB address; Northern Ireland is often another SKU. Catalogue, FAQ and lab on this homepage.",
+        "hbg": "Lab 29 Sep 2026",
+    },
+}
 
 CATMAP = {
     "shoes": "SNEAKERS",
@@ -110,6 +164,9 @@ CAT_CSS = """
 .tw .mv{font-family:var(--m);font-weight:600;color:var(--acc);white-space:nowrap}
 .tw tr:last-child td{border-bottom:none}
 .tw code{font-family:var(--m);font-size:12px}
+figure.shot{margin:16px 0}
+figure.shot img{width:100%;max-width:920px;height:auto;border:1px solid var(--g5);border-radius:var(--rl);background:var(--g6)}
+figure.shot figcaption{font-size:13px;color:var(--g4);margin-top:6px;line-height:1.55}
 """
 
 SIDE_CATS = [
@@ -476,6 +533,114 @@ def _lab_home(key: str, d: dict, foot: str) -> str:
     return lab
 
 
+def _strip_junk(html: str) -> str:
+    html = re.sub(r"<!-- gsc-enrich-\d+ -->\s*", "", html)
+    html = re.sub(
+        r'<section class="[^"]*gsc-extra[^"]*"[\s\S]*?</section>\s*',
+        "",
+        html,
+    )
+    # Keyword-density primer: “~990/Monat … KD ~28%” + w2clinks jump. Catalogue
+    # already sits on this homepage; leave the original CMS cards/guides below.
+    html = re.sub(
+        r'<article class="w2c-prose ac-whatis">[\s\S]*?</article>\s*',
+        "",
+        html,
+    )
+    html = html.replace("Updated June 2026", "Lab 29 Sep 2026")
+    html = html.replace("Last verified June 4, 2026", "Lab 29 Sep 2026")
+    html = html.replace("Last verified June 4 2026", "Lab 29 Sep 2026")
+    html = html.replace("Updated daily &middot; 2026", "Lab 29 Sep 2026")
+    html = html.replace("Updated daily · 2026", "Lab 29 Sep 2026")
+    html = html.replace("declare realistically", "read the live SKU")
+    return html
+
+
+def _apply_hero(html: str, key: str) -> str:
+    m = HOME_META[key]
+    html = re.sub(r"<title>.*?</title>", f"<title>{m['title']}</title>", html, count=1, flags=re.S)
+    html = re.sub(
+        r'<meta name="description" content="[^"]*"',
+        f'<meta name="description" content="{escape(m["desc"])}"',
+        html,
+        count=1,
+    )
+    html = re.sub(
+        r'<meta property="og:title" content="[^"]*"',
+        f'<meta property="og:title" content="{escape(m["title"])}"',
+        html,
+        count=1,
+    )
+    html = re.sub(
+        r'<meta property="og:description" content="[^"]*"',
+        f'<meta property="og:description" content="{escape(m["desc"])}"',
+        html,
+        count=1,
+    )
+    html = re.sub(r"<h1>.*?</h1>", f"<h1>{m['h1']}</h1>", html, count=1, flags=re.S)
+    html = re.sub(
+        r'<p class="hsub">.*?</p>',
+        f'<p class="hsub">{m["hsub"]}</p>',
+        html,
+        count=1,
+        flags=re.S,
+    )
+    html = re.sub(
+        r'<div class="hbg">.*?</div>',
+        f'<div class="hbg">{escape(m["hbg"])}</div>',
+        html,
+        count=1,
+        flags=re.S,
+    )
+    return html
+
+
+def _nine_cms(key: str) -> str:
+    from hipobuy_trust_chrome import nine_states
+
+    raw = nine_states(key)
+    raw = raw.replace("<h2>", '<h2 class="stit">', 1)
+    raw = raw.replace("<p>", '<p class="ssub">', 1)
+    raw = raw.replace("<table>", '<div class="tw"><table>', 1)
+    raw = raw.replace("</table>", "</table></div>", 1)
+    return (
+        '<section class="sec" id="states" style="padding-top:28px">'
+        f"{raw}"
+        "</section>"
+    )
+
+
+def _official_shots(key: str) -> str:
+    if key == "at":
+        caps = (
+            "Offizieller Schätzer hipobuy.com/estimation, eigene Aufnahme 30 Sep 2026. Ziel Austria wählen — nicht Germany.",
+            "Offizielle Order Status Display (Lager / QC / Stored 90 Tage), eigene Aufnahme 30 Sep 2026. Labels bleiben englisch.",
+            "Offizielle Declaration of Prohibited Products, eigene Aufnahme 30 Sep 2026. Tabak, Alkohol, Arzneimittel reisen nicht.",
+        )
+        h, sub = "Offizielle Oberfläche, mit Datum", "Keine Stockfotos. Drei eigene Aufnahmen der Plattform am 30 Sep 2026."
+    elif key == "nl":
+        caps = (
+            "Officiële estimator hipobuy.com/estimation, eigen opname 30 sep 2026. Bestemming Netherlands, niet EU.",
+            "Officiële Order Status Display (magazijn / QC / Stored 90 dagen), eigen opname 30 sep 2026.",
+            "Officiële Declaration of Prohibited Products, eigen opname 30 sep 2026. Tabak, alcohol, geneesmiddelen reizen niet.",
+        )
+        h, sub = "Officiële schermen, met datum", "Geen stockfoto’s. Drie eigen opnames van het platform op 30 sep 2026."
+    else:
+        caps = (
+            "Official estimator hipobuy.com/estimation, own capture 30 Sep 2026. Destination is a country code, never a TLD.",
+            "Official Order Status Display (warehouse / QC / Stored 90 days), own capture 30 Sep 2026. Labels stay English.",
+            "Official Declaration of Prohibited Products, own capture 30 Sep 2026. Tobacco, alcohol, medicines do not travel.",
+        )
+        h, sub = "Official UI, dated", "Not stock photos. Three own captures of the platform on 30 Sep 2026."
+    return (
+        '<section class="sec" id="shots" style="padding-top:12px">'
+        f'<h2 class="stit">{escape(h)}</h2>'
+        f'<p class="ssub">{escape(sub)}</p>'
+        f"{fig(SHOT_EST, caps[0])}{fig(SHOT_WH, caps[1])}{fig(SHOT_REST, caps[2])}"
+        "</section>"
+    )
+
+
 def _trust_band(key: str, d: dict) -> str:
     L = labels(key)
     C = _band_copy(key)
@@ -501,7 +666,9 @@ def _trust_band(key: str, d: dict) -> str:
     customs = _customs_note(key, d, ship)
     return f"""
 <div id="home-trust">
-  <section class="sec" id="faq" style="padding-top:28px">
+  {_nine_cms(key)}
+  {_official_shots(key)}
+  <section class="sec" id="faq" style="padding-top:12px">
     <h2 class="stit">{escape(C["faq_h"])}</h2>
     <p class="ssub">{escape(C["faq_sub"]).strip()}</p>
     {"".join(faq_blocks)}
@@ -711,6 +878,8 @@ def build_cms_home(key: str, d: dict) -> str:
     if not src.is_file():
         raise FileNotFoundError(src)
     html = src.read_text(encoding="utf-8", errors="replace")
+    html = _apply_hero(html, key)
+    html = _strip_junk(html)
     html = html.replace("</style>", CAT_CSS + "\n</style>", 1)
     html = re.sub(r'<ul class="nl">.*?</ul>', _nav(key, d), html, count=1, flags=re.S)
     html = _drop_sheet_cta(html)

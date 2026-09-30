@@ -1189,6 +1189,8 @@ def _validate() -> None:
             print(f"{flag:5} {key}/{slug} words={n}{extra} {title[:50]}")
             if n < min_w:
                 raise SystemExit(f"{key}/{slug} too short: {n}")
+            if INVITE in title:
+                raise SystemExit(f"{key}/{slug} invite in title")
             wrapped = shell_page(
                 key,
                 d,
@@ -1221,14 +1223,35 @@ def _validate() -> None:
             'id="faq"',
             'id="news"',
             'id="lab"',
+            'id="states"',
+            'id="shots"',
+            "warehouse-qc-20260930.png",
+            "restricted-item-20260930.png",
         ):
             if token not in home:
                 raise SystemExit(f"{key}/home missing {token}")
+        title = re.search(r"<title>(.*?)</title>", home, flags=re.S)
+        if title and INVITE in title.group(1):
+            raise SystemExit(f"{key}/home invite in title")
+        if "gsc-extra" in home or "Updated June 2026" in home:
+            raise SystemExit(f"{key}/home junk layer still present")
+        if "ac-whatis" in home or "editor notes" in home.lower():
+            raise SystemExit(f"{key}/home leftover keyword/editor junk")
+        if "declare realistically" in home:
+            raise SystemExit(f"{key}/home leftover declare-realistically copy")
+        if key == "eu" and ("ES AIR CTT" in home or "58 líneas" in home):
+            raise SystemExit("eu homepage copied Spain lines")
         essay = shipping_essay(key, d)
         en = _wc(essay)
         print(f"{'OK' if en >= 220 else 'SHORT':5} {key}/ship-essay words={en}")
         if en < 200:
             raise SystemExit(f"{key}/ship-essay too short: {en}")
+        if key in ("at", "nl", "us", "ukhaul") and en < 280:
+            raise SystemExit(f"{key}/ship-essay still thin: {en}")
+        if key == "eu" and ("ES AIR CTT" in essay or "58 líneas" in essay or "58 lines for Spain" in essay):
+            raise SystemExit("eu essay copied Spain lines")
+        if "id=\"vol-calc\"" not in essay and "vol-calc" not in essay:
+            raise SystemExit(f"{key}/ship-essay missing volumetric calculator")
 
 
 def _put_media(client, sftp, host: str, bak: str, uploaded: list[str]) -> None:
