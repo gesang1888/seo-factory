@@ -15,6 +15,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from hipobuy_desk_copy import DATE, lab_block  # noqa: E402
+from hipobuy_trust_chrome import (  # noqa: E402
+    MAIL,
+    SHOT_EST,
+    fig,
+    homepage_html,
+    localize_cms_nav,
+    shell_page,
+    shipping_essay,
+)
 
 EST = "https://hipobuy.com/estimation"
 REG = "https://hipobuy.com/register?inviteCode=VGEICZNX0"
@@ -307,6 +316,16 @@ def help_at(d: dict) -> tuple[str, str, str]:
         _p(
             f"Nein. Code {INVITE} steht im Coupon-Artikel und wird in der App neu eingegeben."
         ),
+        _h3("Wie zahle ich?"),
+        _p(
+            "Die Plattform zeigt unter anderem PayPal, Visa, Mastercard und Guthaben-Aufladung. "
+            "Die offizielle FAQ erklärt Aufladen und Saldo-Rückerstattung — das steht nicht in diesem Desk."
+        ),
+        _h3("Warum restricted oder Preis 0?"),
+        _p(
+            "Der Herkunftslink ist für den Agentenkauf nicht verfügbar, oder der Preis ließ sich nicht lesen. "
+            "Ohne echten Preis und Varianten nicht bestellen. Transborder-Plattformen kauft HipoBuy laut eigener Hilfe nicht."
+        ),
         _h2("Schätzer und Tickets"),
         _p(
             f"Öffne <a href=\"{EST}\">hipobuy.com/estimation</a> mit Ziel Austria, nachdem QC-Fotos da sind. "
@@ -408,6 +427,16 @@ def help_nl(d: dict) -> tuple[str, str, str]:
         _p(
             f"Nee. Code {INVITE} staat op de coupon-URL en typ je opnieuw in de app."
         ),
+        _h3("Hoe betaal ik?"),
+        _p(
+            "PayPal, Visa, Mastercard en saldo-oplading staan op het officiële site. "
+            "Hoe je saldo terugvraagt staat in hun FAQ, niet hier."
+        ),
+        _h3("Waarom restricted of prijs 0?"),
+        _p(
+            "De bronlink is niet koopbaar via de agent, of de prijs liet zich niet lezen. "
+            "Zonder echte prijs en varianten niet bestellen."
+        ),
         _h2("Estimator en tickets"),
         _p(
             f'Open <a href="{EST}">hipobuy.com/estimation</a> met bestemming Netherlands nadat de QC-foto’s er zijn. '
@@ -504,6 +533,7 @@ def help_en(d: dict, flavour: str) -> tuple[str, str, str]:
             f"35×25×10&nbsp;cm, clothes/common goods."
         ),
         _h2(tax_h),
+        _h3("Who pays duties?"),
         _p(tax_b),
         _h2("Warehouse"),
         _h3("Can I combine orders?"),
@@ -522,6 +552,16 @@ def help_en(d: dict, flavour: str) -> tuple[str, str, str]:
         ),
         _h3("Invite in the title?"),
         _p(f"No. {INVITE} lives on the coupon URL and is re-typed in-app."),
+        _h3("How do I pay?"),
+        _p(
+            "The official site lists PayPal, Visa, Mastercard and wallet top-up. "
+            "Balance refunds are in their FAQ, not on this desk."
+        ),
+        _h3("Why restricted or price zero?"),
+        _p(
+            "The source link is not buyable through the agent, or the price could not be read. "
+            "Do not count on a card without a real price and variants. HipoBuy also says it cannot buy cross-border marketplace listings."
+        ),
         _h2("Estimator and tickets"),
         _p(_estimator_ticket(flavour, d)),
         _p(
@@ -582,6 +622,10 @@ def news_at(d: dict) -> tuple[str, str, str]:
             f"Die API lieferte <strong>{d['lines']} Linien</strong>. Günstigste carriable Zeile: "
             f"<code>{d['cheap']}</code> etwa ${d['usd']:.2f} ({d['days']} Tage, oft 1100&nbsp;g Volumen). "
             f"Express-EUCR lag wenige Dollar höher bei kürzerem Fenster. Das ist ein Snapshot, kein Checkout."
+        ),
+        fig(
+            SHOT_EST,
+            "Öffentlicher Schätzer hipobuy.com/estimation, eigene Aufnahme 30 Sep 2026. Ziel Austria, Gewicht, Maße.",
         ),
         _p(
             f"Für dich: filtere auf verfügbare Linien, bevor du Tage vergleichst. "
@@ -869,7 +913,8 @@ def about_at(d: dict) -> tuple[str, str, str]:
         _h2("Kontakt"),
         _p(
             "Wenn eine Laborspalte oder ein Link bricht, schreiben wir das mit Datum in Neuigkeiten. "
-            "Wir korrigieren nicht still. Dieser AT-Desk beantwortet keine Bestelltickets."
+            "Wir korrigieren nicht still. Dieser AT-Desk beantwortet keine Bestelltickets. "
+            f'Redaktion: <a href="mailto:{MAIL}">{MAIL}</a> (dieselbe Adresse wie hipobuy.es).'
         ),
         _p(
             "HipoBuy nennt in der Hilfe u. a. Hong Kong Jointown Trading Co., Limited (72090932), "
@@ -915,7 +960,8 @@ def about_nl(d: dict) -> tuple[str, str, str]:
         _h2("Contact"),
         _p(
             "Als een labkolom of een link stukgaat, zetten we dat met datum in Nieuws. "
-            "We herschrijven niet stiekem. Deze NL-desk beantwoordt geen besteltickets."
+            "We herschrijven niet stiekem. Deze NL-desk beantwoordt geen besteltickets. "
+            f'Redactie: <a href="mailto:{MAIL}">{MAIL}</a> (hetzelfde adres als hipobuy.es).'
         ),
         _p(
             "HipoBuy noemt in de help o.a. Hong Kong Jointown Trading Co., Limited (72090932) en "
@@ -980,7 +1026,8 @@ def about_en(d: dict, flavour: str) -> tuple[str, str, str]:
         _h2("Contact"),
         _p(
             "If a lab column or a link breaks, we date it on News. We do not silently rewrite old checks. "
-            "This desk does not answer order tickets."
+            f'This desk does not answer order tickets. Editorial: <a href="mailto:{MAIL}">{MAIL}</a> '
+            "(same inbox as hipobuy.es)."
         ),
         _p(
             "HipoBuy’s own help names Hong Kong Jointown Trading Co., Limited (72090932), "
@@ -994,91 +1041,8 @@ def about_en(d: dict, flavour: str) -> tuple[str, str, str]:
 
 
 def shipping_trust(d: dict, key: str) -> str:
-    est_p = (
-        f'<p class="pp"><a href="{EST}">Open the official HipoBuy estimator</a> with this country selected '
-        f"before you pay international freight. The table above is a snapshot from {DATE}, not checkout. "
-        "USD digits: switching the official currency selector has been observed to change the symbol without converting the number.</p>"
-        if d.get("dest")
-        else (
-            f'<p class="pp">The estimator needs a <strong>member-state country code</strong> (ES, IE, IT…), '
-            f'not “EU”. Open <a href="{EST}">{EST}</a>. Spain-only line copy belongs on hipobuy.es. '
-            "USD digits stay dollars even when the UI shows a euro sign.</p>"
-        )
-    )
-    if key == "at":
-        customs = (
-            f'<h2 class="ph" id="zoll">Zoll und MwSt — nur Erklärung</h2>'
-            f'<p class="pp">Wer Abgaben zahlt, steht auf der Live-SKU in drei englischen Labels: '
-            f"Tax free, Prepaid Duty, Duties Payable by Recipient. Im letzten Fall kann der Zusteller "
-            f"vor der Übergabe kassieren — inkl. einer Bearbeitungsgebühr, die der Schätzer oft nicht zeigt. "
-            f"„Tax free“ löscht nicht die Befugnis der Zollstelle zur Prüfung, nur wer den Vorgang trägt.</p>"
-            f'<p class="pp">EU-Orientierung oft 150&nbsp;€ für bestimmte Fernverkäufe (IOSS). Darüber können '
-            f"Zölle greifen. Konkrete Sätze stehen nicht in dieser HTML. "
-            f'<a href="{d["customs"]}">BMF Zoll</a> · '
-            f'<a href="{d["ioss"]}">IOSS / Kommission</a>. '
-            f"<strong>Keine Unterdeklaration.</strong></p>"
-            f'<p class="pp">USD-Ziffern: der Währungsschalter ändert oft nur das Symbol. Laborsätze hier in Dollar. '
-            f'<a href="/hilfe/">Hilfe</a> · <a href="/neuigkeiten/">Neuigkeiten</a> · '
-            f'<a href="/ueber-uns/">Über uns</a>.</p>'
-        )
-    elif key == "nl":
-        customs = (
-            f'<h2 class="ph" id="douane">Btw en douane — alleen uitleg</h2>'
-            f'<p class="pp">Invoer volgt de geboekte lijn. Drie labels in de estimator: Tax free, Prepaid Duty, '
-            f"Duties Payable by Recipient. Bij de laatste kan last-mile innen vóór bezorging, plus een "
-            f"mogelijke behandelingsfee die de estimator niet toont. Tax free schrapt niet de bevoegdheid "
-            f"van de douane om te controleren.</p>"
-            f'<p class="pp">EU-oriëntatie vaak 150&nbsp;€ (IOSS) voor bepaalde zendingen. Daarboven kunnen '
-            f"invoerrechten spelen. Geen verzonnen tarieven hier. "
-            f'<a href="{d["customs"]}">Belastingdienst Douane</a> · '
-            f'<a href="{d["ioss"]}">IOSS</a>. <strong>Geen onderwaardering.</strong></p>'
-            f'<p class="pp">USD-cijfers, euro-symbool. '
-            f'<a href="/hulp/">Hulp</a> · <a href="/nieuws/">Nieuws</a> · '
-            f'<a href="/over-ons/">Over ons</a>.</p>'
-        )
-    elif key == "us":
-        customs = (
-            f'<h2 class="ph" id="cbp">CBP — educational</h2>'
-            f'<p class="pp">US treatment follows the booked product. This desk does not invent a de-minimis '
-            f"dollar figure for your carton — HipoBuy’s own help table is labelled indicative and gathered "
-            f"from the internet. Read the SKU label (tax free / prepaid / payable by recipient) the morning you book.</p>"
-            f'<p class="pp"><a href="{d["customs"]}">CBP duty overview</a>. '
-            f"<strong>No under-declaration tips.</strong></p>"
-            f'<p class="pp">USD is native here. Still re-run <a href="{EST}">the estimator</a> after photos. '
-            f'<a href="/help/">Help</a> · <a href="/news/">News</a> · <a href="/who-we-are/">Who we are</a>.</p>'
-        )
-    elif key == "eu":
-        customs = (
-            f'<h2 class="ph" id="ioss">VAT / IOSS — educational</h2>'
-            f'<p class="pp">Pick a country in the estimator. IOSS is a SKU, not a TLD. The Commission explains '
-            f"the import one-stop shop for certain low-value distance sales (often discussed around €150). "
-            f"Above that, customs duty can apply. Spain-only line copy belongs on hipobuy.es.</p>"
-            f'<p class="pp"><a href="{d["ioss"]}">European Commission VAT e-commerce</a>. '
-            f"<strong>No declared-value coaching.</strong></p>"
-            f'<p class="pp"><a href="/help/">Help</a> · <a href="/news/">News</a> · '
-            f'<a href="/who-we-are/">Who we are</a>.</p>'
-        )
-    else:
-        ni = " Northern Ireland is often another carrier product." if key == "ukhaul" else " This .co.uk host still ranks coupons; haul-log dollars live on hipobuyspreadsheets.uk." if key == "uk" else ""
-        customs = (
-            f'<h2 class="ph" id="hmrc">HMRC — educational</h2>'
-            f'<p class="pp">UK import VAT/duty follow the carrier SKU.{ni} '
-            f"Read Tax free / Prepaid Duty / Duties Payable by Recipient on the live line. "
-            f"A cheaper list price on a recipient-pays SKU is not a cheaper landed cost.</p>"
-            f'<p class="pp"><a href="{d["customs"]}">GOV.UK goods sent from abroad</a>. '
-            f"<strong>No declared-value coaching.</strong></p>"
-            f'<p class="pp">USD lab digits. <a href="{EST}">Official estimator</a>. '
-            f'<a href="/help/">Help</a> · <a href="/news/">News</a> · '
-            f'<a href="/who-we-are/">Who we are</a>.</p>'
-        )
-    extra_lab = ""
-    if key == "uk" and d.get("dest") == "GB":
-        extra_lab = lab_block(
-            "GB",
-            "United Kingdom",
-            "Cheapest carriable on the lab day: HIPO-RoyalMail-GB-1 about $23.83. This .co.uk host still ranks coupons; the table is here so GBP landed cost is not a surprise.",
-        )
-    return extra_lab + est_p + customs
+    return shipping_essay(key, d)
+
 
 
 def wrap(base: str, *, canonical: str, title: str, desc: str, lang: str, article: str, crumb: str) -> str:
@@ -1141,12 +1105,17 @@ def wrap(base: str, *, canonical: str, title: str, desc: str, lang: str, article
 
 def patch_shipping(html: str, key: str, d: dict) -> str:
     block = shipping_trust(d, key)
+    html = re.sub(
+        r'(?s)<h2 class="ph" id="(?:zoll|douane|cbp|hmrc|ioss)">.*?(?=<h2 class="ph" id="calculator">)',
+        "",
+        html,
+        count=1,
+    )
     needle = '  <h2 class="ph" id="calculator">'
     if needle not in html:
         raise ValueError(f"{key}: calculator heading missing")
-    if "id=\"zoll\"" in html or "id=\"douane\"" in html or "id=\"cbp\"" in html or "id=\"hmrc\"" in html or "id=\"ioss\"" in html:
-        return html
     return html.replace(needle, block + "\n" + needle, 1)
+
 
 
 def pages_for(key: str, d: dict) -> dict[str, tuple[str, str, str, str]]:
@@ -1196,6 +1165,13 @@ def _run(client, cmd: str, timeout: int = 60) -> str:
     return (stdout.read() + stderr.read()).decode(errors="replace").strip()
 
 
+MEDIA = ROOT / "sites/hipobuy-shared/media"
+
+
+def _h3n(html: str) -> int:
+    return len(re.findall(r"<h3\b", html, flags=re.I))
+
+
 def _validate() -> None:
     for key, d in HOSTS.items():
         if d["host"].endswith(".net"):
@@ -1205,9 +1181,35 @@ def _validate() -> None:
             n = _wc(article)
             min_w = 280 if slug == d["slugs"]["about"] else 450
             flag = "OK" if n >= min_w else "SHORT"
-            print(f"{flag:5} {key}/{slug} words={n} {title[:56]}")
+            extra = ""
+            if slug == d["slugs"]["help"]:
+                q = _h3n(article)
+                extra = f" h3={q}"
+                if q < 15:
+                    raise SystemExit(f"{key}/{slug} need 15 questions, have {q}")
+            print(f"{flag:5} {key}/{slug} words={n}{extra} {title[:50]}")
             if n < min_w:
                 raise SystemExit(f"{key}/{slug} too short: {n}")
+        home = homepage_html(key, d)
+        hn = _wc(home)
+        print(f"{'OK' if hn >= 800 else 'SHORT':5} {key}/home words={hn}")
+        if hn < 800:
+            raise SystemExit(f"{key}/home too short: {hn}")
+        essay = shipping_essay(key, d)
+        en = _wc(essay)
+        print(f"{'OK' if en >= 220 else 'SHORT':5} {key}/ship-essay words={en}")
+        if en < 200:
+            raise SystemExit(f"{key}/ship-essay too short: {en}")
+
+
+def _put_media(client, sftp, host: str, bak: str, uploaded: list[str]) -> None:
+    remote_dir = f"/www/wwwroot/{host}/media"
+    _run(client, f"mkdir -p '{remote_dir}'")
+    for img in sorted(MEDIA.glob("*.png")):
+        remote = f"{remote_dir}/{img.name}"
+        sftp.put(str(img), remote)
+        uploaded.append(remote)
+        print("PUT", remote)
 
 
 def main() -> None:
@@ -1224,20 +1226,19 @@ def main() -> None:
     uploaded: list[str] = []
 
     for key, d in HOSTS.items():
-        with sftp.open(d["howto"]) as fh:
-            chrome = fh.read().decode("utf-8", "replace")
+        _put_media(client, sftp, d["host"], bak, uploaded)
         built = pages_for(key, d)
         for slug, (title, desc, article, crumb) in built.items():
             n = _wc(article)
             canonical = f"https://{d['host']}/{slug}/"
-            html = wrap(
-                chrome,
-                canonical=canonical,
+            html = shell_page(
+                key,
+                d,
                 title=title,
-                desc=desc.replace('"', "&quot;"),
-                lang=d["lang"],
-                article=article,
+                desc=desc,
+                canonical=canonical,
                 crumb=crumb,
+                inner=article,
             )
             local_dir = OUT / d["host"] / slug
             local_dir.mkdir(parents=True, exist_ok=True)
@@ -1257,21 +1258,34 @@ def main() -> None:
 
         with sftp.open(d["ship"]) as fh:
             ship_html = fh.read().decode("utf-8", "replace")
-        ship2 = patch_shipping(ship_html, key, d)
+        ship2 = localize_cms_nav(patch_shipping(ship_html, key, d), key, d)
         ship_local = OUT / d["host"] / "hipobuy-shipping-guide.html"
         ship_local.write_text(ship2, encoding="utf-8")
         _run(client, f"cp -a '{d['ship']}' '{bak}/{d['host']}-shipping.html'")
         sftp.put(str(ship_local), d["ship"])
         uploaded.append(d["ship"])
-        print("PUT", d["ship"], "trust-insert")
+        print("PUT", d["ship"], "essay+nav")
 
+        with sftp.open(d["howto"]) as fh:
+            howto_html = fh.read().decode("utf-8", "replace")
+        howto2 = localize_cms_nav(howto_html, key, d)
+        _run(client, f"cp -a '{d['howto']}' '{bak}/{d['host']}-howto.html'")
+        howto_local = OUT / d["host"] / "howto.html"
+        howto_local.parent.mkdir(parents=True, exist_ok=True)
+        howto_local.write_text(howto2, encoding="utf-8")
+        sftp.put(str(howto_local), d["howto"])
+        uploaded.append(d["howto"])
+        print("PUT", d["howto"], "local-nav")
+
+        home = homepage_html(key, d)
         overlay = d["overlay"]
-        if overlay.is_file():
-            remote_ov = f"/www/wwwroot/{d['host']}/index.html"
-            _run(client, f"cp -a '{remote_ov}' '{bak}/{d['host']}-index.html'")
-            sftp.put(str(overlay), remote_ov)
-            uploaded.append(remote_ov)
-            print("PUT overlay", d["host"])
+        overlay.parent.mkdir(parents=True, exist_ok=True)
+        overlay.write_text(home, encoding="utf-8")
+        remote_ov = f"/www/wwwroot/{d['host']}/index.html"
+        _run(client, f"cp -a '{remote_ov}' '{bak}/{d['host']}-index.html'")
+        sftp.put(str(overlay), remote_ov)
+        uploaded.append(remote_ov)
+        print("PUT overlay", d["host"], "words", _wc(home))
 
         # sitemap
         sm = f"/www/wwwroot/{d['host']}/sitemap.xml"
