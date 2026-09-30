@@ -192,7 +192,7 @@ def pack(key: str, d: dict) -> dict:
             ),
             "shots_h": "Superficie oficial, con fecha",
             "shots_lead": (
-                "El estimateur de SugarGoo era un cascarón SPA (~2 KB) si solo mirabas el HTML. "
+                "El estimador de SugarGoo era un cascarón SPA (~2 KB) si solo mirabas el HTML. "
                 "El 30 sep 2026 el navegador sí renderizó el formulario. No pegamos las 58 líneas "
                 "de España de otro agente."
             ),
@@ -214,14 +214,14 @@ def pack(key: str, d: dict) -> dict:
             "how_h": "Cómo trabajamos",
             "src_h": "Fuentes",
             "src_p": (
-                "Flete: estimateur público en sugargoo.com/freight-estimate, con fecha. Aduana: "
+                "Flete: estimador público en sugargoo.com/freight-estimate, con fecha. Aduana: "
                 "fuentes oficiales del país de destino, enlazadas en los artículos que ya rankean. "
                 "Lo que no hemos comprobado no se afirma."
             ),
             "why_h": "Por qué hay pocos euros en el texto",
             "why_p": (
                 "Las tarifas cambian cada semana. Un número copiado aquí estaría mal mañana. Por eso "
-                "el estimateur oficial más una captura con fecha, no una tabla inventada."
+                "el estimador oficial más una captura con fecha, no una tabla inventada."
             ),
             "inv_h": "Invite",
             "inv_p": (

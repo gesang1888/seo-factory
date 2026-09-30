@@ -1145,7 +1145,7 @@ def _news_items(key: str, d: dict) -> list[tuple[str, str]]:
              "El blog oficial de SugarGoo: 100 días gratis en pedidos de compra desde Packing Center — no la cifra 90 de otro agente."),
             ("Check 5 · URLs que ya posicionan",
              " /aduana-iva-espana/ y /sugargoo-coupons/ se conservan. Esta novedad no las pisa."),
-            ("Check 6 · 30 sep 2026 · SPA del estimateur y página Sobre",
+            ("Check 6 · 30 sep 2026 · SPA del estimador y página Sobre",
              "El HTML crudo de freight-estimate era ~2 KB. El navegador del 30 sep 2026 sí renderizó el formulario; la captura está en /media/. Sobre nosotros es página propia, no un ancla."),
         ]
     if key == "fr":
