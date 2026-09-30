@@ -3,7 +3,9 @@
 
 Puts catalogue on /, Inter + existing sugargoo-theme.css (not Georgia, not HipoBuy green).
 Does not overwrite coupons / GST / CBSA / de-minimis / now.com html articles.
-Adds independent Help/News pages (local slugs, same CMS chrome).
+Adds independent Help/News/About pages (local slugs, same CMS chrome).
+Homepage editorial: agent is not a shop, spreadsheet is not Excel, Restricted items, 16-cat wall.
+Dated official SPA screenshots under /media/ (freight-estimate is no longer a 2 KB shell).
 Does not 301 country TLDs together or onto sugargoo.ca / sugargoo.es.
 Invite/coupon codes stay off titles.
 No declared-value coaching.
@@ -17,6 +19,11 @@ import sys
 import time
 from html import escape
 from pathlib import Path
+
+_TOOLS = Path(__file__).resolve().parent
+if str(_TOOLS) not in sys.path:
+    sys.path.insert(0, str(_TOOLS))
+from sugargoo_desk_trust import CAT_LABELS, CAT_WALL, loc as _loc, pack as _trust_pack
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "sites"
@@ -310,6 +317,19 @@ details.sg-faq summary{cursor:pointer;font-weight:600}
 figure.shot{margin:16px 0}
 figure.shot img{width:100%;max-width:920px;height:auto;border:1px solid #e5e7eb;border-radius:12px;background:#f8fafc}
 figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
+.sg-split{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:start;margin:8px 0 4px}
+@media(max-width:860px){.sg-split{grid-template-columns:1fr}}
+.sg-prose p{color:#334155;line-height:1.75;margin:0 0 12px}
+.sg-prose .lead{font-size:17px;color:#1e293b}
+.sg-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px}
+a.sg-cat{position:relative;display:block;border-radius:12px;overflow:hidden;color:#fff;text-decoration:none;background:#0f172a}
+a.sg-cat img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+a.sg-cat .b{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(transparent,rgba(15,23,42,.78))}
+a.sg-cat strong{display:block;font-size:14px}
+a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
+.sg-about h2{font-size:22px;margin:28px 0 8px}
+.sg-about h3{font-size:16px;margin:18px 0 6px}
+.sg-about p{color:#334155;line-height:1.75;margin:0 0 12px}
 """
 
 
@@ -380,21 +400,56 @@ def _locale_switcher(key: str, d: dict) -> str:
 
 
 def _trust_paths(key: str) -> dict:
-    """Local Help/News slugs, HipoBuy-country style (ES gold uses Ayuda/Novedades labels)."""
+    """Local Help/News/About slugs, HipoBuy-country style (ES gold uses Ayuda/Novedades labels)."""
     if key == "es":
-        return {"help": "ayuda", "news": "novedades", "help_lab": "Ayuda", "news_lab": "Novedades"}
+        return {
+            "help": "ayuda",
+            "news": "novedades",
+            "about": "sobre-nosotros",
+            "help_lab": "Ayuda",
+            "news_lab": "Novedades",
+            "about_lab": "Sobre",
+        }
     if key == "fr":
-        return {"help": "aide", "news": "actualites", "help_lab": "Aide", "news_lab": "Actualités"}
+        return {
+            "help": "aide",
+            "news": "actualites",
+            "about": "a-propos",
+            "help_lab": "Aide",
+            "news_lab": "Actualités",
+            "about_lab": "À propos",
+        }
     if key in ("de", "at"):
-        return {"help": "hilfe", "news": "neuigkeiten", "help_lab": "Hilfe", "news_lab": "Neuigkeiten"}
+        return {
+            "help": "hilfe",
+            "news": "neuigkeiten",
+            "about": "ueber-uns",
+            "help_lab": "Hilfe",
+            "news_lab": "Neuigkeiten",
+            "about_lab": "Über uns",
+        }
     if key == "nl":
-        return {"help": "hulp", "news": "nieuws", "help_lab": "Hulp", "news_lab": "Nieuws"}
-    return {"help": "help", "news": "news", "help_lab": "Help", "news_lab": "News"}
+        return {
+            "help": "hulp",
+            "news": "nieuws",
+            "about": "over-ons",
+            "help_lab": "Hulp",
+            "news_lab": "Nieuws",
+            "about_lab": "Over ons",
+        }
+    return {
+        "help": "help",
+        "news": "news",
+        "about": "who-we-are",
+        "help_lab": "Help",
+        "news_lab": "News",
+        "about_lab": "About",
+    }
 
 
 def _nav(key: str, d: dict, page: str = "home") -> str:
     t = _trust_paths(key)
-    hp, np = f"/{t['help']}/", f"/{t['news']}/"
+    hp, np, ap = f"/{t['help']}/", f"/{t['news']}/", f"/{t['about']}/"
     if key == "fr":
         items = [
             ("/", "Accueil", page == "home"),
@@ -402,6 +457,7 @@ def _nav(key: str, d: dict, page: str = "home") -> str:
             ("/sugargoo-coupons/", "Coupons", page == "coupons"),
             (hp, t["help_lab"], page == "help"),
             (np, t["news_lab"], page == "news"),
+            (ap, t["about_lab"], page == "about"),
             ("/#lab", "Livraison", page == "lab"),
         ]
         cta, browse = "Voir le catalogue", "Spreadsheet complète"
@@ -412,6 +468,7 @@ def _nav(key: str, d: dict, page: str = "home") -> str:
             ("/sugargoo-coupons/", "Cupones", page == "coupons"),
             (hp, t["help_lab"], page == "help"),
             (np, t["news_lab"], page == "news"),
+            (ap, t["about_lab"], page == "about"),
             ("/#lab", "Envíos", page == "lab"),
         ]
         cta, browse = "Ver catálogo", "Spreadsheet completa"
@@ -422,6 +479,7 @@ def _nav(key: str, d: dict, page: str = "home") -> str:
             ("/sugargoo-coupons/", "Coupons", page == "coupons"),
             (hp, t["help_lab"], page == "help"),
             (np, t["news_lab"], page == "news"),
+            (ap, t["about_lab"], page == "about"),
             ("/#lab", "Versand", page == "lab"),
         ]
         cta, browse = "Katalog", "Ganzes Spreadsheet"
@@ -432,6 +490,7 @@ def _nav(key: str, d: dict, page: str = "home") -> str:
             ("/sugargoo-coupons/", "Coupons", page == "coupons"),
             (hp, t["help_lab"], page == "help"),
             (np, t["news_lab"], page == "news"),
+            (ap, t["about_lab"], page == "about"),
             ("/#lab", "Verzending", page == "lab"),
         ]
         cta, browse = "Catalogus", "Volledige spreadsheet"
@@ -442,6 +501,7 @@ def _nav(key: str, d: dict, page: str = "home") -> str:
             ("/best-sugargoo-spreadsheet-2026.html", "Spreadsheet", page == "sheet"),
             (hp, t["help_lab"], page == "help"),
             (np, t["news_lab"], page == "news"),
+            (ap, t["about_lab"], page == "about"),
             ("/#lab", "Shipping", page == "lab"),
         ]
         cta, browse = "Browse catalogue", "Full spreadsheet"
@@ -452,6 +512,7 @@ def _nav(key: str, d: dict, page: str = "home") -> str:
             ("/sugargoo-coupons/", "Coupons", page == "coupons"),
             (hp, t["help_lab"], page == "help"),
             (np, t["news_lab"], page == "news"),
+            (ap, t["about_lab"], page == "about"),
             ("/#lab", "Shipping", page == "lab"),
         ]
         cta, browse = "Browse catalogue", "Full spreadsheet"
@@ -533,6 +594,7 @@ def _footer(key: str, d: dict) -> str:
       <div class="footer-col"><h5>On this host</h5><ul>
         <li><a href="/{_trust_paths(key)['help']}/">{escape(_trust_paths(key)['help_lab'])}</a></li>
         <li><a href="/{_trust_paths(key)['news']}/">{escape(_trust_paths(key)['news_lab'])}</a></li>
+        <li><a href="/{_trust_paths(key)['about']}/">{escape(_trust_paths(key)['about_lab'])}</a></li>
         {''.join(f'<li><a href="{escape(h)}">{escape(l)}</a></li>' for h,l in d['keep'])}
       </ul></div>
       <div class="footer-col"><h5>Official</h5><ul>
@@ -633,13 +695,24 @@ def _catalog(key: str) -> str:
       document.getElementById('sg-grid').innerHTML='<p>Catalogue API not reachable on this host yet.</p>';
     }});
   }}
+  function applyQ(next){{
+    q=next||'';
+    var inp=document.getElementById('sg-q');
+    if(inp) inp.value=q;
+    document.querySelectorAll('.sg-chips button').forEach(function(x){{
+      x.classList.toggle('on', (x.getAttribute('data-q')||'')===q);
+    }});
+    load();
+  }}
   document.querySelectorAll('.sg-chips button').forEach(function(b){{
-    b.addEventListener('click', function(){{
-      document.querySelectorAll('.sg-chips button').forEach(function(x){{x.classList.remove('on');}});
-      b.classList.add('on');
-      q=b.getAttribute('data-q')||'';
-      document.getElementById('sg-q').value=q;
-      load();
+    b.addEventListener('click', function(){{ applyQ(b.getAttribute('data-q')||''); }});
+  }});
+  document.querySelectorAll('a.sg-cat[data-q]').forEach(function(a){{
+    a.addEventListener('click', function(ev){{
+      ev.preventDefault();
+      applyQ(a.getAttribute('data-q')||'');
+      var cat=document.getElementById('catalog');
+      if(cat) cat.scrollIntoView({{behavior:'smooth',block:'start'}});
     }});
   }});
   var inp=document.getElementById('sg-q');
@@ -1072,6 +1145,8 @@ def _news_items(key: str, d: dict) -> list[tuple[str, str]]:
              "El blog oficial de SugarGoo: 100 días gratis en pedidos de compra desde Packing Center — no la cifra 90 de otro agente."),
             ("Check 5 · URLs que ya posicionan",
              " /aduana-iva-espana/ y /sugargoo-coupons/ se conservan. Esta novedad no las pisa."),
+            ("Check 6 · 30 sep 2026 · SPA del estimateur y página Sobre",
+             "El HTML crudo de freight-estimate era ~2 KB. El navegador del 30 sep 2026 sí renderizó el formulario; la captura está en /media/. Sobre nosotros es página propia, no un ancla."),
         ]
     if key == "fr":
         return [
@@ -1085,6 +1160,8 @@ def _news_items(key: str, d: dict) -> list[tuple[str, str]]:
              "Blog officiel SugarGoo : 100 jours gratuits à partir du Packing Center pour les ordres d’achat."),
             ("Check 5 · URL déjà classées",
              "/sugargoo-coupons/ et /sugargoo-review/ restent. Cette page actualités ne les écrase pas."),
+            ("Check 6 · 30 sept. 2026 · SPA estimateur et page À propos",
+             "Le HTML brut de freight-estimate faisait ~2 ko. Le navigateur du 30 sept. 2026 a rendu le formulaire ; capture dans /media/. À propos est une page, pas une ancre."),
         ]
     if key in ("de", "at"):
         land = "Österreich" if key == "at" else "Deutschland"
@@ -1099,6 +1176,8 @@ def _news_items(key: str, d: dict) -> list[tuple[str, str]]:
              "Offizieller SugarGoo-Blog: 100 Tage gratis ab Packing Center bei Kaufaufträgen."),
             ("Check 5 · bereits rankende URLs",
              "Coupon- und Spreadsheet-Artikel bleiben. Diese Neuigkeiten-Seite überschreibt sie nicht."),
+            ("Check 6 · 30. Sep 2026 · SPA-Schätzer und Über uns",
+             "Roh-HTML von freight-estimate war ~2 KB. Der Browser am 30 Sep 2026 hat das Formular gerendert; Aufnahme unter /media/. Über uns ist eine eigene Seite."),
         ]
     if key == "nl":
         return [
@@ -1112,6 +1191,8 @@ def _news_items(key: str, d: dict) -> list[tuple[str, str]]:
              "Officiële SugarGoo-blog: 100 dagen gratis vanaf Packing Center voor kooporders."),
             ("Check 5 · URL’s die al ranken",
              "Coupon- en BTW-artikelen blijven. Deze nieuwspagina overschrijft ze niet."),
+            ("Check 6 · 30 sep 2026 · SPA-estimator en Over ons",
+             "Ruwe HTML van freight-estimate was ~2 KB. De browser op 30 sep 2026 renderde het formulier; opname in /media/. Over ons is een eigen pagina."),
         ]
     if key == "now":
         return [
@@ -1125,6 +1206,8 @@ def _news_items(key: str, d: dict) -> list[tuple[str, str]]:
              "Official SugarGoo blog: 100 free days on purchasing orders from Packing Center."),
             ("Check 5 · html articles kept",
              "Coupon, Reddit, legit and spreadsheet html files were not overwritten."),
+            ("Check 6 · 30 Sep 2026 · SPA estimator and About page",
+             "Raw HTML of freight-estimate was ~2 KB. The 30 Sep 2026 browser rendered the form; capture in /media/. /who-we-are/ is its own page, not an anchor."),
         ]
     extra = {
         "us": "Ranked de-minimis, USPS times and coupons URLs stay.",
@@ -1142,6 +1225,8 @@ def _news_items(key: str, d: dict) -> list[tuple[str, str]]:
         ("Check 4 · packing center 100 days",
          "Official SugarGoo blog: 100 free days on purchasing orders from Packing Center — not a 90-day figure from another agent."),
         ("Check 5 · ranked URLs kept", extra),
+        ("Check 6 · 30 Sep 2026 · SPA estimator and About page",
+         "Raw HTML of freight-estimate was ~2 KB. The 30 Sep 2026 browser rendered the form; capture lives under /media/. /who-we-are/ is its own page."),
     ]
 
 
@@ -1210,6 +1295,124 @@ def build_news(key: str) -> str:
     return html
 
 
+def _prose_agent(key: str, d: dict) -> str:
+    p = _trust_pack(key, d)
+    t = _trust_paths(key)
+    return f"""<section class="sg-sec" id="agent"><div class="sg-split">
+  <div class="sg-prose">
+    <h2>{escape(p['agent_h'])}</h2>
+    <p class="lead">{escape(p['agent_lead'])}</p>
+    <p>{escape(p['agent_p'])}</p>
+    <p><a class="btn btn-primary" href="#catalog">{escape(p['agent_btn'])}</a>
+    <a class="btn btn-outline" href="/{t['about']}/">{escape(t['about_lab'])}</a></p>
+  </div>
+  <figure class="shot">
+    <img src="/media/official-home-20260930.jpg" alt="{escape(p['agent_cap'])}" width="1400" height="1069" loading="lazy" decoding="async">
+    <figcaption>{escape(p['agent_cap'])}</figcaption>
+  </figure>
+</div></section>
+"""
+
+
+def _prose_sheet(key: str, d: dict) -> str:
+    p = _trust_pack(key, d)
+    return f"""<section class="sg-sec" id="sheet-explain"><div class="sg-prose">
+  <h2>{escape(p['sheet_h'])}</h2>
+  <p class="lead">{escape(p['sheet_lead'])}</p>
+  <p>{escape(p['sheet_p'])}</p>
+  <p><a class="btn btn-outline" href="#catalog">{escape(p['sheet_btn'])}</a>
+  <a class="btn btn-outline" href="{W2C}" target="_blank" rel="noopener">w2clinks</a></p>
+</div></section>
+"""
+
+
+def _cat_wall(key: str, d: dict) -> str:
+    p = _trust_pack(key, d)
+    labels = CAT_LABELS[_loc(key)]
+    tiles = []
+    for slug, fn in CAT_WALL:
+        lab = labels[slug]
+        tiles.append(
+            f'<a class="sg-cat" href="#catalog" data-q="{escape(slug)}">'
+            f'<img src="/img/cat/{escape(fn)}" alt="{escape(lab)} · {escape(slug)}" width="560" height="560" loading="lazy" decoding="async">'
+            f'<div class="b"><strong>{escape(lab)}</strong><span>{escape(slug)}</span></div></a>'
+        )
+    return f"""<section class="sg-sec" id="cat-wall">
+  <h2>{escape(p['wall_h'])}</h2>
+  <p class="ssub">{escape(p['wall_lead'])}</p>
+  <div class="sg-cats">{''.join(tiles)}</div>
+</section>
+"""
+
+
+def _prose_restricted(key: str, d: dict) -> str:
+    p = _trust_pack(key, d)
+    t = _trust_paths(key)
+    return f"""<section class="sg-sec" id="restricted"><div class="sg-split">
+  <div class="sg-prose">
+    <h2>{escape(p['rest_h'])}</h2>
+    <p class="lead">{escape(p['rest_lead'])}</p>
+    <p>{escape(p['rest_p'])}</p>
+    <p><a class="btn btn-outline" href="/{t['help']}/">{escape(p['rest_btn'])}</a></p>
+  </div>
+  <figure class="shot">
+    <img src="/media/help-restricted-20260930.jpg" alt="{escape(p['rest_cap'])}" width="1400" height="1166" loading="lazy" decoding="async">
+    <figcaption>{escape(p['rest_cap'])}</figcaption>
+  </figure>
+</div></section>
+"""
+
+
+def _shots(key: str, d: dict) -> str:
+    p = _trust_pack(key, d)
+    return f"""<section class="sg-sec" id="shots">
+  <h2>{escape(p['shots_h'])}</h2>
+  <p class="ssub">{escape(p['shots_lead'])}</p>
+  <figure class="shot">
+    <img src="/media/estimator-20260930.jpg" alt="{escape(p['shot_est_cap'])}" width="1400" height="1069" loading="lazy" decoding="async">
+    <figcaption>{escape(p['shot_est_cap'])}</figcaption>
+  </figure>
+</section>
+"""
+
+
+def build_about(key: str) -> str:
+    d = HOSTS[key]
+    t = _trust_paths(key)
+    p = _trust_pack(key, d)
+    if INVITE in p["about_title"] or COUPON in p["about_title"]:
+        raise RuntimeError(f"{key} about: code in title")
+    html = _chrome_head(key, d, p["about_title"], p["about_desc"], path=f"/{t['about']}/")
+    html += _header(key, d, page="about")
+    html += f"""<section class="sg-hero">
+  <div class="hbg">Lab {DATE} · {escape(t['about_lab'])}</div>
+  <h1>{p['about_h1']}</h1>
+  <p class="hsub">{p['about_lead']}</p>
+  <p class="eu-badge">{escape(d['badge'])}</p>
+</section>
+<article class="sg-sec sg-about">
+  <h2>{escape(p['how_h'])}</h2>
+  <h3>{escape(p['src_h'])}</h3>
+  <p>{escape(p['src_p'])}</p>
+  <h3>{escape(p['why_h'])}</h3>
+  <p>{escape(p['why_p'])}</p>
+  <h3>{escape(p['inv_h'])}</h3>
+  <p>{escape(p['inv_p'])}</p>
+  <h2>{escape(p['not_h'])}</h2>
+  <p>{escape(p['not_p'])}</p>
+  <h2>{escape(p['co_h'])}</h2>
+  <p>{escape(p['co_p'])}</p>
+  <p>{escape(p['legal'])}</p>
+  <p><a class="btn btn-outline" href="/{t['help']}/">{escape(t['help_lab'])}</a>
+  <a class="btn btn-outline" href="/{t['news']}/">{escape(t['news_lab'])}</a>
+  <a class="btn btn-outline" href="/">← /</a>
+  <a class="btn btn-primary" href="{REG}" target="_blank" rel="noopener sponsored">{escape({"fr":"S’inscrire","es":"Registrarse","de":"Registrieren","at":"Registrieren","nl":"Registreren"}.get(key,"Register"))}</a></p>
+</article>
+"""
+    html += _footer(key, d)
+    return html
+
+
 def build_home(key: str) -> str:
     d = HOSTS[key]
     m = HOME_META[key]
@@ -1229,8 +1432,13 @@ def build_home(key: str) -> str:
   </div>
 </section>
 """
+    html += _prose_agent(key, d)
+    html += _prose_sheet(key, d)
+    html += _cat_wall(key, d)
     html += _catalog(key)
     html += _nine(key)
+    html += _prose_restricted(key, d)
+    html += _shots(key, d)
     html += _lab(key, d)
     html += _keep(d)
     html += _faq_block(key, d)
@@ -1252,9 +1460,28 @@ def _validate() -> None:
             raise SystemExit(f"{key}: junk/Georgia leftover")
         if "#00C853" in html:
             raise SystemExit(f"{key}: HipoBuy green leaked")
-        for tok in ('id="catalog"', 'id="states"', 'id="vol-calc"', 'id="faq"', "sugargoo-theme.css", "/api/products/"):
+        for tok in (
+            'id="catalog"',
+            'id="states"',
+            'id="vol-calc"',
+            'id="faq"',
+            'id="agent"',
+            'id="sheet-explain"',
+            'id="restricted"',
+            'id="cat-wall"',
+            'id="shots"',
+            "sugargoo-theme.css",
+            "/api/products/",
+            "/img/cat/sneakers.jpg",
+            "/media/estimator-20260930.jpg",
+            "/media/official-home-20260930.jpg",
+            "/media/help-restricted-20260930.jpg",
+        ):
             if tok not in html:
                 raise SystemExit(f"{key}: missing {tok}")
+        ncat = len(re.findall(r"class=\"sg-cat\"", html))
+        if ncat != 16:
+            raise SystemExit(f"{key}: cat wall {ncat}")
         nfaq = len(re.findall(r"class=\"sg-faq\"", html))
         if nfaq < 15:
             raise SystemExit(f"{key}: faq {nfaq}")
@@ -1265,10 +1492,10 @@ def _validate() -> None:
         if "locale-switcher" not in html:
             raise SystemExit(f"{key}: missing locale-switcher")
         t = _trust_paths(key)
-        if f"/{t['help']}/" not in html or f"/{t['news']}/" not in html:
-            raise SystemExit(f"{key}: home missing help/news nav")
+        if f"/{t['help']}/" not in html or f"/{t['news']}/" not in html or f"/{t['about']}/" not in html:
+            raise SystemExit(f"{key}: home missing help/news/about nav")
         n = _wc(html)
-        print(f"{'OK' if n>=600 else 'SHORT':5} {key}/home words={n} faq={nfaq} {title[:56]}")
+        print(f"{'OK' if n>=600 else 'SHORT':5} {key}/home words={n} faq={nfaq} cats={ncat} {title[:56]}")
         if n < 500:
             raise SystemExit(f"{key} too short")
 
@@ -1294,6 +1521,24 @@ def _validate() -> None:
             raise SystemExit(f"{key} news h2 {hn}")
         print(f"OK    {key}/help words={_wc(help_html)} faq={hf}")
         print(f"OK    {key}/news words={_wc(news_html)} h2={hn}")
+
+        about_html = build_about(key)
+        at = re.search(r"<title>(.*?)</title>", about_html, flags=re.S).group(1)
+        if INVITE in at or COUPON in at:
+            raise SystemExit(f"{key} about: code in title")
+        if "Georgia" in about_html or "#00C853" in about_html or "gsc-editor-notes" in about_html:
+            raise SystemExit(f"{key} about: junk")
+        if "sugargoo-theme.css" not in about_html or "locale-switcher" not in about_html:
+            raise SystemExit(f"{key} about: chrome")
+        if f"/{t['about']}/" not in about_html:
+            raise SystemExit(f"{key} about: canonical slug")
+        if key == "now" and ("58 líneas" in about_html or "ES AIR" in about_html):
+            raise SystemExit("now.com about copied Spain lines")
+        if key == "fr" and ("Belgique" in at or "Belgium" in at or "France / BE" in about_html):
+            raise SystemExit("fr about became Belgium")
+        if _wc(about_html) < 280:
+            raise SystemExit(f"{key} about too short")
+        print(f"OK    {key}/about words={_wc(about_html)} {at[:56]}")
 
 
 def _connect():
@@ -1343,6 +1588,7 @@ def _overlay_files(key: str) -> list[tuple[Path, str]]:
         (host_root / "index.html", build_home(key)),
         (host_root / t["help"] / "index.html", build_help(key)),
         (host_root / t["news"] / "index.html", build_news(key)),
+        (host_root / t["about"] / "index.html", build_about(key)),
     ]
 
 
@@ -1380,6 +1626,29 @@ def _sitemap_insert(client, host: str, slugs: list[str]) -> None:
     print("sitemap +", added, host)
 
 
+SHARED = ROOT / "sites" / "sugargoo-shared"
+
+
+def _put_assets(client, sftp, host: str) -> None:
+    """Copy dated official shots + 16-category wall onto this wwwroot only (new dirs)."""
+    media_local = SHARED / "media"
+    cat_local = SHARED / "img" / "cat"
+    _run(client, f"mkdir -p '/www/wwwroot/{host}/media' '/www/wwwroot/{host}/img/cat'")
+    for src in sorted(media_local.glob("*.jpg")):
+        remote = f"/www/wwwroot/{host}/media/{src.name}"
+        sftp.put(str(src), remote)
+        print("PUT", remote, "bytes", src.stat().st_size)
+    for src in sorted(cat_local.glob("*.jpg")):
+        remote = f"/www/wwwroot/{host}/img/cat/{src.name}"
+        sftp.put(str(src), remote)
+        print("PUT", remote, "bytes", src.stat().st_size)
+    _run(
+        client,
+        f"chown -R www:www '/www/wwwroot/{host}/media' '/www/wwwroot/{host}/img' "
+        f"&& find '/www/wwwroot/{host}/media' '/www/wwwroot/{host}/img' -type f -exec chmod 644 {{}} +",
+    )
+
+
 def main() -> None:
     _validate()
     put_keys = _only()
@@ -1410,6 +1679,10 @@ def main() -> None:
                 ROOT / "sites" / d["host"] / "overlay" / t["news"] / "index.html",
                 f"/www/wwwroot/{d['host']}/{t['news']}/index.html",
             ),
+            (
+                ROOT / "sites" / d["host"] / "overlay" / t["about"] / "index.html",
+                f"/www/wwwroot/{d['host']}/{t['about']}/index.html",
+            ),
         ]
         for local, remote in mapping:
             rdir = remote.rsplit("/", 1)[0]
@@ -1419,7 +1692,8 @@ def main() -> None:
             sftp.put(str(local), remote)
             uploaded.append(remote)
             print("PUT", remote, "bytes", local.stat().st_size)
-        _sitemap_insert(client, d["host"], [t["help"], t["news"]])
+        _put_assets(client, sftp, d["host"])
+        _sitemap_insert(client, d["host"], [t["help"], t["news"], t["about"]])
     if uploaded:
         _run(
             client,

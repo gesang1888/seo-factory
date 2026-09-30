@@ -69,6 +69,19 @@ details.sg-faq summary{cursor:pointer;font-weight:600}
 figure.shot{margin:16px 0}
 figure.shot img{width:100%;max-width:920px;height:auto;border:1px solid #e5e7eb;border-radius:12px;background:#f8fafc}
 figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
+.sg-split{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:start;margin:8px 0 4px}
+@media(max-width:860px){.sg-split{grid-template-columns:1fr}}
+.sg-prose p{color:#334155;line-height:1.75;margin:0 0 12px}
+.sg-prose .lead{font-size:17px;color:#1e293b}
+.sg-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px}
+a.sg-cat{position:relative;display:block;border-radius:12px;overflow:hidden;color:#fff;text-decoration:none;background:#0f172a}
+a.sg-cat img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+a.sg-cat .b{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(transparent,rgba(15,23,42,.78))}
+a.sg-cat strong{display:block;font-size:14px}
+a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
+.sg-about h2{font-size:22px;margin:28px 0 8px}
+.sg-about h3{font-size:16px;margin:18px 0 6px}
+.sg-about p{color:#334155;line-height:1.75;margin:0 0 12px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Acheter en Chine et envoyer en France avec SugarGoo", "url": "https://sugargoospreadsheets.fr/", "description": "Desk FR indépendant : catalogue sur cette accueil, coupons et avis déjà classés. Destination France dans l’estimateur. Pas la Belgique.", "inLanguage": "fr-FR"}</script>
 </head>
@@ -77,7 +90,7 @@ figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="brand sugargoo-brand"><img class="brand-logo sugargoo-logo" src="/assets/images/sugargoo-logo.png" alt="Sugargoo" width="160" height="36"></a>
-    <nav class="nav" id="site-nav"><a href="/" class="active">Accueil</a><a href="/sugargoo-spreadsheet/">Spreadsheet</a><a href="/sugargoo-coupons/">Coupons</a><a href="/aide/">Aide</a><a href="/actualites/">Actualités</a><a href="/#lab">Livraison</a></nav>
+    <nav class="nav" id="site-nav"><a href="/" class="active">Accueil</a><a href="/sugargoo-spreadsheet/">Spreadsheet</a><a href="/sugargoo-coupons/">Coupons</a><a href="/aide/">Aide</a><a href="/actualites/">Actualités</a><a href="/a-propos/">À propos</a><a href="/#lab">Livraison</a></nav>
     <div class="header-actions">
       <a href="#catalog" class="btn btn-primary">Voir le catalogue</a>
       <a href="https://www.sugargoo.com/register?inviteCode=O4K87NHKR" target="_blank" rel="noopener sponsored" class="btn btn-outline">S’inscrire</a>
@@ -96,6 +109,31 @@ figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
     <a class="btn btn-outline" href="https://www.sugargoo.com/freight-estimate">Estimateur</a>
     <a class="btn btn-outline" href="https://www.sugargoo.com/register?inviteCode=O4K87NHKR" target="_blank" rel="noopener sponsored">S’inscrire</a>
   </div>
+</section>
+<section class="sg-sec" id="agent"><div class="sg-split">
+  <div class="sg-prose">
+    <h2>Un agent d’achat est un intermédiaire, pas une boutique</h2>
+    <p class="lead">SugarGoo ne vend pas la marchandise. Il achète pour toi dans des boutiques chinoises qui n’expédient pas à l’étranger, photographie à l’entrepôt, stocke, puis tu livres vers la France.</p>
+    <p>Ça change tout : tu paies deux fois (marchandise + domestique Chine, puis la ligne internationale), tu attends deux fois, et tu peux regrouper ou changer de SKU entre les deux. Ce host sugargoospreadsheets.fr est un desk indépendant, pas le site officiel. Destination France, pas la Belgique.</p>
+    <p><a class="btn btn-primary" href="#catalog">Voir le catalogue de cette accueil</a>
+    <a class="btn btn-outline" href="/a-propos/">À propos</a></p>
+  </div>
+  <figure class="shot">
+    <img src="/media/official-home-20260930.jpg" alt="Accueil officiel sugargoo.com. Capture du 30 sept. 2026. Plus une coquille SPA : la page a rendu. QC &amp; Storage : 5 photos, 100 jours." width="1400" height="1069" loading="lazy" decoding="async">
+    <figcaption>Accueil officiel sugargoo.com. Capture du 30 sept. 2026. Plus une coquille SPA : la page a rendu. QC &amp; Storage : 5 photos, 100 jours.</figcaption>
+  </figure>
+</div></section>
+<section class="sg-sec" id="sheet-explain"><div class="sg-prose">
+  <h2>Un spreadsheet n’est pas un fichier Excel</h2>
+  <p class="lead">Ici, « spreadsheet » n’est pas un tableau de lignes : c’est un catalogue de fiches avec photo, marque, prix de référence et le lien que l’agent peut ouvrir.</p>
+  <p>L’index de cette accueil est anglais (sneakers, hoodie, jacket). « Baskets » renvoie souvent zéro carte ; sneakers remplit la grille. Les milliers de finds restent sur w2clinks — on ne les verse pas dans un .xlsx.</p>
+  <p><a class="btn btn-outline" href="#catalog">Ouvrir le catalogue</a>
+  <a class="btn btn-outline" href="https://w2clinks.com/spreadsheet/sugargoo/" target="_blank" rel="noopener">w2clinks</a></p>
+</div></section>
+<section class="sg-sec" id="cat-wall">
+  <h2>Seize catégories pour le premier jour</h2>
+  <p class="ssub">Chaque tuile ouvre la clé anglaise sur le catalogue de cette accueil. Commence par une seule : mélanger cinq catégories au premier colis est le plus court chemin vers un carton cher et mal calé.</p>
+  <div class="sg-cats"><a class="sg-cat" href="#catalog" data-q="sneakers"><img src="/img/cat/sneakers.jpg" alt="Baskets · sneakers" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Baskets</strong><span>sneakers</span></div></a><a class="sg-cat" href="#catalog" data-q="t-shirt"><img src="/img/cat/t-shirt.jpg" alt="T-shirts · t-shirt" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>T-shirts</strong><span>t-shirt</span></div></a><a class="sg-cat" href="#catalog" data-q="hoodie"><img src="/img/cat/hoodie.jpg" alt="Sweats · hoodie" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Sweats</strong><span>hoodie</span></div></a><a class="sg-cat" href="#catalog" data-q="jacket"><img src="/img/cat/jacket.jpg" alt="Vestes · jacket" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Vestes</strong><span>jacket</span></div></a><a class="sg-cat" href="#catalog" data-q="jeans"><img src="/img/cat/jeans.jpg" alt="Jeans · jeans" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Jeans</strong><span>jeans</span></div></a><a class="sg-cat" href="#catalog" data-q="shorts"><img src="/img/cat/shorts.jpg" alt="Shorts · shorts" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Shorts</strong><span>shorts</span></div></a><a class="sg-cat" href="#catalog" data-q="underwear"><img src="/img/cat/underwear.jpg" alt="Sous-vêtements · underwear" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Sous-vêtements</strong><span>underwear</span></div></a><a class="sg-cat" href="#catalog" data-q="jersey"><img src="/img/cat/jersey.jpg" alt="Maillots · jersey" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Maillots</strong><span>jersey</span></div></a><a class="sg-cat" href="#catalog" data-q="hats"><img src="/img/cat/hats.jpg" alt="Casquettes · hats" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Casquettes</strong><span>hats</span></div></a><a class="sg-cat" href="#catalog" data-q="bags"><img src="/img/cat/bags.jpg" alt="Sacs · bags" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Sacs</strong><span>bags</span></div></a><a class="sg-cat" href="#catalog" data-q="eyewear"><img src="/img/cat/eyewear.jpg" alt="Lunettes · eyewear" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Lunettes</strong><span>eyewear</span></div></a><a class="sg-cat" href="#catalog" data-q="headphones"><img src="/img/cat/headphones.jpg" alt="Casques · headphones" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Casques</strong><span>headphones</span></div></a><a class="sg-cat" href="#catalog" data-q="perfume"><img src="/img/cat/perfume.jpg" alt="Parfums · perfume" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Parfums</strong><span>perfume</span></div></a><a class="sg-cat" href="#catalog" data-q="watches"><img src="/img/cat/watches.jpg" alt="Montres · watches" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Montres</strong><span>watches</span></div></a><a class="sg-cat" href="#catalog" data-q="jewelry"><img src="/img/cat/jewelry.jpg" alt="Bijoux · jewelry" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Bijoux</strong><span>jewelry</span></div></a><a class="sg-cat" href="#catalog" data-q="toys"><img src="/img/cat/toys.jpg" alt="Figurines · toys" width="560" height="560" loading="lazy" decoding="async"><div class="b"><strong>Figurines</strong><span>toys</span></div></a></div>
 </section>
 
 <section class="sg-mw" id="catalog">
@@ -152,13 +190,24 @@ figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
       document.getElementById('sg-grid').innerHTML='<p>Catalogue API not reachable on this host yet.</p>';
     });
   }
+  function applyQ(next){
+    q=next||'';
+    var inp=document.getElementById('sg-q');
+    if(inp) inp.value=q;
+    document.querySelectorAll('.sg-chips button').forEach(function(x){
+      x.classList.toggle('on', (x.getAttribute('data-q')||'')===q);
+    });
+    load();
+  }
   document.querySelectorAll('.sg-chips button').forEach(function(b){
-    b.addEventListener('click', function(){
-      document.querySelectorAll('.sg-chips button').forEach(function(x){x.classList.remove('on');});
-      b.classList.add('on');
-      q=b.getAttribute('data-q')||'';
-      document.getElementById('sg-q').value=q;
-      load();
+    b.addEventListener('click', function(){ applyQ(b.getAttribute('data-q')||''); });
+  });
+  document.querySelectorAll('a.sg-cat[data-q]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      applyQ(a.getAttribute('data-q')||'');
+      var cat=document.getElementById('catalog');
+      if(cat) cat.scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
   var inp=document.getElementById('sg-q');
@@ -170,7 +219,27 @@ figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
 })();
 </script>
 <section class="sg-sec" id="states"><h2>Neuf états (Packing Center)</h2><p class="ssub">Blog officiel : 100 jours gratuits pour les ordres d’achat, à partir du statut Packing Center.</p>
-<div class="tw"><table><thead><tr><th>State</th><th></th></tr></thead><tbody><tr><td><code>Submitted</code></td><td>Marchandise + domestique Chine payés.</td></tr><tr><td><code>Purchasing</code></td><td>SugarGoo achète chez le vendeur.</td></tr><tr><td><code>Purchased</code></td><td>Commande Chine passée.</td></tr><tr><td><code>Seller shipped</code></td><td>Le vendeur a expédié.</td></tr><tr><td><code>To warehouse</code></td><td>Vers l’entrepôt.</td></tr><tr><td><code>QC / photos</code></td><td>Photos d’entrepôt.</td></tr><tr><td><code>Packing center</code></td><td>Stocké. 100 jours gratuits à partir de ce statut.</td></tr><tr><td><code>Parcel shipped</code></td><td>Ligne internationale partie.</td></tr><tr><td><code>Delivered</code></td><td>Livré.</td></tr></tbody></table></div></section><section class="sg-sec" id="lab"><h2>Freight lab</h2>
+<div class="tw"><table><thead><tr><th>State</th><th></th></tr></thead><tbody><tr><td><code>Submitted</code></td><td>Marchandise + domestique Chine payés.</td></tr><tr><td><code>Purchasing</code></td><td>SugarGoo achète chez le vendeur.</td></tr><tr><td><code>Purchased</code></td><td>Commande Chine passée.</td></tr><tr><td><code>Seller shipped</code></td><td>Le vendeur a expédié.</td></tr><tr><td><code>To warehouse</code></td><td>Vers l’entrepôt.</td></tr><tr><td><code>QC / photos</code></td><td>Photos d’entrepôt.</td></tr><tr><td><code>Packing center</code></td><td>Stocké. 100 jours gratuits à partir de ce statut.</td></tr><tr><td><code>Parcel shipped</code></td><td>Ligne internationale partie.</td></tr><tr><td><code>Delivered</code></td><td>Livré.</td></tr></tbody></table></div></section><section class="sg-sec" id="restricted"><div class="sg-split">
+  <div class="sg-prose">
+    <h2>Beaucoup de fiches ne s’achètent pas, même affichées</h2>
+    <p class="lead">Sur le site officiel, des fiches « Restricted item » ou à prix zéro. Ce n’est pas un bug : le lien source n’est pas achetable par l’agent, ou le prix n’a pas pu être lu.</p>
+    <p>Pas de prix ni d’options réels : n’en compte pas. Tabac, alcool, médicaments sont souvent refusés — la liste est dans l’aide officielle, on ne l’invente pas. Pas de sous-déclaration.</p>
+    <p><a class="btn btn-outline" href="/aide/">Aide de ce desk</a></p>
+  </div>
+  <figure class="shot">
+    <img src="/media/help-restricted-20260930.jpg" alt="Help Center officiel, Agent Purchase Service ouvert. Capture du 30 sept. 2026. Notice before submitting order est là — pas de table copiée d’un autre agent." width="1400" height="1166" loading="lazy" decoding="async">
+    <figcaption>Help Center officiel, Agent Purchase Service ouvert. Capture du 30 sept. 2026. Notice before submitting order est là — pas de table copiée d’un autre agent.</figcaption>
+  </figure>
+</div></section>
+<section class="sg-sec" id="shots">
+  <h2>Interface officielle, avec date</h2>
+  <p class="ssub">L’estimateur SugarGoo n’était qu’une coquille SPA (~2 ko) en HTML brut. Le 30 sept. 2026 le navigateur a bien rendu le formulaire. On ne colle pas un compteur de lignes ES.</p>
+  <figure class="shot">
+    <img src="/media/estimator-20260930.jpg" alt="Freight estimate officiel. Capture du 30 sept. 2026. Destination de ce desk : la France. Les montants du jour sortent après Estimate — pas recopiés ici." width="1400" height="1069" loading="lazy" decoding="async">
+    <figcaption>Freight estimate officiel. Capture du 30 sept. 2026. Destination de ce desk : la France. Les montants du jour sortent après Estimate — pas recopiés ici.</figcaption>
+  </figure>
+</section>
+<section class="sg-sec" id="lab"><h2>Freight lab</h2>
 <p class="ssub">Open the official SugarGoo freight estimate with destination <strong>la France</strong> before you pay international freight. Snapshot habit: 1000 g / 35×25×10 cm, clothing. Lab note 30 Sep 2026. USD digits may stay dollars when only the symbol changes.</p>
 <p><a class="btn btn-primary" href="https://www.sugargoo.com/freight-estimate">Official freight estimate →</a></p>
 
@@ -216,6 +285,7 @@ figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
       <div class="footer-col"><h5>On this host</h5><ul>
         <li><a href="/aide/">Aide</a></li>
         <li><a href="/actualites/">Actualités</a></li>
+        <li><a href="/a-propos/">À propos</a></li>
         <li><a href="/sugargoo-coupons/">Coupons</a></li><li><a href="/sugargoo-review/">Avis</a></li><li><a href="/sugargoo-spreadsheet/">Guide spreadsheet</a></li>
       </ul></div>
       <div class="footer-col"><h5>Official</h5><ul>

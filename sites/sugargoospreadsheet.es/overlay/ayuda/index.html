@@ -69,6 +69,19 @@ details.sg-faq summary{cursor:pointer;font-weight:600}
 figure.shot{margin:16px 0}
 figure.shot img{width:100%;max-width:920px;height:auto;border:1px solid #e5e7eb;border-radius:12px;background:#f8fafc}
 figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
+.sg-split{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:start;margin:8px 0 4px}
+@media(max-width:860px){.sg-split{grid-template-columns:1fr}}
+.sg-prose p{color:#334155;line-height:1.75;margin:0 0 12px}
+.sg-prose .lead{font-size:17px;color:#1e293b}
+.sg-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px}
+a.sg-cat{position:relative;display:block;border-radius:12px;overflow:hidden;color:#fff;text-decoration:none;background:#0f172a}
+a.sg-cat img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+a.sg-cat .b{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(transparent,rgba(15,23,42,.78))}
+a.sg-cat strong{display:block;font-size:14px}
+a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
+.sg-about h2{font-size:22px;margin:28px 0 8px}
+.sg-about h3{font-size:16px;margin:18px 0 6px}
+.sg-about p{color:#334155;line-height:1.75;margin:0 0 12px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Ayuda: quince preguntas sobre SugarGoo en España", "url": "https://sugargoospreadsheet.es/ayuda/", "description": "Desk ES independiente: catálogo en inglés, Packing Center 100 días, estimador con destino España. Lab 30 sep 2026.", "inLanguage": "es-ES"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es-ES", "mainEntity": [{"@type": "Question", "name": "¿SugarGoo vende el producto?", "acceptedAnswer": {"@type": "Answer", "text": "No. Es un agente de compras."}}, {"@type": "Question", "name": "¿Dónde está el catálogo?", "acceptedAnswer": {"@type": "Answer", "text": "En esta portada, /api/products/ de este host."}}, {"@type": "Question", "name": "¿Es este sitio sugargoo.es?", "acceptedAnswer": {"@type": "Answer", "text": "No. sugargoo.es es otro host. No hay 301."}}, {"@type": "Question", "name": "¿Cupones en el title?", "acceptedAnswer": {"@type": "Answer", "text": "No. 2026SG50 vive en /sugargoo-coupons/."}}, {"@type": "Question", "name": "¿Aduana?", "acceptedAnswer": {"@type": "Answer", "text": "Sigue la SKU. Sin infradeclaración. El artículo /aduana-iva-espana/ se conserva."}}, {"@type": "Question", "name": "¿Almacén?", "acceptedAnswer": {"@type": "Answer", "text": "100 días gratis en pedidos de compra desde Packing Center (blog oficial)."}}, {"@type": "Question", "name": "¿Volumétrico?", "acceptedAnswer": {"@type": "Answer", "text": "L×W×H/8000 en kg en muchas líneas."}}, {"@type": "Question", "name": "¿Destino EU?", "acceptedAnswer": {"@type": "Answer", "text": "El estimador pide un país. Aquí España."}}, {"@type": "Question", "name": "¿QC?", "acceptedAnswer": {"@type": "Answer", "text": "Fotos de almacén en la app."}}, {"@type": "Question", "name": "¿Dos pagos?", "acceptedAnswer": {"@type": "Answer", "text": "Sí: mercancía + doméstico China, luego internacional."}}, {"@type": "Question", "name": "¿Invite?", "acceptedAnswer": {"@type": "Answer", "text": "Solo en el enlace Register."}}, {"@type": "Question", "name": "¿now.com?", "acceptedAnswer": {"@type": "Answer", "text": "Hub de cupones en inglés, no un 301."}}, {"@type": "Question", "name": "¿Catálogo en inglés?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. zapatillas suele dar 0; sneakers llena la rejilla."}}, {"@type": "Question", "name": "¿IVA?", "acceptedAnswer": {"@type": "Answer", "text": "Lee la SKU y la fuente de la Comisión / AEAT. No inventamos tipos."}}, {"@type": "Question", "name": "¿Este Desk opera tu cuenta?", "acceptedAnswer": {"@type": "Answer", "text": "No."}}]}</script>
@@ -78,7 +91,7 @@ figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="brand sugargoo-brand"><img class="brand-logo sugargoo-logo" src="/assets/images/sugargoo-logo.png" alt="Sugargoo" width="160" height="36"></a>
-    <nav class="nav" id="site-nav"><a href="/">Inicio</a><a href="/sugargoo-spreadsheet/">Spreadsheet</a><a href="/sugargoo-coupons/">Cupones</a><a href="/ayuda/" class="active">Ayuda</a><a href="/novedades/">Novedades</a><a href="/#lab">Envíos</a></nav>
+    <nav class="nav" id="site-nav"><a href="/">Inicio</a><a href="/sugargoo-spreadsheet/">Spreadsheet</a><a href="/sugargoo-coupons/">Cupones</a><a href="/ayuda/" class="active">Ayuda</a><a href="/novedades/">Novedades</a><a href="/sobre-nosotros/">Sobre</a><a href="/#lab">Envíos</a></nav>
     <div class="header-actions">
       <a href="#catalog" class="btn btn-primary">Ver catálogo</a>
       <a href="https://www.sugargoo.com/register?inviteCode=O4K87NHKR" target="_blank" rel="noopener sponsored" class="btn btn-outline">Registrarse</a>
@@ -105,6 +118,7 @@ figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
       <div class="footer-col"><h5>On this host</h5><ul>
         <li><a href="/ayuda/">Ayuda</a></li>
         <li><a href="/novedades/">Novedades</a></li>
+        <li><a href="/sobre-nosotros/">Sobre</a></li>
         <li><a href="/aduana-iva-espana/">Aduana / IVA</a></li><li><a href="/guias-comprador-es/">Guías</a></li><li><a href="/sugargoo-coupons/">Cupones</a></li><li><a href="/sugargoo-spreadsheet/">Spreadsheet</a></li>
       </ul></div>
       <div class="footer-col"><h5>Official</h5><ul>

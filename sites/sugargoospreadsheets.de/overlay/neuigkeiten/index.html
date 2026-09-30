@@ -69,6 +69,19 @@ details.sg-faq summary{cursor:pointer;font-weight:600}
 figure.shot{margin:16px 0}
 figure.shot img{width:100%;max-width:920px;height:auto;border:1px solid #e5e7eb;border-radius:12px;background:#f8fafc}
 figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
+.sg-split{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:start;margin:8px 0 4px}
+@media(max-width:860px){.sg-split{grid-template-columns:1fr}}
+.sg-prose p{color:#334155;line-height:1.75;margin:0 0 12px}
+.sg-prose .lead{font-size:17px;color:#1e293b}
+.sg-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px}
+a.sg-cat{position:relative;display:block;border-radius:12px;overflow:hidden;color:#fff;text-decoration:none;background:#0f172a}
+a.sg-cat img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+a.sg-cat .b{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(transparent,rgba(15,23,42,.78))}
+a.sg-cat strong{display:block;font-size:14px}
+a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
+.sg-about h2{font-size:22px;margin:28px 0 8px}
+.sg-about h3{font-size:16px;margin:18px 0 6px}
+.sg-about p{color:#334155;line-height:1.75;margin:0 0 12px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Neuigkeiten: was wir an SugarGoo für Deutschland geprüft haben", "url": "https://sugargoospreadsheets.de/neuigkeiten/", "description": "Datierte Notizen dieses Desks. Schätzer nach Deutschland. Lab 30. Sep 2026.", "inLanguage": "de-DE"}</script>
 </head>
@@ -77,7 +90,7 @@ figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="brand sugargoo-brand"><img class="brand-logo sugargoo-logo" src="/assets/images/sugargoo-logo.png" alt="Sugargoo" width="160" height="36"></a>
-    <nav class="nav" id="site-nav"><a href="/">Start</a><a href="/sugargoo-spreadsheet/">Spreadsheet</a><a href="/sugargoo-coupons/">Coupons</a><a href="/hilfe/">Hilfe</a><a href="/neuigkeiten/" class="active">Neuigkeiten</a><a href="/#lab">Versand</a></nav>
+    <nav class="nav" id="site-nav"><a href="/">Start</a><a href="/sugargoo-spreadsheet/">Spreadsheet</a><a href="/sugargoo-coupons/">Coupons</a><a href="/hilfe/">Hilfe</a><a href="/neuigkeiten/" class="active">Neuigkeiten</a><a href="/ueber-uns/">Über uns</a><a href="/#lab">Versand</a></nav>
     <div class="header-actions">
       <a href="#catalog" class="btn btn-primary">Katalog</a>
       <a href="https://www.sugargoo.com/register?inviteCode=O4K87NHKR" target="_blank" rel="noopener sponsored" class="btn btn-outline">Registrieren</a>
@@ -92,7 +105,7 @@ figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
   <p class="hsub">Jeder Block ist eine Messung auf diesem Host, kein fremder Linien-Schnappschuss.</p>
   <p class="eu-badge">Deutschland · EUR · Zoll</p>
 </section>
-<article class="sg-sec"><h2>Check 1 · 30. Sep 2026 · Katalog auf dieser Startseite</h2><p class="ssub">Katalog wieder auf / über https://sugargoospreadsheets.de/api/products/. Englisch sneakers füllt das Raster; Turnschuhe oft 0.</p></article><article class="sg-sec"><h2>Check 2 · Währungsschalter rechnet nicht um</h2><p class="ssub">Das Symbol kann auf EUR springen, die Ziffer Dollar bleiben. Die Zahl lesen.</p></article><article class="sg-sec"><h2>Check 3 · Schätzer nach Deutschland</h2><p class="ssub">Offizieller Schätzer mit Ziel Deutschland. Keine 58 ES-Linien eines anderen Agenten.</p></article><article class="sg-sec"><h2>Check 4 · Packing Center 100 Tage</h2><p class="ssub">Offizieller SugarGoo-Blog: 100 Tage gratis ab Packing Center bei Kaufaufträgen.</p></article><article class="sg-sec"><h2>Check 5 · bereits rankende URLs</h2><p class="ssub">Coupon- und Spreadsheet-Artikel bleiben. Diese Neuigkeiten-Seite überschreibt sie nicht.</p></article>
+<article class="sg-sec"><h2>Check 1 · 30. Sep 2026 · Katalog auf dieser Startseite</h2><p class="ssub">Katalog wieder auf / über https://sugargoospreadsheets.de/api/products/. Englisch sneakers füllt das Raster; Turnschuhe oft 0.</p></article><article class="sg-sec"><h2>Check 2 · Währungsschalter rechnet nicht um</h2><p class="ssub">Das Symbol kann auf EUR springen, die Ziffer Dollar bleiben. Die Zahl lesen.</p></article><article class="sg-sec"><h2>Check 3 · Schätzer nach Deutschland</h2><p class="ssub">Offizieller Schätzer mit Ziel Deutschland. Keine 58 ES-Linien eines anderen Agenten.</p></article><article class="sg-sec"><h2>Check 4 · Packing Center 100 Tage</h2><p class="ssub">Offizieller SugarGoo-Blog: 100 Tage gratis ab Packing Center bei Kaufaufträgen.</p></article><article class="sg-sec"><h2>Check 5 · bereits rankende URLs</h2><p class="ssub">Coupon- und Spreadsheet-Artikel bleiben. Diese Neuigkeiten-Seite überschreibt sie nicht.</p></article><article class="sg-sec"><h2>Check 6 · 30. Sep 2026 · SPA-Schätzer und Über uns</h2><p class="ssub">Roh-HTML von freight-estimate war ~2 KB. Der Browser am 30 Sep 2026 hat das Formular gerendert; Aufnahme unter /media/. Über uns ist eine eigene Seite.</p></article>
 <section class="sg-sec"><h2>Wie wir messen</h2><p class="ssub">Startseite und /api/products/ dieses Hosts, offizieller Schätzer nach Deutschland, bereits rankende URLs.</p>
 <p><a class="btn btn-outline" href="/hilfe/">Hilfe</a>
 <a class="btn btn-outline" href="/">← /</a></p></section>
@@ -104,6 +117,7 @@ figure.shot figcaption{font-size:13px;color:#64748b;margin-top:6px}
       <div class="footer-col"><h5>On this host</h5><ul>
         <li><a href="/hilfe/">Hilfe</a></li>
         <li><a href="/neuigkeiten/">Neuigkeiten</a></li>
+        <li><a href="/ueber-uns/">Über uns</a></li>
         <li><a href="/sugargoo-coupons/">Coupons</a></li><li><a href="/sugargoo-spreadsheet/">Spreadsheet</a></li><li><a href="/sugargoo-review/">Review</a></li>
       </ul></div>
       <div class="footer-col"><h5>Official</h5><ul>
