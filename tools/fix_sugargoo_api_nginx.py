@@ -57,38 +57,64 @@ def _run(client, cmd: str, timeout: int = 60) -> str:
     return (stdout.read() + stderr.read()).decode(errors="replace").strip()
 
 
+def _fix_user_ini(client, host: str, dry: bool) -> bool:
+    """Keep PHP open_basedir on this host's wwwroot (ES was cloned with AU)."""
+    path = f"/www/wwwroot/{host}/.user.ini"
+    want = f"open_basedir=/www/wwwroot/{host}/:/tmp/\n"
+    if dry:
+        print("dry user.ini", path)
+        return False
+    raw = _run(client, f"python3 -c \"import os; p={path!r}; print(open(p).read() if os.path.isfile(p) else '')\"")
+    if want.strip() in raw.replace(" ", ""):
+        # exact enough: path already names this host
+        if f"/www/wwwroot/{host}/" in raw and "open_basedir" in raw:
+            print("ok", host, "open_basedir")
+            return False
+    bak = f"/www/backup/sugargoo-userini-{host}.ini"
+    _run(client, f"test -f '{path}' && cp -a '{path}' '{bak}' || true")
+    sftp = client.open_sftp()
+    with sftp.open(path, "w") as fh:
+        fh.write(want)
+    sftp.close()
+    print("PATCH", path)
+    return True
+
+
 def main() -> None:
     dry = "--dry" in sys.argv
     client = None if dry else _connect()
     changed = 0
+    basedir = 0
     for host in HOSTS:
         path = f"/www/server/panel/vhost/nginx/{host}.conf"
         if dry:
             print("dry", path)
+            _fix_user_ini(client, host, True)
             continue
         raw = _run(client, f"cat '{path}'")
-        if "rewrite ^/api/([^/]+)/?$ /api/$1/index.php last" in raw:
+        if "rewrite ^/api/([^/]+)/?$ /api/$1/index.php last" not in raw:
+            if OLD not in raw:
+                print("skip", host, "api block mismatch")
+            else:
+                bak = f"/www/backup/sugargoo-nginx-{host}.conf"
+                _run(client, f"cp -a '{path}' '{bak}'")
+                new = raw.replace(OLD, NEW, 1)
+                sftp = client.open_sftp()
+                with sftp.open(path, "w") as fh:
+                    fh.write(new)
+                sftp.close()
+                print("PATCH", path)
+                changed += 1
+        else:
             print("ok", host, "already rewritten")
-            continue
-        if OLD not in raw:
-            print("skip", host, "api block mismatch")
-            continue
-        bak = f"/www/backup/sugargoo-nginx-{host}.conf"
-        _run(client, f"cp -a '{path}' '{bak}'")
-        new = raw.replace(OLD, NEW, 1)
-        # write via python on remote to keep quoting
-        import paramiko
-
-        sftp = client.open_sftp()
-        with sftp.open(path, "w") as fh:
-            fh.write(new)
-        sftp.close()
-        print("PATCH", path)
-        changed += 1
+        if _fix_user_ini(client, host, False):
+            basedir += 1
     if not dry:
         print(_run(client, "nginx -t && nginx -s reload"))
+        if basedir:
+            print(_run(client, "/etc/init.d/php-fpm-74 reload || systemctl reload php-fpm-74 || killall -USR2 php-fpm"))
         client.close()
-    print("changed", changed)
+    print("changed", changed, "basedir", basedir)
 
 
 if __name__ == "__main__":
