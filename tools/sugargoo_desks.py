@@ -3,6 +3,7 @@
 
 Puts catalogue on /, Inter + existing sugargoo-theme.css (not Georgia, not HipoBuy green).
 Does not overwrite coupons / GST / CBSA / de-minimis / now.com html articles.
+Adds independent Help/News pages (local slugs, same CMS chrome).
 Does not 301 country TLDs together or onto sugargoo.ca / sugargoo.es.
 Invite/coupon codes stay off titles.
 No declared-value coaching.
@@ -378,65 +379,80 @@ def _locale_switcher(key: str, d: dict) -> str:
     return "".join(parts)
 
 
-def _nav(key: str, d: dict) -> str:
+def _trust_paths(key: str) -> dict:
+    """Local Help/News slugs, HipoBuy-country style (ES gold uses Ayuda/Novedades labels)."""
+    if key == "es":
+        return {"help": "ayuda", "news": "novedades", "help_lab": "Ayuda", "news_lab": "Novedades"}
+    if key == "fr":
+        return {"help": "aide", "news": "actualites", "help_lab": "Aide", "news_lab": "Actualités"}
+    if key in ("de", "at"):
+        return {"help": "hilfe", "news": "neuigkeiten", "help_lab": "Hilfe", "news_lab": "Neuigkeiten"}
+    if key == "nl":
+        return {"help": "hulp", "news": "nieuws", "help_lab": "Hulp", "news_lab": "Nieuws"}
+    return {"help": "help", "news": "news", "help_lab": "Help", "news_lab": "News"}
+
+
+def _nav(key: str, d: dict, page: str = "home") -> str:
+    t = _trust_paths(key)
+    hp, np = f"/{t['help']}/", f"/{t['news']}/"
     if key == "fr":
         items = [
-            ("/", "Accueil", True),
-            ("/sugargoo-finds/", "Trouvailles", False),
-            ("/sugargoo-spreadsheet/", "Spreadsheet", False),
-            ("/sugargoo-review/", "Avis", False),
-            ("/sugargoo-coupons/", "Coupons", False),
-            ("/#faq", "FAQ", False),
+            ("/", "Accueil", page == "home"),
+            ("/sugargoo-spreadsheet/", "Spreadsheet", page == "sheet"),
+            ("/sugargoo-coupons/", "Coupons", page == "coupons"),
+            (hp, t["help_lab"], page == "help"),
+            (np, t["news_lab"], page == "news"),
+            ("/#lab", "Livraison", page == "lab"),
         ]
         cta, browse = "Voir le catalogue", "Spreadsheet complète"
     elif key == "es":
         items = [
-            ("/", "Inicio", True),
-            ("/sugargoo-finds/", "Finds", False),
-            ("/sugargoo-spreadsheet/", "Spreadsheet", False),
-            ("/sugargoo-review/", "Opinión", False),
-            ("/sugargoo-coupons/", "Cupones", False),
-            ("/#faq", "FAQ", False),
+            ("/", "Inicio", page == "home"),
+            ("/sugargoo-spreadsheet/", "Spreadsheet", page == "sheet"),
+            ("/sugargoo-coupons/", "Cupones", page == "coupons"),
+            (hp, t["help_lab"], page == "help"),
+            (np, t["news_lab"], page == "news"),
+            ("/#lab", "Envíos", page == "lab"),
         ]
         cta, browse = "Ver catálogo", "Spreadsheet completa"
     elif key in ("de", "at"):
         items = [
-            ("/", "Start", True),
-            ("/sugargoo-finds/", "Finds", False),
-            ("/sugargoo-spreadsheet/", "Spreadsheet", False),
-            ("/sugargoo-review/", "Review", False),
-            ("/sugargoo-coupons/", "Coupons", False),
-            ("/#faq", "FAQ", False),
+            ("/", "Start", page == "home"),
+            ("/sugargoo-spreadsheet/", "Spreadsheet", page == "sheet"),
+            ("/sugargoo-coupons/", "Coupons", page == "coupons"),
+            (hp, t["help_lab"], page == "help"),
+            (np, t["news_lab"], page == "news"),
+            ("/#lab", "Versand", page == "lab"),
         ]
         cta, browse = "Katalog", "Ganzes Spreadsheet"
     elif key == "nl":
         items = [
-            ("/", "Home", True),
-            ("/sugargoo-finds/", "Finds", False),
-            ("/sugargoo-spreadsheet/", "Spreadsheet", False),
-            ("/sugargoo-review/", "Review", False),
-            ("/sugargoo-coupons/", "Coupons", False),
-            ("/#faq", "FAQ", False),
+            ("/", "Home", page == "home"),
+            ("/sugargoo-spreadsheet/", "Spreadsheet", page == "sheet"),
+            ("/sugargoo-coupons/", "Coupons", page == "coupons"),
+            (hp, t["help_lab"], page == "help"),
+            (np, t["news_lab"], page == "news"),
+            ("/#lab", "Verzending", page == "lab"),
         ]
         cta, browse = "Catalogus", "Volledige spreadsheet"
     elif key == "now":
         items = [
-            ("/", "Home", True),
-            ("/sugargoo-coupon-2026.html", "Coupons", False),
-            ("/best-sugargoo-spreadsheet-2026.html", "Spreadsheet", False),
-            ("/is-sugargoo-legit-2026.html", "Legit", False),
-            ("/sugargoo-reddit-2026.html", "Reddit", False),
-            ("/#faq", "FAQ", False),
+            ("/", "Home", page == "home"),
+            ("/sugargoo-coupon-2026.html", "Coupons", page == "coupons"),
+            ("/best-sugargoo-spreadsheet-2026.html", "Spreadsheet", page == "sheet"),
+            (hp, t["help_lab"], page == "help"),
+            (np, t["news_lab"], page == "news"),
+            ("/#lab", "Shipping", page == "lab"),
         ]
         cta, browse = "Browse catalogue", "Full spreadsheet"
     else:
         items = [
-            ("/", "Home", True),
-            ("/sugargoo-finds/", "Finds", False),
-            ("/sugargoo-spreadsheet/", "Spreadsheet", False),
-            ("/sugargoo-review/", "Review", False),
-            ("/sugargoo-coupons/", "Coupons", False),
-            ("/#faq", "FAQ", False),
+            ("/", "Home", page == "home"),
+            ("/sugargoo-spreadsheet/", "Spreadsheet", page == "sheet"),
+            ("/sugargoo-coupons/", "Coupons", page == "coupons"),
+            (hp, t["help_lab"], page == "help"),
+            (np, t["news_lab"], page == "news"),
+            ("/#lab", "Shipping", page == "lab"),
         ]
         cta, browse = "Browse catalogue", "Full spreadsheet"
     nav = "".join(
@@ -447,9 +463,11 @@ def _nav(key: str, d: dict) -> str:
     return nav, cta, browse, w2c
 
 
-def _chrome_head(key: str, d: dict, title: str, desc: str) -> str:
+def _chrome_head(key: str, d: dict, title: str, desc: str, path: str = "/") -> str:
     host = d["host"]
-    canonical = f"https://{host}/"
+    if not path.startswith("/"):
+        path = "/" + path
+    canonical = f"https://{host}{path}"
     return f"""<!DOCTYPE html>
 <html lang="{escape(d['lang'])}">
 <head>
@@ -480,8 +498,8 @@ def _chrome_head(key: str, d: dict, title: str, desc: str) -> str:
 """
 
 
-def _header(key: str, d: dict) -> str:
-    nav, cta, browse, w2c = _nav(key, d)
+def _header(key: str, d: dict, page: str = "home") -> str:
+    nav, cta, browse, w2c = _nav(key, d, page=page)
     top = {
         "fr": f"Conçu pour la France · estimateur officiel · <a href=\"{w2c}\" target=\"_blank\" rel=\"noopener\">{browse} →</a>",
         "es": f"Escritorio ES independiente · no es sugargoo.es · <a href=\"{w2c}\" target=\"_blank\" rel=\"noopener\">{browse} →</a>",
@@ -513,6 +531,8 @@ def _footer(key: str, d: dict) -> str:
       <div class="footer-brand"><a href="/" class="brand sugargoo-brand"><img class="brand-logo sugargoo-logo" src="/assets/images/sugargoo-logo.png" alt="Sugargoo"></a>
       <p>Independent information desk on {escape(d['host'])}. Not the official SugarGoo site. Sister country hosts stay separate files — no 301.</p></div>
       <div class="footer-col"><h5>On this host</h5><ul>
+        <li><a href="/{_trust_paths(key)['help']}/">{escape(_trust_paths(key)['help_lab'])}</a></li>
+        <li><a href="/{_trust_paths(key)['news']}/">{escape(_trust_paths(key)['news_lab'])}</a></li>
         {''.join(f'<li><a href="{escape(h)}">{escape(l)}</a></li>' for h,l in d['keep'])}
       </ul></div>
       <div class="footer-col"><h5>Official</h5><ul>
@@ -903,6 +923,283 @@ def _lab(key: str, d: dict) -> str:
 </section>"""
 
 
+def _help_meta(key: str, d: dict) -> dict:
+    loc = d["locale"]
+    dest = d["dest_label"]
+    if key == "es":
+        return {
+            "title": "Ayuda: quince preguntas sobre SugarGoo en España",
+            "desc": "Desk ES independiente: catálogo en inglés, Packing Center 100 días, estimador con destino España. Lab 30 sep 2026.",
+            "h1": "Ayuda y preguntas frecuentes sobre SugarGoo en <em>español</em>",
+            "lead": "Esta página vale para una calle española en este host. No vemos tu cuenta. Pedidos, pagos y reclamaciones solo en sugargoo.com.",
+            "h2": "Las quince preguntas que más se repiten",
+            "ask_h": "Dónde preguntar cuando esto no basta",
+            "ask": "El chat de la app oficial. Este desk no opera tu cuenta. Los cupones siguen en /sugargoo-coupons/; la aduana en /aduana-iva-espana/.",
+        }
+    if key == "fr":
+        return {
+            "title": "Aide : quinze questions sur SugarGoo en France",
+            "desc": "Desk FR indépendant : catalogue anglais, Packing Center 100 jours, estimateur vers la France. Lab 30 sept. 2026. Pas la Belgique.",
+            "h1": "Aide et questions fréquentes sur SugarGoo en <em>France</em>",
+            "lead": "Cette page vaut pour une adresse en France sur ce host. On ne voit pas ton compte. Commandes et litiges seulement sur sugargoo.com.",
+            "h2": "Les quinze questions qui reviennent",
+            "ask_h": "Où demander si cela ne suffit pas",
+            "ask": "Le chat de l’app officielle. Ce desk n’opère pas ton compte. Coupons et avis restent sur leurs URL classées.",
+        }
+    if key in ("de", "at"):
+        land = "Österreich" if key == "at" else "Deutschland"
+        return {
+            "title": f"Hilfe: fünfzehn Fragen zu SugarGoo in {land}",
+            "desc": f"Unabhängiger Desk: englischer Katalog, 100 Tage Packing Center, Schätzer nach {land}. Lab 30. Sep 2026.",
+            "h1": f"Hilfe: fünfzehn Fragen zu SugarGoo in <em>{land}</em>",
+            "lead": f"Diese Seite gilt für eine Straße in {land} auf diesem Host. Wir sehen dein Konto nicht. Bestellungen nur auf sugargoo.com.",
+            "h2": "Die fünfzehn häufigsten Fragen",
+            "ask_h": "Wohin, wenn das nicht reicht",
+            "ask": "Offizieller App-Chat. Dieser Desk führt dein Konto nicht. Coupons bleiben im Coupon-Artikel.",
+        }
+    if key == "nl":
+        return {
+            "title": "Hulp: vijftien vragen over SugarGoo in Nederland",
+            "desc": "Onafhankelijke NL-desk: Engelse catalogus, 100 dagen Packing Center, estimator naar Nederland. Lab 30 sep 2026.",
+            "h1": "Hulp: vijftien vragen over SugarGoo in <em>Nederland</em>",
+            "lead": "Deze pagina geldt voor een Nederlands adres op deze host. We zien je account niet. Orders alleen op sugargoo.com.",
+            "h2": "De vijftien vragen die het vaakst terugkomen",
+            "ask_h": "Waar vragen als dit niet volstaat",
+            "ask": "De chat in de officiële app. Deze desk voert je account niet. Coupons blijven op de coupon-URL.",
+        }
+    if key == "now":
+        return {
+            "title": "Help: fifteen questions on this SugarGoo coupon hub",
+            "desc": "Independent English hub. Destination is a country in the official estimator, not this hostname. Lab 30 Sep 2026.",
+            "h1": "Help: fifteen questions on this <em>coupon hub</em>",
+            "lead": "This hostname is not a destination. Dated html articles stay. Orders run only on sugargoo.com.",
+            "h2": "The fifteen questions that come back most",
+            "ask_h": "Where to ask when this is not enough",
+            "ask": "Official in-app chat. This desk does not run your account. Coupon html files on this host stay put.",
+        }
+    return {
+        "title": f"Help: fifteen questions about SugarGoo in {loc}",
+        "desc": f"Independent desk: English catalogue, 100-day packing center, estimator to {dest}. Lab 30 Sep 2026.",
+        "h1": f"Help: fifteen questions about SugarGoo in <em>{escape(loc)}</em>",
+        "lead": f"This page is for a {dest} address on this host. We cannot see your account. Orders and claims run only on sugargoo.com.",
+        "h2": "The fifteen questions that come back most",
+        "ask_h": "Where to ask when this is not enough",
+        "ask": "Official in-app chat. This desk does not operate your SugarGoo account. Ranked coupon and customs URLs stay on this host.",
+    }
+
+
+def _news_meta(key: str, d: dict) -> dict:
+    loc = d["locale"]
+    dest = d["dest_label"]
+    if key == "es":
+        return {
+            "title": "Novedades: lo que hemos comprobado en SugarGoo para España",
+            "desc": "Notas con fecha de este desk ES. No copiamos las 58 líneas de otro agente. Lab 30 sep 2026.",
+            "h1": "Qué hemos comprobado en la plataforma, <em>con fecha</em>",
+            "lead": "Cada bloque es una medición o una captura de este host, no un recorte de hipobuy.es.",
+            "how_h": "Cómo comprobamos las cosas",
+            "how": "Homepage y /api/products/ de este host, el estimador oficial con destino España, y las URL que ya posicionan. No inventamos un recuento de líneas ajenas.",
+        }
+    if key == "fr":
+        return {
+            "title": "Actualités : ce que nous avons vérifié sur SugarGoo pour la France",
+            "desc": "Notes datées du desk FR. Destination France, pas la Belgique. Lab 30 sept. 2026.",
+            "h1": "Ce que nous avons vérifié sur la plateforme, <em>avec date</em>",
+            "lead": "Chaque bloc est une mesure sur ce host, pas une copie d’un autre agent.",
+            "how_h": "Comment on vérifie",
+            "how": "Accueil et /api/products/ de ce host, estimateur officiel vers la France, URL déjà classées. Pas de copie des lignes ES d’un autre agent.",
+        }
+    if key in ("de", "at"):
+        land = "Österreich" if key == "at" else "Deutschland"
+        return {
+            "title": f"Neuigkeiten: was wir an SugarGoo für {land} geprüft haben",
+            "desc": f"Datierte Notizen dieses Desks. Schätzer nach {land}. Lab 30. Sep 2026.",
+            "h1": "Was wir auf der Plattform geprüft haben, <em>mit Datum</em>",
+            "lead": "Jeder Block ist eine Messung auf diesem Host, kein fremder Linien-Schnappschuss.",
+            "how_h": "Wie wir messen",
+            "how": f"Startseite und /api/products/ dieses Hosts, offizieller Schätzer nach {land}, bereits rankende URLs.",
+        }
+    if key == "nl":
+        return {
+            "title": "Nieuws: wat we op SugarGoo voor Nederland hebben nagemeten",
+            "desc": "Gedateerde notities van deze NL-desk. Lab 30 sep 2026.",
+            "h1": "Wat we op het platform hebben nagemeten, <em>met datum</em>",
+            "lead": "Elk blok is een meting op deze host, geen kopie van een andere agent.",
+            "how_h": "Hoe we meten",
+            "how": "Homepage en /api/products/ van deze host, officiële estimator naar Nederland, URL’s die al ranken.",
+        }
+    if key == "now":
+        return {
+            "title": "News: what we checked on this SugarGoo coupon hub",
+            "desc": "Dated notes. This hostname is not a destination. Html articles stay. Lab 30 Sep 2026.",
+            "h1": "What we checked on this hub, <em>with dates</em>",
+            "lead": "Each block is a measurement on this host. Spain-only line counts stay off this page.",
+            "how_h": "How we measure",
+            "how": "Homepage and /api/products/ on this host, official estimator with a country code, existing html articles left in place.",
+        }
+    return {
+        "title": f"News: what we checked on SugarGoo for {loc}",
+        "desc": f"Dated notes on this independent desk. Estimator destination {dest}. Lab 30 Sep 2026.",
+        "h1": "What we checked on the platform, <em>with dates</em>",
+        "lead": "Each block is a measurement on this host, not another agent’s freight snapshot.",
+        "how_h": "How we measure",
+        "how": f"Homepage and /api/products/ on this host, official estimator to {dest}, ranked URLs left in place.",
+    }
+
+
+def _news_items(key: str, d: dict) -> list[tuple[str, str]]:
+    dest = d["dest_label"]
+    api = f"https://{d['host']}/api/products/"
+    if key == "es":
+        return [
+            ("Check 1 · 30 sep 2026 · catálogo en esta portada",
+             f"Restauramos el catálogo en / vía {api}. Clave inglesa sneakers devuelve fichas; zapatillas suele dar 0."),
+            ("Check 2 · el conmutador de moneda no convierte",
+             "En el sitio oficial el símbolo puede pasar a EUR y las cifras seguir en dólares. Lee el número, no solo el símbolo."),
+            ("Check 3 · el estimador pide España, no este TLD",
+             "Abrimos freight-estimate con destino España. No copiamos las 58 líneas de hipobuy.es ni un precio de otro agente."),
+            ("Check 4 · Packing Center 100 días",
+             "El blog oficial de SugarGoo: 100 días gratis en pedidos de compra desde Packing Center — no la cifra 90 de otro agente."),
+            ("Check 5 · URLs que ya posicionan",
+             " /aduana-iva-espana/ y /sugargoo-coupons/ se conservan. Esta novedad no las pisa."),
+        ]
+    if key == "fr":
+        return [
+            ("Check 1 · 30 sept. 2026 · catalogue sur cette accueil",
+             f"Catalogue restauré sur / via {api}. La clé sneakers remplit la grille ; baskets donne souvent 0."),
+            ("Check 2 · le sélecteur de devise ne convertit pas",
+             "Le symbole peut passer en EUR et le chiffre rester en dollars. Lis le nombre."),
+            ("Check 3 · l’estimateur veut la France",
+             "Destination France, pas la Belgique, pas un TLD. Pas de copie des lignes ES d’un autre agent."),
+            ("Check 4 · Packing Center 100 jours",
+             "Blog officiel SugarGoo : 100 jours gratuits à partir du Packing Center pour les ordres d’achat."),
+            ("Check 5 · URL déjà classées",
+             "/sugargoo-coupons/ et /sugargoo-review/ restent. Cette page actualités ne les écrase pas."),
+        ]
+    if key in ("de", "at"):
+        land = "Österreich" if key == "at" else "Deutschland"
+        return [
+            (f"Check 1 · 30. Sep 2026 · Katalog auf dieser Startseite",
+             f"Katalog wieder auf / über {api}. Englisch sneakers füllt das Raster; Turnschuhe oft 0."),
+            ("Check 2 · Währungsschalter rechnet nicht um",
+             "Das Symbol kann auf EUR springen, die Ziffer Dollar bleiben. Die Zahl lesen."),
+            (f"Check 3 · Schätzer nach {land}",
+             f"Offizieller Schätzer mit Ziel {land}. Keine 58 ES-Linien eines anderen Agenten."),
+            ("Check 4 · Packing Center 100 Tage",
+             "Offizieller SugarGoo-Blog: 100 Tage gratis ab Packing Center bei Kaufaufträgen."),
+            ("Check 5 · bereits rankende URLs",
+             "Coupon- und Spreadsheet-Artikel bleiben. Diese Neuigkeiten-Seite überschreibt sie nicht."),
+        ]
+    if key == "nl":
+        return [
+            ("Check 1 · 30 sep 2026 · catalogus op deze homepage",
+             f"Catalogus terug op / via {api}. Engels sneakers vult het raster; lokale woorden vaak 0."),
+            ("Check 2 · valutaswitcher rekent niet om",
+             "Het symbool kan EUR worden terwijl het cijfer dollar blijft. Lees het getal."),
+            ("Check 3 · estimator naar Nederland",
+             "Officiële estimator met bestemming Nederland. Geen ES-lijnen van een andere agent."),
+            ("Check 4 · Packing Center 100 dagen",
+             "Officiële SugarGoo-blog: 100 dagen gratis vanaf Packing Center voor kooporders."),
+            ("Check 5 · URL’s die al ranken",
+             "Coupon- en BTW-artikelen blijven. Deze nieuwspagina overschrijft ze niet."),
+        ]
+    if key == "now":
+        return [
+            ("Check 1 · 30 Sep 2026 · catalogue on this hub homepage",
+             f"Catalogue restored on / via {api}. English keys fill the grid. Dated html files stay."),
+            ("Check 2 · currency switcher does not convert",
+             "Official site: the symbol can change while the digits stay dollars."),
+            ("Check 3 · this hostname is not a destination",
+             "Open the official estimator with a country code. Spain-only line counts stay off this hub."),
+            ("Check 4 · packing center 100 days",
+             "Official SugarGoo blog: 100 free days on purchasing orders from Packing Center."),
+            ("Check 5 · html articles kept",
+             "Coupon, Reddit, legit and spreadsheet html files were not overwritten."),
+        ]
+    extra = {
+        "us": "Ranked de-minimis, USPS times and coupons URLs stay.",
+        "au": "The ranked GST article at /gst-import-australia/ stays.",
+        "ca": "The ranked CBSA article at /cbsa-import-canada/ stays.",
+        "uk": "The UK VAT article stays.",
+    }.get(key, "Ranked coupon and guide URLs stay.")
+    return [
+        ("Check 1 · 30 Sep 2026 · catalogue on this homepage",
+         f"Catalogue restored on / via {api}. English key sneakers fills the grid; local words often return zero."),
+        ("Check 2 · currency switcher does not convert",
+         "On the official site the symbol can change to a local currency while the digits stay dollars. Read the number."),
+        (f"Check 3 · estimator destination {dest}",
+         f"Open the official freight estimate with {dest}. We do not paste another agent’s line count onto this desk."),
+        ("Check 4 · packing center 100 days",
+         "Official SugarGoo blog: 100 free days on purchasing orders from Packing Center — not a 90-day figure from another agent."),
+        ("Check 5 · ranked URLs kept", extra),
+    ]
+
+
+def build_help(key: str) -> str:
+    d = HOSTS[key]
+    t = _trust_paths(key)
+    m = _help_meta(key, d)
+    if INVITE in m["title"] or COUPON in m["title"]:
+        raise RuntimeError(f"{key} help: code in title")
+    faqs = _faqs(key, d)
+    faq_ld = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "inLanguage": d["lang"],
+        "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
+            for q, a in faqs
+        ],
+    }
+    html = _chrome_head(key, d, m["title"], m["desc"], path=f"/{t['help']}/")
+    # extra FAQ JSON-LD
+    html = html.replace("</head>", f'<script type="application/ld+json">{json.dumps(faq_ld, ensure_ascii=False)}</script>\n</head>', 1)
+    html += _header(key, d, page="help")
+    items = []
+    for i, (q, a) in enumerate(faqs):
+        op = " open" if i == 0 else ""
+        items.append(f'<details class="sg-faq"{op}><summary>{escape(q)}</summary><p>{escape(a)}</p></details>')
+    html += f"""<section class="sg-hero">
+  <div class="hbg">Lab {DATE} · {escape(t['help_lab'])}</div>
+  <h1>{m['h1']}</h1>
+  <p class="hsub">{escape(m['lead'])}</p>
+  <p class="eu-badge">{escape(d['badge'])}</p>
+</section>
+<section class="sg-sec" id="faq"><h2>{escape(m['h2'])}</h2>{''.join(items)}</section>
+<section class="sg-sec"><h2>{escape(m['ask_h'])}</h2><p class="ssub">{escape(m['ask'])}</p>
+<p><a class="btn btn-primary" href="{REG}" target="_blank" rel="noopener sponsored">{escape({"fr":"S’inscrire","es":"Registrarse","de":"Registrieren","at":"Registrieren","nl":"Registreren"}.get(key,"Register"))}</a>
+<a class="btn btn-outline" href="/">← /</a></p></section>
+"""
+    html += _footer(key, d)
+    return html
+
+
+def build_news(key: str) -> str:
+    d = HOSTS[key]
+    t = _trust_paths(key)
+    m = _news_meta(key, d)
+    if INVITE in m["title"] or COUPON in m["title"]:
+        raise RuntimeError(f"{key} news: code in title")
+    html = _chrome_head(key, d, m["title"], m["desc"], path=f"/{t['news']}/")
+    html += _header(key, d, page="news")
+    blocks = []
+    for h, p in _news_items(key, d):
+        blocks.append(f'<article class="sg-sec"><h2>{escape(h)}</h2><p class="ssub">{escape(p)}</p></article>')
+    html += f"""<section class="sg-hero">
+  <div class="hbg">Lab {DATE} · {escape(t['news_lab'])}</div>
+  <h1>{m['h1']}</h1>
+  <p class="hsub">{escape(m['lead'])}</p>
+  <p class="eu-badge">{escape(d['badge'])}</p>
+</section>
+{''.join(blocks)}
+<section class="sg-sec"><h2>{escape(m['how_h'])}</h2><p class="ssub">{escape(m['how'])}</p>
+<p><a class="btn btn-outline" href="/{_trust_paths(key)['help']}/">{escape(t['help_lab'])}</a>
+<a class="btn btn-outline" href="/">← /</a></p></section>
+"""
+    html += _footer(key, d)
+    return html
+
+
 def build_home(key: str) -> str:
     d = HOSTS[key]
     m = HOME_META[key]
@@ -957,10 +1254,36 @@ def _validate() -> None:
             raise SystemExit("fr title became Belgium")
         if "locale-switcher" not in html:
             raise SystemExit(f"{key}: missing locale-switcher")
+        t = _trust_paths(key)
+        if f"/{t['help']}/" not in html or f"/{t['news']}/" not in html:
+            raise SystemExit(f"{key}: home missing help/news nav")
         n = _wc(html)
         print(f"{'OK' if n>=600 else 'SHORT':5} {key}/home words={n} faq={nfaq} {title[:56]}")
         if n < 500:
             raise SystemExit(f"{key} too short")
+
+        help_html = build_help(key)
+        news_html = build_news(key)
+        for label, page in (("help", help_html), ("news", news_html)):
+            pt = re.search(r"<title>(.*?)</title>", page, flags=re.S).group(1)
+            if INVITE in pt or COUPON in pt:
+                raise SystemExit(f"{key} {label}: code in title")
+            if "Georgia" in page or "#00C853" in page or "gsc-editor-notes" in page:
+                raise SystemExit(f"{key} {label}: junk")
+            if "sugargoo-theme.css" not in page or "locale-switcher" not in page:
+                raise SystemExit(f"{key} {label}: chrome")
+            if key == "now" and ("58 líneas" in page or "ES AIR" in page):
+                raise SystemExit("now.com help/news copied Spain lines")
+            if key == "fr" and ("Belgique" in pt or "Belgium" in pt or "France / BE" in page):
+                raise SystemExit("fr help/news became Belgium")
+        hf = len(re.findall(r"class=\"sg-faq\"", help_html))
+        if hf < 15:
+            raise SystemExit(f"{key} help faq {hf}")
+        hn = len(re.findall(r"<h2>", news_html))
+        if hn < 6:
+            raise SystemExit(f"{key} news h2 {hn}")
+        print(f"OK    {key}/help words={_wc(help_html)} faq={hf}")
+        print(f"OK    {key}/news words={_wc(news_html)} h2={hn}")
 
 
 def _connect():
@@ -1002,35 +1325,99 @@ def _only() -> list[str]:
     return keys
 
 
+def _overlay_files(key: str) -> list[tuple[Path, str]]:
+    d = HOSTS[key]
+    t = _trust_paths(key)
+    host_root = ROOT / "sites" / d["host"] / "overlay"
+    return [
+        (host_root / "index.html", build_home(key)),
+        (host_root / t["help"] / "index.html", build_help(key)),
+        (host_root / t["news"] / "index.html", build_news(key)),
+    ]
+
+
+def _sitemap_insert(client, host: str, slugs: list[str]) -> None:
+    path = f"/www/wwwroot/{host}/sitemap.xml"
+    raw = _run(client, f"python3 -c \"print(open({path!r}).read() if __import__('os').path.isfile({path!r}) else '')\"")
+    if "</urlset>" not in raw:
+        print("skip sitemap", host)
+        return
+    added = 0
+    chunk = raw
+    for slug in slugs:
+        loc = f"https://{host}/{slug.strip('/')}/"
+        if loc in chunk:
+            continue
+        block = (
+            "  <url>\n"
+            f"    <loc>{loc}</loc>\n"
+            "    <lastmod>2026-09-30</lastmod>\n"
+            "    <changefreq>weekly</changefreq>\n"
+            "    <priority>0.7</priority>\n"
+            "  </url>\n"
+        )
+        chunk = chunk.replace("</urlset>", block + "</urlset>", 1)
+        added += 1
+    if not added:
+        print("sitemap ok", host)
+        return
+    sftp = client.open_sftp()
+    bak = f"/www/backup/sugargoo-sitemap-{host}-20260930.xml"
+    _run(client, f"cp -a '{path}' '{bak}'")
+    with sftp.open(path, "w") as fh:
+        fh.write(chunk)
+    sftp.close()
+    print("sitemap +", added, host)
+
+
 def main() -> None:
     _validate()
     put_keys = _only()
     for key in ORDER:
-        d = HOSTS[key]
-        html = build_home(key)
-        dest = ROOT / "sites" / d["host"] / "overlay" / "index.html"
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(html, encoding="utf-8")
-        print("wrote", dest, dest.stat().st_size)
+        for dest, html in _overlay_files(key):
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_text(html, encoding="utf-8")
+            print("wrote", dest, dest.stat().st_size)
     if "--dry" in sys.argv:
         print("dry-run ok")
         return
     client = _connect()
     sftp = client.open_sftp()
     stamp = time.strftime("%Y%m%d-%H%M%S")
-    bak = f"/www/backup/sugargoo-home-{stamp}"
+    bak = f"/www/backup/sugargoo-trust-{stamp}"
     print(_run(client, f"mkdir -p '{bak}'"))
     uploaded = []
     for key in put_keys:
         d = HOSTS[key]
-        local = ROOT / "sites" / d["host"] / "overlay" / "index.html"
-        remote = f"/www/wwwroot/{d['host']}/index.html"
-        _run(client, f"cp -a '{remote}' '{bak}/{d['host']}-index.html'")
-        sftp.put(str(local), remote)
-        uploaded.append(remote)
-        print("PUT", remote, "bytes", local.stat().st_size)
+        t = _trust_paths(key)
+        mapping = [
+            (ROOT / "sites" / d["host"] / "overlay" / "index.html", f"/www/wwwroot/{d['host']}/index.html"),
+            (
+                ROOT / "sites" / d["host"] / "overlay" / t["help"] / "index.html",
+                f"/www/wwwroot/{d['host']}/{t['help']}/index.html",
+            ),
+            (
+                ROOT / "sites" / d["host"] / "overlay" / t["news"] / "index.html",
+                f"/www/wwwroot/{d['host']}/{t['news']}/index.html",
+            ),
+        ]
+        for local, remote in mapping:
+            rdir = remote.rsplit("/", 1)[0]
+            _run(client, f"mkdir -p '{rdir}'")
+            # never clobber a pre-existing unique dest directory's other files; only write index.html
+            _run(client, f"test -f '{remote}' && cp -a '{remote}' '{bak}/{d['host']}-{remote.strip('/').replace('/', '_')}' || true")
+            sftp.put(str(local), remote)
+            uploaded.append(remote)
+            print("PUT", remote, "bytes", local.stat().st_size)
+        _sitemap_insert(client, d["host"], [t["help"], t["news"]])
     if uploaded:
-        _run(client, "chown www:www " + " ".join(f"'{p}'" for p in uploaded) + " && chmod 644 " + " ".join(f"'{p}'" for p in uploaded))
+        _run(
+            client,
+            "chown www:www "
+            + " ".join(f"'{p}'" for p in uploaded)
+            + " && chmod 644 "
+            + " ".join(f"'{p}'" for p in uploaded),
+        )
     print("backup", bak, "put", ",".join(put_keys))
     sftp.close()
     client.close()
