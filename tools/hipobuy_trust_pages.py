@@ -1106,15 +1106,15 @@ def wrap(base: str, *, canonical: str, title: str, desc: str, lang: str, article
 def patch_shipping(html: str, key: str, d: dict) -> str:
     block = shipping_trust(d, key)
     html = re.sub(
-        r'(?s)<h2 class="ph" id="(?:zoll|douane|cbp|hmrc|ioss)">.*?(?=<h2 class="ph" id="calculator">)',
+        r'(?s)<h2 class="ph" id="(?:zoll|douane|cbp|hmrc|ioss)">.*?(?=\s*<h2 class="ph" id="calculator">)',
         "",
         html,
         count=1,
     )
-    needle = '  <h2 class="ph" id="calculator">'
-    if needle not in html:
+    m = re.search(r"<h2 class=\"ph\" id=\"calculator\">", html)
+    if not m:
         raise ValueError(f"{key}: calculator heading missing")
-    return html.replace(needle, block + "\n" + needle, 1)
+    return html[: m.start()] + block + "\n" + html[m.start() :]
 
 
 
