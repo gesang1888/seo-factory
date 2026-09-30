@@ -478,53 +478,23 @@ def shell_page(
     canonical: str,
     crumb: str,
     inner: str,
+    on: str | None = None,
+    as_faq: bool = False,
 ) -> str:
-    L = labels(key)
-    ink, accent, bg, border, head = THEMES[key]
-    nav = "\n    ".join(
-        f'<a href="{escape(href)}">{escape(lab)}</a>' for href, lab in nav_links(key, d)
+    """Inner Help/News/About pages use the same green CMS chrome as /."""
+    from hipobuy_cms_home import build_cms_inner
+
+    return build_cms_inner(
+        key,
+        d,
+        title=title,
+        desc=desc,
+        canonical=canonical,
+        crumb=crumb,
+        inner=inner,
+        on=on or "/",
+        as_faq=as_faq,
     )
-    jsonld = json.dumps(
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": title,
-            "inLanguage": d["lang"],
-            "url": canonical,
-            "isPartOf": {"@type": "WebSite", "name": d["host"], "url": f"https://{d['host']}/"},
-        },
-        ensure_ascii=False,
-    )
-    return f"""<!doctype html>
-<html lang="{escape(d['lang'])}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{escape(title)}</title>
-<meta name="description" content="{escape(desc)}">
-<link rel="canonical" href="{escape(canonical)}">
-<meta name="robots" content="index,follow">
-<style>{css(key)}</style>
-<script type="application/ld+json">{jsonld}</script>
-</head>
-<body>
-<header>
-  <p class="note">HipoBuy · {escape(d['host'])} · {escape(L['note'])}</p>
-  <nav class="local">
-    {nav}
-  </nav>
-</header>
-<main>
-  <p class="note">{escape(L['home'])} · {escape(crumb)}</p>
-  {inner}
-  {contact_block(key)}
-</main>
-<footer>
-  <p class="note">{escape(L['note'])}. <a href="mailto:{MAIL}">{MAIL}</a></p>
-</footer>
-</body>
-</html>
-"""
 
 
 def cms_nav_html(key: str, d: dict) -> str:

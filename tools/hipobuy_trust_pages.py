@@ -1189,6 +1189,23 @@ def _validate() -> None:
             print(f"{flag:5} {key}/{slug} words={n}{extra} {title[:50]}")
             if n < min_w:
                 raise SystemExit(f"{key}/{slug} too short: {n}")
+            wrapped = shell_page(
+                key,
+                d,
+                title=title,
+                desc=desc,
+                canonical=f"https://{d['host']}/{slug}/",
+                crumb=crumb,
+                inner=article,
+                on=f"/{slug}/",
+                as_faq=slug == d["slugs"]["help"],
+            )
+            if "#00C853" not in wrapped or 'class="nav"' not in wrapped:
+                raise SystemExit(f"{key}/{slug} missing CMS green chrome")
+            if "font-family: Georgia" in wrapped or "font-family:Georgia" in wrapped:
+                raise SystemExit(f"{key}/{slug} still Georgia overlay")
+            if slug == d["slugs"]["help"] and len(re.findall(r'class="faq-item', wrapped)) < 15:
+                raise SystemExit(f"{key}/{slug} accordion missing")
         home = homepage_html(key, d)
         hn = _wc(home)
         nfaq = len(re.findall(r'class="faq-item', home))
@@ -1232,6 +1249,22 @@ def main() -> None:
             d["overlay"].parent.mkdir(parents=True, exist_ok=True)
             d["overlay"].write_text(home, encoding="utf-8")
             print("wrote", d["overlay"], "bytes", d["overlay"].stat().st_size)
+            for slug, (title, desc, article, crumb) in pages_for(key, d).items():
+                html = shell_page(
+                    key,
+                    d,
+                    title=title,
+                    desc=desc,
+                    canonical=f"https://{d['host']}/{slug}/",
+                    crumb=crumb,
+                    inner=article,
+                    on=f"/{slug}/",
+                    as_faq=slug == d["slugs"]["help"],
+                )
+                dest = d["overlay"].parent / slug / "index.html"
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                dest.write_text(html, encoding="utf-8")
+                print("wrote", dest, "bytes", dest.stat().st_size)
         print("dry-run ok")
         return
     client = _connect()
@@ -1256,6 +1289,8 @@ def main() -> None:
                 canonical=canonical,
                 crumb=crumb,
                 inner=article,
+                on=f"/{slug}/",
+                as_faq=slug == d["slugs"]["help"],
             )
             local_dir = OUT / d["host"] / slug
             local_dir.mkdir(parents=True, exist_ok=True)

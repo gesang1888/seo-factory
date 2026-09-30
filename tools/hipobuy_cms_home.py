@@ -129,23 +129,30 @@ SIDE_CATS = [
 ]
 
 
-def _nav(key: str, d: dict) -> str:
+def _nav(key: str, d: dict, on: str = "/") -> str:
     L = labels(key)
     s = d["slugs"]
-    items = [('<a href="/" class="on">' + escape(L["sheet"]) + "</a>")]
+    on_n = on.rstrip("/") or "/"
+
+    def item(href: str, lab: str) -> str:
+        href_n = href.rstrip("/") or "/"
+        cls = ' class="on"' if href_n == on_n else ""
+        return f'<a href="{href}"{cls}>{escape(lab)}</a>'
+
+    items = [item("/", L["sheet"])]
     if key in ("uk", "eu"):
-        items.append(f'<a href="/hipobuy-coupons/">{escape(L["coupons"])}</a>')
+        items.append(item("/hipobuy-coupons/", L["coupons"]))
     if key == "uk":
-        items.append('<a href="/blog/posts/hipobuy-sizing-guide/">UK sizing</a>')
+        items.append(item("/blog/posts/hipobuy-sizing-guide/", "UK sizing"))
     ship = "/guides/shipping/" if key == "us" else "/hipobuy-shipping-guide/"
-    items.append(f'<a href="{ship}">{escape(L["ship"])}</a>')
+    items.append(item(ship, L["ship"]))
     if key not in ("uk", "eu"):
-        items.append(f'<a href="/how-to-use-hipobuy/">{escape(L["howto"])}</a>')
+        items.append(item("/how-to-use-hipobuy/", L["howto"]))
     items.extend(
         [
-            f'<a href="/{s["help"]}/">{escape(L["help"])}</a>',
-            f'<a href="/{s["news"]}/">{escape(L["news"])}</a>',
-            f'<a href="/{s["about"]}/">{escape(L["about"])}</a>',
+            item(f"/{s['help']}/", L["help"]),
+            item(f"/{s['news']}/", L["news"]),
+            item(f"/{s['about']}/", L["about"]),
         ]
     )
     return "<ul class=\"nl\">" + "".join(f"<li>{a}</li>" for a in items) + "</ul>"
@@ -548,6 +555,154 @@ def _drop_sheet_cta(html: str) -> str:
     )
     html = html.replace('href="/hipobuy-spreadsheet"', 'href="/"')
     html = html.replace('href="/hipobuy-spreadsheet/"', 'href="/"')
+    return html
+
+
+INNER_CSS = """
+.w2c-prose h1{font-size:clamp(28px,4.4vw,42px);font-weight:700;letter-spacing:-1.2px;line-height:1.15;margin:0 0 18px;color:var(--bk)}
+.w2c-prose .faq-item.open .faq-a{max-height:1600px}
+figure.shot{margin:16px 0}
+figure.shot img{width:100%;height:auto;border:1px solid var(--g5);border-radius:var(--rl);background:var(--g6)}
+figure.shot figcaption{font-size:13px;color:var(--g4);margin-top:6px;line-height:1.55}
+"""
+
+
+def _unwrap_article(inner: str) -> str:
+    inner = inner.strip()
+    inner = re.sub(r'^<article class="hipo-howto"[^>]*>\s*', "", inner)
+    inner = re.sub(r"\s*</article>\s*$", "", inner)
+    inner = re.sub(r'<h1 style="[^"]*">', "<h1>", inner, count=1)
+    return inner
+
+
+def _help_as_accordion(inner: str) -> str:
+    n = 0
+
+    def repl(m: re.Match) -> str:
+        nonlocal n
+        q = re.sub(r"<[^>]+>", "", m.group(1)).strip()
+        a = m.group(2).strip()
+        opened = " open" if n == 0 else ""
+        n += 1
+        return (
+            f'<div class="faq-item{opened}">'
+            f'<div class="faq-q" onclick="toggleFaq(this)">{escape(q)}{_CHEV}</div>'
+            f'<div class="faq-a">{a}</div></div>'
+        )
+
+    return re.sub(
+        r'<h3 class="ph">(.*?)</h3>\s*<p class="pp">(.*?)</p>',
+        repl,
+        inner,
+        flags=re.S,
+    )
+
+
+def _set_meta(html: str, *, title: str, desc: str, canonical: str, lang: str) -> str:
+    html = re.sub(r'<html lang="[^"]*"', f'<html lang="{escape(lang)}"', html, count=1)
+    html = re.sub(
+        r"<title>.*?</title>",
+        f"<title>{escape(title)}</title>",
+        html,
+        count=1,
+        flags=re.S,
+    )
+    html = re.sub(
+        r'<meta name="description" content="[^"]*"',
+        f'<meta name="description" content="{escape(desc)}"',
+        html,
+        count=1,
+    )
+    html = re.sub(
+        r'<meta property="og:title" content="[^"]*"',
+        f'<meta property="og:title" content="{escape(title)}"',
+        html,
+        count=1,
+    )
+    html = re.sub(
+        r'<meta property="og:description" content="[^"]*"',
+        f'<meta property="og:description" content="{escape(desc)}"',
+        html,
+        count=1,
+    )
+    html = re.sub(
+        r'<meta property="og:url" content="[^"]*"',
+        f'<meta property="og:url" content="{escape(canonical)}"',
+        html,
+        count=1,
+    )
+    html = re.sub(
+        r'<link rel="canonical" href="[^"]*"',
+        f'<link rel="canonical" href="{escape(canonical)}"',
+        html,
+        count=1,
+    )
+    jsonld = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": title,
+            "url": canonical,
+            "description": desc,
+        },
+        ensure_ascii=False,
+    )
+    html = re.sub(
+        r'<script type="application/ld\+json">.*?</script>',
+        f'<script type="application/ld+json">{jsonld}</script>',
+        html,
+        count=1,
+        flags=re.S,
+    )
+    return html
+
+
+def build_cms_inner(
+    key: str,
+    d: dict,
+    *,
+    title: str,
+    desc: str,
+    canonical: str,
+    crumb: str,
+    inner: str,
+    on: str,
+    as_faq: bool = False,
+) -> str:
+    """Same green CMS chrome as the homepage, article in the middle."""
+    src = CMS_HOME / f"{key}.html"
+    if not src.is_file():
+        raise FileNotFoundError(src)
+    html = src.read_text(encoding="utf-8", errors="replace")
+    html = _set_meta(html, title=title, desc=desc, canonical=canonical, lang=d["lang"])
+    html = html.replace("</style>", INNER_CSS + "\n</style>", 1)
+    html = re.sub(r'<ul class="nl">.*?</ul>', _nav(key, d, on=on), html, count=1, flags=re.S)
+    start = html.find('<section class="hero')
+    if start < 0:
+        start = html.find('<article class="w2c-prose')
+    end = html.find("<footer")
+    if start < 0 or end < 0:
+        raise ValueError(f"{key}: cannot splice CMS inner chrome")
+    body = _unwrap_article(inner)
+    if as_faq:
+        body = _help_as_accordion(body)
+    L = labels(key)
+    block = (
+        f'<div class="bc"><a href="/">{escape(L["home"])}</a>'
+        f" <span>/</span> <span>{escape(crumb)}</span></div>\n"
+        f'<article class="w2c-prose" style="padding-bottom:72px">\n'
+        f"{body}\n"
+        f'<p class="pp">Editorial: <a href="mailto:{MAIL}">{MAIL}</a></p>\n'
+        f"</article>\n"
+    )
+    html = html[:start] + block + html[end:]
+    html = re.sub(
+        r'(<div class="fb">)',
+        rf'\1<p>Editorial: <a href="mailto:{MAIL}">{MAIL}</a></p>',
+        html,
+        count=1,
+    )
+    html = html.replace("Cruisezhang0202@gmail.com", MAIL)
     return html
 
 
