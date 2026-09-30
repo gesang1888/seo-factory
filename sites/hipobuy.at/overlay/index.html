@@ -60,7 +60,6 @@ article.hipo-howto { max-width:none; margin:0; padding:0; text-align:left; }
   
   <h1>So kommt ein HipoBuy-Paket nach Österreich</h1>
   <p>HipoBuy <strong>verkauft die Ware nicht</strong>. Es ist ein Einkaufsagent: er kauft in chinesischen Drittshops in deinem Namen, fotografiert im Lager und schickt erst, wenn du eine internationale Linie buchst. Deshalb zahlst du zweimal — zuerst Ware plus Inlandversand in China, später Porto nach den QC-Fotos. Dazwischen kannst du stornieren, bündeln oder die Linie wechseln. Das steht so in der Plattform-Hilfe; dieser Desk wiederholt es auf Deutsch für eine österreichische Straße.</p>
-  <figure class="shot"><img src="/media/official-home-20260930.png" alt="Offizielle Startseite hipobuy.com, eigene Aufnahme 30 Sep 2026. Englisch/USD ist die Voreinstellung — nicht dieser AT-Desk." loading="lazy"><figcaption>Offizielle Startseite hipobuy.com, eigene Aufnahme 30 Sep 2026. Englisch/USD ist die Voreinstellung — nicht dieser AT-Desk.</figcaption></figure>
   <p>
     <a class="cta" href="/hipobuy-shipping-guide/">AT-Versandtabelle und Rechner</a>
     <a class="cta" href="https://hipobuy.com/estimation">Offiziellen Schätzer öffnen</a>
@@ -69,9 +68,6 @@ article.hipo-howto { max-width:none; margin:0; padding:0; text-align:left; }
 
   <h2>Katalog auf dieser Startseite</h2>
   <p>Auf diesem Desk meint „Spreadsheet“ einen <strong>Katalog von Produktkarten</strong> (Foto, Marke, Referenzpreis, Link für den Agenten) — keine Tabelle mit Zellen. Die Karten stehen <strong>hier auf /</strong>, über <code>/api/products/</code> desselben Hosts. Die 8&nbsp;600 Zeilen Finds bleiben auf <a href="https://hipobuyspreadsheet.net/">hipobuyspreadsheet.net</a>. LitBuy.at ist ein anderer Agent, kein 301.</p>
-  <figure class="shot"><img src="/media/at-spreadsheet-20260930.png" alt="Katalogkarten auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Fotos kommen aus w2clinks; deutsche Wörter ohne Übersetzung liefern oft 0 Treffer." loading="lazy"><figcaption>Katalogkarten auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Fotos kommen aus w2clinks; deutsche Wörter ohne Übersetzung liefern oft 0 Treffer.</figcaption></figure>
-
-  <h2>Der Index ist Englisch — die Suche darunter übersetzt</h2>
   <p>Am 29.&nbsp;Aug.&nbsp;2026 hat die spanische Schwesterdesk gemessen: zapatillas, sudadera, chaqueta → 0 Karten; sneakers, hoodie, jacket → volle Seiten. Dasselbe Muster gilt für Turnschuhe, Kapuzenpullover, Jacke. Du tippst Deutsch; die Karten erscheinen <strong>auf dieser Startseite</strong>, ohne Sprung auf eine zweite URL.</p>
   
 <div class="box" id="katalog">
@@ -201,6 +197,8 @@ article.hipo-howto { max-width:none; margin:0; padding:0; text-align:left; }
 })();
 </script>
 
+  <figure class="shot"><img src="/media/official-home-20260930.png" alt="Offizielle Startseite hipobuy.com, eigene Aufnahme 30 Sep 2026. Englisch/USD ist die Voreinstellung — nicht dieser AT-Desk." loading="lazy"><figcaption>Offizielle Startseite hipobuy.com, eigene Aufnahme 30 Sep 2026. Englisch/USD ist die Voreinstellung — nicht dieser AT-Desk.</figcaption></figure>
+  <figure class="shot"><img src="/media/at-spreadsheet-20260930.png" alt="Katalogkarten auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Fotos kommen aus w2clinks; deutsche Wörter ohne Übersetzung liefern oft 0 Treffer." loading="lazy"><figcaption>Katalogkarten auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Fotos kommen aus w2clinks; deutsche Wörter ohne Übersetzung liefern oft 0 Treffer.</figcaption></figure>
 
   <h2>Neun Zustände, drei Bildschirme</h2><p>Die ersten vier leben unter Order, die nächsten unter Warehouse, die letzten unter Parcel. Offizielles Tutorial, hier auf Deutsch erklärt — die Screenshots der Plattform bleiben englisch.</p><table><thead><tr><th>State</th><th></th></tr></thead><tbody><tr><td><code>Order Submitted</code></td><td>Bestellung abgeschickt, Ware in China bezahlt.</td></tr><tr><td><code>Order Placed</code></td><td>HipoBuy kauft in der Drittshop, oft innerhalb von 6 Arbeitsstunden.</td></tr><tr><td><code>Seller Shipped</code></td><td>Der chinesische Shop hat abgeschickt.</td></tr><tr><td><code>Arrived at Warehouse</code></td><td>Im Lager angekommen.</td></tr><tr><td><code>Inspection & Storage</code></td><td>Prüfung und Einlagerung, oft 24 Stunden.</td></tr><tr><td><code>Shipping Requested</code></td><td>Du bündelst und buchst die internationale Linie.</td></tr><tr><td><code>Parcel Packed</code></td><td>Karton wird gepackt.</td></tr><tr><td><code>Shipped</code></td><td>Start aus China.</td></tr><tr><td><code>Delivered & Confirmed</code></td><td>Zugestellt, Empfang bestätigen.</td></tr></tbody></table>
 

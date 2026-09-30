@@ -609,7 +609,6 @@ def homepage_html(key: str, d: dict) -> str:
         inner = f"""
   <h1>{h1}</h1>
   <p>HipoBuy <strong>verkauft die Ware nicht</strong>. Es ist ein Einkaufsagent: er kauft in chinesischen Drittshops in deinem Namen, fotografiert im Lager und schickt erst, wenn du eine internationale Linie buchst. Deshalb zahlst du zweimal — zuerst Ware plus Inlandversand in China, später Porto nach den QC-Fotos. Dazwischen kannst du stornieren, bündeln oder die Linie wechseln. Das steht so in der Plattform-Hilfe; dieser Desk wiederholt es auf Deutsch für eine österreichische Straße.</p>
-  {fig(SHOT_OFF, "Offizielle Startseite hipobuy.com, eigene Aufnahme 30 Sep 2026. Englisch/USD ist die Voreinstellung — nicht dieser AT-Desk.")}
   <p>
     <a class="cta" href="/hipobuy-shipping-guide/">AT-Versandtabelle und Rechner</a>
     <a class="cta" href="{EST}">Offiziellen Schätzer öffnen</a>
@@ -618,11 +617,10 @@ def homepage_html(key: str, d: dict) -> str:
 
   <h2>Katalog auf dieser Startseite</h2>
   <p>Auf diesem Desk meint „Spreadsheet“ einen <strong>Katalog von Produktkarten</strong> (Foto, Marke, Referenzpreis, Link für den Agenten) — keine Tabelle mit Zellen. Die Karten stehen <strong>hier auf /</strong>, über <code>/api/products/</code> desselben Hosts. Die 8&nbsp;600 Zeilen Finds bleiben auf <a href="{NET}">hipobuyspreadsheet.net</a>. LitBuy.at ist ein anderer Agent, kein 301.</p>
-  {fig(SHOT_CAT, "Katalogkarten auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Fotos kommen aus w2clinks; deutsche Wörter ohne Übersetzung liefern oft 0 Treffer.")}
-
-  <h2>Der Index ist Englisch — die Suche darunter übersetzt</h2>
   <p>Am 29.&nbsp;Aug.&nbsp;2026 hat die spanische Schwesterdesk gemessen: zapatillas, sudadera, chaqueta → 0 Karten; sneakers, hoodie, jacket → volle Seiten. Dasselbe Muster gilt für Turnschuhe, Kapuzenpullover, Jacke. Du tippst Deutsch; die Karten erscheinen <strong>auf dieser Startseite</strong>, ohne Sprung auf eine zweite URL.</p>
   {catalog_widget(key, d)}
+  {fig(SHOT_OFF, "Offizielle Startseite hipobuy.com, eigene Aufnahme 30 Sep 2026. Englisch/USD ist die Voreinstellung — nicht dieser AT-Desk.")}
+  {fig(SHOT_CAT, "Katalogkarten auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Fotos kommen aus w2clinks; deutsche Wörter ohne Übersetzung liefern oft 0 Treffer.")}
 
   {nine_states(key)}
 
@@ -650,18 +648,16 @@ def homepage_html(key: str, d: dict) -> str:
         inner = f"""
   <h1>{h1}</h1>
   <p>HipoBuy <strong>verkoopt de spullen niet</strong>. Het is een inkoopagent: hij koopt in Chinese shops op jouw naam, fotografeert in het magazijn en stuurt pas als jij een internationale lijn boekt. Je betaalt twee keer — eerst product plus binnenlands China-vervoer, later internationaal na QC. Daartussen kun je bundelen of de lijn wisselen.</p>
-  {fig(SHOT_OFF, "Officiële homepage hipobuy.com, eigen opname 30 sep 2026. English/USD is de default — niet deze NL-desk.")}
   <p>
     <a class="cta" href="/hipobuy-shipping-guide/">NL-lijntabel</a>
     <a class="cta" href="{EST}">Officiële estimator</a>
     <a class="cta" href="/{s['help']}/">Vijftien vragen</a>
   </p>
   <h2>Catalogus op deze homepage</h2>
-  <p>Het is een catalogus van kaarten op <strong>deze startpagina</strong>, via <code>/api/products/</code> van dit host. De 8&nbsp;600 finds blijven op <a href="{NET}">hipobuyspreadsheet.net</a>. ootdbuy.nl is een andere agent.</p>
-  {fig(SHOT_CAT, "Catalogusgrid op dit host, eigen opname 30 sep 2026. Nederlandse zoektermen zonder vertaling geven vaak 0 hits.")}
-  <h2>De index is Engels — dit zoekveld vertaalt</h2>
-  <p>Zelfde meting als op hipobuy.es: lokale woorden → lege grid; sneakers/hoodie → kaarten. Typ Nederlands; de kaarten verschijnen <strong>hier op /</strong>, zonder sprong naar een tweede URL.</p>
+  <p>Het is een catalogus van kaarten op <strong>deze startpagina</strong>, via <code>/api/products/</code> van dit host. De 8&nbsp;600 finds blijven op <a href="{NET}">hipobuyspreadsheet.net</a>. ootdbuy.nl is een andere agent. Zelfde meting als op hipobuy.es: lokale woorden → lege grid; sneakers/hoodie → kaarten. Typ Nederlands; de kaarten verschijnen <strong>hier op /</strong>, zonder sprong naar een tweede URL.</p>
   {catalog_widget(key, d)}
+  {fig(SHOT_OFF, "Officiële homepage hipobuy.com, eigen opname 30 sep 2026. English/USD is de default — niet deze NL-desk.")}
+  {fig(SHOT_CAT, "Catalogusgrid op dit host, eigen opname 30 sep 2026. Nederlandse zoektermen zonder vertaling geven vaak 0 hits.")}
   {nine_states(key)}
   <h2>Nederland heeft lijnen, niet allemaal beschikbaar</h2>
   <p>Op 29&nbsp;sep&nbsp;2026, 1000&nbsp;g / 35×25×10&nbsp;cm, bestemming NL: <strong>{d['lines']} lijnen</strong>. Goedkoopste carriable <code>{d['cheap']}</code> ± ${d['usd']:.2f} ({d['days']} dagen, vaak 1100&nbsp;g volume). Snapshot, geen checkout. SURFACE 60–90 werkdagen is een andere beslissing dan DHL-EUCR.</p>
@@ -755,17 +751,15 @@ def homepage_html(key: str, d: dict) -> str:
         inner = f"""
   <h1>{h1}</h1>
   <p>HipoBuy <strong>does not sell the items</strong>. It is a purchasing agent: it buys from third-party Chinese shops in your name, photographs in the warehouse, and books an international line after you confirm QC. Two payments. {job_p}</p>
-  {fig(SHOT_OFF, "Official hipobuy.com home, own capture 30 Sep 2026. English/USD is the platform default — not this desk’s job.")}
   <p>
     <a class="cta" href="{EST}">{L['est']}</a>
     <a class="cta" href="/{s['help']}/">Fifteen questions</a>
   </p>
   <h2>The catalogue lives on this homepage</h2>
-  <p>Not Excel. Cards render <strong>here on /</strong> from this host’s <code>/api/products/</code>. Finds with thousands of rows stay on <a href="{NET}">hipobuyspreadsheet.net</a>. Sister desks keep their own files; no 301.</p>
-  {fig(SHOT_CAT, "Catalogue grid on a country desk, own capture 30 Sep 2026. English index words fill the cards.")}
-  <h2>Catalogue language</h2>
-  <p>The index is English. Local words (zapatillas, Turnschuhe, trainers) often return zero. Type the local word; the English key filters the grid <strong>on this homepage</strong>.</p>
+  <p>Not Excel. Cards render <strong>here on /</strong> from this host’s <code>/api/products/</code>. Finds with thousands of rows stay on <a href="{NET}">hipobuyspreadsheet.net</a>. Sister desks keep their own files; no 301. The index is English. Local words (zapatillas, Turnschuhe, trainers) often return zero. Type the local word; the English key filters the grid <strong>on this homepage</strong>.</p>
   {catalog_widget(key, d)}
+  {fig(SHOT_OFF, "Official hipobuy.com home, own capture 30 Sep 2026. English/USD is the platform default — not this desk’s job.")}
+  {fig(SHOT_CAT, "Catalogue grid on a country desk, own capture 30 Sep 2026. English index words fill the cards.")}
   {nine_states(key)}
   <h2>Lines, volumetric weight, USD digits</h2>
   <p>{lab_p} Volumetric L×W×H/8000 on most air SKUs. Lab carton 35×25×10 cm billed 1100&nbsp;g on many lines. Switching the official currency selector has been observed to change the symbol without converting the number.</p>
