@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Local chrome, homepage guides, catalog translator, figures for HipoBuy desks.
+"""Local chrome, homepage guides, on-page catalog, figures for HipoBuy desks.
 
-Same editorial inbox as hipobuy.es. Does not touch hipobuyspreadsheet.net.
+Does not touch hipobuyspreadsheet.net. Catalogue search stays on /.
 """
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ import json
 import re
 from html import escape
 
-MAIL = "Cruisezhang0202@gmail.com"
+MAIL = "cnfd85269032661@gmail.com"
 EST = "https://hipobuy.com/estimation"
 REG = "https://hipobuy.com/register?inviteCode=VGEICZNX0"
 OFFICIAL = "https://hipobuy.com/"
@@ -28,7 +28,7 @@ THEMES = {
     "ukhaul": ("#134e4a", "#0f766e", "#eef6f3", "#99f6e4", "#ccfbf1"),
 }
 
-# local, english-index
+# local word → English catalogue index (same 16 families as hipobuy.es cards)
 GLOSS = {
     "at": [
         ("Turnschuhe", "sneakers"),
@@ -36,10 +36,23 @@ GLOSS = {
         ("Jacke", "jacket"),
         ("Jeans", "jeans"),
         ("Tasche", "bag"),
+        ("Taschen", "bags"),
         ("Sonnenbrille", "sunglasses"),
+        ("Brille", "eyewear"),
         ("Uhr", "watch"),
+        ("Uhren", "watches"),
         ("Mantel", "coat"),
         ("Hose", "pants"),
+        ("T-Shirt", "t-shirt"),
+        ("Shorts", "shorts"),
+        ("Unterwäsche", "underwear"),
+        ("Trikot", "jersey"),
+        ("Mütze", "hat"),
+        ("Mützen", "hats"),
+        ("Kopfhörer", "headphones"),
+        ("Parfum", "perfume"),
+        ("Schmuck", "jewelry"),
+        ("Spielzeug", "toys"),
     ],
     "nl": [
         ("Turnschoenen", "sneakers"),
@@ -47,15 +60,29 @@ GLOSS = {
         ("Jas", "jacket"),
         ("Spijkerbroek", "jeans"),
         ("Tas", "bag"),
+        ("Tassen", "bags"),
         ("Zonnebril", "sunglasses"),
+        ("Bril", "eyewear"),
         ("Horloge", "watch"),
+        ("Horloges", "watches"),
         ("Broek", "pants"),
+        ("T-shirt", "t-shirt"),
+        ("Shorts", "shorts"),
+        ("Ondergoed", "underwear"),
+        ("Shirt", "jersey"),
+        ("Pet", "hat"),
+        ("Petten", "hats"),
+        ("Koptelefoon", "headphones"),
+        ("Parfum", "perfume"),
+        ("Sieraden", "jewelry"),
+        ("Speelgoed", "toys"),
     ],
     "uk": [
         ("trainers", "sneakers"),
         ("jumper", "hoodie"),
         ("trousers", "pants"),
         ("trainers uk", "sneakers"),
+        ("jewellery", "jewelry"),
     ],
     "eu": [
         ("zapatillas", "sneakers"),
@@ -66,6 +93,8 @@ GLOSS = {
         ("Kapuzenpullover", "hoodie"),
         ("baskets", "sneakers"),
         ("sweat", "hoodie"),
+        ("lunettes", "eyewear"),
+        ("sacs", "bags"),
     ],
     "us": [
         ("sneakers", "sneakers"),
@@ -76,6 +105,7 @@ GLOSS = {
         ("trainers", "sneakers"),
         ("jumper", "hoodie"),
         ("trousers", "pants"),
+        ("jewellery", "jewelry"),
     ],
 }
 
@@ -95,8 +125,10 @@ def labels(key: str) -> dict[str, str]:
             "est": "Offizieller Schätzer",
             "note": "Unabhängiger AT-Desk, nicht HipoBuy und nicht der Finds-Hub",
             "contact": "Redaktion (kein Bestellticket)",
-            "translate": "Katalogsuche: Deutsch tippen, Englisch senden",
-            "go": "Auf dem Katalog suchen",
+            "translate": "Katalogsuche auf dieser Startseite: Deutsch tippen, englisch indexieren",
+            "go": "Auf der Startseite suchen",
+            "empty": "Keine Karten für dieses Wort — englisches Indexwort versuchen (sneakers, hoodie).",
+            "noscript": "Die Karten laden über /api/products/ auf diesem Host. Ohne JavaScript bleibt das Suchfeld: Absenden bleibt auf /.",
         }
     if key == "nl":
         return {
@@ -112,8 +144,10 @@ def labels(key: str) -> dict[str, str]:
             "est": "Officiële estimator",
             "note": "Onafhankelijke NL-desk, niet HipoBuy en niet de finds-hub",
             "contact": "Redactie (geen bestelticket)",
-            "translate": "Cataloguszoek: Nederlands typen, Engels versturen",
-            "go": "Zoek in de catalogus",
+            "translate": "Cataloguszoek op deze homepage: Nederlands typen, Engels indexeren",
+            "go": "Zoek op deze homepage",
+            "empty": "Geen kaarten voor dit woord — probeer het Engelse indexwoord (sneakers, hoodie).",
+            "noscript": "Kaarten komen van /api/products/ op dit host. Zonder JavaScript blijft zoeken op /.",
         }
     job = {
         "uk": "Independent .co.uk coupon desk, not the .uk haul log",
@@ -128,21 +162,23 @@ def labels(key: str) -> dict[str, str]:
         "help": "Help",
         "news": "News",
         "about": "Who we are",
-        "sheet": "Spreadsheet",
+        "sheet": "Catalogue",
         "coupons": "Coupons",
         "reg": "Register",
         "est": "Official estimator",
         "note": job,
         "contact": "Editorial (not an order ticket)",
-        "translate": "Catalogue search: local word in, English query out",
-        "go": "Search the catalogue",
+        "translate": "Catalogue search on this homepage: local word in, English index out",
+        "go": "Search on this homepage",
+        "empty": "No cards for that word — try the English index (sneakers, hoodie).",
+        "noscript": "Cards load from /api/products/ on this host. Without JavaScript the form still submits to /.",
     }
 
 
 def nav_links(key: str, d: dict) -> list[tuple[str, str]]:
     s = d["slugs"]
     L = labels(key)
-    links = [("/", L["home"])]
+    links = [("/", L["home"]), ("/#katalog", L["sheet"])]
     if key in ("uk", "eu"):
         links.append(("/hipobuy-coupons/", L["coupons"]))
     if key == "uk":
@@ -153,8 +189,6 @@ def nav_links(key: str, d: dict) -> list[tuple[str, str]]:
         links.append(("/hipobuy-shipping-guide/", L["ship"]))
     if key not in ("uk", "eu"):
         links.append(("/how-to-use-hipobuy/", L["howto"]))
-    if key in ("ukhaul", "us", "at", "nl"):
-        links.append(("/hipobuy-spreadsheet/", L["sheet"]))
     links.extend(
         [
             (f"/{s['help']}/", L["help"]),
@@ -179,60 +213,220 @@ def fig(src: str, cap: str) -> str:
     )
 
 
-def translator_widget(key: str) -> str:
+def catalog_cats(key: str) -> list[tuple[str, str, str]]:
+    """Local label, API category, keyword fallback — same 16 families as hipobuy.es."""
+    if key == "at":
+        return [
+            ("Turnschuhe", "SNEAKERS", "sneakers"),
+            ("T-Shirt", "T-SHIRT", "t-shirt"),
+            ("Kapuzenpullover", "HOODIE", "hoodie"),
+            ("Jacke", "JACKET", "jacket"),
+            ("Jeans", "TROUSERS", "jeans"),
+            ("Shorts", "SHORTS", "shorts"),
+            ("Unterwäsche", "UNDERWEAR", "underwear"),
+            ("Trikot", "Jersey", "jersey"),
+            ("Mützen", "HAT", "hat"),
+            ("Taschen", "BAG", "bags"),
+            ("Brillen", "EYEWEAR", "sunglasses"),
+            ("Kopfhörer", "HEADPHONES", "headphones"),
+            ("Parfum", "PERFUME", "perfume"),
+            ("Uhren", "WATCH", "watch"),
+            ("Schmuck", "JEWELRY", "jewelry"),
+            ("Spielzeug", "TOYS", "toy"),
+        ]
+    if key == "nl":
+        return [
+            ("Turnschoenen", "SNEAKERS", "sneakers"),
+            ("T-shirt", "T-SHIRT", "t-shirt"),
+            ("Hoodie", "HOODIE", "hoodie"),
+            ("Jas", "JACKET", "jacket"),
+            ("Spijkerbroek", "TROUSERS", "jeans"),
+            ("Shorts", "SHORTS", "shorts"),
+            ("Ondergoed", "UNDERWEAR", "underwear"),
+            ("Shirt", "Jersey", "jersey"),
+            ("Petten", "HAT", "hat"),
+            ("Tassen", "BAG", "bags"),
+            ("Brillen", "EYEWEAR", "sunglasses"),
+            ("Koptelefoons", "HEADPHONES", "headphones"),
+            ("Parfum", "PERFUME", "perfume"),
+            ("Horloges", "WATCH", "watch"),
+            ("Sieraden", "JEWELRY", "jewelry"),
+            ("Speelgoed", "TOYS", "toy"),
+        ]
+    sneaker = "Trainers" if key in ("uk", "ukhaul") else "Sneakers"
+    jewel = "Jewellery" if key in ("uk", "ukhaul") else "Jewelry"
+    return [
+        (sneaker, "SNEAKERS", "sneakers"),
+        ("T-shirt", "T-SHIRT", "t-shirt"),
+        ("Hoodie", "HOODIE", "hoodie"),
+        ("Jacket", "JACKET", "jacket"),
+        ("Jeans", "TROUSERS", "jeans"),
+        ("Shorts", "SHORTS", "shorts"),
+        ("Underwear", "UNDERWEAR", "underwear"),
+        ("Jersey", "Jersey", "jersey"),
+        ("Hats", "HAT", "hat"),
+        ("Bags", "BAG", "bags"),
+        ("Eyewear", "EYEWEAR", "sunglasses"),
+        ("Headphones", "HEADPHONES", "headphones"),
+        ("Perfume", "PERFUME", "perfume"),
+        ("Watches", "WATCH", "watch"),
+        (jewel, "JEWELRY", "jewelry"),
+        ("Toys", "TOYS", "toy"),
+    ]
+
+
+def catalog_widget(key: str, d: dict) -> str:
+    """Search + 16 category chips + product grid on /, via same-host /api/products/."""
     pairs = GLOSS.get(key) or []
-    if not pairs:
-        return ""
     L = labels(key)
     mapping = {a.lower(): b for a, b in pairs}
-    chips = " · ".join(f"<code>{escape(a)}</code>→<code>{escape(b)}</code>" for a, b in pairs[:7])
-    dest = "/hipobuy-spreadsheet/"
+    for lab, _cat, kw in catalog_cats(key):
+        mapping.setdefault(lab.lower(), kw)
+    chip_src = pairs[:8] if pairs else [(a, c) for a, _, c in catalog_cats(key)[:8]]
+    chips = " · ".join(
+        f"<code>{escape(a)}</code>→<code>{escape(b)}</code>" for a, b in chip_src
+    )
+    placeholder = pairs[0][0] if pairs else catalog_cats(key)[0][0]
+    cat_html = "\n    ".join(
+        f'<a class="hipo-cat" href="/?cat={escape(kw)}#katalog" data-cat="{escape(cat)}" data-kw="{escape(kw)}">{escape(lab)}</a>'
+        for lab, cat, kw in catalog_cats(key)
+    )
+    country = d.get("dest") or ""
     return f"""
 <div class="box" id="katalog">
   <p><strong>{escape(L["translate"])}</strong></p>
   <p class="note">{chips}</p>
-  <form id="hipo-trans" action="{dest}" method="get">
-    <input type="search" name="q" id="hipo-q" required placeholder="{escape(pairs[0][0])}">
+  <form id="hipo-trans" action="/" method="get">
+    <input type="search" name="q" id="hipo-q" required placeholder="{escape(placeholder)}">
     <button type="submit">{escape(L["go"])}</button>
   </form>
   <p class="note" id="hipo-hint"></p>
+  <div class="hipo-cats">
+    {cat_html}
+  </div>
+  <p class="note" id="hipo-status"></p>
+  <div class="hipo-grid" id="hipo-grid"></div>
+  <noscript><p class="note">{escape(L["noscript"])}</p></noscript>
 </div>
 <script>
 (function(){{
   var map = {json.dumps(mapping, ensure_ascii=False)};
+  var emptyMsg = {json.dumps(L["empty"], ensure_ascii=False)};
+  var country = {json.dumps(country)};
   var form = document.getElementById('hipo-trans');
-  if (!form) return;
-  form.addEventListener('submit', function(ev) {{
-    var raw = (document.getElementById('hipo-q').value || '').trim();
-    var key = raw.toLowerCase();
-    var en = map[key] || raw;
-    var hint = document.getElementById('hipo-hint');
-    if (hint) hint.textContent = raw + ' → ' + en;
-    if (en !== raw) {{
-      ev.preventDefault();
-      location.href = {json.dumps(dest)} + '?q=' + encodeURIComponent(en);
+  var grid = document.getElementById('hipo-grid');
+  var status = document.getElementById('hipo-status');
+  var hint = document.getElementById('hipo-hint');
+  function esc(s){{
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }}
+  function render(items){{
+    if (!grid) return;
+    if (!items.length){{
+      grid.innerHTML = '<p class="note">'+esc(emptyMsg)+'</p>';
+      return;
     }}
+    grid.innerHTML = items.map(function(it){{
+      var href = it.target || it.source || '#';
+      var img = it.image ? '<img src="'+esc(it.image)+'" alt="'+esc(it.title||'')+'" loading="lazy">' : '';
+      var price = it.price ? (esc(it.price)+' '+(it.currency||'CNY')) : '';
+      return '<a class="hipo-card" href="'+esc(href)+'" target="_blank" rel="noopener">'+img+
+        '<p class="nm">'+esc(it.title||'')+'</p><p class="pr">'+price+'</p></a>';
+    }}).join('');
+  }}
+  function setOn(kw){{
+    document.querySelectorAll('a.hipo-cat').forEach(function(a){{
+      a.classList.toggle('on', !!kw && a.getAttribute('data-kw') === kw);
+    }});
+  }}
+  function load(opts){{
+    opts = opts || {{}};
+    if (status) status.textContent = '…';
+    var u = new URL('/api/products/', location.origin);
+    u.searchParams.set('limit', '24');
+    if (country) u.searchParams.set('country', country);
+    if (opts.q) u.searchParams.set('keyword', opts.q);
+    if (opts.cat) u.searchParams.set('category', opts.cat);
+    return fetch(u, {{cache:'no-store'}}).then(function(r){{ return r.json(); }}).then(function(d){{
+      var items = (d && d.items) || [];
+      if (!items.length && opts.kw) {{
+        var u2 = new URL('/api/products/', location.origin);
+        u2.searchParams.set('limit', '24');
+        if (country) u2.searchParams.set('country', country);
+        u2.searchParams.set('keyword', opts.kw);
+        return fetch(u2, {{cache:'no-store'}}).then(function(r){{ return r.json(); }}).then(function(d2){{
+          items = (d2 && d2.items) || [];
+          if (status) status.textContent = items.length ? String(items.length) : '';
+          render(items);
+        }});
+      }}
+      if (status) status.textContent = items.length ? String(items.length) : '';
+      render(items);
+    }}).catch(function(){{ render([]); }});
+  }}
+  if (form) {{
+    form.addEventListener('submit', function(ev){{
+      ev.preventDefault();
+      var raw = (document.getElementById('hipo-q').value || '').trim();
+      var en = map[raw.toLowerCase()] || raw;
+      if (hint) hint.textContent = (raw && en !== raw) ? (raw + ' → ' + en) : en;
+      if (history.replaceState) history.replaceState(null, '', '/?q=' + encodeURIComponent(en) + '#katalog');
+      setOn('');
+      load({{q: en, kw: en}});
+    }});
+  }}
+  document.querySelectorAll('a.hipo-cat').forEach(function(a){{
+    a.addEventListener('click', function(ev){{
+      ev.preventDefault();
+      var cat = a.getAttribute('data-cat') || '';
+      var kw = a.getAttribute('data-kw') || '';
+      setOn(kw);
+      if (history.replaceState) history.replaceState(null, '', '/?cat=' + encodeURIComponent(kw) + '#katalog');
+      load({{cat: cat, kw: kw}});
+    }});
   }});
+  var params = new URLSearchParams(location.search);
+  var q0 = params.get('q');
+  var c0 = params.get('cat');
+  if (q0) {{
+    var inp = document.getElementById('hipo-q');
+    if (inp) inp.value = q0;
+    var en = map[q0.toLowerCase()] || q0;
+    if (hint) hint.textContent = (q0 !== en) ? (q0 + ' → ' + en) : en;
+    load({{q: en, kw: en}});
+  }} else if (c0) {{
+    setOn(c0);
+    var match = document.querySelector('a.hipo-cat[data-kw="'+c0+'"]');
+    load({{cat: match ? (match.getAttribute('data-cat')||c0) : c0, kw: c0}});
+  }} else {{
+    load({{}});
+  }}
 }})();
 </script>
 """
+
+
+def translator_widget(key: str, d: dict | None = None) -> str:
+    """Back-compat alias — catalogue stays on /."""
+    return catalog_widget(key, d or {})
 
 
 def contact_block(key: str) -> str:
     L = labels(key)
     if key == "at":
         body = (
-            f'{L["contact"]}: <a href="mailto:{MAIL}">{MAIL}</a> — dieselbe Redaktionsadresse wie hipobuy.es. '
+            f'{L["contact"]}: <a href="mailto:{MAIL}">{MAIL}</a>. '
             "Bestellungen, Zahlungen und Reklamationen nur auf hipobuy.com."
         )
     elif key == "nl":
         body = (
-            f'{L["contact"]}: <a href="mailto:{MAIL}">{MAIL}</a> — hetzelfde redactionele adres als hipobuy.es. '
+            f'{L["contact"]}: <a href="mailto:{MAIL}">{MAIL}</a>. '
             "Bestellingen alleen via hipobuy.com."
         )
     else:
         body = (
-            f'{L["contact"]}: <a href="mailto:{MAIL}">{MAIL}</a> — same editorial inbox as hipobuy.es. '
+            f'{L["contact"]}: <a href="mailto:{MAIL}">{MAIL}</a>. '
             "Order tickets stay on hipobuy.com."
         )
     return f'<p class="note">{body}</p>'
@@ -243,7 +437,7 @@ def css(key: str) -> str:
     return f"""
 :root {{ --ink:{ink}; --muted:{accent}; --bg:{bg}; --card:#fff; --accent:{accent}; --border:{border}; --head:{head}; }}
 body {{ margin:0; font-family: Georgia, ui-serif, serif; background:var(--bg); color:var(--ink); line-height:1.55; }}
-header, main, footer {{ max-width:46rem; margin:0 auto; padding:1.25rem; }}
+header, main, footer {{ max-width:54rem; margin:0 auto; padding:1.25rem; }}
 .note {{ color:var(--muted); font-size:.92rem; }}
 h1 {{ font-size:clamp(1.55rem,4vw,2.15rem); }}
 h2 {{ font-size:1.18rem; margin-top:1.8rem; }}
@@ -261,6 +455,14 @@ figcaption {{ font-size:.88rem; color:var(--muted); margin-top:.4rem; }}
 form#hipo-trans {{ display:flex; gap:.4rem; flex-wrap:wrap; margin:.6rem 0; }}
 form#hipo-trans input {{ flex:1; min-width:12rem; padding:.5rem .6rem; }}
 form#hipo-trans button {{ background:var(--accent); color:#fff; border:0; padding:.5rem .8rem; border-radius:.4rem; }}
+.hipo-cats {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(7.1rem,1fr)); gap:.5rem; margin:.75rem 0 1rem; }}
+a.hipo-cat {{ display:block; background:var(--card); border:1px solid var(--border); border-radius:.45rem; padding:.65rem .35rem; text-align:center; text-decoration:none; color:var(--ink); font-size:.86rem; }}
+a.hipo-cat.on, a.hipo-cat:hover {{ border-color:var(--accent); background:var(--head); }}
+.hipo-grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(9.2rem,1fr)); gap:.7rem; }}
+a.hipo-card {{ background:var(--card); border:1px solid var(--border); border-radius:.45rem; overflow:hidden; text-decoration:none; color:inherit; display:block; }}
+a.hipo-card img {{ width:100%; aspect-ratio:1; object-fit:cover; display:block; background:var(--head); }}
+a.hipo-card .nm {{ font-size:.86rem; margin:.45rem .55rem .15rem; line-height:1.3; }}
+a.hipo-card .pr {{ font-size:.8rem; color:var(--muted); margin:0 .55rem .55rem; }}
 .pp {{ margin:0.7rem 0; }}
 .ph {{ margin-top:1.4rem; }}
 article.hipo-howto {{ max-width:none; margin:0; padding:0; text-align:left; }}
@@ -340,6 +542,8 @@ def localize_cms_nav(html: str, key: str, d: dict) -> str:
     L = labels(key)
     html = re.sub(r">Register</a>", f">{L['reg']}</a>", html, count=1)
     html = re.sub(r">Home</a>", f">{L['home']}</a>", html, count=1)
+    html = html.replace('href="/hipobuy-spreadsheet/"', 'href="/#katalog"')
+    html = re.sub(r">Spreadsheet</a>", f">{L['sheet']}</a>", html)
     return html
 
 
@@ -412,13 +616,13 @@ def homepage_html(key: str, d: dict) -> str:
     <a class="cta" href="/{s['help']}/">Fünfzehn Fragen</a>
   </p>
 
-  <h2>Ein Spreadsheet ist hier kein Excel</h2>
-  <p>Auf diesem Desk meint „Spreadsheet“ einen <strong>Katalog von Produktkarten</strong> (Foto, Marke, Referenzpreis, Link für den Agenten) — keine Tabelle mit Zellen. Die 8&nbsp;600 Zeilen Finds bleiben auf <a href="{NET}">hipobuyspreadsheet.net</a>. hipobuy.at hält Versandlabor, Ablauf, Hilfe und Neuigkeiten. LitBuy.at ist ein anderer Agent, kein 301.</p>
-  {fig(SHOT_CAT, "Katalog auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Karten kommen aus w2clinks; deutsche Wörter in der Suche liefern oft 0 Treffer.")}
+  <h2>Katalog auf dieser Startseite</h2>
+  <p>Auf diesem Desk meint „Spreadsheet“ einen <strong>Katalog von Produktkarten</strong> (Foto, Marke, Referenzpreis, Link für den Agenten) — keine Tabelle mit Zellen. Die Karten stehen <strong>hier auf /</strong>, über <code>/api/products/</code> desselben Hosts. Die 8&nbsp;600 Zeilen Finds bleiben auf <a href="{NET}">hipobuyspreadsheet.net</a>. LitBuy.at ist ein anderer Agent, kein 301.</p>
+  {fig(SHOT_CAT, "Katalogkarten auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Fotos kommen aus w2clinks; deutsche Wörter ohne Übersetzung liefern oft 0 Treffer.")}
 
-  <h2>Der Katalog versteht Deutsch nicht — die Suche hier schon</h2>
-  <p>Am 29.&nbsp;Aug.&nbsp;2026 hat die spanische Schwesterdesk gemessen: zapatillas, sudadera, chaqueta → 0 Karten; sneakers, hoodie, jacket → volle Seiten. Dasselbe Muster gilt für Turnschuhe, Kapuzenpullover, Jacke. Du tippst Deutsch, wir senden das englische Indexwort an <a href="/hipobuy-spreadsheet/">/hipobuy-spreadsheet/</a>.</p>
-  {translator_widget(key)}
+  <h2>Der Index ist Englisch — die Suche darunter übersetzt</h2>
+  <p>Am 29.&nbsp;Aug.&nbsp;2026 hat die spanische Schwesterdesk gemessen: zapatillas, sudadera, chaqueta → 0 Karten; sneakers, hoodie, jacket → volle Seiten. Dasselbe Muster gilt für Turnschuhe, Kapuzenpullover, Jacke. Du tippst Deutsch; die Karten erscheinen <strong>auf dieser Startseite</strong>, ohne Sprung auf eine zweite URL.</p>
+  {catalog_widget(key, d)}
 
   {nine_states(key)}
 
@@ -452,12 +656,12 @@ def homepage_html(key: str, d: dict) -> str:
     <a class="cta" href="{EST}">Officiële estimator</a>
     <a class="cta" href="/{s['help']}/">Vijftien vragen</a>
   </p>
-  <h2>Spreadsheet is hier geen Excel</h2>
-  <p>Het is een catalogus van kaarten. De 8&nbsp;600 finds blijven op <a href="{NET}">hipobuyspreadsheet.net</a>. ootdbuy.nl is een andere agent.</p>
-  {fig(SHOT_CAT, "Catalogusgrid (zelfde index als AT), eigen opname 30 sep 2026. Nederlandse zoektermen geven vaak 0 hits.")}
-  <h2>De catalogus spreekt geen Nederlands — dit zoekveld wel</h2>
-  <p>Zelfde meting als op hipobuy.es: lokale woorden → lege grid; sneakers/hoodie → kaarten. Typ Nederlands, wij sturen het Engelse indexwoord.</p>
-  {translator_widget(key)}
+  <h2>Catalogus op deze homepage</h2>
+  <p>Het is een catalogus van kaarten op <strong>deze startpagina</strong>, via <code>/api/products/</code> van dit host. De 8&nbsp;600 finds blijven op <a href="{NET}">hipobuyspreadsheet.net</a>. ootdbuy.nl is een andere agent.</p>
+  {fig(SHOT_CAT, "Catalogusgrid op dit host, eigen opname 30 sep 2026. Nederlandse zoektermen zonder vertaling geven vaak 0 hits.")}
+  <h2>De index is Engels — dit zoekveld vertaalt</h2>
+  <p>Zelfde meting als op hipobuy.es: lokale woorden → lege grid; sneakers/hoodie → kaarten. Typ Nederlands; de kaarten verschijnen <strong>hier op /</strong>, zonder sprong naar een tweede URL.</p>
+  {catalog_widget(key, d)}
   {nine_states(key)}
   <h2>Nederland heeft lijnen, niet allemaal beschikbaar</h2>
   <p>Op 29&nbsp;sep&nbsp;2026, 1000&nbsp;g / 35×25×10&nbsp;cm, bestemming NL: <strong>{d['lines']} lijnen</strong>. Goedkoopste carriable <code>{d['cheap']}</code> ± ${d['usd']:.2f} ({d['days']} dagen, vaak 1100&nbsp;g volume). Snapshot, geen checkout. SURFACE 60–90 werkdagen is een andere beslissing dan DHL-EUCR.</p>
@@ -468,7 +672,7 @@ def homepage_html(key: str, d: dict) -> str:
     <p>Tax free / Prepaid Duty / Duties Payable by Recipient. Bronnen: <a href="{d['customs']}">Belastingdienst Douane</a> · <a href="{d['ioss']}">IOSS</a>. <strong>Geen onderwaardering.</strong></p>
   </div>
   <p>USD-cijfers, euro-symbool. Invite {INVITE} op de coupon-URL, niet in deze title. Tabak, alcohol, geneesmiddelen reizen niet. Restricted-kaarten zonder prijs niet bestellen. Als de schatting lichter uitvalt dan de factuur, staat de officiële FAQ over portoteruggave — niet dit HTML-bestand.</p>
-  <p>Hulp voor de eerste bestelling: vijftien vragen, nieuws met datum, en de labtabel. Discord en Reddit zijn kanalen van de platform, niet van deze desk. {contact_block('nl')}</p>
+  <p>Hulp voor de eerste bestelling: vijftien vragen, nieuws met datum, en de labtabel. Discord en Reddit zijn kanalen van de platform, niet van deze desk.</p>
   <p><a href="/{s['help']}/">Hulp</a> · <a href="/{s['news']}/">Nieuws</a> · <a href="/{s['about']}/">Over ons</a></p>
   <p><a class="cta" href="{OFFICIAL}">HipoBuy openen, daarna een NL-adres</a></p>
 """
@@ -532,14 +736,14 @@ def homepage_html(key: str, d: dict) -> str:
             )
             lab_p = f'Open <a href="{EST}">the estimator</a> with destination United States after photos.'
         else:
-            title = "HipoBuy UK haul log: Royal Mail, Evri, then the spreadsheet"
+            title = "HipoBuy UK haul log: Royal Mail, Evri, then the homepage catalogue"
             desc = (
                 "Independent Nominet haul log. GB estimator snapshot 29 Sep 2026, GOV.UK sources. "
                 "Not an alias of hipobuyspreadsheet.co.uk."
             )
-            h1 = "UK haul log: shipping lines and the spreadsheet"
+            h1 = "UK haul log: shipping lines and the homepage catalogue"
             job_p = (
-                f"Line codes after warehouse photos, then the spreadsheet of what shipped. "
+                f"Line codes after warehouse photos, then the catalogue on this homepage. "
                 f"Lab: <code>{d['cheap']}</code> about ${d['usd']:.2f}; Evri-AF1 about $33.88. "
                 "Not a 301 onto .co.uk."
             )
@@ -556,12 +760,12 @@ def homepage_html(key: str, d: dict) -> str:
     <a class="cta" href="{EST}">{L['est']}</a>
     <a class="cta" href="/{s['help']}/">Fifteen questions</a>
   </p>
-  <h2>A spreadsheet here is a catalogue of cards</h2>
-  <p>Not Excel. Finds with thousands of rows stay on <a href="{NET}">hipobuyspreadsheet.net</a>. Sister desks keep their own files; no 301.</p>
+  <h2>The catalogue lives on this homepage</h2>
+  <p>Not Excel. Cards render <strong>here on /</strong> from this host’s <code>/api/products/</code>. Finds with thousands of rows stay on <a href="{NET}">hipobuyspreadsheet.net</a>. Sister desks keep their own files; no 301.</p>
   {fig(SHOT_CAT, "Catalogue grid on a country desk, own capture 30 Sep 2026. English index words fill the cards.")}
   <h2>Catalogue language</h2>
-  <p>The index is English. Local words (zapatillas, Turnschuhe, trainers) often return zero. Type the local word; we send the English key to <a href="/hipobuy-spreadsheet/">/hipobuy-spreadsheet/</a> where that host has a grid.</p>
-  {translator_widget(key)}
+  <p>The index is English. Local words (zapatillas, Turnschuhe, trainers) often return zero. Type the local word; the English key filters the grid <strong>on this homepage</strong>.</p>
+  {catalog_widget(key, d)}
   {nine_states(key)}
   <h2>Lines, volumetric weight, USD digits</h2>
   <p>{lab_p} Volumetric L×W×H/8000 on most air SKUs. Lab carton 35×25×10 cm billed 1100&nbsp;g on many lines. Switching the official currency selector has been observed to change the symbol without converting the number.</p>

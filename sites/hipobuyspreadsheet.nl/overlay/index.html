@@ -10,7 +10,7 @@
 <style>
 :root { --ink:#115e59; --muted:#0d9488; --bg:#f0fdfa; --card:#fff; --accent:#0d9488; --border:#99f6e4; --head:#ccfbf1; }
 body { margin:0; font-family: Georgia, ui-serif, serif; background:var(--bg); color:var(--ink); line-height:1.55; }
-header, main, footer { max-width:46rem; margin:0 auto; padding:1.25rem; }
+header, main, footer { max-width:54rem; margin:0 auto; padding:1.25rem; }
 .note { color:var(--muted); font-size:.92rem; }
 h1 { font-size:clamp(1.55rem,4vw,2.15rem); }
 h2 { font-size:1.18rem; margin-top:1.8rem; }
@@ -28,6 +28,14 @@ figcaption { font-size:.88rem; color:var(--muted); margin-top:.4rem; }
 form#hipo-trans { display:flex; gap:.4rem; flex-wrap:wrap; margin:.6rem 0; }
 form#hipo-trans input { flex:1; min-width:12rem; padding:.5rem .6rem; }
 form#hipo-trans button { background:var(--accent); color:#fff; border:0; padding:.5rem .8rem; border-radius:.4rem; }
+.hipo-cats { display:grid; grid-template-columns:repeat(auto-fill,minmax(7.1rem,1fr)); gap:.5rem; margin:.75rem 0 1rem; }
+a.hipo-cat { display:block; background:var(--card); border:1px solid var(--border); border-radius:.45rem; padding:.65rem .35rem; text-align:center; text-decoration:none; color:var(--ink); font-size:.86rem; }
+a.hipo-cat.on, a.hipo-cat:hover { border-color:var(--accent); background:var(--head); }
+.hipo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(9.2rem,1fr)); gap:.7rem; }
+a.hipo-card { background:var(--card); border:1px solid var(--border); border-radius:.45rem; overflow:hidden; text-decoration:none; color:inherit; display:block; }
+a.hipo-card img { width:100%; aspect-ratio:1; object-fit:cover; display:block; background:var(--head); }
+a.hipo-card .nm { font-size:.86rem; margin:.45rem .55rem .15rem; line-height:1.3; }
+a.hipo-card .pr { font-size:.8rem; color:var(--muted); margin:0 .55rem .55rem; }
 .pp { margin:0.7rem 0; }
 .ph { margin-top:1.4rem; }
 article.hipo-howto { max-width:none; margin:0; padding:0; text-align:left; }
@@ -39,9 +47,9 @@ article.hipo-howto { max-width:none; margin:0; padding:0; text-align:left; }
   <p class="note">HipoBuy · hipobuyspreadsheet.nl · Onafhankelijke NL-desk, niet HipoBuy en niet de finds-hub</p>
   <nav class="local">
     <a href="/">Home</a>
+    <a href="/#katalog">Catalogus</a>
     <a href="/hipobuy-shipping-guide/">Verzending</a>
     <a href="/how-to-use-hipobuy/">Stappen</a>
-    <a href="/hipobuy-spreadsheet/">Catalogus</a>
     <a href="/hulp/">Hulp</a>
     <a href="/nieuws/">Nieuws</a>
     <a href="/over-ons/">Over ons</a>
@@ -58,37 +66,136 @@ article.hipo-howto { max-width:none; margin:0; padding:0; text-align:left; }
     <a class="cta" href="https://hipobuy.com/estimation">Officiële estimator</a>
     <a class="cta" href="/hulp/">Vijftien vragen</a>
   </p>
-  <h2>Spreadsheet is hier geen Excel</h2>
-  <p>Het is een catalogus van kaarten. De 8&nbsp;600 finds blijven op <a href="https://hipobuyspreadsheet.net/">hipobuyspreadsheet.net</a>. ootdbuy.nl is een andere agent.</p>
-  <figure class="shot"><img src="/media/at-spreadsheet-20260930.png" alt="Catalogusgrid (zelfde index als AT), eigen opname 30 sep 2026. Nederlandse zoektermen geven vaak 0 hits." loading="lazy"><figcaption>Catalogusgrid (zelfde index als AT), eigen opname 30 sep 2026. Nederlandse zoektermen geven vaak 0 hits.</figcaption></figure>
-  <h2>De catalogus spreekt geen Nederlands — dit zoekveld wel</h2>
-  <p>Zelfde meting als op hipobuy.es: lokale woorden → lege grid; sneakers/hoodie → kaarten. Typ Nederlands, wij sturen het Engelse indexwoord.</p>
+  <h2>Catalogus op deze homepage</h2>
+  <p>Het is een catalogus van kaarten op <strong>deze startpagina</strong>, via <code>/api/products/</code> van dit host. De 8&nbsp;600 finds blijven op <a href="https://hipobuyspreadsheet.net/">hipobuyspreadsheet.net</a>. ootdbuy.nl is een andere agent.</p>
+  <figure class="shot"><img src="/media/at-spreadsheet-20260930.png" alt="Catalogusgrid op dit host, eigen opname 30 sep 2026. Nederlandse zoektermen zonder vertaling geven vaak 0 hits." loading="lazy"><figcaption>Catalogusgrid op dit host, eigen opname 30 sep 2026. Nederlandse zoektermen zonder vertaling geven vaak 0 hits.</figcaption></figure>
+  <h2>De index is Engels — dit zoekveld vertaalt</h2>
+  <p>Zelfde meting als op hipobuy.es: lokale woorden → lege grid; sneakers/hoodie → kaarten. Typ Nederlands; de kaarten verschijnen <strong>hier op /</strong>, zonder sprong naar een tweede URL.</p>
   
 <div class="box" id="katalog">
-  <p><strong>Cataloguszoek: Nederlands typen, Engels versturen</strong></p>
-  <p class="note"><code>Turnschoenen</code>→<code>sneakers</code> · <code>Hoodie</code>→<code>hoodie</code> · <code>Jas</code>→<code>jacket</code> · <code>Spijkerbroek</code>→<code>jeans</code> · <code>Tas</code>→<code>bag</code> · <code>Zonnebril</code>→<code>sunglasses</code> · <code>Horloge</code>→<code>watch</code></p>
-  <form id="hipo-trans" action="/hipobuy-spreadsheet/" method="get">
+  <p><strong>Cataloguszoek op deze homepage: Nederlands typen, Engels indexeren</strong></p>
+  <p class="note"><code>Turnschoenen</code>→<code>sneakers</code> · <code>Hoodie</code>→<code>hoodie</code> · <code>Jas</code>→<code>jacket</code> · <code>Spijkerbroek</code>→<code>jeans</code> · <code>Tas</code>→<code>bag</code> · <code>Tassen</code>→<code>bags</code> · <code>Zonnebril</code>→<code>sunglasses</code> · <code>Bril</code>→<code>eyewear</code></p>
+  <form id="hipo-trans" action="/" method="get">
     <input type="search" name="q" id="hipo-q" required placeholder="Turnschoenen">
-    <button type="submit">Zoek in de catalogus</button>
+    <button type="submit">Zoek op deze homepage</button>
   </form>
   <p class="note" id="hipo-hint"></p>
+  <div class="hipo-cats">
+    <a class="hipo-cat" href="/?cat=sneakers#katalog" data-cat="SNEAKERS" data-kw="sneakers">Turnschoenen</a>
+    <a class="hipo-cat" href="/?cat=t-shirt#katalog" data-cat="T-SHIRT" data-kw="t-shirt">T-shirt</a>
+    <a class="hipo-cat" href="/?cat=hoodie#katalog" data-cat="HOODIE" data-kw="hoodie">Hoodie</a>
+    <a class="hipo-cat" href="/?cat=jacket#katalog" data-cat="JACKET" data-kw="jacket">Jas</a>
+    <a class="hipo-cat" href="/?cat=jeans#katalog" data-cat="TROUSERS" data-kw="jeans">Spijkerbroek</a>
+    <a class="hipo-cat" href="/?cat=shorts#katalog" data-cat="SHORTS" data-kw="shorts">Shorts</a>
+    <a class="hipo-cat" href="/?cat=underwear#katalog" data-cat="UNDERWEAR" data-kw="underwear">Ondergoed</a>
+    <a class="hipo-cat" href="/?cat=jersey#katalog" data-cat="Jersey" data-kw="jersey">Shirt</a>
+    <a class="hipo-cat" href="/?cat=hat#katalog" data-cat="HAT" data-kw="hat">Petten</a>
+    <a class="hipo-cat" href="/?cat=bags#katalog" data-cat="BAG" data-kw="bags">Tassen</a>
+    <a class="hipo-cat" href="/?cat=sunglasses#katalog" data-cat="EYEWEAR" data-kw="sunglasses">Brillen</a>
+    <a class="hipo-cat" href="/?cat=headphones#katalog" data-cat="HEADPHONES" data-kw="headphones">Koptelefoons</a>
+    <a class="hipo-cat" href="/?cat=perfume#katalog" data-cat="PERFUME" data-kw="perfume">Parfum</a>
+    <a class="hipo-cat" href="/?cat=watch#katalog" data-cat="WATCH" data-kw="watch">Horloges</a>
+    <a class="hipo-cat" href="/?cat=jewelry#katalog" data-cat="JEWELRY" data-kw="jewelry">Sieraden</a>
+    <a class="hipo-cat" href="/?cat=toy#katalog" data-cat="TOYS" data-kw="toy">Speelgoed</a>
+  </div>
+  <p class="note" id="hipo-status"></p>
+  <div class="hipo-grid" id="hipo-grid"></div>
+  <noscript><p class="note">Kaarten komen van /api/products/ op dit host. Zonder JavaScript blijft zoeken op /.</p></noscript>
 </div>
 <script>
 (function(){
-  var map = {"turnschoenen": "sneakers", "hoodie": "hoodie", "jas": "jacket", "spijkerbroek": "jeans", "tas": "bag", "zonnebril": "sunglasses", "horloge": "watch", "broek": "pants"};
+  var map = {"turnschoenen": "sneakers", "hoodie": "hoodie", "jas": "jacket", "spijkerbroek": "jeans", "tas": "bag", "tassen": "bags", "zonnebril": "sunglasses", "bril": "eyewear", "horloge": "watch", "horloges": "watches", "broek": "pants", "t-shirt": "t-shirt", "shorts": "shorts", "ondergoed": "underwear", "shirt": "jersey", "pet": "hat", "petten": "hats", "koptelefoon": "headphones", "parfum": "perfume", "sieraden": "jewelry", "speelgoed": "toys", "brillen": "sunglasses", "koptelefoons": "headphones"};
+  var emptyMsg = "Geen kaarten voor dit woord — probeer het Engelse indexwoord (sneakers, hoodie).";
+  var country = "NL";
   var form = document.getElementById('hipo-trans');
-  if (!form) return;
-  form.addEventListener('submit', function(ev) {
-    var raw = (document.getElementById('hipo-q').value || '').trim();
-    var key = raw.toLowerCase();
-    var en = map[key] || raw;
-    var hint = document.getElementById('hipo-hint');
-    if (hint) hint.textContent = raw + ' → ' + en;
-    if (en !== raw) {
-      ev.preventDefault();
-      location.href = "/hipobuy-spreadsheet/" + '?q=' + encodeURIComponent(en);
+  var grid = document.getElementById('hipo-grid');
+  var status = document.getElementById('hipo-status');
+  var hint = document.getElementById('hipo-hint');
+  function esc(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function render(items){
+    if (!grid) return;
+    if (!items.length){
+      grid.innerHTML = '<p class="note">'+esc(emptyMsg)+'</p>';
+      return;
     }
+    grid.innerHTML = items.map(function(it){
+      var href = it.target || it.source || '#';
+      var img = it.image ? '<img src="'+esc(it.image)+'" alt="'+esc(it.title||'')+'" loading="lazy">' : '';
+      var price = it.price ? (esc(it.price)+' '+(it.currency||'CNY')) : '';
+      return '<a class="hipo-card" href="'+esc(href)+'" target="_blank" rel="noopener">'+img+
+        '<p class="nm">'+esc(it.title||'')+'</p><p class="pr">'+price+'</p></a>';
+    }).join('');
+  }
+  function setOn(kw){
+    document.querySelectorAll('a.hipo-cat').forEach(function(a){
+      a.classList.toggle('on', !!kw && a.getAttribute('data-kw') === kw);
+    });
+  }
+  function load(opts){
+    opts = opts || {};
+    if (status) status.textContent = '…';
+    var u = new URL('/api/products/', location.origin);
+    u.searchParams.set('limit', '24');
+    if (country) u.searchParams.set('country', country);
+    if (opts.q) u.searchParams.set('keyword', opts.q);
+    if (opts.cat) u.searchParams.set('category', opts.cat);
+    return fetch(u, {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d){
+      var items = (d && d.items) || [];
+      if (!items.length && opts.kw) {
+        var u2 = new URL('/api/products/', location.origin);
+        u2.searchParams.set('limit', '24');
+        if (country) u2.searchParams.set('country', country);
+        u2.searchParams.set('keyword', opts.kw);
+        return fetch(u2, {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d2){
+          items = (d2 && d2.items) || [];
+          if (status) status.textContent = items.length ? String(items.length) : '';
+          render(items);
+        });
+      }
+      if (status) status.textContent = items.length ? String(items.length) : '';
+      render(items);
+    }).catch(function(){ render([]); });
+  }
+  if (form) {
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var raw = (document.getElementById('hipo-q').value || '').trim();
+      var en = map[raw.toLowerCase()] || raw;
+      if (hint) hint.textContent = (raw && en !== raw) ? (raw + ' → ' + en) : en;
+      if (history.replaceState) history.replaceState(null, '', '/?q=' + encodeURIComponent(en) + '#katalog');
+      setOn('');
+      load({q: en, kw: en});
+    });
+  }
+  document.querySelectorAll('a.hipo-cat').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      var cat = a.getAttribute('data-cat') || '';
+      var kw = a.getAttribute('data-kw') || '';
+      setOn(kw);
+      if (history.replaceState) history.replaceState(null, '', '/?cat=' + encodeURIComponent(kw) + '#katalog');
+      load({cat: cat, kw: kw});
+    });
   });
+  var params = new URLSearchParams(location.search);
+  var q0 = params.get('q');
+  var c0 = params.get('cat');
+  if (q0) {
+    var inp = document.getElementById('hipo-q');
+    if (inp) inp.value = q0;
+    var en = map[q0.toLowerCase()] || q0;
+    if (hint) hint.textContent = (q0 !== en) ? (q0 + ' → ' + en) : en;
+    load({q: en, kw: en});
+  } else if (c0) {
+    setOn(c0);
+    var match = document.querySelector('a.hipo-cat[data-kw="'+c0+'"]');
+    load({cat: match ? (match.getAttribute('data-cat')||c0) : c0, kw: c0});
+  } else {
+    load({});
+  }
 })();
 </script>
 
@@ -102,14 +209,14 @@ article.hipo-howto { max-width:none; margin:0; padding:0; text-align:left; }
     <p>Tax free / Prepaid Duty / Duties Payable by Recipient. Bronnen: <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/douane">Belastingdienst Douane</a> · <a href="https://taxation-customs.ec.europa.eu/vat-e-commerce_en">IOSS</a>. <strong>Geen onderwaardering.</strong></p>
   </div>
   <p>USD-cijfers, euro-symbool. Invite VGEICZNX0 op de coupon-URL, niet in deze title. Tabak, alcohol, geneesmiddelen reizen niet. Restricted-kaarten zonder prijs niet bestellen. Als de schatting lichter uitvalt dan de factuur, staat de officiële FAQ over portoteruggave — niet dit HTML-bestand.</p>
-  <p>Hulp voor de eerste bestelling: vijftien vragen, nieuws met datum, en de labtabel. Discord en Reddit zijn kanalen van de platform, niet van deze desk. <p class="note">Redactie (geen bestelticket): <a href="mailto:Cruisezhang0202@gmail.com">Cruisezhang0202@gmail.com</a> — hetzelfde redactionele adres als hipobuy.es. Bestellingen alleen via hipobuy.com.</p></p>
+  <p>Hulp voor de eerste bestelling: vijftien vragen, nieuws met datum, en de labtabel. Discord en Reddit zijn kanalen van de platform, niet van deze desk.</p>
   <p><a href="/hulp/">Hulp</a> · <a href="/nieuws/">Nieuws</a> · <a href="/over-ons/">Over ons</a></p>
   <p><a class="cta" href="https://hipobuy.com/">HipoBuy openen, daarna een NL-adres</a></p>
 
-  <p class="note">Redactie (geen bestelticket): <a href="mailto:Cruisezhang0202@gmail.com">Cruisezhang0202@gmail.com</a> — hetzelfde redactionele adres als hipobuy.es. Bestellingen alleen via hipobuy.com.</p>
+  <p class="note">Redactie (geen bestelticket): <a href="mailto:cnfd85269032661@gmail.com">cnfd85269032661@gmail.com</a>. Bestellingen alleen via hipobuy.com.</p>
 </main>
 <footer>
-  <p class="note">Onafhankelijke NL-desk, niet HipoBuy en niet de finds-hub. <a href="mailto:Cruisezhang0202@gmail.com">Cruisezhang0202@gmail.com</a></p>
+  <p class="note">Onafhankelijke NL-desk, niet HipoBuy en niet de finds-hub. <a href="mailto:cnfd85269032661@gmail.com">cnfd85269032661@gmail.com</a></p>
 </footer>
 </body>
 </html>

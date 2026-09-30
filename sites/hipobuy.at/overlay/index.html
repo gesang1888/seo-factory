@@ -10,7 +10,7 @@
 <style>
 :root { --ink:#7c2d12; --muted:#9a3412; --bg:#f6efe6; --card:#fff; --accent:#9a3412; --border:#fed7aa; --head:#ffedd5; }
 body { margin:0; font-family: Georgia, ui-serif, serif; background:var(--bg); color:var(--ink); line-height:1.55; }
-header, main, footer { max-width:46rem; margin:0 auto; padding:1.25rem; }
+header, main, footer { max-width:54rem; margin:0 auto; padding:1.25rem; }
 .note { color:var(--muted); font-size:.92rem; }
 h1 { font-size:clamp(1.55rem,4vw,2.15rem); }
 h2 { font-size:1.18rem; margin-top:1.8rem; }
@@ -28,6 +28,14 @@ figcaption { font-size:.88rem; color:var(--muted); margin-top:.4rem; }
 form#hipo-trans { display:flex; gap:.4rem; flex-wrap:wrap; margin:.6rem 0; }
 form#hipo-trans input { flex:1; min-width:12rem; padding:.5rem .6rem; }
 form#hipo-trans button { background:var(--accent); color:#fff; border:0; padding:.5rem .8rem; border-radius:.4rem; }
+.hipo-cats { display:grid; grid-template-columns:repeat(auto-fill,minmax(7.1rem,1fr)); gap:.5rem; margin:.75rem 0 1rem; }
+a.hipo-cat { display:block; background:var(--card); border:1px solid var(--border); border-radius:.45rem; padding:.65rem .35rem; text-align:center; text-decoration:none; color:var(--ink); font-size:.86rem; }
+a.hipo-cat.on, a.hipo-cat:hover { border-color:var(--accent); background:var(--head); }
+.hipo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(9.2rem,1fr)); gap:.7rem; }
+a.hipo-card { background:var(--card); border:1px solid var(--border); border-radius:.45rem; overflow:hidden; text-decoration:none; color:inherit; display:block; }
+a.hipo-card img { width:100%; aspect-ratio:1; object-fit:cover; display:block; background:var(--head); }
+a.hipo-card .nm { font-size:.86rem; margin:.45rem .55rem .15rem; line-height:1.3; }
+a.hipo-card .pr { font-size:.8rem; color:var(--muted); margin:0 .55rem .55rem; }
 .pp { margin:0.7rem 0; }
 .ph { margin-top:1.4rem; }
 article.hipo-howto { max-width:none; margin:0; padding:0; text-align:left; }
@@ -39,9 +47,9 @@ article.hipo-howto { max-width:none; margin:0; padding:0; text-align:left; }
   <p class="note">HipoBuy · hipobuy.at · Unabhängiger AT-Desk, nicht HipoBuy und nicht der Finds-Hub</p>
   <nav class="local">
     <a href="/">Start</a>
+    <a href="/#katalog">Katalog</a>
     <a href="/hipobuy-shipping-guide/">Versand</a>
     <a href="/how-to-use-hipobuy/">Ablauf</a>
-    <a href="/hipobuy-spreadsheet/">Katalog</a>
     <a href="/hilfe/">Hilfe</a>
     <a href="/neuigkeiten/">Neuigkeiten</a>
     <a href="/ueber-uns/">Über uns</a>
@@ -59,38 +67,137 @@ article.hipo-howto { max-width:none; margin:0; padding:0; text-align:left; }
     <a class="cta" href="/hilfe/">Fünfzehn Fragen</a>
   </p>
 
-  <h2>Ein Spreadsheet ist hier kein Excel</h2>
-  <p>Auf diesem Desk meint „Spreadsheet“ einen <strong>Katalog von Produktkarten</strong> (Foto, Marke, Referenzpreis, Link für den Agenten) — keine Tabelle mit Zellen. Die 8&nbsp;600 Zeilen Finds bleiben auf <a href="https://hipobuyspreadsheet.net/">hipobuyspreadsheet.net</a>. hipobuy.at hält Versandlabor, Ablauf, Hilfe und Neuigkeiten. LitBuy.at ist ein anderer Agent, kein 301.</p>
-  <figure class="shot"><img src="/media/at-spreadsheet-20260930.png" alt="Katalog auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Karten kommen aus w2clinks; deutsche Wörter in der Suche liefern oft 0 Treffer." loading="lazy"><figcaption>Katalog auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Karten kommen aus w2clinks; deutsche Wörter in der Suche liefern oft 0 Treffer.</figcaption></figure>
+  <h2>Katalog auf dieser Startseite</h2>
+  <p>Auf diesem Desk meint „Spreadsheet“ einen <strong>Katalog von Produktkarten</strong> (Foto, Marke, Referenzpreis, Link für den Agenten) — keine Tabelle mit Zellen. Die Karten stehen <strong>hier auf /</strong>, über <code>/api/products/</code> desselben Hosts. Die 8&nbsp;600 Zeilen Finds bleiben auf <a href="https://hipobuyspreadsheet.net/">hipobuyspreadsheet.net</a>. LitBuy.at ist ein anderer Agent, kein 301.</p>
+  <figure class="shot"><img src="/media/at-spreadsheet-20260930.png" alt="Katalogkarten auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Fotos kommen aus w2clinks; deutsche Wörter ohne Übersetzung liefern oft 0 Treffer." loading="lazy"><figcaption>Katalogkarten auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Fotos kommen aus w2clinks; deutsche Wörter ohne Übersetzung liefern oft 0 Treffer.</figcaption></figure>
 
-  <h2>Der Katalog versteht Deutsch nicht — die Suche hier schon</h2>
-  <p>Am 29.&nbsp;Aug.&nbsp;2026 hat die spanische Schwesterdesk gemessen: zapatillas, sudadera, chaqueta → 0 Karten; sneakers, hoodie, jacket → volle Seiten. Dasselbe Muster gilt für Turnschuhe, Kapuzenpullover, Jacke. Du tippst Deutsch, wir senden das englische Indexwort an <a href="/hipobuy-spreadsheet/">/hipobuy-spreadsheet/</a>.</p>
+  <h2>Der Index ist Englisch — die Suche darunter übersetzt</h2>
+  <p>Am 29.&nbsp;Aug.&nbsp;2026 hat die spanische Schwesterdesk gemessen: zapatillas, sudadera, chaqueta → 0 Karten; sneakers, hoodie, jacket → volle Seiten. Dasselbe Muster gilt für Turnschuhe, Kapuzenpullover, Jacke. Du tippst Deutsch; die Karten erscheinen <strong>auf dieser Startseite</strong>, ohne Sprung auf eine zweite URL.</p>
   
 <div class="box" id="katalog">
-  <p><strong>Katalogsuche: Deutsch tippen, Englisch senden</strong></p>
-  <p class="note"><code>Turnschuhe</code>→<code>sneakers</code> · <code>Kapuzenpullover</code>→<code>hoodie</code> · <code>Jacke</code>→<code>jacket</code> · <code>Jeans</code>→<code>jeans</code> · <code>Tasche</code>→<code>bag</code> · <code>Sonnenbrille</code>→<code>sunglasses</code> · <code>Uhr</code>→<code>watch</code></p>
-  <form id="hipo-trans" action="/hipobuy-spreadsheet/" method="get">
+  <p><strong>Katalogsuche auf dieser Startseite: Deutsch tippen, englisch indexieren</strong></p>
+  <p class="note"><code>Turnschuhe</code>→<code>sneakers</code> · <code>Kapuzenpullover</code>→<code>hoodie</code> · <code>Jacke</code>→<code>jacket</code> · <code>Jeans</code>→<code>jeans</code> · <code>Tasche</code>→<code>bag</code> · <code>Taschen</code>→<code>bags</code> · <code>Sonnenbrille</code>→<code>sunglasses</code> · <code>Brille</code>→<code>eyewear</code></p>
+  <form id="hipo-trans" action="/" method="get">
     <input type="search" name="q" id="hipo-q" required placeholder="Turnschuhe">
-    <button type="submit">Auf dem Katalog suchen</button>
+    <button type="submit">Auf der Startseite suchen</button>
   </form>
   <p class="note" id="hipo-hint"></p>
+  <div class="hipo-cats">
+    <a class="hipo-cat" href="/?cat=sneakers#katalog" data-cat="SNEAKERS" data-kw="sneakers">Turnschuhe</a>
+    <a class="hipo-cat" href="/?cat=t-shirt#katalog" data-cat="T-SHIRT" data-kw="t-shirt">T-Shirt</a>
+    <a class="hipo-cat" href="/?cat=hoodie#katalog" data-cat="HOODIE" data-kw="hoodie">Kapuzenpullover</a>
+    <a class="hipo-cat" href="/?cat=jacket#katalog" data-cat="JACKET" data-kw="jacket">Jacke</a>
+    <a class="hipo-cat" href="/?cat=jeans#katalog" data-cat="TROUSERS" data-kw="jeans">Jeans</a>
+    <a class="hipo-cat" href="/?cat=shorts#katalog" data-cat="SHORTS" data-kw="shorts">Shorts</a>
+    <a class="hipo-cat" href="/?cat=underwear#katalog" data-cat="UNDERWEAR" data-kw="underwear">Unterwäsche</a>
+    <a class="hipo-cat" href="/?cat=jersey#katalog" data-cat="Jersey" data-kw="jersey">Trikot</a>
+    <a class="hipo-cat" href="/?cat=hat#katalog" data-cat="HAT" data-kw="hat">Mützen</a>
+    <a class="hipo-cat" href="/?cat=bags#katalog" data-cat="BAG" data-kw="bags">Taschen</a>
+    <a class="hipo-cat" href="/?cat=sunglasses#katalog" data-cat="EYEWEAR" data-kw="sunglasses">Brillen</a>
+    <a class="hipo-cat" href="/?cat=headphones#katalog" data-cat="HEADPHONES" data-kw="headphones">Kopfhörer</a>
+    <a class="hipo-cat" href="/?cat=perfume#katalog" data-cat="PERFUME" data-kw="perfume">Parfum</a>
+    <a class="hipo-cat" href="/?cat=watch#katalog" data-cat="WATCH" data-kw="watch">Uhren</a>
+    <a class="hipo-cat" href="/?cat=jewelry#katalog" data-cat="JEWELRY" data-kw="jewelry">Schmuck</a>
+    <a class="hipo-cat" href="/?cat=toy#katalog" data-cat="TOYS" data-kw="toy">Spielzeug</a>
+  </div>
+  <p class="note" id="hipo-status"></p>
+  <div class="hipo-grid" id="hipo-grid"></div>
+  <noscript><p class="note">Die Karten laden über /api/products/ auf diesem Host. Ohne JavaScript bleibt das Suchfeld: Absenden bleibt auf /.</p></noscript>
 </div>
 <script>
 (function(){
-  var map = {"turnschuhe": "sneakers", "kapuzenpullover": "hoodie", "jacke": "jacket", "jeans": "jeans", "tasche": "bag", "sonnenbrille": "sunglasses", "uhr": "watch", "mantel": "coat", "hose": "pants"};
+  var map = {"turnschuhe": "sneakers", "kapuzenpullover": "hoodie", "jacke": "jacket", "jeans": "jeans", "tasche": "bag", "taschen": "bags", "sonnenbrille": "sunglasses", "brille": "eyewear", "uhr": "watch", "uhren": "watches", "mantel": "coat", "hose": "pants", "t-shirt": "t-shirt", "shorts": "shorts", "unterwäsche": "underwear", "trikot": "jersey", "mütze": "hat", "mützen": "hats", "kopfhörer": "headphones", "parfum": "perfume", "schmuck": "jewelry", "spielzeug": "toys", "brillen": "sunglasses"};
+  var emptyMsg = "Keine Karten für dieses Wort — englisches Indexwort versuchen (sneakers, hoodie).";
+  var country = "AT";
   var form = document.getElementById('hipo-trans');
-  if (!form) return;
-  form.addEventListener('submit', function(ev) {
-    var raw = (document.getElementById('hipo-q').value || '').trim();
-    var key = raw.toLowerCase();
-    var en = map[key] || raw;
-    var hint = document.getElementById('hipo-hint');
-    if (hint) hint.textContent = raw + ' → ' + en;
-    if (en !== raw) {
-      ev.preventDefault();
-      location.href = "/hipobuy-spreadsheet/" + '?q=' + encodeURIComponent(en);
+  var grid = document.getElementById('hipo-grid');
+  var status = document.getElementById('hipo-status');
+  var hint = document.getElementById('hipo-hint');
+  function esc(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function render(items){
+    if (!grid) return;
+    if (!items.length){
+      grid.innerHTML = '<p class="note">'+esc(emptyMsg)+'</p>';
+      return;
     }
+    grid.innerHTML = items.map(function(it){
+      var href = it.target || it.source || '#';
+      var img = it.image ? '<img src="'+esc(it.image)+'" alt="'+esc(it.title||'')+'" loading="lazy">' : '';
+      var price = it.price ? (esc(it.price)+' '+(it.currency||'CNY')) : '';
+      return '<a class="hipo-card" href="'+esc(href)+'" target="_blank" rel="noopener">'+img+
+        '<p class="nm">'+esc(it.title||'')+'</p><p class="pr">'+price+'</p></a>';
+    }).join('');
+  }
+  function setOn(kw){
+    document.querySelectorAll('a.hipo-cat').forEach(function(a){
+      a.classList.toggle('on', !!kw && a.getAttribute('data-kw') === kw);
+    });
+  }
+  function load(opts){
+    opts = opts || {};
+    if (status) status.textContent = '…';
+    var u = new URL('/api/products/', location.origin);
+    u.searchParams.set('limit', '24');
+    if (country) u.searchParams.set('country', country);
+    if (opts.q) u.searchParams.set('keyword', opts.q);
+    if (opts.cat) u.searchParams.set('category', opts.cat);
+    return fetch(u, {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d){
+      var items = (d && d.items) || [];
+      if (!items.length && opts.kw) {
+        var u2 = new URL('/api/products/', location.origin);
+        u2.searchParams.set('limit', '24');
+        if (country) u2.searchParams.set('country', country);
+        u2.searchParams.set('keyword', opts.kw);
+        return fetch(u2, {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d2){
+          items = (d2 && d2.items) || [];
+          if (status) status.textContent = items.length ? String(items.length) : '';
+          render(items);
+        });
+      }
+      if (status) status.textContent = items.length ? String(items.length) : '';
+      render(items);
+    }).catch(function(){ render([]); });
+  }
+  if (form) {
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var raw = (document.getElementById('hipo-q').value || '').trim();
+      var en = map[raw.toLowerCase()] || raw;
+      if (hint) hint.textContent = (raw && en !== raw) ? (raw + ' → ' + en) : en;
+      if (history.replaceState) history.replaceState(null, '', '/?q=' + encodeURIComponent(en) + '#katalog');
+      setOn('');
+      load({q: en, kw: en});
+    });
+  }
+  document.querySelectorAll('a.hipo-cat').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      var cat = a.getAttribute('data-cat') || '';
+      var kw = a.getAttribute('data-kw') || '';
+      setOn(kw);
+      if (history.replaceState) history.replaceState(null, '', '/?cat=' + encodeURIComponent(kw) + '#katalog');
+      load({cat: cat, kw: kw});
+    });
   });
+  var params = new URLSearchParams(location.search);
+  var q0 = params.get('q');
+  var c0 = params.get('cat');
+  if (q0) {
+    var inp = document.getElementById('hipo-q');
+    if (inp) inp.value = q0;
+    var en = map[q0.toLowerCase()] || q0;
+    if (hint) hint.textContent = (q0 !== en) ? (q0 + ' → ' + en) : en;
+    load({q: en, kw: en});
+  } else if (c0) {
+    setOn(c0);
+    var match = document.querySelector('a.hipo-cat[data-kw="'+c0+'"]');
+    load({cat: match ? (match.getAttribute('data-cat')||c0) : c0, kw: c0});
+  } else {
+    load({});
+  }
 })();
 </script>
 
@@ -111,10 +218,10 @@ article.hipo-howto { max-width:none; margin:0; padding:0; text-align:left; }
   <p><a href="/hilfe/">Hilfe</a> · <a href="/neuigkeiten/">Neuigkeiten mit Datum</a> · <a href="/ueber-uns/">Über uns</a> · <a href="/how-to-use-hipobuy/">Ablauf</a></p>
   <p><a class="cta" href="https://hipobuy.com/">HipoBuy öffnen, dann AT-Adresse in der App</a></p>
 
-  <p class="note">Redaktion (kein Bestellticket): <a href="mailto:Cruisezhang0202@gmail.com">Cruisezhang0202@gmail.com</a> — dieselbe Redaktionsadresse wie hipobuy.es. Bestellungen, Zahlungen und Reklamationen nur auf hipobuy.com.</p>
+  <p class="note">Redaktion (kein Bestellticket): <a href="mailto:cnfd85269032661@gmail.com">cnfd85269032661@gmail.com</a>. Bestellungen, Zahlungen und Reklamationen nur auf hipobuy.com.</p>
 </main>
 <footer>
-  <p class="note">Unabhängiger AT-Desk, nicht HipoBuy und nicht der Finds-Hub. <a href="mailto:Cruisezhang0202@gmail.com">Cruisezhang0202@gmail.com</a></p>
+  <p class="note">Unabhängiger AT-Desk, nicht HipoBuy und nicht der Finds-Hub. <a href="mailto:cnfd85269032661@gmail.com">cnfd85269032661@gmail.com</a></p>
 </footer>
 </body>
 </html>

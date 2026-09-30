@@ -914,7 +914,7 @@ def about_at(d: dict) -> tuple[str, str, str]:
         _p(
             "Wenn eine Laborspalte oder ein Link bricht, schreiben wir das mit Datum in Neuigkeiten. "
             "Wir korrigieren nicht still. Dieser AT-Desk beantwortet keine Bestelltickets. "
-            f'Redaktion: <a href="mailto:{MAIL}">{MAIL}</a> (dieselbe Adresse wie hipobuy.es).'
+            f'Redaktion: <a href="mailto:{MAIL}">{MAIL}</a>.'
         ),
         _p(
             "HipoBuy nennt in der Hilfe u. a. Hong Kong Jointown Trading Co., Limited (72090932), "
@@ -961,7 +961,7 @@ def about_nl(d: dict) -> tuple[str, str, str]:
         _p(
             "Als een labkolom of een link stukgaat, zetten we dat met datum in Nieuws. "
             "We herschrijven niet stiekem. Deze NL-desk beantwoordt geen besteltickets. "
-            f'Redactie: <a href="mailto:{MAIL}">{MAIL}</a> (hetzelfde adres als hipobuy.es).'
+            f'Redactie: <a href="mailto:{MAIL}">{MAIL}</a>.'
         ),
         _p(
             "HipoBuy noemt in de help o.a. Hong Kong Jointown Trading Co., Limited (72090932) en "
@@ -1026,8 +1026,7 @@ def about_en(d: dict, flavour: str) -> tuple[str, str, str]:
         _h2("Contact"),
         _p(
             "If a lab column or a link breaks, we date it on News. We do not silently rewrite old checks. "
-            f'This desk does not answer order tickets. Editorial: <a href="mailto:{MAIL}">{MAIL}</a> '
-            "(same inbox as hipobuy.es)."
+            f'This desk does not answer order tickets. Editorial: <a href="mailto:{MAIL}">{MAIL}</a>.'
         ),
         _p(
             "HipoBuy’s own help names Hong Kong Jointown Trading Co., Limited (72090932), "
