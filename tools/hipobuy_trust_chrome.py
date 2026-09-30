@@ -178,7 +178,7 @@ def labels(key: str) -> dict[str, str]:
 def nav_links(key: str, d: dict) -> list[tuple[str, str]]:
     s = d["slugs"]
     L = labels(key)
-    links = [("/", L["home"]), ("/#katalog", L["sheet"])]
+    links = [("/", L["home"])]
     if key in ("uk", "eu"):
         links.append(("/hipobuy-coupons/", L["coupons"]))
     if key == "uk":
@@ -542,7 +542,8 @@ def localize_cms_nav(html: str, key: str, d: dict) -> str:
     L = labels(key)
     html = re.sub(r">Register</a>", f">{L['reg']}</a>", html, count=1)
     html = re.sub(r">Home</a>", f">{L['home']}</a>", html, count=1)
-    html = html.replace('href="/hipobuy-spreadsheet/"', 'href="/#katalog"')
+    html = html.replace('href="/hipobuy-spreadsheet/"', 'href="/"')
+    html = html.replace('href="/#katalog"', 'href="/"')
     html = re.sub(r">Spreadsheet</a>", f">{L['sheet']}</a>", html)
     return html
 
@@ -771,15 +772,9 @@ def homepage_html(key: str, d: dict) -> str:
   <p><a href="/{s['help']}/">Help</a> · <a href="/{s['news']}/">Dated news</a> · <a href="/{s['about']}/">Who we are</a></p>
   <p><a class="cta" href="{OFFICIAL}">Open HipoBuy, then a real address in-app</a></p>
 """
-    return shell_page(
-        key,
-        d,
-        title=title,
-        desc=desc,
-        canonical=f"https://{host}/",
-        crumb=L["home"],
-        inner=inner,
-    )
+    from hipobuy_cms_home import build_cms_home
+
+    return build_cms_home(key, d)
 
 
 def shipping_essay(key: str, d: dict) -> str:

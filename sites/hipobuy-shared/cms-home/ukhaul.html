@@ -147,52 +147,6 @@ img{max-width:100%;display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .fade-in{animation:fadeUp .4s ease both}
 .fade-in-d{animation:fadeUp .4s .1s ease both}
-
-.mw{max-width:1200px;margin:0 auto;padding:8px 24px 56px;display:grid;grid-template-columns:215px 1fr;gap:24px;align-items:start}
-.sb{position:sticky;top:72px}
-.sbtit{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--g4);margin-bottom:8px;padding-left:4px}
-.sbsec{margin-bottom:22px}
-.cl{list-style:none}
-.cl li a{display:flex;align-items:center;justify-content:space-between;padding:6px 9px;border-radius:8px;font-size:13px;color:var(--g2);transition:background .12s,color .12s}
-.cl li a:hover{background:var(--g6);color:var(--bk);text-decoration:none}
-.cl li a.on{background:var(--acl);color:var(--acd);font-weight:500}
-.cn{font-size:11px;color:var(--g4);font-family:var(--m)}
-.cl li a.on .cn{color:var(--acc)}
-.sbcard{background:var(--g6);border-radius:var(--rl);padding:13px}
-.sbcard-t{font-size:13px;font-weight:500;margin-bottom:5px}
-.sbcard-d{font-size:12px;color:var(--g3);line-height:1.55;margin-bottom:10px}
-.sbwas{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500;width:100%;transition:opacity .15s}
-.sbwas:hover{opacity:.88;text-decoration:none}.sbwas svg{width:14px;height:14px}
-.fbar{display:flex;gap:8px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
-.sw{flex:1;min-width:180px;position:relative}
-.sw svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--g4)}
-.si{width:100%;height:37px;padding:0 12px 0 33px;border:1.5px solid var(--g5);border-radius:9px;font-family:var(--f);font-size:13px;background:var(--wh);outline:none;transition:border-color .15s}
-.si:focus{border-color:var(--acc)}.si::placeholder{color:var(--g4)}
-.ss{height:37px;padding:0 10px;border:1.5px solid var(--g5);border-radius:9px;font-family:var(--f);font-size:12.5px;background:var(--wh);outline:none;cursor:pointer}
-.rc{font-size:13px;color:var(--g4);white-space:nowrap}.rc b{color:var(--bk);font-weight:500}
-.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:13px;margin-bottom:24px}
-.pcard{border:1px solid var(--g5);border-radius:var(--rl);overflow:hidden;background:var(--wh);transition:border-color .15s,transform .15s;cursor:pointer;display:flex;flex-direction:column}
-.pcard:hover{border-color:var(--acc);transform:translateY(-2px)}
-.pimg{aspect-ratio:1;background:var(--g6);position:relative;overflow:hidden}
-.pimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
-.pcard:hover .pimg img{transform:scale(1.04)}
-.pph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--g5)}
-.pph svg{width:32px;height:32px}
-.pbg{position:absolute;top:7px;left:7px;background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:.3px}
-.pbdy{padding:10px;flex:1;display:flex;flex-direction:column;gap:5px}
-.pnm{font-size:13px;font-weight:500;color:var(--bk);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pmeta{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
-.ppr{font-size:14px;font-weight:700;color:var(--acc);font-family:var(--m)}
-.ppl{font-size:10.5px;color:var(--g4);background:var(--g6);padding:2px 6px;border-radius:4px}
-.plnk{display:block;margin:0 10px 10px;padding:7px;background:var(--acc);color:#fff;text-align:center;border-radius:8px;font-size:12.5px;font-weight:500;transition:background .15s}
-.plnk:hover{background:var(--acd);text-decoration:none}
-.pgn{display:flex;align-items:center;justify-content:center;gap:5px}
-.pgb{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid var(--g5);border-radius:7px;font-size:12.5px;color:var(--g3);cursor:pointer;transition:all .12s;background:var(--wh)}
-.pgb:hover{border-color:var(--acc);color:var(--acc)}.pgb.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:500}
-.sk{animation:pulse 1.5s ease-in-out infinite}.skim{background:var(--g5);aspect-ratio:1}.skl{height:11px;background:var(--g5);border-radius:4px;margin-bottom:7px}.skl.sh{width:55%}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-@media(max-width:768px){.mw{grid-template-columns:1fr}.sb{position:static}}
-
 </style>
 </head>
 <body class="">
@@ -206,7 +160,7 @@ img{max-width:100%;display:block}
     </a>
     <div class="nregion"><span class="nregion-flag">🇬🇧</span></div>
   </div>
-  <ul class="nl"><li><a href="/" class="on">Catalogue</a></li><li><a href="/hipobuy-shipping-guide/">Shipping</a></li><li><a href="/how-to-use-hipobuy/">How to</a></li><li><a href="/help/">Help</a></li><li><a href="/news/">News</a></li><li><a href="/who-we-are/">Who we are</a></li></ul>
+  <ul class="nl"><li><a href="/hipobuy-spreadsheet">Spreadsheet</a></li><li><a href="/is-hipobuy-legit">Is it Legit?</a></li><li><a href="/hipobuy-shipping-guide">Shipping</a></li><li><a href="/hipobuy-coupons">Coupons</a></li><li><a href="/blog">Blog</a></li></ul>
   <div style="display:flex;align-items:center;gap:8px">
     <button class="blc" id="lang-btn" onclick="toggleLM()" aria-label="Language and currency">
       <span id="lc-flag">&#127482;&#127480;</span>
@@ -303,6 +257,7 @@ img{max-width:100%;display:block}
   <h1>The Complete<br><em>Hipobuy</em> Resource</h1>
   <p class="hsub">Browse 12,000+ products with direct Hipobuy links, free shipping calculator, coupon codes and full buying guides &mdash; all in one place.</p>
   <div class="hctas">
+    <a href="/hipobuy-spreadsheet" class="cp">Browse Spreadsheet &rarr;</a>
     <a href="https://hipobuy.com/register?inviteCode=VGEICZNX0" target="_blank" rel="noopener sponsored" class="cp" style="background:var(--bk)">Register on Hipobuy</a>
     <a href="/how-to-use-hipobuy"  class="cs">Beginner Guide</a>
   </div>
@@ -314,102 +269,6 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-
-<div class="mw" id="catalog">
-  <aside class="sb">
-    <div class="sbsec">
-      <p class="sbtit">Catalogue</p>
-      <ul class="cl" id="clist"><li><a href="/?cat=all" class="on" onclick="fc('all');return false;">All Products <span class="cn">12,000+</span></a></li><li><a href="/?cat=shoes" onclick="fc('shoes');return false;">Sneakers &amp; Shoes <span class="cn">Live</span></a></li><li><a href="/?cat=slippers" onclick="fc('slippers');return false;">Slippers <span class="cn">Live</span></a></li><li><a href="/?cat=tshirts" onclick="fc('tshirts');return false;">T-Shirts <span class="cn">Live</span></a></li><li><a href="/?cat=polo" onclick="fc('polo');return false;">Polo <span class="cn">Live</span></a></li><li><a href="/?cat=shirt" onclick="fc('shirt');return false;">Dress Shirts <span class="cn">Live</span></a></li><li><a href="/?cat=pants" onclick="fc('pants');return false;">Pants / Shorts <span class="cn">Live</span></a></li><li><a href="/?cat=vest" onclick="fc('vest');return false;">Vests &amp; Outerwear <span class="cn">Live</span></a></li><li><a href="/?cat=long-sleeved" onclick="fc('long-sleeved');return false;">Long Sleeved <span class="cn">Live</span></a></li><li><a href="/?cat=hoodies" onclick="fc('hoodies');return false;">Hoodies <span class="cn">Live</span></a></li><li><a href="/?cat=sweater" onclick="fc('sweater');return false;">Sweaters <span class="cn">Live</span></a></li><li><a href="/?cat=shawl" onclick="fc('shawl');return false;">Shawls <span class="cn">Live</span></a></li><li><a href="/?cat=bags" onclick="fc('bags');return false;">Bags <span class="cn">Live</span></a></li></ul>
-    </div>
-  </aside>
-  <main>
-    <div class="fbar">
-      <div class="sw">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="search" class="si" id="search-input" name="q" placeholder="trainers" oninput="hs(this.value)">
-      </div>
-      <select class="ss" id="sort-sel" onchange="lp()">
-        <option value="d">Sort: Default</option>
-        <option value="pa">Price: Low &rarr; High</option>
-        <option value="pd">Price: High &rarr; Low</option>
-      </select>
-      <span class="rc" id="rc"><b>—</b></span>
-    </div>
-    <div class="pg" id="product-grid"></div>
-  </main>
-</div>
-<script>
-const DEMO=[];
-const CATMAP={"shoes": "SNEAKERS", "slippers": "SLIPPERS", "tshirts": "T-SHIRT", "polo": "POLO", "shirt": "SHIRT", "pants": "SHORTS", "vest": "VEST", "long-sleeved": "LONG SLEEVED", "hoodies": "HOODIE", "sweater": "SWEATER", "shawl": "SHAWL", "bags": "BAG"};
-const PAPI='/api/products/';
-const REG="https://hipobuy.com/register?inviteCode=VGEICZNX0";
-const SHEET='https://w2clinks.com/spreadsheet/hipobuy/';
-const LOCALMAP={"trainers": "sneakers", "jumper": "hoodie", "trousers": "pants", "jewellery": "jewelry"};
-const COUNTRY="GB";
-let cat='all',sq='';
-function sk(n){document.getElementById('product-grid').innerHTML=Array(n).fill(0).map(()=>'<div class="pcard sk"><div class="skim"></div><div class="pbdy"><div class="skl"></div><div class="skl sh"></div></div></div>').join('');}
-function rp(ps){
-  const t=(typeof T!=='undefined')?(T[aL]||T.en):{};
-  const buyBtn=t.buy||'Hipobuy →';const noP=t.no||'No products found.';
-  const g=document.getElementById('product-grid');
-  if(!ps.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--g4);font-size:14px">'+noP+'</div>';return;}
-  const fp=p=>((typeof fmtPrice==='function')?fmtPrice(p.priceCny??p.price,p.currency||'CNY'):(p.price||''));
-  g.innerHTML=ps.map(p=>`<article class="pcard">
-    <div class="pimg">
-      ${p.img?`<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="pph" style="display:none"></div>`:'<div class="pph"></div>'}
-      ${p.badge?`<span class="pbg">${p.badge}</span>`:''}
-    </div>
-    <div class="pbdy"><p class="pnm">${p.name}</p>
-      <div class="pmeta"><span class="ppr">${fp(p)}</span><span class="ppl">${p.platform||'W2C'}</span></div>
-    </div>
-    <a href="${p.target||SHEET}" target="_blank" rel="noopener" class="plnk">${buyBtn}</a>
-  </article>`).join('');
-}
-function fc(c){
-  cat=c;
-  document.querySelectorAll('.cl a').forEach(a=>a.classList.toggle('on', a.getAttribute('onclick')&&a.getAttribute('onclick').indexOf("'"+c+"'")>=0));
-  if(history.replaceState) history.replaceState(null,'', c&&c!=='all' ? '/?cat='+encodeURIComponent(c) : '/');
-  lp();
-}
-let st;function hs(v){
-  clearTimeout(st);
-  st=setTimeout(()=>{
-    var raw=(v||'').trim();
-    sq=LOCALMAP[raw.toLowerCase()]||raw;
-    lp();
-  },280);
-}
-async function lp(skipSkeleton){
-  if(!skipSkeleton) sk(12);
-  try{
-    const u=new URL(PAPI,location.origin);
-    u.searchParams.set('limit','24');
-    if(COUNTRY) u.searchParams.set('country', COUNTRY);
-    if(sq) u.searchParams.set('keyword', sq);
-    if(cat!=='all'&&CATMAP[cat]) u.searchParams.set('category', CATMAP[cat]);
-    const r=await fetch(u);
-    const d=await r.json();
-    let ps=(d.items||[]).map((it,i)=>({
-      id:i+1,name:it.title||'',price:it.price||'',priceCny:parseFloat(it.price)||0,
-      currency:(it.currency||'CNY').toUpperCase(),platform:it.brand||'W2C',cat:cat,
-      img:it.image||'',badge:i<3?'TOP':'',target:it.target||it.source||SHEET
-    }));
-    const sel=document.getElementById('sort-sel');
-    const s=sel?sel.value:'d';
-    if(s==='pa')ps.sort((a,b)=>(a.priceCny||0)-(b.priceCny||0));
-    if(s==='pd')ps.sort((a,b)=>(b.priceCny||0)-(a.priceCny||0));
-    document.getElementById('rc').innerHTML='<b>'+ps.length.toLocaleString()+'</b>';
-    rp(ps);
-  }catch(e){rp([]);}
-}
-document.addEventListener('DOMContentLoaded',function(){
-  var params=new URLSearchParams(location.search);
-  var q0=params.get('q'); var c0=params.get('cat');
-  if(q0){ var inp=document.getElementById('search-input'); if(inp) inp.value=q0; sq=LOCALMAP[q0.toLowerCase()]||q0; }
-  if(c0){ cat=c0; document.querySelectorAll('.cl a').forEach(a=>a.classList.toggle('on', a.getAttribute('onclick')&&a.getAttribute('onclick').indexOf("'"+c0+"'")>=0)); }
-  lp(true);
-});
-</script>
 <article class="w2c-prose ac-whatis">
   <h2>What is the Hipobuy spreadsheets — and why United Kingdom searches for it</h2>
   <p>The keyword <strong>hipobuy spreadsheet</strong> (~90 monthly volume in target markets; ~1.4K global, KD 28%) shows buyers want a curated list before using a China shopping agent. <strong>hipobuyspreadsheets.uk</strong> is an independent SEO hub — we do not sell products. The <strong>live spreadsheet with prices, QC photos, and seller links</strong> is on <a href="https://w2clinks.com/spreadsheet/" target="_blank" rel="noopener">w2clinks.com/spreadsheet/</a>; checkout via <a href="https://hipobuy.com/register?inviteCode=VGEICZNX0" target="_blank" rel="noopener sponsored">Hipobuy</a> with invite code <code>VGEICZNX0</code>.</p>
@@ -438,7 +297,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <section class="sec">
   <h2 class="stit">Browse by Category</h2>
   <p class="ssub">All categories pull live from the Hipobuy product database.</p>
-  <div class="cg"><a href="/?cat=shoes" class="ccard" onclick="fc('shoes');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-30-shoes.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Sneakers & Shoes</p><p class="ccard-meta">Live items</p></a><a href="/?cat=slippers" class="ccard" onclick="fc('slippers');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-27-slippers.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Slippers</p><p class="ccard-meta">Live items</p></a><a href="/?cat=tshirts" class="ccard" onclick="fc('tshirts');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-03-t-shirt.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">T-Shirts</p><p class="ccard-meta">Live items</p></a><a href="/?cat=polo" class="ccard" onclick="fc('polo');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-04-polo.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Polo</p><p class="ccard-meta">Live items</p></a><a href="/?cat=shirt" class="ccard" onclick="fc('shirt');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-05-shirt.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Dress Shirts</p><p class="ccard-meta">Live items</p></a><a href="/?cat=pants" class="ccard" onclick="fc('pants');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-07-shorts.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Pants / Shorts</p><p class="ccard-meta">Live items</p></a><a href="/?cat=vest" class="ccard" onclick="fc('vest');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-20-vest.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Vests & Outerwear</p><p class="ccard-meta">Live items</p></a><a href="/?cat=long-sleeved" class="ccard" onclick="fc('long-sleeved');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-25-long-sleeved.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Long Sleeved</p><p class="ccard-meta">Live items</p></a><a href="/?cat=hoodies" class="ccard" onclick="fc('hoodies');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-06-hoodie.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Hoodies</p><p class="ccard-meta">Live items</p></a><a href="/?cat=sweater" class="ccard" onclick="fc('sweater');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-11-sweater.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Sweaters</p><p class="ccard-meta">Live items</p></a><a href="/?cat=shawl" class="ccard" onclick="fc('shawl');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-12-shawl.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Shawls</p><p class="ccard-meta">Live items</p></a><a href="/?cat=bags" class="ccard" onclick="fc('bags');return false;"><img src="https://w2clinks.com/public/static/w2c/categories/cat-00-bag.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Bags</p><p class="ccard-meta">Live items</p></a></div>
+  <div class="cg"><a href="https://w2clinks.com/spreadsheet/?category=SNEAKERS&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-30-shoes.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Sneakers & Shoes</p><p class="ccard-meta">Live items</p></a><a href="https://w2clinks.com/spreadsheet/?category=SLIPPERS&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-27-slippers.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Slippers</p><p class="ccard-meta">Live items</p></a><a href="https://w2clinks.com/spreadsheet/?category=T-SHIRT&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-03-t-shirt.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">T-Shirts</p><p class="ccard-meta">Live items</p></a><a href="https://w2clinks.com/spreadsheet/?category=POLO&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-04-polo.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Polo</p><p class="ccard-meta">Live items</p></a><a href="https://w2clinks.com/spreadsheet/?category=SHIRT&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-05-shirt.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Dress Shirts</p><p class="ccard-meta">Live items</p></a><a href="https://w2clinks.com/spreadsheet/?category=SHORTS&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-07-shorts.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Pants / Shorts</p><p class="ccard-meta">Live items</p></a><a href="https://w2clinks.com/spreadsheet/?category=VEST&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-20-vest.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Vests & Outerwear</p><p class="ccard-meta">Live items</p></a><a href="https://w2clinks.com/spreadsheet/?category=LONG+SLEEVED&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-25-long-sleeved.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Long Sleeved</p><p class="ccard-meta">Live items</p></a><a href="https://w2clinks.com/spreadsheet/?category=HOODIE&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-06-hoodie.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Hoodies</p><p class="ccard-meta">Live items</p></a><a href="https://w2clinks.com/spreadsheet/?category=SWEATER&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-11-sweater.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Sweaters</p><p class="ccard-meta">Live items</p></a><a href="https://w2clinks.com/spreadsheet/?category=SHAWL&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-12-shawl.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Shawls</p><p class="ccard-meta">Live items</p></a><a href="https://w2clinks.com/spreadsheet/?category=BAG&page=1&sort=newest" class="ccard" target="_blank" rel="noopener"><img src="https://w2clinks.com/public/static/w2c/categories/cat-00-bag.png?v=24" alt="" class="ccard-ico" width="44" height="44" loading="lazy" decoding="async"><span class="ccard-tag">Category</span><p class="ccard-name">Bags</p><p class="ccard-meta">Live items</p></a></div>
 </section>
 
 <section class="sec act-sec">
@@ -450,7 +309,7 @@ document.addEventListener('DOMContentLoaded',function(){
   <h2 class="stit">Guides &amp; Tools</h2>
   <p class="ssub">Everything you need to shop on Hipobuy with confidence.</p>
   <div class="guides">
-    <a href="/" class="gc"><span class="gtg" style="background:var(--acl);color:var(--acd)">Spreadsheet</span><p class="gtit">Hipobuy Spreadsheet 2026</p><p class="gdesc">12,000+ products with direct Hipobuy links. Updated daily.</p><span class="glink">Browse &rarr;</span></a>
+    <a href="/hipobuy-spreadsheet" class="gc"><span class="gtg" style="background:var(--acl);color:var(--acd)">Spreadsheet</span><p class="gtit">Hipobuy Spreadsheet 2026</p><p class="gdesc">12,000+ products with direct Hipobuy links. Updated daily.</p><span class="glink">Browse &rarr;</span></a>
     <a href="/hipobuy-coupons" class="gc"><span class="gtg" style="background:#FEF3C7;color:#92400E">Coupons</span><p class="gtit">Hipobuy Coupon Codes 2026</p><p class="gdesc">Use <strong>VGEICZNX0</strong> for Invite bonus off. Verified weekly.</p><span class="glink">Get codes &rarr;</span></a>
     <a href="/is-hipobuy-legit" class="gc"><span class="gtg" style="background:var(--gnl);color:var(--gn)">Trust Review</span><p class="gtit">Is Hipobuy Legit? Honest 2026 Review</p><p class="gdesc">Score: 4.3/5. Full buyer protection, community verdict and scam check.</p><span class="glink">Read review &rarr;</span></a>
     <a href="/hipobuy-shipping-guide" class="gc"><span class="gtg" style="background:var(--bll);color:var(--bl)">Tool + Guide</span><p class="gtit">Shipping Guide &amp; Calculator</p><p class="gdesc">All lines compared + free calculator for 10 countries. Updated June 2026.</p><span class="glink">Calculate &rarr;</span></a>
@@ -465,8 +324,8 @@ document.addEventListener('DOMContentLoaded',function(){
     <a href="https://wa.me/447856544534" target="_blank" rel="noopener" class="wabb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>&nbsp;Chat &mdash; +44 7856 544534</a>
   </div>
 </div>
-<section class="uks-gsc-extra-v2" style="max-width:960px;margin:28px auto;padding:28px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:14px;color:#1e293b;line-height:1.75"><p style="font-size:12px;font-weight:700;color:#0f766e;text-transform:uppercase">UK sheets editor notes</p><h2>UK (spreadsheets) spreadsheet hub</h2><p>Start with the Hipobuy spreadsheet, then QC, then estimate GBP freight (HMRC/VAT) before consolidating. Prefer lines with clear Royal Mail or DHL tracking.</p><ul><li><a href="/">Open spreadsheet</a></li><li><a href="/how-to-use-hipobuy/">How to use Hipobuy</a></li><li><a href="/hipobuy-shipping-guide/">Shipping guide</a></li><li><a href="/is-hipobuy-legit/">Is Hipobuy legit?</a></li></ul><p>Updated 2026-07-31 for UK (spreadsheets) buyers — compare weight bands, declare realistically, and keep QC photos until Royal Mail or DHL delivery.</p></section>
-<!-- gsc-enrich-20260731 --><section class="uks-gsc-extra" style="max-width:960px;margin:28px auto;padding:28px;background:#fdf4ff;border:1px solid #e9d5ff;border-radius:14px;color:#1e293b;line-height:1.75"><p style="font-size:12px;font-weight:700;color:#7e22ce;text-transform:uppercase">UK sheets editor notes</p><h2>UK plural hub spreadsheet hub</h2><p>Start with the Hipobuy spreadsheet, then QC, then estimate GBP freight (HMRC/VAT) before consolidating. Prefer lines with clear Royal Mail or DHL tracking.</p><ul><li><a href="/">Open spreadsheet</a></li><li><a href="/how-to-use-hipobuy/">How to use Hipobuy</a></li><li><a href="/hipobuy-shipping-guide/">Shipping guide</a></li><li><a href="/is-hipobuy-legit/">Is Hipobuy legit?</a></li></ul><p>Updated 2026-07-31: keep QC photos and weight notes until Royal Mail or DHL delivery.</p></section>
+<section class="uks-gsc-extra-v2" style="max-width:960px;margin:28px auto;padding:28px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:14px;color:#1e293b;line-height:1.75"><p style="font-size:12px;font-weight:700;color:#0f766e;text-transform:uppercase">UK sheets editor notes</p><h2>UK (spreadsheets) spreadsheet hub</h2><p>Start with the Hipobuy spreadsheet, then QC, then estimate GBP freight (HMRC/VAT) before consolidating. Prefer lines with clear Royal Mail or DHL tracking.</p><ul><li><a href="/hipobuy-spreadsheet/">Open spreadsheet</a></li><li><a href="/how-to-use-hipobuy/">How to use Hipobuy</a></li><li><a href="/hipobuy-shipping-guide/">Shipping guide</a></li><li><a href="/is-hipobuy-legit/">Is Hipobuy legit?</a></li></ul><p>Updated 2026-07-31 for UK (spreadsheets) buyers — compare weight bands, declare realistically, and keep QC photos until Royal Mail or DHL delivery.</p></section>
+<!-- gsc-enrich-20260731 --><section class="uks-gsc-extra" style="max-width:960px;margin:28px auto;padding:28px;background:#fdf4ff;border:1px solid #e9d5ff;border-radius:14px;color:#1e293b;line-height:1.75"><p style="font-size:12px;font-weight:700;color:#7e22ce;text-transform:uppercase">UK sheets editor notes</p><h2>UK plural hub spreadsheet hub</h2><p>Start with the Hipobuy spreadsheet, then QC, then estimate GBP freight (HMRC/VAT) before consolidating. Prefer lines with clear Royal Mail or DHL tracking.</p><ul><li><a href="/hipobuy-spreadsheet/">Open spreadsheet</a></li><li><a href="/how-to-use-hipobuy/">How to use Hipobuy</a></li><li><a href="/hipobuy-shipping-guide/">Shipping guide</a></li><li><a href="/is-hipobuy-legit/">Is Hipobuy legit?</a></li></ul><p>Updated 2026-07-31: keep QC photos and weight notes until Royal Mail or DHL delivery.</p></section>
 <footer class="ft">
   <div class="fti">
     <div>
@@ -475,7 +334,7 @@ document.addEventListener('DOMContentLoaded',function(){
       <a href="https://wa.me/447856544534" target="_blank" rel="noopener" class="fwa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+44 7856 544534</a>
     </div>
     <div class="fc"><h4>Spreadsheets</h4><ul>
-      <li><a href="/">All Products</a></li>
+      <li><a href="/hipobuy-spreadsheet">All Products</a></li>
       <li><a href="/hipobuy-shoes-spreadsheet">Shoes</a></li>
       <li><a href="/hipobuy-spreadsheet-2026">2026 Edition</a></li>
     </ul></div>
@@ -488,7 +347,7 @@ document.addEventListener('DOMContentLoaded',function(){
       <li><a href="/blog">Blog</a></li>
     </ul></div>
   </div>
-  <div class="fb"><p>Editorial: <a href="mailto:cnfd85269032661@gmail.com">cnfd85269032661@gmail.com</a></p>
+  <div class="fb">
     <p>&copy; 2026 hipobuyspreadsheets.uk &mdash; Independent resource. Not affiliated with https://hipobuy.com.</p>
     <p><a href="https://wa.me/447856544534" style="color:#666">WhatsApp +44 7856 544534</a></p>
   </div>
