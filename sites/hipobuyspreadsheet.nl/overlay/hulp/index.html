@@ -153,6 +153,21 @@ img{max-width:100%;display:block}
 figure.shot{margin:16px 0}
 figure.shot img{width:100%;height:auto;border:1px solid var(--g5);border-radius:var(--rl);background:var(--g6)}
 figure.shot figcaption{font-size:13px;color:var(--g4);margin-top:6px;line-height:1.55}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
+.skip:focus{left:12px}
+.legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
+.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
+.local-src a{color:inherit}
+#local{scroll-margin-top:96px}
+
+.sg-sec{max-width:1200px;margin:0 auto;padding:24px 24px 8px}
+.sg-sec h2{font-size:clamp(22px,3.2vw,32px);font-weight:700;letter-spacing:-.7px;margin:0 0 8px;color:var(--bk,#0A0A0A)}
+.sg-sec .ssub{color:var(--g3,#555);margin:0 0 12px;font-size:15px;line-height:1.6}
+.sg-sec a{color:var(--acd,#00A844)}
 
 </style>
 </head>
@@ -262,6 +277,14 @@ figure.shot figcaption{font-size:13px;color:var(--g4);margin-top:6px;line-height
 <div class="bc"><a href="/">Home</a> <span>/</span> <span>Hulp</span></div>
 <article class="w2c-prose" style="padding-bottom:72px">
 <h1>Hulp: vijftien vragen over HipoBuy in Nederland</h1>
+<section class="sg-sec" id="local">
+  <h2>Wat vandaag geldt voor een Nederlands adres</h2>
+  <p class="ssub">Nederland · hipobuyspreadsheet.nl · geen landnaam-wissel.</p>
+  <ol class="local-steps"><li><strong>Estimator-bestemming: Nederland</strong><span>Kies NL, niet EU, niet deze hostname. Een Belgische of Duitse postcode is het verkeerde land.</span></li><li><strong>Adres</strong><span>Nederlandse postcode (vorm 1234 AB), geen Duits afhaalautomaat-nummer.</span></li><li><strong>Invoer</strong><span>De SKU beslist. De bezorger (vaak DHL) kan bij Collect extra innen. Bron: Belastingdienst Douane op de verzenddag. Geen verzonnen aangegeven waarde.</span></li><li><strong>Laatste mile</strong><span>Vaak DHL. iDEAL is een NL-betaalrail in de officiële app — bevestig daar, niet op dit desk. Rankende BTW/douane-URL op deze host blijft.</span></li></ol>
+  <p class="local-src">Officiële bron van deze desk: <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/douane" rel="noopener">Douane</a>. Lab 1 Oct 2026. Live-geld staat in <a href="https://hipobuy.com/estimation">https://hipobuy.com/estimation</a> — deze HTML is geen kassa.</p>
+  <p class="local-src">Al op deze host (behouden): <a href="/hipobuy-shipping-guide/">Verzendgids NL</a> · <a href="/how-to-use-hipobuy/">Handleiding</a> · <a href="/hulp/">Hulp</a> · <a href="/over-ons/">Over ons</a></p>
+</section>
+
 <p class="pp">Deze pagina hoort bij een <strong>Nederlands huisadres</strong> op hipobuyspreadsheet.nl. Wij zien je account niet. Bestellen, betalen en claims gaan alleen via <a href="https://hipobuy.com/">hipobuy.com</a>.</p>
 <h2 class="ph">Wat HipoBuy is</h2>
 <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)">Verkoopt HipoBuy de spullen zelf?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Nee. Het is een inkoopagent: hij koopt in Chinese shops op jouw naam en houdt de goederen in het magazijn tot jij een internationale lijn boekt.</div></div>

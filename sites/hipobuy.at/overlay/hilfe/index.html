@@ -153,6 +153,21 @@ img{max-width:100%;display:block}
 figure.shot{margin:16px 0}
 figure.shot img{width:100%;height:auto;border:1px solid var(--g5);border-radius:var(--rl);background:var(--g6)}
 figure.shot figcaption{font-size:13px;color:var(--g4);margin-top:6px;line-height:1.55}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
+.skip:focus{left:12px}
+.legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
+.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
+.local-src a{color:inherit}
+#local{scroll-margin-top:96px}
+
+.sg-sec{max-width:1200px;margin:0 auto;padding:24px 24px 8px}
+.sg-sec h2{font-size:clamp(22px,3.2vw,32px);font-weight:700;letter-spacing:-.7px;margin:0 0 8px;color:var(--bk,#0A0A0A)}
+.sg-sec .ssub{color:var(--g3,#555);margin:0 0 12px;font-size:15px;line-height:1.6}
+.sg-sec a{color:var(--acd,#00A844)}
 
 </style>
 </head>
@@ -262,6 +277,14 @@ figure.shot figcaption{font-size:13px;color:var(--g4);margin-top:6px;line-height
 <div class="bc"><a href="/">Start</a> <span>/</span> <span>Hilfe</span></div>
 <article class="w2c-prose" style="padding-bottom:72px">
 <h1>Hilfe: fünfzehn Fragen zu HipoBuy in Österreich</h1>
+<section class="sg-sec" id="local">
+  <h2>Was heute für eine österreichische Adresse gilt</h2>
+  <p class="ssub">Österreich · hipobuy.at · kein Ortsnamen-Tausch.</p>
+  <ol class="local-steps"><li><strong>Schätzer-Ziel AT</strong><span>Im offiziellen Schätzer das Land Österreich wählen — nicht EU, nicht DE, nicht diesen Hostnamen. Eine deutsche fünfstellige PLZ ist die falsche Destination.</span></li><li><strong>Adresse</strong><span>Österreichische Straße und vierstellige Postleitzahl (z. B. 1010 Wien). Das ist nicht das deutsche PLZ-Muster.</span></li><li><strong>Abgaben</strong><span>SKU entscheidet (tax-free / prepaid / Empfänger). Österreichische Post kann bei Collect eine Einhebungsgebühr verlangen. Quelle: BMF Zoll am Versandmorgen. Kein Deklarationsbetrag von diesem Desk.</span></li><li><strong>Letzte Meile</strong><span>Oft Österreichische Post. Die Sendungsverfolgungs-URL, die auf diesem Host schon rankt, bleibt — wir überschreiben sie nicht mit einem DE-DHL-Text.</span></li></ol>
+  <p class="local-src">Offizielle Quelle dieses Desks: <a href="https://www.bmf.gv.at/themen/zoll.html" rel="noopener">BMF Zoll</a>. Labor 1 Oct 2026. Live-Preis steht in <a href="https://hipobuy.com/estimation">https://hipobuy.com/estimation</a> — dieses HTML ist keine Kasse.</p>
+  <p class="local-src">Bereits auf diesem Host (behalten): <a href="/hipobuy-shipping-guide/">Versandguide AT</a> · <a href="/how-to-use-hipobuy/">Ablauf</a> · <a href="/is-hipobuy-legit/">Legit</a> · <a href="/hilfe/">Hilfe</a></p>
+</section>
+
 <p class="pp">Diese Seite gilt für eine <strong>österreichische Straße</strong> auf hipobuy.at. Wir sehen dein Konto nicht. Bestellungen, Zahlungen und Reklamationen laufen nur auf <a href="https://hipobuy.com/">hipobuy.com</a>.</p>
 <h2 class="ph">Was HipoBuy ist, und in welcher Sprache</h2>
 <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)">Verkauft HipoBuy die Ware selbst?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Nein. HipoBuy ist ein Einkaufsagent: er kauft in chinesischen Drittshops in deinem Namen und lagert, bis du eine internationale Linie buchst. Qualität und Echtheit stehen in der Plattform-Hilfe, nicht in diesem Desk.</div></div>

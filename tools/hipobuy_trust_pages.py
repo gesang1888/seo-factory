@@ -1208,6 +1208,14 @@ def _validate() -> None:
                 raise SystemExit(f"{key}/{slug} still Georgia overlay")
             if slug == d["slugs"]["help"] and len(re.findall(r'class="faq-item', wrapped)) < 15:
                 raise SystemExit(f"{key}/{slug} accordion missing")
+            if slug == d["slugs"]["help"]:
+                from desk_template import _check_local_section
+                from hipobuy_cms_home import desk_facts
+
+                err: list[str] = []
+                _check_local_section(wrapped, desk_facts(key, d), err)
+                if err:
+                    raise SystemExit(f"{key}/{slug} local: {'; '.join(err)}")
         home = homepage_html(key, d)
         hn = _wc(home)
         nfaq = len(re.findall(r'class="faq-item', home))
@@ -1217,6 +1225,7 @@ def _validate() -> None:
         if nfaq < 15:
             raise SystemExit(f"{key}/home FAQ accordion {nfaq}, need 15")
         for token in (
+            'id="local"',
             'id="catalog"',
             'id="home-trust"',
             'id="estimator-lab"',
@@ -1230,6 +1239,17 @@ def _validate() -> None:
         ):
             if token not in home:
                 raise SystemExit(f"{key}/home missing {token}")
+        from desk_template import _check_local_section, dest_local_pack
+        from hipobuy_cms_home import desk_facts
+
+        facts = desk_facts(key, d)
+        err: list[str] = []
+        _check_local_section(home, facts, err)
+        if err:
+            raise SystemExit(f"{key}/home local: {'; '.join(err)}")
+        pack = dest_local_pack(facts.get("dest"))
+        if pack.get("fingerprint") and pack["fingerprint"] not in home:
+            raise SystemExit(f"{key}/home missing fingerprint")
         title = re.search(r"<title>(.*?)</title>", home, flags=re.S)
         if title and INVITE in title.group(1):
             raise SystemExit(f"{key}/home invite in title")

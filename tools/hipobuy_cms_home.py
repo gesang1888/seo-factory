@@ -4,22 +4,34 @@
 Same green / DM Sans skin as hipobuy.at before the Georgia overlay.
 Catalogue (search + categories + /api/products/ cards) sits under the hero
 on /, not on /#katalog and not on /hipobuy-spreadsheet/.
-Does not touch hipobuyspreadsheet.net.
+Full homepage overwrite is for the six country desks only.
+hipobuyspreadsheet.net gets a surgical #local insert, never a CMS overwrite.
 """
 from __future__ import annotations
 
 import json
 import re
+import sys
 from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CMS_HOME = ROOT / "sites/hipobuy-shared/cms-home"
+_TOOLS = Path(__file__).resolve().parent
+if str(_TOOLS) not in sys.path:
+    sys.path.insert(0, str(_TOOLS))
+from desk_template import (  # noqa: E402
+    SKIP_CSS,
+    customs_for,
+    local_cta,
+    local_guide_html,
+)
 
 from hipobuy_trust_chrome import (  # noqa: E402
     EST,
     GLOSS,
     MAIL,
+    OFFICIAL,
     SHOT_EST,
     SHOT_REST,
     SHOT_WH,
@@ -29,6 +41,90 @@ from hipobuy_trust_chrome import (  # noqa: E402
 
 INVITE = "VGEICZNX0"
 REG = f"https://hipobuy.com/register?inviteCode={INVITE}"
+DATE = "1 Oct 2026"
+
+KEEP = {
+    "at": [
+        ("/hipobuy-shipping-guide/", "Versandguide AT"),
+        ("/how-to-use-hipobuy/", "Ablauf"),
+        ("/is-hipobuy-legit/", "Legit"),
+        ("/hilfe/", "Hilfe"),
+    ],
+    "nl": [
+        ("/hipobuy-shipping-guide/", "Verzendgids NL"),
+        ("/how-to-use-hipobuy/", "Handleiding"),
+        ("/hulp/", "Hulp"),
+        ("/over-ons/", "Over ons"),
+    ],
+    "uk": [
+        ("/hipobuy-coupons/", "Coupons article"),
+        ("/blog/posts/hipobuy-sizing-guide/", "UK sizing"),
+        ("/help/", "Help"),
+        ("/who-we-are/", "Who we are"),
+    ],
+    "eu": [
+        ("/hipobuy-coupons/", "Coupons article"),
+        ("/help/", "Help"),
+        ("/who-we-are/", "Who we are"),
+        ("/how-to-use-hipobuy/", "How to use"),
+    ],
+    "us": [
+        ("/guides/shipping/", "US shipping"),
+        ("/hipobuy-shipping-guide/", "Shipping guide"),
+        ("/help/", "Help"),
+        ("/how-to-use-hipobuy/", "How to use"),
+    ],
+    "ukhaul": [
+        ("/hipobuy-shipping-guide/", "UK haul shipping"),
+        ("/how-to-use-hipobuy/", "How to use"),
+        ("/help/", "Help"),
+        ("/who-we-are/", "Who we are"),
+    ],
+}
+
+LOCAL_CSS = SKIP_CSS + """
+.sg-sec{max-width:1200px;margin:0 auto;padding:24px 24px 8px}
+.sg-sec h2{font-size:clamp(22px,3.2vw,32px);font-weight:700;letter-spacing:-.7px;margin:0 0 8px;color:var(--bk,#0A0A0A)}
+.sg-sec .ssub{color:var(--g3,#555);margin:0 0 12px;font-size:15px;line-height:1.6}
+.sg-sec a{color:var(--acd,#00A844)}
+"""
+
+
+def _loc(key: str) -> str:
+    return {"at": "de", "nl": "nl"}.get(key, "en")
+
+
+def _ccy(key: str, d: dict) -> str:
+    dest = d.get("dest")
+    if dest in ("AT", "NL") or key == "eu":
+        return "EUR"
+    if dest == "GB":
+        return "GBP"
+    return "USD"
+
+
+def desk_facts(key: str, d: dict) -> dict:
+    dest = d.get("dest")
+    cname, curl = customs_for(dest)
+    return {
+        "agent": "HipoBuy",
+        "host": d["host"],
+        "lang": d["lang"],
+        "loc": _loc(key),
+        "dest": dest,
+        "dest_label": d.get("dest_label") or "a country in the estimator",
+        "ccy": _ccy(key, d),
+        "customs": cname,
+        "customs_url": d.get("customs") or curl,
+        "storage": "90 free days from Stored, see official Help Center",
+        "estimator": EST,
+        "official": OFFICIAL,
+        "date": DATE,
+        "email": MAIL,
+        "keep": KEEP.get(key) or [],
+        "codes_off_title": [INVITE],
+        "strict_html_codes": False,
+    }
 
 HOME_META = {
     "at": {
@@ -556,7 +652,7 @@ def _strip_junk(html: str) -> str:
     return html
 
 
-def _apply_hero(html: str, key: str) -> str:
+def _apply_hero(html: str, key: str, d: dict) -> str:
     m = HOME_META[key]
     html = re.sub(r"<title>.*?</title>", f"<title>{m['title']}</title>", html, count=1, flags=re.S)
     html = re.sub(
@@ -591,6 +687,13 @@ def _apply_hero(html: str, key: str) -> str:
         html,
         count=1,
         flags=re.S,
+    )
+    cta = local_cta(desk_facts(key, d))
+    html = re.sub(
+        r'(<div class="hctas">\s*)',
+        rf'\1<a href="#local" class="cs">{escape(cta)}</a>\n    ',
+        html,
+        count=1,
     )
     return html
 
@@ -842,7 +945,7 @@ def build_cms_inner(
         raise FileNotFoundError(src)
     html = src.read_text(encoding="utf-8", errors="replace")
     html = _set_meta(html, title=title, desc=desc, canonical=canonical, lang=d["lang"])
-    html = html.replace("</style>", INNER_CSS + "\n</style>", 1)
+    html = html.replace("</style>", INNER_CSS + LOCAL_CSS + "\n</style>", 1)
     html = re.sub(r'<ul class="nl">.*?</ul>', _nav(key, d, on=on), html, count=1, flags=re.S)
     start = html.find('<section class="hero')
     if start < 0:
@@ -852,6 +955,12 @@ def build_cms_inner(
         raise ValueError(f"{key}: cannot splice CMS inner chrome")
     body = _unwrap_article(inner)
     if as_faq:
+        local = local_guide_html(desk_facts(key, d))
+        m = re.search(r"</h1>", body)
+        if m:
+            body = body[: m.end()] + "\n" + local + body[m.end() :]
+        else:
+            body = local + "\n" + body
         body = _help_as_accordion(body)
     L = labels(key)
     block = (
@@ -878,20 +987,24 @@ def build_cms_home(key: str, d: dict) -> str:
     if not src.is_file():
         raise FileNotFoundError(src)
     html = src.read_text(encoding="utf-8", errors="replace")
-    html = _apply_hero(html, key)
+    html = _apply_hero(html, key, d)
     html = _strip_junk(html)
-    html = html.replace("</style>", CAT_CSS + "\n</style>", 1)
+    html = html.replace("</style>", CAT_CSS + LOCAL_CSS + "\n</style>", 1)
     html = re.sub(r'<ul class="nl">.*?</ul>', _nav(key, d), html, count=1, flags=re.S)
     html = _drop_sheet_cta(html)
     html = _rewrite_ccards(html)
+    local = local_guide_html(desk_facts(key, d))
     block = _catalog_block(key, d)
     band = _trust_band(key, d)
+    inject = local + block + band
     needle = '<article class="w2c-prose'
     idx = html.find(needle)
     if idx >= 0:
-        html = html[:idx] + block + band + html[idx:]
+        html = html[:idx] + inject + html[idx:]
     elif 'id="catalog"' not in html:
-        html = html.replace("</section>", "</section>\n" + block + band, 1)
+        html = html.replace("</section>", "</section>\n" + inject, 1)
+    elif 'id="local"' not in html:
+        html = html.replace('<div class="mw" id="catalog">', local + '\n<div class="mw" id="catalog">', 1)
     # editorial inbox in footer copyright strip
     html = re.sub(
         r'(<div class="fb">)',

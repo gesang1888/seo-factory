@@ -153,6 +153,21 @@ img{max-width:100%;display:block}
 figure.shot{margin:16px 0}
 figure.shot img{width:100%;height:auto;border:1px solid var(--g5);border-radius:var(--rl);background:var(--g6)}
 figure.shot figcaption{font-size:13px;color:var(--g4);margin-top:6px;line-height:1.55}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
+.skip:focus{left:12px}
+.legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
+.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
+.local-src a{color:inherit}
+#local{scroll-margin-top:96px}
+
+.sg-sec{max-width:1200px;margin:0 auto;padding:24px 24px 8px}
+.sg-sec h2{font-size:clamp(22px,3.2vw,32px);font-weight:700;letter-spacing:-.7px;margin:0 0 8px;color:var(--bk,#0A0A0A)}
+.sg-sec .ssub{color:var(--g3,#555);margin:0 0 12px;font-size:15px;line-height:1.6}
+.sg-sec a{color:var(--acd,#00A844)}
 
 </style>
 </head>
@@ -262,6 +277,14 @@ figure.shot figcaption{font-size:13px;color:var(--g4);margin-top:6px;line-height
 <div class="bc"><a href="/">Home</a> <span>/</span> <span>Help</span></div>
 <article class="w2c-prose" style="padding-bottom:72px">
 <h1>Help: fifteen questions on the HipoBuy UK haul log</h1>
+<section class="sg-sec" id="local">
+  <h2>What applies today to a UK delivery address</h2>
+  <p class="ssub">the United Kingdom · hipobuyspreadsheets.uk · not a location-name swap.</p>
+  <ol class="local-steps"><li><strong>Estimator destination: United Kingdom</strong><span>Pick GB in the official estimator — not this TLD, not EU. A French code postal is the wrong country.</span></li><li><strong>Address</strong><span>UK postcode. Northern Ireland is often another carrier product — do not assume the same Royal Mail SKU as mainland GB.</span></li><li><strong>Duties</strong><span>The SKU decides. Royal Mail can add a collect fee. Source: HMRC (gov.uk/goods-sent-from-abroad) the morning you ship. Ranked VAT articles on this host stay; no invented rate in this title.</span></li><li><strong>Last mile</strong><span>Often Royal Mail on GB. Confirm the live SKU. This desk does not file HMRC entries.</span></li></ol>
+  <p class="local-src">Official source this desk names: <a href="https://www.gov.uk/goods-sent-from-abroad" rel="noopener">HMRC</a>. Lab 1 Oct 2026. Live money is in <a href="https://hipobuy.com/estimation">https://hipobuy.com/estimation</a> — this HTML is not checkout.</p>
+  <p class="local-src">Already on this host (kept): <a href="/hipobuy-shipping-guide/">UK haul shipping</a> · <a href="/how-to-use-hipobuy/">How to use</a> · <a href="/help/">Help</a> · <a href="/who-we-are/">Who we are</a></p>
+</section>
+
 <p class="pp">This FAQ is for the <strong>Nominet haul log</strong> on hipobuyspreadsheets.uk — not the .co.uk coupon desk. We cannot see your HipoBuy account. Orders stay on hipobuy.com.</p>
 <h2 class="ph">What HipoBuy is</h2>
 <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)">Does HipoBuy sell the items?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">No. It is a purchasing agent: it buys from third-party Chinese shops in your name, stores the goods, then books an international line after you confirm warehouse photos.</div></div>

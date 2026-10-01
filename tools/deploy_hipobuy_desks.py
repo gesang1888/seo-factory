@@ -2,7 +2,8 @@
 """PUT HipoBuy country-desk overlays and surgical inner patches.
 
 Reads ORIGIN_SSH_PASS (or HIPOBAY_DEPLOY_PASS). Never logs the password.
-Does not touch hipobuyspreadsheet.net.
+Country desks: homepage + Help overlays.
+hipobuyspreadsheet.net: surgical #local on index.html only — never a CMS overwrite.
 """
 from __future__ import annotations
 
@@ -12,37 +13,25 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PATCHED = Path("/tmp/cms-patched")
+sys.path.insert(0, str(ROOT / "tools"))
 
 HOST = "31.97.41.31"
 USER = "root"
 
-# live path, local path
-PUTS = [
-    ("/www/wwwroot/hipobuy.at/index.html", ROOT / "sites/hipobuy.at/overlay/index.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.nl/index.html", ROOT / "sites/hipobuyspreadsheet.nl/overlay/index.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.co.uk/index.html", ROOT / "sites/hipobuyspreadsheet.co.uk/overlay/index.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.eu/index.html", ROOT / "sites/hipobuyspreadsheet.eu/overlay/index.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.us/index.html", ROOT / "sites/hipobuyspreadsheet.us/overlay/index.html"),
-    ("/www/wwwroot/hipobuyspreadsheets.uk/index.html", ROOT / "sites/hipobuyspreadsheets.uk/overlay/index.html"),
-    ("/www/wwwroot/hipobuy.at/hipobuy-shipping-guide/index.html", PATCHED / "at-ship.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.nl/hipobuy-shipping-guide/index.html", PATCHED / "nl-ship.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.us/hipobuy-shipping-guide/index.html", PATCHED / "us-ship.html"),
-    ("/www/wwwroot/hipobuyspreadsheets.uk/hipobuy-shipping-guide/index.html", PATCHED / "ukhaul-ship.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.eu/hipobuy-coupons/index.html", PATCHED / "eu-coup.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.co.uk/hipobuy-coupons/index.html", PATCHED / "uk-coup.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.co.uk/blog/posts/hipobuy-sizing-guide/index.html", PATCHED / "uk-size.html"),
-    ("/www/wwwroot/hipobuy.at/how-to-use-hipobuy/index.html", PATCHED / "at-how.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.nl/how-to-use-hipobuy/index.html", PATCHED / "nl-how.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.us/how-to-use-hipobuy/index.html", PATCHED / "us-how.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.co.uk/how-to-use-hipobuy/index.html", PATCHED / "uk-how.html"),
-    ("/www/wwwroot/hipobuyspreadsheet.eu/how-to-use-hipobuy/index.html", PATCHED / "eu-how.html"),
-    ("/www/wwwroot/hipobuyspreadsheets.uk/how-to-use-hipobuy/index.html", PATCHED / "ukhaul-how.html"),
-]
+from hipobuy_trust_pages import HOSTS  # noqa: E402
+from hipobuy_net_local import REMOTE_INDEX as NET_REMOTE, patch_net_home  # noqa: E402
 
-OPTIONAL = [
-    ("/www/wwwroot/hipobuyspreadsheet.us/guides/shipping/index.html", PATCHED / "us-ship.html"),
-]
+PUTS: list[tuple[str, Path]] = []
+for _d in HOSTS.values():
+    overlay = ROOT / "sites" / _d["host"] / "overlay"
+    PUTS.append((f"/www/wwwroot/{_d['host']}/index.html", overlay / "index.html"))
+    help_slug = _d["slugs"]["help"]
+    PUTS.append(
+        (
+            f"/www/wwwroot/{_d['host']}/{help_slug}/index.html",
+            overlay / help_slug / "index.html",
+        )
+    )
 
 
 def _connect():
@@ -74,7 +63,9 @@ def _run(client, cmd: str, timeout: int = 60) -> str:
 
 
 def main() -> None:
-    for _remote, local in PUTS:
+    for remote, local in PUTS:
+        if _d_host_is_net(remote):
+            raise SystemExit("refusing bulk .net PUT — use surgical patch")
         if not local.is_file():
             raise SystemExit(f"missing local {local}")
     client = _connect()
@@ -83,19 +74,8 @@ def main() -> None:
     backup_root = f"/www/backup/hipobuy-desk-{stamp}"
     print(_run(client, f"mkdir -p {backup_root}"))
 
-    extras = []
-    for remote, local in OPTIONAL:
-        try:
-            sftp.stat(remote)
-            extras.append((remote, local))
-            print("optional exists", remote)
-        except FileNotFoundError:
-            print("optional skip", remote)
-
-    uploaded = []
-    for remote, local in PUTS + extras:
-        if "hipobuyspreadsheet.net" in remote:
-            raise SystemExit("refusing .net PUT")
+    uploaded: list[str] = []
+    for remote, local in PUTS:
         bak = backup_root + remote.replace("/www/wwwroot", "")
         parent = str(Path(bak).parent)
         _run(client, f"mkdir -p '{parent}'")
@@ -108,6 +88,18 @@ def main() -> None:
         uploaded.append(remote)
         print("PUT", remote, local.stat().st_size)
 
+    net_bak = backup_root + "/hipobuyspreadsheet.net/index.html"
+    _run(client, f"mkdir -p '{backup_root}/hipobuyspreadsheet.net'")
+    _run(client, f"cp -a '{NET_REMOTE}' '{net_bak}'")
+    with sftp.open(NET_REMOTE) as fh:
+        net_html = fh.read().decode("utf-8", "replace")
+    net2 = patch_net_home(net_html)
+    net_local = Path("/tmp/hipobuy-net-index.html")
+    net_local.write_text(net2, encoding="utf-8")
+    sftp.put(str(net_local), NET_REMOTE)
+    uploaded.append(NET_REMOTE)
+    print("PUT surgical", NET_REMOTE, len(net2))
+
     _run(
         client,
         "chown www:www "
@@ -119,6 +111,10 @@ def main() -> None:
     print("count", len(uploaded))
     sftp.close()
     client.close()
+
+
+def _d_host_is_net(remote: str) -> bool:
+    return "hipobuyspreadsheet.net" in remote
 
 
 if __name__ == "__main__":
