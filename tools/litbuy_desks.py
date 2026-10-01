@@ -26,6 +26,25 @@ _TOOLS = Path(__file__).resolve().parent
 if str(_TOOLS) not in sys.path:
     sys.path.insert(0, str(_TOOLS))
 from desk_fx import EXTRA_CSS_FX, catalog_block, currency_for, ui_copy
+from desk_template import (
+    SKIP_CSS,
+    breadcrumb_ld,
+    customs_for,
+    faq_ld,
+    independence_copy,
+    inject_jsonld,
+    itemlist_ld,
+    keep_copy,
+    lab_copy,
+    long_faqs,
+    og_locale,
+    organization_ld,
+    skip_label,
+    skip_link,
+    validate_desk,
+    vol_js_labels,
+    webpage_ld,
+)
 from litbuy_desk_trust import CAT_LABELS, CAT_WALL, loc as _loc, pack as _trust_pack
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -372,7 +391,7 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
 .sg-about h2{font-size:22px;margin:28px 0 8px}
 .sg-about h3{font-size:16px;margin:18px 0 6px}
 .sg-about p{color:#334155;line-height:1.75;margin:0 0 12px}
-""" + EXTRA_CSS_FX
+""" + EXTRA_CSS_FX + SKIP_CSS
 
 
 HREFLANG = [
@@ -593,6 +612,30 @@ def _css_links(d: dict) -> str:
     )
 
 
+def _facts(key: str) -> dict:
+    d = HOSTS[key]
+    dest = d.get("dest")
+    cname, curl = customs_for(dest)
+    return {
+        "agent": "LitBuy",
+        "host": d["host"],
+        "lang": d["lang"],
+        "loc": _loc(key),
+        "dest": dest,
+        "dest_label": d["dest_label"],
+        "ccy": currency_for(key, d),
+        "customs": cname,
+        "customs_url": curl,
+        "storage": "90 free days from stocked/listed, 120-day max",
+        "estimator": EST,
+        "official": OFFICIAL,
+        "date": DATE,
+        "email": d["mail"],
+        "codes_off_title": [INVITE, COUPON],
+        "strict_html_codes": True,
+    }
+
+
 def _reg_lab(key: str) -> str:
     return {"fr": "S’inscrire", "es": "Registrarse", "at": "Registrieren", "nl": "Registreren", "it": "Registrati"}.get(key, "Register")
 
@@ -603,6 +646,8 @@ def _chrome_head(key: str, d: dict, title: str, desc: str, path: str = "/") -> s
         path = "/" + path
     canonical = f"https://{host}{path}"
     logo = d.get("logo") or "/assets/images/litbuy-logo.png"
+    ld = webpage_ld(url=canonical, name=title, desc=desc, lang=d["lang"], brand="LitBuy", host=host)
+    loc = _loc(key)
     return f"""<!DOCTYPE html>
 <html lang="{escape(d['lang'])}">
 <head>
@@ -613,10 +658,12 @@ def _chrome_head(key: str, d: dict, title: str, desc: str, path: str = "/") -> s
 <link rel="canonical" href="{canonical}">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="{escape(og_locale(d['lang']))}">
 <meta property="og:title" content="{escape(title)}">
 <meta property="og:description" content="{escape(desc)}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:image" content="https://{host}{logo}">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -624,9 +671,10 @@ def _chrome_head(key: str, d: dict, title: str, desc: str, path: str = "/") -> s
 <link rel="icon" href="/assets/images/favicon-new.ico" type="image/x-icon">
 {_hreflang()}
 <style>{EXTRA_CSS}</style>
-<script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"WebPage","name":title,"url":canonical,"description":desc,"inLanguage":d["lang"]}, ensure_ascii=False)}</script>
+<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 </head>
 <body class="{escape(d['theme'])}">
+{skip_link(skip_label(loc))}
 """
 
 
@@ -655,17 +703,21 @@ def _header(key: str, d: dict, page: str = "home") -> str:
     </div>
   </div>
 </header>
+<main id="main">
 """
 
 
 def _footer(key: str, d: dict) -> str:
     u = ui_copy(_loc(key))
     t = _trust_paths(key)
-    return f"""<footer class="site-footer">
+    note = independence_copy(_facts(key))
+    return f"""</main>
+<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand"><a href="/" class="brand"><img class="brand-logo" src="{escape(d.get('logo') or '/assets/images/litbuy-logo.png')}" alt="LitBuy"></a>
-      <p>{escape(u['foot'].format(host=d['host'], brand='LitBuy'))}</p></div>
+      <p>{escape(u['foot'].format(host=d['host'], brand='LitBuy'))}</p>
+      <p class="legal-note">{escape(note)}</p></div>
       <div class="footer-col"><h5>{escape(u['on_host'])}</h5><ul>
         <li><a href="/{t['help']}/">{escape(t['help_lab'])}</a></li>
         <li><a href="/{t['news']}/">{escape(t['news_lab'])}</a></li>
@@ -835,7 +887,7 @@ def _vol(key: str) -> str:
     var vol=Math.round(L*W*H/D*1000);
     var billed=Math.ceil(Math.max(G,vol)/100)*100;
     var el=document.getElementById('vol-out');
-    if(el) el.innerHTML='Volumetric <b>'+vol+' g</b> · billed <b>'+billed+' g</b> · not checkout.';
+    if(el) el.innerHTML={json.dumps(vol_js_labels(_loc(key))[0])}+' <b>'+vol+' g</b> · '+{json.dumps(vol_js_labels(_loc(key))[1])}+' <b>'+billed+' g</b> · not checkout.';
   }}
   ['vol-l','vol-w','vol-h','vol-g','vol-d'].forEach(function(id){{
     var n=document.getElementById(id); if(n) n.addEventListener(id==='vol-d'?'change':'input', sgVol);
@@ -847,144 +899,7 @@ def _vol(key: str) -> str:
 
 
 def _faqs(key: str, d: dict) -> list[tuple[str, str]]:
-    dest = d["dest_label"]
-    if key == "fr":
-        return [
-            ("LitBuy vend-il la marchandise ?", "Non. C’est un agent : il achète en Chine, photographie, tu paies la ligne internationale ensuite."),
-            ("Où est le catalogue ?", "Sur cette accueil, via /api/products/ de ce host. Les 8 000 finds restent sur w2clinks."),
-            ("La destination est-elle « EU » ?", "Non. L’estimateur veut un pays. Ici : France. Les dossiers Belgique de ce host ne définissent pas la France."),
-            ("Les coupons ?", "L’article /litbuy-coupons/ liste les codes du compte. Vérifie dans My Coupons. Pas dans ce title."),
-            ("Invite dans le title ?", "Non. Le code d’affiliation est sur le bouton Register, pas dans <title>."),
-            ("Stockage ?", "Help Center officiel : 90 jours gratuits depuis stocked/listed, plafond 120."),
-            ("Poids volumétrique ?", "L×W×H/8000 (kg) sur beaucoup de lignes aériennes. Le widget ci-dessus n’est pas un devis."),
-            ("Douane ?", "Suit la SKU. Pas de conseil de sous-déclaration. Sources officielles le matin de l’envoi."),
-            ("Ce host est-il litbuy.com ?", "Non. Desk indépendant."),
-            ("301 vers now.com ?", "Non. Les TLD du même agent restent séparés."),
-            ("Photos QC ?", "Dans l’app, après arrivée entrepôt."),
-            ("Deux paiements ?", "Oui : marchandise + domestique Chine, puis fret international."),
-            ("USD vs EUR ?", "L’affichage officiel peut rester en USD. Lis le montant, pas seulement le symbole."),
-            ("Avis déjà classé ?", "Oui — /litbuy-review/ n’est pas écrasé."),
-            ("Espagne 58 lignes ?", "Non. Les lignes ES restent un autre desk."),
-        ]
-    if key == "es":
-        return [
-            ("¿LitBuy vende el producto?", "No. Es un agente de compras."),
-            ("¿Dónde está el catálogo?", "En esta portada, /api/products/ de este host."),
-            ("¿Es este sitio litbuy.es?", "No. litbuy.es está aparcado; este desk es independiente. No hay 301."),
-            ("¿Cupones en el title?", "No. Los códigos viven en /litbuy-coupons/."),
-            ("¿Aduana?", "Sigue la SKU. Sin infradeclaración. El artículo /aduana-correos-espana/ se conserva."),
-            ("¿Almacén?", "90 días gratis desde stocked/listed, tope 120 (Help Center oficial, 1 oct 2026)."),
-            ("¿Volumétrico?", "L×W×H/8000 en kg en muchas líneas."),
-            ("¿Destino EU?", "El estimador pide un país. Aquí España."),
-            ("¿QC?", "Fotos de almacén en la app."),
-            ("¿Dos pagos?", "Sí: mercancía + doméstico China, luego internacional."),
-            ("¿Invite?", "Solo en el enlace Register."),
-            ("¿now.com?", "Hub de cupones en inglés, no un 301."),
-            ("¿Catálogo en inglés?", "Sí. zapatillas suele dar 0; sneakers llena la rejilla."),
-            ("¿IVA?", "Lee la SKU y la fuente de la Comisión / AEAT. No inventamos tipos."),
-            ("¿Este Desk opera tu cuenta?", "No."),
-        ]
-    if key == "it":
-        return [
-            ("LitBuy vende la merce?", "No. È un agente d’acquisto."),
-            ("Dov’è il catalogo?", "Su questa home, /api/products/ di questo host."),
-            ("Invite nel title?", "No. Solo sul pulsante Register, e senza copiare un codice di un altro agente."),
-            ("Magazzino?", "Help Center ufficiale 1 ott 2026: 90 giorni gratis da stocked/listed, tetto 120."),
-            ("Dogana?", "Segue la SKU. Niente sottodichiarazione. /dogana-poste-italiane/ resta."),
-            ("Volumetrico?", "L×W×H/8000 in kg su molte linee aeree. Il widget non è un preventivo."),
-            ("Destinazione EU?", "L’estimator vuole un paese. Qui: Italia."),
-            ("Coupon?", "Nell’articolo coupon, non in questo title."),
-            ("QC?", "Foto di magazzino in-app."),
-            ("Due pagamenti?", "Sì: merce + domestico Cina, poi internazionale."),
-            ("Cifre USD?", "Lo switcher può cambiare solo il simbolo."),
-            ("301 verso now.com?", "No."),
-            ("Scarpe / sneakers?", "Le parole locali spesso danno 0. L’indice è inglese."),
-            ("È litbuy.com?", "No. Desk indipendente."),
-            ("58 linee Spagna?", "No. Non copiamo il conteggio di un altro agente."),
-        ]
-    if key == "at":
-        land = "Österreich" if key == "at" else "Deutschland"
-        return [
-            ("Verkauft LitBuy die Ware?", "Nein. Einkaufsagent."),
-            ("Wo ist der Katalog?", "Auf dieser Startseite über /api/products/."),
-            ("Invite im Title?", "Nein. Nur am Register-Button."),
-            ("Lager?", "Offiziell 90 Tage gratis ab stocked/listed, höchstens 120 (Help Center 1. Okt 2026)."),
-            ("Zoll?", "Folgt der SKU. Keine Unterdeklaration."),
-            ("Volumen?", "L×W×H/8000 in kg auf vielen Luftlinien."),
-            ("Ziel EU?", f"Der Schätzer will ein Land. Hier: {land}."),
-            ("Coupons?", "Im Coupon-Artikel, nicht in diesem Title."),
-            ("QC?", "Lagerfotos in der App."),
-            ("Zwei Zahlungen?", "Ja: Ware plus Inland, später Porto."),
-            ("USD-Ziffern?", "Der Schalter ändert oft nur das Symbol."),
-            ("301 auf now.com?", "Nein."),
-            ("Turnschuhe?", "Oft 0 Treffer. Englisch sneakers."),
-            ("Ist das litbuy.com?", "Nein. Unabhängiger Desk."),
-            ("Kakobuy?", "Anderer Agent, kein 301."),
-        ]
-    if key == "nl":
-        return [
-            ("Verkoopt LitBuy de ware?", "Nee. Inkoopagent."),
-            ("Waar is de catalogus?", "Op deze homepage via /api/products/."),
-            ("Invite in de title?", "Nee. Alleen op Register."),
-            ("Opslag?", "Officieel 90 dagen gratis vanaf stocked/listed, max 120."),
-            ("Douane?", "Volgt de SKU. Geen onderwaardering."),
-            ("Volume?", "L×W×H/8000 in kg op veel luchtlijnen."),
-            ("Bestemming EU?", "De estimator wil een land. Hier: Nederland."),
-            ("Coupons?", "In het coupon-artikel, niet in deze title."),
-            ("QC?", "Magazijnfoto’s in de app."),
-            ("Twee betalingen?", "Ja."),
-            ("USD-cijfers?", "De schakelaar verandert vaak alleen het symbool."),
-            ("301 naar now.com?", "Nee."),
-            ("Turnschuhe / sneakers?", "Lokale woorden geven vaak 0. Engels filtert."),
-            ("Is dit litbuy.com?", "Nee."),
-            ("Kakobuy?", "Andere agent."),
-        ]
-    dest_q = dest
-    extra = []
-    if key == "now":
-        extra = [
-            ("Is this hostname a destination?", "No. Pick a member country or US/CA/AU/GB in the official estimator."),
-            ("Will you overwrite the html articles?", "No. Coupon, Reddit, legit and spreadsheet html files stay."),
-        ]
-    elif key == "us":
-        extra = [
-            ("Where is CBP detail?", "Kept on /de-minimis-us-litbuy/ and /cbp-declared-value-us/. This homepage does not invent a dollar de-minimis."),
-            ("USPS times?", "Kept on /litbuy-shipping-times-us/."),
-        ]
-    elif key == "ca_extra_unused":
-        extra = [
-            ("GST?", "The ranked GST article stays at /gst-hst-import-canada/. We do not copy a rate into this title."),
-            ("Australia Post?", "Read the live SKU. This desk does not invent a last-mile."),
-        ]
-    elif key == "ca":
-        extra = [
-            ("Why does GSC rank CBSA?", "Because /cbsa-import-canada/ already has the click. That file stays. This homepage is the catalogue."),
-            ("Is this litbuy.ca?", "No. Different host. No 301."),
-        ]
-    elif key == "uk":
-        extra = [
-            ("HMRC?", "VAT article stays if present. No declared-value coaching."),
-            ("Northern Ireland?", "Often another carrier product."),
-        ]
-    base = [
-        ("Does LitBuy sell the goods?", "No. It is a purchasing agent: two payments, warehouse photos, then an international SKU."),
-        ("Where is the catalogue?", "On this homepage from this host’s /api/products/. Thousands of finds stay on w2clinks."),
-        ("Invite in the title?", "No. The affiliate URL is the Register button only."),
-        (f"Is destination {dest_q} a TLD?", "The estimator wants a country code. This hostname is a desk, not a customs territory."),
-        ("Free storage?", "Official Help Center: 90 free days from stocked/listed, 120-day max."),
-        ("Volumetric weight?", "Most air SKUs: L×W×H/8000 in kilograms. The widget is geometry, not a quote."),
-        ("Customs?", "Follows the booked SKU. No under-declaration tips. Use the official destination source the morning you ship."),
-        ("Coupons in this title?", "No. Live codes sit on the coupon URL, not in this title."),
-        ("QC photos?", "In-app after warehouse arrival."),
-        ("USD digits?", "The official currency switcher has been observed to change the symbol without converting the number."),
-        ("301 to another LitBuy TLD?", "No. Same-agent country hosts stay independent."),
-        ("Is this litbuy.com?", "No. Independent desk."),
-        ("Local search words?", "The index is English. Local words often return zero cards."),
-    ]
-    out = (extra + base)[:15]
-    while len(out) < 15:
-        out.append((f"Independent desk {len(out)+1}?", f"Yes. {d['host']} does not run your LitBuy account."))
-    return out[:15]
+    return long_faqs(_facts(key))
 
 
 def _faq_block(key: str, d: dict) -> str:
@@ -996,29 +911,19 @@ def _faq_block(key: str, d: dict) -> str:
     return f'<section class="sg-sec" id="faq"><h2>{h}</h2>{"".join(items)}</section>'
 
 
-def _keep(d: dict) -> str:
-    links = "".join(f'<a href="{escape(h)}"><strong>{escape(l)}</strong><span> kept · not overwritten</span></a>' for h, l in d["keep"])
-    return f'<section class="sg-sec" id="kept"><h2>Already ranking on this host</h2><div class="keep">{links}</div></section>'
+def _keep(key: str, d: dict) -> str:
+    h, note = keep_copy(_loc(key))
+    links = "".join(f'<a href="{escape(href)}"><strong>{escape(lab)}</strong><span> {escape(note)}</span></a>' for href, lab in d["keep"])
+    return f'<section class="sg-sec" id="kept"><h2>{escape(h)}</h2><div class="keep">{links}</div></section>'
 
 
 def _lab(key: str, d: dict) -> str:
-    if not d.get("dest"):
-        p = (
-            f"The official estimator needs a <strong>country</strong>, not this hostname. "
-            f'Open <a href="{EST}">{EST}</a> and pick US, CA, FR, ES… Spain-only copy stays off this hub.'
-        )
-    else:
-        p = (
-            f"Open the official LitBuy freight estimate with destination <strong>{escape(d['dest_label'])}</strong> "
-            f"before you pay international freight. Snapshot habit: 1000 g / 35×25×10 cm, clothing. "
-            f"Lab note {DATE}. USD digits may stay dollars when only the symbol changes."
-        )
-    return f"""<section class="sg-sec" id="lab"><h2>Freight lab</h2>
-<p class="ssub">{p}</p>
-<p><a class="btn btn-primary" href="{EST}">Official freight estimate →</a></p>
+    c = lab_copy(_facts(key))
+    return f"""<section class="sg-sec" id="lab"><h2>{escape(c["h2"])}</h2>
+<p class="ssub">{c["ssub"]}</p>
+<p><a class="btn btn-primary" href="{EST}">{escape(c["cta"])} →</a></p>
 {_vol(key)}
 </section>"""
-
 
 def _help_meta(key: str, d: dict) -> dict:
     loc = d["locale"]
@@ -1226,8 +1131,8 @@ def _news_items(key: str, d: dict) -> list[tuple[str, str]]:
              "Official site: the symbol can change while the digits stay dollars."),
             ("Check 3 · this hostname is not a destination",
              "Open the official estimator with a country code. Spain-only line counts stay off this hub."),
-            ("Check 4 · packing center 100 days",
-             "Official Help Center 1 Oct 2026: 90 free days from stocked/listed, 120-day max."),
+            ("Check 4 · warehouse 90/120",
+             "Official Help Center 1 Oct 2026: 90 free days from stocked/listed, 120-day max. Not a Packing Center 100-day figure."),
             ("Check 5 · html articles kept",
              "Coupon, Reddit, legit and spreadsheet html files were not overwritten."),
             ("Check 6 · 1 Oct 2026 · SPA estimator and About page",
@@ -1246,8 +1151,8 @@ def _news_items(key: str, d: dict) -> list[tuple[str, str]]:
          "On the official site the symbol can change to a local currency while the digits stay dollars. Read the number."),
         (f"Check 3 · estimator destination {dest}",
          f"Open the official freight estimate with {dest}. We do not paste another agent’s line count onto this desk."),
-        ("Check 4 · packing center 100 days",
-         "Official Help Center 1 Oct 2026: 90 free days from stocked/listed, 120-day max."),
+        ("Check 4 · warehouse 90/120",
+         "Official Help Center 1 Oct 2026: 90 free days from stocked/listed, 120-day max. Not a Packing Center 100-day figure."),
         ("Check 5 · ranked URLs kept", extra),
         ("Check 6 · 1 Oct 2026 · SPA estimator and About page",
          "Raw HTML of shipping-estimate was ~2 KB. The 1 Oct 2026 browser rendered the form; capture lives under /media/. /who-we-are/ is its own page."),
@@ -1261,18 +1166,17 @@ def build_help(key: str) -> str:
     if INVITE in m["title"] or COUPON in m["title"]:
         raise RuntimeError(f"{key} help: code in title")
     faqs = _faqs(key, d)
-    faq_ld = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "inLanguage": d["lang"],
-        "mainEntity": [
-            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
-            for q, a in faqs
-        ],
-    }
     html = _chrome_head(key, d, m["title"], m["desc"], path=f"/{t['help']}/")
-    # extra FAQ JSON-LD
-    html = html.replace("</head>", f'<script type="application/ld+json">{json.dumps(faq_ld, ensure_ascii=False)}</script>\n</head>', 1)
+    html = inject_jsonld(
+        html,
+        faq_ld(d["lang"], faqs),
+        breadcrumb_ld(
+            [
+                ("Home", f"https://{d['host']}/"),
+                (t["help_lab"], f"https://{d['host']}/{t['help']}/"),
+            ]
+        ),
+    )
     html += _header(key, d, page="help")
     items = []
     for i, (q, a) in enumerate(faqs):
@@ -1299,10 +1203,21 @@ def build_news(key: str) -> str:
     m = _news_meta(key, d)
     if INVITE in m["title"] or COUPON in m["title"]:
         raise RuntimeError(f"{key} news: code in title")
+    news_items = _news_items(key, d)
     html = _chrome_head(key, d, m["title"], m["desc"], path=f"/{t['news']}/")
+    html = inject_jsonld(
+        html,
+        itemlist_ld(url=f"https://{d['host']}/{t['news']}/", name=m["title"], items=news_items),
+        breadcrumb_ld(
+            [
+                ("Home", f"https://{d['host']}/"),
+                (t["news_lab"], f"https://{d['host']}/{t['news']}/"),
+            ]
+        ),
+    )
     html += _header(key, d, page="news")
     blocks = []
-    for h, p in _news_items(key, d):
+    for h, p in news_items:
         blocks.append(f'<article class="sg-sec"><h2>{escape(h)}</h2><p class="ssub">{escape(p)}</p></article>')
     html += f"""<section class="sg-hero">
   <div class="hbg">Lab {DATE} · {escape(t['news_lab'])}</div>
@@ -1407,6 +1322,22 @@ def build_about(key: str) -> str:
     if INVITE in p["about_title"] or COUPON in p["about_title"]:
         raise RuntimeError(f"{key} about: code in title")
     html = _chrome_head(key, d, p["about_title"], p["about_desc"], path=f"/{t['about']}/")
+    html = inject_jsonld(
+        html,
+        organization_ld(
+            name=f"{d['host']} independent desk",
+            url=f"https://{d['host']}/",
+            email=d["mail"],
+            lang=d["lang"],
+            desc=p["about_desc"],
+        ),
+        breadcrumb_ld(
+            [
+                ("Home", f"https://{d['host']}/"),
+                (t["about_lab"], f"https://{d['host']}/{t['about']}/"),
+            ]
+        ),
+    )
     html += _header(key, d, page="about")
     html += f"""<section class="sg-hero">
   <div class="hbg">Lab {DATE} · {escape(t['about_lab'])}</div>
@@ -1464,7 +1395,7 @@ def build_home(key: str) -> str:
     html += _prose_restricted(key, d)
     html += _shots(key, d)
     html += _lab(key, d)
-    html += _keep(d)
+    html += _keep(key, d)
     html += _faq_block(key, d)
     html += _footer(key, d)
     return html
@@ -1512,6 +1443,8 @@ def _validate() -> None:
             raise SystemExit(f"{key}: missing local FX {ccy}")
         if "p.textContent=(it.currency||'')+' '+(it.price" in html:
             raise SystemExit(f"{key}: raw CNY catalogue concat")
+        for e in validate_desk(html, _facts(key), page="home"):
+            raise SystemExit(f"{key}/home template: {e}")
         ncat = len(re.findall(r"class=\"sg-cat\"", html))
         if ncat != 16:
             raise SystemExit(f"{key}: cat wall {ncat}")
@@ -1546,12 +1479,16 @@ def _validate() -> None:
                 raise SystemExit("now.com help/news copied Spain lines")
             if key == "fr" and ("Belgique" in pt or "Belgium" in pt or "France / BE" in page):
                 raise SystemExit("fr help/news became Belgium")
+        for e in validate_desk(help_html, _facts(key), page="help"):
+            raise SystemExit(f"{key}/help template: {e}")
         hf = len(re.findall(r"class=\"sg-faq\"", help_html))
         if hf < 15:
             raise SystemExit(f"{key} help faq {hf}")
         hn = len(re.findall(r"<h2>", news_html))
         if hn < 6:
             raise SystemExit(f"{key} news h2 {hn}")
+        for e in validate_desk(news_html, _facts(key), page="news"):
+            raise SystemExit(f"{key}/news template: {e}")
         print(f"OK    {key}/help words={_wc(help_html)} faq={hf}")
         print(f"OK    {key}/news words={_wc(news_html)} h2={hn}")
 
@@ -1571,6 +1508,8 @@ def _validate() -> None:
             raise SystemExit("fr about became Belgium")
         if _wc(about_html) < 280:
             raise SystemExit(f"{key} about too short")
+        for e in validate_desk(about_html, _facts(key), page="about"):
+            raise SystemExit(f"{key}/about template: {e}")
         print(f"OK    {key}/about words={_wc(about_html)} {at[:56]}")
 
 
