@@ -80,6 +80,9 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
 .sg-about h2{font-size:22px;margin:28px 0 8px}
 .sg-about h3{font-size:16px;margin:18px 0 6px}
 .sg-about p{color:#334155;line-height:1.75;margin:0 0 12px}
+
+.sg-card .pr-src{font-size:11px;font-weight:500;color:#94a3b8}
+.sg-fx{color:#64748b;font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:760px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Acheter en Chine et envoyer en France avec LitBuy", "url": "https://litspreadsheet.fr/", "description": "Desk FR indépendant : catalogue sur cette accueil. Destination France dans l’estimateur. Pas la Belgique. Lab 1 oct. 2026.", "inLanguage": "fr-FR"}</script>
 </head>
@@ -92,7 +95,7 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
     <div class="header-actions">
       <a href="#catalog" class="btn btn-primary">Voir le catalogue</a>
       <a href="https://litbuy.com/register" target="_blank" rel="noopener sponsored" class="btn btn-outline">S’inscrire</a>
-      <div class="locale-switcher" data-locale-switcher><button type="button" class="locale-switcher-btn" data-locale-toggle aria-haspopup="listbox" aria-expanded="false" aria-label="Choose language or region"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>France</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="locale-switcher-panel" role="listbox" hidden><div class="locale-switcher-heading">English</div><a href="https://litbuyspreadsheetnow.com/" hreflang="alternate" rel="alternate">English (Global)</a><a href="https://litbuyspreadsheet.eu/" hreflang="alternate" rel="alternate">English (Europe)</a><a href="https://litbuyspreadsheet.me.uk/" hreflang="alternate" rel="alternate">English (UK)</a><a href="https://litbuyspreadsheets.ca/" hreflang="alternate" rel="alternate">English (Canada)</a><a href="https://litbuyspreadsheets.us/" hreflang="alternate" rel="alternate">English (USA)</a><div class="locale-switcher-heading">Local editions</div><a href="https://litspreadsheet.fr/" hreflang="alternate" rel="alternate" class="is-current">Français (France)</a><a href="https://litbuyspreadsheets.es/" hreflang="alternate" rel="alternate">Español (España)</a><a href="https://litbuyspreadsheet.it/" hreflang="alternate" rel="alternate">Italiano</a><a href="https://litbuyspreadsheets.nl/" hreflang="alternate" rel="alternate">Nederlands</a><a href="https://litbuy.at/" hreflang="alternate" rel="alternate">Deutsch (Österreich)</a><div class="locale-switcher-register"><a href="https://litbuy.com/register" target="_blank" rel="noopener sponsored">Register on LitBuy →</a></div></div></div>
+      <div class="locale-switcher" data-locale-switcher><button type="button" class="locale-switcher-btn" data-locale-toggle aria-haspopup="listbox" aria-expanded="false" aria-label="Choisir la langue ou la région"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>France</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="locale-switcher-panel" role="listbox" hidden><div class="locale-switcher-heading">Anglais</div><a href="https://litbuyspreadsheetnow.com/" hreflang="alternate" rel="alternate">English (Global)</a><a href="https://litbuyspreadsheet.eu/" hreflang="alternate" rel="alternate">English (Europe)</a><a href="https://litbuyspreadsheet.me.uk/" hreflang="alternate" rel="alternate">English (UK)</a><a href="https://litbuyspreadsheets.ca/" hreflang="alternate" rel="alternate">English (Canada)</a><a href="https://litbuyspreadsheets.us/" hreflang="alternate" rel="alternate">English (USA)</a><div class="locale-switcher-heading">Éditions locales</div><a href="https://litspreadsheet.fr/" hreflang="alternate" rel="alternate" class="is-current">Français (France)</a><a href="https://litbuyspreadsheets.es/" hreflang="alternate" rel="alternate">Español (España)</a><a href="https://litbuyspreadsheet.it/" hreflang="alternate" rel="alternate">Italiano</a><a href="https://litbuyspreadsheets.nl/" hreflang="alternate" rel="alternate">Nederlands</a><a href="https://litbuy.at/" hreflang="alternate" rel="alternate">Deutsch (Österreich)</a><div class="locale-switcher-register"><a href="https://litbuy.com/register" target="_blank" rel="noopener sponsored">S’inscrire sur LitBuy →</a></div></div></div>
       <button class="mobile-toggle" data-mobile-toggle aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
     </div>
   </div>
@@ -135,8 +138,9 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
 </section>
 
 <section class="sg-mw" id="catalog">
-  <p class="ssub">Le catalogue anglais est sur cette accueil via /api/products/. Local words often return zero — type the English key.</p>
-  <div class="sg-chips"><button type="button" data-q="" class="on">All</button><button type="button" data-q="sneakers" class="">Sneakers</button><button type="button" data-q="hoodie" class="">Hoodies</button><button type="button" data-q="t-shirt" class="">T-shirts</button><button type="button" data-q="jacket" class="">Jackets</button><button type="button" data-q="bag" class="">Bags</button><button type="button" data-q="watch" class="">Watches</button></div>
+  <p class="ssub">Le catalogue de cette accueil vient de /api/products/. Les mots français renvoient souvent zéro — tapez la clé anglaise (sneakers, hoodie).</p>
+  <p class="sg-fx">Les prix en EUR sont une conversion d’affichage de la fiche entrepôt Chine (X-Rates, 1 Oct 2026, 1 CNY = 0.132940 EUR). Ce n’est pas un prix de caisse.</p>
+  <div class="sg-chips"><button type="button" data-q="" class="on">Tout</button><button type="button" data-q="sneakers" class="">Baskets</button><button type="button" data-q="hoodie" class="">Sweats</button><button type="button" data-q="t-shirt" class="">T-shirts</button><button type="button" data-q="jacket" class="">Vestes</button><button type="button" data-q="bag" class="">Sacs</button><button type="button" data-q="watch" class="">Montres</button></div>
   <div class="sg-fbar">
     <input id="sg-q" type="search" placeholder="Rechercher sneakers, hoodie…">
     <span id="sg-count"></span>
@@ -148,6 +152,14 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
   var PAPI='/api/products/';
   var q='';
   var W2C_IMG='https://w2clinks.com';
+  var FX_CCY="EUR";
+  var FX_RATE=0.13294;
+  var FX_LOCALE="fr-FR";
+  var OPEN_LAB="Ouvrir";
+  var COUNT_TPL="{n} sur cette page";
+  var EMPTY_MSG="Aucune fiche pour cette clé anglaise. Essayez sneakers ou hoodie.";
+  var ERR_MSG="L’API catalogue n’est pas encore joignable sur cet hôte.";
+  var REG="https://litbuy.com/register";
   function absImg(u){
     if(!u) return '';
     u=String(u);
@@ -156,11 +168,24 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
     if(u.charAt(0)==='/') return W2C_IMG+u;
     return W2C_IMG+'/'+u.replace(/^\/+/, '');
   }
+  function fmtMoney(it){
+    var src=String(it.currency||'CNY').toUpperCase();
+    var n=parseFloat(String(it.price||'').replace(/,/g,'.'));
+    if(!isFinite(n)) return {local:'', srcCcy:src, src:(it.currency||'')+' '+(it.price||'')};
+    var localN=n;
+    if(src==='CNY' && FX_CCY!=='CNY') localN=n*FX_RATE;
+    else if(src!==FX_CCY && src!=='CNY') localN=n;
+    var local='';
+    try { local=new Intl.NumberFormat(FX_LOCALE,{style:'currency',currency:FX_CCY}).format(localN); }
+    catch(e){ local=FX_CCY+' '+localN.toFixed(2); }
+    var srcLab=src+' '+String(it.price);
+    return {local:local, srcCcy:src, src:srcLab};
+  }
   function render(data){
     var items=data.items||data.products||[];
     var g=document.getElementById('sg-grid');
     var c=document.getElementById('sg-count');
-    if(c) c.textContent=items.length+' on this page';
+    if(c) c.textContent=COUNT_TPL.replace('{n}', String(items.length));
     g.innerHTML='';
     items.forEach(function(it){
       var el=document.createElement('article');
@@ -170,14 +195,21 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
       img.referrerPolicy='no-referrer'; img.decoding='async';
       var b=document.createElement('div'); b.className='b';
       var t=document.createElement('div'); t.className='t'; t.textContent=it.title||'';
-      var p=document.createElement('div'); p.className='pr'; p.textContent=(it.currency||'')+' '+(it.price||'');
+      var m=fmtMoney(it);
+      var p=document.createElement('div'); p.className='pr'; p.textContent=m.local||m.src;
       b.appendChild(t); b.appendChild(p);
+      if(m.srcCcy==='CNY' && FX_CCY!=='CNY' && m.local){
+        var s=document.createElement('div'); s.className='pr-src'; s.textContent=m.src;
+        b.appendChild(s);
+      }
       var a=document.createElement('a'); a.className='buy'; a.target='_blank'; a.rel='noopener sponsored';
-      a.href=it.href||it.target||'https://litbuy.com/register'; a.textContent='Open';
+      a.href=it.href||it.target||REG; a.textContent=OPEN_LAB;
       el.appendChild(img); el.appendChild(b); el.appendChild(a);
       g.appendChild(el);
     });
-    if(!items.length) g.innerHTML='<p>No cards for that English key. Try sneakers or hoodie.</p>';
+    if(!items.length){
+      var empty=document.createElement('p'); empty.textContent=EMPTY_MSG; g.appendChild(empty);
+    }
   }
   function load(){
     var u=new URL(PAPI, location.origin);
@@ -185,7 +217,9 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
     u.searchParams.set('limit','24');
     u.searchParams.set('page','1');
     fetch(u, {headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(render).catch(function(){
-      document.getElementById('sg-grid').innerHTML='<p>Catalogue API not reachable on this host yet.</p>';
+      var g=document.getElementById('sg-grid');
+      g.innerHTML='';
+      var err=document.createElement('p'); err.textContent=ERR_MSG; g.appendChild(err);
     });
   }
   function applyQ(next){
@@ -279,25 +313,25 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand"><a href="/" class="brand"><img class="brand-logo" src="/assets/images/litbuy-logo.png" alt="LitBuy"></a>
-      <p>Independent information desk on litspreadsheet.fr. Not the official LitBuy site. Sister country hosts stay separate files — no 301.</p></div>
-      <div class="footer-col"><h5>On this host</h5><ul>
+      <p>Desk d’information indépendant sur litspreadsheet.fr. Pas le site officiel LitBuy. Les hôtes sœurs restent des fichiers séparés — pas de 301.</p></div>
+      <div class="footer-col"><h5>Sur cet hôte</h5><ul>
         <li><a href="/aide/">Aide</a></li>
         <li><a href="/actualites/">Actualités</a></li>
         <li><a href="/a-propos/">À propos</a></li>
         <li><a href="/livraison-litbuy-france/">Livraison France</a></li><li><a href="/tva-import-france/">TVA import</a></li><li><a href="/colissimo-douane-france/">Colissimo / douane</a></li><li><a href="/litbuy-spreadsheet/">Spreadsheet</a></li><li><a href="/litbuy-coupons/">Coupons</a></li>
       </ul></div>
-      <div class="footer-col"><h5>Official</h5><ul>
-        <li><a href="https://litbuy.com/shipping-estimate">Freight estimate</a></li>
-        <li><a href="https://litbuy.com/register" rel="noopener sponsored">Register</a></li>
+      <div class="footer-col"><h5>Officiel</h5><ul>
+        <li><a href="https://litbuy.com/shipping-estimate">Estimateur de fret</a></li>
+        <li><a href="https://litbuy.com/register" rel="noopener sponsored">S’inscrire</a></li>
         <li><a href="https://litbuy.com/">litbuy.com</a></li>
       </ul></div>
       <div class="footer-col"><h5>Contact</h5><ul>
         <li><a href="mailto:support@litspreadsheet.fr">support@litspreadsheet.fr</a></li>
-        <li><a href="/privacy-policy/">Privacy</a></li>
+        <li><a href="/privacy-policy/">Confidentialité</a></li>
         <li><a href="/cookie-policy/">Cookies</a></li>
       </ul></div>
     </div>
-    <p class="footer-locale-cluster" style="margin:12px 0;font-size:13px;color:#94A3B8">Independent desks:
+    <p class="footer-locale-cluster" style="margin:12px 0;font-size:13px;color:#94A3B8">Desks indépendants:
       <a href="https://litbuyspreadsheetnow.com/">Global</a> ·
       <a href="https://litbuyspreadsheet.eu/">Europe</a> ·
       <a href="https://litbuyspreadsheets.us/">USA</a> ·
@@ -309,7 +343,7 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
       <a href="https://litbuy.at/">Österreich</a> ·
       <a href="https://litbuyspreadsheets.nl/">Nederland</a>
     </p>
-    <div class="footer-bottom"><div>© 2026 litspreadsheet.fr · independent desk</div></div>
+    <div class="footer-bottom"><div>© 2026 litspreadsheet.fr · desk indépendant</div></div>
   </div>
 </footer>
 <script src="/assets/js/main.js?v=20261001-home"></script>

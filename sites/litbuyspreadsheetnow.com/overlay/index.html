@@ -80,6 +80,9 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
 .sg-about h2{font-size:22px;margin:28px 0 8px}
 .sg-about h3{font-size:16px;margin:18px 0 6px}
 .sg-about p{color:#334155;line-height:1.75;margin:0 0 12px}
+
+.sg-card .pr-src{font-size:11px;font-weight:500;color:#94a3b8}
+.sg-fx{color:#64748b;font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:760px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "LitBuy coupon desk — pick a country in the estimator", "url": "https://litbuyspreadsheetnow.com/", "description": "Independent English hub. Destination is a country code in the official estimator, not this hostname. Existing html articles stay.", "inLanguage": "en"}</script>
 </head>
@@ -135,7 +138,8 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
 </section>
 
 <section class="sg-mw" id="catalog">
-  <p class="ssub">The English catalogue renders on this homepage from /api/products/. Local words often return zero — type the English key.</p>
+  <p class="ssub">The catalogue on this homepage comes from /api/products/. Local-language words often return zero — type the English key (sneakers, hoodie).</p>
+  <p class="sg-fx">Prices in USD are a display conversion of the China warehouse card (X-Rates mid-market, 1 Oct 2026, 1 CNY = 0.149117 USD). Not a checkout price.</p>
   <div class="sg-chips"><button type="button" data-q="" class="on">All</button><button type="button" data-q="sneakers" class="">Sneakers</button><button type="button" data-q="hoodie" class="">Hoodies</button><button type="button" data-q="t-shirt" class="">T-shirts</button><button type="button" data-q="jacket" class="">Jackets</button><button type="button" data-q="bag" class="">Bags</button><button type="button" data-q="watch" class="">Watches</button></div>
   <div class="sg-fbar">
     <input id="sg-q" type="search" placeholder="Search sneakers, hoodie…">
@@ -148,6 +152,14 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
   var PAPI='/api/products/';
   var q='';
   var W2C_IMG='https://w2clinks.com';
+  var FX_CCY="USD";
+  var FX_RATE=0.149117;
+  var FX_LOCALE="en";
+  var OPEN_LAB="Open";
+  var COUNT_TPL="{n} on this page";
+  var EMPTY_MSG="No cards for that English key. Try sneakers or hoodie.";
+  var ERR_MSG="Catalogue API not reachable on this host yet.";
+  var REG="https://litbuy.com/register";
   function absImg(u){
     if(!u) return '';
     u=String(u);
@@ -156,11 +168,24 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
     if(u.charAt(0)==='/') return W2C_IMG+u;
     return W2C_IMG+'/'+u.replace(/^\/+/, '');
   }
+  function fmtMoney(it){
+    var src=String(it.currency||'CNY').toUpperCase();
+    var n=parseFloat(String(it.price||'').replace(/,/g,'.'));
+    if(!isFinite(n)) return {local:'', srcCcy:src, src:(it.currency||'')+' '+(it.price||'')};
+    var localN=n;
+    if(src==='CNY' && FX_CCY!=='CNY') localN=n*FX_RATE;
+    else if(src!==FX_CCY && src!=='CNY') localN=n;
+    var local='';
+    try { local=new Intl.NumberFormat(FX_LOCALE,{style:'currency',currency:FX_CCY}).format(localN); }
+    catch(e){ local=FX_CCY+' '+localN.toFixed(2); }
+    var srcLab=src+' '+String(it.price);
+    return {local:local, srcCcy:src, src:srcLab};
+  }
   function render(data){
     var items=data.items||data.products||[];
     var g=document.getElementById('sg-grid');
     var c=document.getElementById('sg-count');
-    if(c) c.textContent=items.length+' on this page';
+    if(c) c.textContent=COUNT_TPL.replace('{n}', String(items.length));
     g.innerHTML='';
     items.forEach(function(it){
       var el=document.createElement('article');
@@ -170,14 +195,21 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
       img.referrerPolicy='no-referrer'; img.decoding='async';
       var b=document.createElement('div'); b.className='b';
       var t=document.createElement('div'); t.className='t'; t.textContent=it.title||'';
-      var p=document.createElement('div'); p.className='pr'; p.textContent=(it.currency||'')+' '+(it.price||'');
+      var m=fmtMoney(it);
+      var p=document.createElement('div'); p.className='pr'; p.textContent=m.local||m.src;
       b.appendChild(t); b.appendChild(p);
+      if(m.srcCcy==='CNY' && FX_CCY!=='CNY' && m.local){
+        var s=document.createElement('div'); s.className='pr-src'; s.textContent=m.src;
+        b.appendChild(s);
+      }
       var a=document.createElement('a'); a.className='buy'; a.target='_blank'; a.rel='noopener sponsored';
-      a.href=it.href||it.target||'https://litbuy.com/register'; a.textContent='Open';
+      a.href=it.href||it.target||REG; a.textContent=OPEN_LAB;
       el.appendChild(img); el.appendChild(b); el.appendChild(a);
       g.appendChild(el);
     });
-    if(!items.length) g.innerHTML='<p>No cards for that English key. Try sneakers or hoodie.</p>';
+    if(!items.length){
+      var empty=document.createElement('p'); empty.textContent=EMPTY_MSG; g.appendChild(empty);
+    }
   }
   function load(){
     var u=new URL(PAPI, location.origin);
@@ -185,7 +217,9 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
     u.searchParams.set('limit','24');
     u.searchParams.set('page','1');
     fetch(u, {headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(render).catch(function(){
-      document.getElementById('sg-grid').innerHTML='<p>Catalogue API not reachable on this host yet.</p>';
+      var g=document.getElementById('sg-grid');
+      g.innerHTML='';
+      var err=document.createElement('p'); err.textContent=ERR_MSG; g.appendChild(err);
     });
   }
   function applyQ(next){
