@@ -19,7 +19,7 @@ HOST = "31.97.41.31"
 USER = "root"
 
 from hipobuy_trust_pages import HOSTS  # noqa: E402
-from hipobuy_net_local import REMOTE_INDEX as NET_REMOTE, patch_net_home  # noqa: E402
+from hipobuy_net_local import REMOTE_TEMPLATE as NET_TEMPLATE, patch_net_home  # noqa: E402
 
 PUTS: list[tuple[str, Path]] = []
 for _d in HOSTS.values():
@@ -64,7 +64,7 @@ def _run(client, cmd: str, timeout: int = 60) -> str:
 
 def main() -> None:
     for remote, local in PUTS:
-        if _d_host_is_net(remote):
+        if "hipobuyspreadsheet.net" in remote:
             raise SystemExit("refusing bulk .net PUT — use surgical patch")
         if not local.is_file():
             raise SystemExit(f"missing local {local}")
@@ -88,17 +88,24 @@ def main() -> None:
         uploaded.append(remote)
         print("PUT", remote, local.stat().st_size)
 
-    net_bak = backup_root + "/hipobuyspreadsheet.net/index.html"
+    net_tpl_bak = backup_root + "/hipobuyspreadsheet.net/template-pc-index.htm"
     _run(client, f"mkdir -p '{backup_root}/hipobuyspreadsheet.net'")
-    _run(client, f"cp -a '{NET_REMOTE}' '{net_bak}'")
-    with sftp.open(NET_REMOTE) as fh:
+    _run(client, f"cp -a '{NET_TEMPLATE}' '{net_tpl_bak}'")
+    with sftp.open(NET_TEMPLATE) as fh:
         net_html = fh.read().decode("utf-8", "replace")
     net2 = patch_net_home(net_html)
-    net_local = Path("/tmp/hipobuy-net-index.html")
+    net_local = Path("/tmp/hipobuy-net-index.htm")
     net_local.write_text(net2, encoding="utf-8")
-    sftp.put(str(net_local), NET_REMOTE)
-    uploaded.append(NET_REMOTE)
-    print("PUT surgical", NET_REMOTE, len(net2))
+    sftp.put(str(net_local), NET_TEMPLATE)
+    uploaded.append(NET_TEMPLATE)
+    print("PUT surgical", NET_TEMPLATE, len(net2))
+    print(
+        _run(
+            client,
+            "rm -rf /www/wwwroot/hipobuyspreadsheet.net/data/runtime/temp/* "
+            "/www/wwwroot/hipobuyspreadsheet.net/data/runtime/cache/* 2>/dev/null; echo cache-cleared",
+        )
+    )
 
     _run(
         client,
@@ -111,10 +118,6 @@ def main() -> None:
     print("count", len(uploaded))
     sftp.close()
     client.close()
-
-
-def _d_host_is_net(remote: str) -> bool:
-    return "hipobuyspreadsheet.net" in remote
 
 
 if __name__ == "__main__":
