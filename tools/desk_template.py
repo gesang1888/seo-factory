@@ -79,6 +79,7 @@ SKIP_CSS = """.skip{position:absolute;left:-999px;top:8px;background:#fff;paddin
 .local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
 .local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
 .local-src a{color:inherit}
+#local{scroll-margin-top:96px}
 """
 
 # Dest-unique, checkable briefing. Substance differs (address format, postal
