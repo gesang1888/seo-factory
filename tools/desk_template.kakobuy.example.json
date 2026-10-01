@@ -1,0 +1,36 @@
+{
+  "comment": "Kakobuy CA desk facts. Unique dest facts keep country TLDs from looking like doorway pages. Google August 2026 Spam Update re-applies scaled-content and doorway policy — it is not a loophole to cloak or clone. Storage days are not invented: official Help copies quote both 100 and 180.",
+  "agent": "Kakobuy",
+  "host": "kakospreadsheet.ca",
+  "lang": "en-CA",
+  "loc": "en",
+  "dest": "CA",
+  "dest_label": "Canada",
+  "ccy": "CAD",
+  "customs": "CBSA",
+  "customs_url": "https://www.cbsa-asfc.gc.ca/",
+  "storage": "Confirm the live Kakobuy Help Center the morning you ship. Public copies quote both 100 days from in-storage and 180 days; this desk does not pick a number.",
+  "estimator": "https://www.kakobuy.com/tools/estimate",
+  "official": "https://www.kakobuy.com/",
+  "date": "1 Oct 2026",
+  "email": "support@kakospreadsheet.ca",
+  "hub": false,
+  "must_not": [
+    "copy hipobuy.es Spain 58-line / 23.81 USD snapshot onto this dest",
+    "301 this TLD onto kakobuydocs.com / kakobuytips.com / a sister country TLD",
+    "put invite or coupon codes (yze69, KAKOSEP, ikako.vip) in <title>",
+    "coach a declared value or under-declaration",
+    "invent a Kakobuy storage day count (100 vs 180)",
+    "swap only the country name on otherwise identical HTML",
+    "take the US market from kakobuytips.com"
+  ],
+  "must": [
+    "local html lang + H1 search intent",
+    "catalogue on / with dated CAD display",
+    "independent Help / News / About (who-we-are — existing /about/ stays)",
+    "15 long Help FAQs that name Canada + CBSA",
+    "homepage + Help #local briefing with dest-unique checkable facts (A1A 1A1, estimator CA not US, CBSA URL)",
+    "generation MUST FAIL if dest fingerprint is missing or a sister dest leaks into #local",
+    "keep ranked /kakobuy-shipping-to-canada/ and /kakobuy-canada/"
+  ]
+}
