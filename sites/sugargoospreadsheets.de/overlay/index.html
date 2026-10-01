@@ -8,10 +8,12 @@
 <link rel="canonical" href="https://sugargoospreadsheets.de/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
 <meta property="og:title" content="Mit SugarGoo nach Deutschland bestellen — aus China auf eine DE-Adresse">
 <meta property="og:description" content="Unabhängiger DE-Desk: Katalog auf dieser Startseite, Zollquellen. Lab 30 Sep 2026.">
 <meta property="og:url" content="https://sugargoospreadsheets.de/">
 <meta property="og:image" content="https://sugargoospreadsheets.de/assets/images/sugargoo-logo.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -85,10 +87,15 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
 
 .sg-card .pr-src{font-size:11px;font-weight:500;color:#94a3b8}
 .sg-fx{color:#64748b;font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:760px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
+.skip:focus{left:12px}
+.legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Mit SugarGoo nach Deutschland bestellen — aus China auf eine DE-Adresse", "url": "https://sugargoospreadsheets.de/", "description": "Unabhängiger DE-Desk: Katalog auf dieser Startseite, Zollquellen. Lab 30 Sep 2026.", "inLanguage": "de-DE"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://sugargoospreadsheets.de/", "url": "https://sugargoospreadsheets.de/", "name": "Mit SugarGoo nach Deutschland bestellen — aus China auf eine DE-Adresse", "description": "Unabhängiger DE-Desk: Katalog auf dieser Startseite, Zollquellen. Lab 30 Sep 2026.", "inLanguage": "de-DE", "isPartOf": {"@type": "WebSite", "name": "SugarGoo desk", "url": "https://sugargoospreadsheets.de/"}, "publisher": {"@type": "Organization", "name": "SugarGoo independent desk", "url": "https://sugargoospreadsheets.de/"}}</script>
 </head>
 <body class="sugargoo-theme-de">
+<a class="skip" href="#main">Zum Inhalt</a>
+
 <div class="topbar"><div class="container">Für eine DE-Adresse · kein Kakobuy · <a href="https://w2clinks.com/spreadsheet/sugargoo/?utm_source=sugargoospreadsheets_de&utm_medium=desk&utm_campaign=sugargoo" target="_blank" rel="noopener">Ganzes Spreadsheet →</a></div></div>
 <header class="site-header">
   <div class="container header-inner">
@@ -102,6 +109,7 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
     </div>
   </div>
 </header>
+<main id="main">
 <section class="sg-hero">
   <div class="hbg">Lab 30 Sep 2026</div>
   <h1>Mit <em>SugarGoo</em> nach Deutschland bestellen</h1>
@@ -273,9 +281,9 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
     <figcaption>Offizieller Freight-Estimate. Aufnahme 30 Sep 2026. Ziel dieses Desks: Deutschland (Deutschland). Beträge erscheinen nach Estimate — hier nicht kopiert.</figcaption>
   </figure>
 </section>
-<section class="sg-sec" id="lab"><h2>Freight lab</h2>
-<p class="ssub">Open the official SugarGoo freight estimate with destination <strong>Deutschland</strong> before you pay international freight. Snapshot habit: 1000 g / 35×25×10 cm, clothing. Lab note 30 Sep 2026. USD digits may stay dollars when only the symbol changes.</p>
-<p><a class="btn btn-primary" href="https://www.sugargoo.com/freight-estimate">Official freight estimate →</a></p>
+<section class="sg-sec" id="lab"><h2>Frachtlabor — kein Checkout</h2>
+<p class="ssub">Offiziellen Schätzer mit Ziel <strong>Deutschland</strong> öffnen, bevor du international zahlst. Messgewohnheit: 1000 g / 35×25×10 cm, Kleidung. Labor 30 Sep 2026. USD-Ziffern können Dollar bleiben, wenn nur das Symbol wechselt.</p>
+<p><a class="btn btn-primary" href="https://www.sugargoo.com/freight-estimate">Offiziellen Schätzer öffnen →</a></p>
 
 <div class="vol" id="vol-calc">
   <strong>Volumengewicht (kein Preis)</strong>
@@ -302,7 +310,7 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
     var vol=Math.round(L*W*H/D*1000);
     var billed=Math.ceil(Math.max(G,vol)/100)*100;
     var el=document.getElementById('vol-out');
-    if(el) el.innerHTML='Volumetric <b>'+vol+' g</b> · billed <b>'+billed+' g</b> · not checkout.';
+    if(el) el.innerHTML="Volumen"+' <b>'+vol+' g</b> · '+"berechnet"+' <b>'+billed+' g</b> · not checkout.';
   }
   ['vol-l','vol-w','vol-h','vol-g','vol-d'].forEach(function(id){
     var n=document.getElementById(id); if(n) n.addEventListener(id==='vol-d'?'change':'input', sgVol);
@@ -311,11 +319,13 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
 })();
 </script>
 
-</section><section class="sg-sec" id="kept"><h2>Already ranking on this host</h2><div class="keep"><a href="/sugargoo-coupons/"><strong>Coupons</strong><span> kept · not overwritten</span></a><a href="/sugargoo-spreadsheet/"><strong>Spreadsheet</strong><span> kept · not overwritten</span></a><a href="/sugargoo-review/"><strong>Review</strong><span> kept · not overwritten</span></a></div></section><section class="sg-sec" id="faq"><h2>Fragen</h2><details class="sg-faq" open><summary>Verkauft SugarGoo die Ware?</summary><p>Nein. Einkaufsagent.</p></details><details class="sg-faq"><summary>Wo ist der Katalog?</summary><p>Auf dieser Startseite über /api/products/.</p></details><details class="sg-faq"><summary>Invite im Title?</summary><p>Nein. Nur am Register-Button.</p></details><details class="sg-faq"><summary>Lager?</summary><p>Offiziell 100 Tage gratis ab Packing Center bei Kaufaufträgen.</p></details><details class="sg-faq"><summary>Zoll?</summary><p>Folgt der SKU. Keine Unterdeklaration.</p></details><details class="sg-faq"><summary>Volumen?</summary><p>L×W×H/8000 in kg auf vielen Luftlinien.</p></details><details class="sg-faq"><summary>Ziel EU?</summary><p>Der Schätzer will ein Land. Hier: Deutschland.</p></details><details class="sg-faq"><summary>Coupons?</summary><p>Im Coupon-Artikel, nicht in diesem Title.</p></details><details class="sg-faq"><summary>QC?</summary><p>Lagerfotos in der App.</p></details><details class="sg-faq"><summary>Zwei Zahlungen?</summary><p>Ja: Ware plus Inland, später Porto.</p></details><details class="sg-faq"><summary>USD-Ziffern?</summary><p>Der Schalter ändert oft nur das Symbol.</p></details><details class="sg-faq"><summary>301 auf now.com?</summary><p>Nein.</p></details><details class="sg-faq"><summary>Turnschuhe?</summary><p>Oft 0 Treffer. Englisch sneakers.</p></details><details class="sg-faq"><summary>Ist das sugargoo.com?</summary><p>Nein. Unabhängiger Desk.</p></details><details class="sg-faq"><summary>Kakobuy?</summary><p>Anderer Agent, kein 301.</p></details></section><footer class="site-footer">
+</section><section class="sg-sec" id="kept"><h2>Bereits rankend auf diesem Host</h2><div class="keep"><a href="/sugargoo-coupons/"><strong>Coupons</strong><span> bleibt · nicht überschrieben</span></a><a href="/sugargoo-spreadsheet/"><strong>Spreadsheet</strong><span> bleibt · nicht überschrieben</span></a><a href="/sugargoo-review/"><strong>Review</strong><span> bleibt · nicht überschrieben</span></a></div></section><section class="sg-sec" id="faq"><h2>Fragen</h2><details class="sg-faq" open><summary>Verkauft SugarGoo die Ware auf dieser Seite?</summary><p>Nein. SugarGoo ist Einkaufsagent: er kauft in chinesischen Drittshops in deinem Namen, fotografiert im Lager, danach buchst du eine internationale SKU nach Deutschland. sugargoospreadsheets.de ist ein unabhängiger Infodesk. Bestellung, Zahlung und Reklamation nur auf https://www.sugargoo.com/. Die Karten auf sugargoospreadsheets.de sind ein Index, kein Lager von SugarGoo. Auf diesem Hostnamen wird nicht kassiert.</p></details><details class="sg-faq"><summary>Kann ich SugarGoo auf Deutsch stellen?</summary><p>Der Sprachwähler der Plattform ist unabhängig von diesem Desk. Gemessen 30 Sep 2026. Feldnamen im Schätzer bleiben oft englisch. Die Lieferadresse muss trotzdem Deutschland-Format haben. Die Sprache dieses Desks ändert die App nicht. In-App-Sprache am Bestelltag prüfen. Lieferadresse im Deutschland-Format.</p></details><details class="sg-faq"><summary>Warum findet der Katalog nichts auf Deutsch?</summary><p>Der Index, den /api/products/ auf sugargoospreadsheets.de liest, ist englisch (sneakers, hoodie, jacket). Turnschuhe oder Kapuzenpullover liefern oft 0 Karten. Das ist kein leerer Shop — das ist ein englischer Index. Messung 30 Sep 2026. Die Kategorie-Wand zeigt weiter die englischen Schlüssel (sneakers, hoodie, jacket) für /api/products/ auf sugargoospreadsheets.de. Messung 30 Sep 2026.</p></details><details class="sg-faq"><summary>Wie oft wird kassiert?</summary><p>Zweimal: zuerst Ware plus Inlandversand nach China-Lager, später die internationale Linie nach Deutschland. Dazwischen kannst du bündeln. Dieser Desk kassiert nicht. Lagerfotos sitzen zwischen den zwei Zahlungen. Internationale Fracht nach Deutschland erst nach akzeptiertem QC in der App buchen.</p></details><details class="sg-faq"><summary>Warum Dollar auf der offiziellen Seite und EUR hier?</summary><p>Der offizielle Währungsschalter ändert oft nur das Symbol, nicht die Ziffer. Dieser Desk rechnet die China-Karte nach EUR um (X-Rates 30 Sep 2026) — Anzeige, kein Kassenpreis. Zahl in der App am Büchertag lesen. Wenn die offizielle SPA nach Wahl von EUR weiter USD-Ziffern druckt, den Ziffern und https://www.sugargoo.com/freight-estimate trauen, nicht diesem HTML. Kurs 30 Sep 2026.</p></details><details class="sg-faq"><summary>Wie zahle ich?</summary><p>Nur in https://www.sugargoo.com/. Karte, PayPal, Guthaben — in der offiziellen FAQ desselben Tages prüfen. sugargoospreadsheets.de nimmt keine Kartendaten. Register-Links auf diesem Desk sammeln keine Kartennummern. Die Felder gibt es nur auf https://www.sugargoo.com/. sugargoospreadsheets.de speichert keine Methode.</p></details><details class="sg-faq"><summary>Was ist Volumengewicht?</summary><p>Die meisten Luft-SKUs rechnen max(Ist, L×B×H/Teiler) in Kilogramm (Widget in Gramm). Eine Daunenjacke ist leicht und voluminös. Nur Geometrie — Live-Preis in https://www.sugargoo.com/freight-estimate mit Ziel Deutschland. Das Widget nutzt 35×25×10 cm und 1000 g als Laborgewohnheit; dein Karton weicht ab. https://www.sugargoo.com/freight-estimate mit Ziel Deutschland öffnen, bevor du Porto zahlst.</p></details><details class="sg-faq"><summary>Wer zahlt Abgaben nach Deutschland?</summary><p>Steht auf der gebuchten SKU (tax free / prepaid / Empfänger). Zusteller können extra kassieren. Quelle dieses Desks: Zoll. Keine Tipps zur Unterdeklaration. Prepaid oder Empfänger wählst du beim Paket, nicht beim Warenkauf. SKU-Kopf und Zoll am selben Morgen lesen. Dieser Desk nennt keine Unterdeklaration für Deutschland.</p></details><details class="sg-faq"><summary>Gibt es eine Schwelle zum Umgehen?</summary><p>Nein. Schwellen, IOSS und de-minimis ändern sich. Zoll und die SKU-Bedingungen am Versandtag lesen. Dieser Desk erfindet keinen Deklarationsbetrag. Ein Discord-Screenshot einer Schwelle ist keine Anmeldung. Quelle dieses Desks: Zoll. Wir erfinden keinen Deklarationsbetrag für Deutschland, auch nicht „unter IOSS“.</p></details><details class="sg-faq"><summary>Kann ich mehrere Bestellungen bündeln?</summary><p>Ja, der übliche Sparweg. Teile warten im Lager. Speicherregel: 100 free days on purchasing orders from Packing Center. Wenn QC zwei Kartons macht, jeden Karton extra nach Deutschland schätzen. Speicherregel: 100 free days on purchasing orders from Packing Center. Danach kann das Lager berechnen oder entsorgen — offizielle Hilfe, nicht diese Seite. Geteilte Kartons jeweils nach Deutschland schätzen.</p></details><details class="sg-faq"><summary>Gibt es QC-Fotos?</summary><p>Ja, Lagerfotos landen in der App, sobald die Ware in China angekommen ist. Extra-Winkel sind oft kostenpflichtig. Reklamieren ist einfacher, solange das Stück noch im Lager liegt, nicht nach dem Zoll. Unscharfes Foto: extra Winkel in der App kaufen, solange das Stück noch in China ist, Ziel Deutschland. Dieser Desk öffnet kein Ticket.</p></details><details class="sg-faq"><summary>Was darf nicht?</summary><p>Tabak, Alkohol, Arzneimittel, verbotene Ware. Flüssigkeiten/Pulver können Gefahrgut sein. Plattformregel, nicht Zoll. Restricted oder Preis 0 nicht bestellen. Restricted ist eine Plattform-Kauf-Sperre, kein Zoll-Beschlag. Preis-0-Karten auf sugargoospreadsheets.de sind kein Checkout und keine Bestellung nach Deutschland.</p></details><details class="sg-faq"><summary>Warum restricted oder Preis 0?</summary><p>Herkunftslink nicht für Agentenkauf, oder Preis unlesbar. Ohne echten Preis nicht planen. Transborder-Shops oft außerhalb. Live-Seite von SugarGoo prüfen. Preis 0 heißt oft: Weidian- oder Taobao-Link tot. Live-Seite von SugarGoo am selben Tag öffnen; dieses HTML ist kein Haul-Plan.</p></details><details class="sg-faq"><summary>Paket leichter als geschätzt?</summary><p>Offizielle FAQ zu Schätzung vs. Istgewicht und Porto-Rückerstattung. Dieses HTML ist kein Live-Quote. https://www.sugargoo.com/freight-estimate nach Lagerfotos mit Ziel Deutschland neu rechnen. Rückerstattung Schätzung vs. Istgewicht steht in der offiziellen FAQ. https://www.sugargoo.com/freight-estimate nach Lagerfotos mit Ziel Deutschland neu rechnen, dann zahlen.</p></details><details class="sg-faq"><summary>Wo reklamiere ich?</summary><p>Nur auf https://www.sugargoo.com/, nicht hier. sugargoospreadsheets.de sieht dein Konto nicht. App-Chat / offizielle Hilfe. Schätzer-Ziel ist Deutschland, nicht die TLD. sugargoospreadsheets.de sieht keine Bestellnummer. Die In-App-ID behalten. Reklamation und Chat nur auf https://www.sugargoo.com/.</p></details></section></main>
+<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand"><a href="/" class="brand sugargoo-brand"><img class="brand-logo sugargoo-logo" src="/assets/images/sugargoo-logo.png" alt="Sugargoo"></a>
-      <p>Unabhängiger Infodesk auf sugargoospreadsheets.de. Nicht die offizielle SugarGoo-Seite. Schwester-Länderhosts bleiben eigene Dateien — kein 301.</p></div>
+      <p>Unabhängiger Infodesk auf sugargoospreadsheets.de. Nicht die offizielle SugarGoo-Seite. Schwester-Länderhosts bleiben eigene Dateien — kein 301.</p>
+      <p class="legal-note">Unabhängigkeit: sugargoospreadsheets.de ist ein Infodesk, nicht SugarGoo. Keine Bestellungen, kein Kontozugriff, kein Porto. Schwester-Länderhosts bleiben eigene Dateien — kein 301. Inhalt redaktionell geprüft 30 Sep 2026.</p></div>
       <div class="footer-col"><h5>Auf diesem Host</h5><ul>
         <li><a href="/hilfe/">Hilfe</a></li>
         <li><a href="/neuigkeiten/">Neuigkeiten</a></li>
