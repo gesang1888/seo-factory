@@ -28,6 +28,8 @@
     "catalogue on / with dated local-currency display",
     "independent Help / News / About (local slugs)",
     "15 long Help FAQs that name this dest + customs source",
+    "homepage + Help #local briefing with dest-unique checkable facts (address format, estimator country, named customs URL, last-mile operator)",
+    "generation MUST FAIL if dest fingerprint is missing or a sister dest leaks into #local",
     "FAQPage JSON-LD on Help; ItemList on News; Organization+ContactPoint on About",
     "skip-to-content, og:locale, WebPage+WebSite+Organization on every page",
     "dated lab note without inventing another agent's line count",

@@ -34,6 +34,8 @@ from desk_template import (
     itemlist_ld,
     keep_copy,
     lab_copy,
+    local_cta,
+    local_guide_html,
     long_faqs,
     og_locale,
     organization_ld,
@@ -564,6 +566,7 @@ def _facts(key: str) -> dict:
         "official": OFFICIAL,
         "date": DATE,
         "email": d["mail"],
+        "keep": d["keep"],
         "codes_off_title": [INVITE, COUPON],
         "strict_html_codes": False,
     }
@@ -1092,8 +1095,11 @@ def build_help(key: str) -> str:
   <h1>{m['h1']}</h1>
   <p class="hsub">{escape(m['lead'])}</p>
   <p class="eu-badge">{escape(d['badge'])}</p>
+  <p><a class="btn btn-outline" href="#local">{escape(local_cta(_facts(key)))}</a></p>
 </section>
-<section class="sg-sec" id="faq"><h2>{escape(m['h2'])}</h2>{''.join(items)}</section>
+"""
+    html += local_guide_html(_facts(key))
+    html += f"""<section class="sg-sec" id="faq"><h2>{escape(m['h2'])}</h2>{''.join(items)}</section>
 <section class="sg-sec"><h2>{escape(m['ask_h'])}</h2><p class="ssub">{escape(m['ask'])}</p>
 <p><a class="btn btn-primary" href="{REG}" target="_blank" rel="noopener sponsored">{escape({"fr":"S’inscrire","es":"Registrarse","de":"Registrieren","at":"Registrieren","nl":"Registreren"}.get(key,"Register"))}</a>
 <a class="btn btn-outline" href="/">← /</a></p></section>
@@ -1287,11 +1293,13 @@ def build_home(key: str) -> str:
   <p class="eu-badge">{escape(d["badge"])}</p>
   <div class="sg-ctas">
     <a class="btn btn-primary" href="#catalog">{escape({"fr":"Catalogue","es":"Catálogo","de":"Katalog","at":"Katalog","nl":"Catalogus"}.get(key,"Catalogue"))}</a>
+    <a class="btn btn-outline" href="#local">{escape(local_cta(_facts(key)))}</a>
     <a class="btn btn-outline" href="{EST}">{escape({"fr":"Estimateur","es":"Estimador","de":"Schätzer","at":"Schätzer","nl":"Estimator"}.get(key,"Estimator"))}</a>
     <a class="btn btn-outline" href="{REG}" target="_blank" rel="noopener sponsored">{escape({"fr":"S’inscrire","es":"Registrarse","de":"Registrieren","at":"Registrieren","nl":"Registreren"}.get(key,"Register"))}</a>
   </div>
 </section>
 """
+    html += local_guide_html(_facts(key))
     html += _prose_agent(key, d)
     html += _prose_sheet(key, d)
     html += _cat_wall(key, d)
@@ -1321,6 +1329,7 @@ def _validate() -> None:
         if "#00C853" in html:
             raise SystemExit(f"{key}: HipoBuy green leaked")
         for tok in (
+            'id="local"',
             'id="catalog"',
             'id="states"',
             'id="vol-calc"',

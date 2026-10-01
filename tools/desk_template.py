@@ -23,6 +23,7 @@ import re
 from html import escape
 
 REQUIRED_HOME_IDS = (
+    "local",
     "catalog",
     "agent",
     "sheet-explain",
@@ -72,7 +73,173 @@ FORBIDDEN_HTML = (
 SKIP_CSS = """.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
 .skip:focus{left:12px}
 .legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
+.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
+.local-src a{color:inherit}
 """
+
+# Dest-unique, checkable briefing. Substance differs (address format, postal
+# operator, official source). Swapping only dest_label is a doorway — these
+# fingerprints are what validate_desk requires on dest homes.
+DEST_LOCAL = {
+    "AT": {
+        "h2": "Was heute für eine österreichische Adresse gilt",
+        "cta": "AT-Check",
+        "fingerprint": "1010 Wien",
+        "aliens": ("Packstation", "Colissimo", "USPS", "iDEAL", "Royal Mail", "Poste Italiane", "CBSA", "ABF"),
+        "steps": [
+            ("Schätzer-Ziel AT", "Im offiziellen Schätzer das Land Österreich wählen — nicht EU, nicht DE, nicht diesen Hostnamen. Eine deutsche fünfstellige PLZ ist die falsche Destination."),
+            ("Adresse", "Österreichische Straße und vierstellige Postleitzahl (z. B. 1010 Wien). Das ist nicht das deutsche PLZ-Muster."),
+            ("Abgaben", "SKU entscheidet (tax-free / prepaid / Empfänger). Österreichische Post kann bei Collect eine Einhebungsgebühr verlangen. Quelle: BMF Zoll am Versandmorgen. Kein Deklarationsbetrag von diesem Desk."),
+            ("Letzte Meile", "Oft Österreichische Post. Die Sendungsverfolgungs-URL, die auf diesem Host schon rankt, bleibt — wir überschreiben sie nicht mit einem DE-DHL-Text."),
+        ],
+        "duty": "Wer Abgaben nach Österreich zahlt, steht auf der gebuchten SKU. Österreichische Post kann bei Collect extra kassieren. Quelle dieses Desks: BMF Zoll (bmf.gv.at), nicht ein Discord-Screenshot. Schätzer-Ziel ist AT mit vierstelliger Postleitzahl, nicht DE. Keine Unterdeklaration.",
+        "threshold": "IOSS und Einfuhr-USt ändern sich. BMF Zoll und die SKU-Bedingungen am Versandtag lesen. Dieser Desk erfindet keinen Betrag für eine AT-Adresse und kopiert keine Schwelle aus Deutschland.",
+    },
+    "DE": {
+        "h2": "Was heute für eine deutsche Adresse gilt",
+        "cta": "DE-Check",
+        "fingerprint": "Packstation",
+        "aliens": ("1010 Wien", "Colissimo", "USPS", "iDEAL", "Royal Mail", "Österreichische Post", "CBSA", "ABF"),
+        "steps": [
+            ("Schätzer-Ziel DE", "Im Schätzer Deutschland wählen — nicht AT, nicht EU, nicht diesen Hostnamen. Eine österreichische vierstellige PLZ ist die falsche Destination."),
+            ("Adresse", "Fünfstellige Postleitzahl. Packstation-Nummern sind ein DE-Muster. Das ist nicht die österreichische Briefpost."),
+            ("Abgaben", "SKU entscheidet. DHL / Deutsche Post können Zoll- und Nachnahmegebühren kassieren. Quelle: zoll.de am Versandmorgen. Kein Deklarationsbetrag."),
+            ("Letzte Meile", "Oft DHL oder Deutsche Post, nicht Post AT. Diesen Desk nicht mit einem AT-Tracking-Artikel verwechseln."),
+        ],
+        "duty": "Abgaben nach Deutschland folgen der SKU (tax-free / prepaid / Empfänger). DHL kann eine Zollgebühr kassieren, die der Schätzer oft nicht zeigt. Quelle: zoll.de. Zielcode DE, Packstation möglich, nicht AT. Keine Unterdeklaration.",
+        "threshold": "Einfuhr-USt und De-minimis ändern sich. zoll.de und die SKU am Versandtag lesen. Dieser Desk kopiert keine österreichische BMF-Zahl und erfindet keinen Deklarationsbetrag für DE.",
+    },
+    "ES": {
+        "h2": "Qué aplica hoy a una dirección en España",
+        "cta": "Check ES",
+        "fingerprint": "no copiamos un recuento de líneas",
+        "aliens": ("Packstation", "Colissimo", "USPS", "iDEAL", "Royal Mail", "Österreichische Post", "CBSA", "ABF"),
+        "steps": [
+            ("Destino del estimador: España", "Elige España, no EU, no este TLD. El recuento de líneas cambia cada semana: no copiamos un recuento de líneas ni un precio de otro agente."),
+            ("Dirección", "Calle española y código postal de cinco dígitos. No es un código francés ni un CAP italiano."),
+            ("Aranceles", "Lo dice la SKU. Correos puede añadir una tasa en Collect. Fuente: Agencia Tributaria / sede.agenciatributaria.gob.es el día del envío. Sin valor declarado inventado."),
+            ("Última milla", "A menudo Correos. El artículo de aduana que ya posiciona en este host se conserva; esta portada no lo pisa."),
+        ],
+        "duty": "Quién paga aranceles al entrar en España lo dice la SKU. Correos puede añadir una tasa de despacho en Collect. Fuente: Agencia Tributaria, no un recuento de líneas de otro agente. Destino del estimador: España. Sin infradeclaración.",
+        "threshold": "IVA, IOSS y umbrales cambian. Lee la AEAT y la SKU el día del envío. Este desk no inventa un valor declarado ni copia un snapshot de 58 líneas ajenas.",
+    },
+    "FR": {
+        "h2": "Ce qui vaut aujourd’hui pour une adresse en France",
+        "cta": "Check FR",
+        "fingerprint": "pas un code postal belge",
+        "aliens": ("Packstation", "USPS", "iDEAL", "Royal Mail", "Österreichische Post", "CBSA", "ABF", "Correos"),
+        "steps": [
+            ("Destination estimateur : France", "Choisir FR, pas EU, pas BE, pas ce nom d’hôte. Un code postal belge à quatre chiffres est le mauvais pays."),
+            ("Adresse", "Rue française, code postal à cinq chiffres. Ce desk n’est pas la Belgique."),
+            ("Droits", "La SKU décide (tax-free / prepaid / destinataire). Colissimo peut ajouter des frais en Collect. Source : douane.gouv.fr le matin de l’envoi. Pas de valeur déclarée inventée."),
+            ("Dernier kilomètre", "Souvent Colissimo. L’article douane déjà classé sur cet hôte reste — on ne le remplace pas par un texte ES ou BE."),
+        ],
+        "duty": "Qui paie les droits vers la France est sur la SKU. Colissimo peut ajouter des frais de dédouanement en Collect. Source : douane.gouv.fr. Destination FR, pas un code postal belge. Pas de sous-déclaration.",
+        "threshold": "TVA, IOSS et seuils bougent. Lis douane.gouv.fr et la SKU le jour de l’envoi. Ce desk n’invente pas une valeur déclarée et ne copie pas un dossier Belgique.",
+    },
+    "IT": {
+        "h2": "Cosa vale oggi per un indirizzo in Italia",
+        "cta": "Check IT",
+        "fingerprint": "Poste Italiane",
+        "aliens": ("Packstation", "Colissimo", "USPS", "iDEAL", "Royal Mail", "Österreichische Post", "CBSA", "ABF"),
+        "steps": [
+            ("Destinazione estimator: Italia", "Scegli IT, non EU, non questo hostname. Un CAP francese o un código español è la destinazione sbagliata."),
+            ("Indirizzo", "Via italiana e CAP a cinque cifre."),
+            ("Dazi", "Lo decide la SKU. Poste Italiane può aggiungere un fee in Collect. Fonte: Agenzia delle Dogane e dei Monopoli il giorno della spedizione. Nessun valore dichiarato inventato."),
+            ("Ultimo miglio", "Spesso Poste Italiane. L’articolo dogana già in ranking su questo host resta."),
+        ],
+        "duty": "Chi paga dazi verso l’Italia lo dice la SKU. Poste Italiane può aggiungere un fee di sdoganamento. Fonte: ADM (adm.gov.it). Destinazione IT, non Correos. Niente sottofatturazione.",
+        "threshold": "IVA, IOSS e soglie cambiano. Leggi ADM e la SKU il giorno della spedizione. Questo desk non inventa un valore dichiarato per un CAP italiano.",
+    },
+    "NL": {
+        "h2": "Wat vandaag geldt voor een Nederlands adres",
+        "cta": "Check NL",
+        "fingerprint": "Nederlandse postcode",
+        "aliens": ("Packstation", "Colissimo", "USPS", "Royal Mail", "Österreichische Post", "CBSA", "ABF", "Poste Italiane"),
+        "steps": [
+            ("Estimator-bestemming: Nederland", "Kies NL, niet EU, niet deze hostname. Een Belgische of Duitse postcode is het verkeerde land."),
+            ("Adres", "Nederlandse postcode (vorm 1234 AB), geen Duits afhaalautomaat-nummer."),
+            ("Invoer", "De SKU beslist. De bezorger (vaak DHL) kan bij Collect extra innen. Bron: Belastingdienst Douane op de verzenddag. Geen verzonnen aangegeven waarde."),
+            ("Laatste mile", "Vaak DHL. iDEAL is een NL-betaalrail in de officiële app — bevestig daar, niet op dit desk. Rankende BTW/douane-URL op deze host blijft."),
+        ],
+        "duty": "Wie invoer naar Nederland betaalt, staat op de SKU. DHL kan bij Collect een inklaringsfee innen. Bron: Belastingdienst Douane. Bestemming NL met Nederlandse postcode, geen Duits afhaalautomaat-nummer. Geen onderwaardering.",
+        "threshold": "BTW, IOSS en drempels wijzigen. Lees de Douane en de SKU op de verzenddag. Deze desk verzint geen aangegeven waarde en kopieert geen Duitse Zoll-drempel.",
+    },
+    "US": {
+        "h2": "What applies today to a US delivery address",
+        "cta": "US checks",
+        "fingerprint": "does not invent a de-minimis dollar",
+        "aliens": ("Packstation", "Colissimo", "iDEAL", "Royal Mail", "Österreichische Post", "CBSA", "ABF", "Poste Italiane", "A1A 1A1"),
+        "steps": [
+            ("Estimator destination: United States", "Pick US, not this TLD, not “EU”. A Canadian postal code is the wrong country."),
+            ("Address", "US street + ZIP. This desk does not file CBP entries."),
+            ("Duties", "The booked SKU says tax-free / prepaid / collect. USPS or FedEx can add a collect fee the estimator hides. Source: CBP the morning you ship. This desk does not invent a de-minimis dollar."),
+            ("Last mile", "Often USPS or FedEx. Ranked de-minimis / USPS-time URLs on this host stay — we do not overwrite them with a live threshold."),
+        ],
+        "duty": "Who pays duties into the United States is a property of the booked SKU. USPS or FedEx can add a collect handling fee. Educational source: CBP. This desk does not invent a de-minimis dollar and does not coach a declared value.",
+        "threshold": "De-minimis and informal-entry rules change. Read CBP and the SKU the morning you ship. Ranked educational URLs on this host stay; this homepage does not paste a dollar figure into the title.",
+    },
+    "CA": {
+        "h2": "What applies today to a Canadian delivery address",
+        "cta": "Canada checks",
+        "fingerprint": "form A1A 1A1",
+        "aliens": ("Packstation", "Colissimo", "iDEAL", "Royal Mail", "Österreichische Post", "USPS", "ABF", "Poste Italiane"),
+        "steps": [
+            ("Estimator destination: Canada", "Pick CA, not this TLD, not US. A US ZIP is the wrong country."),
+            ("Address", "Canadian postal code (form A1A 1A1). This hostname is not a .ca 301 from another agent."),
+            ("Duties", "The SKU decides. Collect can add a broker fee. Source: CBSA the morning you ship. GST/HST articles already ranking on this host stay — we do not copy a rate into this title."),
+            ("Last mile", "Follow the live SKU. Ranked shipping-to-Canada URL on this host stays."),
+        ],
+        "duty": "Who pays duties into Canada is on the booked SKU. A broker or last-mile can add a collect fee. Educational source: CBSA. Use a Canadian postal code in the estimator, not a US ZIP. No declared-value coaching.",
+        "threshold": "GST/HST and CBSA thresholds change. Read CBSA and the ranked GST article on this host the morning you ship. This desk does not invent a rate or a declared value for Canada.",
+    },
+    "GB": {
+        "h2": "What applies today to a UK delivery address",
+        "cta": "UK checks",
+        "fingerprint": "Northern Ireland is often another",
+        "aliens": ("Packstation", "Colissimo", "iDEAL", "Österreichische Post", "USPS", "CBSA", "ABF", "Poste Italiane"),
+        "steps": [
+            ("Estimator destination: United Kingdom", "Pick GB in the official estimator — not this TLD, not EU. A French code postal is the wrong country."),
+            ("Address", "UK postcode. Northern Ireland is often another carrier product — do not assume the same Royal Mail SKU as mainland GB."),
+            ("Duties", "The SKU decides. Royal Mail can add a collect fee. Source: HMRC (gov.uk/goods-sent-from-abroad) the morning you ship. Ranked VAT articles on this host stay; no invented rate in this title."),
+            ("Last mile", "Often Royal Mail on GB. Confirm the live SKU. This desk does not file HMRC entries."),
+        ],
+        "duty": "Who pays import charges into the United Kingdom is on the booked SKU. Royal Mail can add a collect fee. Source: HMRC. Estimator destination GB. Northern Ireland is often another carrier product. No declared-value coaching.",
+        "threshold": "UK import VAT rules change. Read HMRC and the ranked VAT article on this host the morning you ship. This desk does not invent a declared value or paste an EU IOSS figure onto GB.",
+    },
+    "AU": {
+        "h2": "What applies today to an Australian delivery address",
+        "cta": "AU checks",
+        "fingerprint": "do not copy a GST rate",
+        "aliens": ("Packstation", "Colissimo", "iDEAL", "Royal Mail", "Österreichische Post", "USPS", "CBSA", "Poste Italiane"),
+        "steps": [
+            ("Estimator destination: Australia", "Pick AU, not this TLD, not US. A UK postcode is the wrong country."),
+            ("Address", "Australian four-digit postcode. This desk does not invent Australia-Post transit days."),
+            ("GST / ABF", "The SKU decides. Collect can add a last-mile fee. Source: ABF the morning you ship. The ranked GST article on this host stays — we do not copy a GST rate into this title."),
+            ("Last mile", "Read the live SKU. Catalogue prices here show AUD as display conversion, not checkout."),
+        ],
+        "duty": "Who pays GST or duty into Australia is on the booked SKU. A last-mile can add a collect fee. Educational source: ABF. Estimator destination AU. This desk does not copy a GST rate into a title and does not coach a declared value.",
+        "threshold": "ABF and GST rules change. Read ABF and the ranked GST article on this host the morning you ship. No invented threshold, no under-declaration.",
+    },
+    "HUB": {
+        "h2": "This hostname is not a customs territory",
+        "cta": "Pick a country",
+        "fingerprint": "not a customs territory",
+        "aliens": ("1010 Wien", "Packstation", "Colissimo", "USPS", "iDEAL", "Royal Mail", "Poste Italiane"),
+        "steps": [
+            ("Open the estimator with a country", "The official freight form needs US, CA, FR, ES, AT… not this hostname and not “Europe” as one country."),
+            ("Do not paste another dest’s lab", "Spain-only line counts and another desk’s postal operator stay off this hub."),
+            ("Hub pages already ranking stay", "Coupon / spreadsheet / IOSS html or articles on this host are not overwritten by a fake destination."),
+            ("Orders stay on the official app", "This hub does not take payment or see your account."),
+        ],
+        "duty": "This hostname is not a customs territory. Duties follow the country you pick in the official estimator, not the TLD. Read that country’s customs site the morning you ship. No under-declaration.",
+        "threshold": "A hub TLD has no de-minimis of its own. Pick a real country in the estimator. This desk does not invent a threshold for “EU” as one destination.",
+    },
+}
 
 
 def og_locale(lang: str) -> str:
@@ -173,6 +340,114 @@ def customs_for(dest: str | None) -> tuple[str, str]:
     return CUSTOMS.get(dest, (f"customs for {dest}", ""))
 
 
+def dest_local_pack(dest: str | None) -> dict:
+    if dest and dest in DEST_LOCAL:
+        return DEST_LOCAL[dest]
+    return DEST_LOCAL["HUB"]
+
+
+def _local_chrome(loc: str) -> dict:
+    table = {
+        "de": {
+            "swap": "kein Ortsnamen-Tausch",
+            "src": "Offizielle Quelle dieses Desks",
+            "lab": "Labor",
+            "live": "Live-Preis steht in",
+            "not_checkout": "dieses HTML ist keine Kasse.",
+            "hub": "Labor {date}. Offiziellen Schätzer mit einem echten Ländercode öffnen. Dieses HTML ist keine Kasse.",
+            "kept": "Bereits auf diesem Host (behalten)",
+        },
+        "es": {
+            "swap": "no es un cambio de nombre de país",
+            "src": "Fuente oficial de este desk",
+            "lab": "Lab",
+            "live": "El dinero real está en",
+            "not_checkout": "este HTML no es caja.",
+            "hub": "Lab {date}. Abre el estimador oficial con un código de país real. Este HTML no es caja.",
+            "kept": "Ya en este host (se conserva)",
+        },
+        "fr": {
+            "swap": "pas un simple changement de nom",
+            "src": "Source officielle de ce desk",
+            "lab": "Labo",
+            "live": "L’argent réel est dans",
+            "not_checkout": "cet HTML n’est pas une caisse.",
+            "hub": "Labo {date}. Ouvre l’estimateur officiel avec un vrai code pays. Cet HTML n’est pas une caisse.",
+            "kept": "Déjà sur cet hôte (conservé)",
+        },
+        "it": {
+            "swap": "non è uno scambio di nome",
+            "src": "Fonte ufficiale di questo desk",
+            "lab": "Lab",
+            "live": "I soldi veri stanno in",
+            "not_checkout": "questo HTML non è cassa.",
+            "hub": "Lab {date}. Apri l’estimator ufficiale con un codice paese vero. Questo HTML non è cassa.",
+            "kept": "Già su questo host (conservato)",
+        },
+        "nl": {
+            "swap": "geen landnaam-wissel",
+            "src": "Officiële bron van deze desk",
+            "lab": "Lab",
+            "live": "Live-geld staat in",
+            "not_checkout": "deze HTML is geen kassa.",
+            "hub": "Lab {date}. Open de officiële estimator met een echte landcode. Deze HTML is geen kassa.",
+            "kept": "Al op deze host (behouden)",
+        },
+        "en": {
+            "swap": "not a location-name swap",
+            "src": "Official source this desk names",
+            "lab": "Lab",
+            "live": "Live money is in",
+            "not_checkout": "this HTML is not checkout.",
+            "hub": "Lab {date}. Open the official estimator with a real country code. This HTML is not checkout.",
+            "kept": "Already on this host (kept)",
+        },
+    }
+    return table.get(loc) or table["en"]
+
+
+def local_guide_html(facts: dict) -> str:
+    """Homepage / Help briefing whose substance differs per dest — not a name swap."""
+    x = _f(facts)
+    pack = dest_local_pack(facts.get("dest"))
+    ch = _local_chrome(facts.get("loc") or "en")
+    date, est = x["date"], x["estimator"]
+    source, source_url = x["customs"], x["customs_url"]
+    items = []
+    for title, body in pack["steps"]:
+        items.append(
+            f"<li><strong>{escape(title)}</strong><span>{escape(body)}</span></li>"
+        )
+    if source_url:
+        src = (
+            f'<p class="local-src">{escape(ch["src"])}: '
+            f'<a href="{escape(source_url)}" rel="noopener">{escape(source)}</a>. '
+            f'{escape(ch["lab"])} {escape(date)}. {escape(ch["live"])} '
+            f'<a href="{escape(est)}">{escape(est)}</a> — {escape(ch["not_checkout"])}</p>'
+        )
+    else:
+        src = f'<p class="local-src">{escape(ch["hub"].format(date=date))}</p>'
+    keep = facts.get("keep") or []
+    ranked = ""
+    if keep:
+        links = " · ".join(
+            f'<a href="{escape(href)}">{escape(lab)}</a>' for href, lab in keep[:4]
+        )
+        ranked = f'<p class="local-src">{escape(ch["kept"])}: {links}</p>'
+    return f"""<section class="sg-sec" id="local">
+  <h2>{escape(pack["h2"])}</h2>
+  <p class="ssub">{escape(x["dest_label"])} · {escape(x["host"])} · {escape(ch["swap"])}.</p>
+  <ol class="local-steps">{''.join(items)}</ol>
+  {src}
+  {ranked}
+</section>
+"""
+
+
+def local_cta(facts: dict) -> str:
+    return dest_local_pack(facts.get("dest")).get("cta") or "Local checks"
+
+
 def _f(facts: dict) -> dict:
     dest = facts.get("dest")
     cname, curl = customs_for(dest)
@@ -207,7 +482,13 @@ def long_faqs(facts: dict) -> list[tuple[str, str]]:
     extras = _faq_extras(loc, x)
     if len(pairs) != 15 or len(extras) != 15:
         raise RuntimeError(f"faq count {len(pairs)} extras {len(extras)}")
-    return [(q, f"{a} {ex}".strip()) for (q, a), ex in zip(pairs, extras)]
+    out = [(q, f"{a} {ex}".strip()) for (q, a), ex in zip(pairs, extras)]
+    pack = dest_local_pack(facts.get("dest"))
+    if pack.get("duty"):
+        out[7] = (out[7][0], f"{pack['duty']} {extras[7]}".strip())
+    if pack.get("threshold"):
+        out[8] = (out[8][0], f"{pack['threshold']} {extras[8]}".strip())
+    return out
 
 
 def _faq_extras(loc: str, x: dict) -> list[str]:
@@ -650,8 +931,47 @@ def vol_js_labels(loc: str) -> tuple[str, str]:
     }.get(loc, ("Volumetric", "billed"))
 
 
+def assert_dest_packs_unique() -> None:
+    """Generation must fail if two dests share a fingerprint or leak another dest's fact."""
+    fps: dict[str, str] = {}
+    for dest, pack in DEST_LOCAL.items():
+        fp = pack["fingerprint"]
+        if not fp or len(fp) < 8:
+            raise RuntimeError(f"{dest}: fingerprint too weak")
+        if fp in fps:
+            raise RuntimeError(f"duplicate dest fingerprint {fp!r}: {fps[fp]} vs {dest}")
+        fps[fp] = dest
+    for dest, pack in DEST_LOCAL.items():
+        blob = " ".join(f"{t} {b}" for t, b in pack["steps"])
+        blob = f"{blob} {pack.get('duty') or ''} {pack.get('threshold') or ''}"
+        for ofp, other in fps.items():
+            if other == dest:
+                continue
+            if ofp in blob:
+                raise RuntimeError(f"{dest} briefing contains {other} fingerprint {ofp!r}")
+
+
+def _local_inner(html: str) -> str:
+    m = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
+    return m.group(0) if m else ""
+
+
+def _check_local_section(html: str, facts: dict, err: list[str]) -> None:
+    pack = dest_local_pack(facts.get("dest"))
+    inner = _local_inner(html)
+    if pack.get("fingerprint") and pack["fingerprint"] not in html:
+        err.append(f"missing dest fingerprint {pack['fingerprint']}")
+    if inner:
+        for alien in pack.get("aliens") or ():
+            if alien in inner:
+                err.append(f"sister dest leak in #local: {alien}")
+    elif 'id="local"' not in html:
+        err.append("missing #local dest briefing")
+
+
 def validate_desk(html: str, facts: dict, *, page: str = "home") -> list[str]:
     """Return error strings. Empty list = pass. Call from generators."""
+    assert_dest_packs_unique()
     err: list[str] = []
     x = _f(facts)
     title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
@@ -680,6 +1000,7 @@ def validate_desk(html: str, facts: dict, *, page: str = "home") -> list[str]:
             err.append("missing catalogue API")
         if f'var FX_CCY="{x["ccy"]}"' not in html:
             err.append(f"missing FX_CCY {x['ccy']}")
+        _check_local_section(html, facts, err)
     if "href=\"#main\"" not in html and "href='#main'" not in html:
         err.append("missing skip-to-content")
     if x["host"] and x["host"] not in html:
@@ -693,6 +1014,7 @@ def validate_desk(html: str, facts: dict, *, page: str = "home") -> list[str]:
     if page in ("home", "help") and len(details) < 12:
         err.append(f"faq count {len(details)}")
     if page == "help":
+        _check_local_section(html, facts, err)
         if "FAQPage" not in html:
             err.append("help missing FAQPage JSON-LD")
         short = 0
@@ -731,4 +1053,5 @@ if __name__ == "__main__":
     }
     pairs = long_faqs(sample)
     assert len(pairs) == 15
+    assert_dest_packs_unique()
     print("desk_template ok", len(pairs), "faqs ·", customs_for("AT")[0], "·", customs_for("ES")[0])
