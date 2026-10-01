@@ -23,6 +23,7 @@ from pathlib import Path
 _TOOLS = Path(__file__).resolve().parent
 if str(_TOOLS) not in sys.path:
     sys.path.insert(0, str(_TOOLS))
+from desk_fx import EXTRA_CSS_FX, catalog_block, currency_for, ui_copy
 from sugargoo_desk_trust import CAT_LABELS, CAT_WALL, loc as _loc, pack as _trust_pack
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -330,7 +331,7 @@ a.sg-cat span{font-size:11px;opacity:.85;letter-spacing:.2px}
 .sg-about h2{font-size:22px;margin:28px 0 8px}
 .sg-about h3{font-size:16px;margin:18px 0 6px}
 .sg-about p{color:#334155;line-height:1.75;margin:0 0 12px}
-"""
+""" + EXTRA_CSS_FX
 
 
 HREFLANG = [
@@ -357,15 +358,16 @@ def _hreflang() -> str:
 
 
 def _locale_switcher(key: str, d: dict) -> str:
+    u = ui_copy(_loc(key))
     rows = [
-        ("English", [
+        (u["en_group"], [
             ("now", "sugargoospreadsheetnow.com", "English (Global)"),
             ("us", "sugargoospreadsheets.us", "English (USA)"),
             ("uk", "sugargoospreadsheets.uk", "English (UK)"),
             ("ca", "sugargoospreadsheets2026.ca", "English (Canada)"),
             ("au", "sugargoospreadsheet.au", "English (Australia)"),
         ]),
-        ("Local editions", [
+        (u["local_group"], [
             ("fr", "sugargoospreadsheets.fr", "Français (France)"),
             ("es", "sugargoospreadsheet.es", "Español (España)"),
             ("nl", "sugargoospreadsheets.nl", "Nederlands"),
@@ -376,7 +378,7 @@ def _locale_switcher(key: str, d: dict) -> str:
     parts = ['<div class="locale-switcher" data-locale-switcher>']
     parts.append(
         '<button type="button" class="locale-switcher-btn" data-locale-toggle '
-        'aria-haspopup="listbox" aria-expanded="false" aria-label="Choose language or region">'
+        f'aria-haspopup="listbox" aria-expanded="false" aria-label="{escape(u["choose_lang"])}">'
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
         '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>'
         f'<span>{escape(d["locale"])}</span>'
@@ -393,7 +395,7 @@ def _locale_switcher(key: str, d: dict) -> str:
             )
     parts.append(
         f'<div class="locale-switcher-register"><a href="{REG}" target="_blank" rel="noopener sponsored">'
-        "Register on Sugargoo →</a></div>"
+        f"{escape(u['register_on'].format(brand='Sugargoo'))}</a></div>"
     )
     parts.append("</div></div>")
     return "".join(parts)
@@ -578,7 +580,7 @@ def _header(key: str, d: dict, page: str = "home") -> str:
       <a href="#catalog" class="btn btn-primary">{escape(cta)}</a>
       <a href="{REG}" target="_blank" rel="noopener sponsored" class="btn btn-outline">{escape({"fr":"S’inscrire","es":"Registrarse","de":"Registrieren","at":"Registrieren","nl":"Registreren"}.get(key,"Register"))}</a>
       {_locale_switcher(key, d)}
-      <button class="mobile-toggle" data-mobile-toggle aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <button class="mobile-toggle" data-mobile-toggle aria-label="{escape(ui_copy(_loc(key))['menu'])}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
     </div>
   </div>
 </header>
@@ -586,29 +588,31 @@ def _header(key: str, d: dict, page: str = "home") -> str:
 
 
 def _footer(key: str, d: dict) -> str:
+    u = ui_copy(_loc(key))
+    t = _trust_paths(key)
     return f"""<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand"><a href="/" class="brand sugargoo-brand"><img class="brand-logo sugargoo-logo" src="/assets/images/sugargoo-logo.png" alt="Sugargoo"></a>
-      <p>Independent information desk on {escape(d['host'])}. Not the official SugarGoo site. Sister country hosts stay separate files — no 301.</p></div>
-      <div class="footer-col"><h5>On this host</h5><ul>
-        <li><a href="/{_trust_paths(key)['help']}/">{escape(_trust_paths(key)['help_lab'])}</a></li>
-        <li><a href="/{_trust_paths(key)['news']}/">{escape(_trust_paths(key)['news_lab'])}</a></li>
-        <li><a href="/{_trust_paths(key)['about']}/">{escape(_trust_paths(key)['about_lab'])}</a></li>
+      <p>{escape(u['foot'].format(host=d['host'], brand='SugarGoo'))}</p></div>
+      <div class="footer-col"><h5>{escape(u['on_host'])}</h5><ul>
+        <li><a href="/{t['help']}/">{escape(t['help_lab'])}</a></li>
+        <li><a href="/{t['news']}/">{escape(t['news_lab'])}</a></li>
+        <li><a href="/{t['about']}/">{escape(t['about_lab'])}</a></li>
         {''.join(f'<li><a href="{escape(h)}">{escape(l)}</a></li>' for h,l in d['keep'])}
       </ul></div>
-      <div class="footer-col"><h5>Official</h5><ul>
-        <li><a href="{EST}">Freight estimate</a></li>
-        <li><a href="{REG}" rel="noopener sponsored">Register</a></li>
+      <div class="footer-col"><h5>{escape(u['official'])}</h5><ul>
+        <li><a href="{EST}">{escape(u['freight'])}</a></li>
+        <li><a href="{REG}" rel="noopener sponsored">{escape(u['register'])}</a></li>
         <li><a href="{OFFICIAL}">sugargoo.com</a></li>
       </ul></div>
-      <div class="footer-col"><h5>Contact</h5><ul>
+      <div class="footer-col"><h5>{escape(u['contact'])}</h5><ul>
         <li><a href="mailto:{escape(d['mail'])}">{escape(d['mail'])}</a></li>
-        <li><a href="/privacy-policy/">Privacy</a></li>
-        <li><a href="/cookie-policy/">Cookies</a></li>
+        <li><a href="/privacy-policy/">{escape(u['privacy'])}</a></li>
+        <li><a href="/cookie-policy/">{escape(u['cookies'])}</a></li>
       </ul></div>
     </div>
-    <p class="footer-locale-cluster" style="margin:12px 0;font-size:13px;color:#94A3B8">Independent desks:
+    <p class="footer-locale-cluster" style="margin:12px 0;font-size:13px;color:#94A3B8">{escape(u['desks'])}:
       <a href="https://sugargoospreadsheetnow.com/">Global</a> ·
       <a href="https://sugargoospreadsheets.us/">USA</a> ·
       <a href="https://sugargoospreadsheet.au/">Australia</a> ·
@@ -620,7 +624,7 @@ def _footer(key: str, d: dict) -> str:
       <a href="https://sugargoo.at/">Österreich</a> ·
       <a href="https://sugargoospreadsheets.nl/">Nederland</a>
     </p>
-    <div class="footer-bottom"><div>© 2026 {escape(d['host'])} · independent desk</div></div>
+    <div class="footer-bottom"><div>© 2026 {escape(d['host'])} · {escape(u['indep'])}</div></div>
   </div>
 </footer>
 <script src="/assets/js/main.js?v=20260930-home"></script>
@@ -629,101 +633,7 @@ def _footer(key: str, d: dict) -> str:
 
 
 def _catalog(key: str) -> str:
-    chips = "".join(
-        f'<button type="button" data-q="{escape(q)}" class="{"on" if slug=="all" else ""}">{escape(lab)}</button>'
-        for slug, lab, q in CATS
-    )
-    ph = {
-        "fr": ("Rechercher sneakers, hoodie…", "Le catalogue anglais est sur cette accueil via /api/products/."),
-        "es": ("Buscar sneakers, hoodie…", "El catálogo en inglés está en esta portada via /api/products/."),
-        "de": ("Sneakers, Hoodie suchen…", "Der englische Katalog liegt auf dieser Startseite über /api/products/."),
-        "at": ("Sneakers, Hoodie suchen…", "Der englische Katalog liegt auf dieser Startseite über /api/products/."),
-        "nl": ("Zoek sneakers, hoodie…", "De Engelse catalogus staat op deze homepage via /api/products/."),
-    }.get(key, ("Search sneakers, hoodie…", "The English catalogue renders on this homepage from /api/products/."))
-    return f"""
-<section class="sg-mw" id="catalog">
-  <p class="ssub">{escape(ph[1])} Local words often return zero — type the English key.</p>
-  <div class="sg-chips">{chips}</div>
-  <div class="sg-fbar">
-    <input id="sg-q" type="search" placeholder="{escape(ph[0])}">
-    <span id="sg-count"></span>
-  </div>
-  <div class="sg-grid" id="sg-grid"></div>
-</section>
-<script>
-(function(){{
-  var PAPI='/api/products/';
-  var q='';
-  var W2C_IMG='https://w2clinks.com';
-  function absImg(u){{
-    if(!u) return '';
-    u=String(u);
-    if(/^https?:\\/\\//i.test(u)) return u;
-    if(u.indexOf('//')===0) return 'https:'+u;
-    if(u.charAt(0)==='/') return W2C_IMG+u;
-    return W2C_IMG+'/'+u.replace(/^\\/+/, '');
-  }}
-  function render(data){{
-    var items=data.items||data.products||[];
-    var g=document.getElementById('sg-grid');
-    var c=document.getElementById('sg-count');
-    if(c) c.textContent=items.length+' on this page';
-    g.innerHTML='';
-    items.forEach(function(it){{
-      var el=document.createElement('article');
-      el.className='sg-card';
-      var img=document.createElement('img');
-      img.src=absImg(it.image||''); img.alt=it.title||''; img.loading='lazy';
-      img.referrerPolicy='no-referrer'; img.decoding='async';
-      var b=document.createElement('div'); b.className='b';
-      var t=document.createElement('div'); t.className='t'; t.textContent=it.title||'';
-      var p=document.createElement('div'); p.className='pr'; p.textContent=(it.currency||'')+' '+(it.price||'');
-      b.appendChild(t); b.appendChild(p);
-      var a=document.createElement('a'); a.className='buy'; a.target='_blank'; a.rel='noopener sponsored';
-      a.href=it.href||it.target||'{REG}'; a.textContent='Open';
-      el.appendChild(img); el.appendChild(b); el.appendChild(a);
-      g.appendChild(el);
-    }});
-    if(!items.length) g.innerHTML='<p>No cards for that English key. Try sneakers or hoodie.</p>';
-  }}
-  function load(){{
-    var u=new URL(PAPI, location.origin);
-    if(q) u.searchParams.set('q', q);
-    u.searchParams.set('limit','24');
-    u.searchParams.set('page','1');
-    fetch(u, {{headers:{{'Accept':'application/json'}}}}).then(function(r){{return r.json();}}).then(render).catch(function(){{
-      document.getElementById('sg-grid').innerHTML='<p>Catalogue API not reachable on this host yet.</p>';
-    }});
-  }}
-  function applyQ(next){{
-    q=next||'';
-    var inp=document.getElementById('sg-q');
-    if(inp) inp.value=q;
-    document.querySelectorAll('.sg-chips button').forEach(function(x){{
-      x.classList.toggle('on', (x.getAttribute('data-q')||'')===q);
-    }});
-    load();
-  }}
-  document.querySelectorAll('.sg-chips button').forEach(function(b){{
-    b.addEventListener('click', function(){{ applyQ(b.getAttribute('data-q')||''); }});
-  }});
-  document.querySelectorAll('a.sg-cat[data-q]').forEach(function(a){{
-    a.addEventListener('click', function(ev){{
-      ev.preventDefault();
-      applyQ(a.getAttribute('data-q')||'');
-      var cat=document.getElementById('catalog');
-      if(cat) cat.scrollIntoView({{behavior:'smooth',block:'start'}});
-    }});
-  }});
-  var inp=document.getElementById('sg-q');
-  var t=null;
-  inp.addEventListener('input', function(){{
-    clearTimeout(t); t=setTimeout(function(){{ q=inp.value.trim(); load(); }}, 250);
-  }});
-  load();
-}})();
-</script>
-"""
+    return catalog_block(key, HOSTS[key], register_url=REG, loc_fn=_loc, cat_labels=CAT_LABELS)
 
 
 def _nine(key: str) -> str:
@@ -1479,6 +1389,11 @@ def _validate() -> None:
         ):
             if tok not in html:
                 raise SystemExit(f"{key}: missing {tok}")
+        ccy = currency_for(key, d)
+        if f'var FX_CCY="{ccy}"' not in html or "FX_RATE" not in html:
+            raise SystemExit(f"{key}: missing local FX {ccy}")
+        if "p.textContent=(it.currency||'')+' '+(it.price" in html:
+            raise SystemExit(f"{key}: raw CNY catalogue concat")
         ncat = len(re.findall(r"class=\"sg-cat\"", html))
         if ncat != 16:
             raise SystemExit(f"{key}: cat wall {ncat}")
