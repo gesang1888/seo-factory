@@ -1,0 +1,8 @@
+<section class="sg-sec" id="local">
+  <h2>Cosa vale oggi per un indirizzo in Italia</h2>
+  <p class="ssub">Italia · cssbuy.it · non è uno scambio di nome.</p>
+  <ol class="local-steps"><li><strong>Destinazione estimator: Italia</strong><span>Scegli IT, non EU, non questo hostname. Un CAP francese o un código español è la destinazione sbagliata.</span></li><li><strong>Indirizzo</strong><span>Via italiana e CAP a cinque cifre.</span></li><li><strong>Dazi</strong><span>Lo decide la SKU. Poste Italiane può aggiungere un fee in Collect. Fonte: Agenzia delle Dogane e dei Monopoli il giorno della spedizione. Nessun valore dichiarato inventato.</span></li><li><strong>Ultimo miglio</strong><span>Spesso Poste Italiane. L’articolo dogana già in ranking su questo host resta.</span></li></ol>
+  <p class="local-src">Fonte ufficiale di questo desk: <a href="https://www.adm.gov.it/portale/" rel="noopener">Agenzia delle Dogane e dei Monopoli</a>. Lab 2 Oct 2026. I soldi veri stanno in <a href="https://www.cssbuy.com/?action=estimates&amp;go=page">https://www.cssbuy.com/?action=estimates&amp;go=page</a> — questo HTML non è cassa.</p>
+  <p class="local-src">Già su questo host (conservato): <a href="/guide/shipping">Spedizione</a> · <a href="/guide/customs">Dogana</a> · <a href="/spreadsheet">Spreadsheet</a> · <a href="/guide/first-order">Primo ordine</a></p>
+<p class="local-src">Poste Italiane. Il paese dell’estimator è IT, non questo TLD, non EU. Magazzino: 90 giorni gratis da In Warehouse (FAQ ufficiale CSSBuy), poi ¥15/ordine/mese. Conferma Help il giorno della spedizione. I soldi veri stanno in <a href="https://www.cssbuy.com/?action=estimates&amp;go=page">https://www.cssbuy.com/?action=estimates&amp;go=page</a> — questo HTML non è cassa.</p>
+</section>

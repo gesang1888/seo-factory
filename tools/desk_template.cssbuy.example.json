@@ -1,0 +1,15 @@
+{
+  "agent": "CSSBuy",
+  "host": "cssbuy.fr",
+  "lang": "fr-FR",
+  "loc": "fr",
+  "dest": "FR",
+  "dest_label": "France",
+  "ccy": "EUR",
+  "storage": "90 free days from In Warehouse, then ¥15/order/month (official CSSBuy FAQ)",
+  "estimator": "https://www.cssbuy.com/?action=estimates&go=page",
+  "official": "https://www.cssbuy.com/",
+  "date": "2 Oct 2026",
+  "codes_off_title": ["1Yi9"],
+  "strict_html_codes": false
+}
