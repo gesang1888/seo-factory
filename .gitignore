@@ -13,6 +13,8 @@ output/*
 # Site-specific generated content (optional local builds)
 sites/*/dist/
 sites/*/.cache/
+sites/*/overlay/product/
+sites/*/products.json
 
 # Environment & secrets
 .env
