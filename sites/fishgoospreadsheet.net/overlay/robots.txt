@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /start/
+Allow: /shipping/
+Allow: /coupons/
+Disallow: /api/
+Disallow: /assets/
+Disallow: /fishgoo-
+
+Sitemap: https://fishgoospreadsheet.net/sitemap.xml
