@@ -221,6 +221,8 @@ def ui_copy(lang: str) -> dict:
 
 
 def currency_for(key: str, d: dict) -> str:
+    if d.get("ccy"):
+        return d["ccy"]
     dest = (d.get("dest") or "").upper()
     if dest in {"AT", "IT", "ES", "FR", "NL", "DE"} or key == "eu":
         return "EUR"

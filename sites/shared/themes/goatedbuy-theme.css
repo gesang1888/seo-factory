@@ -1,0 +1,8 @@
+/* GoatedBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #111827;
+  --primary-dark: #111827;
+  --primary-soft: #f3f4f6;
+  --nav-dark: #030712;
+}
+body { background: var(--bg, #f7f8fa); }

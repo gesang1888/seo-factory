@@ -1,0 +1,8 @@
+/* HubBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #1d4ed8;
+  --primary-dark: #1d4ed8;
+  --primary-soft: #eff6ff;
+  --nav-dark: #1e3a8a;
+}
+body { background: var(--bg, #f7f8fa); }
