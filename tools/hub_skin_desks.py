@@ -431,7 +431,11 @@ NAV = {
 def _facts(host: str) -> dict:
     d = HOSTS[host]
     ag = AGENTS[d["agent"]]
-    cname, curl = CUSTOMS.get(d["dest"], ("the destination customs site", ""))
+    dest = d.get("dest")
+    if dest:
+        cname, curl = CUSTOMS.get(dest, ("the destination customs site", ""))
+    else:
+        cname, curl = ("the destination customs site named in the estimator", "")
     return {
         "agent": d["agent"],
         "host": host,
@@ -560,6 +564,12 @@ def _prose(host: str) -> str:
             f"Restricted is a platform purchase block, not a customs seizure notice for {dest}.",
         ),
     }
+    if not HOSTS[host].get("dest"):
+        packs["en"] = (
+            f"{ag} is a purchasing agent, not a shop. {h} is a hub, not a customs territory.",
+            f"The spreadsheet on {h} is an index, not Excel and not checkout.",
+            "Restricted is a platform purchase block, not a customs seizure notice for this hostname.",
+        )
     a_h, s_h, r_h = packs.get(loc, packs["en"])
     return f"""
 <section class="sg-sec" id="agent"><h2>{escape(ag)}</h2><p>{escape(a_h)}</p>
@@ -581,8 +591,13 @@ def _wall(host: str) -> str:
 
 def _states(host: str) -> str:
     f = _facts(host)
+    d = HOSTS[host]
+    if d.get("dest"):
+        sub = f"Estimator country is {escape(str(d['dest']))}, not this TLD. Sister country hosts stay separate files — no 301."
+    else:
+        sub = "This hostname is not a customs territory. Open the official estimator with a real country code — not this TLD, not “EU” as one country."
     return f"""<section class="sg-sec" id="states"><h2>{escape(f['dest_label'])}</h2>
-<p class="ssub">Estimator country is {escape(f['dest'])}, not this TLD. Sister country hosts stay separate files — no 301.</p>
+<p class="ssub">{sub}</p>
 <p>{escape(independence_copy(f))}</p></section>"""
 
 
@@ -622,7 +637,12 @@ def build_home(host: str) -> str:
     f = _facts(host)
     u = ui_copy(d["loc"])
     css = "\n".join(f'<link rel="stylesheet" href="{escape(href)}?v=20261002-cms">' for href in ag["css"])
-    desc = f"{d['agent']} independent desk for {d['dest_label']} on {host}. Catalogue, freight estimate, local last-mile. Not checkout."
+    if d.get("dest"):
+        desc = f"{d['agent']} independent desk for {d['dest_label']} on {host}. Catalogue, freight estimate, local last-mile. Not checkout."
+        badge = f"{d['dest']} · {d['ccy']} · {f['customs']}"
+    else:
+        desc = f"{d['agent']} hub on {host} is not a customs territory. Pick a real country in the official estimator. Not checkout."
+        badge = f"Hub · {d['ccy']} · not a customs territory"
     html = f"""<!DOCTYPE html>
 <html lang="{escape(d['lang'])}">
 <head>
@@ -644,7 +664,7 @@ def build_home(host: str) -> str:
 <section class="sg-hero">
   <h1>{escape(d['h1'])}</h1>
   <p class="hsub">{escape(d['agent'])} · {escape(host)} · {escape(d['ccy'])} display · {escape(d['dest_label'])}. Independent desk — not the official app, not checkout.</p>
-  <p class="eu-badge">{escape(d['dest'])} · {escape(d['ccy'])} · {escape(f['customs'])}</p>
+  <p class="eu-badge">{escape(badge)}</p>
   <div class="sg-ctas">
     <a class="btn btn-primary" href="#catalog">Catalogue</a>
     <a class="btn btn-outline" href="#local">{escape(local_cta(f))}</a>
