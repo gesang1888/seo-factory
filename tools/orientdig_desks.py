@@ -448,16 +448,33 @@ def patch_twins(client) -> None:
             graw = _run(client, f"cat '{gsc}'")
             old_host = f"https://{twin}/"
             new_host = f"https://{target}/"
-            if graw and old_host in graw:
+            if graw and (old_host in graw or new_host in graw):
                 _run(client, f"cp -a '{gsc}' '/www/backup/orientdig-gsc-{twin}.conf'")
                 graw = graw.replace(old_host, new_host)
                 graw = graw.replace(f"{new_host}orientdig-spreadsheets/", f"{new_host}orientdig-spreadsheet/")
+                graw = graw.replace(f"{new_host}orientdig-customer-service/", f"{new_host}contact/")
+                existing = set(re.findall(r"location = (/[^\s{]+)", graw))
+                extras = []
+                # Trailing-slash twins for ranked dest inners; GSC often only has the no-slash form.
+                slash_maps = [
+                    ("/orientdig-spreadsheets/", f"{new_host}orientdig-spreadsheet/"),
+                    ("/how-to-use-orientdig/", f"{new_host}how-to-use-orientdig/"),
+                    ("/is-orientdig-legit/", f"{new_host}is-orientdig-legit/"),
+                    ("/orientdig-coupons/", f"{new_host}orientdig-coupons/"),
+                    ("/orientdig-shipping/", f"{new_host}orientdig-shipping/"),
+                    ("/orientdig-customer-service/", f"{new_host}contact/"),
+                ]
+                for loc, dest in slash_maps:
+                    if loc not in existing:
+                        extras.append(f"location = {loc} {{ return 301 {dest}; }}")
+                if extras:
+                    graw = graw.rstrip() + "\n" + "\n".join(extras) + "\n"
                 sftp = client.open_sftp()
                 with sftp.open(gsc, "w") as fh:
                     fh.write(graw)
                 sftp.close()
                 changed += 1
-                print("PATCH nginx GSC redirects", twin, "→", target)
+                print("PATCH nginx GSC redirects", twin, "→", target, "slash+", len(extras))
             continue
         extra = []
         for src, dest in TWIN_EXTRA.get(twin, []):
@@ -577,11 +594,18 @@ def live_check() -> None:
             else f"https://{twin}/how-to-use-orientdig"
         )
         code2, _, _, body2 = fetch(deep, follow=True)
-        if code2 == 404:
-            print("  FAIL deep 404", twin)
+        if code2 == 404 or len(body2) < 8000:
+            print("  FAIL deep 404", twin, code2, len(body2))
             fail += 1
         else:
             print("  deep", twin, code2, "bytes", len(body2))
+        if twin.endswith(".us"):
+            code3, _, _, body3 = fetch(f"https://{twin}/orientdig-spreadsheets/", follow=True)
+            if code3 == 404 or len(body3) < 8000:
+                print("  FAIL deep slash 404", twin, code3, len(body3))
+                fail += 1
+            else:
+                print("  deep-slash", twin, code3, "bytes", len(body3))
 
     if fail:
         raise SystemExit(f"live_check failures: {fail}")
