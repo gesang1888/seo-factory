@@ -290,6 +290,22 @@ def patch_static(html: str, key: str, spec: dict) -> str:
     if spec.get("h1"):
         html = re.sub(r"<h1>.*?</h1>", f"<h1>{escape(spec['h1'])}</h1>", html, count=1, flags=re.S)
     html = re.sub(r"impressions on a template", "impressions on this dest desk", html, flags=re.I)
+    html = html.replace(
+        "ACBuy is a different agent key.",
+        "ACBuy is the current AllChinaBuy brand name; acbuyspreadsheets.ca 301s here.",
+    )
+    html = html.replace(
+        "ACBuy country hosts are a different agent — do not paste that HTML here.",
+        "ACBuy is the current AllChinaBuy name. Canada and NL stay on their own dests — do not 301 this .co.uk onto them or the .com hub.",
+    )
+    html = html.replace(
+        'AllChinaBuy staat op <a href="https://allchinabuyspreadsheet.nl/">allchinabuyspreadsheet.nl</a> — ander bedrijf, andere HTML.',
+        'allchinabuyspreadsheet.nl 301t naar dit Nederlandse dest (zelfde agent; ACBuy is de huidige naam).',
+    )
+    html = html.replace("Not ACBuy. Not the UK .co.uk desk.", "Same agent as ACBuy. Not the UK .co.uk desk.")
+    html = html.replace("Not ACBuy. Not allchina-buy.com.", "Same agent as ACBuy. Not the .com hub.")
+    html = html.replace("Independent CA notes. Not ACBuy.", "Independent CA notes. Same agent as ACBuy.")
+    html = html.replace("Independent UK notes. Not ACBuy.", "Independent UK notes. Same agent as ACBuy.")
     if 'class="skip"' not in html:
         html = html.replace("<body>", "<body>\n" + skip_link(skip_label(loc)).rstrip(), 1)
     if 'id="main"' not in html:
@@ -496,7 +512,7 @@ def patch_twins(client) -> None:
             print("PATCH nginx", twin, "catch-all →", target)
         gsc = f"/www/server/panel/vhost/nginx/extension/{twin}/gsc-redirects.conf"
         graw = _run(client, f"cat '{gsc}'")
-        if graw and (f"https://{twin}/" in graw or f"https://{target}/" in graw):
+        if graw and f"https://{twin}/" in graw:
             _run(client, f"cp -a '{gsc}' '/www/backup/allchinabuy-gsc-{twin}.conf'")
             graw = _rewrite_gsc(graw, twin, target)
             sftp = client.open_sftp()
