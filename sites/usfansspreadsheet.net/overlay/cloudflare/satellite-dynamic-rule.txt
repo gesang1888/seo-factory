@@ -1,0 +1,5 @@
+http.host in {"usfansspreadsheet.uk" "www.usfansspreadsheet.uk" "usfansspreadsheet.co.uk" "www.usfansspreadsheet.co.uk" "usfansspreadsheet.nl" "www.usfansspreadsheet.nl" "usfansspreadsheet.org" "www.usfansspreadsheet.org"}
+
+Then: Dynamic 301
+concat("https://usfansspreadsheet.net", http.request.uri.path)
+Preserve query string: on

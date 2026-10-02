@@ -31,6 +31,7 @@ seo-factory/
 | 域名 | 目录 |
 |------|------|
 | fansspreadsheet.net | `sites/fansspreadsheet.net/` |
+| usfansspreadsheet.net | `sites/usfansspreadsheet.net/` (SEO overlay: decluster + thin-page 301s) |
 
 ## 快速开始
 
