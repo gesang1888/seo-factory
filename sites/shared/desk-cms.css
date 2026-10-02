@@ -86,17 +86,52 @@ a { color: var(--primary); }
 .inner-article .container { width: auto; margin: 0; }
 body[data-inner-chrome] header.site-header {
   position: sticky; top: 0; z-index: 40;
-  background: #fff;
+  background: #fff !important;
   border-bottom: 1px solid var(--border);
+  text-align: left !important;
 }
-body[data-inner-chrome] .header-inner {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; padding: 12px 0; flex-wrap: wrap;
+body[data-inner-chrome] header.site-header .container.header-inner,
+body[data-inner-chrome] header.site-header .header-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  padding: 12px 0 !important;
+  text-align: left !important;
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto !important;
 }
-body[data-inner-chrome] .header-top { display: none; }
-body[data-inner-chrome] .brand-logo { height: 36px; width: auto; }
+body[data-inner-chrome] header.site-header .header-top,
+body[data-inner-chrome] header.site-header .header-top-main { display: none !important; }
+body[data-inner-chrome] header.site-header .brand {
+  display: flex !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+body[data-inner-chrome] header.site-header .brand-logo { height: 36px; width: auto; }
+body[data-inner-chrome] header.site-header .header-nav {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  width: auto !important;
+}
+body[data-inner-chrome] header.site-header .header-actions {
+  display: flex !important;
+  gap: 8px;
+  margin: 0 !important;
+}
 body[data-inner-chrome] .site-footer {
   margin-top: 32px; padding: 28px 0 40px;
-  background: var(--nav-dark); color: #e2e8f0;
+  background: var(--nav-dark) !important; color: #e2e8f0;
+  text-align: left !important;
 }
 body[data-inner-chrome] .site-footer a { color: #fff; }
+body[data-inner-chrome] .site-footer .footer-grid {
+  display: grid !important;
+  gap: 18px;
+}
+@media (min-width: 800px) {
+  body[data-inner-chrome] .site-footer .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+}
