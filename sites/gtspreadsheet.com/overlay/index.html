@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTbuy coupon stack order — ¥1000 then freight, not the other way around</title>
+<meta name="description" content="GTbuy currently advertises a ¥1000-class new-user coupon plus doubled 30% shipping windows. Those are two instruments. People who punch both into the same field">
+<link rel="canonical" href="https://gtspreadsheet.com/">
+<meta name="robots" content="index,follow">
+<style>:root { --bg:#0b1220; --ink:#dbeafe; --accent:#38bdf8; --card:#0f172a; --muted:#7dd3fc; }
+* { box-sizing:border-box; }
+html,body { margin:0; background:var(--bg); color:var(--ink); font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; line-height:1.55; }
+a { color:var(--accent); }
+header,main,footer { max-width:76rem; margin:0 auto; padding:1rem 1.25rem; }
+nav { display:flex; flex-wrap:wrap; gap:.8rem 1.2rem; }
+.hero { padding:1.4rem 0 1rem; }
+.grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); }
+.card { background:var(--card); color:inherit; padding:1rem 1.1rem; border:1px solid color-mix(in srgb, var(--ink) 16%, transparent); border-radius:1rem; }
+.cta { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:.7rem 1rem; border-radius:.7rem; font-weight:700; }
+.note { color:var(--muted); font-size:.92rem; }
+table { width:100%; border-collapse:collapse; }
+td,th { text-align:left; padding:.45rem .3rem; border-bottom:1px solid color-mix(in srgb, var(--ink) 14%, transparent); }
+ol { padding-left:1.2rem; }
+.layout-ledger .hero { border-left:6px solid var(--accent); padding-left:1rem; }
+.layout-dock header { display:flex; justify-content:space-between; gap:1rem; align-items:end; }
+.layout-terminal { letter-spacing:.01em; }
+.layout-terminal .card { border-radius:0; }
+.layout-fieldnotes .hero { max-width:40rem; }
+.layout-runway h1 { text-transform:uppercase; letter-spacing:.06em; }
+.layout-ticket .cta { border-radius:999px; }
+.layout-stencil h1 { font-stretch:condensed; }
+.layout-opsboard .grid { grid-template-columns:1.2fr .8fr; }
+.layout-relay nav { justify-content:space-between; }
+.layout-harbor { background-image:linear-gradient(180deg, transparent 0, color-mix(in srgb, var(--accent) 10%, transparent) 100%); }
+.layout-stamp h1 { font-weight:400; }
+.layout-channel .card { border-radius:.2rem; }
+.layout-billboard h1 { font-size:clamp(2rem,6vw,4rem); line-height:1.05; }
+@media (max-width:800px) { .layout-opsboard .grid { grid-template-columns:1fr; } }.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
+.skip:focus{left:12px}
+.legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
+.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
+.local-src a{color:inherit}
+#local{scroll-margin-top:96px}
+.sg-sec#local{margin:1.25rem 0 0}.sg-sec#local h2{margin-top:0}.ssub{color:var(--muted,#7dd3fc);font-size:.95rem;margin:0 0 12px}.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}.local-steps li{border:1px solid color-mix(in srgb, var(--ink,#dbeafe) 16%, transparent);border-radius:12px;padding:14px 16px;background:var(--card,#0f172a)}.local-steps strong{display:block;margin:0 0 6px;font-size:15px}.local-steps span{display:block;color:var(--muted,#7dd3fc);line-height:1.7;font-size:15px}.local-src{font-size:14px;color:var(--muted,#7dd3fc);line-height:1.7;margin:14px 0 0}#local{scroll-margin-top:96px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "GTbuy coupon stack order — ¥1000 then freight, not the other way around",
+      "url": "https://gtspreadsheet.com/",
+      "about": "GTbuy"
+    },
+    {
+      "@type": "WebPage",
+      "name": "GTbuy coupon stack order — ¥1000 then freight, not the other way around",
+      "url": "https://gtspreadsheet.com/",
+      "description": "GTbuy currently advertises a ¥1000-class new-user coupon plus doubled 30% shipping windows. Those are two instruments. People who punch both into the same field",
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://gtspreadsheet.com/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does 2×30% mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two shipping-off events or a doubled window — confirm inside GTbuy. It is not 60% off one line."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where are coupons?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Coupon stacking stays on /gtbuy-coupons/. This homepage does not print a token."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this site as a GTbuy clone of other agent blogs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Only GTbuy wallet mechanics live here."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+</head>
+<body class="layout-terminal">
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <p class="note">GTbuy · gtspreadsheet.com · not a customs territory</p>
+  <nav><a href="/">Stack order</a>
+<a href="/how-to-use-gtbuy/">Start</a>
+<a href="/gtbuy-shipping-guide/">Shipping</a>
+<a href="/gtbuy-coupons/">Coupons</a><a href="#local">Pick a country</a></nav>
+</header>
+<main id="main">
+
+<section class="hero">
+  <h1>GTbuy: apply the new-user stack in the order the wallet allows</h1>
+  <p>GTbuy currently advertises a ¥1000-class new-user coupon plus doubled 30% shipping windows. Those are two instruments. People who punch both into the same field get neither.</p>
+  <p>Coupon stacking stays on /gtbuy-coupons/. The ¥1000-class coupon usually wants a minimum merchandise subtotal. The 2×30% shipping window wants an eligible line and a calendar date. Sequence them; do not mash them. This homepage does not print a token.</p>
+  <p><a class="cta" href="/gtbuy-coupons/">Open GTbuy coupons</a></p>
+</section>
+<section class="sg-sec" id="local">
+  <h2>This hostname is not a customs territory</h2>
+  <p class="ssub">a country in the estimator · gtspreadsheet.com · not a location-name swap.</p>
+  <ol class="local-steps"><li><strong>Open the estimator with a country</strong><span>The official freight form needs US, CA, FR, ES, AT… not this hostname and not “Europe” as one country.</span></li><li><strong>Do not paste another dest’s lab</strong><span>Spain-only line counts and another desk’s postal operator stay off this hub.</span></li><li><strong>Hub pages already ranking stay</strong><span>Coupon / spreadsheet / IOSS html or articles on this host are not overwritten by a fake destination.</span></li><li><strong>Orders stay on the official app</strong><span>This hub does not take payment or see your account.</span></li></ol>
+  <p class="local-src">Lab 2 Oct 2026. Open the official estimator with a real country code. This HTML is not checkout.</p>
+  <p class="local-src">Already on this host (kept): <a href="/gtbuy-coupons/">Coupons (ranked)</a> · <a href="/gtbuy-shipping-guide/">Shipping (ranked)</a> · <a href="/is-gtbuy-legit/">Legit</a> · <a href="/gtbuy-spreadsheet/">Spreadsheet</a></p>
+<p class="local-src">not a customs territory. This .com hub is not a customs territory. Mixed DE/CZ/NL clicks do not make .com a customs dest. Pick the real ship-to country in the official estimator, not this hostname, not “EU” as one country. Warehouse: official GTbuy Help. Confirm that live copy the morning you ship. Do not invent a free-day count on this hub. Live money is in <a href="https://www.gtbuy.com/estimation">https://www.gtbuy.com/estimation</a> — this HTML is not checkout.</p>
+</section>
+<section class="grid">
+<article class="card"><h2>Wallet before warehouse</h2><p>GTbuy warehouse photos are the checkpoint between merchandise coupons and freight coupons. You cannot honestly quote freight until the inbound is weighed.</p></article>
+<article class="card"><h2>GL before the ¥1000 is spent</h2><p>If the ¥1000-class coupon is merchandise-only, a QC reject that you still ship wastes the coupon on goods you will not wear. Cancel or exchange first.</p></article>
+<article class="card"><h2>Skip the stack if</h2><p>If you hate reading coupon constraints, GTbuy&#x27;s stacked welcome package will feel broken. It is not broken; it is conditional.</p></article>
+
+</section>
+<section><h2>GTbuy notes that are not a cloned FAQ</h2>
+<h3>What does 2×30% mean?</h3><p>Two shipping-off events or a doubled window — confirm inside GTbuy. It is not 60% off one line.</p>
+<h3>Where are coupons?</h3><p>Coupon stacking stays on /gtbuy-coupons/. This homepage does not print a token.</p>
+<h3>Can I use this site as a GTbuy clone of other agent blogs?</h3><p>No. Only GTbuy wallet mechanics live here.</p>
+</section>
+
+</main>
+<footer>
+  <p class="note">gtspreadsheet.com only writes about GTbuy. Coupon stacking stays on /gtbuy-coupons/. Customs and declared value follow the destination&#x27;s own rules — this page will not pick a number for you.</p>
+</footer>
+</body>
+</html>
