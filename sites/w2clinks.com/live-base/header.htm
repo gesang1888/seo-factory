@@ -1,0 +1,211 @@
+<link rel="stylesheet" href="/template/pc/w2c.css?v=66">
+<link rel="stylesheet" href="/template/pc/w2c-drop-theme.css?v=10">
+<link rel="stylesheet" href="/template/pc/w2c-next.css?v=1">
+<link rel="stylesheet" href="/template/pc/w2c-mobile-shell.css?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/public/static/w2c/vendor/fontawesome/css/all.min.css?v=24">
+<script>
+window.W2C_IMAGES = {
+  thumb: function (url, width) {
+    if (!url) return '';
+    if (url.charAt(0) === '/' && String(url).indexOf('geilicdn.com') === -1) return url;
+    if (String(url).indexOf('geilicdn.com') === -1) return url;
+    try {
+      var raw = url.indexOf('/wd-img/') >= 0 ? ('https://' + url.replace(/^.*\/wd-img\//, '')) : url;
+      var u = new URL(raw, location.origin);
+      if (!/\.geilicdn\.com$/i.test(u.hostname) && u.hostname !== 'geilicdn.com') return url;
+      return '/wd-img/' + u.hostname + u.pathname + '?imageView2/2/w/' + Math.max(80, Math.min(800, width || 400));
+    } catch (e) {
+      return url;
+    }
+  },
+  fallback: function (img) {
+    if (!img || img.dataset.wdFb) return;
+    var src = img.getAttribute('src') || '';
+    var i = src.indexOf('/wd-img/');
+    if (i === -1) return;
+    img.dataset.wdFb = '1';
+    img.src = 'https://' + src.slice(i + 8).replace(/\?.*$/, '');
+  }
+};
+(function () {
+  function rewrite(img) {
+    var src = img.getAttribute('src') || '';
+    if (src.indexOf('geilicdn.com') === -1) return;
+    var next = window.W2C_IMAGES.thumb(src);
+    if (next && next !== src) img.setAttribute('src', next);
+  }
+  function scan(root) {
+    if (root && root.tagName === 'IMG') rewrite(root);
+    (root && root.querySelectorAll ? root.querySelectorAll('img') : []).forEach(rewrite);
+  }
+  function boot() { scan(document); }
+  document.addEventListener('error', function (e) {
+    if (e.target && e.target.tagName === 'IMG') window.W2C_IMAGES.fallback(e.target);
+  }, true);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
+<style>
+.agent-trigger img, #agentTriggerLogo { width: 20px; height: 20px; max-width: 20px; max-height: 20px; object-fit: contain; flex-shrink: 0; display: block; }
+.agent-item .agent-logo, .agent-panel .agent-logo { width: 22px; height: 22px; max-width: 22px; max-height: 22px; object-fit: contain; flex-shrink: 0; }
+.agent-list { max-height: min(70vh, 520px); overflow-y: auto; }
+.w2c-product-agent-menu { max-height: min(60vh, 420px) !important; }
+.agent-panel[hidden], .locale-panel[hidden], .w2c-overlay[hidden] { display: none !important; }
+.logo-drop-icon { border-radius: 50%; background: transparent; }
+a.logo.logo-drop .logo-drop-wordmark,
+.site-footer .logo-drop-wordmark {
+  display: inline;
+  align-items: baseline;
+  gap: 0 !important;
+  font-family: 'Space Grotesk', Inter, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  color: #fff;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+}
+a.logo.logo-drop .logo-drop-wordmark span { color: #b8956b; }
+.site-footer .logo-drop-wordmark { font-size: 20px; }
+@media (min-width: 961px) {
+  .site-header .header-inner { flex-wrap: nowrap; gap: 8px; }
+  .site-header .main-nav { flex: 1 1 auto; min-width: 0; }
+  .site-header .nav-menu {
+    flex-wrap: nowrap !important;
+    gap: 0;
+    white-space: nowrap;
+  }
+  .site-header .nav-link {
+    padding: 7px 8px;
+    font-size: 11px;
+    letter-spacing: .03em;
+    gap: 4px;
+  }
+  .site-header .nav-link i { font-size: 12px; }
+  .site-header .header-actions { padding-left: 8px; gap: 6px; }
+}
+@media (min-width: 961px) and (max-width: 1180px) {
+  .site-header .nav-link i { display: none; }
+}
+.w2c-brand-logo {
+  background: #fff !important;
+}
+#brandRail .w2c-brand-logo img {
+  background: #fff;
+}
+</style>
+
+<header class="site-header">
+  <div class="w2c-container header-inner" id="siteHeader">
+    <a class="logo logo-drop" href="/" aria-label="w2clinks">
+      <img class="logo-drop-icon" src="/public/static/w2c/brand/w2clinks-mark.svg?v=20" width="32" height="32" alt="">
+      <span class="logo-drop-wordmark">w2c<span>links</span></span>
+    </a>
+
+    <button class="mobile-toggle" type="button" aria-label="Menu"><i class="fas fa-bars"></i></button>
+
+    <nav class="main-nav">
+      <ul class="nav-menu">
+        <li><a class="nav-link" href="/spreadsheet/"><i class="fas fa-table"></i> <span data-i18n="explore_spreadsheet">Spreadsheet</span></a></li>
+        <li><a class="nav-link" href="/brands/"><i class="fas fa-tag"></i> <span data-i18n="explore_brands">Brands</span></a></li>
+        <li><a class="nav-link" href="/categories/"><i class="fas fa-layer-group"></i> <span data-i18n="nav_categories">Categories</span></a></li>
+        <li><a class="nav-link" href="/agents/"><i class="fas fa-store"></i> <span data-i18n="explore_agents">Agents</span></a></li>
+        <li><a class="nav-link" href="/compare/"><i class="fas fa-balance-scale"></i> <span>Compare</span></a></li>
+        <li><a class="nav-link" href="/track/"><i class="fas fa-box"></i> <span data-i18n="explore_track">Track</span></a></li>
+        <li><a class="nav-link" href="/shipping-calculator/"><i class="fas fa-calculator"></i> <span data-i18n="explore_shipping">Shipping</span></a></li>
+        <li><a class="nav-link" href="/guide/"><i class="fas fa-compass"></i> <span data-i18n="explore_guide">Guide</span></a></li>
+        <li><a class="nav-link" href="/news/"><i class="fas fa-newspaper"></i> <span data-i18n="explore_blog">Blog</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="w2c-header-search" href="#home-search" aria-label="Search"><i class="fas fa-search"></i></a>
+      <button type="button" class="btn-sm locale-trigger" id="localeTrigger"><i class="fas fa-globe"></i> <span id="localeLabel">EN · CNY</span></button>
+      <button type="button" class="btn-sm agent-trigger" id="agentTrigger"><img class="agent-logo agent-logo-sm" id="agentTriggerLogo" src="/brand/agents/loongbuy.png" alt="LoongBuy"> <span id="agentLabel">LoongBuy</span> <i class="fas fa-chevron-down"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="w2c-overlay" id="panelOverlay" hidden></div>
+
+<div class="locale-panel" id="localePanel" hidden>
+  <div class="panel-card">
+    <p class="panel-kicker" data-i18n="panel_language">LANGUAGE</p>
+    <div class="option-grid" id="langGrid">
+      <button type="button" class="option-btn active" data-lang="EN">English</button>
+      <button type="button" class="option-btn" data-lang="ES">Español</button>
+      <button type="button" class="option-btn" data-lang="DE">Deutsch</button>
+      <button type="button" class="option-btn" data-lang="FR">Français</button>
+      <button type="button" class="option-btn" data-lang="IT">Italiano</button>
+      <button type="button" class="option-btn" data-lang="PT">Português</button>
+      <button type="button" class="option-btn" data-lang="PL">Polski</button>
+      <button type="button" class="option-btn" data-lang="ZH">中文</button>
+    </div>
+    <p class="panel-kicker" data-i18n="panel_currency">CURRENCY</p>
+    <div class="option-grid" id="currencyGrid">
+      <button type="button" class="option-btn active" data-currency="CNY">CNY</button>
+      <button type="button" class="option-btn" data-currency="EUR">EUR</button>
+      <button type="button" class="option-btn" data-currency="GBP">GBP</button>
+      <button type="button" class="option-btn" data-currency="USD">USD</button>
+    </div>
+    <button type="button" class="confirm-btn" id="localeConfirm" data-i18n="confirm">Confirm</button>
+  </div>
+</div>
+
+<div class="agent-panel" id="agentPanel" hidden>
+  <div class="panel-card agent-card">
+    <p class="panel-kicker" data-i18n="panel_agent">PREFERRED AGENT</p>
+    <div class="agent-list" id="agentList">
+      <button type="button" class="agent-item active" data-agent="LoongBuy"><img class="agent-logo" src="/brand/agents/loongbuy.png" alt="LoongBuy"> LoongBuy <i class="fas fa-check"></i></button>
+      <button type="button" class="agent-item" data-agent="Kakobuy"><img class="agent-logo" src="/brand/agents/kakobuy.png" alt="Kakobuy"> Kakobuy</button>
+      <button type="button" class="agent-item" data-agent="ACBuy"><img class="agent-logo" src="/brand/agents/acbuy.png" alt="ACBuy"> ACBuy</button>
+      <button type="button" class="agent-item" data-agent="oopbuy"><img class="agent-logo" src="/brand/agents/oopbuy.png" alt="oopbuy"> oopbuy</button>
+      <button type="button" class="agent-item" data-agent="Sugargoo"><img class="agent-logo" src="/brand/agents/sugargoo.png" alt="Sugargoo"> Sugargoo</button>
+      <button type="button" class="agent-item" data-agent="Superbuy"><img class="agent-logo" src="/brand/agents/superbuy.png" alt="Superbuy"> Superbuy</button>
+      <button type="button" class="agent-item" data-agent="Litbuy"><img class="agent-logo" src="/brand/agents/litbuy.png" alt="Litbuy"> Litbuy</button>
+      <button type="button" class="agent-item" data-agent="mulebuy"><img class="agent-logo" src="/brand/agents/mulebuy.png" alt="mulebuy"> mulebuy</button>
+      <button type="button" class="agent-item" data-agent="cssbuy"><img class="agent-logo" src="/brand/agents/cssbuy.png" alt="cssbuy"> cssbuy</button>
+      <button type="button" class="agent-item" data-agent="Lovegobuy"><img class="agent-logo" src="/brand/agents/lovegobuy.png" alt="Lovegobuy"> Lovegobuy</button>
+      <button type="button" class="agent-item" data-agent="JoyaGoo"><img class="agent-logo" src="/brand/agents/joyagoo.png" alt="JoyaGoo"> JoyaGoo</button>
+      <button type="button" class="agent-item" data-agent="hipobuy"><img class="agent-logo" src="/brand/agents/hipobuy.png" alt="hipobuy"> hipobuy</button>
+      <button type="button" class="agent-item" data-agent="hubbuycn"><img class="agent-logo" src="/brand/agents/hubbuycn.png" alt="hubbuycn"> hubbuycn</button>
+      <button type="button" class="agent-item" data-agent="AllChinaBuy"><img class="agent-logo" src="/brand/agents/allchinabuy.png" alt="AllChinaBuy"> AllChinaBuy</button>
+      <button type="button" class="agent-item" data-agent="rizzitgo"><img class="agent-logo" src="/brand/agents/rizzitgo.png" alt="rizzitgo"> rizzitgo</button>
+      <button type="button" class="agent-item" data-agent="bbdbuy"><img class="agent-logo" src="/brand/agents/bbdbuy.png" alt="bbdbuy"> bbdbuy</button>
+      <button type="button" class="agent-item" data-agent="Fishbuy"><img class="agent-logo" src="/brand/agents/fishgoo.png" alt="Fishbuy"> Fishbuy</button>
+      <button type="button" class="agent-item" data-agent="USFans"><img class="agent-logo" src="/brand/agents/usfans.png" alt="USFans"> USFans</button>
+      <button type="button" class="agent-item" data-agent="GTBuy"><img class="agent-logo" src="/brand/agents/gtbuy.png" alt="GTBuy"> GTBuy</button>
+      <button type="button" class="agent-item" data-agent="CNShopper"><img class="agent-logo" src="/brand/agents/cnshopper.png" alt="CNShopper"> CNShopper</button>
+      <button type="button" class="agent-item" data-agent="Fansbuy"><img class="agent-logo" src="/brand/agents/fansbuy.png" alt="Fansbuy"> Fansbuy</button>
+      <button type="button" class="agent-item" data-agent="MyCNBox"><img class="agent-logo" src="/brand/agents/mycnbox.png" alt="MyCNBox"> MyCNBox</button>
+      <button type="button" class="agent-item" data-agent="Wheebuy"><img class="agent-logo" src="/brand/agents/wheebuy.png" alt="Wheebuy"> Wheebuy</button>
+      <button type="button" class="agent-item" data-agent="OOTDBuy"><img class="agent-logo" src="/brand/agents/ootdbuy.png" alt="OOTDBuy"> OOTDBuy</button>
+      <button type="button" class="agent-item" data-agent="Vigorbuy"><img class="agent-logo" src="/brand/agents/vigorbuy.png" alt="Vigorbuy"> Vigorbuy</button>
+      <button type="button" class="agent-item" data-agent="BaseTao"><img class="agent-logo" src="/brand/agents/basetao.png" alt="BaseTao"> BaseTao</button>
+      <button type="button" class="agent-item" data-agent="HooBuy"><img class="agent-logo" src="/brand/agents/hoobuy.png" alt="HooBuy"> HooBuy</button>
+      <button type="button" class="agent-item" data-agent="PonyBuy"><img class="agent-logo" src="/brand/agents/ponybuy.png" alt="PonyBuy"> PonyBuy</button>
+      <button type="button" class="agent-item" data-agent="EastMallBuy"><img class="agent-logo" src="/brand/agents/eastmallbuy.png" alt="EastMallBuy"> EastMallBuy</button>
+      <button type="button" class="agent-item" data-agent="OrientDig"><img class="agent-logo" src="/brand/agents/orientdig.png" alt="OrientDig"> OrientDig</button>
+      <button type="button" class="agent-item" data-agent="ITaoBuy"><img class="agent-logo" src="/brand/agents/itaobuy.png" alt="ITaoBuy"> ITaoBuy</button>
+      <button type="button" class="agent-item" data-agent="Shipzobuy"><img class="agent-logo" src="/brand/agents/shipzobuy.png" alt="Shipzobuy"> Shipzobuy</button>
+      <button type="button" class="agent-item" data-agent="SpanBuy"><img class="agent-logo" src="/brand/agents/spanbuy.png" alt="SpanBuy"> SpanBuy</button>
+      <button type="button" class="agent-item" data-agent="Boonbuy"><img class="agent-logo" src="/brand/agents/boonbuy.png" alt="Boonbuy"> Boonbuy</button>
+      <button type="button" class="agent-item" data-agent="TigBuy"><img class="agent-logo" src="/brand/agents/tigbuy.png" alt="TigBuy"> TigBuy</button>
+      <button type="button" class="agent-item" data-agent="OssBuy"><img class="agent-logo" src="/brand/agents/ossbuy.png" alt="OssBuy"> OssBuy</button>
+      <button type="button" class="agent-item" data-agent="DgoBuy"><img class="agent-logo" src="/brand/agents/dgobuy.png" alt="DgoBuy"> DgoBuy</button>
+      <button type="button" class="agent-item" data-agent="Pingubuy"><img class="agent-logo" src="/brand/agents/pingubuy.png" alt="Pingubuy"> Pingubuy</button>
+      <button type="button" class="agent-item" data-agent="Lolobuy"><img class="agent-logo" src="/brand/agents/lolobuy.png" alt="Lolobuy"> Lolobuy</button>
+      <button type="button" class="agent-item" data-agent="Esgobuy"><img class="agent-logo" src="/brand/agents/esgobuy.png" alt="Esgobuy"> Esgobuy</button>
+      <button type="button" class="agent-item" data-agent="Pikobuy"><img class="agent-logo" src="/brand/agents/pikobuy.png" alt="Pikobuy"> Pikobuy</button>
+      <button type="button" class="agent-item" data-agent="Pantherbuy"><img class="agent-logo" src="/brand/agents/pantherbuy.png" alt="Pantherbuy"> Pantherbuy</button>
+      <button type="button" class="agent-item" data-agent="ASDBuy"><img class="agent-logo" src="/brand/agents/asdbuy.png" alt="ASDBuy"> ASDBuy</button>
+      <button type="button" class="agent-item" data-agent="GoatedBuy"><img class="agent-logo" src="/brand/agents/goatedbuy.png" alt="GoatedBuy"> GoatedBuy</button>
+      <button type="button" class="agent-item" data-agent="CNFans"><img class="agent-logo" src="/brand/agents/cnfans.png" alt="CNFans"> CNFans</button>
+    </div>
+  </div>
+</div>
