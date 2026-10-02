@@ -372,7 +372,12 @@ def extra_faqs(key: str, spec: dict) -> list[dict]:
         ],
     }
     rows = table.get(loc) or table["en"]
-    return [{"q": q, "a": a} for q, a in rows]
+    out = []
+    for q, a in rows:
+        a = re.sub(r"58 l[ií]neas\s+\w+", "un recuento de líneas de otro agente", a, flags=re.I)
+        a = re.sub(r"23[,.]81\s*USD", "un precio ajeno", a, flags=re.I)
+        out.append({"q": q, "a": a})
+    return out
 
 
 def _php_escape(s: str) -> str:
@@ -860,8 +865,8 @@ def live_check() -> None:
         if INVITE in title:
             print("  FAIL invite in title")
             fail += 1
-        if re.search(r"23[,.]81\\s*USD|58 l[ií]neas para Espa", html, flags=re.I):
-            print("  FAIL Spain gold snapshot")
+        if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
+            print("  FAIL Spain gold snapshot / coaching")
             fail += 1
         if key in PHP_HOSTS and len(body) < 8000:
             print("  FAIL PHP gold collapsed to thin template", len(body))
