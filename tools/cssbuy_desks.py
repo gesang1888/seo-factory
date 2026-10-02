@@ -248,6 +248,23 @@ ESTIMATOR_NOTE = {
     "eu": "This hostname is not a customs territory. Open the estimator with a real country, not .eu.",
 }
 
+LIVE_TRAIL = {
+    "de": "Live-Preis steht in",
+    "es": "El dinero real está en",
+    "fr": "L’argent réel est dans",
+    "it": "I soldi veri stanno in",
+    "nl": "Live-geld staat in",
+    "en": "Live money is in",
+}
+NOT_CHECKOUT = {
+    "de": "dieses HTML ist keine Kasse.",
+    "es": "este HTML no es caja.",
+    "fr": "cet HTML n’est pas une caisse.",
+    "it": "questo HTML non è cassa.",
+    "nl": "deze HTML is geen kassa.",
+    "en": "this HTML is not checkout.",
+}
+
 STORAGE_NOTE = {
     "de": "Lager: 90 freie Tage ab In Warehouse (offizielle CSSBuy-FAQ), danach ¥15/Bestellung/Monat. Am Versandmorgen in Help prüfen.",
     "es": "Almacén: 90 días gratis desde In Warehouse (FAQ oficial CSSBuy), luego ¥15/pedido/mes. Confirma Help el día del envío.",
@@ -286,7 +303,8 @@ def _local_block(key: str, spec: dict) -> str:
     store = STORAGE_NOTE.get(loc) or STORAGE_NOTE["en"]
     extra = (
         f'<p class="local-src">{escape(fp)}. {escape(ESTIMATOR_NOTE[key])} {escape(store)} '
-        f'Live money: <a href="{escape(EST)}">{escape(EST)}</a> — this HTML is not checkout.</p>'
+        f'{escape(LIVE_TRAIL.get(loc) or LIVE_TRAIL["en"])} '
+        f'<a href="{escape(EST)}">{escape(EST)}</a> — {escape(NOT_CHECKOUT.get(loc) or NOT_CHECKOUT["en"])}</p>'
     )
     html = local_guide_html(facts).strip()
     if not html.endswith("</section>"):
