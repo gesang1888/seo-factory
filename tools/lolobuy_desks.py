@@ -229,8 +229,8 @@ def _local_block(key: str, spec: dict) -> str:
 def _strip_invite_title(html: str, new_title: str | None = None) -> str:
     def scrub(s: str) -> str:
         s = re.sub(re.escape(INVITE), "", s, flags=re.I)
-        s = re.sub(r"(?i)\s*[—\-–:,]*\s*invite\s*$", "", s)
-        s = re.sub(r"\s{2,}", " ", s).strip(" —–-,;")
+        s = re.sub(r"(?i)\s*[—\-–:,]*\s*invite\b", "", s)
+        s = re.sub(r"\s{2,}", " ", s).strip(" —–-,;&")
         return s
 
     def title_sub(m):
@@ -397,7 +397,7 @@ def _run(client, cmd: str, timeout: int = 90) -> str:
 def _scrub_title_token(html: str) -> str:
     def scrub(s: str) -> str:
         s = re.sub(re.escape(INVITE), "", s, flags=re.I)
-        s = re.sub(r"(?i)\s*[—\-–:,]*\s*invite\s*$", "", s)
+        s = re.sub(r"(?i)\s*[—\-–:,]*\s*invite\b", "", s)
         s = re.sub(r"\s{2,}", " ", s).strip(" —–-,;&")
         return s
 
@@ -473,7 +473,7 @@ def put() -> None:
                 continue
             title_m = re.search(r"<title>(.*?)</title>", inner_html, flags=re.S)
             title = title_m.group(1) if title_m else ""
-            leftover = bool(re.search(r"(?i)[—\-–:,]\s*invite\s*$", title))
+            leftover = bool(re.search(r"(?i)[—\-–:,]\s*invite\b", title))
             if INVITE not in title and not leftover:
                 print("title already clean", spec["host"], rel)
                 continue
@@ -577,7 +577,7 @@ def live_check() -> None:
                 title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
                 title = title_m.group(1) if title_m else ""
                 if path in ("/guides/coupons/", "/coupons/") and (
-                    INVITE in title or re.search(r"(?i)[—\-–:,]\s*invite\s*$", title)
+                    INVITE in title or re.search(r"(?i)[—\-–:,]\s*invite\b", title)
                 ):
                     print("FAIL invite in inner title", path, title)
                     fail += 1
