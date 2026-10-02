@@ -1,89 +1,197 @@
-<!doctype html>
-<html lang="de">
+<!DOCTYPE html>
+<html lang="de-DE">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CSSBuy Deutschland — DHL-Linien, EUR-Quote, Zoll-Hinweis</title>
-<meta name="description" content="Deutsche CSSBuy-Desk: wie DHL-Päckchen vs Paket in der App heißen, EUR nach DE-Adresse, und wo das Spreadsheet/FAQ auf dieser Domain liegen. Keine Unterdeklaration.">
+<title>CSSBuy Deutschland — Packstation, DHL, Zoll</title>
+<meta name="description" content="CSSBuy independent desk for Deutschland on cssbuyspreadsheets.de. Catalogue, freight estimate, local last-mile. Not checkout.">
 <link rel="canonical" href="https://cssbuyspreadsheets.de/">
-<link rel="alternate" hreflang="de-DE" href="https://cssbuyspreadsheets.de/">
-<link rel="alternate" hreflang="nl-NL" href="https://cssbuy.nl/">
-<link rel="alternate" hreflang="fr-FR" href="https://cssbuy.fr/">
-<link rel="alternate" hreflang="en-GB" href="https://cssbuyspreadsheet.uk/">
-<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/desk-cms.css?v=20261002-cms">
+<link rel="stylesheet" href="/assets/css/cssbuy-site.css?v=20261002-cms">
 <style>
-:root { --ink:#1c1917; --muted:#57534e; --bg:#f3eee6; --card:#fff; --accent:#0f766e; }
-body { margin:0; font-family: Georgia, ui-serif, serif; background:var(--bg); color:var(--ink); line-height:1.55; }
-header, main, footer { max-width:46rem; margin:0 auto; padding:1.25rem; }
-.note { color:var(--muted); font-size:.92rem; }
-h1 { font-size:clamp(1.55rem,4vw,2.15rem); }
-h2 { font-size:1.18rem; margin-top:1.8rem; }
-table { width:100%; border-collapse:collapse; background:var(--card); }
-th, td { border:1px solid #e7e5e4; padding:.55rem .65rem; text-align:left; font-size:.95rem; }
-th { background:#ccfbf1; }
-a.cta { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:.7rem 1rem; border-radius:.5rem; }
-.box { background:var(--card); padding:1rem 1.1rem; border-radius:.5rem; }
-nav.local a { margin-right:1rem; }
-.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
-.skip:focus{left:12px}
-.legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
-.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
-.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
-.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
-.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
-.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
-.local-src a{color:inherit}
-#local{scroll-margin-top:96px}
-
+.sg-card .pr-src{font-size:11px;font-weight:500;color:#94a3b8}
+.sg-fx{color:#64748b;font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:760px}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"CSSBuy Deutschland — DHL-Linien","inLanguage":"de-DE","url":"https://cssbuyspreadsheets.de/","about":"CSSBuy","isPartOf":{"@type":"WebSite","name":"CSSBuy Deutschland","url":"https://cssbuyspreadsheets.de/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://cssbuyspreadsheets.de/", "url": "https://cssbuyspreadsheets.de/", "name": "CSSBuy Deutschland — Packstation, DHL, Zoll", "description": "CSSBuy independent desk for Deutschland on cssbuyspreadsheets.de. Catalogue, freight estimate, local last-mile. Not checkout.", "inLanguage": "de-DE", "isPartOf": {"@type": "WebSite", "name": "CSSBuy desk", "url": "https://cssbuyspreadsheets.de/"}, "publisher": {"@type": "Organization", "name": "CSSBuy independent desk", "url": "https://cssbuyspreadsheets.de/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "cssbuyspreadsheets.de independent desk", "url": "https://cssbuyspreadsheets.de/", "email": "support@cssbuyspreadsheets.de", "inLanguage": "de-DE", "description": "CSSBuy independent desk for Deutschland on cssbuyspreadsheets.de. Catalogue, freight estimate, local last-mile. Not checkout.", "contactPoint": {"@type": "ContactPoint", "email": "support@cssbuyspreadsheets.de", "contactType": "customer support", "url": "https://cssbuyspreadsheets.de/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cssbuyspreadsheets.de/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "de-DE", "mainEntity": [{"@type": "Question", "name": "Verkauft CSSBuy die Ware auf dieser Seite?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. CSSBuy ist Einkaufsagent: er kauft in chinesischen Drittshops in deinem Namen, fotografiert im Lager, danach buchst du eine internationale SKU nach Deutschland. cssbuyspreadsheets.de ist ein unabhängiger Infodesk. Bestellung, Zahlung und Reklamation nur auf https://www.cssbuy.com/. Die Karten auf cssbuyspreadsheets.de sind ein Index, kein Lager von CSSBuy. Auf diesem Hostnamen wird nicht kassiert."}}, {"@type": "Question", "name": "Kann ich CSSBuy auf Deutsch stellen?", "acceptedAnswer": {"@type": "Answer", "text": "Der Sprachwähler der Plattform ist unabhängig von diesem Desk. Gemessen 2 Oct 2026. Feldnamen im Schätzer bleiben oft englisch. Die Lieferadresse muss trotzdem Deutschland-Format haben. Die Sprache dieses Desks ändert die App nicht. In-App-Sprache am Bestelltag prüfen. Lieferadresse im Deutschland-Format."}}, {"@type": "Question", "name": "Warum findet der Katalog nichts auf Deutsch?", "acceptedAnswer": {"@type": "Answer", "text": "Der Index, den /api/products/ auf cssbuyspreadsheets.de liest, ist englisch (sneakers, hoodie, jacket). Turnschuhe oder Kapuzenpullover liefern oft 0 Karten. Das ist kein leerer Shop — das ist ein englischer Index. Messung 2 Oct 2026. Die Kategorie-Wand zeigt weiter die englischen Schlüssel (sneakers, hoodie, jacket) für /api/products/ auf cssbuyspreadsheets.de. Messung 2 Oct 2026."}}, {"@type": "Question", "name": "Wie oft wird kassiert?", "acceptedAnswer": {"@type": "Answer", "text": "Zweimal: zuerst Ware plus Inlandversand nach China-Lager, später die internationale Linie nach Deutschland. Dazwischen kannst du bündeln. Dieser Desk kassiert nicht. Lagerfotos sitzen zwischen den zwei Zahlungen. Internationale Fracht nach Deutschland erst nach akzeptiertem QC in der App buchen."}}, {"@type": "Question", "name": "Warum Dollar auf der offiziellen Seite und EUR hier?", "acceptedAnswer": {"@type": "Answer", "text": "Der offizielle Währungsschalter ändert oft nur das Symbol, nicht die Ziffer. Dieser Desk rechnet die China-Karte nach EUR um (X-Rates 2 Oct 2026) — Anzeige, kein Kassenpreis. Zahl in der App am Büchertag lesen. Wenn die offizielle SPA nach Wahl von EUR weiter USD-Ziffern druckt, den Ziffern und https://www.cssbuy.com/?action=estimates&go=page trauen, nicht diesem HTML. Kurs 2 Oct 2026."}}, {"@type": "Question", "name": "Wie zahle ich?", "acceptedAnswer": {"@type": "Answer", "text": "Nur in https://www.cssbuy.com/. Karte, PayPal, Guthaben — in der offiziellen FAQ desselben Tages prüfen. cssbuyspreadsheets.de nimmt keine Kartendaten. Register-Links auf diesem Desk sammeln keine Kartennummern. Die Felder gibt es nur auf https://www.cssbuy.com/. cssbuyspreadsheets.de speichert keine Methode."}}, {"@type": "Question", "name": "Was ist Volumengewicht?", "acceptedAnswer": {"@type": "Answer", "text": "Die meisten Luft-SKUs rechnen max(Ist, L×B×H/Teiler) in Kilogramm (Widget in Gramm). Eine Daunenjacke ist leicht und voluminös. Nur Geometrie — Live-Preis in https://www.cssbuy.com/?action=estimates&go=page mit Ziel Deutschland. Das Widget nutzt 35×25×10 cm und 1000 g als Laborgewohnheit; dein Karton weicht ab. https://www.cssbuy.com/?action=estimates&go=page mit Ziel Deutschland öffnen, bevor du Porto zahlst."}}, {"@type": "Question", "name": "Wer zahlt Abgaben nach Deutschland?", "acceptedAnswer": {"@type": "Answer", "text": "Abgaben nach Deutschland folgen der SKU (tax-free / prepaid / Empfänger). DHL kann eine Zollgebühr kassieren, die der Schätzer oft nicht zeigt. Quelle: zoll.de. Zielcode DE, Packstation möglich, nicht AT. Keine Unterdeklaration. Prepaid oder Empfänger wählst du beim Paket, nicht beim Warenkauf. SKU-Kopf und Zoll am selben Morgen lesen. Dieser Desk nennt keine Unterdeklaration für Deutschland."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "CSSBuy catalogue keys", "url": "https://cssbuyspreadsheets.de/", "numberOfItems": 16, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sneakers", "description": "sneakers"}, {"@type": "ListItem", "position": 2, "name": "Hoodie", "description": "hoodie"}, {"@type": "ListItem", "position": 3, "name": "Jacket", "description": "jacket"}, {"@type": "ListItem", "position": 4, "name": "T-shirt", "description": "t-shirt"}, {"@type": "ListItem", "position": 5, "name": "Pants", "description": "pants"}, {"@type": "ListItem", "position": 6, "name": "Bags", "description": "bag"}, {"@type": "ListItem", "position": 7, "name": "Watches", "description": "watch"}, {"@type": "ListItem", "position": 8, "name": "Accessories", "description": "accessories"}, {"@type": "ListItem", "position": 9, "name": "Shoes", "description": "shoes"}, {"@type": "ListItem", "position": 10, "name": "Boots", "description": "boots"}, {"@type": "ListItem", "position": 11, "name": "Hats", "description": "hat"}, {"@type": "ListItem", "position": 12, "name": "Glasses", "description": "glasses"}, {"@type": "ListItem", "position": 13, "name": "Jewelry", "description": "jewelry"}, {"@type": "ListItem", "position": 14, "name": "Electronics", "description": "electronics"}, {"@type": "ListItem", "position": 15, "name": "Fragrance", "description": "perfume"}, {"@type": "ListItem", "position": 16, "name": "Sports", "description": "sports"}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt</a>
-<header>
-  <p class="note">CSSBuy · Deutschland · cssbuyspreadsheets.de</p>
-  <nav class="local">
-    <a href="/spreadsheet/">Spreadsheet</a>
-    <a href="/faq/">Zoll-FAQ</a>
-    <a href="/guides/">Ratgeber</a>
-    <a href="/guides/shipping/">Versand</a>
-  </nav>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/"><img class="brand-logo" src="/assets/images/cssbuy-logo.png" alt="CSSBuy"></a>
+    <nav class="header-nav"><a href="/guides/">Spreadsheet</a><a href="/spreadsheet/">Versand</a><a href="/faq/">Seriös?</a><a href="/guides/">Coupons</a><a href="/guides/shipping/">Anleitung</a><a href="#local">Lokal</a></nav>
+    <div class="header-actions">
+      <a class="btn btn-outline" href="#catalog">Öffnen</a>
+      <a class="btn btn-primary" href="https://www.cssbuy.com/" rel="noopener sponsored">Registrieren</a>
+    </div>
+  </div>
 </header>
-<main id="main">
-  <h1>CSSBuy für eine deutsche Lieferadresse (EUR, DHL)</h1>
+<main id="main" class="container">
+<section class="sg-hero">
+  <h1>CSSBuy für eine deutsche Lieferadresse</h1>
+  <p class="hsub">CSSBuy · cssbuyspreadsheets.de · EUR display · Deutschland. Independent desk — not the official app, not checkout.</p>
+  <p class="eu-badge">DE · EUR · Zoll</p>
+  <div class="sg-ctas">
+    <a class="btn btn-primary" href="#catalog">Catalogue</a>
+    <a class="btn btn-outline" href="#local">DE-Check</a>
+    <a class="btn btn-outline" href="https://www.cssbuy.com/?action=estimates&amp;go=page">Fracht-Schätzer</a>
+  </div>
+</section>
 <section class="sg-sec" id="local">
   <h2>Was heute für eine deutsche Adresse gilt</h2>
   <p class="ssub">Deutschland · cssbuyspreadsheets.de · kein Ortsnamen-Tausch.</p>
   <ol class="local-steps"><li><strong>Schätzer-Ziel DE</strong><span>Im Schätzer Deutschland wählen — nicht AT, nicht EU, nicht diesen Hostnamen. Eine österreichische vierstellige PLZ ist die falsche Destination.</span></li><li><strong>Adresse</strong><span>Fünfstellige Postleitzahl. Packstation-Nummern sind ein DE-Muster. Das ist nicht die österreichische Briefpost.</span></li><li><strong>Abgaben</strong><span>SKU entscheidet. DHL / Deutsche Post können Zoll- und Nachnahmegebühren kassieren. Quelle: zoll.de am Versandmorgen. Kein Deklarationsbetrag.</span></li><li><strong>Letzte Meile</strong><span>Oft DHL oder Deutsche Post, nicht Post AT. Diesen Desk nicht mit einem AT-Tracking-Artikel verwechseln.</span></li></ol>
   <p class="local-src">Offizielle Quelle dieses Desks: <a href="https://www.zoll.de/" rel="noopener">Zoll</a>. Labor 2 Oct 2026. Live-Preis steht in <a href="https://www.cssbuy.com/?action=estimates&amp;go=page">https://www.cssbuy.com/?action=estimates&amp;go=page</a> — dieses HTML ist keine Kasse.</p>
   <p class="local-src">Bereits auf diesem Host (behalten): <a href="/spreadsheet/">Spreadsheet</a> · <a href="/faq/">Zoll-FAQ</a> · <a href="/guides/">Ratgeber</a> · <a href="/guides/shipping/">Versand</a></p>
-<p class="local-src">Packstation. Schätzer-Land ist DE, nicht diese TLD, nicht AT, nicht „EU“. Lager: 90 freie Tage ab In Warehouse (offizielle CSSBuy-FAQ), danach ¥15/Bestellung/Monat. Am Versandmorgen in Help prüfen. Live-Preis steht in <a href="https://www.cssbuy.com/?action=estimates&amp;go=page">https://www.cssbuy.com/?action=estimates&amp;go=page</a> — dieses HTML ist keine Kasse.</p>
 </section>
-  <p>Diese Domain ist die <strong>deutsche Desk</strong>. Die niederländische PHP-Desk bleibt auf <a href="https://cssbuy.nl/">cssbuy.nl</a>, Frankreich auf <a href="https://cssbuy.fr/">cssbuy.fr</a>, Österreich auf <a href="https://cssbuy.at/">cssbuy.at</a>. Ein NL- oder US-Screenshot ist hier kein Preis.</p>
-  <p>Account mit DE-Adresse anlegen, erst nach Lagerfoto und Packgewicht Linien vergleichen. DHL Päckchen und DHL Paket sind in CSSBuy getrennte Produkte — Schuhkartons fallen fast nie in die Päckchen-Logik.</p>
 
-  <h2>Was auf dieser Domain schon liegt (nicht 301-en)</h2>
-  <p>Die Startseite ist nur der Einstieg. W2C-Zeilen und QC-Hinweise stehen unter <a href="/spreadsheet/">/spreadsheet/</a>. MwSt/Zoll-Fragen unter <a href="/faq/">/faq/</a>. Ablauf unter <a href="/guides/">/guides/</a>.</p>
-
-  <h2>DHL-Produktnamen nach dem Wiegen</h2>
-  <table>
-    <thead><tr><th>Vergleich</th><th>DE-Check in CSSBuy</th></tr></thead>
-    <tbody>
-      <tr><td>Währung</td><td>EUR nach deutscher Adresse. GBP der UK-Desk nicht übernehmen.</td></tr>
-      <tr><td>Last mile</td><td>Steht DHL / ein deutsches Produkt in der Live-SKU, oder nur eine generische Line?</td></tr>
-      <tr><td>Päckchen vs Paket</td><td>Volumen nach dem Einpacken zählt, nicht die Weidian-Grammzahl.</td></tr>
-      <tr><td>IOSS / Steuerlinie</td><td>Ein eigenes Produkt im Agent. Kauft man es nicht, folgt die Einfuhr dem Beförderer — diese Seite setzt keinen Warenwert.</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Zoll und Einfuhrumsatzsteuer (nur Erklärung)</h2>
-  <div class="box">
-    <p>Deutsche Einfuhr folgt dem gebuchten CSSBuy-Produkt und den Fakten der Sendung. <strong>Keine Unterdeklaration, keine empfohlene Anmeldewerte.</strong></p>
+<section class="sg-sec" id="agent"><h2>CSSBuy</h2><p>CSSBuy ist ein Einkaufsagent, kein Shop. cssbuyspreadsheets.de ist ein Infodesk für Deutschland.</p>
+<p>Orders, payment and warehouse photos stay on https://www.cssbuy.com/. This hostname never takes a card.</p></section>
+<section class="sg-sec" id="sheet-explain"><h2>Spreadsheet</h2><p>Das Spreadsheet auf cssbuyspreadsheets.de ist ein Index, keine Excel-Datei und keine Kasse.</p>
+<p>English keys (sneakers, hoodie, jacket) still feed /api/products/ on this host. Lab 2 Oct 2026.</p></section>
+<section class="sg-sec" id="restricted"><h2>Restricted</h2><p>Restricted ist eine Plattform-Sperre, kein Zollbescheid für Deutschland.</p>
+<p>Price-0 cards are dead Weidian/Taobao links, not a checkout you can force toward Deutschland.</p></section>
+<section class="sg-sec" id="cat-wall"><h2>Catalogue wall</h2><p class="ssub">Sixteen English index keys. Local words often return zero cards.</p><div class="sg-cats"><a class="sg-cat" href="#catalog" data-q="sneakers"><strong>Sneakers</strong><span>sneakers</span></a><a class="sg-cat" href="#catalog" data-q="hoodie"><strong>Hoodie</strong><span>hoodie</span></a><a class="sg-cat" href="#catalog" data-q="jacket"><strong>Jacket</strong><span>jacket</span></a><a class="sg-cat" href="#catalog" data-q="t-shirt"><strong>T-shirt</strong><span>t-shirt</span></a><a class="sg-cat" href="#catalog" data-q="pants"><strong>Pants</strong><span>pants</span></a><a class="sg-cat" href="#catalog" data-q="bag"><strong>Bags</strong><span>bag</span></a><a class="sg-cat" href="#catalog" data-q="watch"><strong>Watches</strong><span>watch</span></a><a class="sg-cat" href="#catalog" data-q="accessories"><strong>Accessories</strong><span>accessories</span></a><a class="sg-cat" href="#catalog" data-q="shoes"><strong>Shoes</strong><span>shoes</span></a><a class="sg-cat" href="#catalog" data-q="boots"><strong>Boots</strong><span>boots</span></a><a class="sg-cat" href="#catalog" data-q="hat"><strong>Hats</strong><span>hat</span></a><a class="sg-cat" href="#catalog" data-q="glasses"><strong>Glasses</strong><span>glasses</span></a><a class="sg-cat" href="#catalog" data-q="jewelry"><strong>Jewelry</strong><span>jewelry</span></a><a class="sg-cat" href="#catalog" data-q="electronics"><strong>Electronics</strong><span>electronics</span></a><a class="sg-cat" href="#catalog" data-q="perfume"><strong>Fragrance</strong><span>perfume</span></a><a class="sg-cat" href="#catalog" data-q="sports"><strong>Sports</strong><span>sports</span></a></div></section>
+<section class="sg-mw" id="catalog">
+  <p class="ssub">Der Katalog auf dieser Startseite kommt von /api/products/. Deutsche Wörter liefern oft null Treffer — englische Keys nutzen (sneakers, hoodie).</p>
+  <p class="sg-fx">Preise in EUR sind eine Anzeigeumrechnung der China-Lagerkarte (X-Rates, 1 Oct 2026, 1 CNY = 0.132940 EUR). Kein Kassenpreis.</p>
+  <div class="sg-chips"><button type="button" data-q="" class="on">Alle</button><button type="button" data-q="sneakers" class="">Sneakers</button><button type="button" data-q="hoodie" class="">Hoodie</button><button type="button" data-q="t-shirt" class="">T Shirt</button><button type="button" data-q="jacket" class="">Jacket</button><button type="button" data-q="bag" class="">Taschen</button><button type="button" data-q="watch" class="">Uhren</button></div>
+  <div class="sg-fbar">
+    <input id="sg-q" type="search" placeholder="Sneakers, Hoodie suchen…">
+    <span id="sg-count"></span>
   </div>
-  <p><a class="cta" href="https://www.cssbuy.com/">CSSBuy mit DE-Adresse öffnen</a></p>
+  <div class="sg-grid" id="sg-grid"></div>
+</section>
+<script>
+(function(){
+  var PAPI='/api/products/';
+  var q='';
+  var W2C_IMG='https://w2clinks.com';
+  var FX_CCY="EUR";
+  var FX_RATE=0.13294;
+  var FX_LOCALE="de-DE";
+  var OPEN_LAB="Öffnen";
+  var COUNT_TPL="{n} auf dieser Seite";
+  var EMPTY_MSG="Keine Karten für diesen englischen Suchbegriff. Probier sneakers oder hoodie.";
+  var ERR_MSG="Katalog-API auf diesem Host noch nicht erreichbar.";
+  var REG="https://www.cssbuy.com/";
+  function absImg(u){
+    if(!u) return '';
+    u=String(u);
+    if(/^https?:\/\//i.test(u)) return u;
+    if(u.indexOf('//')===0) return 'https:'+u;
+    if(u.charAt(0)==='/') return W2C_IMG+u;
+    return W2C_IMG+'/'+u.replace(/^\/+/, '');
+  }
+  function fmtMoney(it){
+    var src=String(it.currency||'CNY').toUpperCase();
+    var n=parseFloat(String(it.price||'').replace(/,/g,'.'));
+    if(!isFinite(n)) return {local:'', srcCcy:src, src:(it.currency||'')+' '+(it.price||'')};
+    var localN=n;
+    if(src==='CNY' && FX_CCY!=='CNY') localN=n*FX_RATE;
+    else if(src!==FX_CCY && src!=='CNY') localN=n;
+    var local='';
+    try { local=new Intl.NumberFormat(FX_LOCALE,{style:'currency',currency:FX_CCY}).format(localN); }
+    catch(e){ local=FX_CCY+' '+localN.toFixed(2); }
+    var srcLab=src+' '+String(it.price);
+    return {local:local, srcCcy:src, src:srcLab};
+  }
+  function render(data){
+    var items=data.items||data.products||[];
+    var g=document.getElementById('sg-grid');
+    var c=document.getElementById('sg-count');
+    if(c) c.textContent=COUNT_TPL.replace('{n}', String(items.length));
+    g.innerHTML='';
+    items.forEach(function(it){
+      var el=document.createElement('article');
+      el.className='sg-card';
+      var img=document.createElement('img');
+      img.src=absImg(it.image||''); img.alt=it.title||''; img.loading='lazy';
+      img.referrerPolicy='no-referrer'; img.decoding='async';
+      var b=document.createElement('div'); b.className='b';
+      var t=document.createElement('div'); t.className='t'; t.textContent=it.title||'';
+      var m=fmtMoney(it);
+      var p=document.createElement('div'); p.className='pr'; p.textContent=m.local||m.src;
+      b.appendChild(t); b.appendChild(p);
+      if(m.srcCcy==='CNY' && FX_CCY!=='CNY' && m.local){
+        var s=document.createElement('div'); s.className='pr-src'; s.textContent=m.src;
+        b.appendChild(s);
+      }
+      var a=document.createElement('a'); a.className='buy'; a.target='_blank'; a.rel='noopener sponsored';
+      a.href=it.href||it.target||REG; a.textContent=OPEN_LAB;
+      el.appendChild(img); el.appendChild(b); el.appendChild(a);
+      g.appendChild(el);
+    });
+    if(!items.length){
+      var empty=document.createElement('p'); empty.textContent=EMPTY_MSG; g.appendChild(empty);
+    }
+  }
+  function load(){
+    var u=new URL(PAPI, location.origin);
+    if(q) u.searchParams.set('q', q);
+    u.searchParams.set('limit','24');
+    u.searchParams.set('page','1');
+    fetch(u, {headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(render).catch(function(){
+      var g=document.getElementById('sg-grid');
+      g.innerHTML='';
+      var err=document.createElement('p'); err.textContent=ERR_MSG; g.appendChild(err);
+    });
+  }
+  function applyQ(next){
+    q=next||'';
+    var inp=document.getElementById('sg-q');
+    if(inp) inp.value=q;
+    document.querySelectorAll('.sg-chips button').forEach(function(x){
+      x.classList.toggle('on', (x.getAttribute('data-q')||'')===q);
+    });
+    load();
+  }
+  document.querySelectorAll('.sg-chips button').forEach(function(b){
+    b.addEventListener('click', function(){ applyQ(b.getAttribute('data-q')||''); });
+  });
+  document.querySelectorAll('a.sg-cat[data-q]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      applyQ(a.getAttribute('data-q')||'');
+      var cat=document.getElementById('catalog');
+      if(cat) cat.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+  var inp=document.getElementById('sg-q');
+  var t=null;
+  inp.addEventListener('input', function(){
+    clearTimeout(t); t=setTimeout(function(){ q=inp.value.trim(); load(); }, 250);
+  });
+  load();
+})();
+</script>
+<section class="sg-sec" id="states"><h2>Deutschland</h2>
+<p class="ssub">Estimator country is DE, not this TLD. Sister country hosts stay separate files — no 301.</p>
+<p>Unabhängigkeit: cssbuyspreadsheets.de ist ein Infodesk, nicht CSSBuy. Keine Bestellungen, kein Kontozugriff, kein Porto. Schwester-Länderhosts bleiben eigene Dateien — kein 301. Inhalt redaktionell geprüft 2 Oct 2026.</p></section><section class="sg-sec" id="shots"><h2>Official app</h2>
+<p class="ssub">Screenshots and live money stay on the official CSSBuy site, dated 2 Oct 2026.</p>
+<p><a class="btn btn-outline" href="https://www.cssbuy.com/" rel="noopener">Open CSSBuy</a>
+<a class="btn btn-primary" href="https://www.cssbuy.com/?action=estimates&amp;go=page" rel="noopener">Freight estimate</a></p></section><section class="sg-sec" id="lab"><h2>Frachtlabor — kein Checkout</h2>
+<p class="ssub">Offiziellen Schätzer mit Ziel <strong>Deutschland</strong> öffnen, bevor du international zahlst. Messgewohnheit: 1000 g / 35×25×10 cm, Kleidung. Labor 2 Oct 2026. USD-Ziffern können Dollar bleiben, wenn nur das Symbol wechselt.</p>
+<p><a class="btn btn-primary" href="https://www.cssbuy.com/?action=estimates&amp;go=page">Offiziellen Schätzer öffnen</a></p></section><section class="sg-sec" id="kept"><h2>Already ranking on this host</h2><div class="keep"><a href="/spreadsheet/">Spreadsheet</a><a href="/faq/">Zoll-FAQ</a><a href="/guides/">Ratgeber</a><a href="/guides/shipping/">Versand</a></div></section><section class="sg-sec" id="faq"><h2>FAQ</h2><details class="sg-faq" open><summary>Verkauft CSSBuy die Ware auf dieser Seite?</summary><p>Nein. CSSBuy ist Einkaufsagent: er kauft in chinesischen Drittshops in deinem Namen, fotografiert im Lager, danach buchst du eine internationale SKU nach Deutschland. cssbuyspreadsheets.de ist ein unabhängiger Infodesk. Bestellung, Zahlung und Reklamation nur auf https://www.cssbuy.com/. Die Karten auf cssbuyspreadsheets.de sind ein Index, kein Lager von CSSBuy. Auf diesem Hostnamen wird nicht kassiert.</p></details><details class="sg-faq"><summary>Kann ich CSSBuy auf Deutsch stellen?</summary><p>Der Sprachwähler der Plattform ist unabhängig von diesem Desk. Gemessen 2 Oct 2026. Feldnamen im Schätzer bleiben oft englisch. Die Lieferadresse muss trotzdem Deutschland-Format haben. Die Sprache dieses Desks ändert die App nicht. In-App-Sprache am Bestelltag prüfen. Lieferadresse im Deutschland-Format.</p></details><details class="sg-faq"><summary>Warum findet der Katalog nichts auf Deutsch?</summary><p>Der Index, den /api/products/ auf cssbuyspreadsheets.de liest, ist englisch (sneakers, hoodie, jacket). Turnschuhe oder Kapuzenpullover liefern oft 0 Karten. Das ist kein leerer Shop — das ist ein englischer Index. Messung 2 Oct 2026. Die Kategorie-Wand zeigt weiter die englischen Schlüssel (sneakers, hoodie, jacket) für /api/products/ auf cssbuyspreadsheets.de. Messung 2 Oct 2026.</p></details><details class="sg-faq"><summary>Wie oft wird kassiert?</summary><p>Zweimal: zuerst Ware plus Inlandversand nach China-Lager, später die internationale Linie nach Deutschland. Dazwischen kannst du bündeln. Dieser Desk kassiert nicht. Lagerfotos sitzen zwischen den zwei Zahlungen. Internationale Fracht nach Deutschland erst nach akzeptiertem QC in der App buchen.</p></details><details class="sg-faq"><summary>Warum Dollar auf der offiziellen Seite und EUR hier?</summary><p>Der offizielle Währungsschalter ändert oft nur das Symbol, nicht die Ziffer. Dieser Desk rechnet die China-Karte nach EUR um (X-Rates 2 Oct 2026) — Anzeige, kein Kassenpreis. Zahl in der App am Büchertag lesen. Wenn die offizielle SPA nach Wahl von EUR weiter USD-Ziffern druckt, den Ziffern und https://www.cssbuy.com/?action=estimates&amp;go=page trauen, nicht diesem HTML. Kurs 2 Oct 2026.</p></details><details class="sg-faq"><summary>Wie zahle ich?</summary><p>Nur in https://www.cssbuy.com/. Karte, PayPal, Guthaben — in der offiziellen FAQ desselben Tages prüfen. cssbuyspreadsheets.de nimmt keine Kartendaten. Register-Links auf diesem Desk sammeln keine Kartennummern. Die Felder gibt es nur auf https://www.cssbuy.com/. cssbuyspreadsheets.de speichert keine Methode.</p></details><details class="sg-faq"><summary>Was ist Volumengewicht?</summary><p>Die meisten Luft-SKUs rechnen max(Ist, L×B×H/Teiler) in Kilogramm (Widget in Gramm). Eine Daunenjacke ist leicht und voluminös. Nur Geometrie — Live-Preis in https://www.cssbuy.com/?action=estimates&amp;go=page mit Ziel Deutschland. Das Widget nutzt 35×25×10 cm und 1000 g als Laborgewohnheit; dein Karton weicht ab. https://www.cssbuy.com/?action=estimates&amp;go=page mit Ziel Deutschland öffnen, bevor du Porto zahlst.</p></details><details class="sg-faq"><summary>Wer zahlt Abgaben nach Deutschland?</summary><p>Abgaben nach Deutschland folgen der SKU (tax-free / prepaid / Empfänger). DHL kann eine Zollgebühr kassieren, die der Schätzer oft nicht zeigt. Quelle: zoll.de. Zielcode DE, Packstation möglich, nicht AT. Keine Unterdeklaration. Prepaid oder Empfänger wählst du beim Paket, nicht beim Warenkauf. SKU-Kopf und Zoll am selben Morgen lesen. Dieser Desk nennt keine Unterdeklaration für Deutschland.</p></details><details class="sg-faq"><summary>Gibt es eine Schwelle zum Umgehen?</summary><p>Einfuhr-USt und De-minimis ändern sich. zoll.de und die SKU am Versandtag lesen. Dieser Desk kopiert keine österreichische BMF-Zahl und erfindet keinen Deklarationsbetrag für DE. Ein Discord-Screenshot einer Schwelle ist keine Anmeldung. Quelle dieses Desks: Zoll. Wir erfinden keinen Deklarationsbetrag für Deutschland, auch nicht „unter IOSS“.</p></details><details class="sg-faq"><summary>Kann ich mehrere Bestellungen bündeln?</summary><p>Ja, der übliche Sparweg. Teile warten im Lager. Speicherregel: Official CSSBuy warehouse FAQ: 90 free days from In Warehouse, then ¥15/order/month; confirm Help the morning you ship. Wenn QC zwei Kartons macht, jeden Karton extra nach Deutschland schätzen. Speicherregel: Official CSSBuy warehouse FAQ: 90 free days from In Warehouse, then ¥15/order/month; confirm Help the morning you ship. Danach kann das Lager berechnen oder entsorgen — offizielle Hilfe, nicht diese Seite. Geteilte Kartons jeweils nach Deutschland schätzen.</p></details><details class="sg-faq"><summary>Gibt es QC-Fotos?</summary><p>Ja, Lagerfotos landen in der App, sobald die Ware in China angekommen ist. Extra-Winkel sind oft kostenpflichtig. Reklamieren ist einfacher, solange das Stück noch im Lager liegt, nicht nach dem Zoll. Unscharfes Foto: extra Winkel in der App kaufen, solange das Stück noch in China ist, Ziel Deutschland. Dieser Desk öffnet kein Ticket.</p></details><details class="sg-faq"><summary>Was darf nicht?</summary><p>Tabak, Alkohol, Arzneimittel, verbotene Ware. Flüssigkeiten/Pulver können Gefahrgut sein. Plattformregel, nicht Zoll. Restricted oder Preis 0 nicht bestellen. Restricted ist eine Plattform-Kauf-Sperre, kein Zoll-Beschlag. Preis-0-Karten auf cssbuyspreadsheets.de sind kein Checkout und keine Bestellung nach Deutschland.</p></details><details class="sg-faq"><summary>Warum restricted oder Preis 0?</summary><p>Herkunftslink nicht für Agentenkauf, oder Preis unlesbar. Ohne echten Preis nicht planen. Transborder-Shops oft außerhalb. Live-Seite von CSSBuy prüfen. Preis 0 heißt oft: Weidian- oder Taobao-Link tot. Live-Seite von CSSBuy am selben Tag öffnen; dieses HTML ist kein Haul-Plan.</p></details><details class="sg-faq"><summary>Paket leichter als geschätzt?</summary><p>Offizielle FAQ zu Schätzung vs. Istgewicht und Porto-Rückerstattung. Dieses HTML ist kein Live-Quote. https://www.cssbuy.com/?action=estimates&amp;go=page nach Lagerfotos mit Ziel Deutschland neu rechnen. Rückerstattung Schätzung vs. Istgewicht steht in der offiziellen FAQ. https://www.cssbuy.com/?action=estimates&amp;go=page nach Lagerfotos mit Ziel Deutschland neu rechnen, dann zahlen.</p></details><details class="sg-faq"><summary>Wo reklamiere ich?</summary><p>Nur auf https://www.cssbuy.com/, nicht hier. cssbuyspreadsheets.de sieht dein Konto nicht. App-Chat / offizielle Hilfe. Schätzer-Ziel ist Deutschland, nicht die TLD. cssbuyspreadsheets.de sieht keine Bestellnummer. Die In-App-ID behalten. Reklamation und Chat nur auf https://www.cssbuy.com/.</p></details></section>
 </main>
-<footer>
-  <p class="note">Unabhängige DE-Notizen, nicht die offizielle CSSBuy-Site. Andere ccTLDs bleiben eigene Dokumente.</p>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><strong>CSSBuy · cssbuyspreadsheets.de</strong>
+      <p class="footer-note">Unabhängiger Infodesk auf cssbuyspreadsheets.de. Nicht die offizielle CSSBuy-Seite. Schwester-Länderhosts bleiben eigene Dateien — kein 301.</p>
+      <p class="legal-note">Unabhängigkeit: cssbuyspreadsheets.de ist ein Infodesk, nicht CSSBuy. Keine Bestellungen, kein Kontozugriff, kein Porto. Schwester-Länderhosts bleiben eigene Dateien — kein 301. Inhalt redaktionell geprüft 2 Oct 2026.</p></div>
+    <div><strong>Auf diesem Host</strong>
+      <p><a href="/spreadsheet/">Spreadsheet</a><br><a href="/faq/">Zoll-FAQ</a><br><a href="/guides/">Ratgeber</a><br><a href="/guides/shipping/">Versand</a><br></p></div>
+    <div><strong>Offiziell</strong>
+      <p><a href="https://www.cssbuy.com/">CSSBuy</a><br>
+      <a href="https://www.cssbuy.com/?action=estimates&amp;go=page">Fracht-Schätzer</a></p></div>
+  </div>
 </footer>
-</body>
-</html>
+</body></html>

@@ -23,6 +23,7 @@ CNY_TO = {
     "CAD": 0.212478,
     "GBP": 0.113091,
     "AUD": 0.215745,
+    "PLN": 0.537200,
 }
 
 EXTRA_CSS_FX = """
@@ -229,6 +230,8 @@ def currency_for(key: str, d: dict) -> str:
         return "CAD"
     if dest == "AU":
         return "AUD"
+    if dest == "PL":
+        return "PLN"
     return "USD"
 
 

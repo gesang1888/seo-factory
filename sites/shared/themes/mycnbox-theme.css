@@ -1,0 +1,8 @@
+/* MyCNBox country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #0f766e;
+  --primary-dark: #0f766e;
+  --primary-soft: #f0fdfa;
+  --nav-dark: #134e4a;
+}
+body { background: var(--bg, #f7f8fa); }

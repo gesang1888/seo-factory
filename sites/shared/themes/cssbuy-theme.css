@@ -1,0 +1,8 @@
+/* CSSBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #E85D1A;
+  --primary-dark: #E85D1A;
+  --primary-soft: #fff4ed;
+  --nav-dark: #1a1a1a;
+}
+body { background: var(--bg, #f7f8fa); }
