@@ -466,21 +466,62 @@ body {{ background: var(--bg, #f7f8fa); }}
 """
 
 
-def _nav(host: str) -> str:
+def nav_html(host: str, *, inner: bool = False) -> str:
     d = HOSTS[host]
     loc = d["loc"]
-    keep = {k: v for v, k in [("sheet", 0), ("coup", 2), ("legit", 1), ("how", 3)]}
     links = []
     items = NAV.get(loc, NAV["en"])
     mapping = {"sheet": 2, "ship": 0, "legit": 1, "coup": 2, "how": 3}
+    catalog = "/#catalog" if inner else "#catalog"
     for lab, kind in items:
         if kind == "#local":
-            href = "#local"
+            href = "/#local" if inner else "#local"
         else:
             idx = mapping.get(kind, 0)
-            href = d["keep"][idx][0] if idx < len(d["keep"]) else "#catalog"
+            href = d["keep"][idx][0] if idx < len(d["keep"]) else catalog
         links.append(f'<a href="{escape(href)}">{escape(lab)}</a>')
     return "".join(links)
+
+
+def _nav(host: str) -> str:
+    return nav_html(host, inner=False)
+
+
+def header_html(host: str, *, inner: bool = False) -> str:
+    d = HOSTS[host]
+    ag = AGENTS[d["agent"]]
+    u = ui_copy(d["loc"])
+    cat_href = "/#catalog" if inner else "#catalog"
+    return f"""<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/"><img class="brand-logo" src="{escape(ag['logo'])}" alt="{escape(d['agent'])}"></a>
+    <nav class="header-nav">{nav_html(host, inner=inner)}</nav>
+    <div class="header-actions">
+      <a class="btn btn-outline" href="{cat_href}">{escape(u.get('open') or 'Catalogue')}</a>
+      <a class="btn btn-primary" href="{escape(ag['register'])}" rel="noopener sponsored">{escape(u['register'])}</a>
+    </div>
+  </div>
+</header>"""
+
+
+def footer_html(host: str) -> str:
+    d = HOSTS[host]
+    ag = AGENTS[d["agent"]]
+    f = _facts(host)
+    u = ui_copy(d["loc"])
+    keep = "".join(f'<a href="{escape(h)}">{escape(l)}</a><br>' for h, l in d["keep"])
+    return f"""<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><strong>{escape(d['agent'])} · {escape(host)}</strong>
+      <p class="footer-note">{escape(u['foot'].format(host=host, brand=d['agent']))}</p>
+      <p class="legal-note">{escape(independence_copy(f))}</p></div>
+    <div><strong>{escape(u['on_host'])}</strong>
+      <p>{keep}</p></div>
+    <div><strong>{escape(u['official'])}</strong>
+      <p><a href="{escape(ag['official'])}">{escape(d['agent'])}</a><br>
+      <a href="{escape(ag['estimator'])}">{escape(u['freight'])}</a></p></div>
+  </div>
+</footer>"""
 
 
 def _prose(host: str) -> str:
@@ -598,16 +639,7 @@ def build_home(host: str) -> str:
 </head>
 <body>
 {skip_link(skip_label(d['loc']))}
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="/"><img class="brand-logo" src="{escape(ag['logo'])}" alt="{escape(d['agent'])}"></a>
-    <nav class="header-nav">{_nav(host)}</nav>
-    <div class="header-actions">
-      <a class="btn btn-outline" href="#catalog">{escape(u.get('open') or 'Catalogue')}</a>
-      <a class="btn btn-primary" href="{escape(ag['register'])}" rel="noopener sponsored">{escape(u['register'])}</a>
-    </div>
-  </div>
-</header>
+{header_html(host, inner=False)}
 <main id="main" class="container">
 <section class="sg-hero">
   <h1>{escape(d['h1'])}</h1>
@@ -639,18 +671,7 @@ def build_home(host: str) -> str:
     html += _faq(host)
     html += f"""
 </main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div><strong>{escape(d['agent'])} · {escape(host)}</strong>
-      <p class="footer-note">{escape(u['foot'].format(host=host, brand=d['agent']))}</p>
-      <p class="legal-note">{escape(independence_copy(f))}</p></div>
-    <div><strong>{escape(u['on_host'])}</strong>
-      <p>{''.join(f'<a href="{escape(h)}">{escape(l)}</a><br>' for h,l in d['keep'])}</p></div>
-    <div><strong>{escape(u['official'])}</strong>
-      <p><a href="{escape(ag['official'])}">{escape(d['agent'])}</a><br>
-      <a href="{escape(ag['estimator'])}">{escape(u['freight'])}</a></p></div>
-  </div>
-</footer>
+{footer_html(host)}
 </body></html>
 """
     return html
