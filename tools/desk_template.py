@@ -49,6 +49,7 @@ CUSTOMS = {
     "CA": ("CBSA", "https://www.cbsa-asfc.gc.ca/"),
     "GB": ("HMRC", "https://www.gov.uk/goods-sent-from-abroad"),
     "AU": ("ABF", "https://www.abf.gov.au/"),
+    "PL": ("Krajowa Administracja Skarbowa", "https://www.podatki.gov.pl/"),
 }
 
 # Fingerprints of hipobuy.es Spain-only lab copy. Mentioning that we do
@@ -225,6 +226,20 @@ DEST_LOCAL = {
         ],
         "duty": "Who pays GST or duty into Australia is on the booked SKU. A last-mile can add a collect fee. Educational source: ABF. Estimator destination AU. This desk does not copy a GST rate into a title and does not coach a declared value.",
         "threshold": "ABF and GST rules change. Read ABF and the ranked GST article on this host the morning you ship. No invented threshold, no under-declaration.",
+    },
+    "PL": {
+        "h2": "Co dziś dotyczy adresu w Polsce",
+        "cta": "Check PL",
+        "fingerprint": "00-001 Warszawa",
+        "aliens": ("Packstation", "Colissimo", "iDEAL", "Royal Mail", "Österreichische Post", "USPS", "CBSA", "ABF", "Poste Italiane", "A1A 1A1"),
+        "steps": [
+            ("Cel estymatora: Polska", "Wybierz PL, nie EU, nie ten hostname. Niemiecki kod pocztowy albo automat paczkowy DE to zły kraj."),
+            ("Adres", "Polski kod pocztowy (np. 00-001 Warszawa). To nie jest niemiecki automat paczkowy."),
+            ("Cła", "Decyduje SKU. Kurier przy Collect może doliczyć opłatę. Źródło: Krajowa Administracja Skarbowa rano w dniu nadania. Ten desk nie wymyśla wartości zgłoszeniowej."),
+            ("Ostatnia mila", "Często InPost / Poczta Polska. Rankingowy URL na tym hoście zostaje — nie nadpisujemy go tekstem DHL DE."),
+        ],
+        "duty": "Kto płaci cło do Polski, wynika ze SKU. Kurier przy Collect może doliczyć opłatę. Źródło: KAS. Cel estymatora: PL z kodem 00-001 Warszawa, nie niemiecki automat paczkowy. Bez zaniżania wartości.",
+        "threshold": "VAT, IOSS i progi się zmieniają. Czytaj KAS i SKU rano w dniu nadania. Ten desk nie wymyśla kwoty zgłoszeniowej dla adresu w Polsce.",
     },
     "HUB": {
         "h2": "This hostname is not a customs territory",

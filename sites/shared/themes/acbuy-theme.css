@@ -1,0 +1,8 @@
+/* ACBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #E87000;
+  --primary-dark: #E87000;
+  --primary-soft: #FFF3E0;
+  --nav-dark: #111111;
+}
+body { background: var(--bg, #f7f8fa); }

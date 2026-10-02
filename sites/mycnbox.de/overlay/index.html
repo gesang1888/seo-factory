@@ -1,92 +1,197 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de-DE">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MyCNBox Deutschland — Zoll, DHL und Packstation</title>
-<meta name="description" content="mycnbox.de: 2 Homepage-Klicks. Invite AABZKT auf /mycnbox-invite-code/, DE-Spreadsheet ~59 KB. DHL/Deutsche Post, nicht InPost (.pl), nicht Correos (.es). Checkout mycnbox.com.">
+<title>MyCNBox Deutschland — Packstation, DHL, Zoll</title>
+<meta name="description" content="MyCNBox independent desk for Deutschland on mycnbox.de. Catalogue, freight estimate, local last-mile. Not checkout.">
 <link rel="canonical" href="https://mycnbox.de/">
-<link rel="alternate" hreflang="de-DE" href="https://mycnbox.de/">
-<link rel="alternate" hreflang="es-ES" href="https://mycnbox.es/">
-<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/desk-cms.css?v=20261002-cms">
+<link rel="stylesheet" href="/assets/css/mycnbox-theme.css?v=20261002-cms">
 <style>
-:root { --ink:#1c1917; --muted:#57534e; --bg:#f3f1ec; --card:#fff; --accent:#44403c; }
-body { margin:0; font-family: Georgia, ui-serif, serif; background:var(--bg); color:var(--ink); line-height:1.55; }
-header, main, footer { max-width:46rem; margin:0 auto; padding:1.25rem; }
-.note { color:var(--muted); font-size:.92rem; }
-h1 { font-size:clamp(1.55rem,4vw,2.15rem); }
-h2 { font-size:1.18rem; margin-top:1.8rem; }
-table { width:100%; border-collapse:collapse; background:var(--card); }
-th, td { border:1px solid #d6d3d1; padding:.55rem .65rem; text-align:left; font-size:.95rem; }
-th { background:#e7e5e4; }
-a.cta { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:.7rem 1rem; border-radius:.5rem; }
-.box { background:var(--card); padding:1rem 1.1rem; border-radius:.5rem; }
-nav.local a { margin-right:1rem; }
-code { background:#e7e5e4; padding:.05rem .3rem; }
-.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
-.skip:focus{left:12px}
-.legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
-.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
-.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
-.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
-.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
-.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
-.local-src a{color:inherit}
-#local{scroll-margin-top:96px}
-.sg-sec#local{margin:1.25rem 0 0}.sg-sec#local h2{margin-top:0}.ssub{color:var(--muted,#57534e);font-size:.95rem;margin:0 0 12px}
+.sg-card .pr-src{font-size:11px;font-weight:500;color:#94a3b8}
+.sg-fx{color:#64748b;font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:760px}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"MyCNBox Deutschland — DHL desk","inLanguage":"de-DE","url":"https://mycnbox.de/","about":"MyCNBox","isPartOf":{"@type":"WebSite","name":"MyCNBox Deutschland","url":"https://mycnbox.de/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://mycnbox.de/", "url": "https://mycnbox.de/", "name": "MyCNBox Deutschland — Packstation, DHL, Zoll", "description": "MyCNBox independent desk for Deutschland on mycnbox.de. Catalogue, freight estimate, local last-mile. Not checkout.", "inLanguage": "de-DE", "isPartOf": {"@type": "WebSite", "name": "MyCNBox desk", "url": "https://mycnbox.de/"}, "publisher": {"@type": "Organization", "name": "MyCNBox independent desk", "url": "https://mycnbox.de/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "mycnbox.de independent desk", "url": "https://mycnbox.de/", "email": "support@mycnbox.de", "inLanguage": "de-DE", "description": "MyCNBox independent desk for Deutschland on mycnbox.de. Catalogue, freight estimate, local last-mile. Not checkout.", "contactPoint": {"@type": "ContactPoint", "email": "support@mycnbox.de", "contactType": "customer support", "url": "https://mycnbox.de/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mycnbox.de/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "de-DE", "mainEntity": [{"@type": "Question", "name": "Verkauft MyCNBox die Ware auf dieser Seite?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. MyCNBox ist Einkaufsagent: er kauft in chinesischen Drittshops in deinem Namen, fotografiert im Lager, danach buchst du eine internationale SKU nach Deutschland. mycnbox.de ist ein unabhängiger Infodesk. Bestellung, Zahlung und Reklamation nur auf https://www.mycnbox.com/. Die Karten auf mycnbox.de sind ein Index, kein Lager von MyCNBox. Auf diesem Hostnamen wird nicht kassiert."}}, {"@type": "Question", "name": "Kann ich MyCNBox auf Deutsch stellen?", "acceptedAnswer": {"@type": "Answer", "text": "Der Sprachwähler der Plattform ist unabhängig von diesem Desk. Gemessen 2 Oct 2026. Feldnamen im Schätzer bleiben oft englisch. Die Lieferadresse muss trotzdem Deutschland-Format haben. Die Sprache dieses Desks ändert die App nicht. In-App-Sprache am Bestelltag prüfen. Lieferadresse im Deutschland-Format."}}, {"@type": "Question", "name": "Warum findet der Katalog nichts auf Deutsch?", "acceptedAnswer": {"@type": "Answer", "text": "Der Index, den /api/products/ auf mycnbox.de liest, ist englisch (sneakers, hoodie, jacket). Turnschuhe oder Kapuzenpullover liefern oft 0 Karten. Das ist kein leerer Shop — das ist ein englischer Index. Messung 2 Oct 2026. Die Kategorie-Wand zeigt weiter die englischen Schlüssel (sneakers, hoodie, jacket) für /api/products/ auf mycnbox.de. Messung 2 Oct 2026."}}, {"@type": "Question", "name": "Wie oft wird kassiert?", "acceptedAnswer": {"@type": "Answer", "text": "Zweimal: zuerst Ware plus Inlandversand nach China-Lager, später die internationale Linie nach Deutschland. Dazwischen kannst du bündeln. Dieser Desk kassiert nicht. Lagerfotos sitzen zwischen den zwei Zahlungen. Internationale Fracht nach Deutschland erst nach akzeptiertem QC in der App buchen."}}, {"@type": "Question", "name": "Warum Dollar auf der offiziellen Seite und EUR hier?", "acceptedAnswer": {"@type": "Answer", "text": "Der offizielle Währungsschalter ändert oft nur das Symbol, nicht die Ziffer. Dieser Desk rechnet die China-Karte nach EUR um (X-Rates 2 Oct 2026) — Anzeige, kein Kassenpreis. Zahl in der App am Büchertag lesen. Wenn die offizielle SPA nach Wahl von EUR weiter USD-Ziffern druckt, den Ziffern und https://www.mycnbox.com/estimation/ trauen, nicht diesem HTML. Kurs 2 Oct 2026."}}, {"@type": "Question", "name": "Wie zahle ich?", "acceptedAnswer": {"@type": "Answer", "text": "Nur in https://www.mycnbox.com/. Karte, PayPal, Guthaben — in der offiziellen FAQ desselben Tages prüfen. mycnbox.de nimmt keine Kartendaten. Register-Links auf diesem Desk sammeln keine Kartennummern. Die Felder gibt es nur auf https://www.mycnbox.com/. mycnbox.de speichert keine Methode."}}, {"@type": "Question", "name": "Was ist Volumengewicht?", "acceptedAnswer": {"@type": "Answer", "text": "Die meisten Luft-SKUs rechnen max(Ist, L×B×H/Teiler) in Kilogramm (Widget in Gramm). Eine Daunenjacke ist leicht und voluminös. Nur Geometrie — Live-Preis in https://www.mycnbox.com/estimation/ mit Ziel Deutschland. Das Widget nutzt 35×25×10 cm und 1000 g als Laborgewohnheit; dein Karton weicht ab. https://www.mycnbox.com/estimation/ mit Ziel Deutschland öffnen, bevor du Porto zahlst."}}, {"@type": "Question", "name": "Wer zahlt Abgaben nach Deutschland?", "acceptedAnswer": {"@type": "Answer", "text": "Abgaben nach Deutschland folgen der SKU (tax-free / prepaid / Empfänger). DHL kann eine Zollgebühr kassieren, die der Schätzer oft nicht zeigt. Quelle: zoll.de. Zielcode DE, Packstation möglich, nicht AT. Keine Unterdeklaration. Prepaid oder Empfänger wählst du beim Paket, nicht beim Warenkauf. SKU-Kopf und Zoll am selben Morgen lesen. Dieser Desk nennt keine Unterdeklaration für Deutschland."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "MyCNBox catalogue keys", "url": "https://mycnbox.de/", "numberOfItems": 16, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sneakers", "description": "sneakers"}, {"@type": "ListItem", "position": 2, "name": "Hoodie", "description": "hoodie"}, {"@type": "ListItem", "position": 3, "name": "Jacket", "description": "jacket"}, {"@type": "ListItem", "position": 4, "name": "T-shirt", "description": "t-shirt"}, {"@type": "ListItem", "position": 5, "name": "Pants", "description": "pants"}, {"@type": "ListItem", "position": 6, "name": "Bags", "description": "bag"}, {"@type": "ListItem", "position": 7, "name": "Watches", "description": "watch"}, {"@type": "ListItem", "position": 8, "name": "Accessories", "description": "accessories"}, {"@type": "ListItem", "position": 9, "name": "Shoes", "description": "shoes"}, {"@type": "ListItem", "position": 10, "name": "Boots", "description": "boots"}, {"@type": "ListItem", "position": 11, "name": "Hats", "description": "hat"}, {"@type": "ListItem", "position": 12, "name": "Glasses", "description": "glasses"}, {"@type": "ListItem", "position": 13, "name": "Jewelry", "description": "jewelry"}, {"@type": "ListItem", "position": 14, "name": "Electronics", "description": "electronics"}, {"@type": "ListItem", "position": 15, "name": "Fragrance", "description": "perfume"}, {"@type": "ListItem", "position": 16, "name": "Sports", "description": "sports"}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt</a>
-<header>
-  <p class="note">MyCNBox · Deutschland · mycnbox.de · nicht .pl, nicht .es, nicht OrientDig.at</p>
-  <nav class="local">
-    <a href="/mycnbox-invite-code/">Einladung AABZKT</a>
-    <a href="/mycnbox-spreadsheet/">Spreadsheet DE</a>
-    <a href="/mycnbox-community/">Community</a>
-      <a href="#local">DE-Check</a>
-  </nav>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/"><img class="brand-logo" src="/assets/images/mycnbox-logo.png" alt="MyCNBox"></a>
+    <nav class="header-nav"><a href="/how-to-use-mycnbox/">Spreadsheet</a><a href="/mycnbox-spreadsheet/">Versand</a><a href="/mycnbox-shipping-guide/">Seriös?</a><a href="/how-to-use-mycnbox/">Coupons</a><a href="/is-mycnbox-legit/">Anleitung</a><a href="#local">Lokal</a></nav>
+    <div class="header-actions">
+      <a class="btn btn-outline" href="#catalog">Öffnen</a>
+      <a class="btn btn-primary" href="https://www.mycnbox.com/" rel="noopener sponsored">Registrieren</a>
+    </div>
+  </div>
 </header>
-<main id="main">
-  <h1>MyCNBox für eine deutsche Adresse (EUR, Packstation möglich)</h1>
+<main id="main" class="container">
+<section class="sg-hero">
+  <h1>MyCNBox für eine deutsche Adresse</h1>
+  <p class="hsub">MyCNBox · mycnbox.de · EUR display · Deutschland. Independent desk — not the official app, not checkout.</p>
+  <p class="eu-badge">DE · EUR · Zoll</p>
+  <div class="sg-ctas">
+    <a class="btn btn-primary" href="#catalog">Catalogue</a>
+    <a class="btn btn-outline" href="#local">DE-Check</a>
+    <a class="btn btn-outline" href="https://www.mycnbox.com/estimation/">Fracht-Schätzer</a>
+  </div>
+</section>
 <section class="sg-sec" id="local">
   <h2>Was heute für eine deutsche Adresse gilt</h2>
   <p class="ssub">Deutschland · mycnbox.de · kein Ortsnamen-Tausch.</p>
   <ol class="local-steps"><li><strong>Schätzer-Ziel DE</strong><span>Im Schätzer Deutschland wählen — nicht AT, nicht EU, nicht diesen Hostnamen. Eine österreichische vierstellige PLZ ist die falsche Destination.</span></li><li><strong>Adresse</strong><span>Fünfstellige Postleitzahl. Packstation-Nummern sind ein DE-Muster. Das ist nicht die österreichische Briefpost.</span></li><li><strong>Abgaben</strong><span>SKU entscheidet. DHL / Deutsche Post können Zoll- und Nachnahmegebühren kassieren. Quelle: zoll.de am Versandmorgen. Kein Deklarationsbetrag.</span></li><li><strong>Letzte Meile</strong><span>Oft DHL oder Deutsche Post, nicht Post AT. Diesen Desk nicht mit einem AT-Tracking-Artikel verwechseln.</span></li></ol>
   <p class="local-src">Offizielle Quelle dieses Desks: <a href="https://www.zoll.de/" rel="noopener">Zoll</a>. Labor 2 Oct 2026. Live-Preis steht in <a href="https://www.mycnbox.com/estimation/">https://www.mycnbox.com/estimation/</a> — dieses HTML ist keine Kasse.</p>
-  <p class="local-src">Bereits auf diesem Host (behalten): <a href="/mycnbox-spreadsheet/">Spreadsheet DE</a> · <a href="/mycnbox-shipping-guide/">Versand DE</a> · <a href="/how-to-use-mycnbox/">Anleitung</a> · <a href="/is-mycnbox-legit/">Seriös?</a></p>
-<p class="local-src">Packstation. Schätzer-Land ist DE, nicht diese TLD, nicht AT, nicht „EU“. Lager: offizielles Help 90 Tage gratis; am Versandmorgen denselben Artikel prüfen. Live-Preis steht in <a href="https://www.mycnbox.com/estimation/">https://www.mycnbox.com/estimation/</a> — dieses HTML ist keine Kasse.</p>
+  <p class="local-src">Bereits auf diesem Host (behalten): <a href="/mycnbox-spreadsheet/">Spreadsheet</a> · <a href="/mycnbox-shipping-guide/">Versand</a> · <a href="/how-to-use-mycnbox/">Anleitung</a> · <a href="/is-mycnbox-legit/">Seriös?</a></p>
 </section>
-  <p>Search Console: <strong>2 Klicks auf diese Homepage</strong>. <a href="/mycnbox-invite-code/">/mycnbox-invite-code/</a> (~25&nbsp;KB, <code>AABZKT</code>), <a href="/mycnbox-spreadsheet/">/mycnbox-spreadsheet/</a> (~59&nbsp;KB DE-W2C) und <a href="/mycnbox-community/">/mycnbox-community/</a> bleiben. <a href="https://mycnbox.pl/">mycnbox.pl</a> ist InPost/Poczta. <a href="https://mycnbox.es/">mycnbox.es</a> ist Correos. Kein HTML kopieren.</p>
-  <p>Konto mit deutscher Adresse auf mycnbox.com → EUR. DHL/Deutsche Post: SKU in der App lesen, nicht ein PostNL-Menü von mycnbox.nl.</p>
 
-  <h2>Schon auf diesem Host</h2>
-  <ul>
-    <li><a href="/mycnbox-invite-code/">Einladungscode</a> — <code>AABZKT</code>, wenn die Live-Anmeldung ihn noch zeigt.</li>
-    <li><a href="/mycnbox-spreadsheet/">DE-Spreadsheet</a> — eigene W2C-Tabelle, nicht die PL-Datei.</li>
-    <li><a href="/mycnbox-community/">Community / Reddit-Belohnungen</a>.</li>
-  </ul>
-
-  <h2>MyCNBox-DE-Ticket vs PL oder ES</h2>
-  <table>
-    <thead><tr><th>Schirm</th><th>Lesart Deutschland</th></tr></thead>
-    <tbody>
-      <tr><td>Adresse</td><td>DE → EUR. Ein InPost-Ticket (.pl) ist ein anderes Land.</td></tr>
-      <tr><td>Last mile</td><td>Steht DHL oder Deutsche Post in der Live-SKU?</td></tr>
-      <tr><td>Gewicht</td><td>Kg nach MyCNBox-Lagerfotos, nicht Weidian-Gramm.</td></tr>
-      <tr><td>Invite</td><td>Schon auf /mycnbox-invite-code/ — nicht PUT, nicht 301.</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Zoll — nur pädagogisch</h2>
-  <div class="box">
-    <p>USt und Formalitäten folgen der in MyCNBox gebuchten Linie. <strong>Keine Unterdeklarations-Tipps.</strong></p>
+<section class="sg-sec" id="agent"><h2>MyCNBox</h2><p>MyCNBox ist ein Einkaufsagent, kein Shop. mycnbox.de ist ein Infodesk für Deutschland.</p>
+<p>Orders, payment and warehouse photos stay on https://www.mycnbox.com/. This hostname never takes a card.</p></section>
+<section class="sg-sec" id="sheet-explain"><h2>Spreadsheet</h2><p>Das Spreadsheet auf mycnbox.de ist ein Index, keine Excel-Datei und keine Kasse.</p>
+<p>English keys (sneakers, hoodie, jacket) still feed /api/products/ on this host. Lab 2 Oct 2026.</p></section>
+<section class="sg-sec" id="restricted"><h2>Restricted</h2><p>Restricted ist eine Plattform-Sperre, kein Zollbescheid für Deutschland.</p>
+<p>Price-0 cards are dead Weidian/Taobao links, not a checkout you can force toward Deutschland.</p></section>
+<section class="sg-sec" id="cat-wall"><h2>Catalogue wall</h2><p class="ssub">Sixteen English index keys. Local words often return zero cards.</p><div class="sg-cats"><a class="sg-cat" href="#catalog" data-q="sneakers"><strong>Sneakers</strong><span>sneakers</span></a><a class="sg-cat" href="#catalog" data-q="hoodie"><strong>Hoodie</strong><span>hoodie</span></a><a class="sg-cat" href="#catalog" data-q="jacket"><strong>Jacket</strong><span>jacket</span></a><a class="sg-cat" href="#catalog" data-q="t-shirt"><strong>T-shirt</strong><span>t-shirt</span></a><a class="sg-cat" href="#catalog" data-q="pants"><strong>Pants</strong><span>pants</span></a><a class="sg-cat" href="#catalog" data-q="bag"><strong>Bags</strong><span>bag</span></a><a class="sg-cat" href="#catalog" data-q="watch"><strong>Watches</strong><span>watch</span></a><a class="sg-cat" href="#catalog" data-q="accessories"><strong>Accessories</strong><span>accessories</span></a><a class="sg-cat" href="#catalog" data-q="shoes"><strong>Shoes</strong><span>shoes</span></a><a class="sg-cat" href="#catalog" data-q="boots"><strong>Boots</strong><span>boots</span></a><a class="sg-cat" href="#catalog" data-q="hat"><strong>Hats</strong><span>hat</span></a><a class="sg-cat" href="#catalog" data-q="glasses"><strong>Glasses</strong><span>glasses</span></a><a class="sg-cat" href="#catalog" data-q="jewelry"><strong>Jewelry</strong><span>jewelry</span></a><a class="sg-cat" href="#catalog" data-q="electronics"><strong>Electronics</strong><span>electronics</span></a><a class="sg-cat" href="#catalog" data-q="perfume"><strong>Fragrance</strong><span>perfume</span></a><a class="sg-cat" href="#catalog" data-q="sports"><strong>Sports</strong><span>sports</span></a></div></section>
+<section class="sg-mw" id="catalog">
+  <p class="ssub">Der Katalog auf dieser Startseite kommt von /api/products/. Deutsche Wörter liefern oft null Treffer — englische Keys nutzen (sneakers, hoodie).</p>
+  <p class="sg-fx">Preise in EUR sind eine Anzeigeumrechnung der China-Lagerkarte (X-Rates, 1 Oct 2026, 1 CNY = 0.132940 EUR). Kein Kassenpreis.</p>
+  <div class="sg-chips"><button type="button" data-q="" class="on">Alle</button><button type="button" data-q="sneakers" class="">Sneakers</button><button type="button" data-q="hoodie" class="">Hoodie</button><button type="button" data-q="t-shirt" class="">T Shirt</button><button type="button" data-q="jacket" class="">Jacket</button><button type="button" data-q="bag" class="">Taschen</button><button type="button" data-q="watch" class="">Uhren</button></div>
+  <div class="sg-fbar">
+    <input id="sg-q" type="search" placeholder="Sneakers, Hoodie suchen…">
+    <span id="sg-count"></span>
   </div>
-  <p><a class="cta" href="https://www.mycnbox.com/">MyCNBox öffnen, dann DE-Adresse</a></p>
+  <div class="sg-grid" id="sg-grid"></div>
+</section>
+<script>
+(function(){
+  var PAPI='/api/products/';
+  var q='';
+  var W2C_IMG='https://w2clinks.com';
+  var FX_CCY="EUR";
+  var FX_RATE=0.13294;
+  var FX_LOCALE="de-DE";
+  var OPEN_LAB="Öffnen";
+  var COUNT_TPL="{n} auf dieser Seite";
+  var EMPTY_MSG="Keine Karten für diesen englischen Suchbegriff. Probier sneakers oder hoodie.";
+  var ERR_MSG="Katalog-API auf diesem Host noch nicht erreichbar.";
+  var REG="https://www.mycnbox.com/";
+  function absImg(u){
+    if(!u) return '';
+    u=String(u);
+    if(/^https?:\/\//i.test(u)) return u;
+    if(u.indexOf('//')===0) return 'https:'+u;
+    if(u.charAt(0)==='/') return W2C_IMG+u;
+    return W2C_IMG+'/'+u.replace(/^\/+/, '');
+  }
+  function fmtMoney(it){
+    var src=String(it.currency||'CNY').toUpperCase();
+    var n=parseFloat(String(it.price||'').replace(/,/g,'.'));
+    if(!isFinite(n)) return {local:'', srcCcy:src, src:(it.currency||'')+' '+(it.price||'')};
+    var localN=n;
+    if(src==='CNY' && FX_CCY!=='CNY') localN=n*FX_RATE;
+    else if(src!==FX_CCY && src!=='CNY') localN=n;
+    var local='';
+    try { local=new Intl.NumberFormat(FX_LOCALE,{style:'currency',currency:FX_CCY}).format(localN); }
+    catch(e){ local=FX_CCY+' '+localN.toFixed(2); }
+    var srcLab=src+' '+String(it.price);
+    return {local:local, srcCcy:src, src:srcLab};
+  }
+  function render(data){
+    var items=data.items||data.products||[];
+    var g=document.getElementById('sg-grid');
+    var c=document.getElementById('sg-count');
+    if(c) c.textContent=COUNT_TPL.replace('{n}', String(items.length));
+    g.innerHTML='';
+    items.forEach(function(it){
+      var el=document.createElement('article');
+      el.className='sg-card';
+      var img=document.createElement('img');
+      img.src=absImg(it.image||''); img.alt=it.title||''; img.loading='lazy';
+      img.referrerPolicy='no-referrer'; img.decoding='async';
+      var b=document.createElement('div'); b.className='b';
+      var t=document.createElement('div'); t.className='t'; t.textContent=it.title||'';
+      var m=fmtMoney(it);
+      var p=document.createElement('div'); p.className='pr'; p.textContent=m.local||m.src;
+      b.appendChild(t); b.appendChild(p);
+      if(m.srcCcy==='CNY' && FX_CCY!=='CNY' && m.local){
+        var s=document.createElement('div'); s.className='pr-src'; s.textContent=m.src;
+        b.appendChild(s);
+      }
+      var a=document.createElement('a'); a.className='buy'; a.target='_blank'; a.rel='noopener sponsored';
+      a.href=it.href||it.target||REG; a.textContent=OPEN_LAB;
+      el.appendChild(img); el.appendChild(b); el.appendChild(a);
+      g.appendChild(el);
+    });
+    if(!items.length){
+      var empty=document.createElement('p'); empty.textContent=EMPTY_MSG; g.appendChild(empty);
+    }
+  }
+  function load(){
+    var u=new URL(PAPI, location.origin);
+    if(q) u.searchParams.set('q', q);
+    u.searchParams.set('limit','24');
+    u.searchParams.set('page','1');
+    fetch(u, {headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(render).catch(function(){
+      var g=document.getElementById('sg-grid');
+      g.innerHTML='';
+      var err=document.createElement('p'); err.textContent=ERR_MSG; g.appendChild(err);
+    });
+  }
+  function applyQ(next){
+    q=next||'';
+    var inp=document.getElementById('sg-q');
+    if(inp) inp.value=q;
+    document.querySelectorAll('.sg-chips button').forEach(function(x){
+      x.classList.toggle('on', (x.getAttribute('data-q')||'')===q);
+    });
+    load();
+  }
+  document.querySelectorAll('.sg-chips button').forEach(function(b){
+    b.addEventListener('click', function(){ applyQ(b.getAttribute('data-q')||''); });
+  });
+  document.querySelectorAll('a.sg-cat[data-q]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      applyQ(a.getAttribute('data-q')||'');
+      var cat=document.getElementById('catalog');
+      if(cat) cat.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+  var inp=document.getElementById('sg-q');
+  var t=null;
+  inp.addEventListener('input', function(){
+    clearTimeout(t); t=setTimeout(function(){ q=inp.value.trim(); load(); }, 250);
+  });
+  load();
+})();
+</script>
+<section class="sg-sec" id="states"><h2>Deutschland</h2>
+<p class="ssub">Estimator country is DE, not this TLD. Sister country hosts stay separate files — no 301.</p>
+<p>Unabhängigkeit: mycnbox.de ist ein Infodesk, nicht MyCNBox. Keine Bestellungen, kein Kontozugriff, kein Porto. Schwester-Länderhosts bleiben eigene Dateien — kein 301. Inhalt redaktionell geprüft 2 Oct 2026.</p></section><section class="sg-sec" id="shots"><h2>Official app</h2>
+<p class="ssub">Screenshots and live money stay on the official MyCNBox site, dated 2 Oct 2026.</p>
+<p><a class="btn btn-outline" href="https://www.mycnbox.com/" rel="noopener">Open MyCNBox</a>
+<a class="btn btn-primary" href="https://www.mycnbox.com/estimation/" rel="noopener">Freight estimate</a></p></section><section class="sg-sec" id="lab"><h2>Frachtlabor — kein Checkout</h2>
+<p class="ssub">Offiziellen Schätzer mit Ziel <strong>Deutschland</strong> öffnen, bevor du international zahlst. Messgewohnheit: 1000 g / 35×25×10 cm, Kleidung. Labor 2 Oct 2026. USD-Ziffern können Dollar bleiben, wenn nur das Symbol wechselt.</p>
+<p><a class="btn btn-primary" href="https://www.mycnbox.com/estimation/">Offiziellen Schätzer öffnen</a></p></section><section class="sg-sec" id="kept"><h2>Already ranking on this host</h2><div class="keep"><a href="/mycnbox-spreadsheet/">Spreadsheet</a><a href="/mycnbox-shipping-guide/">Versand</a><a href="/how-to-use-mycnbox/">Anleitung</a><a href="/is-mycnbox-legit/">Seriös?</a></div></section><section class="sg-sec" id="faq"><h2>FAQ</h2><details class="sg-faq" open><summary>Verkauft MyCNBox die Ware auf dieser Seite?</summary><p>Nein. MyCNBox ist Einkaufsagent: er kauft in chinesischen Drittshops in deinem Namen, fotografiert im Lager, danach buchst du eine internationale SKU nach Deutschland. mycnbox.de ist ein unabhängiger Infodesk. Bestellung, Zahlung und Reklamation nur auf https://www.mycnbox.com/. Die Karten auf mycnbox.de sind ein Index, kein Lager von MyCNBox. Auf diesem Hostnamen wird nicht kassiert.</p></details><details class="sg-faq"><summary>Kann ich MyCNBox auf Deutsch stellen?</summary><p>Der Sprachwähler der Plattform ist unabhängig von diesem Desk. Gemessen 2 Oct 2026. Feldnamen im Schätzer bleiben oft englisch. Die Lieferadresse muss trotzdem Deutschland-Format haben. Die Sprache dieses Desks ändert die App nicht. In-App-Sprache am Bestelltag prüfen. Lieferadresse im Deutschland-Format.</p></details><details class="sg-faq"><summary>Warum findet der Katalog nichts auf Deutsch?</summary><p>Der Index, den /api/products/ auf mycnbox.de liest, ist englisch (sneakers, hoodie, jacket). Turnschuhe oder Kapuzenpullover liefern oft 0 Karten. Das ist kein leerer Shop — das ist ein englischer Index. Messung 2 Oct 2026. Die Kategorie-Wand zeigt weiter die englischen Schlüssel (sneakers, hoodie, jacket) für /api/products/ auf mycnbox.de. Messung 2 Oct 2026.</p></details><details class="sg-faq"><summary>Wie oft wird kassiert?</summary><p>Zweimal: zuerst Ware plus Inlandversand nach China-Lager, später die internationale Linie nach Deutschland. Dazwischen kannst du bündeln. Dieser Desk kassiert nicht. Lagerfotos sitzen zwischen den zwei Zahlungen. Internationale Fracht nach Deutschland erst nach akzeptiertem QC in der App buchen.</p></details><details class="sg-faq"><summary>Warum Dollar auf der offiziellen Seite und EUR hier?</summary><p>Der offizielle Währungsschalter ändert oft nur das Symbol, nicht die Ziffer. Dieser Desk rechnet die China-Karte nach EUR um (X-Rates 2 Oct 2026) — Anzeige, kein Kassenpreis. Zahl in der App am Büchertag lesen. Wenn die offizielle SPA nach Wahl von EUR weiter USD-Ziffern druckt, den Ziffern und https://www.mycnbox.com/estimation/ trauen, nicht diesem HTML. Kurs 2 Oct 2026.</p></details><details class="sg-faq"><summary>Wie zahle ich?</summary><p>Nur in https://www.mycnbox.com/. Karte, PayPal, Guthaben — in der offiziellen FAQ desselben Tages prüfen. mycnbox.de nimmt keine Kartendaten. Register-Links auf diesem Desk sammeln keine Kartennummern. Die Felder gibt es nur auf https://www.mycnbox.com/. mycnbox.de speichert keine Methode.</p></details><details class="sg-faq"><summary>Was ist Volumengewicht?</summary><p>Die meisten Luft-SKUs rechnen max(Ist, L×B×H/Teiler) in Kilogramm (Widget in Gramm). Eine Daunenjacke ist leicht und voluminös. Nur Geometrie — Live-Preis in https://www.mycnbox.com/estimation/ mit Ziel Deutschland. Das Widget nutzt 35×25×10 cm und 1000 g als Laborgewohnheit; dein Karton weicht ab. https://www.mycnbox.com/estimation/ mit Ziel Deutschland öffnen, bevor du Porto zahlst.</p></details><details class="sg-faq"><summary>Wer zahlt Abgaben nach Deutschland?</summary><p>Abgaben nach Deutschland folgen der SKU (tax-free / prepaid / Empfänger). DHL kann eine Zollgebühr kassieren, die der Schätzer oft nicht zeigt. Quelle: zoll.de. Zielcode DE, Packstation möglich, nicht AT. Keine Unterdeklaration. Prepaid oder Empfänger wählst du beim Paket, nicht beim Warenkauf. SKU-Kopf und Zoll am selben Morgen lesen. Dieser Desk nennt keine Unterdeklaration für Deutschland.</p></details><details class="sg-faq"><summary>Gibt es eine Schwelle zum Umgehen?</summary><p>Einfuhr-USt und De-minimis ändern sich. zoll.de und die SKU am Versandtag lesen. Dieser Desk kopiert keine österreichische BMF-Zahl und erfindet keinen Deklarationsbetrag für DE. Ein Discord-Screenshot einer Schwelle ist keine Anmeldung. Quelle dieses Desks: Zoll. Wir erfinden keinen Deklarationsbetrag für Deutschland, auch nicht „unter IOSS“.</p></details><details class="sg-faq"><summary>Kann ich mehrere Bestellungen bündeln?</summary><p>Ja, der übliche Sparweg. Teile warten im Lager. Speicherregel: Official Help: 90 free warehouse days; confirm that article the morning you ship. Wenn QC zwei Kartons macht, jeden Karton extra nach Deutschland schätzen. Speicherregel: Official Help: 90 free warehouse days; confirm that article the morning you ship. Danach kann das Lager berechnen oder entsorgen — offizielle Hilfe, nicht diese Seite. Geteilte Kartons jeweils nach Deutschland schätzen.</p></details><details class="sg-faq"><summary>Gibt es QC-Fotos?</summary><p>Ja, Lagerfotos landen in der App, sobald die Ware in China angekommen ist. Extra-Winkel sind oft kostenpflichtig. Reklamieren ist einfacher, solange das Stück noch im Lager liegt, nicht nach dem Zoll. Unscharfes Foto: extra Winkel in der App kaufen, solange das Stück noch in China ist, Ziel Deutschland. Dieser Desk öffnet kein Ticket.</p></details><details class="sg-faq"><summary>Was darf nicht?</summary><p>Tabak, Alkohol, Arzneimittel, verbotene Ware. Flüssigkeiten/Pulver können Gefahrgut sein. Plattformregel, nicht Zoll. Restricted oder Preis 0 nicht bestellen. Restricted ist eine Plattform-Kauf-Sperre, kein Zoll-Beschlag. Preis-0-Karten auf mycnbox.de sind kein Checkout und keine Bestellung nach Deutschland.</p></details><details class="sg-faq"><summary>Warum restricted oder Preis 0?</summary><p>Herkunftslink nicht für Agentenkauf, oder Preis unlesbar. Ohne echten Preis nicht planen. Transborder-Shops oft außerhalb. Live-Seite von MyCNBox prüfen. Preis 0 heißt oft: Weidian- oder Taobao-Link tot. Live-Seite von MyCNBox am selben Tag öffnen; dieses HTML ist kein Haul-Plan.</p></details><details class="sg-faq"><summary>Paket leichter als geschätzt?</summary><p>Offizielle FAQ zu Schätzung vs. Istgewicht und Porto-Rückerstattung. Dieses HTML ist kein Live-Quote. https://www.mycnbox.com/estimation/ nach Lagerfotos mit Ziel Deutschland neu rechnen. Rückerstattung Schätzung vs. Istgewicht steht in der offiziellen FAQ. https://www.mycnbox.com/estimation/ nach Lagerfotos mit Ziel Deutschland neu rechnen, dann zahlen.</p></details><details class="sg-faq"><summary>Wo reklamiere ich?</summary><p>Nur auf https://www.mycnbox.com/, nicht hier. mycnbox.de sieht dein Konto nicht. App-Chat / offizielle Hilfe. Schätzer-Ziel ist Deutschland, nicht die TLD. mycnbox.de sieht keine Bestellnummer. Die In-App-ID behalten. Reklamation und Chat nur auf https://www.mycnbox.com/.</p></details></section>
 </main>
-<footer>
-  <p class="note">Unabhängiger DE-Desk. .pl / .es / .nl / .eu / .fr bleiben eigene Dokumente.</p>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><strong>MyCNBox · mycnbox.de</strong>
+      <p class="footer-note">Unabhängiger Infodesk auf mycnbox.de. Nicht die offizielle MyCNBox-Seite. Schwester-Länderhosts bleiben eigene Dateien — kein 301.</p>
+      <p class="legal-note">Unabhängigkeit: mycnbox.de ist ein Infodesk, nicht MyCNBox. Keine Bestellungen, kein Kontozugriff, kein Porto. Schwester-Länderhosts bleiben eigene Dateien — kein 301. Inhalt redaktionell geprüft 2 Oct 2026.</p></div>
+    <div><strong>Auf diesem Host</strong>
+      <p><a href="/mycnbox-spreadsheet/">Spreadsheet</a><br><a href="/mycnbox-shipping-guide/">Versand</a><br><a href="/how-to-use-mycnbox/">Anleitung</a><br><a href="/is-mycnbox-legit/">Seriös?</a><br></p></div>
+    <div><strong>Offiziell</strong>
+      <p><a href="https://www.mycnbox.com/">MyCNBox</a><br>
+      <a href="https://www.mycnbox.com/estimation/">Fracht-Schätzer</a></p></div>
+  </div>
 </footer>
-</body>
-</html>
+</body></html>

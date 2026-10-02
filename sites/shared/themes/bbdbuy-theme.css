@@ -1,0 +1,8 @@
+/* BBDBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #2563eb;
+  --primary-soft: #eff6ff;
+  --nav-dark: #0f172a;
+}
+body { background: var(--bg, #f7f8fa); }
