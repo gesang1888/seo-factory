@@ -1,0 +1,8 @@
+/* iTaoBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #0891b2;
+  --primary-dark: #0891b2;
+  --primary-soft: #ecfeff;
+  --nav-dark: #155e75;
+}
+body { background: var(--bg, #f7f8fa); }

@@ -1,0 +1,8 @@
+/* GTbuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #16a34a;
+  --primary-dark: #16a34a;
+  --primary-soft: #f0fdf4;
+  --nav-dark: #14532d;
+}
+body { background: var(--bg, #f7f8fa); }
