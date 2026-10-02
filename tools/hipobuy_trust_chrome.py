@@ -1,0 +1,982 @@
+#!/usr/bin/env python3
+"""Local chrome, homepage guides, on-page catalog, figures for HipoBuy desks.
+
+Does not touch hipobuyspreadsheet.net. Catalogue search stays on /.
+"""
+from __future__ import annotations
+
+import json
+import re
+from html import escape
+
+MAIL = "cnfd85269032661@gmail.com"
+EST = "https://hipobuy.com/estimation"
+REG = "https://hipobuy.com/register?inviteCode=VGEICZNX0"
+OFFICIAL = "https://hipobuy.com/"
+NET = "https://hipobuyspreadsheet.net/"
+INVITE = "VGEICZNX0"
+SHOT_OFF = "/media/official-home-20260930.png"
+SHOT_EST = "/media/estimator-20260930.png"
+SHOT_CAT = "/media/at-spreadsheet-20260930.png"
+SHOT_WH = "/media/warehouse-qc-20260930.png"
+SHOT_REST = "/media/restricted-item-20260930.png"
+
+THEMES = {
+    "at": ("#7c2d12", "#9a3412", "#f6efe6", "#fed7aa", "#ffedd5"),
+    "nl": ("#115e59", "#0d9488", "#f0fdfa", "#99f6e4", "#ccfbf1"),
+    "uk": ("#1e293b", "#1d4ed8", "#e8edf4", "#bfdbfe", "#dbeafe"),
+    "eu": ("#1c1917", "#0e7490", "#eef7f8", "#a5f3fc", "#cffafe"),
+    "us": ("#312e81", "#4f46e5", "#f5f3ff", "#c4b5fd", "#ede9fe"),
+    "ukhaul": ("#134e4a", "#0f766e", "#eef6f3", "#99f6e4", "#ccfbf1"),
+}
+
+# local word → English catalogue index (same 16 families as hipobuy.es cards)
+GLOSS = {
+    "at": [
+        ("Turnschuhe", "sneakers"),
+        ("Kapuzenpullover", "hoodie"),
+        ("Jacke", "jacket"),
+        ("Jeans", "jeans"),
+        ("Tasche", "bag"),
+        ("Taschen", "bags"),
+        ("Sonnenbrille", "sunglasses"),
+        ("Brille", "eyewear"),
+        ("Uhr", "watch"),
+        ("Uhren", "watches"),
+        ("Mantel", "coat"),
+        ("Hose", "pants"),
+        ("T-Shirt", "t-shirt"),
+        ("Shorts", "shorts"),
+        ("Unterwäsche", "underwear"),
+        ("Trikot", "jersey"),
+        ("Mütze", "hat"),
+        ("Mützen", "hats"),
+        ("Kopfhörer", "headphones"),
+        ("Parfum", "perfume"),
+        ("Schmuck", "jewelry"),
+        ("Spielzeug", "toys"),
+    ],
+    "nl": [
+        ("Turnschoenen", "sneakers"),
+        ("Hoodie", "hoodie"),
+        ("Jas", "jacket"),
+        ("Spijkerbroek", "jeans"),
+        ("Tas", "bag"),
+        ("Tassen", "bags"),
+        ("Zonnebril", "sunglasses"),
+        ("Bril", "eyewear"),
+        ("Horloge", "watch"),
+        ("Horloges", "watches"),
+        ("Broek", "pants"),
+        ("T-shirt", "t-shirt"),
+        ("Shorts", "shorts"),
+        ("Ondergoed", "underwear"),
+        ("Shirt", "jersey"),
+        ("Pet", "hat"),
+        ("Petten", "hats"),
+        ("Koptelefoon", "headphones"),
+        ("Parfum", "perfume"),
+        ("Sieraden", "jewelry"),
+        ("Speelgoed", "toys"),
+    ],
+    "uk": [
+        ("trainers", "sneakers"),
+        ("jumper", "hoodie"),
+        ("trousers", "pants"),
+        ("trainers uk", "sneakers"),
+        ("jewellery", "jewelry"),
+    ],
+    "eu": [
+        ("zapatillas", "sneakers"),
+        ("sudadera", "hoodie"),
+        ("chaqueta", "jacket"),
+        ("vaqueros", "jeans"),
+        ("Turnschuhe", "sneakers"),
+        ("Kapuzenpullover", "hoodie"),
+        ("baskets", "sneakers"),
+        ("sweat", "hoodie"),
+        ("lunettes", "eyewear"),
+        ("sacs", "bags"),
+    ],
+    "us": [
+        ("sneakers", "sneakers"),
+        ("hoodie", "hoodie"),
+        ("jacket", "jacket"),
+    ],
+    "ukhaul": [
+        ("trainers", "sneakers"),
+        ("jumper", "hoodie"),
+        ("trousers", "pants"),
+        ("jewellery", "jewelry"),
+    ],
+}
+
+
+def labels(key: str) -> dict[str, str]:
+    if key == "at":
+        return {
+            "home": "Start",
+            "ship": "Versand",
+            "howto": "Ablauf",
+            "help": "Hilfe",
+            "news": "Neuigkeiten",
+            "about": "Über uns",
+            "sheet": "Katalog",
+            "coupons": "Coupons",
+            "reg": "Registrieren",
+            "est": "Offizieller Schätzer",
+            "note": "Unabhängiger AT-Desk, nicht HipoBuy und nicht der Finds-Hub",
+            "contact": "Redaktion (kein Bestellticket)",
+            "translate": "Katalogsuche auf dieser Startseite: Deutsch tippen, englisch indexieren",
+            "go": "Auf der Startseite suchen",
+            "empty": "Keine Karten für dieses Wort — englisches Indexwort versuchen (sneakers, hoodie).",
+            "noscript": "Die Karten laden über /api/products/ auf diesem Host. Ohne JavaScript bleibt das Suchfeld: Absenden bleibt auf /.",
+        }
+    if key == "nl":
+        return {
+            "home": "Home",
+            "ship": "Verzending",
+            "howto": "Stappen",
+            "help": "Hulp",
+            "news": "Nieuws",
+            "about": "Over ons",
+            "sheet": "Catalogus",
+            "coupons": "Coupons",
+            "reg": "Registreren",
+            "est": "Officiële estimator",
+            "note": "Onafhankelijke NL-desk, niet HipoBuy en niet de finds-hub",
+            "contact": "Redactie (geen bestelticket)",
+            "translate": "Cataloguszoek op deze homepage: Nederlands typen, Engels indexeren",
+            "go": "Zoek op deze homepage",
+            "empty": "Geen kaarten voor dit woord — probeer het Engelse indexwoord (sneakers, hoodie).",
+            "noscript": "Kaarten komen van /api/products/ op dit host. Zonder JavaScript blijft zoeken op /.",
+        }
+    job = {
+        "uk": "Independent .co.uk coupon desk, not the .uk haul log",
+        "eu": "Independent EU coupon desk — TLD is not a destination",
+        "us": "Independent US freight desk, not the .net finds hub",
+        "ukhaul": "Independent Nominet haul log, not the .co.uk coupon desk",
+    }[key]
+    return {
+        "home": "Home",
+        "ship": "Shipping",
+        "howto": "How to",
+        "help": "Help",
+        "news": "News",
+        "about": "Who we are",
+        "sheet": "Catalogue",
+        "coupons": "Coupons",
+        "reg": "Register",
+        "est": "Official estimator",
+        "note": job,
+        "contact": "Editorial (not an order ticket)",
+        "translate": "Catalogue search on this homepage: local word in, English index out",
+        "go": "Search on this homepage",
+        "empty": "No cards for that word — try the English index (sneakers, hoodie).",
+        "noscript": "Cards load from /api/products/ on this host. Without JavaScript the form still submits to /.",
+    }
+
+
+def nav_links(key: str, d: dict) -> list[tuple[str, str]]:
+    s = d["slugs"]
+    L = labels(key)
+    links = [("/", L["home"])]
+    if key in ("uk", "eu"):
+        links.append(("/hipobuy-coupons/", L["coupons"]))
+    if key == "uk":
+        links.append(("/blog/posts/hipobuy-sizing-guide/", "UK sizing"))
+    if key == "us":
+        links.append(("/guides/shipping/", L["ship"]))
+    else:
+        links.append(("/hipobuy-shipping-guide/", L["ship"]))
+    if key not in ("uk", "eu"):
+        links.append(("/how-to-use-hipobuy/", L["howto"]))
+    links.extend(
+        [
+            (f"/{s['help']}/", L["help"]),
+            (f"/{s['news']}/", L["news"]),
+            (f"/{s['about']}/", L["about"]),
+        ]
+    )
+    # unique by href
+    seen = set()
+    out = []
+    for href, lab in links:
+        if href not in seen:
+            seen.add(href)
+            out.append((href, lab))
+    return out
+
+
+def fig(src: str, cap: str) -> str:
+    return (
+        f'<figure class="shot"><img src="{src}" alt="{escape(cap)}" loading="lazy">'
+        f"<figcaption>{cap}</figcaption></figure>"
+    )
+
+
+def catalog_cats(key: str) -> list[tuple[str, str, str]]:
+    """Local label, API category, keyword fallback — same 16 families as hipobuy.es."""
+    if key == "at":
+        return [
+            ("Turnschuhe", "SNEAKERS", "sneakers"),
+            ("T-Shirt", "T-SHIRT", "t-shirt"),
+            ("Kapuzenpullover", "HOODIE", "hoodie"),
+            ("Jacke", "JACKET", "jacket"),
+            ("Jeans", "TROUSERS", "jeans"),
+            ("Shorts", "SHORTS", "shorts"),
+            ("Unterwäsche", "UNDERWEAR", "underwear"),
+            ("Trikot", "Jersey", "jersey"),
+            ("Mützen", "HAT", "hat"),
+            ("Taschen", "BAG", "bags"),
+            ("Brillen", "EYEWEAR", "sunglasses"),
+            ("Kopfhörer", "HEADPHONES", "headphones"),
+            ("Parfum", "PERFUME", "perfume"),
+            ("Uhren", "WATCH", "watch"),
+            ("Schmuck", "JEWELRY", "jewelry"),
+            ("Spielzeug", "TOYS", "toy"),
+        ]
+    if key == "nl":
+        return [
+            ("Turnschoenen", "SNEAKERS", "sneakers"),
+            ("T-shirt", "T-SHIRT", "t-shirt"),
+            ("Hoodie", "HOODIE", "hoodie"),
+            ("Jas", "JACKET", "jacket"),
+            ("Spijkerbroek", "TROUSERS", "jeans"),
+            ("Shorts", "SHORTS", "shorts"),
+            ("Ondergoed", "UNDERWEAR", "underwear"),
+            ("Shirt", "Jersey", "jersey"),
+            ("Petten", "HAT", "hat"),
+            ("Tassen", "BAG", "bags"),
+            ("Brillen", "EYEWEAR", "sunglasses"),
+            ("Koptelefoons", "HEADPHONES", "headphones"),
+            ("Parfum", "PERFUME", "perfume"),
+            ("Horloges", "WATCH", "watch"),
+            ("Sieraden", "JEWELRY", "jewelry"),
+            ("Speelgoed", "TOYS", "toy"),
+        ]
+    sneaker = "Trainers" if key in ("uk", "ukhaul") else "Sneakers"
+    jewel = "Jewellery" if key in ("uk", "ukhaul") else "Jewelry"
+    return [
+        (sneaker, "SNEAKERS", "sneakers"),
+        ("T-shirt", "T-SHIRT", "t-shirt"),
+        ("Hoodie", "HOODIE", "hoodie"),
+        ("Jacket", "JACKET", "jacket"),
+        ("Jeans", "TROUSERS", "jeans"),
+        ("Shorts", "SHORTS", "shorts"),
+        ("Underwear", "UNDERWEAR", "underwear"),
+        ("Jersey", "Jersey", "jersey"),
+        ("Hats", "HAT", "hat"),
+        ("Bags", "BAG", "bags"),
+        ("Eyewear", "EYEWEAR", "sunglasses"),
+        ("Headphones", "HEADPHONES", "headphones"),
+        ("Perfume", "PERFUME", "perfume"),
+        ("Watches", "WATCH", "watch"),
+        (jewel, "JEWELRY", "jewelry"),
+        ("Toys", "TOYS", "toy"),
+    ]
+
+
+def catalog_widget(key: str, d: dict) -> str:
+    """Search + 16 category chips + product grid on /, via same-host /api/products/."""
+    pairs = GLOSS.get(key) or []
+    L = labels(key)
+    mapping = {a.lower(): b for a, b in pairs}
+    for lab, _cat, kw in catalog_cats(key):
+        mapping.setdefault(lab.lower(), kw)
+    chip_src = pairs[:8] if pairs else [(a, c) for a, _, c in catalog_cats(key)[:8]]
+    chips = " · ".join(
+        f"<code>{escape(a)}</code>→<code>{escape(b)}</code>" for a, b in chip_src
+    )
+    placeholder = pairs[0][0] if pairs else catalog_cats(key)[0][0]
+    cat_html = "\n    ".join(
+        f'<a class="hipo-cat" href="/?cat={escape(kw)}#katalog" data-cat="{escape(cat)}" data-kw="{escape(kw)}">{escape(lab)}</a>'
+        for lab, cat, kw in catalog_cats(key)
+    )
+    country = d.get("dest") or ""
+    return f"""
+<div class="box" id="katalog">
+  <p><strong>{escape(L["translate"])}</strong></p>
+  <p class="note">{chips}</p>
+  <form id="hipo-trans" action="/" method="get">
+    <input type="search" name="q" id="hipo-q" required placeholder="{escape(placeholder)}">
+    <button type="submit">{escape(L["go"])}</button>
+  </form>
+  <p class="note" id="hipo-hint"></p>
+  <div class="hipo-cats">
+    {cat_html}
+  </div>
+  <p class="note" id="hipo-status"></p>
+  <div class="hipo-grid" id="hipo-grid"></div>
+  <noscript><p class="note">{escape(L["noscript"])}</p></noscript>
+</div>
+<script>
+(function(){{
+  var map = {json.dumps(mapping, ensure_ascii=False)};
+  var emptyMsg = {json.dumps(L["empty"], ensure_ascii=False)};
+  var country = {json.dumps(country)};
+  var form = document.getElementById('hipo-trans');
+  var grid = document.getElementById('hipo-grid');
+  var status = document.getElementById('hipo-status');
+  var hint = document.getElementById('hipo-hint');
+  function esc(s){{
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }}
+  function render(items){{
+    if (!grid) return;
+    if (!items.length){{
+      grid.innerHTML = '<p class="note">'+esc(emptyMsg)+'</p>';
+      return;
+    }}
+    grid.innerHTML = items.map(function(it){{
+      var href = it.target || it.source || '#';
+      var img = it.image ? '<img src="'+esc(it.image)+'" alt="'+esc(it.title||'')+'" loading="lazy">' : '';
+      var price = it.price ? (esc(it.price)+' '+(it.currency||'CNY')) : '';
+      return '<a class="hipo-card" href="'+esc(href)+'" target="_blank" rel="noopener">'+img+
+        '<p class="nm">'+esc(it.title||'')+'</p><p class="pr">'+price+'</p></a>';
+    }}).join('');
+  }}
+  function setOn(kw){{
+    document.querySelectorAll('a.hipo-cat').forEach(function(a){{
+      a.classList.toggle('on', !!kw && a.getAttribute('data-kw') === kw);
+    }});
+  }}
+  function load(opts){{
+    opts = opts || {{}};
+    if (status) status.textContent = '…';
+    var u = new URL('/api/products/', location.origin);
+    u.searchParams.set('limit', '24');
+    if (country) u.searchParams.set('country', country);
+    if (opts.q) u.searchParams.set('keyword', opts.q);
+    if (opts.cat) u.searchParams.set('category', opts.cat);
+    return fetch(u, {{cache:'no-store'}}).then(function(r){{ return r.json(); }}).then(function(d){{
+      var items = (d && d.items) || [];
+      if (!items.length && opts.kw) {{
+        var u2 = new URL('/api/products/', location.origin);
+        u2.searchParams.set('limit', '24');
+        if (country) u2.searchParams.set('country', country);
+        u2.searchParams.set('keyword', opts.kw);
+        return fetch(u2, {{cache:'no-store'}}).then(function(r){{ return r.json(); }}).then(function(d2){{
+          items = (d2 && d2.items) || [];
+          if (status) status.textContent = items.length ? String(items.length) : '';
+          render(items);
+        }});
+      }}
+      if (status) status.textContent = items.length ? String(items.length) : '';
+      render(items);
+    }}).catch(function(){{ render([]); }});
+  }}
+  if (form) {{
+    form.addEventListener('submit', function(ev){{
+      ev.preventDefault();
+      var raw = (document.getElementById('hipo-q').value || '').trim();
+      var en = map[raw.toLowerCase()] || raw;
+      if (hint) hint.textContent = (raw && en !== raw) ? (raw + ' → ' + en) : en;
+      if (history.replaceState) history.replaceState(null, '', '/?q=' + encodeURIComponent(en) + '#katalog');
+      setOn('');
+      load({{q: en, kw: en}});
+    }});
+  }}
+  document.querySelectorAll('a.hipo-cat').forEach(function(a){{
+    a.addEventListener('click', function(ev){{
+      ev.preventDefault();
+      var cat = a.getAttribute('data-cat') || '';
+      var kw = a.getAttribute('data-kw') || '';
+      setOn(kw);
+      if (history.replaceState) history.replaceState(null, '', '/?cat=' + encodeURIComponent(kw) + '#katalog');
+      load({{cat: cat, kw: kw}});
+    }});
+  }});
+  var params = new URLSearchParams(location.search);
+  var q0 = params.get('q');
+  var c0 = params.get('cat');
+  if (q0) {{
+    var inp = document.getElementById('hipo-q');
+    if (inp) inp.value = q0;
+    var en = map[q0.toLowerCase()] || q0;
+    if (hint) hint.textContent = (q0 !== en) ? (q0 + ' → ' + en) : en;
+    load({{q: en, kw: en}});
+  }} else if (c0) {{
+    setOn(c0);
+    var match = document.querySelector('a.hipo-cat[data-kw="'+c0+'"]');
+    load({{cat: match ? (match.getAttribute('data-cat')||c0) : c0, kw: c0}});
+  }} else {{
+    load({{}});
+  }}
+}})();
+</script>
+"""
+
+
+def translator_widget(key: str, d: dict | None = None) -> str:
+    """Back-compat alias — catalogue stays on /."""
+    return catalog_widget(key, d or {})
+
+
+def contact_block(key: str) -> str:
+    L = labels(key)
+    if key == "at":
+        body = (
+            f'{L["contact"]}: <a href="mailto:{MAIL}">{MAIL}</a>. '
+            "Bestellungen, Zahlungen und Reklamationen nur auf hipobuy.com."
+        )
+    elif key == "nl":
+        body = (
+            f'{L["contact"]}: <a href="mailto:{MAIL}">{MAIL}</a>. '
+            "Bestellingen alleen via hipobuy.com."
+        )
+    else:
+        body = (
+            f'{L["contact"]}: <a href="mailto:{MAIL}">{MAIL}</a>. '
+            "Order tickets stay on hipobuy.com."
+        )
+    return f'<p class="note">{body}</p>'
+
+
+def css(key: str) -> str:
+    ink, accent, bg, border, head = THEMES[key]
+    return f"""
+:root {{ --ink:{ink}; --muted:{accent}; --bg:{bg}; --card:#fff; --accent:{accent}; --border:{border}; --head:{head}; }}
+body {{ margin:0; font-family: Georgia, ui-serif, serif; background:var(--bg); color:var(--ink); line-height:1.55; }}
+header, main, footer {{ max-width:54rem; margin:0 auto; padding:1.25rem; }}
+.note {{ color:var(--muted); font-size:.92rem; }}
+h1 {{ font-size:clamp(1.55rem,4vw,2.15rem); }}
+h2 {{ font-size:1.18rem; margin-top:1.8rem; }}
+h3 {{ font-size:1.02rem; margin-top:1.15rem; }}
+table {{ width:100%; border-collapse:collapse; background:var(--card); }}
+th, td {{ border:1px solid var(--border); padding:.55rem .65rem; text-align:left; font-size:.95rem; }}
+th {{ background:var(--head); }}
+a.cta {{ display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:.7rem 1rem; border-radius:.5rem; margin:.25rem .5rem .25rem 0; }}
+.box {{ background:var(--card); padding:1rem 1.1rem; border-radius:.5rem; }}
+nav.local a {{ margin-right:1rem; display:inline-block; }}
+code {{ background:var(--head); padding:.05rem .3rem; }}
+figure.shot {{ margin:1.1rem 0; }}
+figure.shot img {{ width:100%; height:auto; border:1px solid var(--border); background:var(--card); }}
+figcaption {{ font-size:.88rem; color:var(--muted); margin-top:.4rem; }}
+form#hipo-trans {{ display:flex; gap:.4rem; flex-wrap:wrap; margin:.6rem 0; }}
+form#hipo-trans input {{ flex:1; min-width:12rem; padding:.5rem .6rem; }}
+form#hipo-trans button {{ background:var(--accent); color:#fff; border:0; padding:.5rem .8rem; border-radius:.4rem; }}
+.hipo-cats {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(7.1rem,1fr)); gap:.5rem; margin:.75rem 0 1rem; }}
+a.hipo-cat {{ display:block; background:var(--card); border:1px solid var(--border); border-radius:.45rem; padding:.65rem .35rem; text-align:center; text-decoration:none; color:var(--ink); font-size:.86rem; }}
+a.hipo-cat.on, a.hipo-cat:hover {{ border-color:var(--accent); background:var(--head); }}
+.hipo-grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(9.2rem,1fr)); gap:.7rem; }}
+a.hipo-card {{ background:var(--card); border:1px solid var(--border); border-radius:.45rem; overflow:hidden; text-decoration:none; color:inherit; display:block; }}
+a.hipo-card img {{ width:100%; aspect-ratio:1; object-fit:cover; display:block; background:var(--head); }}
+a.hipo-card .nm {{ font-size:.86rem; margin:.45rem .55rem .15rem; line-height:1.3; }}
+a.hipo-card .pr {{ font-size:.8rem; color:var(--muted); margin:0 .55rem .55rem; }}
+.pp {{ margin:0.7rem 0; }}
+.ph {{ margin-top:1.4rem; }}
+article.hipo-howto {{ max-width:none; margin:0; padding:0; text-align:left; }}
+"""
+
+
+def shell_page(
+    key: str,
+    d: dict,
+    *,
+    title: str,
+    desc: str,
+    canonical: str,
+    crumb: str,
+    inner: str,
+    on: str | None = None,
+    as_faq: bool = False,
+) -> str:
+    """Inner Help/News/About pages use the same green CMS chrome as /."""
+    from hipobuy_cms_home import build_cms_inner
+
+    return build_cms_inner(
+        key,
+        d,
+        title=title,
+        desc=desc,
+        canonical=canonical,
+        crumb=crumb,
+        inner=inner,
+        on=on or "/",
+        as_faq=as_faq,
+    )
+
+
+def cms_nav_html(key: str, d: dict) -> str:
+    items = "".join(
+        f'<li><a href="{escape(href)}">{escape(lab)}</a></li>'
+        for href, lab in nav_links(key, d)
+        if href != "/"
+    )
+    L = labels(key)
+    return f'<ul class="nl">{items}</ul>'
+
+
+def localize_cms_nav(html: str, key: str, d: dict) -> str:
+    html = re.sub(r'<ul class="nl">.*?</ul>', cms_nav_html(key, d), html, count=1, flags=re.S)
+    L = labels(key)
+    html = re.sub(r">Register</a>", f">{L['reg']}</a>", html, count=1)
+    html = re.sub(r">Home</a>", f">{L['home']}</a>", html, count=1)
+    html = html.replace('href="/hipobuy-spreadsheet/"', 'href="/"')
+    html = html.replace('href="/#katalog"', 'href="/"')
+    html = re.sub(r">Spreadsheet</a>", f">{L['sheet']}</a>", html)
+    return html
+
+
+def vol_calc_widget(key: str) -> str:
+    """Geometry only: L×W×H / divisor vs actual grams. Not a checkout quote."""
+    if key == "at":
+        title = "Volumengewicht rechnen (kein Preis)"
+        note = (
+            "Nur Geometrie. Preis kennt nur der offizielle Schätzer. "
+            "Die meisten AT-Luftlinien teilen durch 8000; manche EUB-SKU durch 6000. "
+            "Fakturiert wird das Maximum, oft auf 100&nbsp;g aufgerundet."
+        )
+        lab_l, lab_w, lab_h, lab_g, lab_d = "Länge cm", "Breite cm", "Höhe cm", "Istgewicht g", "Teiler"
+        out_v, out_b = "Volumengewicht", "Fakturiert (max, 100 g)"
+    elif key == "nl":
+        title = "Volumgewicht berekenen (geen prijs)"
+        note = (
+            "Alleen meetkunde. De prijs staat in de officiële estimator. "
+            "De meeste NL-luchtlijnen delen door 8000; sommige EUB-SKU’s door 6000. "
+            "Factuur = maximum, vaak afgerond op 100&nbsp;g."
+        )
+        lab_l, lab_w, lab_h, lab_g, lab_d = "Lengte cm", "Breedte cm", "Hoogte cm", "Echt gewicht g", "Deler"
+        out_v, out_b = "Volumgewicht", "Gefactureerd (max, 100 g)"
+    else:
+        title = "Volumetric weight (not a price)"
+        note = (
+            "Geometry only. Live dollars sit in the official estimator. "
+            "Most air SKUs divide by 8000; some EUB products use 6000. "
+            "Billed = max(actual, volumetric), often rounded up to 100&nbsp;g."
+        )
+        lab_l, lab_w, lab_h, lab_g, lab_d = "Length cm", "Width cm", "Height cm", "Actual g", "Divisor"
+        out_v, out_b = "Volumetric", "Billed (max, 100 g)"
+    return f"""
+<div class="vol" id="vol-calc" style="border:1px solid var(--g5,#e5e5e5);border-radius:16px;padding:16px 18px;margin:16px 0">
+  <strong>{escape(title)}</strong>
+  <p class="pp">{note}</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px">
+    <label>{escape(lab_l)}<br><input id="vol-l" type="number" min="1" value="35" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>{escape(lab_w)}<br><input id="vol-w" type="number" min="1" value="25" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>{escape(lab_h)}<br><input id="vol-h" type="number" min="1" value="10" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>{escape(lab_g)}<br><input id="vol-g" type="number" min="1" value="1000" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>{escape(lab_d)}<br>
+      <select id="vol-d" style="width:100%;height:36px;border:1.5px solid #e5e5e5;border-radius:8px">
+        <option value="8000" selected>/8000</option>
+        <option value="6000">/6000</option>
+        <option value="5000">/5000</option>
+      </select>
+    </label>
+  </div>
+  <p class="pp" id="vol-out" style="margin-top:12px;background:#F6FBF8;padding:12px 14px;border-radius:10px"></p>
+</div>
+<script>
+(function(){{
+  function hipoVol(){{
+    var L=+document.getElementById('vol-l').value||0;
+    var W=+document.getElementById('vol-w').value||0;
+    var H=+document.getElementById('vol-h').value||0;
+    var G=+document.getElementById('vol-g').value||0;
+    var D=+document.getElementById('vol-d').value||8000;
+    var vol=Math.round(L*W*H/D*1000);
+    var billed=Math.ceil(Math.max(G,vol)/100)*100;
+    var el=document.getElementById('vol-out');
+    if(el) el.innerHTML='{out_v}: <b>'+vol+' g</b> · {out_b}: <b>'+billed+' g</b>. {escape(title)} — not checkout.';
+  }}
+  ['vol-l','vol-w','vol-h','vol-g','vol-d'].forEach(function(id){{
+    var n=document.getElementById(id); if(n) n.addEventListener(id==='vol-d'?'change':'input', hipoVol);
+  }});
+  hipoVol();
+}})();
+</script>
+"""
+
+
+def nine_states(key: str) -> str:
+    if key == "at":
+        rows = [
+            ("Order Submitted", "Bestellung abgeschickt, Ware in China bezahlt."),
+            ("Order Placed", "HipoBuy kauft in der Drittshop, oft innerhalb von 6 Arbeitsstunden."),
+            ("Seller Shipped", "Der chinesische Shop hat abgeschickt."),
+            ("Arrived at Warehouse", "Im Lager angekommen."),
+            ("Inspection & Storage", "Prüfung und Einlagerung, oft 24 Stunden."),
+            ("Shipping Requested", "Du bündelst und buchst die internationale Linie."),
+            ("Parcel Packed", "Karton wird gepackt."),
+            ("Shipped", "Start aus China."),
+            ("Delivered & Confirmed", "Zugestellt, Empfang bestätigen."),
+        ]
+        h = "Neun Zustände, drei Bildschirme"
+        n = "Die ersten vier leben unter Order, die nächsten unter Warehouse, die letzten unter Parcel. Offizielles Tutorial, hier auf Deutsch erklärt — die Screenshots der Plattform bleiben englisch."
+    elif key == "nl":
+        rows = [
+            ("Order Submitted", "Bestelling verstuurd, product in China betaald."),
+            ("Order Placed", "HipoBuy koopt in de Chinese shop, vaak binnen 6 werkuren."),
+            ("Seller Shipped", "De Chinese verkoper heeft verzonden."),
+            ("Arrived at Warehouse", "Aangekomen in het magazijn."),
+            ("Inspection & Storage", "Controle en opslag, vaak 24 uur."),
+            ("Shipping Requested", "Jij bundelt en boekt de internationale lijn."),
+            ("Parcel Packed", "Doos wordt ingepakt."),
+            ("Shipped", "Vertrek uit China."),
+            ("Delivered & Confirmed", "Bezorgd; ontvangst bevestigen."),
+        ]
+        h = "Negen statussen, drie schermen"
+        n = "De eerste vier staan onder Order, daarna Warehouse, daarna Parcel. Officiële tutorial, hier in het Nederlands; de platform-screenshots blijven Engels."
+    else:
+        rows = [
+            ("Order Submitted", "You paid for the goods plus China domestic."),
+            ("Order Placed", "HipoBuy buys in the third-party shop, often within 6 working hours."),
+            ("Seller Shipped", "The Chinese seller dispatched."),
+            ("Arrived at Warehouse", "At the warehouse."),
+            ("Inspection & Storage", "QC and storage, often 24 hours."),
+            ("Shipping Requested", "You consolidate and book the international line."),
+            ("Parcel Packed", "Carton packed."),
+            ("Shipped", "Left China."),
+            ("Delivered & Confirmed", "Delivered; confirm receipt."),
+        ]
+        h = "Nine states, three screens"
+        n = "The first four live under Order, then Warehouse, then Parcel. Official tutorial explained here; platform screenshots stay English."
+    body = "".join(f"<tr><td><code>{a}</code></td><td>{b}</td></tr>" for a, b in rows)
+    return f"<h2>{h}</h2><p>{n}</p><table><thead><tr><th>State</th><th></th></tr></thead><tbody>{body}</tbody></table>"
+
+
+def homepage_html(key: str, d: dict) -> str:
+    """Long ES-style local guide. Overlay file + origin index."""
+    L = labels(key)
+    host = d["host"]
+    s = d["slugs"]
+    if key == "at":
+        title = "HipoBuy Österreich: so kaufst du in China auf eine AT-Adresse"
+        desc = (
+            "Unabhängiger AT-Desk: was ein Einkaufsagent ist, warum der Katalog Englisch ist, "
+            "Volumengewicht, Zollquellen, Lab 29 Sep 2026. Ohne Unterdeklaration."
+        )
+        h1 = "So kommt ein HipoBuy-Paket nach Österreich"
+        inner = f"""
+  <h1>{h1}</h1>
+  <p>HipoBuy <strong>verkauft die Ware nicht</strong>. Es ist ein Einkaufsagent: er kauft in chinesischen Drittshops in deinem Namen, fotografiert im Lager und schickt erst, wenn du eine internationale Linie buchst. Deshalb zahlst du zweimal — zuerst Ware plus Inlandversand in China, später Porto nach den QC-Fotos. Dazwischen kannst du stornieren, bündeln oder die Linie wechseln. Das steht so in der Plattform-Hilfe; dieser Desk wiederholt es auf Deutsch für eine österreichische Straße.</p>
+  <p>
+    <a class="cta" href="/hipobuy-shipping-guide/">AT-Versandtabelle und Rechner</a>
+    <a class="cta" href="{EST}">Offiziellen Schätzer öffnen</a>
+    <a class="cta" href="/{s['help']}/">Fünfzehn Fragen</a>
+  </p>
+
+  <h2>Katalog auf dieser Startseite</h2>
+  <p>Auf diesem Desk meint „Spreadsheet“ einen <strong>Katalog von Produktkarten</strong> (Foto, Marke, Referenzpreis, Link für den Agenten) — keine Tabelle mit Zellen. Die Karten stehen <strong>hier auf /</strong>, über <code>/api/products/</code> desselben Hosts. Die 8&nbsp;600 Zeilen Finds bleiben auf <a href="{NET}">hipobuyspreadsheet.net</a>. LitBuy.at ist ein anderer Agent, kein 301.</p>
+  <p>Am 29.&nbsp;Aug.&nbsp;2026 hat die spanische Schwesterdesk gemessen: zapatillas, sudadera, chaqueta → 0 Karten; sneakers, hoodie, jacket → volle Seiten. Dasselbe Muster gilt für Turnschuhe, Kapuzenpullover, Jacke. Du tippst Deutsch; die Karten erscheinen <strong>auf dieser Startseite</strong>, ohne Sprung auf eine zweite URL.</p>
+  {catalog_widget(key, d)}
+  {fig(SHOT_OFF, "Offizielle Startseite hipobuy.com, eigene Aufnahme 30 Sep 2026. Englisch/USD ist die Voreinstellung — nicht dieser AT-Desk.")}
+  {fig(SHOT_CAT, "Katalogkarten auf diesem Host, eigene Aufnahme 30 Sep 2026. Die Fotos kommen aus w2clinks; deutsche Wörter ohne Übersetzung liefern oft 0 Treffer.")}
+
+  {nine_states(key)}
+
+  <h2>Österreich hat Linien, aber nicht alle tragen</h2>
+  <p>Der öffentliche Schätzer braucht kein Konto. Am {escape('29 Sep 2026')} , Paket 1000&nbsp;g / 35×25×10&nbsp;cm, Kleidung/gewöhnliche Ware, Ziel AT: <strong>{d['lines']} Linien</strong>. Günstigste carriable Zeile <code>{d['cheap']}</code> etwa ${d['usd']:.2f} ({d['days']} Tage, oft 1100&nbsp;g Volumen). Das ist ein Snapshot, kein Checkout. Filtere auf verfügbare Linien, bevor du Tage vergleichst.</p>
+  {fig(SHOT_EST, "Offizielles Formular hipobuy.com/estimation, eigene Aufnahme 30 Sep 2026. Ziel, Gewicht, Maße, Warentyp — dann Inquire. Anzeige bleibt USD.")}
+  <p>Volumengewicht: L×B×H/8000 (manchmal /6000). Unser Laborkarton 35×25×10&nbsp;cm = 8750&nbsp;cm³ → 1,094&nbsp;kg, gerundet 1100&nbsp;g auf den meisten Luftlinien. Eine Daunenjacke wiegt wenig und kostet trotzdem Volumen.</p>
+
+  <h2>Zoll — nur Erklärung</h2>
+  <div class="box">
+    <p>Drei Labels auf der Live-SKU: Tax free, Prepaid Duty, Duties Payable by Recipient. „Tax free“ löscht nicht die Prüfbefugnis der Zollstelle. Quellen, die wir nicht selbst messen: <a href="{d['customs']}">BMF Zoll</a> · <a href="{d['ioss']}">IOSS / Kommission</a> (Orientierung oft 150&nbsp;€). <strong>Keine Tipps zur Unterdeklaration.</strong></p>
+  </div>
+  <p>USD-Ziffern: der Währungsschalter ändert oft nur das Symbol. Laborsätze hier in Dollar. Invite {INVITE} steht im Coupon-Artikel, nicht in diesem Title.</p>
+  <p>Tabak, Alkohol, Arzneimittel und verbotene Artikel reisen nicht. Restricted-Karten ohne Preis nicht bestellen.</p>
+  <p><a href="/{s['help']}/">Hilfe</a> · <a href="/{s['news']}/">Neuigkeiten mit Datum</a> · <a href="/{s['about']}/">Über uns</a> · <a href="/how-to-use-hipobuy/">Ablauf</a></p>
+  <p><a class="cta" href="{OFFICIAL}">HipoBuy öffnen, dann AT-Adresse in der App</a></p>
+"""
+    elif key == "nl":
+        title = "HipoBuy Nederland: kopen in China naar een NL-adres"
+        desc = (
+            "Onafhankelijke NL-desk: wat een inkoopagent is, waarom de catalogus Engels is, "
+            "volumgewicht, douanebronnen, lab 29 sep 2026. Geen onderwaardering."
+        )
+        h1 = "Verzendkosten naar Nederland narekenen na de magazijnfoto’s"
+        inner = f"""
+  <h1>{h1}</h1>
+  <p>HipoBuy <strong>verkoopt de spullen niet</strong>. Het is een inkoopagent: hij koopt in Chinese shops op jouw naam, fotografeert in het magazijn en stuurt pas als jij een internationale lijn boekt. Je betaalt twee keer — eerst product plus binnenlands China-vervoer, later internationaal na QC. Daartussen kun je bundelen of de lijn wisselen.</p>
+  <p>
+    <a class="cta" href="/hipobuy-shipping-guide/">NL-lijntabel</a>
+    <a class="cta" href="{EST}">Officiële estimator</a>
+    <a class="cta" href="/{s['help']}/">Vijftien vragen</a>
+  </p>
+  <h2>Catalogus op deze homepage</h2>
+  <p>Het is een catalogus van kaarten op <strong>deze startpagina</strong>, via <code>/api/products/</code> van dit host. De 8&nbsp;600 finds blijven op <a href="{NET}">hipobuyspreadsheet.net</a>. ootdbuy.nl is een andere agent. Zelfde meting als op hipobuy.es: lokale woorden → lege grid; sneakers/hoodie → kaarten. Typ Nederlands; de kaarten verschijnen <strong>hier op /</strong>, zonder sprong naar een tweede URL.</p>
+  {catalog_widget(key, d)}
+  {fig(SHOT_OFF, "Officiële homepage hipobuy.com, eigen opname 30 sep 2026. English/USD is de default — niet deze NL-desk.")}
+  {fig(SHOT_CAT, "Catalogusgrid op dit host, eigen opname 30 sep 2026. Nederlandse zoektermen zonder vertaling geven vaak 0 hits.")}
+  {nine_states(key)}
+  <h2>Nederland heeft lijnen, niet allemaal beschikbaar</h2>
+  <p>Op 29&nbsp;sep&nbsp;2026, 1000&nbsp;g / 35×25×10&nbsp;cm, bestemming NL: <strong>{d['lines']} lijnen</strong>. Goedkoopste carriable <code>{d['cheap']}</code> ± ${d['usd']:.2f} ({d['days']} dagen, vaak 1100&nbsp;g volume). Snapshot, geen checkout. SURFACE 60–90 werkdagen is een andere beslissing dan DHL-EUCR.</p>
+  {fig(SHOT_EST, "Officieel schattingsformulier, eigen opname 30 sep 2026. Kies Netherlands, niet EU.")}
+  <p>Volumgewicht L×B×H/8000. 35×25×10 cm = 8750 cm³ → 1100&nbsp;g op de meeste luchtlijnen.</p>
+  <h2>Invoer — alleen uitleg</h2>
+  <div class="box">
+    <p>Tax free / Prepaid Duty / Duties Payable by Recipient. Bronnen: <a href="{d['customs']}">Belastingdienst Douane</a> · <a href="{d['ioss']}">IOSS</a>. <strong>Geen onderwaardering.</strong></p>
+  </div>
+  <p>USD-cijfers, euro-symbool. Invite {INVITE} op de coupon-URL, niet in deze title. Tabak, alcohol, geneesmiddelen reizen niet. Restricted-kaarten zonder prijs niet bestellen. Als de schatting lichter uitvalt dan de factuur, staat de officiële FAQ over portoteruggave — niet dit HTML-bestand.</p>
+  <p>Hulp voor de eerste bestelling: vijftien vragen, nieuws met datum, en de labtabel. Discord en Reddit zijn kanalen van de platform, niet van deze desk.</p>
+  <p><a href="/{s['help']}/">Hulp</a> · <a href="/{s['news']}/">Nieuws</a> · <a href="/{s['about']}/">Over ons</a></p>
+  <p><a class="cta" href="{OFFICIAL}">HipoBuy openen, daarna een NL-adres</a></p>
+"""
+    else:
+        flavour = {"uk": "uk", "eu": "eu", "us": "us", "ukhaul": "haul"}[key]
+        if flavour == "uk":
+            title = "HipoBuy UK spreadsheet: coupons, UK sizing, then the estimator"
+            desc = (
+                "Independent .co.uk desk: what a purchasing agent is, English catalogue index, "
+                "HMRC sources, coupons. No declared-value coaching."
+            )
+            h1 = "Working coupons and UK sizing before you submit"
+            job_p = (
+                f"This host ranks <a href=\"/hipobuy-coupons/\">coupons</a> and "
+                f"<a href=\"/blog/posts/hipobuy-sizing-guide/\">UK sizing</a>. "
+                f"Haul-log freight dollars live on hipobuyspreadsheets.uk — not a 301. "
+                f"On 29 Sep 2026 the exclusive invite card still showed <code>{INVITE}</code>."
+            )
+            tax_box = (
+                f'UK import VAT/duty follow the booked SKU. <a href="{d["customs"]}">GOV.UK goods sent from abroad</a>. '
+                "Northern Ireland is often another product. <strong>No declared-value coaching.</strong>"
+            )
+            lab_p = (
+                f"GB lab carton 29 Sep 2026 lives on the haul-log shipping URL: "
+                f"<code>{d['cheap']}</code> about ${d['usd']:.2f}. Re-run <a href=\"{EST}\">the estimator</a> with destination United Kingdom."
+            )
+        elif flavour == "eu":
+            title = "HipoBuy EU coupon desk: member-state address, then the invite"
+            desc = (
+                "Independent .eu coupon desk. IOSS is a SKU. Catalogue search maps ES/FR/DE words to English. "
+                "Not a clone of hipobuy.es."
+            )
+            h1 = "Put a member-state address in HipoBuy, then re-type the invite"
+            job_p = (
+                f"The TLD is not a destination. Open the coupon article, copy <code>{INVITE}</code>, "
+                "enter it in-app. Spain freight copy stays on hipobuy.es. AT/NL keep their own labs."
+            )
+            tax_box = (
+                f'Pick a country in the estimator. <a href="{d["ioss"]}">Commission VAT e-commerce / IOSS</a> '
+                "(often discussed around €150). <strong>No declared-value coaching.</strong>"
+            )
+            lab_p = (
+                f"There is no “EU” line table. On 29 Sep 2026 we measured AT/NL/GB/US as country codes. "
+                f'Open <a href="{EST}">{EST}</a> with ES, IE, IT…'
+            )
+        elif flavour == "us":
+            title = "HipoBuy US: warehouse photos, then a United States estimate"
+            desc = (
+                "Independent US desk: purchasing-agent flow, USPS/integrator lab 29 Sep 2026, CBP sources. "
+                "No under-declaration tips."
+            )
+            h1 = "Shipping to the United States after warehouse photos"
+            job_p = (
+                f"Wait for QC photos, then estimate a US street — not an AT Post article. "
+                f"Lab carton 29 Sep 2026: <code>{d['cheap']}</code> about ${d['usd']:.2f} "
+                f"({d['days']} workdays, billed actual 1000&nbsp;g). Integrator SKUs billed volumetric 1100–2000&nbsp;g on the same carton."
+            )
+            tax_box = (
+                f'US treatment follows the booked product. <a href="{d["customs"]}">CBP duty basics</a>. '
+                "This desk does not invent a de-minimis dollar figure. <strong>No under-declaration tips.</strong>"
+            )
+            lab_p = f'Open <a href="{EST}">the estimator</a> with destination United States after photos.'
+        else:
+            title = "HipoBuy UK haul log: Royal Mail, Evri, then the homepage catalogue"
+            desc = (
+                "Independent Nominet haul log. GB estimator snapshot 29 Sep 2026, GOV.UK sources. "
+                "Not an alias of hipobuyspreadsheet.co.uk."
+            )
+            h1 = "UK haul log: shipping lines and the homepage catalogue"
+            job_p = (
+                f"Line codes after warehouse photos, then the catalogue on this homepage. "
+                f"Lab: <code>{d['cheap']}</code> about ${d['usd']:.2f}; Evri-AF1 about $33.88. "
+                "Not a 301 onto .co.uk."
+            )
+            tax_box = (
+                f'<a href="{d["customs"]}">GOV.UK goods sent from abroad</a>. Northern Ireland is often another SKU. '
+                "<strong>No declared-value coaching.</strong>"
+            )
+            lab_p = f'Open <a href="{EST}">the estimator</a> with destination United Kingdom.'
+        inner = f"""
+  <h1>{h1}</h1>
+  <p>HipoBuy <strong>does not sell the items</strong>. It is a purchasing agent: it buys from third-party Chinese shops in your name, photographs in the warehouse, and books an international line after you confirm QC. Two payments. {job_p}</p>
+  <p>
+    <a class="cta" href="{EST}">{L['est']}</a>
+    <a class="cta" href="/{s['help']}/">Fifteen questions</a>
+  </p>
+  <h2>The catalogue lives on this homepage</h2>
+  <p>Not Excel. Cards render <strong>here on /</strong> from this host’s <code>/api/products/</code>. Finds with thousands of rows stay on <a href="{NET}">hipobuyspreadsheet.net</a>. Sister desks keep their own files; no 301. The index is English. Local words (zapatillas, Turnschuhe, trainers) often return zero. Type the local word; the English key filters the grid <strong>on this homepage</strong>.</p>
+  {catalog_widget(key, d)}
+  {fig(SHOT_OFF, "Official hipobuy.com home, own capture 30 Sep 2026. English/USD is the platform default — not this desk’s job.")}
+  {fig(SHOT_CAT, "Catalogue grid on a country desk, own capture 30 Sep 2026. English index words fill the cards.")}
+  {nine_states(key)}
+  <h2>Lines, volumetric weight, USD digits</h2>
+  <p>{lab_p} Volumetric L×W×H/8000 on most air SKUs. Lab carton 35×25×10 cm billed 1100&nbsp;g on many lines. Switching the official currency selector has been observed to change the symbol without converting the number.</p>
+  {fig(SHOT_EST, "Official estimator form, own capture 30 Sep 2026. Destination must be a country, not a TLD.")}
+  <h2>Customs — educational</h2>
+  <div class="box"><p>{tax_box}</p></div>
+  <p>Tobacco, alcohol, medicines, banned goods do not travel. Restricted or zero-price cards are not buyable. If billed weight is lighter than estimated, official FAQ covers excess postage — not this HTML file. Discord and Reddit belong to the platform.</p>
+  <p>USD digits stay dollars when the official selector only changes the symbol. Invite {INVITE} lives on the coupon URL, not in this title.</p>
+  <p><a href="/{s['help']}/">Help</a> · <a href="/{s['news']}/">Dated news</a> · <a href="/{s['about']}/">Who we are</a></p>
+  <p><a class="cta" href="{OFFICIAL}">Open HipoBuy, then a real address in-app</a></p>
+"""
+    from hipobuy_cms_home import build_cms_home
+
+    return build_cms_home(key, d)
+
+
+def shipping_essay(key: str, d: dict) -> str:
+    """ES /envios-style customs essay inserted before the calculator."""
+    from hipobuy_desk_copy import DATE, lab_block
+
+    extra_lab = ""
+    if key == "uk" and d.get("dest") == "GB":
+        extra_lab = lab_block(
+            "GB",
+            "United Kingdom",
+            "Cheapest carriable on the lab day: HIPO-RoyalMail-GB-1 about $23.83. This .co.uk host still ranks coupons; the table is here so GBP landed cost is not a surprise.",
+        )
+    shot = fig(
+        SHOT_EST,
+        {
+            "at": "Offizieller Schätzer, eigene Aufnahme 30 Sep 2026. Ziel Austria wählen — nicht Germany, nicht EU.",
+            "nl": "Officiële estimator, eigen opname 30 sep 2026. Bestemming Netherlands, niet EU.",
+            "uk": "Official estimator, own capture 30 Sep 2026. Destination United Kingdom.",
+            "eu": "Official estimator, own capture 30 Sep 2026. Pick a member-state country code, not EU.",
+            "us": "Official estimator, own capture 30 Sep 2026. Destination United States.",
+            "ukhaul": "Official estimator, own capture 30 Sep 2026. Destination United Kingdom; NI may differ.",
+        }[key],
+    )
+    if key == "at":
+        body = f"""
+<h2 class="ph" id="zoll">Zoll und MwSt — drei Modi, nur Erklärung</h2>
+<p class="pp">Wer Abgaben zahlt, steht auf der Live-SKU. Der Schätzer markiert Linien auf Englisch:</p>
+<h3 class="ph">Tax free</h3>
+<p class="pp">Die Linie wird als ohne Abgaben für den Empfänger verkauft. Die Zollstelle darf trotzdem prüfen. Es verschwindet nicht das Verfahren, nur wer es trägt.</p>
+<h3 class="ph">Prepaid Duty</h3>
+<p class="pp">Du zahlst die Abgaben mit dem Porto. Der Betrag steht vor dem Versand, nicht an der Haustür.</p>
+<h3 class="ph">Duties Payable by Recipient</h3>
+<p class="pp">Günstigerer Listenpreis, weil Abgaben fehlen. Der Zusteller kann vor der Übergabe kassieren, oft plus Bearbeitungsgebühr, die der Schätzer nicht zeigt. Vergleiche nur Linien desselben Modus.</p>
+<p class="pp">EU-Orientierung oft 150&nbsp;€ IOSS für bestimmte Fernverkäufe. Darüber können Zölle greifen. Konkrete Sätze stehen nicht in dieser HTML. <a href="{d["customs"]}">BMF Zoll</a> · <a href="{d["ioss"]}">IOSS / Kommission</a>. HipoBuy veröffentlicht zusätzlich eine eigene Schwellen-Tabelle und kennzeichnet sie als aus dem Internet gesammelt und nur orientierend — wir kopieren daraus keine erfundenen Euro-Beträge. <strong>Keine Unterdeklaration.</strong></p>
+<h2 class="ph">Volumengewicht am Laborkarton</h2>
+<p class="pp">35×25×10&nbsp;cm = 8750&nbsp;cm³. Durch 8000 = 1,094&nbsp;kg, auf den meisten AT-Luftlinien 1100&nbsp;g. Istgewicht war 1000&nbsp;g. Es zählt das Maximum. Der Rechner darunter macht nur die Volumen-Rechnung; den Preis kennt nur der offizielle Schätzer am Büchertag.</p>
+{vol_calc_widget("at")}
+<h2 class="ph">Verpackung und Bündeln</h2>
+<p class="pp">Ein Schuhkarton um 33×22×12&nbsp;cm ist 8712&nbsp;cm³ → 1089&nbsp;g Volumen → oft 1100&nbsp;g fakturiert. Ohne Karton 30×20×12 = 7200&nbsp;cm³ → 900&nbsp;g, <em>wenn</em> das Volumen noch vor dem Istgewicht liegt. Liegt das Istgewicht schon höher, ändert Entfernen der Schachtel nichts. Die App trennt kostenlose Optionen (Schachtel entfernen, Folie, mit Limit) von kostenpflichtigen (Vakuum, Ecken). Einmal gepackt sind Materialkosten oft nicht erstattbar; Abbruch nach Pack kann 10&nbsp;CNY kosten — das steht in der Plattform-Hilfe, nicht als Trick.</p>
+<p class="pp">Mehrere Bestellungen in einem Karton zahlen das Anfangsgewicht einmal. Die offizielle Statusseite (eigene Aufnahme 30 Sep 2026, „Order Status Display“) nennt 90 Tage kostenloses Lager ab „Stored“. Artikel mit Einzelversand-Flag lassen sich nicht bündeln. Ab etwa 10&nbsp;kg wirkt ein Karton kommerzieller; das ist Erklärung, kein Zolltrick.</p>
+{fig(SHOT_WH, "Offizielle Order Status Display, eigene Aufnahme 30 Sep 2026. Stored = 90 Tage kostenloses Lager — dann bündeln.")}
+{fig(SHOT_REST, "Offizielle Declaration of Prohibited Products, eigene Aufnahme 30 Sep 2026. Tabak, Alkohol, Arzneimittel reisen nicht.")}
+<p class="pp">USD-Ziffern: Währungsschalter ändert oft nur das Symbol. {shot}</p>
+<p class="pp"><a href="/hilfe/">Hilfe</a> · <a href="/neuigkeiten/">Neuigkeiten</a> · <a href="/ueber-uns/">Über uns</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
+"""
+    elif key == "nl":
+        body = f"""
+<h2 class="ph" id="douane">Btw en douane — drie modi, alleen uitleg</h2>
+<p class="pp">Invoer volgt de geboekte lijn. Labels in de estimator:</p>
+<h3 class="ph">Tax free</h3>
+<p class="pp">Verkocht als zonder invoer voor de ontvanger. De douane mag nog controleren.</p>
+<h3 class="ph">Prepaid Duty</h3>
+<p class="pp">Je betaalt invoer bij het porto. Totaal vóór vertrek.</p>
+<h3 class="ph">Duties Payable by Recipient</h3>
+<p class="pp">Lagere lijstprijs omdat invoer ontbreekt. Last-mile kan innen plus behandelingsfee. Vergelijk alleen hetzelfde modus.</p>
+<p class="pp"><a href="{d["customs"]}">Belastingdienst Douane</a> · <a href="{d["ioss"]}">IOSS</a>. HipoBuy heeft zelf een drempeltabel die het als internet-compilatie en slechts indicatief labelt — wij verzinnen daar geen eurobedragen bij. <strong>Geen onderwaardering.</strong></p>
+<h2 class="ph">Volumgewicht</h2>
+<p class="pp">35×25×10 cm = 8750 cm³ / 8000 ≈ 1,094 kg, op de meeste NL-luchtlijnen 1100&nbsp;g tegen 1000&nbsp;g echt. De rekenmachine hieronder doet alleen die som; de prijs staat in de officiële estimator.</p>
+{vol_calc_widget("nl")}
+<h2 class="ph">Verpakking en bundelen</h2>
+<p class="pp">Een schoenendoos van ongeveer 33×22×12 cm is 8712 cm³ → 1089&nbsp;g volume → vaak 1100&nbsp;g. Zonder doos 30×20×12 = 7200 cm³ → 900&nbsp;g, alleen als volume nog wint van het echte gewicht. Gratis-met-limiet versus betaald (vacuüm, hoeken) staat in de app. Eenmaal ingepakt zijn materiaalkosten vaak niet terug.</p>
+<p class="pp">Bundelen spaart het startgewicht. Officiële statuspagina (eigen opname 30 sep 2026) noemt 90 dagen gratis opslag vanaf Stored. Items gemarkeerd voor individuele verzending bundel je niet. Vanaf ongeveer 10 kg oogt een doos commerciëler — uitleg, geen truc. PostNL of DHL moet op de live-SKU staan, niet alleen „goedkope lijn“.</p>
+{fig(SHOT_WH, "Officiële Order Status Display, eigen opname 30 sep 2026. Stored = 90 dagen gratis opslag.")}
+{fig(SHOT_REST, "Officiële Declaration of Prohibited Products, eigen opname 30 sep 2026. Tabak, alcohol, geneesmiddelen reizen niet.")}
+<p class="pp">{shot}</p>
+<p class="pp"><a href="/hulp/">Hulp</a> · <a href="/nieuws/">Nieuws</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
+"""
+    elif key == "us":
+        body = f"""
+<h2 class="ph" id="cbp">CBP — three SKU labels, educational</h2>
+<p class="pp">US treatment follows the booked product. Read Tax free / Prepaid Duty / Duties Payable by Recipient the morning you book. This desk does not invent a de-minimis dollar figure — HipoBuy’s own threshold table is labelled indicative.</p>
+<h3 class="ph">Tax free</h3>
+<p class="pp">Marketed as no duty for the recipient. CBP can still inspect.</p>
+<h3 class="ph">Prepaid Duty</h3>
+<p class="pp">Duties collected with freight.</p>
+<h3 class="ph">Duties Payable by Recipient</h3>
+<p class="pp">Last-mile may collect before delivery, plus a handling fee the estimator omits.</p>
+<p class="pp"><a href="{d["customs"]}">CBP duty overview</a>. HipoBuy’s own destination-threshold table is labelled as gathered from the internet and indicative — we do not copy a dollar de-minimis into this HTML. <strong>No under-declaration tips.</strong></p>
+<h2 class="ph">Volumetric weight</h2>
+<p class="pp">Lab carton 1000&nbsp;g / 35×25×10&nbsp;cm: USPS-ZF1 billed actual 1000&nbsp;g; some integrator SKUs billed 1100–2000&nbsp;g volumetric on the same carton. The calculator below only does L×W×H/divisor; live dollars sit in the official estimator.</p>
+{vol_calc_widget("us")}
+<h2 class="ph">Packing and consolidation</h2>
+<p class="pp">A typical shoe box ~33×22×12 cm is 8712 cm³ → 1089&nbsp;g volumetric → often billed 1100&nbsp;g at /8000. Remove the box to ~30×20×12 and you drop to 900&nbsp;g only if volume still beats actual grams. If actual already wins, shoe-box removal does nothing. In-app packing splits free-with-limits from paid wrap. After pack, material fees often do not refund.</p>
+<p class="pp">Consolidation pays the first-weight band once. Official Order Status Display (own capture 30 Sep 2026) states 90 days free storage from Stored. Items flagged for individual shipping do not consolidate. Around 10 kg a carton starts to look commercial — explanation, not a CBP trick.</p>
+{fig(SHOT_WH, "Official Order Status Display, own capture 30 Sep 2026. Stored = 90 days free storage — that is when you consolidate.")}
+{fig(SHOT_REST, "Official Declaration of Prohibited Products, own capture 30 Sep 2026. Tobacco, alcohol, medicines do not travel.")}
+<p class="pp">{shot}</p>
+<p class="pp"><a href="/help/">Help</a> · <a href="/news/">News</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
+"""
+    elif key == "eu":
+        body = f"""
+<h2 class="ph" id="ioss">VAT / IOSS — educational, not a TLD</h2>
+<p class="pp">The estimator needs a member-state country code. IOSS is a SKU. The Commission explains the import one-stop shop for certain low-value distance sales (often around €150). Above that, customs duty can apply. Spain-only line copy belongs on hipobuy.es.</p>
+<h3 class="ph">Tax free</h3>
+<p class="pp">Does not delete the right of customs to inspect.</p>
+<h3 class="ph">Prepaid Duty</h3>
+<p class="pp">Paid with freight.</p>
+<h3 class="ph">Duties Payable by Recipient</h3>
+<p class="pp">Last-mile may collect, plus fees the estimator hides.</p>
+<p class="pp"><a href="{d["ioss"]}">European Commission VAT e-commerce</a>. HipoBuy’s own EU row in its threshold table is labelled indicative. We do not invent rates. <strong>No declared-value coaching.</strong></p>
+<h2 class="ph">Volumetric weight</h2>
+<p class="pp">Same lab carton as AT/NL/GB: 35×25×10 cm often bills 1100&nbsp;g at /8000. There is no EU destination code — pick ES, IE, IT… Spain-only line counts stay on hipobuy.es.</p>
+{vol_calc_widget("eu")}
+<h2 class="ph">Packing and consolidation</h2>
+<p class="pp">Packing options and warehouse storage limits are official-help facts and can change. Consolidation saves first-weight; a 10 kg carton can look commercial. IOSS/fiscal treatment is still a SKU you read the morning you book, not a reason to clone hipobuy.es here. Spain-only line counts stay on hipobuy.es.</p>
+{fig(SHOT_WH, "Official Order Status Display, own capture 30 Sep 2026. Stored = 90 days free storage. Destination is still a member-state code, not this TLD.")}
+{fig(SHOT_REST, "Official Declaration of Prohibited Products, own capture 30 Sep 2026. Same list for every member state.")}
+<p class="pp">{shot}</p>
+<p class="pp"><a href="/help/">Help</a> · <a href="/news/">News</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
+"""
+    elif key == "ukhaul":
+        body = f"""
+<h2 class="ph" id="hmrc">HMRC — three SKU labels, educational</h2>
+<p class="pp">This Nominet haul log does not invent a GBP de-minimis. Import VAT and duty follow the carrier SKU you book the morning the carton leaves the warehouse. <a href="{d["customs"]}">GOV.UK goods sent from abroad</a> is the tax source. HipoBuy’s own UK threshold row is labelled as gathered from the internet and indicative — we do not copy a made-up pound figure into this HTML. <strong>No declared-value coaching.</strong></p>
+<h3 class="ph">Tax free</h3>
+<p class="pp">Marketed as no extra collection at the door. HMRC can still inspect the parcel. The label does not delete the procedure.</p>
+<h3 class="ph">Prepaid Duty</h3>
+<p class="pp">Duties are collected with freight, so the list price is higher and the doorstep bill should be quieter. Read the live SKU, not this paragraph.</p>
+<h3 class="ph">Duties Payable by Recipient</h3>
+<p class="pp">A cheaper list price is not a cheaper landed cost if last-mile collects VAT/duty plus a handling fee the estimator omits. Compare only lines that share the same tax mode.</p>
+<p class="pp">Northern Ireland is often another carrier product. Do not assume the GB-1 Royal Mail SKU covers Belfast. If the estimator destination picker offers a separate NI option, use it. Coupons stay on hipobuyspreadsheet.co.uk; this .uk host is the haul log.</p>
+<h2 class="ph">Volumetric weight</h2>
+<p class="pp">Lab carton 35×25×10 cm = 8750 cm³. At /8000 that is about 1.094 kg, billed 1100&nbsp;g on many Royal Mail / Evri air SKUs even when actual is 1000&nbsp;g. Some EUB products divide by 6000. The widget below is geometry, not a checkout quote — live dollars sit in the official estimator with destination United Kingdom.</p>
+{vol_calc_widget("ukhaul")}
+<h2 class="ph">Packing, storage, prohibited goods</h2>
+<p class="pp">A shoe box around 33×22×12 cm is 8712 cm³ → about 1100&nbsp;g billed at /8000. Removing the box only helps when volume still beats actual grams. After pack, material fees often stay. Evri versus Royal Mail is a last-mile reading on the live SKU, not a homepage slogan.</p>
+<p class="pp">Official Order Status Display (own capture 30 Sep 2026) lists Stored with 90 days free storage — that is when you consolidate a haul instead of shipping each find. Items flagged for individual shipping do not go in the same carton. Around 10 kg a box starts to look commercial; that is an explanation, not an HMRC trick.</p>
+{fig(SHOT_WH, "Official Order Status Display, own capture 30 Sep 2026. Stored = 90 days free storage on this haul log.")}
+{fig(SHOT_REST, "Official Declaration of Prohibited Products, own capture 30 Sep 2026. Tobacco, alcohol, medicines do not travel to a GB address either.")}
+<p class="pp">{shot}</p>
+<p class="pp"><a href="/help/">Help</a> · <a href="/news/">News</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
+"""
+    else:
+        body = f"""
+<h2 class="ph" id="hmrc">HMRC — three SKU labels, educational</h2>
+<p class="pp">UK import VAT/duty follow the carrier SKU. This .co.uk host still ranks coupons; haul-log dollars live on hipobuyspreadsheets.uk.</p>
+<h3 class="ph">Tax free</h3>
+<p class="pp">Marketed as no extra collection at the door. HMRC can still inspect.</p>
+<h3 class="ph">Prepaid Duty</h3>
+<p class="pp">Duties with freight.</p>
+<h3 class="ph">Duties Payable by Recipient</h3>
+<p class="pp">A cheaper list price is not a cheaper landed cost if last-mile collects.</p>
+<p class="pp"><a href="{d["customs"]}">GOV.UK goods sent from abroad</a>. HipoBuy’s own UK threshold row is labelled indicative. <strong>No declared-value coaching.</strong></p>
+<h2 class="ph">Volumetric weight</h2>
+<p class="pp">Lab carton 35×25×10 cm often billed 1100&nbsp;g on Royal Mail / Evri air SKUs. 1000&nbsp;g actual still loses to volume on many lines. The calculator below is geometry, not a checkout quote.</p>
+{vol_calc_widget(key)}
+<h2 class="ph">Packing and consolidation</h2>
+<p class="pp">A shoe box around 33×22×12 cm is 8712 cm³ → about 1100&nbsp;g billed at /8000. Removing it only helps when volume still beats actual grams. After pack, material fees often stay. Evri versus Royal Mail is a last-mile reading on the live SKU, not a homepage slogan.</p>
+<p class="pp">Official Order Status Display (own capture 30 Sep 2026) lists Stored with 90 days free storage — that is when you consolidate a haul. Northern Ireland is often another carrier product. {shot}</p>
+<p class="pp"><a href="/help/">Help</a> · <a href="/news/">News</a> · <a href="mailto:{MAIL}">{MAIL}</a></p>
+"""
+    est_p = (
+        f'<p class="pp"><a href="{EST}">Open the official HipoBuy estimator</a> with this country selected '
+        f"before you pay international freight. The table above is a snapshot from {DATE}, not checkout. "
+        "USD digits stay dollars when the official selector only changes the symbol.</p>"
+        if d.get("dest")
+        else (
+            f'<p class="pp">The estimator needs a <strong>member-state country code</strong>, not “EU”. '
+            f'Open <a href="{EST}">{EST}</a>.</p>'
+        )
+    )
+    return extra_lab + est_p + body

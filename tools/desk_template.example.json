@@ -1,0 +1,38 @@
+{
+  "comment": "Per-desk facts the template requires. Copy this object per host. Unique dest facts keep country TLDs from looking like doorway pages. Google August 2026 Spam Update re-applies scaled-content and doorway policy — it is not a loophole to cloak or clone.",
+  "agent": "LitBuy",
+  "host": "litbuy.at",
+  "lang": "de-AT",
+  "loc": "de",
+  "dest": "AT",
+  "dest_label": "Österreich",
+  "ccy": "EUR",
+  "customs": "BMF Zoll",
+  "customs_url": "https://www.bmf.gv.at/themen/zoll.html",
+  "storage": "90 free days from stocked/listed, 120-day max",
+  "estimator": "https://litbuy.com/shipping-estimate",
+  "official": "https://litbuy.com/",
+  "date": "1 Oct 2026",
+  "email": "support@litbuy.at",
+  "hub": false,
+  "must_not": [
+    "copy hipobuy.es Spain 58-line / 23.81 USD snapshot onto this dest",
+    "301 this TLD onto .net / now.com / a sister country TLD",
+    "put invite or coupon codes in <title>",
+    "coach a declared value or under-declaration",
+    "mass-generate city pages from this template",
+    "swap only the country name on otherwise identical HTML"
+  ],
+  "must": [
+    "local html lang + H1 search intent",
+    "catalogue on / with dated local-currency display",
+    "independent Help / News / About (local slugs)",
+    "15 long Help FAQs that name this dest + customs source",
+    "homepage + Help #local briefing with dest-unique checkable facts (address format, estimator country, named customs URL, last-mile operator)",
+    "generation MUST FAIL if dest fingerprint is missing or a sister dest leaks into #local",
+    "FAQPage JSON-LD on Help; ItemList on News; Organization+ContactPoint on About",
+    "skip-to-content, og:locale, WebPage+WebSite+Organization on every page",
+    "dated lab note without inventing another agent's line count",
+    "independence footer; sister hosts stay separate files"
+  ]
+}
