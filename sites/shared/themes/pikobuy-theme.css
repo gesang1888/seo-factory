@@ -1,0 +1,8 @@
+/* PikoBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #db2777;
+  --primary-dark: #db2777;
+  --primary-soft: #fdf2f8;
+  --nav-dark: #9d174d;
+}
+body { background: var(--bg, #f7f8fa); }

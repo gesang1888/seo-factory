@@ -1,0 +1,8 @@
+/* Kakobuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #0284c7;
+  --primary-dark: #0284c7;
+  --primary-soft: #e0f2fe;
+  --nav-dark: #0c4a6e;
+}
+body { background: var(--bg, #f7f8fa); }

@@ -1,0 +1,8 @@
+/* LoLoBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #f97316;
+  --primary-dark: #f97316;
+  --primary-soft: #fff7ed;
+  --nav-dark: #9a3412;
+}
+body { background: var(--bg, #f7f8fa); }

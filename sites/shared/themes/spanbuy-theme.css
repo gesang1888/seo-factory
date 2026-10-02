@@ -1,0 +1,8 @@
+/* SpanBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #c026d3;
+  --primary-dark: #c026d3;
+  --primary-soft: #fdf4ff;
+  --nav-dark: #701a75;
+}
+body { background: var(--bg, #f7f8fa); }

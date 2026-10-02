@@ -1,0 +1,8 @@
+/* BaseTao country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #e11d48;
+  --primary-dark: #e11d48;
+  --primary-soft: #fff1f2;
+  --nav-dark: #1f2937;
+}
+body { background: var(--bg, #f7f8fa); }
