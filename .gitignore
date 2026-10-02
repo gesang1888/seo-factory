@@ -14,6 +14,9 @@ output/*
 sites/*/dist/
 sites/*/.cache/
 
+# Generated AllChinaBuy product HTML (rebuild: python3 scripts/allchina_products.py)
+sites/allchina-buy.com/overlay/product/
+
 # Environment & secrets
 .env
 .env.*
