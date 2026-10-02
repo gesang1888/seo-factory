@@ -212,6 +212,10 @@ def _scrub_stale_ss(html: str) -> str:
             "Not a 301 onto wemimi.net while it 500s.",
             "Not a 301 onto wemimi.net.",
         ),
+        (
+            "WeMimi spreadsheet vs the 500 CMS hub",
+            "WeMimi spreadsheet vs the PHP CMS hub",
+        ),
         ("~54&nbsp;MB ThinkPHP", "EyouCMS PHP"),
         ("impressions on a template", "impressions on this dest desk"),
         ("impressions on a 5 KB skin", "impressions on this dest desk"),
