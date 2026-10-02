@@ -54,6 +54,7 @@ OFFICIAL = "https://www.acbuy.com/"
 HELP = "https://www.acbuy.com/help"
 DATE = "2 Oct 2026"
 INVITE = "5F2RRA"
+INVITE2 = "EwjrSk"
 DEST_MIN = 6000
 LIVE_DEST_MIN = 6500
 STORAGE = (
@@ -93,6 +94,34 @@ DESTS = {
             ("/blog/", 8000),
         ),
     },
+    "ca": {
+        "host": "allchinabuyspreadsheet.ca",
+        "lang": "en-CA",
+        "loc": "en",
+        "dest": "CA",
+        "dest_label": "Canada",
+        "ccy": "CAD",
+        "title": "AllChinaBuy Canada — Canada Post, CAD, CBSA notes",
+        "h1": "AllChinaBuy for a Canadian delivery address (CAD, form A1A 1A1)",
+        "chrome": (
+            "form A1A 1A1",
+            "CBSA",
+            "AllChinaBuy",
+        ),
+        "keep": [
+            ("/allchinabuy-shipping-guide/", "Shipping CA"),
+            ("/is-allchinabuy-legit/", "Is it legit?"),
+            ("/allchinabuy-spreadsheet/", "Spreadsheet"),
+            ("/allchinabuy-coupons/", "Coupons article"),
+        ],
+        "ranked": (
+            ("/allchinabuy-shipping-guide/", 20000),
+            ("/is-allchinabuy-legit/", 20000),
+            ("/allchinabuy-spreadsheet/", 20000),
+            ("/allchinabuy-coupons/", 20000),
+            ("/how-to-use-allchinabuy/", 8000),
+        ),
+    },
 }
 
 # Extra → target. Dest = GSC clicks, then ccTLD.
@@ -109,6 +138,9 @@ EST_NOTE = {
     "nl": (
         "Estimator-land is NL, niet deze TLD, niet EU, niet BE, niet het .com-hub."
     ),
+    "ca": (
+        "Estimator country is CA, not this TLD, not US, not the .com hub."
+    ),
 }
 
 STORE_NOTE = {
@@ -116,10 +148,15 @@ STORE_NOTE = {
         "Magazijn: officiële ACBuy Help. Bevestig die live-tekst op de verzenddag. "
         "Deze desk verzint geen gratis-dagen-aantal."
     ),
+    "en": (
+        "Warehouse: official ACBuy Help. Confirm that live copy the morning you ship. "
+        "This desk does not invent a free-day count."
+    ),
 }
 
 TRAIL = {
     "nl": ("Live-geld staat in", "deze HTML is geen kassa."),
+    "en": ("Live money is in", "this HTML is not checkout."),
 }
 
 DEST_LOCAL_CSS = (
@@ -160,7 +197,7 @@ def _facts(spec: dict) -> dict:
         "official": OFFICIAL,
         "date": DATE,
         "keep": spec.get("keep") or [],
-        "codes_off_title": [INVITE],
+        "codes_off_title": [INVITE, INVITE2],
         "strict_html_codes": True,
     }
 
@@ -212,7 +249,16 @@ def _scrub_token_from_home(html: str) -> str:
         "Couponartikel — <code>5F2RRA</code> zoals de pagina hem nu toont.",
         "Couponartikel — stacking blijft op /acbuy-coupons/, niet op deze homepage.",
     )
+    html = html.replace(
+        'Partner code <code>EwjrSk</code> when <a href="/allchinabuy-coupons/">/allchinabuy-coupons/</a> still shows it.',
+        'Coupon stacking stays on <a href="/allchinabuy-coupons/">/allchinabuy-coupons/</a> (not on this homepage).',
+    )
+    html = html.replace(
+        'hreflang="nl-NL" href="https://allchinabuyspreadsheet.nl/"',
+        'hreflang="nl-NL" href="https://acbuyspreadsheets.nl/"',
+    )
     html = html.replace(INVITE, "")
+    html = html.replace(INVITE2, "")
     html = re.sub(r"90 dagen gratis", "Help-tekst (geen verzonnen dagen)", html, flags=re.I)
     html = re.sub(r"90 free (warehouse )?days", "Help live copy (no invented days)", html, flags=re.I)
     return html
@@ -277,7 +323,7 @@ def patch_static(html: str, key: str, spec: dict) -> str:
     _check_local_section(html, facts, err)
     title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
     title = title_m.group(1) if title_m else ""
-    if INVITE in title or INVITE in html:
+    if INVITE in title or INVITE in html or INVITE2 in title or INVITE2 in html:
         err.append("frozen invite token still on homepage")
     if re.search(r"90\s*dagen|90\s*days", html, flags=re.I):
         err.append("invented 90-day warehouse copy")
@@ -313,11 +359,13 @@ def generate() -> None:
         if fp not in inner:
             raise SystemExit(f"{key} missing fingerprint {fp!r}")
         for alien in ALIENS:
+            if alien == fp:
+                continue
             if alien in inner:
                 raise SystemExit(f"{key} leaked sister {alien!r}")
         if EST not in inner:
             raise SystemExit(f"{key} missing estimator")
-        if INVITE in inner:
+        if INVITE in inner or INVITE2 in inner:
             raise SystemExit(f"{key} invite in #local")
         if re.search(r"90\s*dagen|90\s*days", inner, flags=re.I):
             raise SystemExit(f"{key} invented 90-day copy in #local")
@@ -395,7 +443,7 @@ def put() -> None:
         fp = dest_local_pack(spec["dest"])["fingerprint"]
         if fp not in raw:
             raise SystemExit(f"refusing to PUT {spec['host']} without dest fingerprint")
-        if INVITE in raw:
+        if INVITE in raw or INVITE2 in raw:
             raise SystemExit(f"refusing to PUT {spec['host']} with frozen invite token")
         if re.search(r"90\s*dagen|90\s*days", raw, flags=re.I):
             raise SystemExit(f"refusing to PUT {spec['host']} with invented 90-day copy")
@@ -455,84 +503,67 @@ def live_check() -> None:
             return e.code, url, e.headers.get("Location") or "", e.read() if e.fp else b""
 
     fail = 0
-    spec = DESTS["nl"]
-    url = f"https://{spec['host']}/"
-    code, _, loc, body = fetch(url, follow=True)
-    html = body.decode("utf-8", "replace")
-    title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
-    title = title_m.group(1) if title_m else ""
-    inner_m = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
-    inner = inner_m.group(0) if inner_m else ""
-    fp = dest_local_pack(spec["dest"])["fingerprint"]
-    print(f"nl {code} bytes={len(body)} local={bool(inner)} fp={fp in html}")
-    if code != 200 or not inner or fp not in inner:
-        print("  FAIL status/local/fp")
-        fail += 1
-    else:
-        for alien in ALIENS:
-            if alien in inner:
-                print("  FAIL sister", alien)
-                fail += 1
-        if INVITE in title or INVITE in html:
-            print("  FAIL invite on homepage")
-            fail += 1
-        if re.search(r"90\s*dagen|90\s*days", html, flags=re.I):
-            print("  FAIL invented 90-day copy")
-            fail += 1
-        if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
-            print("  FAIL snapshot/coaching")
-            fail += 1
-        if EST not in inner:
-            print("  FAIL estimator")
-            fail += 1
-        if len(body) < LIVE_DEST_MIN:
-            print("  FAIL dest collapsed", len(body))
-            fail += 1
-        for marker in spec.get("chrome") or ():
-            if marker not in html:
-                print("  FAIL chrome gone", marker)
-                fail += 1
-
-    code, _, loc, _ = fetch(url, follow=False)
-    if code in (301, 302, 303, 307, 308):
-        print("FAIL dest 301", loc)
-        fail += 1
-    else:
-        print("indep nl", code)
-
-    ca_url = f"https://{CA_TARGET}/"
-    code, _, loc, body = fetch(ca_url, follow=True)
-    html = body.decode("utf-8", "replace")
-    inner_m = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
-    inner = inner_m.group(0) if inner_m else ""
-    print(f"ca {code} bytes={len(body)} local={bool(inner)} fp={('form A1A 1A1' in html)}")
-    if code != 200 or not inner or "form A1A 1A1" not in inner:
-        print("  FAIL CA target #local")
-        fail += 1
-    elif "Nederlandse postcode" in inner:
-        print("  FAIL CA leaked NL")
-        fail += 1
-    code, _, loc, _ = fetch(ca_url, follow=False)
-    if code in (301, 302, 303, 307, 308):
-        print("FAIL CA dest 301", loc)
-        fail += 1
-    else:
-        print("indep ca", code)
-
-    for path, min_bytes in spec.get("ranked") or ():
-        inner_url = f"https://{spec['host']}{path}"
-        code, _, loc, _ = fetch(inner_url, follow=False)
-        if code in (301, 302, 303, 307, 308) and loc:
-            if path.rstrip("/") not in loc and not loc.rstrip("/").endswith(path.rstrip("/")):
-                print("FAIL 301 inner", inner_url, "->", loc)
-                fail += 1
-                continue
-        code, final, _, body = fetch(inner_url, follow=True)
-        if code == 404 or code == 410 or len(body) < min_bytes:
-            print("FAIL inner", inner_url, code, len(body), final)
+    for key, spec in DESTS.items():
+        url = f"https://{spec['host']}/"
+        code, _, loc, body = fetch(url, follow=True)
+        html = body.decode("utf-8", "replace")
+        title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
+        title = title_m.group(1) if title_m else ""
+        inner_m = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
+        inner = inner_m.group(0) if inner_m else ""
+        fp = dest_local_pack(spec["dest"])["fingerprint"]
+        print(f"{key} {code} bytes={len(body)} local={bool(inner)} fp={fp in html}")
+        if code != 200 or not inner or fp not in inner:
+            print("  FAIL status/local/fp")
             fail += 1
         else:
-            print("inner", code, len(body), final)
+            for alien in ALIENS:
+                if alien == fp:
+                    continue
+                if alien in inner:
+                    print("  FAIL sister", alien)
+                    fail += 1
+            if INVITE in title or INVITE in html or INVITE2 in title or INVITE2 in html:
+                print("  FAIL invite on homepage")
+                fail += 1
+            if re.search(r"90\s*dagen|90\s*days", html, flags=re.I):
+                print("  FAIL invented 90-day copy")
+                fail += 1
+            if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
+                print("  FAIL snapshot/coaching")
+                fail += 1
+            if EST not in inner:
+                print("  FAIL estimator")
+                fail += 1
+            if len(body) < LIVE_DEST_MIN:
+                print("  FAIL dest collapsed", len(body))
+                fail += 1
+            for marker in spec.get("chrome") or ():
+                if marker not in html:
+                    print("  FAIL chrome gone", marker)
+                    fail += 1
+
+        code, _, loc, _ = fetch(url, follow=False)
+        if code in (301, 302, 303, 307, 308):
+            print("FAIL dest 301", spec["host"], loc)
+            fail += 1
+        else:
+            print("indep", key, code)
+
+        for path, min_bytes in spec.get("ranked") or ():
+            inner_url = f"https://{spec['host']}{path}"
+            code, _, loc, _ = fetch(inner_url, follow=False)
+            if code in (301, 302, 303, 307, 308) and loc:
+                if path.rstrip("/") not in loc and not loc.rstrip("/").endswith(path.rstrip("/")):
+                    print("FAIL 301 inner", inner_url, "->", loc)
+                    fail += 1
+                    continue
+            code, final, _, body = fetch(inner_url, follow=True)
+            if code == 404 or code == 410 or len(body) < min_bytes:
+                print("FAIL inner", inner_url, code, len(body), final)
+                fail += 1
+            else:
+                print("inner", code, len(body), final)
 
     for twin, target in CONVERT_TWINS.items():
         code, _, loc, _ = fetch(f"https://{twin}/", follow=False)
