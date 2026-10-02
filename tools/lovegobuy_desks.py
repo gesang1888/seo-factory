@@ -448,24 +448,31 @@ def patch_twins(client) -> None:
                 continue
             extra.append(f"    location = {src} {{ return 301 https://{target}{dest}; }}")
             extra.append(f"    location = {src}/ {{ return 301 https://{target}{dest}; }}")
-        if twin == "lovegobuyspreadsheet.nl" and "return 301 https://lovegobuy.nl/" not in raw:
+        if twin == "lovegobuyspreadsheet.nl":
             needle = "    location / {\n        try_files $uri $uri/ $uri/index.html =404;\n    }"
-            if needle not in raw:
-                print("skip", twin, "try_files marker missing")
-                continue
-            maps = _map_lines(twin, target)
-            raw = raw.replace(
-                needle,
-                maps + "\n    location / { return 301 https://lovegobuy.nl/; }",
-                1,
-            )
-            _run(client, f"cp -a '{path}' '/www/backup/lovegobuy-twin-{twin}.conf'")
-            sftp = client.open_sftp()
-            with sftp.open(path, "w") as fh:
-                fh.write(raw)
-            sftp.close()
-            changed += 1
-            print("PATCH nginx NL twin catch-all → lovegobuy.nl")
+            if needle in raw:
+                raw = raw.replace(needle, "    location / { return 301 https://lovegobuy.nl/; }", 1)
+                _run(client, f"cp -a '{path}' '/www/backup/lovegobuy-twin-{twin}.conf'")
+                sftp = client.open_sftp()
+                with sftp.open(path, "w") as fh:
+                    fh.write(raw)
+                sftp.close()
+                changed += 1
+                print("PATCH nginx NL twin catch-all → lovegobuy.nl")
+            gsc = f"/www/server/panel/vhost/nginx/extension/{twin}/gsc-redirects.conf"
+            graw = _run(client, f"cat '{gsc}'")
+            if graw and "https://lovegobuyspreadsheet.nl/" in graw:
+                _run(client, f"cp -a '{gsc}' '/www/backup/lovegobuy-nl-gsc-redirects.conf'")
+                graw = graw.replace("https://lovegobuyspreadsheet.nl/", "https://lovegobuy.nl/")
+                graw = graw.replace("https://lovegobuy.nl/lovegobuy-coupons/", "https://lovegobuy.nl/lovegobuy-coupon/")
+                graw = graw.replace("https://lovegobuy.nl/lovegobuy-qc/", "https://lovegobuy.nl/lovegobuy-ervaringen/")
+                graw = graw.replace("https://lovegobuy.nl/lovegobuy-discord/", "https://lovegobuy.nl/how-to-use-lovegobuy/")
+                sftp = client.open_sftp()
+                with sftp.open(gsc, "w") as fh:
+                    fh.write(graw)
+                sftp.close()
+                changed += 1
+                print("PATCH nginx NL GSC redirects → lovegobuy.nl")
             continue
         if extra:
             marker = "    location / { return 301"
