@@ -286,6 +286,7 @@ def _scrub_title_token(html: str) -> str:
     def scrub(s: str) -> str:
         s = re.sub(re.escape(INVITE), "", s, flags=re.I)
         s = re.sub(r"(?i)\s*[—\-–:,]*\s*(invite\s+)?VGEICZNX0", "", s)
+        s = re.sub(r"(?i)\s*[—\-–:,]*\s*invite(\s*code)?\s*$", "", s)
         s = re.sub(r"\s{2,}", " ", s).strip(" —–-,;&")
         return s
 
@@ -348,7 +349,8 @@ def put() -> None:
                 continue
             title_m = re.search(r"<title>(.*?)</title>", inner_html, flags=re.S)
             title = title_m.group(1) if title_m else ""
-            if INVITE not in title:
+            leftover = bool(re.search(r"(?i)[—\-–:,]\s*invite\s*$", title))
+            if INVITE not in title and not leftover:
                 print("title already clean", rel)
                 continue
             before = len(inner_html)
@@ -447,7 +449,9 @@ def live_check() -> None:
             html = body.decode("utf-8", "replace")
             title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
             title = title_m.group(1) if title_m else ""
-            if path in ("/hipobuy-coupons/", "/hipobuy-invite-code/") and INVITE in title:
+            if path in ("/hipobuy-coupons/", "/hipobuy-invite-code/") and (
+                INVITE in title or re.search(r"(?i)[—\-–:,]\s*invite\s*$", title)
+            ):
                 print("FAIL invite in inner title", path, title)
                 fail += 1
 
