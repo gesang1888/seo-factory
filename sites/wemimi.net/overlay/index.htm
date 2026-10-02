@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeMimi .net hub — not a customs territory</title>
+    <meta name="description" content="wemimi.net helps global shoppers browse verified Weidian, Taobao and 1688 finds by category, compare product links, and use agent workflows for QC photos, warehouse checks and international shipping.">
+    <meta name="keywords" content="wemimi, wemimi spreadsheet, verified Weidian links, Taobao finds, 1688 finds, Chinese shopping agent, QC photos, international shipping agent, sneakers, streetwear, bags, electronics">
+    <meta name="author" content="wemimi Team">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://wemimi.net/">
+    
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="WeMimi .net hub — not a customs territory">
+    <meta property="og:description" content="Browse verified Weidian, Taobao and 1688 finds with category navigation, QC guidance and agent-friendly shopping workflow notes.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wemimi.net/">
+    <meta property="og:site_name" content="wemimi.net">
+    <meta property="og:image" content="https://wemimi.net/wemimi%20Logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="wemimi 2026 - Verified Weidian, Taobao & 1688 Finds">
+    <meta name="twitter:description" content="A cleaner category hub for global shoppers using Chinese shopping agents, QC photos and international shipping workflows.">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "wemimi.net",
+      "url": "https://wemimi.net",
+      "description": "Verified Weidian, Taobao and 1688 finds directory for global shoppers using Chinese shopping agents.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://w2clinks.com/spreadsheet/?q={search_term_string}&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=search",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "wemimi Product Categories",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Sneakers & Shoes","url":"https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=7&category=SNEAKERS&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-shoes381"},
+        {"@type":"ListItem","position":2,"name":"Jackets & Coats","url":"https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=8&category=JACKET&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-jackets839"},
+        {"@type":"ListItem","position":3,"name":"T-Shirts","url":"https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=2&category=T-SHIRT&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-t-shirts"},
+        {"@type":"ListItem","position":4,"name":"Hoodies & Sweaters","url":"https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=1&category=HOODIE&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-hoodies-sweaters"},
+        {"@type":"ListItem","position":5,"name":"Pants & Shorts","url":"https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=4&category=SHORTS&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-pants-shorts"},
+        {"@type":"ListItem","position":6,"name":"Accessories","url":"https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-accessories"},
+        {"@type":"ListItem","position":7,"name":"Bags","url":"https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=6&category=BAG&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-bags"},
+        {"@type":"ListItem","position":8,"name":"Electronics","url":"https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=10&category=Electronics&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-electronics"},
+        {"@type":"ListItem","position":9,"name":"Headwear","url":"https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-headwear"},
+        {"@type":"ListItem","position":10,"name":"Women's Fashion","url":"https://w2clinks.com/spreadsheet/?utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-women"},
+        {"@type":"ListItem","position":11,"name":"Sports Jerseys","url":"https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=3&category=Jersey&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-jersey"},
+        {"@type":"ListItem","position":12,"name":"Other Goods","url":"https://w2clinks.com/spreadsheet/?utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-other-stuff"}
+      ]
+    }
+    </script>
+
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* --- 修改部分：字体与背景 --- */
+            /* 主色调 - 改为青绿色系 */
+            --primary: #00C19E; /* 换成青绿色（Teal） */
+            --primary-hover: #00A887; /* 对应的悬停色 */
+            
+            /* 功能性颜色 */
+            --success: #52C41A; /* 成功 - 绿色 */
+            --warning: #FAAD14; /* 警告 - 琥珀色 */
+            --error: #F5222D; /* 错误 - 红色 */
+            
+            /* 背景色 */
+            --bg-page: #F8F9FA; /* 更浅的灰色页面背景，提升通透感 */
+            --bg-card: #FFFFFF; /* 卡片背景保持纯白 */
+            --bg-hover: #f0f9f7; /* 悬停背景改为淡青绿色，呼应主题 */
+            
+            /* 文字颜色 */
+            --text-primary: #1A1A1A; /* 更深一点的炭灰色主文字，比纯黑柔和 */
+            --text-secondary: #666666; /* 辅助文字使用中灰色，降低视觉噪音 */
+            --text-white: #FFFFFF; /* 白色文字 */
+            
+            /* 边框/分割线 */
+            --border-color: #E0E0E0; /* 更浅的边框色 */
+            
+            /* 阴影 */
+            --shadow-sm: 0 1px 2px rgba(0, 193, 158, 0.1); /* 带上主色调的氛围 */
+            --shadow-md: 0 4px 12px rgba(0, 193, 158, 0.15);
+            --shadow-lg: 0 8px 20px rgba(0, 193, 158, 0.2);
+            
+            /* 字体 - 使用 Inter 和 Helvetica Now 作为主要无衬线字体 */
+            --font-family: 'Inter', 'Helvetica Now', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Microsoft YaHei", "PingFang SC", "Source Han Sans";
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 红色活动横幅样式 */
+        .top-banner {
+            background-color: var(--error);
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-white);
+            font-weight: 500;
+        }
+        .top-banner a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* 导航栏样式 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Logo 样式 */
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        /* 导航菜单样式 */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: var(--primary);
+        }
+
+        /* 下拉菜单 */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+            min-width: 200px;
+            display: none;
+            padding: 10px 0;
+            z-index: 100;
+            border: 1px solid var(--border-color);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: block;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background: var(--bg-hover);
+            color: var(--primary);
+        }
+
+        /* 社交链接样式 */
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--bg-hover);
+            color: var(--text-secondary);
+            font-size: 16px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: var(--text-white);
+            transform: scale(1.1);
+        }
+
+        /* Hero Section - 青绿色渐变背景 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+            color: var(--text-white);
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            background: rgba(255,255,255,0.2);
+            color: var(--text-white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: 34px auto 0;
+            max-width: 760px;
+        }
+
+        .hero-stat {
+            background: rgba(255,255,255,0.16);
+            border: 1px solid rgba(255,255,255,0.22);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .hero-stat strong {
+            display: block;
+            font-size: 24px;
+            line-height: 1.1;
+            margin-bottom: 5px;
+        }
+
+        .hero-stat span {
+            font-size: 13px;
+            opacity: 0.92;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--text-white);
+            color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+            color: var(--text-white);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 193, 158, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-white);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .category-select {
+            padding: 18px 25px;
+            border-radius: 50px 0 0 50px;
+            border: none;
+            background: rgba(255,255,255,0.95);
+            font-size: 16px;
+            outline: none;
+            box-shadow: var(--shadow-md);
+            border-right: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .main-search {
+            flex: 1;
+            padding: 18px 25px;
+            border-radius: 0 50px 50px 0;
+            border: none;
+            background: rgba(255,255,255,0.95);
+            font-size: 16px;
+            outline: none;
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-submit {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: var(--text-white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        /* Category Section - 卡片式布局 */
+        .category-section {
+            background: var(--bg-page);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cat-item {
+            background: var(--bg-card);
+            padding: 25px 15px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cat-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cat-icon {
+            font-size: 32px;
+            color: var(--primary);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-hover);
+            border-radius: 50%;
+        }
+
+        .cat-item h3 {
+            font-size: 14px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .cat-item p {
+            color: var(--text-secondary);
+            font-size: 12px;
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        /* Steps Section - 卡片式布局 */
+        .steps-section {
+            background: var(--bg-page);
+            padding: 80px 0;
+            margin-bottom: 60px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .step-num {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: var(--text-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            border: 3px solid var(--bg-card);
+            font-size: 18px;
+        }
+
+        .step-card i {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .step-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .step-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Platform Section - 卡片式布局 */
+        .platform-section {
+            background: var(--bg-page);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .platform-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .platform-tag {
+            background: var(--bg-card);
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .platform-tag:hover {
+            background: var(--primary);
+            color: var(--text-white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Latest Updates Section - 卡片式布局 */
+        .updates-section {
+            background: var(--bg-card);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .updates-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .update-item {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .update-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .update-date {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .update-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .update-content {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .why-choose {
+            background: var(--bg-page);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .why-choose .content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .why-choose h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .why-choose p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .trust-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 26px;
+        }
+
+        .trust-card {
+            background: var(--bg-hover);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .trust-card h3 {
+            color: var(--text-primary);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .trust-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* FAQ Section - 卡片式布局 */
+        .faq-section {
+            background: var(--bg-card);
+            padding: 60px 0 80px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            cursor: pointer;
+            background: var(--bg-card);
+        }
+
+        .faq-question h4 {
+            margin: 0;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-primary);
+        }
+
+        .faq-question h4::before {
+            content: "Q";
+            background: var(--primary);
+            color: var(--text-white);
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+        }
+
+        .faq-answer p {
+            margin: 20px 0;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: var(--text-white);
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            color: var(--text-white);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-stats,
+            .updates-container,
+            .trust-list {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .category-select {
+                border-radius: 50px;
+                border-right: none;
+                margin-bottom: 10px;
+            }
+
+            .main-search {
+                border-radius: 50px;
+            }
+        }
+    </style>
+<style>.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
+.skip:focus{left:12px}
+.legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
+.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
+.local-src a{color:inherit}
+#local{scroll-margin-top:96px}
+.sg-sec#local{margin:1.25rem 0 0}.sg-sec#local h2{margin-top:0}.ssub{color:var(--muted,#57534e);font-size:.95rem;margin:0 0 12px}.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}.local-steps strong{display:block;margin:0 0 6px;font-size:15px}.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}#local{scroll-margin-top:96px}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+    <!-- 红色活动横幅 -->
+    <div class="top-banner">
+        <a href="https://www.wemimi.com/" target="_blank" rel="noopener">
+            1000CNY new member gift on wemimi.com - code: <span style="text-decoration: underline;">SHIP</span>
+        </a>
+    </div>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="header-container">
+            <!-- Logo 区域 -->
+            <a href="/" class="logo">
+                <img src="/wemimi Logo.png" alt="wemimi logo">
+                wemimi
+            </a>
+
+            <!-- 导航菜单 -->
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/" class="nav-item active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="nav-item">All Products <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=7&category=SNEAKERS&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-shoes381" class="dropdown-item">Sneakers & Shoes</a>
+                            <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=8&category=JACKET&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-jackets839" class="dropdown-item">Jackets & Coats</a>
+                            <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=2&category=T-SHIRT&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-t-shirts" class="dropdown-item">T-Shirts</a>
+                            <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=1&category=HOODIE&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-hoodies-sweaters" class="dropdown-item">Hoodies & Sweaters</a>
+                            <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=4&category=SHORTS&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-pants-shorts" class="dropdown-item">Pants & Shorts</a>
+                            <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-accessories" class="dropdown-item">Accessories</a>
+                            <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=6&category=BAG&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-bags" class="dropdown-item">Bags</a>
+                            <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=10&category=Electronics&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-electronics" class="dropdown-item">Electronics</a>
+                            <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-headwear" class="dropdown-item">Headwear</a>
+                            <a href="https://w2clinks.com/spreadsheet/?utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-women" class="dropdown-item">Women's Fashion</a>
+                            <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=3&category=Jersey&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-jersey" class="dropdown-item">Sports Jerseys</a>
+                            <a href="https://w2clinks.com/spreadsheet/?utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-other-stuff" class="dropdown-item">Other Goods</a>
+                        </div>
+                    </li>
+                    <li><a href="#how-it-works" class="nav-item">How It Works</a></li>
+                    <li><a href="#guides" class="nav-item">Guides</a></li>
+                    <li><a href="#faq" class="nav-item">FAQ</a></li>
+                    <li><a href="#local" class="nav-item">Pick a country</a></li>
+                </ul>
+            </nav>
+
+            <!-- 社交链接 -->
+            <div class="social-links">
+                <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/SPORTSHOESVIP" target="_blank" rel="noopener" title="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <span class="hero-tag">VERIFIED CHINESE SHOPPING FINDS 2026</span>
+                <h1>Browse cleaner Weidian, Taobao and 1688 finds with agent-ready links</h1>
+                <p>wemimi.net organizes product finds for global shoppers who use Chinese shopping agents. Search by category, compare links, review QC photos, and plan international shipping with a simpler workflow.</p>
+                <div class="btn-group">
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=7&category=SNEAKERS&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-shoes381" class="btn btn-primary">
+                        <i class="fas fa-table"></i> Browse Categories
+                    </a>
+                    <a href="#how-it-works" class="btn btn-outline">
+                        <i class="fas fa-info-circle"></i> How It Works
+                    </a>
+                </div>
+                <!-- 分类搜索表单 -->
+                <div class="search-container">
+                    <form id="searchForm" class="search-form" action="https://w2clinks.com/spreadsheet/?utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=search" method="get" target="_blank" rel="noopener noreferrer">
+                        <input type="text" name="q" class="main-search" placeholder="Search for products...">
+                        <button type="submit" class="search-submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="hero-stats" aria-label="wemimi shopping highlights">
+                    <div class="hero-stat">
+                        <strong>12</strong>
+                        <span>organized shopping categories</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>QC</strong>
+                        <span>photo review workflow</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>Agent</strong>
+                        <span>shipping-friendly product links</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+<section class="sg-sec" id="local">
+  <h2>This hostname is not a customs territory</h2>
+  <p class="ssub">a country in the estimator · wemimi.net · not a location-name swap.</p>
+  <ol class="local-steps"><li><strong>Open the estimator with a country</strong><span>The official freight form needs US, CA, FR, ES, AT… not this hostname and not “Europe” as one country.</span></li><li><strong>Do not paste another dest’s lab</strong><span>Spain-only line counts and another desk’s postal operator stay off this hub.</span></li><li><strong>Hub pages already ranking stay</strong><span>Coupon / spreadsheet / IOSS html or articles on this host are not overwritten by a fake destination.</span></li><li><strong>Orders stay on the official app</strong><span>This hub does not take payment or see your account.</span></li></ol>
+  <p class="local-src">Lab 2 Oct 2026. Open the official estimator with a real country code. This HTML is not checkout.</p>
+  <p class="local-src">Already on this host (kept): <a href="/#categories">Category wall</a> · <a href="/#how-it-works">How it works</a> · <a href="/#faq">FAQ</a></p>
+<p class="local-src">not a customs territory. This .net PHP hub is not a customs territory. Pick the real ship-to country in the official WeMimi app freight estimate, not this hostname, not “EU” as one country, not wemimispreadsheet.com. Warehouse: official WeMimi app storage notice (SPA help center); confirm that live copy the morning you ship. Do not invent a free-day count on this hub. Live money is in <a href="https://www.wemimi.com/">https://www.wemimi.com/</a> — this HTML is not checkout.</p>
+</section>
+        <!-- Categories Section -->
+        <section class="category-section" id="categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Shop by Category</h2>
+                    <p>Jump directly into the category that matches your next haul or product search.</p>
+                </div>
+                <div class="cat-grid">
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=7&category=SNEAKERS&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-sneakers" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3>Sneakers</h3>
+                        <p>Daily shoes, runners and trainer finds.</p>
+                    </a>
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=2&category=T-SHIRT&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-t-shirt" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-shirt"></i>
+                        </div>
+                        <h3>T-Shirts</h3>
+                        <p>Graphic tees, basics and summer picks.</p>
+                    </a>
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=4&category=SHORTS&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-shorts" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-person-walking"></i>
+                        </div>
+                        <h3>Shorts</h3>
+                        <p>Cargos, denim, sweatpants and shorts.</p>
+                    </a>
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=1&category=HOODIE&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-hoodie" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-vest"></i>
+                        </div>
+                        <h3>Hoodies</h3>
+                        <p>Heavy hoodies, knits and warm layers.</p>
+                    </a>
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=79&category=SWEATER&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-sweater" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-vest"></i>
+                        </div>
+                        <h3>Sweaters</h3>
+                        <p>Knit weight, fit and seasonal layering.</p>
+                    </a>
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=8&category=JACKET&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-jacket" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h3>Jackets</h3>
+                        <p>Puffers, outerwear and seasonal layers.</p>
+                    </a>
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=84&category=TROUSERS&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-trousers" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-person-walking"></i>
+                        </div>
+                        <h3>Trousers</h3>
+                        <p>Waist, inseam, wash and cargo pockets.</p>
+                    </a>
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=3&category=Jersey&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-jersey" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h3>Jerseys</h3>
+                        <p>Football shirts, team kits and badges.</p>
+                    </a>
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=10&category=Electronics&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-electronics" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Electronics</h3>
+                        <p>Gadgets, cases and useful tech add-ons.</p>
+                    </a>
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=6&category=BAG&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-bag" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3>Bags</h3>
+                        <p>Shape retention, zippers and real capacity.</p>
+                    </a>
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-glasses" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-glasses"></i>
+                        </div>
+                        <h3>Glasses</h3>
+                        <p>Frames, lenses and eyewear QC checks.</p>
+                    </a>
+                    <a href="https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=189&category=WATCH&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=grid-watch" class="cat-item" target="_blank" rel="noopener noreferrer">
+                        <div class="cat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Watches</h3>
+                        <p>Dial, bezel and movement notes.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="steps-section" id="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How wemimi fits your agent shopping workflow</h2>
+                    <p>A cleaner path from product discovery to QC review and international shipping.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <i class="fas fa-search"></i>
+                        <h3>Find product links</h3>
+                        <p>Browse categories or search the directory to find Weidian, Taobao and 1688 links that match your target item.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Submit through an agent</h3>
+                        <p>Copy the product link into your preferred shopping agent, then confirm size, color, seller notes and local delivery fees.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <i class="fas fa-camera-retro"></i>
+                        <h3>Review QC and ship</h3>
+                        <p>Check warehouse QC photos, request extra images when needed, then choose a shipping line based on budget, speed and route rules.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platforms Section -->
+        <section class="platform-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Compatible with popular Chinese shopping agents</h2>
+                    <p>Use wemimi as a discovery layer, then paste links into the agent platform that fits your country, route and support preference.</p>
+                </div>
+                <div class="platform-logos">
+                    <a href="https://www.hipobuy.com/" target="_blank" class="platform-tag">hipobuy</a>
+                    <a href="https://www.hubbuy.com/" target="_blank" class="platform-tag">hubbuy</a>
+                    <a href="https://www.wemimi.com/" target="_blank" class="platform-tag">wemimi</a>
+                    <a href="https://www.CNshopper.com/" target="_blank" class="platform-tag">CNshopper</a>
+                    <a href="https://www.pantherbuy.com/" target="_blank" class="platform-tag">pantherbuy</a>
+                    <a href="https://www.loongbuy.com/" target="_blank" class="platform-tag">Loongbuy</a>
+                    <a href="https://www.mulebuy.com/" target="_blank" class="platform-tag">Mulebuy</a>
+                    <a href="https://www.huobuy.com/" target="_blank" class="platform-tag">Huobuy</a>
+                    <a href="https://www.oopbuy.com/" target="_blank" class="platform-tag">Oopbuy</a>
+                    <a href="https://www.allchinabuy.com/" target="_blank" class="platform-tag">Allchinabuy</a>
+                    <a href="https://www.joyabuy.com/" target="_blank" class="platform-tag">Joyabuy</a>
+                    <a href="https://www.orientdig.com/" target="_blank" class="platform-tag">Orientdig</a>
+                    <a href="https://www.superbuy.com/" target="_blank" class="platform-tag">Superbuy</a>
+                    <a href="https://www.sugargoo.com/" target="_blank" class="platform-tag">Sugargoo</a>
+                    <a href="https://www.eastmallbuy.com/" target="_blank" class="platform-tag">Eastmallbuy</a>
+                    <a href="https://www.ootdbuy.com/" target="_blank" class="platform-tag">Ootdbuy</a>
+                    <a href="https://www.ponybuy.com/" target="_blank" class="platform-tag">Ponybuy</a>
+                    <a href="https://www.kakobuy.com/" target="_blank" class="platform-tag">Kakobuy</a>
+                    <a href="https://www.lovegobuy.com/" target="_blank" class="platform-tag">Lovegobuy</a>
+                    <a href="https://www.panglobalbuy.com/" target="_blank" class="platform-tag">Panglobalbuy</a>
+                    <a href="https://w2clinks.com" target="_blank" class="platform-tag">litbuy</a>
+                    <a href="https://www.mycnbox.com/" target="_blank" class="platform-tag">mycnbox</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guides Section -->
+        <section class="updates-section" id="guides">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Quick guides for better orders</h2>
+                    <p>Short, useful reading blocks that help users understand product links, QC photos and shipping decisions.</p>
+                </div>
+                <div class="updates-container">
+                    <div class="update-item">
+                        <div class="update-date">Guide 01</div>
+                        <div class="update-title">How to check a product link before ordering</div>
+                        <div class="update-content">Compare product photos, options, seller notes, domestic shipping fees and recent availability before sending a link to your agent.</div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-date">Guide 02</div>
+                        <div class="update-title">QC photo checklist</div>
+                        <div class="update-content">Check color, shape, stitching, tags, logo placement, accessories and measurements before approving items for international shipping.</div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-date">Guide 03</div>
+                        <div class="update-title">How to choose a shipping route</div>
+                        <div class="update-content">Balance price, route stability, destination support, parcel weight, volume weight, insurance and tracking detail instead of choosing only the cheapest line.</div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-date">Guide 04</div>
+                        <div class="update-title">How to use category browsing</div>
+                        <div class="update-content">Start broad by category, open several candidates, compare price and photos, then shortlist only the strongest links before checkout.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="why-choose" id="about">
+    <div class="container">
+        <div class="content">
+            <h2>What is wemimi.net?</h2>
+            <p>
+                <strong>wemimi.net</strong> is a product-link navigation hub for global shoppers who browse Chinese marketplaces such as
+                <strong>Weidian, Taobao and 1688</strong>. The site organizes finds into clean categories so users can move from discovery
+                to agent checkout with less friction.
+            </p>
+            
+            <p>
+                Instead of relying on scattered bookmarks or outdated spreadsheets, users can browse by product type, shortlist potential
+                items, paste links into their preferred agent, and then review warehouse QC photos before shipping. This structure is built
+                for shoppers who care about speed, link clarity and practical ordering steps.
+            </p>
+            
+            <p>
+                wemimi.net is an independent directory and guide site. It does not sell products directly, process payments, own the listed
+                marketplaces, or replace the final checks shoppers should perform before purchasing through a third-party agent.
+            </p>
+
+            <div class="trust-list">
+                <div class="trust-card">
+                    <h3>Clear structure</h3>
+                    <p>Categories match common shopping intent, including shoes, clothing, bags, electronics, headwear and jerseys.</p>
+                </div>
+                <div class="trust-card">
+                    <h3>QC-aware workflow</h3>
+                    <p>Content reminds users to review warehouse photos, measurements and visible details before approving shipment.</p>
+                </div>
+                <div class="trust-card">
+                    <h3>Agent friendly</h3>
+                    <p>Links are positioned for use with Chinese shopping agents that support warehouse handling and global routes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+    <div class="container">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about browsing finds and using agent workflows.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>What can I use wemimi.net for?</h4>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>You can use <strong>wemimi.net</strong> to browse organized product categories, discover Weidian, Taobao and 1688 links, and prepare items for checkout through a third-party Chinese shopping agent.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Does wemimi.net sell products directly?</h4>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>No. wemimi.net is a directory and guide site. It does not process orders, hold inventory, accept payments, or provide final shipping services. Purchases are handled through marketplaces and shopping agents.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>How should I check an item before shipping?</h4>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>After the item reaches your agent warehouse, review QC photos, measurements, size tags, color, logos, stitching, accessories and packaging. Ask for extra photos or request a return if something looks wrong.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Which agents can I use with these links?</h4>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Many users paste links into agents such as Superbuy, Sugargoo, AllChinaBuy, Mulebuy, Kakobuy, Hubbuy, PantherBuy and similar platforms. Always confirm that your chosen agent supports the item type, seller platform and destination route.</p>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>wemimi</h3>
+                    <ul>
+                        <li><a href="#about">About wemimi</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>International Agents</h3>
+                    <ul>
+                        <li><a href="https://www.hubbuy.com/" target="_blank" rel="noopener">Hubbuy</a></li>
+                        <li><a href="https://www.mulebuy.com/" target="_blank" rel="noopener">Mulebuy</a></li>
+                        <li><a href="https://www.superbuy.com/" target="_blank" rel="noopener">Superbuy</a></li>
+                        <li><a href="https://www.allchinabuy.com/" target="_blank" rel="noopener">AllChinaBuy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Support</h3>
+                    <ul>
+                        <li><a href="#guides">Shopping Guides</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="https://wa.me/8615396628356" target="_blank" rel="noopener">Product Requests</a></li>
+                        <li><a href="https://t.me/SPORTSHOESVIP" target="_blank" rel="noopener">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="https://discord.gg/sportshoesvip" target="_blank" rel="noopener">Discord</a></li>
+                        <li><a href="https://t.me/SPORTSHOESVIP" target="_blank" rel="noopener">Telegram</a></li>
+                        <li><a href="https://wa.me/8615396628356" target="_blank" rel="noopener">WhatsApp</a></li>
+                        <li><a href="#guides">Guides</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 wemimi.net. Independent product-link directory for global shoppers. Always verify seller details, item photos and shipping terms before ordering.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 添加搜索限制表单
+        const searchContainer = document.querySelector('.search-container');
+        const originalForm = document.getElementById('searchForm');
+        originalForm.remove(); // 移除原始表单
+        
+        // 创建新的搜索限制表单
+        const restrictedSearchForm = document.createElement('form');
+        restrictedSearchForm.className = 'search-form';
+        restrictedSearchForm.action = "https://w2clinks.com/spreadsheet/?utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=search";
+        restrictedSearchForm.method = 'get';
+        restrictedSearchForm.innerHTML = `
+            <input type="text" 
+                name="keywords" 
+                class="main-search" 
+                placeholder="Search for products..." 
+                required 
+                title="Please enter search keywords"
+                oninvalid="this.setCustomValidity('Please enter search keywords')"
+                oninput="this.setCustomValidity('')">
+            <input type="hidden" name="typeid" value="1,2,3,4,5,6,7,8,73,9,10,11">
+            <input type="hidden" name="channelid" value="2">
+            <button type="submit" class="search-submit">
+                <i class="fas fa-search"></i>
+            </button>
+        `;
+        
+        // 替换容器中的表单
+        searchContainer.innerHTML = '';
+        searchContainer.appendChild(restrictedSearchForm);
+
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('.toggle-icon');
+                
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    icon.style.transform = "rotate(0deg)";
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    icon.style.transform = "rotate(180deg)";
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
