@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
-"""410 thin repsicon leftover; strip remote-eval prepends on origin PHP.
+"""Strip remote-eval prepends on origin PHP. Do not 410 repsicon.com.
 
-Not a dest overlay. FashionReps / HubBuy unique CMS stay.
+User: repsicon.com does not need processing. Origin rewrite stays empty.
+
+Not a dest overlay. FashionReps unique CMS stays.
 
 Gates this change honours:
 1–3. No dest copy is rewritten. No invite, no 58-line snapshot, no
    customs coaching added.
 4. FashionReps unique hub stays independently open (no 301).
-5. No twins on repsicon. After 410, deep paths are Gone, not a fake dest.
+5. No twins on repsicon. Do not 410 this leftover.
 6. Unique PHP/HTML hubs are not replaced with a 5KB country template.
-   Only the thin Baota leftover is 410’d. Remote-eval prepends are stripped
-   from Eyou index.php so unique FashionReps HTML keeps rendering.
+   Remote-eval prepends are stripped from Eyou index.php so unique
+   FashionReps HTML keeps rendering.
 
-Skip unique dest overwrite. Skip w2clinks PHP overlay.
+Skip unique dest overwrite. Skip w2clinks PHP overlay. Skip repsicon 410.
 """
 from __future__ import annotations
 
@@ -136,9 +138,13 @@ def put() -> None:
     rewrite = "/www/server/panel/vhost/rewrite/repsicon.com.conf"
     _run(client, f"cp -a '{vhost}' '{bak}/repsicon.com.conf'")
     _run(client, f"cp -a '{rewrite}' '{bak}/repsicon.com.rewrite.conf' 2>/dev/null || true")
-    with sftp.file(rewrite, "w") as fh:
-        fh.write("# thin leftover + remote-eval index.php; 410 Gone\nreturn 410;\n")
-    print("wrote rewrite 410 for repsicon.com")
+    # User: repsicon.com does not need processing. Never write return 410.
+    now = _run(client, f"cat '{rewrite}' 2>/dev/null || true")
+    if "return 410" in now:
+        _run(client, f"cp -a '{bak}/repsicon.com.rewrite.conf' '{rewrite}'")
+        print("restored empty rewrite; skipped 410")
+    else:
+        print("skip 410 rewrite for repsicon.com (user: do not process)")
 
     live_fr = _run(client, f"wc -c < /www/wwwroot/{FASHION_HOST}/index.html")
     print("fashionreps index.html on disk", live_fr, "(not overwritten)")
@@ -179,8 +185,8 @@ def live_check() -> None:
     for url in ("https://repsicon.com/", "https://www.repsicon.com/", "https://repsicon.com/liang.php"):
         code, _, loc, body = fetch(url, follow=False)
         print(f"repsicon {url} {code} loc={loc} bytes={len(body)}")
-        if code != 410:
-            print("  FAIL expected 410")
+        if code == 410:
+            print("  FAIL user asked not to 410 repsicon.com")
             fail += 1
         text = body.decode("utf-8", "replace")
         if "file_get_contents" in text or "base64_decode" in text:
