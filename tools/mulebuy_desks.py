@@ -378,6 +378,41 @@ def _run(client, cmd: str, timeout: int = 90) -> str:
     return (stdout.read() + stderr.read()).decode(errors="replace").strip()
 
 
+def restore_hub_nginx(client) -> None:
+    """Unique 79KB CMS hub must serve, not 410. Keep /find/ SKUs noindex."""
+    path = f"/www/server/panel/vhost/nginx/{HUB_HOST}.conf"
+    raw = _run(client, f"cat '{path}'")
+    if not raw:
+        raise SystemExit("missing hub nginx")
+    new = raw
+    new = new.replace(
+        "    location / {\n        return 410;\n    }",
+        "    location / {\n        try_files $uri $uri/ =404;\n    }",
+        1,
+    )
+    new = new.replace(
+        "    location ~ .*\\.html$ {\n        return 410;\n    }",
+        '    location ~ .*\\.html$ {\n        add_header Cache-Control "no-cache, must-revalidate";\n    }',
+        1,
+    )
+    if new == raw:
+        if "return 410" in raw and "try_files $uri $uri/ =404" not in raw:
+            raise SystemExit("hub nginx still 410 and restore did not match")
+        print("hub nginx already serving")
+        return
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    _run(client, f"cp -a '{path}' '/www/backup/mulebuy-hub-nginx-{stamp}.conf'")
+    sftp = client.open_sftp()
+    with sftp.open(path, "w") as fh:
+        fh.write(new)
+    sftp.close()
+    test = _run(client, "nginx -t && nginx -s reload")
+    print("RESTORE hub nginx try_files (keep /find/ noindex)")
+    print(test)
+    if "test failed" in test.lower() or "unexpected" in test.lower():
+        raise SystemExit("nginx reload failed after hub restore")
+
+
 def put() -> None:
     generate()
     client = _connect()
@@ -398,6 +433,7 @@ def put() -> None:
         sftp.put(str(local), remote)
         print("PUT", remote, "bytes", local.stat().st_size)
     sftp.close()
+    restore_hub_nginx(client)
     print("backup", bak)
     print("no same-country twins to convert")
     client.close()
