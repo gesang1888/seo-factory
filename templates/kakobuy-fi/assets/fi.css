@@ -1,0 +1,333 @@
+/* Kakobuy.com-like skin for kakobuy.fi */
+:root {
+  --ink: #1f1f1f;
+  --muted: #66686d;
+  --line: #ececec;
+  --paper: #fff;
+  --soft: #fff7f2;
+  --brand: #ff5722;
+  --brand-dark: #e53935;
+  --accent: #ff3b30;
+  --green: #12b80f;
+  --shadow: 0 16px 40px rgba(255, 87, 34, 0.12);
+  --radius: 16px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.announcement,
+.kb-promo {
+  padding: 8px 16px;
+  color: #111;
+  background: linear-gradient(90deg, #ffb300, #ff6a00);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+.kb-promo a,
+.announcement a {
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  backdrop-filter: none;
+}
+.site-header .brand,
+.site-footer .brand {
+  width: 168px;
+  height: 38px;
+  flex: 0 0 168px;
+  background: url("kakobuy-logo.png") left center / contain no-repeat;
+}
+.site-footer .brand {
+  filter: brightness(0) invert(1);
+  width: 150px;
+}
+.brand-mark,
+.site-header .brand .brand-mark {
+  display: none;
+}
+
+.kb-head-search {
+  display: flex;
+  flex: 1;
+  max-width: 520px;
+  min-width: 180px;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  border-radius: 999px;
+  background: #f7f7f7;
+}
+.kb-head-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 10px 16px;
+  font: inherit;
+  font-size: 14px;
+}
+.kb-head-search button {
+  border: 0;
+  background: var(--brand);
+  color: #fff;
+  padding: 0 18px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.kb-head-search button:hover {
+  background: var(--brand-dark);
+}
+
+.button {
+  background: var(--brand);
+  box-shadow: 0 8px 18px rgba(255, 87, 34, 0.28);
+  border-radius: 999px;
+}
+.button:hover {
+  background: var(--brand-dark);
+  box-shadow: 0 10px 22px rgba(229, 57, 53, 0.3);
+}
+.button.secondary:hover {
+  color: var(--brand);
+  border-color: #ffd0c2;
+}
+
+.kb-subnav {
+  background: #1f1f1f;
+}
+.kb-subnav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-height: 46px;
+}
+.kb-subnav .nav-links a {
+  color: rgba(255, 255, 255, 0.86);
+  padding: 13px 18px;
+  font-size: 14px;
+}
+.kb-subnav .nav-links a:hover,
+.kb-subnav .nav-links a[aria-current="page"] {
+  color: #fff;
+  background: rgba(255, 87, 34, 0.18);
+  box-shadow: inset 0 -3px 0 var(--brand);
+}
+
+.hero {
+  padding: 64px 0 56px;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(255, 87, 34, 0.14), transparent 28%),
+    linear-gradient(180deg, #fff7f2 0%, #fff 78%);
+}
+.hero::after {
+  background: #fff;
+}
+.eyebrow {
+  color: var(--brand-dark);
+  border-color: #ffd7c8;
+  background: #fff1ea;
+}
+.gradient-text {
+  background: linear-gradient(90deg, var(--brand), #ff8a3d 55%, var(--accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.kb-hero-search {
+  display: flex;
+  max-width: 640px;
+  margin: 0 0 22px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+}
+.kb-hero-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  padding: 16px 18px;
+  font: inherit;
+  font-size: 16px;
+}
+.kb-hero-search button {
+  border: 0;
+  background: var(--brand);
+  color: #fff;
+  padding: 0 26px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.hero-art::before {
+  border-color: rgba(255, 87, 34, 0.14);
+  background:
+    radial-gradient(circle at 74% 22%, rgba(255, 87, 34, 0.12), transparent 28%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 242, 0.94));
+}
+.hero-art::after {
+  border-color: rgba(255, 87, 34, 0.22);
+}
+
+.card:hover,
+.catalog-card:hover {
+  border-color: #ffd0c2;
+}
+.card-icon {
+  color: var(--brand);
+  background: #fff1ea;
+}
+.kicker,
+.text-link,
+.nav-links a:hover,
+.toc a:hover {
+  color: var(--brand);
+}
+.article-callout {
+  border-left-color: var(--brand);
+  background: #fff7f2;
+}
+.article-hero,
+.catalog-note,
+.geo-summary {
+  background: linear-gradient(180deg, #fff7f2, #fff);
+  border-color: #ffd7c8;
+}
+.cta-box {
+  background: linear-gradient(130deg, #e53935, #ff5722 62%, #ff8a3d);
+  box-shadow: 0 25px 65px rgba(229, 57, 53, 0.28);
+}
+.cta-box .button {
+  color: var(--brand-dark);
+}
+.site-footer {
+  background: #1f1f1f;
+}
+.faq-item.open .faq-question span:last-child,
+.faq-question span:last-child {
+  color: var(--brand);
+}
+
+.kb-offers {
+  padding: 28px 0 10px;
+}
+.kb-offer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.kb-offer {
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  padding: 20px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+.kb-offer:hover {
+  border-color: #ffd0c2;
+  transform: translateY(-3px);
+}
+.kb-offer strong {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 17px;
+  line-height: 1.3;
+}
+.kb-offer p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.kb-offer .text-link {
+  margin-top: auto;
+}
+.kb-offer-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #fff1ea;
+  color: var(--brand-dark);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.check-list {
+  margin: 0;
+  padding-left: 1.15em;
+}
+.check-list li {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 1100px) {
+  .kb-offer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 950px) {
+  .kb-head-search {
+    display: none;
+  }
+  .nav-actions .button {
+    display: inline-flex;
+  }
+  .kb-subnav .nav-links {
+    position: fixed;
+    inset: 132px 20px auto;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: var(--shadow);
+  }
+  .kb-subnav .nav-links.open {
+    display: flex;
+  }
+  .kb-subnav .nav-links a {
+    color: var(--ink);
+    box-shadow: none;
+  }
+  .kb-hero-search {
+    margin-inline: auto;
+  }
+}
+@media (max-width: 680px) {
+  .site-header .brand {
+    width: 132px;
+    height: 32px;
+    flex-basis: 132px;
+  }
+  .kb-offer-grid {
+    grid-template-columns: 1fr;
+  }
+  .kb-promo {
+    font-size: 12px;
+  }
+}

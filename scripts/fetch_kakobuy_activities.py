@@ -21,6 +21,13 @@ SSL_CTX.verify_mode = ssl.CERT_NONE
 # Fallback when homepage fetch fails (snapshot 2026-06)
 DEFAULT_ACTIVITIES = [
     {
+        "id": "55",
+        "title_zh": "SEPTEMBER SAVINGS: KAKOSEP ¥1300 pack + extra 10% off shipping (to 30 Sep); 10% subsidy credit to 31 Oct",
+        "url": "https://www.kakobuy.com/tipdetail?id=55",
+        "image": "https://nstatic.kakobuy.com/banner/202602/01/8d1ab6034ac0f85d928ab89ce692e0ff.png",
+        "kind": "campaign",
+    },
+    {
         "id": "1",
         "title_zh": "新用户注册即送3000元优惠券！优惠代购，省心转运。",
         "url": INVITE_URL,
@@ -28,28 +35,35 @@ DEFAULT_ACTIVITIES = [
         "kind": "register_coupon",
     },
     {
-        "id": "50",
-        "title_zh": "6月份活動開始",
-        "url": "https://www.kakobuy.com/tipdetail?id=50",
-        "image": "https://nstatic.kakobuy.com/banner/202602/01/8d1ab6034ac0f85d928ab89ce692e0ff.png",
-        "kind": "campaign",
-    },
-    {
-        "id": "30",
-        "title_zh": "Kakobuy美国用户关税相关公告",
-        "url": "https://www.kakobuy.com/tipdetail?id=30",
-        "image": "https://kk-oss-srch-hk.kakobuy.com/banner/202606/08/ce7ba995e3cbf8b816e4bbb14cd58428.png",
+        "id": "eu3",
+        "title_zh": "EU Category-Based Customs Fees: Pay Only €3 Per Parcel",
+        "url": "https://www.kakobuy.com/tiplist",
+        "image": "",
         "kind": "notice",
     },
 ]
 
 TITLE_I18N: dict[str, dict[str, str]] = {
     "1": {
-        "en": "New users: ¥3000 coupon bundle — register on Kakobuy",
-        "es": "Nuevos usuarios: cupón 3000 CNY — regístrate en Kakobuy",
-        "fr": "Nouveaux utilisateurs : coupon 3000 CNY — inscrivez-vous",
-        "nl": "Nieuwe gebruikers: 3000 CNY coupon — registreer op Kakobuy",
-        "fi": "Uudet käyttäjät: 3000 CNY kuponki — rekisteröidy Kakobuyhin",
+        "en": "New users: ¥3000 coupon bundle (~$410) — register on Kakobuy",
+        "es": "Nuevos usuarios: cupón 3000 CNY (~410 $) — regístrate en Kakobuy",
+        "fr": "Nouveaux utilisateurs : coupon 3000 CNY (~410 $) — inscrivez-vous",
+        "nl": "Nieuwe gebruikers: 3000 CNY coupon (~410 $) — registreer op Kakobuy",
+        "fi": "Uudet käyttäjät: 3000 CNY kuponkipaketti (≈ 410 $) — rekisteröidy Kakobuyhin",
+    },
+    "55": {
+        "en": "KAKOSEP: ¥1300 coupon pack + extra 10% off shipping (redeem by 30 Sep 2026)",
+        "es": "KAKOSEP: pack 1300 CNY + 10 % extra de envío (canje hasta el 30 sep 2026)",
+        "fr": "KAKOSEP : pack 1300 CNY + 10 % extra livraison (à utiliser avant le 30 sept. 2026)",
+        "nl": "KAKOSEP: 1300 CNY-pakket + extra 10% verzending (inwisselen tot 30 sep 2026)",
+        "fi": "KAKOSEP: 1300 CNY paketti + extra 10 % toimitus (lunastus 30.9.2026 asti)",
+    },
+    "eu3": {
+        "en": "EU customs from €3 per parcel on eligible Kakobuy lines",
+        "es": "Aduana UE desde 3 € por paquete en líneas Kakobuy elegibles",
+        "fr": "Douane UE dès 3 € par colis sur les lignes Kakobuy éligibles",
+        "nl": "EU-douane vanaf €3 per pakket op geschikte Kakobuy-lijnen",
+        "fi": "EU-tulli alkaen 3 € pakettia kohti Kakobuyn linjoilla",
     },
     "50": {
         "en": "June 2026 Kakobuy campaign",
