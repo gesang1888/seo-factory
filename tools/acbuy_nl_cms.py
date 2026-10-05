@@ -15,6 +15,7 @@ import sys
 import time
 from html import escape
 from pathlib import Path
+from urllib.parse import quote_plus
 
 _TOOLS = Path(__file__).resolve().parent
 if str(_TOOLS) not in sys.path:
@@ -143,23 +144,43 @@ def _fig(src: str, alt: str, cap: str, w: int = 1200, h: int = 750) -> str:
     )
 
 
-CATS = [
-    ("sneakers", "Turnschoenen", "sneakers.jpg"),
-    ("t-shirt", "T-shirt", "t-shirt.jpg"),
-    ("hoodie", "Hoodie", "hoodie.jpg"),
-    ("jacket", "Jas", "jacket.jpg"),
-    ("jeans", "Spijkerbroek", "jeans.jpg"),
-    ("shorts", "Shorts", "shorts.jpg"),
-    ("underwear", "Ondergoed", "underwear.jpg"),
-    ("jersey", "Shirt", "jersey.jpg"),
-    ("hat", "Petten", "hats.jpg"),
-    ("bags", "Tassen", "bags.jpg"),
-    ("sunglasses", "Brillen", "eyewear.jpg"),
-    ("headphones", "Koptelefoons", "headphones.jpg"),
-    ("perfume", "Parfum", "perfume.jpg"),
-    ("watch", "Horloges", "watches.jpg"),
-    ("jewelry", "Sieraden", "jewelry.jpg"),
-    ("toy", "Speelgoed", "toys.jpg"),
+W2C = "https://w2clinks.com"
+W2C_ACBUY_SHEET = f"{W2C}/spreadsheet/acbuy/"
+# Same order and icons as https://w2clinks.com/categories/
+W2C_CATS = [
+    ("SNEAKERS", "Turnschoenen", "cat-30-shoes.png?v=24"),
+    ("SLIPPERS", "Slippers", "cat-27-slippers.png?v=24"),
+    ("T-SHIRT", "T-shirt", "cat-03-t-shirt.png?v=24"),
+    ("POLO", "Polo", "cat-04-polo.png?v=24"),
+    ("SHIRT", "Overhemd", "cat-05-shirt.png?v=24"),
+    ("SHORTS", "Shorts", "cat-07-shorts.png?v=24"),
+    ("VEST", "Bodywarmer", "cat-20-vest.png?v=24"),
+    ("LONG SLEEVED", "Lange mouw", "cat-25-long-sleeved.png?v=24"),
+    ("HOODIE", "Hoodie", "cat-06-hoodie.png?v=24"),
+    ("SWEATER", "Trui", "cat-11-sweater.png?v=24"),
+    ("SHAWL", "Omslagdoek", "cat-12-shawl.png?v=24"),
+    ("JACKET", "Jas", "cat-13-jacket.png?v=24"),
+    ("SHELL JACKET", "Shelljas", "cat-18-jacket.png?v=24"),
+    ("FLEECE JACKET", "Fleecejas", "cat-17-fleece-jacket.png?v=24"),
+    ("DOWN JACKETS", "Donsjas", "cat-08-down-jackets.png?v=24"),
+    ("TROUSERS", "Broek", "cat-19-trousers.png?v=24"),
+    ("Jersey", "Shirt", "cat-jersey.png?v=24"),
+    ("FEMALE STYLE", "Dames", "cat-28-femaie-styie.png?v=24"),
+    ("Electronics", "Elektronica", "cat-electronics.png?v=24"),
+    ("GLOVES", "Handschoenen", "cat-15-giove.png?v=24"),
+    ("BAG", "Tas", "cat-00-bag.png?v=24"),
+    ("HAT", "Pet", "cat-01-hat.png?v=24"),
+    ("JEWELRY", "Sieraden", "cat-02-jewelry.png?v=24"),
+    ("UNDERWEAR", "Ondergoed", "cat-09-underwear.png?v=24"),
+    ("BELT", "Riem", "cat-10-belt.png?v=24"),
+    ("KNEEPAD", "Kniebeschermer", "cat-16-kneepad.png?v=24"),
+    ("SOCKS", "Sokken", "cat-26-socks.png?v=24"),
+    ("HEADGEAR", "Hoofddeksel", "cat-22-headgear.png?v=24"),
+    ("EARMUFF", "Oorwarmers", "cat-23-earmuff.png?v=24"),
+    ("SCARF", "Sjaal", "cat-24-scarf.png?v=24"),
+    ("GLASSES", "Bril", "cat-31-glasses.png?v=25"),
+    ("WATCH", "Horloge", "cat-32-watch.png?v=26"),
+    ("CHILD", "Kinderen", "cat-29-child.png?v=24"),
 ]
 
 
@@ -300,13 +321,13 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 .tl li::before{{content:"";position:absolute;left:-39px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px #fff}}
 .tl b{{display:block;color:var(--dark);font-size:17px}}
 .tl span{{color:var(--mute);font-size:14px}}
-.cat-grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:8px}}
-.cat{{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit}}
+.cat-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px;margin-top:8px}}
+.cat{{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 10px 14px;text-decoration:none;color:inherit}}
 .cat:hover{{transform:translateY(-3px);box-shadow:0 12px 28px rgba(196,95,0,.12);border-color:#f0c48a}}
-.cat img{{aspect-ratio:1/1;object-fit:contain;padding:12px;background:#fff}}
-.cat__b{{padding:12px 15px 15px;border-top:1px solid var(--line)}}
-.cat__b strong{{display:block;color:var(--dark);font-size:16px}}
-.cat__b span{{font-size:13.5px;color:var(--mute)}}
+.cat img{{width:72px;height:72px;object-fit:contain;padding:0;background:#fff}}
+.cat__b{{padding:10px 0 0;border-top:0}}
+.cat__b strong{{display:block;color:var(--dark);font-size:14.5px}}
+.cat__b span{{font-size:12px;color:var(--mute);letter-spacing:.04em}}
 .states{{margin:0;padding:0;list-style:none}}
 .states li{{padding:10px 0;border-bottom:1px solid var(--line);max-width:40em}}
 .states code{{font-family:var(--m);font-size:13px}}
@@ -353,7 +374,6 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 @media(max-width:1000px){{
   .split{{grid-template-columns:1fr;gap:30px}}
   .split--rev .fig{{order:0}}
-  .cat-grid{{grid-template-columns:repeat(3,1fr)}}
 }}
 @media(max-width:860px){{
   .burger{{display:inline-flex;align-items:center;justify-content:center}}
@@ -416,14 +436,17 @@ def _shell(title: str, desc: str, canonical: str, extra_ld: list[dict], body: st
 
 def build_home() -> str:
     wall = "".join(
-        f'<a class="cat" href="#catalog" data-q="{escape(q)}">'
-        f'<img src="/img/cat/{escape(fn)}" alt="{escape(labn)} op witte achtergrond" loading="lazy" width="560" height="560">'
-        f'<div class="cat__b"><strong>{escape(labn)}</strong><span>{escape(q)}</span></div></a>'
-        for q, labn, fn in CATS
+        f'<a class="cat" href="{escape(W2C_ACBUY_SHEET)}?category={quote_plus(key)}&amp;page=1&amp;sort=newest" '
+        f'rel="noopener" target="_blank">'
+        f'<img src="{escape(W2C)}/public/static/w2c/categories/{escape(fn)}" alt="{escape(key)}" '
+        f'loading="lazy" decoding="async" width="96" height="96">'
+        f'<div class="cat__b"><strong>{escape(labn)}</strong><span>{escape(key)}</span></div></a>'
+        for key, labn, fn in W2C_CATS
     )
     chips = "".join(
-        f'<a href="#catalog" data-q="{escape(q)}">{escape(q)}</a>'
-        for q, _lab, _fn in CATS[:8]
+        f'<a href="{escape(W2C_ACBUY_SHEET)}?category={quote_plus(key)}&amp;page=1&amp;sort=newest" '
+        f'rel="noopener" target="_blank">{escape(key)}</a>'
+        for key, _lab, _fn in W2C_CATS[:8]
     )
     catalog = catalog_block(
         "nl",
@@ -533,8 +556,8 @@ def build_home() -> str:
 </section>
 <section class="sec sec--tint" id="cat-wall">
   <div class="wrap">
-    <h2>Zestien categorieën voor de eerste dag</h2>
-    <p class="lead">Elke kaart opent de bijbehorende catalogus. Begin met één: vijf categorieën in de eerste haul is de snelste weg naar een dure, lastige doos.</p>
+    <h2>Categorieën van W2C Links</h2>
+    <p class="lead">Dezelfde indeling als op <a href="{escape(W2C)}/categories/" rel="noopener" target="_blank">w2clinks.com/categories</a>. Elke kaart opent die categorie in het ACBuy-spreadsheet. Begin met één: vijf categorieën in de eerste haul is de snelste weg naar een dure, lastige doos.</p>
     <div class="cat-grid">{wall}</div>
   </div>
 </section>
@@ -626,7 +649,7 @@ def build_home() -> str:
     var cat=document.getElementById('catalog');
     if(cat) cat.scrollIntoView({{behavior:'smooth', block:'start'}});
   }});
-  document.querySelectorAll('.chips a[data-q], .cat[data-q]').forEach(function(a){{
+  document.querySelectorAll('.chips a[data-q]').forEach(function(a){{
     a.addEventListener('click', function(ev){{
       ev.preventDefault();
       var inp=document.getElementById('sg-q');
@@ -795,7 +818,9 @@ def _assert_ok(html: str, page: str) -> None:
             err.append("planning dump on homepage")
         if "op de platform" in html:
             err.append("dutch grammar leftover on home")
-        if "/img/cat/sneakers.jpg" not in html or 'class="fig"' not in html:
+        if "cat-30-shoes.png" not in html or "w2clinks.com/spreadsheet/acbuy" not in html:
+            err.append("missing W2C Links categories")
+        if 'class="fig"' not in html:
             err.append("missing illustrated figures")
         if "geen stockfoto" in html:
             err.append("empty shots panel leftover")
@@ -843,7 +868,7 @@ def generate() -> dict[str, Path]:
     css_path.write_text(CSS, encoding="utf-8")
     logo = write_wordmark(_wordmark_path())
     img_root = dest / "img"
-    missing = [fn for _q, _l, fn in CATS if not (img_root / "cat" / fn).is_file()]
+    missing: list[str] = []
     shots = (
         "oficial-inicio.jpg",
         "oficial-guidebook.jpg",
@@ -1161,7 +1186,9 @@ def live_check() -> None:
                 print(" FAIL home FAQPage"); fail += 1
             if "op de platform" in html:
                 print(" FAIL dutch grammar"); fail += 1
-            if "/img/cat/sneakers.jpg" not in html or 'class="fig"' not in html:
+            if "cat-30-shoes.png" not in html or "w2clinks.com/spreadsheet/acbuy" not in html:
+                print(" FAIL missing W2C categories"); fail += 1
+            if 'class="fig"' not in html:
                 print(" FAIL missing photos"); fail += 1
             if "geen stockfoto" in html:
                 print(" FAIL empty shots"); fail += 1
