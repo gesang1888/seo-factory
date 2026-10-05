@@ -53,6 +53,7 @@ EST = "https://www.acbuy.com/estimation/"
 HELP = "https://www.acbuy.com/help"
 REG = "https://www.acbuy.com/"
 ACC = "#E87000"
+MAIL = "cnfa85269032661@gmail.com"
 INVITE = "5F2RRA"
 INVITE2 = "EwjrSk"
 INVITE3 = "ACBUY5"
@@ -221,28 +222,53 @@ def _header(page: str) -> str:
 """
 
 
+def _official(path: str = "") -> str:
+    url = OFFICIAL.rstrip("/") + path
+    sep = "&" if "?" in url else "?"
+    return f"{url}{sep}utm_source={HOST}&utm_medium=referral&utm_campaign=portada"
+
+
 def _footer() -> str:
-    keep = "".join(f'<li><a href="{escape(h)}">{escape(l)}</a></li>' for h, l in KEEP)
+    off_site = _official("/")
+    off_reg = _official("/register")
+    off_est = _official("/estimation/")
+    off_help = _official("/help")
+    off_faq = _official("/issueView")
+    reddit = "https://www.reddit.com/r/Acbuyofficial/"
     return f"""<footer class="site-ft">
   <div class="wrap ft-grid">
     <div>
-      <p class="brand-ft"><img src="/assets/images/acbuy-wordmark.png?v=20261005-esref" alt="ACBuy" width="132" height="29"> ACBuy Spreadsheet NL</p>
-      <p>Onafhankelijke gids op {escape(HOST)}. Geen shop, geen kassa. Checkout alleen op {escape(OFFICIAL)}.</p>
+      <h3>ACBuy Spreadsheet</h3>
+      <p>Onafhankelijke gids in het Nederlands over ACBuy en over hoe je de catalogus van W2C Spreadsheet gebruikt om vanuit Nederland in China te kopen.</p>
+      <p><a href="mailto:{escape(MAIL)}">{escape(MAIL)}</a></p>
     </div>
     <div>
-      <h4>Gidsen</h4>
-      <ul>{keep}<li><a href="/hulp/">Hulp</a></li><li><a href="/nieuws/">Nieuws</a></li></ul>
-    </div>
-    <div>
-      <h4>Deze desk</h4>
+      <h3>Secties</h3>
       <ul>
+        <li><a href="/how-to-use-acbuy/">Handleiding van ACBuy</a></li>
+        <li><a href="/#cat-wall">Het spreadsheet en de categorieën</a></li>
+        <li><a href="/acbuy-shipping-guide/">Verzending en douane</a></li>
+        <li><a href="/hulp/">Hulp en vragen</a></li>
+        <li><a href="/nieuws/">Nieuws</a></li>
         <li><a href="/over-ons/">Over ons</a></li>
-        <li><a href="{escape(EST)}">Vracht-schatter</a></li>
-        <li><a href="mailto:support@{escape(HOST)}">support@{escape(HOST)}</a></li>
       </ul>
     </div>
+    <div>
+      <h3>Officiële links</h3>
+      <ul>
+        <li><a href="{escape(off_site)}" rel="nofollow noopener" target="_blank">ACBuy (officiële site)</a></li>
+        <li><a href="{escape(off_reg)}" rel="nofollow noopener" target="_blank">Account aanmaken op ACBuy</a></li>
+        <li><a href="{escape(off_est)}" rel="nofollow noopener" target="_blank">Verzendschatter</a></li>
+        <li><a href="{escape(off_help)}" rel="nofollow noopener" target="_blank">Helpcentrum</a></li>
+        <li><a href="{escape(off_faq)}" rel="nofollow noopener" target="_blank">Officiële FAQ</a></li>
+        <li><a href="{escape(reddit)}" rel="nofollow noopener" target="_blank">Reddit officieel</a></li>
+      </ul>
+    </div>
+    <div class="legal">
+      <p><strong>Onafhankelijkheidsverklaring.</strong> ACBuy Spreadsheet is een onafhankelijke informatiesite. Wij zijn niet ACBuy, we verwerken geen bestellingen, we innen geen verzendkosten en we hebben geen toegang tot je account. Elke bestelling, betaling en klacht loopt via de officiële site.</p>
+      <p>&copy; 2026 ACBuy Spreadsheet. Inhoud in het Nederlands, door mensen geredigeerd en nagekeken vóór publicatie.</p>
+    </div>
   </div>
-  <div class="wrap ft-copy"><p>© 2026 {escape(HOST)} — onafhankelijk.</p></div>
 </footer>
 <script>
 (function(){{
@@ -360,20 +386,22 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 .ncard{{border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 8px;margin-bottom:18px;max-width:40em}}
 .ncard h2{{font-size:22px}}
 .shot-panel{{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:var(--soft);max-width:40em}}
-.site-ft{{background:#111;color:#ccc;padding:40px 0 24px;margin-top:24px}}
-.ft-grid{{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}}
-.brand-ft{{display:flex;align-items:center;gap:8px;color:#fff;font-weight:700}}
-.brand-ft img{{height:26px;width:auto}}
-.site-ft h4{{font-size:12px;letter-spacing:.6px;color:#888;text-transform:uppercase}}
+.site-ft{{background:#111;color:#ccc;padding:52px 0 30px;margin-top:24px;font-size:15.5px}}
+.ft-grid{{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px}}
+.site-ft h3{{color:#fff;font-size:15.5px;margin:0 0 12px;letter-spacing:.02em;font-weight:700}}
+.site-ft p{{margin:0 0 12px;max-width:36em}}
+.site-ft a{{color:#c2c2c2;text-decoration:none}}
+.site-ft a:hover{{color:#fff;text-decoration:underline}}
 .site-ft ul{{list-style:none;margin:0;padding:0}}
 .site-ft li{{margin-bottom:8px}}
-.site-ft a{{color:#aaa}}
-.ft-copy{{margin-top:24px;padding-top:16px;border-top:1px solid #2D2D2D;font-size:12px;color:#666}}
+.site-ft .legal{{grid-column:1/-1;border-top:1px solid #2D2D2D;padding-top:20px;font-size:13.5px;color:#8a8a8a}}
+.site-ft .legal p{{margin:0 0 8px;max-width:none}}
 .pw{{max-width:40em;margin:0 auto;padding:40px 22px 64px}}
 .inner-article{{max-width:860px;margin:0 auto;padding:28px 24px 48px}}
 @media(max-width:1000px){{
   .split{{grid-template-columns:1fr;gap:30px}}
   .split--rev .fig{{order:0}}
+  .ft-grid{{grid-template-columns:1fr 1fr}}
 }}
 @media(max-width:860px){{
   .burger{{display:inline-flex;align-items:center;justify-content:center}}
@@ -402,7 +430,7 @@ def _shell(title: str, desc: str, canonical: str, extra_ld: list[dict], body: st
         organization_ld(
             name=f"{HOST} independent desk",
             url=f"https://{HOST}/",
-            email=f"support@{HOST}",
+            email=MAIL,
             lang="nl-NL",
             desc=desc,
         ),
@@ -783,7 +811,7 @@ def build_about() -> str:
   <h2>Registratiecodes</h2>
   <p>Codes horen op de coupon-URL, niet in de titel van de homepage. Zonder code registreren kan ook, rechtstreeks op de officiële site. Dat verandert niet wat we schrijven: ongemakkelijke metingen (Engelse catalogus, valutaswitch die alleen het teken wisselt) staan hier omdat ze kloppen.</p>
   <h2>Contact</h2>
-  <p>Orders: in-app chat op ACBuy. Deze gids: <a href="mailto:support@{escape(HOST)}">support@{escape(HOST)}</a>. Als een kolom of een link stukgaat, zetten we dat met datum op <a href="/nieuws/">Nieuws</a>.</p>
+  <p>Orders: in-app chat op ACBuy. Deze gids: <a href="mailto:{escape(MAIL)}">{escape(MAIL)}</a>. Als een kolom of een link stukgaat, zetten we dat met datum op <a href="/nieuws/">Nieuws</a>.</p>
 </article>
 """
     return _shell(
@@ -805,6 +833,14 @@ def _assert_ok(html: str, page: str) -> None:
         err.append("invented 90-day copy")
     if "Georgia" in html or "#00C853" in html:
         err.append("Georgia / HipoBuy green")
+    if MAIL not in html:
+        err.append("missing editorial mailbox")
+    if f"support@{HOST}" in html:
+        err.append("old support mailbox leftover")
+    if "Jointown" in html or "EVERLINE" in html or "Cruisezhang" in html:
+        err.append("operator paragraph / hipobuy mailbox")
+    if "Onafhankelijkheidsverklaring" not in html or "onafhankelijke informatiesite" not in html:
+        err.append("missing independence disclaimer")
     fp = dest_local_pack("NL")["fingerprint"]
     if page in ("home", "help") and fp not in html:
         err.append("missing NL fingerprint")
@@ -1192,6 +1228,10 @@ def live_check() -> None:
                 print(" FAIL missing photos"); fail += 1
             if "geen stockfoto" in html:
                 print(" FAIL empty shots"); fail += 1
+            if MAIL not in html or "Onafhankelijkheidsverklaring" not in html:
+                print(" FAIL footer independence/mail"); fail += 1
+            if "Jointown" in html or "EVERLINE" in html or f"support@{HOST}" in html:
+                print(" FAIL operator/old mailbox"); fail += 1
             for alien in ("Packstation", "form A1A 1A1"):
                 if alien in html:
                     print(" FAIL alien", alien); fail += 1
