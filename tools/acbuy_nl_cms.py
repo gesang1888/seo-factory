@@ -63,7 +63,16 @@ STORAGE = (
     "Deze desk verzint geen gratis-dagen-aantal."
 )
 DEST_MIN = 22000
-INNER_MARKER = 'data-inner-chrome="20261005-acbuy-nl"'
+INNER_MARKER = 'data-inner-chrome="20261005c-acbuy-nl"'
+CSS_V = "20261005c"
+CHROME_LOCK = """
+:root{--acc:#31B38C!important;--acd:#27BA9B!important;--link:#27BA9B!important;--primary:#31B38C!important;--primary-dark:#27BA9B!important;--primary-soft:#e8f7f2!important}
+#lang-modal,#lang-backdrop,.lmo,.lbk,.bc{display:none!important}
+header.top .nav a{color:#333!important}
+header.top .nav a[aria-current],header.top .nav a:hover{color:#31B38C!important;background:transparent!important}
+header.top .hdr-login{background:#31B38C!important;color:#fff!important}
+header.top .hdr-login:hover{background:#27BA9B!important;color:#fff!important}
+""".strip()
 ALIENS = (
     "1010 Wien",
     "Packstation",
@@ -357,13 +366,14 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 .hdr-login{{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:var(--acc);color:#fff;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}}
 .hdr-login:hover{{background:var(--acd);color:#fff}}
 .burger{{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}}
-.hero{{position:relative;background:#1a0f05;overflow:hidden}}
-.hero__bg{{position:absolute;inset:0;background:url(/img/hero.jpg?v=20261005b) center/cover no-repeat}}
-.hero__scrim{{position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.55) 0%,rgba(49,179,140,.18) 100%)}}
+.hero{{position:relative;background:#181818;overflow:hidden}}
+.hero__bg{{position:absolute;inset:0;background:url(/img/hero.jpg?v=20261005c) center/cover no-repeat}}
+.hero__scrim{{position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.58) 0%,rgba(49,179,140,.22) 100%)}}
 .hero .wrap{{position:relative;padding:74px 22px 78px}}
-.eyebrow{{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#ffd7a8;margin-bottom:14px}}
+.eyebrow{{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--acc);margin-bottom:14px}}
+.hero .eyebrow{{color:#9ee8d2}}
 .hero h1{{color:#fff;max-width:15.5em}}
-.hero p.lead{{color:#f3e2cc;font-size:19px;max-width:34em}}
+.hero p.lead{{color:#e7f7f1;font-size:19px;max-width:34em}}
 .sbox{{margin-top:26px;max-width:660px}}
 .sbox form{{display:flex;gap:9px;background:#fff;border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 14px 40px rgba(24,24,24,.22)}}
 .sbox input{{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 8px}}
@@ -390,10 +400,9 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 .tl span{{color:var(--mute);font-size:14px}}
 .cat-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px;margin-top:8px}}
 .cat{{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 10px 14px;text-decoration:none;color:inherit}}
-.cat:hover{{transform:translateY(-3px);box-shadow:0 12px 28px rgba(196,95,0,.12);border-color:#f0c48a}}
+.cat:hover{{transform:translateY(-3px);box-shadow:0 12px 28px rgba(49,179,140,.16);border-color:#9ee8d2}}
 .cat img{{width:72px;height:72px;object-fit:contain;padding:0;background:#fff}}
 .cat__b{{padding:10px 0 0}}
-.cat em{{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}}
 .cat em{{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}}
 .cat-grid--rich{{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
 .cat-grid--rich .cat{{align-items:flex-start;text-align:left;padding:14px}}
@@ -446,6 +455,7 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 .site-ft .legal p{{margin:0 0 8px;max-width:none}}
 .pw{{max-width:40em;margin:0 auto;padding:40px 22px 64px}}
 .inner-article{{max-width:860px;margin:0 auto;padding:28px 24px 48px}}
+#lang-modal,#lang-backdrop,.lmo,.lbk,.bc{{display:none!important}}
 @media(max-width:1000px){{
   .split{{grid-template-columns:1fr;gap:30px}}
   .split--rev .fig{{order:0}}
@@ -494,9 +504,9 @@ def _shell(title: str, desc: str, canonical: str, extra_ld: list[dict], body: st
 <link rel="canonical" href="{escape(canonical)}">
 <link rel="icon" href="/favicon1.ico">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-acbuy">
-<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-acbuy">
-<style>{CSS}</style>
+<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v={CSS_V}">
+<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v={CSS_V}">
+<style>{CSS}\n{CHROME_LOCK}</style>
 </head>
 <body>
 {_header(page)}
@@ -744,6 +754,11 @@ def build_catalog() -> str:
         1200,
         900,
     )
+    fig_diy = _fig(
+        "/img/shots/oficial-diy.jpg",
+        "ACBuy DIY-formulier: bronlink plakken als de zoekbalk de fiche niet leest",
+        "Het handmatige formulier accepteert de bronlink en specificaties in tekst. Opname 5 Oct 2026; het getoonde totaal is van dat voorbeeld.",
+    )
     body = f"""
 <section class="sec sec--first">
   <div class="wrap">
@@ -778,7 +793,15 @@ def build_catalog() -> str:
     <div class="cat-grid cat-grid--rich">{wall}</div>
   </div>
 </section>
-<section class="sec sec--tint">
+<section class="sec sec--tint" id="eerste-categorie">
+  <div class="wrap">
+    <h2>Hoe kies je de eerste categorie</h2>
+    <p class="lead">Als het je eerste bestelling is, kies iets flats en lichts: T-shirts, shorts, sieraden. Die komen eerder aan, kosten minder om te sturen, en laten je het hele circuit controleren zonder veel geld te riskeren.</p>
+    <p>Laat volumineus voor de tweede order: donsjassen, tassen, petten. Niet omdat ze slechter zijn, maar omdat hun verzendprijs van het volume afhangt — en dat reken je pas goed als je één ronde hebt gezien.</p>
+    <p>Drie categorieën met extra voorwaarden: elektronica (vaak lithium), brillen (breekbaar) en alles met batterij of magneet. Niet elke lijn naar Nederland accepteert die. Check de schatter vóór je ze in het magazijn laat liggen.</p>
+  </div>
+</section>
+<section class="sec">
   <div class="wrap">
     <h2>Ongemakkelijk gegeven: de catalogus zoekt in het Engels</h2>
     <p class="lead">We hebben het term voor term nagekeken op {escape(DATE)}. Dat wil je weten vóór je je eerste zoekopdracht in het Nederlands typt.</p>
@@ -797,12 +820,19 @@ def build_catalog() -> str:
     </table>
   </div>
 </section>
-<section class="sec">
+<section class="sec sec--tint">
   <div class="wrap">
-    <h2>Van catalogus naar bestelling, zonder de link te verliezen</h2>
-    <p class="lead">De fiche is het begin, niet de kassa. Kopieer de bronlink, plak die in ACBuy, controleer prijs en variant, en betaal pas internationaal als de QC-foto’s kloppen.</p>
-    <p><a class="btn" href="{escape(W2C_ACBUY_SHEET)}">Open de ACBuy-catalogus op w2clinks</a>
-       <a class="btn btn--ghost" href="/how-to-use-acbuy/">Handleiding stap voor stap</a></p>
+    <div class="split">
+      <div>
+        <h2>Van catalogus naar bestelling, zonder de link te verliezen</h2>
+        <p class="lead">De fiche is het begin, niet de kassa. De stap die het vaakst misgaat is verkeerd kopiëren: de catalogusfiche heeft de bronlink van de Chinese shop; díé heeft ACBuy nodig.</p>
+        <p>Plak je de URL van de catalogusfiche zelf, dan weet de agent niet wat hij moet kopen. Kopieer de Taobao-, 1688- of Weidian-link, plak die in de zoekbalk van ACBuy, controleer prijs en variant, en betaal pas internationaal als de QC-foto’s kloppen.</p>
+        <p>Als de zoekbalk de link niet herkent, blijft het handmatige bestelformulier: adres, kleur en maat in tekst, plus een notitie. Fiches zonder prijs hoor je over te slaan — die bronlink is in China al dood.</p>
+        <p><a class="btn" href="{escape(W2C_ACBUY_SHEET)}">Open de ACBuy-catalogus op w2clinks</a>
+           <a class="btn btn--ghost" href="/how-to-use-acbuy/">Handleiding stap voor stap</a></p>
+      </div>
+      {fig_diy}
+    </div>
   </div>
 </section>
 """
@@ -1016,6 +1046,10 @@ def _assert_ok(html: str, page: str) -> None:
             err.append("catalog page missing category wall")
         if "geen Excel-bestand" not in html:
             err.append("catalog missing spreadsheet-not-excel copy")
+        if "Hoe kies je de eerste categorie" not in html:
+            err.append("catalog missing first-category section")
+        if "bronlink" not in html:
+            err.append("catalog missing source-link copy")
     if page == "news" and ("Novedades" in html or "op de platform" in html):
         err.append("news meta leftover")
     if err:
@@ -1122,18 +1156,39 @@ def _clean_article(html: str) -> str | None:
     return article
 
 
+def _strip_id_block(html: str, eid: str) -> str:
+    m = re.search(rf"<(div|section|aside)\b[^>]*\bid=\"{re.escape(eid)}\"[^>]*>", html, re.I)
+    if not m:
+        return html
+    block = _element_inner(html, m.group(1), m.start())
+    if not block:
+        return html
+    return html[: block[1]] + html[block[2] :]
+
+
 def _strip_factory_english(article: str) -> str:
+    out = _strip_id_block(article, "lang-modal")
+    out = _strip_id_block(out, "lang-backdrop")
+    out = re.sub(r'<div class="bc">[\s\S]*?</div>', " ", out, count=1, flags=re.I)
     pats = (
         r"To add full content[\s\S]{0,120}README\.md\.?",
         r"Step-by-step guide to using ACBuy:[^.<]{0,240}\.",
         r"Takes 10 minutes to learn\.",
-        r"This page is part of ACBuy Nederland\s*\.",
-        r"Language\s*&(?:amp;)?\s*Currency[\s\S]{0,80}Confirm",
+        r"This page is part of\s*(?:<strong>)?ACBuy Nederland(?:</strong>)?\s*\.[\s./<code>]*",
+        r"Language\s*&(?:amp;)?\s*Currency[\s\S]{0,400}?Confirm",
         r"LANGUAGE\s+CURRENCY",
+        r"Browse ACBuy Spreadsheet\s*(?:&rarr;|→)?",
+        r"expand this stub[\s\S]{0,80}",
     )
-    out = article
     for pat in pats:
         out = re.sub(pat, " ", out, flags=re.I)
+    out = re.sub(
+        r">Home</a>",
+        ">Start</a>",
+        out,
+        count=1,
+        flags=re.I,
+    )
     return re.sub(r"\n{3,}", "\n\n", out)
 
 
@@ -1145,14 +1200,21 @@ def wrap_inner(html: str, page_href: str) -> tuple[str | None, str]:
     if _text_len(article) < 120:
         return None, "thin-article"
     head = _head_inner(html)
-    inject = (
-        "<!-- acbuy nl desk chrome 20261005-acbuy -->\n"
-        '<link rel="icon" href="/favicon1.ico">\n'
-        '<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-acbuy">\n'
-        '<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-acbuy">\n'
+    head = re.sub(
+        r"<link[^>]+(?:allchinabuy-theme|acbuy-theme|acbuy-nl-desk)\.css[^>]*>\s*",
+        "",
+        head,
+        flags=re.I,
     )
-    if "acbuy-nl-desk.css" not in head:
-        head = head.rstrip() + "\n" + inject + "\n"
+    head = re.sub(r'<style id="acbuy-nl-chrome">[\s\S]*?</style>\s*', "", head, flags=re.I)
+    inject = (
+        f"<!-- acbuy nl desk chrome {CSS_V} -->\n"
+        '<link rel="icon" href="/favicon1.ico">\n'
+        f'<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v={CSS_V}">\n'
+        f'<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v={CSS_V}">\n'
+        f'<style id="acbuy-nl-chrome">{CHROME_LOCK}</style>\n'
+    )
+    head = head.rstrip() + "\n" + inject + "\n"
     if "favicon1.ico" not in head:
         head = head.rstrip() + '\n<link rel="icon" href="/favicon1.ico">\n'
     trailing = after_footer_keep(html, article)
@@ -1436,6 +1498,10 @@ def live_check() -> None:
         if kind == "catalog":
             if html.count('class="cat"') < 30 or "geen Excel-bestand" not in html:
                 print(" FAIL catalog page"); fail += 1
+            if "Hoe kies je de eerste categorie" not in html or "bronlink" not in html:
+                print(" FAIL catalog hipobuy.es sections"); fail += 1
+            if f"acbuy-nl-desk.css?v={CSS_V}" not in html:
+                print(" FAIL catalog css bust"); fail += 1
         if kind == "news" and ("Novedades" in html or "op de platform" in html):
             print(" FAIL news meta leftover"); fail += 1
         if kind == "help" and "FAQPage" not in html:
@@ -1451,6 +1517,10 @@ def live_check() -> None:
                 print(" FAIL ranked chrome"); fail += 1
             if "README.md" in html or "expand this stub" in html:
                 print(" FAIL ranked english stub"); fail += 1
+            if 'id="lang-modal"' in html or "This page is part of" in html:
+                print(" FAIL ranked english chrome"); fail += 1
+            if f"acbuy-nl-desk.css?v={CSS_V}" not in html or "allchinabuy-theme.css" in html:
+                print(" FAIL ranked mint css"); fail += 1
     for twin, target in (
         ("allchinabuyspreadsheet.nl", HOST),
         ("acbuyspreadsheets.ca", "allchinabuyspreadsheet.ca"),
