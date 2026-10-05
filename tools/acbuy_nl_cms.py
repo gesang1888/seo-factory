@@ -721,7 +721,7 @@ def build_home() -> str:
 </section>
 """
     return _shell(
-        "ACBuy Spreadsheet in het Nederlands: kopen in China vanaf Nederland",
+        "ACBuy Spreadsheet in het Nederlands: kopen in China vanaf Nederland, veilig",
         "Onafhankelijke gids in het Nederlands: hoe je via ACBuy in China koopt, hoe de catalogus van w2clinks werkt, hoe een pakket naar Nederland reist.",
         f"https://{HOST}/",
         [faq_ld("nl-NL", _nl_faqs())],
@@ -837,7 +837,7 @@ def build_catalog() -> str:
 </section>
 """
     return _shell(
-        "Wat ACBuy Spreadsheet is en welke categorieën je erin vindt",
+        "ACBuy Spreadsheet in het Nederlands: wat het is en welke categorieën je erin vindt",
         "Onafhankelijke catalogusgids: drieëndertig categorieën van w2clinks, Engelse zoekkeys, en hoe je van fiche naar ACBuy-bestelling gaat.",
         f"https://{HOST}/catalogus/",
         [],
@@ -881,7 +881,7 @@ def build_help() -> str:
 </article>
 """
     return _shell(
-        "Hulp en veelgestelde vragen | ACBuy Spreadsheet",
+        "ACBuy Spreadsheet in het Nederlands: hulp en veelgestelde vragen",
         "Vijftien veelgestelde vragen over ACBuy, in het Nederlands: betalingen, volumgewicht, Douane in Nederland, catalogus van w2clinks.",
         f"https://{HOST}/hulp/",
         [faq_ld("nl-NL", pairs)],
@@ -938,7 +938,7 @@ def build_news() -> str:
 </article>
 """
     return _shell(
-        "Nieuws van het platform | ACBuy Spreadsheet",
+        "ACBuy Spreadsheet in het Nederlands: wat we op het platform hebben nagekeken",
         "Gedateerde controles over ACBuy: verzendlijnen naar Nederland, valuta, en het zoekgedrag van de catalogus.",
         f"https://{HOST}/nieuws/",
         [ld],
@@ -972,7 +972,7 @@ def build_about() -> str:
 </article>
 """
     return _shell(
-        "Wie we zijn en hoe je ons bereikt | ACBuy Spreadsheet",
+        "ACBuy Spreadsheet in het Nederlands: wie we zijn en hoe je ons bereikt",
         "Onafhankelijke site in het Nederlands over ACBuy: hoe we gegevens nalopen, waarom we weinig tarieven zetten, en hoe je ons schrijft.",
         f"https://{HOST}/over-ons/",
         [],
@@ -1044,6 +1044,8 @@ def _assert_ok(html: str, page: str) -> None:
             err.append("ops ids leftover on home")
         if 'href="/catalogus/"' not in html:
             err.append("catalogus nav missing")
+        if "ACBuy Spreadsheet in het Nederlands: kopen in China vanaf Nederland, veilig" not in html:
+            err.append("home title not aligned with hipobuy.es")
     if page == "catalog":
         if "cat-30-shoes.png" not in html or "id=\"categorias\"" not in html:
             err.append("catalog page missing category wall")
@@ -1056,9 +1058,9 @@ def _assert_ok(html: str, page: str) -> None:
     if page == "news":
         if "Novedades" in html or "op de platform" in html:
             err.append("news meta leftover")
-        if "Nieuws van het platform | ACBuy Spreadsheet" not in html:
-            err.append("news title not aligned with hipobuy.es")
-        if "Nieuws: wat we hebben nagekeken" in html:
+        if "ACBuy Spreadsheet in het Nederlands: wat we op het platform hebben nagekeken" not in html:
+            err.append("news title not aligned with hipobuy.es home formula")
+        if "Nieuws van het platform |" in html or "Nieuws: wat we hebben nagekeken" in html:
             err.append("old news tab title leftover")
     if err:
         raise SystemExit(f"{page}: {'; '.join(err)}")
@@ -1488,6 +1490,8 @@ def live_check() -> None:
                 print(" FAIL english leftover"); fail += 1
             if "Catalogus" not in html or "ACBuy Spreadsheet" not in html:
                 print(" FAIL dutch hero"); fail += 1
+            if "ACBuy Spreadsheet in het Nederlands: kopen in China vanaf Nederland, veilig" not in html:
+                print(" FAIL home title"); fail += 1
             if "allchinabuyspreadsheet.ca" in html or "Novedades" in html:
                 print(" FAIL planning dump on home"); fail += 1
             if html.count('class="sg-faq"') >= 8:
@@ -1526,7 +1530,7 @@ def live_check() -> None:
                 print(" FAIL catalog css bust"); fail += 1
         if kind == "news" and ("Novedades" in html or "op de platform" in html):
             print(" FAIL news meta leftover"); fail += 1
-        if kind == "news" and "Nieuws van het platform | ACBuy Spreadsheet" not in html:
+        if kind == "news" and "ACBuy Spreadsheet in het Nederlands: wat we op het platform hebben nagekeken" not in html:
             print(" FAIL news title"); fail += 1
         if kind == "help" and "FAQPage" not in html:
             print(" FAIL help FAQPage"); fail += 1
