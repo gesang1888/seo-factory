@@ -53,7 +53,7 @@ HELP = "https://www.acbuy.com/help"
 REG = "https://www.acbuy.com/"
 ACC = "#31B38C"
 ACC_DARK = "#27BA9B"
-MAIL = "cnfa85269032661@gmail.com"
+MAIL = "cnfd85269032661@gmail.com"
 INVITE = "5F2RRA"
 INVITE2 = "EwjrSk"
 INVITE3 = "ACBUY5"
@@ -998,6 +998,8 @@ def _assert_ok(html: str, page: str) -> None:
         err.append("Georgia / HipoBuy green")
     if MAIL not in html:
         err.append("missing editorial mailbox")
+    if "cnfa85269032661" in html:
+        err.append("old cnfa mailbox leftover")
     if f"support@{HOST}" in html:
         err.append("old support mailbox leftover")
     if "Jointown" in html or "EVERLINE" in html or "Cruisezhang" in html:
@@ -1496,6 +1498,8 @@ def live_check() -> None:
                 print(" FAIL empty shots"); fail += 1
             if MAIL not in html or "Onafhankelijkheidsverklaring" not in html:
                 print(" FAIL footer independence/mail"); fail += 1
+            if "cnfa85269032661" in html:
+                print(" FAIL old cnfa mailbox"); fail += 1
             if "Jointown" in html or "EVERLINE" in html or f"support@{HOST}" in html:
                 print(" FAIL operator/old mailbox"); fail += 1
             if "geen Excel-bestand" not in html or "Dezelfde indeling" in html:
