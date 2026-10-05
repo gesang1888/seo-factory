@@ -1,0 +1,8 @@
+/* WeMimi country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #7c3aed;
+  --primary-dark: #7c3aed;
+  --primary-soft: #f5f3ff;
+  --nav-dark: #4c1d95;
+}
+body { background: var(--bg, #f7f8fa); }

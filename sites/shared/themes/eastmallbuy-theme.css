@@ -1,0 +1,8 @@
+/* EastMallBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #0ea5e9;
+  --primary-dark: #0ea5e9;
+  --primary-soft: #f0f9ff;
+  --nav-dark: #075985;
+}
+body { background: var(--bg, #f7f8fa); }

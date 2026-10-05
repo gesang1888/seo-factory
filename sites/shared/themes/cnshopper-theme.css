@@ -1,0 +1,8 @@
+/* CNShopper country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #dc2626;
+  --primary-dark: #dc2626;
+  --primary-soft: #fef2f2;
+  --nav-dark: #7f1d1d;
+}
+body { background: var(--bg, #f7f8fa); }

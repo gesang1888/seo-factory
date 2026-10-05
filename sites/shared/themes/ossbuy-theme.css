@@ -1,0 +1,8 @@
+/* OSSBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #ea580c;
+  --primary-dark: #ea580c;
+  --primary-soft: #fff7ed;
+  --nav-dark: #9a3412;
+}
+body { background: var(--bg, #f7f8fa); }

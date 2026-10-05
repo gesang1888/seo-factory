@@ -1,0 +1,8 @@
+/* FSBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4f46e5;
+  --primary-soft: #eef2ff;
+  --nav-dark: #312e81;
+}
+body { background: var(--bg, #f7f8fa); }
