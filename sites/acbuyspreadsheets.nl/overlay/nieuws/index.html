@@ -3,167 +3,173 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nieuws: gedateerde ACBuy Nederland checks</title>
-<meta name="description" content="Vijf gedateerde checks op acbuyspreadsheets.nl: estimator NL, Help-SPA, EUR-weergave, Engelse catalogus, geen 301 naar Canada.">
+<title>Nieuws: wat we hebben nagekeken op ACBuy voor Nederland</title>
+<meta name="description" content="Gedateerde checks: estimator NL, Help-SPA, EUR-weergave, Engelse catalogus, geen 301 naar Canada.">
 <link rel="canonical" href="https://acbuyspreadsheets.nl/nieuws/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-nl">
-<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-nl">
+<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-esref">
+<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-esref">
 <style>
 :root{
-  --acc:#E87000;--acd:#c45f00;--acl:#FFF3E0;
-  --bk:#0A0A0A;--g1:#1A1A1A;--g2:#2D2D2D;--g3:#555;--g4:#888;--g5:#E5E5E5;--g6:#F6F6F6;--wh:#fff;
-  --f:'DM Sans',Inter,system-ui,sans-serif;--m:ui-monospace,monospace;--r:10px;--rl:16px;
+  --acc:#E87000;--acd:#c45f00;--link:#c45f00;
+  --ink:#303133;--ink2:#626366;--mute:#666d80;--dark:#111827;
+  --panel:#FFF3E0;--line:#f3d5a8;--soft:#fff8f0;
+  --r:18px;--rs:12px;--maxw:1120px;--medida:34em;
+  --f:'DM Sans','Helvetica Neue',Helvetica,Arial,sans-serif;--m:ui-monospace,monospace;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--f);background:var(--wh);color:var(--bk);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
-a{color:var(--acc);text-decoration:none}
-a:hover{text-decoration:underline;text-underline-offset:3px}
-img{max-width:100%;display:block}
-.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
-.skip:focus{left:12px}
-.ann{background:var(--acc);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:500}
-.nav{position:sticky;top:0;z-index:100;background:var(--wh);border-bottom:1px solid var(--g5);padding:0 24px;min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.nbrand{display:flex;align-items:center;gap:12px}
-.nlo{display:flex;align-items:center}
-.nlo-logo{display:block;width:162px;height:35px;object-fit:contain;object-position:left center}
-.nfb{width:28px;height:28px;background:var(--acc);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
-.nregion-flag{font-size:22px;line-height:1}
-.nl{display:flex;align-items:center;gap:4px;list-style:none;flex-wrap:wrap}
-.nl a{font-size:13px;padding:6px 10px;border-radius:6px;color:var(--g4)}
-.nl a:hover,.nl a.on{background:var(--g6);color:var(--bk);text-decoration:none;font-weight:500}
-.nact{display:flex;align-items:center;gap:8px}
-.blc{display:inline-flex;align-items:center;gap:5px;padding:6px 10px;border:1px solid var(--g5);border-radius:8px;font-size:13px;font-weight:500}
-.bwa{display:inline-flex;align-items:center;padding:7px 14px;background:var(--acc);color:#fff;border-radius:8px;font-size:13px;font-weight:600}
-.bwa:hover{background:var(--acd);text-decoration:none}
-.hero{max-width:860px;margin:0 auto;padding:56px 24px 36px;text-align:center}
-.hbg{display:inline-flex;align-items:center;gap:6px;background:var(--acl);color:var(--acd);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:18px}
-.hero h1{font-size:clamp(30px,5vw,48px);font-weight:700;letter-spacing:-1.5px;line-height:1.12;margin-bottom:16px}
-.hero h1 em{font-style:normal;color:var(--acc)}
-.hsub{font-size:17px;color:var(--g3);max-width:640px;margin:0 auto 28px;line-height:1.75}
-.hctas{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:36px}
-.cp{padding:13px 24px;background:var(--acc);color:#fff;border-radius:10px;font-weight:600}
-.cp:hover{background:var(--acd);text-decoration:none}
-.cs{padding:12px 22px;border:1.5px solid var(--g5);color:var(--bk);border-radius:10px;font-weight:500}
-.hst{display:flex;justify-content:center;border:1px solid var(--g5);border-radius:var(--rl);overflow:hidden;max-width:640px;margin:0 auto}
-.hs{flex:1;padding:14px 8px;text-align:center;border-right:1px solid var(--g5)}
-.hs:last-child{border-right:none}
-.hsn{font-size:18px;font-weight:700}
-.hsl{font-size:11px;color:var(--g4);text-transform:uppercase;letter-spacing:.4px}
-.sg-sec{max-width:1100px;margin:0 auto;padding:28px 24px 8px}
-.sg-sec h2,.stit{font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.5px;margin:0 0 8px}
-.ssub{color:var(--g3);margin:0 0 14px;font-size:15px}
-.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
-.local-steps li{border:1px solid var(--g5);border-radius:12px;padding:14px 16px;background:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light;scroll-behavior:smooth}
+body{margin:0;font-family:var(--f);font-size:17px;line-height:1.72;color:var(--ink);background:#fff}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--link)}
+a:hover{color:var(--acd)}
+#main,[id]{scroll-margin-top:76px}
+h1,h2,h3{color:var(--dark);line-height:1.25;letter-spacing:-.01em;margin:0 0 .5em}
+h1{font-size:clamp(30px,4.4vw,45px);font-weight:800}
+h2{font-size:clamp(24px,3vw,32px);font-weight:800}
+h3{font-size:20px;font-weight:700}
+p{margin:0 0 1.05em}
+main p,main li,.sg-faq p{max-width:var(--medida)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:8px 18px;border-radius:var(--rs)}
+.top{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;min-height:64px}
+.brand{display:flex;align-items:center;gap:9px;min-height:44px;font-weight:800;color:var(--dark);text-decoration:none;font-size:17px;white-space:nowrap}
+.brand img{height:28px;width:auto}
+.nav{margin-left:auto;display:flex;gap:4px;flex-wrap:nowrap}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:var(--ink2);text-decoration:none;font-size:15.5px;white-space:nowrap}
+.nav a:hover,.nav a[aria-current]{background:var(--soft);color:var(--acd);font-weight:700}
+.burger{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}
+.hero{position:relative;background:#1a0f05;overflow:hidden}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(26,15,5,.96) 0%,rgba(232,112,0,.28) 100%)}
+.hero .wrap{position:relative;padding:74px 22px 78px}
+.eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#ffd7a8;margin-bottom:14px}
+.hero h1{color:#fff;max-width:15.5em}
+.hero p.lead{color:#f3e2cc;font-size:19px;max-width:34em}
+.sbox{margin-top:26px;max-width:660px}
+.sbox form{display:flex;gap:9px;background:#fff;border-radius:var(--r);padding:9px}
+.sbox input{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 14px}
+.sbox button{min-height:44px;padding:0 24px;border:0;border-radius:999px;background:var(--acc);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips a{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);color:#fff8f0;text-decoration:none;font-size:14px}
+.sec{padding:62px 0;border-top:1px solid var(--line)}
+.sec--tint{background:linear-gradient(var(--soft) 0%,#fff 100%);border-top:0}
+.sec--first{border-top:0}
+.lead{font-size:18px;color:var(--ink2);max-width:var(--medida)}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none}
+.btn:hover{background:var(--acd);color:#fff}
+.btn--ghost{background:#fff;color:var(--acd);border:1px solid var(--line)}
+.states{margin:0;padding:0;list-style:none}
+.states li{padding:10px 0;border-bottom:1px solid var(--line);max-width:40em}
+.states code{font-family:var(--m);font-size:13px}
+.sg-sec{max-width:var(--maxw);margin:0 auto;padding:28px 22px}
+.ssub{color:var(--ink2);margin:0 0 14px}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px;max-width:40em}
+.local-steps li{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;max-width:none}
 .local-steps strong{display:block;margin:0 0 6px}
-.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
-#local{scroll-margin-top:88px}
-.prose{max-width:820px;margin:0 auto;padding:8px 24px 12px}
-.prose p,.prose li{font-size:15px;color:var(--g2);line-height:1.8;margin-bottom:12px}
-.prose h2,.prose h3{margin:28px 0 10px;font-size:22px;color:var(--bk)}
-.sg-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
-.sg-cat{display:block;border:1px solid var(--g5);border-radius:12px;padding:14px;text-decoration:none;color:inherit;background:#fff}
-.sg-cat span{display:block;color:var(--g4);font-size:12px;margin-top:4px}
-.sg-mw{max-width:1100px;margin:0 auto;padding:12px 24px 40px}
+.local-src{font-size:14px;color:var(--mute);line-height:1.7;margin:14px 0 0;max-width:var(--medida)}
+.sg-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.sg-cat{display:block;border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:inherit;background:#fff}
+.sg-cat span{display:block;color:var(--mute);font-size:13px;margin-top:4px}
+.sg-mw{max-width:var(--maxw);margin:0 auto;padding:8px 22px 40px}
 .sg-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
-.sg-chips button{border:1px solid var(--g5);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer}
-.sg-chips button.on{background:var(--acl);border-color:var(--acc);color:var(--acd);font-weight:700}
+.sg-chips button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer}
+.sg-chips button.on{background:var(--panel);border-color:var(--acc);color:var(--acd);font-weight:700}
 .sg-fbar{display:flex;gap:10px;align-items:center;margin:8px 0 14px}
-.sg-fbar input{flex:1;padding:10px 12px;border-radius:8px;border:1px solid var(--g5)}
+.sg-fbar input{flex:1;padding:10px 12px;border-radius:8px;border:1px solid var(--line)}
 .sg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
-.sg-card{border:1px solid var(--g5);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.sg-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
 .sg-card img{width:100%;aspect-ratio:1;object-fit:cover;background:#f1f5f9}
 .sg-card .b{padding:10px}
 .sg-card .t{font-size:13px;font-weight:600;min-height:2.4em}
 .sg-card .pr{font-weight:800;color:var(--acc)}
 .sg-card .pr-src{font-size:11px;color:#94a3b8}
 .sg-card a.buy{margin:0 10px 10px;text-align:center;padding:8px;border-radius:8px;background:var(--acc);color:#fff;font-size:12.5px;font-weight:600;text-decoration:none}
-.sg-fx{color:#64748b;font-size:13px;line-height:1.55;margin:4px 0 10px}
-.sg-faq{border:1px solid var(--g5);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff}
+.sg-fx{color:var(--mute);font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:var(--medida)}
+.sg-faq{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff;max-width:40em}
 .sg-faq summary{cursor:pointer;font-weight:700}
-.ncard{border:1px solid var(--g5);border-radius:var(--rl);padding:16px 18px;margin-bottom:12px}
-.ncard h3{font-size:15px;font-weight:600;margin-bottom:6px}
-.guides{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;padding:8px 24px 40px;max-width:1100px;margin:0 auto}
-.gc{border:1px solid var(--g5);border-radius:var(--rl);padding:18px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit}
-.gc:hover{border-color:var(--acc);text-decoration:none}
-.gtg{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:4px;background:var(--acl);color:var(--acd);width:fit-content}
-.tw{overflow:auto;border:1px solid var(--g5);border-radius:12px;margin:12px 0 18px}
-.tw table{width:100%;border-collapse:collapse;font-size:14px}
-.tw th,.tw td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--g5);vertical-align:top}
-.tw th{background:var(--g6);font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--g3)}
-.tw code{font-family:var(--m);font-size:12px}
-.ft{background:#111;color:#ccc;padding:40px 24px;margin-top:24px}
-.fti{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}
-.flo{display:flex;align-items:center;gap:8px;color:#fff;font-weight:600;margin-bottom:10px}
-.flo-logo{height:26px;width:auto}
-.ftg{font-size:13px;color:#888;line-height:1.65}
-.fc h4{font-size:12px;letter-spacing:.6px;color:#888;margin-bottom:12px;text-transform:uppercase}
-.fc ul{list-style:none}
-.fc li{margin-bottom:8px}
-.fc a{color:#888}
-.fc a:hover{color:#fff}
-.fb{max-width:1100px;margin:24px auto 0;padding-top:16px;border-top:1px solid #2D2D2D;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:#666}
-.fb a{color:#888}
-.pw{max-width:820px;margin:0 auto;padding:28px 24px 48px}
-.pw h1{font-size:clamp(26px,4vw,36px);letter-spacing:-.8px;margin:0 0 12px}
-.pw h2{font-size:20px;margin:28px 0 10px}
-.pw p{margin:0 0 12px;color:var(--g2)}
+.ncard{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:12px;max-width:40em}
+.shot-panel{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:var(--soft);max-width:40em}
+.site-ft{background:#111;color:#ccc;padding:40px 0 24px;margin-top:24px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}
+.brand-ft{display:flex;align-items:center;gap:8px;color:#fff;font-weight:700}
+.brand-ft img{height:26px;width:auto}
+.site-ft h4{font-size:12px;letter-spacing:.6px;color:#888;text-transform:uppercase}
+.site-ft ul{list-style:none;margin:0;padding:0}
+.site-ft li{margin-bottom:8px}
+.site-ft a{color:#aaa}
+.ft-copy{margin-top:24px;padding-top:16px;border-top:1px solid #2D2D2D;font-size:12px;color:#666}
+.pw{max-width:40em;margin:0 auto;padding:40px 22px 64px}
 .inner-article{max-width:860px;margin:0 auto;padding:28px 24px 48px}
-.inner-article h1{font-size:clamp(26px,4vw,36px);letter-spacing:-.8px;margin:0 0 12px}
-.trust{background:var(--acl);border-top:1px solid #f3d5a8;border-bottom:1px solid #f3d5a8;padding:18px 24px;margin:12px 0}
-.ti{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;font-size:13px;font-weight:600;color:var(--acd)}
-@media(max-width:860px){.nl{width:100%}.fti{grid-template-columns:1fr}.nlo-logo{width:132px}}
+@media(max-width:860px){
+  .burger{display:inline-flex;align-items:center;justify-content:center}
+  .nav{display:none;position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 12px}
+  .nav.open{display:flex}
+  .ft-grid{grid-template-columns:1fr}
+}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://acbuyspreadsheets.nl/nieuws/", "url": "https://acbuyspreadsheets.nl/nieuws/", "name": "Nieuws: gedateerde ACBuy Nederland checks", "description": "Vijf gedateerde checks op acbuyspreadsheets.nl: estimator NL, Help-SPA, EUR-weergave, Engelse catalogus, geen 301 naar Canada.", "inLanguage": "nl-NL", "isPartOf": {"@type": "WebSite", "name": "ACBuy desk", "url": "https://acbuyspreadsheets.nl/"}, "publisher": {"@type": "Organization", "name": "ACBuy independent desk", "url": "https://acbuyspreadsheets.nl/"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "acbuyspreadsheets.nl independent desk", "url": "https://acbuyspreadsheets.nl/", "email": "support@acbuyspreadsheets.nl", "inLanguage": "nl-NL", "description": "Vijf gedateerde checks op acbuyspreadsheets.nl: estimator NL, Help-SPA, EUR-weergave, Engelse catalogus, geen 301 naar Canada.", "contactPoint": {"@type": "ContactPoint", "email": "support@acbuyspreadsheets.nl", "contactType": "customer support", "url": "https://acbuyspreadsheets.nl/"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "ACBuy NL desk checks", "url": "https://acbuyspreadsheets.nl/nieuws/", "numberOfItems": 5, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Check 1 · Estimator-bestemming NL, niet EU", "description": "Kies Nederland in de officiële schatter. Belgische of Duitse postcode is het verkeerde land. Nederlandse postcode 1234 AB."}, {"@type": "ListItem", "position": 2, "name": "Check 2 · Officiële Help is een SPA-shell", "description": "https://www.acbuy.com/help geeft zonder JavaScript een SPA-fout. Daarom staat hier geen verzonnen magazijn-dagentelling."}, {"@type": "ListItem", "position": 3, "name": "Check 3 · EUR-weergave versus USD-cijfers in de app", "description": "Deze desk toont EUR als weergave van de China-kaart (X-Rates 1 Oct 2026). Live quote blijft de officiële estimator."}, {"@type": "ListItem", "position": 4, "name": "Check 4 · Catalogus-index is Engels", "description": "/api/products/ op deze host blijft Engels. sneakers werkt; turnschoenen vaak niet. Gemeten 5 Oct 2026."}, {"@type": "ListItem", "position": 5, "name": "Check 5 · AllChinaBuy Canada blijft een andere dest", "description": "allchinabuyspreadsheet.ca is AllChinaBuy Canada. acbuyspreadsheets.nl blijft ACBuy Nederland. Geen 301 tussen landen."}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://acbuyspreadsheets.nl/nieuws/", "url": "https://acbuyspreadsheets.nl/nieuws/", "name": "Nieuws: wat we hebben nagekeken op ACBuy voor Nederland", "description": "Gedateerde checks: estimator NL, Help-SPA, EUR-weergave, Engelse catalogus, geen 301 naar Canada.", "inLanguage": "nl-NL", "isPartOf": {"@type": "WebSite", "name": "ACBuy desk", "url": "https://acbuyspreadsheets.nl/"}, "publisher": {"@type": "Organization", "name": "ACBuy independent desk", "url": "https://acbuyspreadsheets.nl/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "acbuyspreadsheets.nl independent desk", "url": "https://acbuyspreadsheets.nl/", "email": "support@acbuyspreadsheets.nl", "inLanguage": "nl-NL", "description": "Gedateerde checks: estimator NL, Help-SPA, EUR-weergave, Engelse catalogus, geen 301 naar Canada.", "contactPoint": {"@type": "ContactPoint", "email": "support@acbuyspreadsheets.nl", "contactType": "customer support", "url": "https://acbuyspreadsheets.nl/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "ACBuy NL desk checks", "url": "https://acbuyspreadsheets.nl/nieuws/", "numberOfItems": 6, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Check 1 · Estimator-bestemming NL, niet EU", "description": "Kies Nederland in de officiële schatter. Belgische of Duitse postcode is het verkeerde land. Nederlandse postcode 1234 AB."}, {"@type": "ListItem", "position": 2, "name": "Check 2 · Officiële Help is een SPA-shell", "description": "https://www.acbuy.com/help geeft zonder JavaScript een SPA-fout. Deze pagina kopieert daar geen verzonnen magazijn-dagentelling uit."}, {"@type": "ListItem", "position": 3, "name": "Check 3 · EUR-weergave versus USD-cijfers in de app", "description": "De catalogus op deze host toont EUR als weergave van de China-kaart (X-Rates 1 Oct 2026). Live quote blijft de officiële estimator."}, {"@type": "ListItem", "position": 4, "name": "Check 4 · Catalogus-index is Engels", "description": "/api/products/ op deze host blijft Engels. sneakers werkt; turnschoenen vaak niet."}, {"@type": "ListItem", "position": 5, "name": "Check 5 · AllChinaBuy Canada blijft een andere dest", "description": "allchinabuyspreadsheet.ca is AllChinaBuy Canada. acbuyspreadsheets.nl blijft ACBuy Nederland. Geen 301 tussen landen."}, {"@type": "ListItem", "position": 6, "name": "Hoe we dit controleren", "description": "Gedateerde checks, geen bedrijfsblog. Rankende gidsen (verzending, review, handleiding) blijven eigen URL’s; deze Nieuws-pagina overschrijft ze niet."}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Naar de inhoud</a>
-<div class="ann">Onafhankelijke ACBuy Nederland-desk · oranje chrome · geen kassa op deze host</div>
-<header class="nav" role="banner">
-  <div class="nbrand">
-    <a href="/" class="nlo">
-      <img src="/assets/images/acbuy-wordmark.png?v=20261005-nl" alt="ACBuy" class="nlo-logo"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <span class="nfb" style="display:none">A</span>
+<header class="top" role="banner">
+  <div class="wrap">
+    <a href="/" class="brand">
+      <img src="/assets/images/acbuy-wordmark.png?v=20261005-esref" alt="" width="162" height="35">
+      <span>ACBuy Spreadsheet</span>
     </a>
-    <div class="nregion" title="Nederland"><span class="nregion-flag">🇳🇱</span></div>
-  </div>
-  <ul class="nl"><li><a href="/">Catalogus</a></li><li><a href="/acbuy-shipping-guide/">Verzending</a></li><li><a href="/how-to-use-acbuy/">Handleiding</a></li><li><a href="/hulp/">Hulp</a></li><li><a href="/nieuws/" class="on">Nieuws</a></li><li><a href="/over-ons/">Over ons</a></li><li><a href="/#local">Lokaal</a></li></ul>
-  <div class="nact">
-    <span class="blc" aria-label="Taal en valuta van deze desk">🇳🇱 NL · EUR</span>
-    <a class="bwa" href="https://www.acbuy.com/" rel="noopener sponsored">Registreren</a>
+    <button class="burger" type="button" aria-expanded="false" aria-label="Menu openen">&#9776;</button>
+    <nav class="nav" aria-label="Hoofdmenu"><a href="/">Start</a><a href="/how-to-use-acbuy/">Handleiding</a><a href="/#catalog">Catalogus</a><a href="/acbuy-shipping-guide/">Verzending</a><a href="/hulp/">Hulp</a><a href="/nieuws/" aria-current="page">Nieuws</a></nav>
   </div>
 </header>
 
 <main id="main">
 
-<div class="pw">
-  <h1>Nieuws: gedateerde checks op de ACBuy NL-desk</h1>
-  <p class="ssub">Geen bedrijfsblog. Alleen wat we op acbuyspreadsheets.nl konden narekenen. Lab 5 Oct 2026.</p>
-  <article class="ncard"><h3>Check 1 · Estimator-bestemming NL, niet EU</h3><p>Kies Nederland in de officiële schatter. Belgische of Duitse postcode is het verkeerde land. Nederlandse postcode 1234 AB.</p></article><article class="ncard"><h3>Check 2 · Officiële Help is een SPA-shell</h3><p>https://www.acbuy.com/help geeft zonder JavaScript een SPA-fout. Daarom staat hier geen verzonnen magazijn-dagentelling.</p></article><article class="ncard"><h3>Check 3 · EUR-weergave versus USD-cijfers in de app</h3><p>Deze desk toont EUR als weergave van de China-kaart (X-Rates 1 Oct 2026). Live quote blijft de officiële estimator.</p></article><article class="ncard"><h3>Check 4 · Catalogus-index is Engels</h3><p>/api/products/ op deze host blijft Engels. sneakers werkt; turnschoenen vaak niet. Gemeten 5 Oct 2026.</p></article><article class="ncard"><h3>Check 5 · AllChinaBuy Canada blijft een andere dest</h3><p>allchinabuyspreadsheet.ca is AllChinaBuy Canada. acbuyspreadsheets.nl blijft ACBuy Nederland. Geen 301 tussen landen.</p></article>
-  <p>Rankende gidsen op deze host blijven: <a href="/acbuy-shipping-guide/">verzending</a>, <a href="/is-acbuy-legit/">review</a>, <a href="/how-to-use-acbuy/">handleiding</a>. Deze nieuws-URL is de gedateerde checklist, geen overwrite van die artikelen.</p>
-</div>
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Nieuws</span>
+  <h1>Wat we op de platform hebben nagekeken, met datum</h1>
+  <p class="lead">Eigen URL, zoals Novedades op de Spaanse gids. Geen bijlage onder de homepage. Stand 5 Oct 2026.</p>
+  <article class="ncard"><h3>Check 1 · Estimator-bestemming NL, niet EU</h3><p>Kies Nederland in de officiële schatter. Belgische of Duitse postcode is het verkeerde land. Nederlandse postcode 1234 AB.</p></article><article class="ncard"><h3>Check 2 · Officiële Help is een SPA-shell</h3><p>https://www.acbuy.com/help geeft zonder JavaScript een SPA-fout. Deze pagina kopieert daar geen verzonnen magazijn-dagentelling uit.</p></article><article class="ncard"><h3>Check 3 · EUR-weergave versus USD-cijfers in de app</h3><p>De catalogus op deze host toont EUR als weergave van de China-kaart (X-Rates 1 Oct 2026). Live quote blijft de officiële estimator.</p></article><article class="ncard"><h3>Check 4 · Catalogus-index is Engels</h3><p>/api/products/ op deze host blijft Engels. sneakers werkt; turnschoenen vaak niet.</p></article><article class="ncard"><h3>Check 5 · AllChinaBuy Canada blijft een andere dest</h3><p>allchinabuyspreadsheet.ca is AllChinaBuy Canada. acbuyspreadsheets.nl blijft ACBuy Nederland. Geen 301 tussen landen.</p></article><article class="ncard"><h3>Hoe we dit controleren</h3><p>Gedateerde checks, geen bedrijfsblog. Rankende gidsen (verzending, review, handleiding) blijven eigen URL’s; deze Nieuws-pagina overschrijft ze niet.</p></article>
+</article>
 
 </main>
-<footer class="ft">
-  <div class="fti">
+<footer class="site-ft">
+  <div class="wrap ft-grid">
     <div>
-      <div class="flo"><img src="/assets/images/acbuy-wordmark.png" alt="ACBuy" class="flo-logo"><span>ACBuy Nederland</span></div>
-      <p class="ftg">Onafhankelijke infodesk op acbuyspreadsheets.nl. Niet de officiële ACBuy-app. Geen bestellingen, geen kassa. AllChinaBuy Canada blijft een aparte host — geen 301 tussen landen.</p>
+      <p class="brand-ft"><img src="/assets/images/acbuy-wordmark.png?v=20261005-esref" alt="ACBuy" width="132" height="29"> ACBuy Spreadsheet NL</p>
+      <p>Onafhankelijke gids op acbuyspreadsheets.nl. Geen shop, geen kassa. Checkout alleen op https://www.acbuy.com/.</p>
     </div>
-    <div class="fc"><h4>Op deze host</h4><ul><li><a href="/is-acbuy-legit/">Review</a></li><li><a href="/acbuy-shipping-guide/">Verzending</a></li><li><a href="/acbuy-coupons/">Coupons</a></li><li><a href="/how-to-use-acbuy/">Handleiding</a></li></ul></div>
-    <div class="fc"><h4>Desk</h4><ul><li><a href="/hulp/">Hulp</a></li><li><a href="/nieuws/">Nieuws</a></li><li><a href="/over-ons/">Over ons</a></li><li><a href="https://www.acbuy.com/estimation/">Vracht-schatter</a></li></ul></div>
+    <div>
+      <h4>Gidsen</h4>
+      <ul><li><a href="/is-acbuy-legit/">Review</a></li><li><a href="/acbuy-shipping-guide/">Verzending</a></li><li><a href="/acbuy-coupons/">Coupons</a></li><li><a href="/how-to-use-acbuy/">Handleiding</a></li><li><a href="/hulp/">Hulp</a></li><li><a href="/nieuws/">Nieuws</a></li></ul>
+    </div>
+    <div>
+      <h4>Deze desk</h4>
+      <ul>
+        <li><a href="/over-ons/">Over ons</a></li>
+        <li><a href="https://www.acbuy.com/estimation/">Vracht-schatter</a></li>
+        <li><a href="mailto:support@acbuyspreadsheets.nl">support@acbuyspreadsheets.nl</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="fb">
-    <p>Redactie: <a href="mailto:support@acbuyspreadsheets.nl">support@acbuyspreadsheets.nl</a></p>
-    <p>© 2026 acbuyspreadsheets.nl — onafhankelijk. Checkout alleen op https://www.acbuy.com/.</p>
-  </div>
+  <div class="wrap ft-copy"><p>© 2026 acbuyspreadsheets.nl — onafhankelijk.</p></div>
 </footer>
+<script>
+(function(){
+  var b=document.querySelector('.burger'), n=document.querySelector('nav.nav');
+  if(!b||!n) return;
+  b.addEventListener('click', function(){
+    var on=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', on?'false':'true');
+    n.classList.toggle('open', !on);
+  });
+})();
+</script>
 
 </body>
 </html>

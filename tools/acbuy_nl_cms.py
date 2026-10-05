@@ -84,13 +84,15 @@ KEEP = [
     ("/acbuy-coupons/", "Coupons"),
     ("/how-to-use-acbuy/", "Handleiding"),
 ]
+# hipobuy.es IA: Inicio, Guía, Spreadsheet, Envíos, Ayuda, Novedades.
+# Over ons (= /sobre-nosotros) lives in the footer, not the homepage dump.
 CMS_PAGES = [
-    ("/", "Catalogus"),
-    ("/acbuy-shipping-guide/", "Verzending"),
+    ("/", "Start"),
     ("/how-to-use-acbuy/", "Handleiding"),
+    ("/#catalog", "Catalogus"),
+    ("/acbuy-shipping-guide/", "Verzending"),
     ("/hulp/", "Hulp"),
     ("/nieuws/", "Nieuws"),
-    ("/over-ons/", "Over ons"),
 ]
 RANKED = (
     ("/is-acbuy-legit/", 8000),
@@ -121,15 +123,8 @@ FACTS = {
 
 
 def _local_block() -> str:
-    html = local_guide_html(FACTS).strip()
-    extra = (
-        f'<p class="local-src">Nederlandse postcode (vorm 1234 AB). Estimator-land is NL, '
-        f"niet EU, niet BE, niet het .com-hub. {escape(STORAGE)} "
-        f"Live-geld staat in <a href=\"{escape(EST)}\">{escape(EST)}</a> — deze HTML is geen kassa.</p>"
-    )
-    if not html.endswith("</section>"):
-        raise RuntimeError("missing #local section")
-    return html[: -len("</section>")] + extra + "\n</section>"
+    """User-facing NL briefing only. Planning notes live on /nieuws/ and /over-ons/."""
+    return local_guide_html(FACTS).strip()
 
 
 def _faq_html() -> str:
@@ -145,28 +140,24 @@ def _faq_html() -> str:
 def _nav(page: str) -> str:
     bits = []
     for href, lab in CMS_PAGES:
-        on = ' class="on"' if href == page else ""
-        bits.append(f'<li><a href="{escape(href)}"{on}>{escape(lab)}</a></li>')
-    local = "/#local" if page != "/" else "#local"
-    bits.append(f'<li><a href="{escape(local)}">Lokaal</a></li>')
+        if href == "/#catalog":
+            dest = "#catalog" if page == "/" else "/#catalog"
+            bits.append(f'<a href="{escape(dest)}">{escape(lab)}</a>')
+            continue
+        on = ' aria-current="page"' if href == page else ""
+        bits.append(f'<a href="{escape(href)}"{on}>{escape(lab)}</a>')
     return "".join(bits)
 
 
 def _header(page: str) -> str:
-    return f"""{skip_link(skip_label("nl"))}<div class="ann">Onafhankelijke ACBuy Nederland-desk · oranje chrome · geen kassa op deze host</div>
-<header class="nav" role="banner">
-  <div class="nbrand">
-    <a href="/" class="nlo">
-      <img src="/assets/images/acbuy-wordmark.png?v=20261005-nl" alt="ACBuy" class="nlo-logo"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <span class="nfb" style="display:none">A</span>
+    return f"""{skip_link(skip_label("nl"))}<header class="top" role="banner">
+  <div class="wrap">
+    <a href="/" class="brand">
+      <img src="/assets/images/acbuy-wordmark.png?v=20261005-esref" alt="" width="162" height="35">
+      <span>ACBuy Spreadsheet</span>
     </a>
-    <div class="nregion" title="Nederland"><span class="nregion-flag">🇳🇱</span></div>
-  </div>
-  <ul class="nl">{_nav(page)}</ul>
-  <div class="nact">
-    <span class="blc" aria-label="Taal en valuta van deze desk">🇳🇱 NL · EUR</span>
-    <a class="bwa" href="{escape(REG)}" rel="noopener sponsored">Registreren</a>
+    <button class="burger" type="button" aria-expanded="false" aria-label="Menu openen">&#9776;</button>
+    <nav class="nav" aria-label="Hoofdmenu">{_nav(page)}</nav>
   </div>
 </header>
 """
@@ -174,129 +165,140 @@ def _header(page: str) -> str:
 
 def _footer() -> str:
     keep = "".join(f'<li><a href="{escape(h)}">{escape(l)}</a></li>' for h, l in KEEP)
-    cms = "".join(f'<li><a href="{escape(h)}">{escape(l)}</a></li>' for h, l in CMS_PAGES[3:])
-    return f"""<footer class="ft">
-  <div class="fti">
+    return f"""<footer class="site-ft">
+  <div class="wrap ft-grid">
     <div>
-      <div class="flo"><img src="/assets/images/acbuy-wordmark.png?v=20261005-nl" alt="ACBuy" class="flo-logo"><span>ACBuy Nederland</span></div>
-      <p class="ftg">Onafhankelijke infodesk op {escape(HOST)}. Niet de officiële ACBuy-app. Geen bestellingen, geen kassa. AllChinaBuy Canada blijft een aparte host — geen 301 tussen landen.</p>
+      <p class="brand-ft"><img src="/assets/images/acbuy-wordmark.png?v=20261005-esref" alt="ACBuy" width="132" height="29"> ACBuy Spreadsheet NL</p>
+      <p>Onafhankelijke gids op {escape(HOST)}. Geen shop, geen kassa. Checkout alleen op {escape(OFFICIAL)}.</p>
     </div>
-    <div class="fc"><h4>Op deze host</h4><ul>{keep}</ul></div>
-    <div class="fc"><h4>Desk</h4><ul>{cms}<li><a href="{escape(EST)}">Vracht-schatter</a></li></ul></div>
+    <div>
+      <h4>Gidsen</h4>
+      <ul>{keep}<li><a href="/hulp/">Hulp</a></li><li><a href="/nieuws/">Nieuws</a></li></ul>
+    </div>
+    <div>
+      <h4>Deze desk</h4>
+      <ul>
+        <li><a href="/over-ons/">Over ons</a></li>
+        <li><a href="{escape(EST)}">Vracht-schatter</a></li>
+        <li><a href="mailto:support@{escape(HOST)}">support@{escape(HOST)}</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="fb">
-    <p>Redactie: <a href="mailto:support@{escape(HOST)}">support@{escape(HOST)}</a></p>
-    <p>© 2026 {escape(HOST)} — onafhankelijk. Checkout alleen op {escape(OFFICIAL)}.</p>
-  </div>
+  <div class="wrap ft-copy"><p>© 2026 {escape(HOST)} — onafhankelijk.</p></div>
 </footer>
+<script>
+(function(){{
+  var b=document.querySelector('.burger'), n=document.querySelector('nav.nav');
+  if(!b||!n) return;
+  b.addEventListener('click', function(){{
+    var on=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', on?'false':'true');
+    n.classList.toggle('open', !on);
+  }});
+}})();
+</script>
 """
 
 
 CSS = f"""
 :root{{
-  --acc:{ACC};--acd:#c45f00;--acl:#FFF3E0;
-  --bk:#0A0A0A;--g1:#1A1A1A;--g2:#2D2D2D;--g3:#555;--g4:#888;--g5:#E5E5E5;--g6:#F6F6F6;--wh:#fff;
-  --f:'DM Sans',Inter,system-ui,sans-serif;--m:ui-monospace,monospace;--r:10px;--rl:16px;
+  --acc:{ACC};--acd:#c45f00;--link:#c45f00;
+  --ink:#303133;--ink2:#626366;--mute:#666d80;--dark:#111827;
+  --panel:#FFF3E0;--line:#f3d5a8;--soft:#fff8f0;
+  --r:18px;--rs:12px;--maxw:1120px;--medida:34em;
+  --f:'DM Sans','Helvetica Neue',Helvetica,Arial,sans-serif;--m:ui-monospace,monospace;
 }}
-*,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
-html{{scroll-behavior:smooth}}
-body{{font-family:var(--f);background:var(--wh);color:var(--bk);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}}
-a{{color:var(--acc);text-decoration:none}}
-a:hover{{text-decoration:underline;text-underline-offset:3px}}
-img{{max-width:100%;display:block}}
-.skip{{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}}
-.skip:focus{{left:12px}}
-.ann{{background:var(--acc);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:500}}
-.nav{{position:sticky;top:0;z-index:100;background:var(--wh);border-bottom:1px solid var(--g5);padding:0 24px;min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}}
-.nbrand{{display:flex;align-items:center;gap:12px}}
-.nlo{{display:flex;align-items:center}}
-.nlo-logo{{display:block;width:162px;height:35px;object-fit:contain;object-position:left center}}
-.nfb{{width:28px;height:28px;background:var(--acc);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}}
-.nregion-flag{{font-size:22px;line-height:1}}
-.nl{{display:flex;align-items:center;gap:4px;list-style:none;flex-wrap:wrap}}
-.nl a{{font-size:13px;padding:6px 10px;border-radius:6px;color:var(--g4)}}
-.nl a:hover,.nl a.on{{background:var(--g6);color:var(--bk);text-decoration:none;font-weight:500}}
-.nact{{display:flex;align-items:center;gap:8px}}
-.blc{{display:inline-flex;align-items:center;gap:5px;padding:6px 10px;border:1px solid var(--g5);border-radius:8px;font-size:13px;font-weight:500}}
-.bwa{{display:inline-flex;align-items:center;padding:7px 14px;background:var(--acc);color:#fff;border-radius:8px;font-size:13px;font-weight:600}}
-.bwa:hover{{background:var(--acd);text-decoration:none}}
-.hero{{max-width:860px;margin:0 auto;padding:56px 24px 36px;text-align:center}}
-.hbg{{display:inline-flex;align-items:center;gap:6px;background:var(--acl);color:var(--acd);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:18px}}
-.hero h1{{font-size:clamp(30px,5vw,48px);font-weight:700;letter-spacing:-1.5px;line-height:1.12;margin-bottom:16px}}
-.hero h1 em{{font-style:normal;color:var(--acc)}}
-.hsub{{font-size:17px;color:var(--g3);max-width:640px;margin:0 auto 28px;line-height:1.75}}
-.hctas{{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:36px}}
-.cp{{padding:13px 24px;background:var(--acc);color:#fff;border-radius:10px;font-weight:600}}
-.cp:hover{{background:var(--acd);text-decoration:none}}
-.cs{{padding:12px 22px;border:1.5px solid var(--g5);color:var(--bk);border-radius:10px;font-weight:500}}
-.hst{{display:flex;justify-content:center;border:1px solid var(--g5);border-radius:var(--rl);overflow:hidden;max-width:640px;margin:0 auto}}
-.hs{{flex:1;padding:14px 8px;text-align:center;border-right:1px solid var(--g5)}}
-.hs:last-child{{border-right:none}}
-.hsn{{font-size:18px;font-weight:700}}
-.hsl{{font-size:11px;color:var(--g4);text-transform:uppercase;letter-spacing:.4px}}
-.sg-sec{{max-width:1100px;margin:0 auto;padding:28px 24px 8px}}
-.sg-sec h2,.stit{{font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.5px;margin:0 0 8px}}
-.ssub{{color:var(--g3);margin:0 0 14px;font-size:15px}}
-.local-steps{{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}}
-.local-steps li{{border:1px solid var(--g5);border-radius:12px;padding:14px 16px;background:#fff}}
+*{{box-sizing:border-box}}
+html{{-webkit-text-size-adjust:100%;color-scheme:light;scroll-behavior:smooth}}
+body{{margin:0;font-family:var(--f);font-size:17px;line-height:1.72;color:var(--ink);background:#fff}}
+img{{max-width:100%;height:auto;display:block}}
+a{{color:var(--link)}}
+a:hover{{color:var(--acd)}}
+#main,[id]{{scroll-margin-top:76px}}
+h1,h2,h3{{color:var(--dark);line-height:1.25;letter-spacing:-.01em;margin:0 0 .5em}}
+h1{{font-size:clamp(30px,4.4vw,45px);font-weight:800}}
+h2{{font-size:clamp(24px,3vw,32px);font-weight:800}}
+h3{{font-size:20px;font-weight:700}}
+p{{margin:0 0 1.05em}}
+main p,main li,.sg-faq p{{max-width:var(--medida)}}
+.wrap{{max-width:var(--maxw);margin:0 auto;padding:0 22px}}
+.skip{{position:absolute;left:-9999px}}
+.skip:focus{{left:12px;top:12px;z-index:99;background:#fff;padding:8px 18px;border-radius:var(--rs)}}
+.top{{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}}
+.top .wrap{{display:flex;align-items:center;gap:18px;min-height:64px}}
+.brand{{display:flex;align-items:center;gap:9px;min-height:44px;font-weight:800;color:var(--dark);text-decoration:none;font-size:17px;white-space:nowrap}}
+.brand img{{height:28px;width:auto}}
+.nav{{margin-left:auto;display:flex;gap:4px;flex-wrap:nowrap}}
+.nav a{{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:var(--ink2);text-decoration:none;font-size:15.5px;white-space:nowrap}}
+.nav a:hover,.nav a[aria-current]{{background:var(--soft);color:var(--acd);font-weight:700}}
+.burger{{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}}
+.hero{{position:relative;background:#1a0f05;overflow:hidden}}
+.hero__scrim{{position:absolute;inset:0;background:linear-gradient(100deg,rgba(26,15,5,.96) 0%,rgba(232,112,0,.28) 100%)}}
+.hero .wrap{{position:relative;padding:74px 22px 78px}}
+.eyebrow{{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#ffd7a8;margin-bottom:14px}}
+.hero h1{{color:#fff;max-width:15.5em}}
+.hero p.lead{{color:#f3e2cc;font-size:19px;max-width:34em}}
+.sbox{{margin-top:26px;max-width:660px}}
+.sbox form{{display:flex;gap:9px;background:#fff;border-radius:var(--r);padding:9px}}
+.sbox input{{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 14px}}
+.sbox button{{min-height:44px;padding:0 24px;border:0;border-radius:999px;background:var(--acc);color:#fff;font:inherit;font-weight:700;cursor:pointer}}
+.chips{{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}}
+.chips a{{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);color:#fff8f0;text-decoration:none;font-size:14px}}
+.sec{{padding:62px 0;border-top:1px solid var(--line)}}
+.sec--tint{{background:linear-gradient(var(--soft) 0%,#fff 100%);border-top:0}}
+.sec--first{{border-top:0}}
+.lead{{font-size:18px;color:var(--ink2);max-width:var(--medida)}}
+.btn{{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none}}
+.btn:hover{{background:var(--acd);color:#fff}}
+.btn--ghost{{background:#fff;color:var(--acd);border:1px solid var(--line)}}
+.states{{margin:0;padding:0;list-style:none}}
+.states li{{padding:10px 0;border-bottom:1px solid var(--line);max-width:40em}}
+.states code{{font-family:var(--m);font-size:13px}}
+.sg-sec{{max-width:var(--maxw);margin:0 auto;padding:28px 22px}}
+.ssub{{color:var(--ink2);margin:0 0 14px}}
+.local-steps{{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px;max-width:40em}}
+.local-steps li{{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;max-width:none}}
 .local-steps strong{{display:block;margin:0 0 6px}}
-.local-src{{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}}
-#local{{scroll-margin-top:88px}}
-.prose{{max-width:820px;margin:0 auto;padding:8px 24px 12px}}
-.prose p,.prose li{{font-size:15px;color:var(--g2);line-height:1.8;margin-bottom:12px}}
-.prose h2,.prose h3{{margin:28px 0 10px;font-size:22px;color:var(--bk)}}
-.sg-cats{{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}}
-.sg-cat{{display:block;border:1px solid var(--g5);border-radius:12px;padding:14px;text-decoration:none;color:inherit;background:#fff}}
-.sg-cat span{{display:block;color:var(--g4);font-size:12px;margin-top:4px}}
-.sg-mw{{max-width:1100px;margin:0 auto;padding:12px 24px 40px}}
+.local-src{{font-size:14px;color:var(--mute);line-height:1.7;margin:14px 0 0;max-width:var(--medida)}}
+.sg-cats{{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}}
+.sg-cat{{display:block;border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:inherit;background:#fff}}
+.sg-cat span{{display:block;color:var(--mute);font-size:13px;margin-top:4px}}
+.sg-mw{{max-width:var(--maxw);margin:0 auto;padding:8px 22px 40px}}
 .sg-chips{{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}}
-.sg-chips button{{border:1px solid var(--g5);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer}}
-.sg-chips button.on{{background:var(--acl);border-color:var(--acc);color:var(--acd);font-weight:700}}
+.sg-chips button{{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer}}
+.sg-chips button.on{{background:var(--panel);border-color:var(--acc);color:var(--acd);font-weight:700}}
 .sg-fbar{{display:flex;gap:10px;align-items:center;margin:8px 0 14px}}
-.sg-fbar input{{flex:1;padding:10px 12px;border-radius:8px;border:1px solid var(--g5)}}
+.sg-fbar input{{flex:1;padding:10px 12px;border-radius:8px;border:1px solid var(--line)}}
 .sg-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}}
-.sg-card{{border:1px solid var(--g5);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}}
+.sg-card{{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}}
 .sg-card img{{width:100%;aspect-ratio:1;object-fit:cover;background:#f1f5f9}}
 .sg-card .b{{padding:10px}}
 .sg-card .t{{font-size:13px;font-weight:600;min-height:2.4em}}
 .sg-card .pr{{font-weight:800;color:var(--acc)}}
 .sg-card .pr-src{{font-size:11px;color:#94a3b8}}
 .sg-card a.buy{{margin:0 10px 10px;text-align:center;padding:8px;border-radius:8px;background:var(--acc);color:#fff;font-size:12.5px;font-weight:600;text-decoration:none}}
-.sg-fx{{color:#64748b;font-size:13px;line-height:1.55;margin:4px 0 10px}}
-.sg-faq{{border:1px solid var(--g5);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff}}
+.sg-fx{{color:var(--mute);font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:var(--medida)}}
+.sg-faq{{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff;max-width:40em}}
 .sg-faq summary{{cursor:pointer;font-weight:700}}
-.ncard{{border:1px solid var(--g5);border-radius:var(--rl);padding:16px 18px;margin-bottom:12px}}
-.ncard h3{{font-size:15px;font-weight:600;margin-bottom:6px}}
-.guides{{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;padding:8px 24px 40px;max-width:1100px;margin:0 auto}}
-.gc{{border:1px solid var(--g5);border-radius:var(--rl);padding:18px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit}}
-.gc:hover{{border-color:var(--acc);text-decoration:none}}
-.gtg{{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:4px;background:var(--acl);color:var(--acd);width:fit-content}}
-.tw{{overflow:auto;border:1px solid var(--g5);border-radius:12px;margin:12px 0 18px}}
-.tw table{{width:100%;border-collapse:collapse;font-size:14px}}
-.tw th,.tw td{{text-align:left;padding:10px 12px;border-bottom:1px solid var(--g5);vertical-align:top}}
-.tw th{{background:var(--g6);font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--g3)}}
-.tw code{{font-family:var(--m);font-size:12px}}
-.ft{{background:#111;color:#ccc;padding:40px 24px;margin-top:24px}}
-.fti{{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}}
-.flo{{display:flex;align-items:center;gap:8px;color:#fff;font-weight:600;margin-bottom:10px}}
-.flo-logo{{height:26px;width:auto}}
-.ftg{{font-size:13px;color:#888;line-height:1.65}}
-.fc h4{{font-size:12px;letter-spacing:.6px;color:#888;margin-bottom:12px;text-transform:uppercase}}
-.fc ul{{list-style:none}}
-.fc li{{margin-bottom:8px}}
-.fc a{{color:#888}}
-.fc a:hover{{color:#fff}}
-.fb{{max-width:1100px;margin:24px auto 0;padding-top:16px;border-top:1px solid #2D2D2D;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:#666}}
-.fb a{{color:#888}}
-.pw{{max-width:820px;margin:0 auto;padding:28px 24px 48px}}
-.pw h1{{font-size:clamp(26px,4vw,36px);letter-spacing:-.8px;margin:0 0 12px}}
-.pw h2{{font-size:20px;margin:28px 0 10px}}
-.pw p{{margin:0 0 12px;color:var(--g2)}}
+.ncard{{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:12px;max-width:40em}}
+.shot-panel{{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:var(--soft);max-width:40em}}
+.site-ft{{background:#111;color:#ccc;padding:40px 0 24px;margin-top:24px}}
+.ft-grid{{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}}
+.brand-ft{{display:flex;align-items:center;gap:8px;color:#fff;font-weight:700}}
+.brand-ft img{{height:26px;width:auto}}
+.site-ft h4{{font-size:12px;letter-spacing:.6px;color:#888;text-transform:uppercase}}
+.site-ft ul{{list-style:none;margin:0;padding:0}}
+.site-ft li{{margin-bottom:8px}}
+.site-ft a{{color:#aaa}}
+.ft-copy{{margin-top:24px;padding-top:16px;border-top:1px solid #2D2D2D;font-size:12px;color:#666}}
+.pw{{max-width:40em;margin:0 auto;padding:40px 22px 64px}}
 .inner-article{{max-width:860px;margin:0 auto;padding:28px 24px 48px}}
-.inner-article h1{{font-size:clamp(26px,4vw,36px);letter-spacing:-.8px;margin:0 0 12px}}
-.trust{{background:var(--acl);border-top:1px solid #f3d5a8;border-bottom:1px solid #f3d5a8;padding:18px 24px;margin:12px 0}}
-.ti{{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;font-size:13px;font-weight:600;color:var(--acd)}}
-@media(max-width:860px){{.nl{{width:100%}}.fti{{grid-template-columns:1fr}}.nlo-logo{{width:132px}}}}
+@media(max-width:860px){{
+  .burger{{display:inline-flex;align-items:center;justify-content:center}}
+  .nav{{display:none;position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 12px}}
+  .nav.open{{display:flex}}
+  .ft-grid{{grid-template-columns:1fr}}
+}}
 """
 
 
@@ -329,8 +331,8 @@ def _shell(title: str, desc: str, canonical: str, extra_ld: list[dict], body: st
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-nl">
-<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-nl">
+<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-esref">
+<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-esref">
 <style>{CSS}</style>
 </head>
 <body>
@@ -348,22 +350,30 @@ def _shell(title: str, desc: str, canonical: str, extra_ld: list[dict], body: st
 def build_home() -> str:
     lab = lab_copy(FACTS)
     cats = [
-        ("sneakers", "Sneakers"),
+        ("sneakers", "Turnschoenen"),
+        ("t-shirt", "T-shirt"),
         ("hoodie", "Hoodie"),
         ("jacket", "Jas"),
-        ("t-shirt", "T-shirt"),
-        ("pants", "Broek"),
-        ("bag", "Tassen"),
-        ("watch", "Horloges"),
-        ("shoes", "Schoenen"),
+        ("jeans", "Spijkerbroek"),
+        ("shorts", "Shorts"),
+        ("underwear", "Ondergoed"),
+        ("jersey", "Shirt"),
         ("hat", "Petten"),
-        ("glasses", "Brillen"),
+        ("bags", "Tassen"),
+        ("sunglasses", "Brillen"),
+        ("headphones", "Koptelefoons"),
+        ("perfume", "Parfum"),
+        ("watch", "Horloges"),
         ("jewelry", "Sieraden"),
-        ("electronics", "Electronica"),
+        ("toy", "Speelgoed"),
     ]
     wall = "".join(
         f'<a class="sg-cat" href="#catalog" data-q="{escape(q)}"><strong>{escape(labn)}</strong><span>{escape(q)}</span></a>'
         for q, labn in cats
+    )
+    chips = "".join(
+        f'<a href="#catalog" data-q="{escape(q)}">{escape(q)}</a>'
+        for q, _lab in cats[:8]
     )
     catalog = catalog_block(
         "nl",
@@ -375,134 +385,130 @@ def build_home() -> str:
     faqs = _faq_html()
     body = f"""
 <section class="hero">
-  <div class="hbg">Lab {escape(DATE)} · NL-adres · EUR-weergave</div>
-  <h1>Met <em>ACBuy</em> naar Nederland verzenden</h1>
-  <p class="hsub">Uit China naar een Nederlands huisadres: ACBuy koopt en slaat op, jij boekt de lijn. Deze host is de oranje Nederland-desk — catalogus, lokale checks, Hulp, Nieuws en Over ons — geen kassa.</p>
-  <div class="hctas">
-    <a class="cs" href="#local">Check NL</a>
-    <a class="cp" href="{escape(REG)}" rel="noopener sponsored">Registreren op ACBuy</a>
-    <a class="cs" href="/how-to-use-acbuy/">Handleiding</a>
-  </div>
-  <div class="hst">
-    <div class="hs"><div class="hsn">EUR</div><div class="hsl">Weergave</div></div>
-    <div class="hs"><div class="hsn">NL</div><div class="hsl">Estimator</div></div>
-    <div class="hs"><div class="hsn">DHL</div><div class="hsl">Vaak last-mile</div></div>
-    <div class="hs"><div class="hsn">Geen kassa</div><div class="hsl">Deze host</div></div>
-  </div>
-</section>
-{_local_block()}
-<section class="sg-sec" id="agent">
-  <h2>ACBuy is de inkoopagent, deze host is de NL-desk</h2>
-  <p class="ssub">acbuyspreadsheets.nl is geen shop en geen AllChinaBuy-Canada-kloon.</p>
-  <div class="prose">
-    <p>ACBuy koopt in Chinese derdewinkels op jouw naam, maakt magazijnfoto’s, en jij kiest daarna een internationale SKU naar Nederland. Betalen, tickets en QC blijven op {escape(OFFICIAL)}. Deze hostname int geen kaart, opent geen order-ID en is geen 301 vanaf een ander land.</p>
-    <p>De oranje balk, het woordmerk en de EUR-weergave horen bij deze ACBuy-desk. De officiële app kan nog USD-cijfers tonen als alleen het valutateken wisselt — vertrouw de estimator, niet een HTML-tabel. Labdatum {escape(DATE)}.</p>
-    <p>AllChinaBuy is dezelfde officiële winkel op acbuy.com, met een Canadese dest op allchinabuyspreadsheet.ca. Nederland blijft ACBuy: {escape(HOST)}. Zusterhost allchinabuyspreadsheet.nl 301’t naar hier; Canada blijft Canada. Geen land-wissel in de title.</p>
-    <p>Eerste haul in het kort: plak een Weidian- of Taobao-link in de app, betaal product plus China-vervoer, wacht op QC-foto’s, bundel wat je houdt, en boek pas dan een lijn met bestemming Nederland — niet EU, niet België. Tokens horen op de coupon-URL, niet in de title van deze homepage.</p>
-  </div>
-  <ol class="local-steps">
-    <li><strong>1. Kopen in China</strong>Open de live fiche op ACBuy. Restricted of prijs 0 overslaan.</li>
-    <li><strong>2. QC in het magazijn</strong>Keur of weiger op de foto’s. Extra hoeken koop je in de app, niet hier.</li>
-    <li><strong>3. Lijn naar Nederland</strong>Estimator-land NL, Nederlandse postcode 1234 AB. Live geld: {escape(EST)}.</li>
-    <li><strong>4. Last-mile</strong>Vaak DHL. Collect kan extra innen. Bron: Belastingdienst Douane, geen verzonnen aangegeven waarde.</li>
-  </ol>
-</section>
-<section class="sg-sec" id="sheet-explain">
-  <h2>Spreadsheet op deze host</h2>
-  <p class="ssub">Een index van finds, geen Excel-bestand en geen voorraad van ACBuy.</p>
-  <div class="prose">
-    <p>De kaarten onderaan komen van /api/products/ op {escape(HOST)}. Engelse keys (sneakers, hoodie, jacket) vullen de grid. Nederlandse woorden zoals «turnschoenen» geven vaak nul hits — dat is de index, geen lege winkel. Gemeten {escape(DATE)}.</p>
-    <p>Restricted of prijs 0 is een platformblokkade of een dode Weidian/Taobao-link, geen douane-inbeslagname voor Nederland. Open dezelfde dag de fiche op {escape(OFFICIAL)} voordat je een haul plant op deze HTML.</p>
-    <p>De rankende spreadsheet-URL /acbuy-spreadsheet/ blijft staan. Deze homepage overschrijft hem niet met een 5KB-sjabloon. Coupons en invite-tokens blijven op /acbuy-coupons/ en /acbuy-invite-code/.</p>
+  <div class="hero__scrim"></div>
+  <div class="wrap">
+    <span class="eyebrow">Onafhankelijke gids, in het Nederlands</span>
+    <h1>ACBuy Spreadsheet: de gids om in China te kopen vanaf Nederland</h1>
+    <p class="lead">Wat een inkoopagent doet, hoe je de catalogus zoekt, hoe een pakket naar Nederland reist en wat je nagaat vóór de Douane.</p>
+    <div class="sbox">
+      <form id="home-search" action="#catalog" method="get" role="search">
+        <label class="skip" for="hero-q">Zoek in de catalogus op deze homepage</label>
+        <input id="hero-q" name="q" type="search" autocomplete="off" placeholder="Zoek sneakers, hoodie, jas…">
+        <button type="submit">Zoeken</button>
+      </form>
+      <div class="chips">{chips}</div>
+    </div>
   </div>
 </section>
-<section class="sg-sec" id="restricted">
-  <h2>Restricted</h2>
-  <p class="ssub">Geen checkout forceren naar Nederland op een nulprijs.</p>
-  <div class="prose">
-    <p>Bouw de haul niet op een kaart zonder live fiche. Restricted is een inkoopblokkade van het platform, geen bericht van de Douane. Tabak, alcohol, medicijnen en verboden spullen reizen niet — dat is de regel van ACBuy, niet een drempel die deze desk verzint.</p>
-    <p>Vloeistoffen en poeders kunnen extra papier vragen. Check de live fiche dezelfde ochtend. Deze desk opent geen ticket.</p>
+<section class="sec sec--first" id="agent">
+  <div class="wrap">
+    <h2>Een inkoopagent is een tussenpersoon, geen winkel</h2>
+    <p class="lead">ACBuy verkoopt zelf niets. Hij koopt voor jou in Chinese shops die niet naar het buitenland sturen, ontvangt het pakket in het magazijn, fotografeert het, bewaart het, en stuurt het naar Nederland wanneer jij dat besluit.</p>
+    <p>Dat verandert alles: je betaalt twee keer (eerst het product, daarna internationaal), je wacht twee keer, en ertussen kun je nog annuleren, bundelen of van lijn wisselen. Betalen en tickets blijven op {escape(OFFICIAL)}.</p>
+    <p><a class="btn" href="/how-to-use-acbuy/">Handleiding stap voor stap</a></p>
   </div>
 </section>
-<section class="sg-sec" id="cat-wall">
-  <h2>Categorieën</h2>
-  <p class="ssub">Twaalf Engelse index-keys. Lokale woorden geven vaak 0 kaarten.</p>
-  <div class="sg-cats">{wall}</div>
+<section class="sec sec--tint" id="sheet-explain">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--acd)">Naam die misleidt</span>
+    <h2>Een spreadsheet is geen Excel-bestand</h2>
+    <p class="lead">Hier betekent «spreadsheet» een catalogus van productkaarten: foto, merk, referentieprijs en de link om in de agent te plakken. Geen rijen en kolommen.</p>
+    <p>De kaarten op deze homepage komen van /api/products/ op {escape(HOST)}. Je bladert op categorie. Engelse keys (sneakers, hoodie) vullen de grid; «turnschoenen» geeft vaak nul hits — dat is de index, geen lege winkel.</p>
+    <p><a class="btn btn--ghost" href="#catalog">Naar de catalogus op deze homepage</a></p>
+  </div>
+</section>
+<section class="sec" id="cat-wall">
+  <div class="wrap">
+    <h2>Zestien categorieën voor de eerste dag</h2>
+    <p class="lead">Elke kaart opent de bijbehorende catalogus. Begin met één: vijf categorieën in de eerste haul is de snelste weg naar een dure, lastige doos.</p>
+    <div class="sg-cats">{wall}</div>
+  </div>
 </section>
 {catalog}
-<section class="sg-sec" id="states">
-  <h2>Negen statussen, live labels in de app</h2>
-  <p class="ssub">Estimator-land is NL, niet deze TLD. Deze tabel is een Nederlandse leeshulp, geen SLA en geen magazijn-dagentelling.</p>
-  <div class="tw"><table>
-    <thead><tr><th>State in de app</th><th>Wat het hier betekent</th></tr></thead>
-    <tbody>
-      <tr><td><code>Order Submitted</code></td><td>Bestelling verstuurd; product in China betaald.</td></tr>
-      <tr><td><code>Order Placed</code></td><td>ACBuy koopt in de Chinese shop op jouw naam.</td></tr>
-      <tr><td><code>Seller Shipped</code></td><td>De Chinese verkoper heeft verzonden.</td></tr>
-      <tr><td><code>Arrived at Warehouse</code></td><td>Aangekomen in het magazijn in China.</td></tr>
-      <tr><td><code>Inspection &amp; Storage</code></td><td>QC en opslag. Gratis-dagen: alleen de live Help-SPA, niet dit HTML.</td></tr>
-      <tr><td><code>Shipping Requested</code></td><td>Jij bundelt en boekt de internationale lijn naar Nederland.</td></tr>
-      <tr><td><code>Parcel Packed</code></td><td>Doos wordt ingepakt na jouw SKU-keuze.</td></tr>
-      <tr><td><code>Shipped</code></td><td>Vertrek uit China. Tracking staat in de app.</td></tr>
-      <tr><td><code>Delivered</code></td><td>Last-mile (vaak DHL) heeft bezorgd; ontvangst bevestigen in de app.</td></tr>
-    </tbody>
-  </table></div>
-  <p>Onafhankelijkheid: {escape(HOST)} is een infodesk, niet ACBuy. Geen bestellingen, geen accounttoegang, geen porto. AllChinaBuy Canada ({escape("allchinabuyspreadsheet.ca")}) blijft een Canadese dest.</p>
-</section>
-<section class="sg-sec" id="shots">
-  <h2>Officiële app, geen stockfoto’s</h2>
-  <p class="ssub">Live schermen en live geld staan op ACBuy, gedateerd {escape(DATE)}. Deze desk plakt geen verzonnen screenshots.</p>
-  <div class="prose">
-    <p>Open de estimator met bestemming Netherlands, niet EU. Help laadt als JavaScript-shell: zonder script zie je geen magazijnartikel, dus deze desk kopieert daar geen dagen-aantal uit. QC-foto’s, tickets en iDEAL zitten in de app.</p>
-  </div>
-  <p><a class="cp" href="{escape(OFFICIAL)}" rel="noopener">Open ACBuy</a>
-     <a class="cs" href="{escape(EST)}" rel="noopener">Vracht-schatter</a>
-     <a class="cs" href="{escape(HELP)}" rel="noopener">Officiële Help</a></p>
-</section>
-<section class="sg-sec" id="lab">
-  <h2>{escape(lab["h2"])}</h2>
-  <p class="ssub">{lab["ssub"]}</p>
-  <div class="prose">
-    <p>Labgewoonte: 1000 g / 35×25×10 cm, kleding. Volumgewicht op veel luchtlijnen is L×B×H/8000 (hier 1,094 kg, vaak 1100 g gefactureerd). Factuur = max(werkelijk, volume). Jouw doos wijkt af — daarom geen SKU-prijzen op deze homepage.</p>
-    <p>Weergaveconversie van de China-kaart: X-Rates 1 Oct 2026, 1 CNY ≈ 0,132940 EUR. Dat is geen kassakoers. Als de officiële SPA na een eurosymbool nog USD-cijfers toont, vertrouw de cijfers in de app.</p>
-    <p>Bron invoer: Douane. Geen 58-lijnen-snapshot, geen verzonnen aangegeven waarde. <a href="{escape(EST)}">{escape(lab["cta"])}</a> met bestemming Nederland, daarna de rankende <a href="/acbuy-shipping-guide/">verzendgids</a>.</p>
+{_local_block()}
+<section class="sec" id="states">
+  <div class="wrap">
+    <h2>Negen statussen, drie schermen</h2>
+    <p class="lead">Het officiële verloop past in negen staten. Ze uit je hoofd kennen voorkomt de vraag van de eerste maand: «waarom staat het stil?». Meestal staat het niet stil — het zit in een staat die je niet verwachtte.</p>
+    <ol class="states">
+      <li><code>Order Submitted</code> — bestelling verstuurd, product in China betaald.</li>
+      <li><code>Order Placed</code> — ACBuy koopt in de Chinese shop op jouw naam.</li>
+      <li><code>Seller Shipped</code> — de Chinese verkoper heeft verzonden.</li>
+      <li><code>Arrived at Warehouse</code> — aangekomen in het magazijn.</li>
+      <li><code>Inspection &amp; Storage</code> — controle en opslag. Live labels staan in de app.</li>
+      <li><code>Shipping Requested</code> — jij bundelt en boekt de internationale lijn naar Nederland.</li>
+      <li><code>Parcel Packed</code> — de doos wordt ingepakt.</li>
+      <li><code>Shipped</code> — vertrek uit China.</li>
+      <li><code>Delivered</code> — bezorgd; ontvangst bevestigen in de app.</li>
+    </ol>
+    <p>De eerste vier zitten onder Order, daarna Warehouse, daarna Parcel. <a href="/how-to-use-acbuy/">Handleiding met het traject →</a></p>
   </div>
 </section>
-<section class="sg-sec" id="faq">
-  <h2>Veelgestelde vragen</h2>
-  <p class="ssub">Vijftien vragen voor een Nederlands huisadres. Volledige antwoorden ook op /hulp/.</p>
-  {faqs}
-  <p class="ssub"><a href="/hulp/">Alle vragen op de hulppagina →</a></p>
-</section>
-<section class="sg-sec" id="news">
-  <h2>Wat we hebben nagekeken</h2>
-  <p class="ssub">Gedateerde desk-checks, geen bedrijfsblog.</p>
-  <article class="ncard"><h3>Check 1 · {escape(DATE)} · NL-adres</h3><p>Estimator-bestemming moet NL zijn, niet EU. Belgische of Duitse postcode is het verkeerde land. Nederlandse postcodevorm 1234 AB, geen Duits afhaalautomaat-nummer.</p></article>
-  <article class="ncard"><h3>Check 2 · Help is een SPA</h3><p>https://www.acbuy.com/help laadt als JavaScript-shell. Deze desk kopieert daar geen gratis-dagen-aantal uit.</p></article>
-  <article class="ncard"><h3>Check 3 · EUR hier, dollars in de app</h3><p>Weergaveconversie van de China-kaart (X-Rates 1 Oct 2026). Kassacijfers alleen in de officiële estimator.</p></article>
-  <p><a href="/nieuws/">Alle checks →</a></p>
-</section>
-<div class="trust"><div class="ti">
-  <div>Geen kassa op deze host</div>
-  <div>EUR-weergave, NL in de estimator</div>
-  <div>Douane als invoerbron</div>
-  <div>Rankende gidsen blijven</div>
-</div></div>
-<section>
-  <h2 class="stit" style="max-width:1100px;margin:24px auto 8px;padding:0 24px">Gidsen op deze host</h2>
-  <div class="guides">
-    <a class="gc" href="/acbuy-shipping-guide/"><span class="gtg">Verzending</span><p><strong>Verzendgids NL</strong></p><p>Rankende URL. SKU en Douane op de verzenddag, niet deze homepage.</p></a>
-    <a class="gc" href="/how-to-use-acbuy/"><span class="gtg">Stappen</span><p><strong>Handleiding</strong></p><p>Eerste order: kopen, QC, dan pas internationale lijn naar Nederland.</p></a>
-    <a class="gc" href="/is-acbuy-legit/"><span class="gtg">Review</span><p><strong>Is ACBuy betrouwbaar?</strong></p><p>Bestaande review-URL blijft; deze desk overschrijft hem niet met 5KB.</p></a>
-    <a class="gc" href="/acbuy-coupons/"><span class="gtg">Coupons</span><p><strong>Coupon-stacking</strong></p><p>Tokens blijven op de coupon-URL, niet in de title van deze homepage.</p></a>
-    <a class="gc" href="/acbuy-spreadsheet/"><span class="gtg">Index</span><p><strong>Spreadsheet</strong></p><p>Rankende finds-URL. Homepage-catalogus is dezelfde index, EUR-weergave.</p></a>
-    <a class="gc" href="/hulp/"><span class="gtg">Hulp</span><p><strong>Vijftien vragen</strong></p><p>Zelfde FAQ als hier, met langere antwoorden en JSON-LD FAQPage.</p></a>
+<section class="sec sec--tint" id="lab">
+  <div class="wrap">
+    <h2>Nederland heeft lijnen, maar niet elke lijn is open</h2>
+    <p class="lead">De officiële schatter is publiek. Kies bestemming Nederland, niet EU. Live geld staat in de estimator, niet in deze homepage.</p>
+    <p>{lab["ssub"]}</p>
+    <p>Het gewicht dat je betaalt is bijna nooit alleen de weegschaal. Veel luchtlijnen rekenen volumgewicht L×B×H/8000 en factureren het maximum. Een donsjas is licht en volumineus: daar beslist het volume. Die rekening, plus Douane, staat in het onafhankelijke verzendplan.</p>
+    <p><a class="btn" href="/acbuy-shipping-guide/">Verzendplan: lijnen, Douane, volumgewicht</a>
+       <a class="btn btn--ghost" href="{escape(EST)}">{escape(lab["cta"])}</a></p>
   </div>
 </section>
+<section class="sec" id="restricted">
+  <div class="wrap">
+    <h2>Veel producten kun je niet kopen, ook al staan ze er</h2>
+    <p class="lead">Op het officiële site zie je fiches «Restricted item» en fiches met prijs nul. Dat is geen fout van deze homepage: de bronlink is niet koopbaar via de agent, of de prijs liet zich niet lezen.</p>
+    <p>Regel: zonder echte prijs en varianten niet bestellen. Tabak, alcohol en geneesmiddelen reizen niet. Restricted is een inkoopblokkade, geen bericht van de Douane.</p>
+  </div>
+</section>
+<section class="sec sec--tint" id="shots">
+  <div class="wrap">
+    <h2>Officiële schermen, geen stockfoto’s</h2>
+    <p class="lead">Live estimator, QC-foto’s en iDEAL zitten in de ACBuy-app. Deze homepage plakt geen verzonnen screenshots.</p>
+    <div class="shot-panel">
+      <p>Open de schatter met bestemming Netherlands. De gids, de hulpvragen en de gedateerde checks staan op eigen URL’s — niet als bijlage onder deze hero.</p>
+      <p><a class="btn" href="{escape(OFFICIAL)}">Open ACBuy</a>
+         <a class="btn btn--ghost" href="{escape(EST)}">Vracht-schatter</a></p>
+    </div>
+  </div>
+</section>
+<section class="sec" id="faq">
+  <div class="wrap">
+    <h2>Hulp, nieuws en waar je vraagt</h2>
+    <p class="lead">De meeste twijfels van de eerste orders herhalen zich. Ze staan beantwoord in het Nederlands op de hulppagina — een eigen URL, geen bijlage van deze homepage.</p>
+    {faqs}
+    <p><a class="btn" href="/hulp/">Alle vragen op Hulp</a>
+       <a class="btn btn--ghost" href="/nieuws/">Gedateerde checks op Nieuws</a>
+       <a class="btn btn--ghost" href="/over-ons/">Over ons</a></p>
+  </div>
+</section>
+<script>
+(function(){{
+  var form=document.getElementById('home-search');
+  if(!form) return;
+  form.addEventListener('submit', function(ev){{
+    ev.preventDefault();
+    var q=(document.getElementById('hero-q')||{{}}).value||'';
+    var inp=document.getElementById('sg-q');
+    if(inp){{ inp.value=q; inp.dispatchEvent(new Event('input', {{bubbles:true}})); }}
+    var cat=document.getElementById('catalog');
+    if(cat) cat.scrollIntoView({{behavior:'smooth', block:'start'}});
+  }});
+  document.querySelectorAll('.chips a[data-q]').forEach(function(a){{
+    a.addEventListener('click', function(ev){{
+      ev.preventDefault();
+      var inp=document.getElementById('sg-q');
+      if(inp){{ inp.value=a.getAttribute('data-q')||''; inp.dispatchEvent(new Event('input', {{bubbles:true}})); }}
+      var cat=document.getElementById('catalog');
+      if(cat) cat.scrollIntoView({{behavior:'smooth', block:'start'}});
+    }});
+  }});
+}})();
+</script>
 """
     return _shell(
-        "Met ACBuy naar Nederland verzenden — NL-adres, EUR-weergave, geen kassa",
-        "ACBuy Nederland-desk: inkoopagent, catalogus, volumgewicht, Douane-bronnen. Lab 5 Oct 2026. Geen onderwaardering, geen invite in de title.",
+        "ACBuy Spreadsheet in het Nederlands: kopen in China vanaf Nederland",
+        "Onafhankelijke gids in het Nederlands: wat ACBuy doet, hoe de catalogus werkt, hoe een pakket naar Nederland reist en wat je nagaat bij de Douane.",
         f"https://{HOST}/",
         [faq_ld("nl-NL", long_faqs(FACTS))],
         body,
@@ -513,23 +519,22 @@ def build_home() -> str:
 def build_help() -> str:
     faqs = _faq_html()
     body = f"""
-<div class="pw">
-  <h1>Hulp: vijftien vragen over ACBuy in Nederland</h1>
-  <p class="ssub">FAQ voor een Nederlands huisadres. Lab {escape(DATE)}. Geen onderwaardering. Deze pagina is de hulpbalk, niet de officiële ACBuy-SPA.</p>
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Hulp</span>
+  <h1>Hulp en vragen over ACBuy in Nederland</h1>
+  <p class="lead">De meeste twijfels van de eerste orders herhalen zich: twee betalingen, catalogus in het Engels, volumgewicht, Douane. Hier in het Nederlands, voor een huisadres in Nederland.</p>
   {_local_block()}
-  <p>Deze pagina hoort bij een <strong>Nederlands huisadres</strong> op {escape(HOST)}. Wij zien je account niet. Bestellen, betalen en claims gaan alleen via <a href="{escape(OFFICIAL)}">{escape(OFFICIAL)}</a>.</p>
   <h2>Wat ACBuy is</h2>
-  <p>ACBuy is een inkoopagent: hij koopt in Chinese shops op jouw naam en houdt de goederen in het magazijn tot jij een internationale lijn boekt. {escape(HOST)} is de Nederland-desk — oranje chrome, EUR-weergave, lokale checks — geen shop.</p>
+  <p>ACBuy is een inkoopagent: hij koopt in Chinese shops op jouw naam en houdt de goederen in het magazijn tot jij een internationale lijn boekt. Bestellen, betalen en claims gaan alleen via <a href="{escape(OFFICIAL)}">{escape(OFFICIAL)}</a>.</p>
   {faqs}
-  <h2>Estimator en tickets</h2>
-  <p>Open <a href="{escape(EST)}">{escape(EST)}</a> met bestemming Netherlands nadat de QC-foto’s er zijn. In een supportticket schrijf je Netherlands, niet Belgium of EU, ook als DHL last-mile lijkt. Twee dozen na een QC-split zijn twee schattingen.</p>
-  <p>Officiële Help is een JavaScript-shell. Deze desk kopieert daar geen magazijn-dagentelling uit. Tokens staan op <a href="/acbuy-coupons/">/acbuy-coupons/</a>, niet in de title van de homepage.</p>
-  <p><a href="/nieuws/">Nieuws met datum</a> · <a href="/over-ons/">Over ons</a> · <a href="/acbuy-shipping-guide/">Verzendgids</a> · <a href="{escape(EST)}">Officiële estimator</a></p>
-</div>
+  <p><a class="btn" href="{escape(EST)}">Officiële estimator, bestemming Nederland</a>
+     <a class="btn btn--ghost" href="/acbuy-shipping-guide/">Verzendplan</a>
+     <a class="btn btn--ghost" href="/nieuws/">Nieuws</a></p>
+</article>
 """
     return _shell(
-        "Hulp: vijftien vragen over ACBuy in Nederland",
-        "FAQ voor een Nederlands huisadres: twee betalingen, EUR-weergave, volumgewicht, Douane zonder onderwaardering. Stand 5 Oct 2026.",
+        "Hulp en vragen over ACBuy in Nederland",
+        "FAQ voor een Nederlands huisadres: twee betalingen, catalogus, volumgewicht, Douane. Geen onderwaardering.",
         f"https://{HOST}/hulp/",
         [faq_ld("nl-NL", long_faqs(FACTS))],
         body,
@@ -542,13 +547,15 @@ def build_news() -> str:
         ("Check 1 · Estimator-bestemming NL, niet EU",
          "Kies Nederland in de officiële schatter. Belgische of Duitse postcode is het verkeerde land. Nederlandse postcode 1234 AB."),
         ("Check 2 · Officiële Help is een SPA-shell",
-         "https://www.acbuy.com/help geeft zonder JavaScript een SPA-fout. Daarom staat hier geen verzonnen magazijn-dagentelling."),
+         "https://www.acbuy.com/help geeft zonder JavaScript een SPA-fout. Deze pagina kopieert daar geen verzonnen magazijn-dagentelling uit."),
         ("Check 3 · EUR-weergave versus USD-cijfers in de app",
-         "Deze desk toont EUR als weergave van de China-kaart (X-Rates 1 Oct 2026). Live quote blijft de officiële estimator."),
+         "De catalogus op deze host toont EUR als weergave van de China-kaart (X-Rates 1 Oct 2026). Live quote blijft de officiële estimator."),
         ("Check 4 · Catalogus-index is Engels",
-         "/api/products/ op deze host blijft Engels. sneakers werkt; turnschoenen vaak niet. Gemeten 5 Oct 2026."),
+         "/api/products/ op deze host blijft Engels. sneakers werkt; turnschoenen vaak niet."),
         ("Check 5 · AllChinaBuy Canada blijft een andere dest",
          "allchinabuyspreadsheet.ca is AllChinaBuy Canada. acbuyspreadsheets.nl blijft ACBuy Nederland. Geen 301 tussen landen."),
+        ("Hoe we dit controleren",
+         "Gedateerde checks, geen bedrijfsblog. Rankende gidsen (verzending, review, handleiding) blijven eigen URL’s; deze Nieuws-pagina overschrijft ze niet."),
     ]
     ld = itemlist_ld(
         url=f"https://{HOST}/nieuws/",
@@ -560,16 +567,16 @@ def build_news() -> str:
         for h, p in items
     )
     body = f"""
-<div class="pw">
-  <h1>Nieuws: gedateerde checks op de ACBuy NL-desk</h1>
-  <p class="ssub">Geen bedrijfsblog. Alleen wat we op {escape(HOST)} konden narekenen. Lab {escape(DATE)}.</p>
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Nieuws</span>
+  <h1>Wat we op de platform hebben nagekeken, met datum</h1>
+  <p class="lead">Eigen URL, zoals Novedades op de Spaanse gids. Geen bijlage onder de homepage. Stand {escape(DATE)}.</p>
   {cards}
-  <p>Rankende gidsen op deze host blijven: <a href="/acbuy-shipping-guide/">verzending</a>, <a href="/is-acbuy-legit/">review</a>, <a href="/how-to-use-acbuy/">handleiding</a>. Deze nieuws-URL is de gedateerde checklist, geen overwrite van die artikelen.</p>
-</div>
+</article>
 """
     return _shell(
-        "Nieuws: gedateerde ACBuy Nederland checks",
-        "Vijf gedateerde checks op acbuyspreadsheets.nl: estimator NL, Help-SPA, EUR-weergave, Engelse catalogus, geen 301 naar Canada.",
+        "Nieuws: wat we hebben nagekeken op ACBuy voor Nederland",
+        "Gedateerde checks: estimator NL, Help-SPA, EUR-weergave, Engelse catalogus, geen 301 naar Canada.",
         f"https://{HOST}/nieuws/",
         [ld],
         body,
@@ -579,23 +586,24 @@ def build_news() -> str:
 
 def build_about() -> str:
     body = f"""
-<div class="pw">
-  <h1>Over ons: onafhankelijke ACBuy-desk voor Nederland</h1>
-  <p>{escape(HOST)} is redactioneel onafhankelijk. We nemen geen bestellingen aan, zien je account niet, en rekenen geen porto. De oranje balk en het woordmerk vertellen welk platform deze desk bespreekt — ACBuy — niet dat wij de app zijn.</p>
-  <h2>Wat we wel zijn</h2>
-  <p>Een Nederland-desk: lokale checks (Nederlandse postcode, estimator-land NL), catalogus met EUR-weergave, vijftien hulpvragen, gedateerde checks, en de rankende gidsen die al op deze host stonden.</p>
-  <h2>Wat we niet zijn</h2>
-  <p>Geen shop, geen magazijn, geen ticketsysteem. Claims alleen op {escape(OFFICIAL)}. We 301’en niet naar Canada en niet naar een .com-hub. allchinabuyspreadsheet.nl 301’t naar deze dest; allchinabuyspreadsheet.ca blijft AllChinaBuy Canada.</p>
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Over ons</span>
+  <h1>Een onafhankelijke site over ACBuy, in het Nederlands</h1>
+  <p class="lead">{escape(HOST)} is redactioneel onafhankelijk. We nemen geen bestellingen aan, zien je account niet, en rekenen geen porto.</p>
+  <h2>Wat deze host is</h2>
+  <p>Een Nederland-gids in de trant van een landssite: homepage met catalogus, een verzendplan, hulp, nieuws en deze Over-ons-pagina. De oranje balk zegt welk platform we bespreken — niet dat wij de app zijn.</p>
+  <h2>Wat deze host niet is</h2>
+  <p>Geen shop, geen magazijn, geen ticketsysteem. Claims alleen op {escape(OFFICIAL)}. Canada blijft AllChinaBuy op allchinabuyspreadsheet.ca. allchinabuyspreadsheet.nl is een extra host van hetzelfde land en wijst naar deze dest. Geen land-wissel.</p>
   <h2>Bronnen</h2>
-  <p>Invoer: <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/" rel="noopener">Belastingdienst Douane</a>. Live geld: <a href="{escape(EST)}">{escape(EST)}</a>. Help: <a href="{escape(HELP)}">{escape(HELP)}</a> (SPA — geen verzonnen dagen-aantal). Valuta-weergave: X-Rates 1 Oct 2026. Labgewoonte 1000 g / 35×25×10 cm, geen SKU-prijzen op de homepage.</p>
-  <h2>Invite</h2>
-  <p>Registratiecodes horen op de coupon-URL. Ze staan niet in de title van de homepage en niet in deze Over-ons-kop. Zonder code kan ook.</p>
+  <p>Invoer: <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/" rel="noopener">Belastingdienst Douane</a>. Live geld: <a href="{escape(EST)}">{escape(EST)}</a>. Officiële Help is een JavaScript-shell — {escape(STORAGE)}</p>
+  <h2>Registratiecodes</h2>
+  <p>Codes horen op de coupon-URL. Ze staan niet in de title van de homepage en niet in deze kop. Zonder code kan ook.</p>
   <h2>Contact</h2>
-  <p>ACBuy zelf zit op {escape(OFFICIAL)}. Contact voor orders: de in-app chat daar. Contact voor deze desk: <a href="mailto:support@{escape(HOST)}">support@{escape(HOST)}</a>. Als een labkolom of een link stukgaat, zetten we dat met datum in Nieuws. We herschrijven niet stiekem.</p>
-</div>
+  <p>Orders: in-app chat op ACBuy. Deze gids: <a href="mailto:support@{escape(HOST)}">support@{escape(HOST)}</a>. Als een kolom of een link stukgaat, zetten we dat met datum op <a href="/nieuws/">Nieuws</a>.</p>
+</article>
 """
     return _shell(
-        "Over ons: onafhankelijke ACBuy-desk voor Nederland",
+        "Over ons: onafhankelijke ACBuy-gids voor Nederland",
         "acbuyspreadsheets.nl is redactioneel onafhankelijk. Geen bestellingen, geen accounttoegang.",
         f"https://{HOST}/over-ons/",
         [],
@@ -714,8 +722,8 @@ def wrap_inner(html: str, page_href: str) -> tuple[str | None, str]:
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">\n'
-        '<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-nl">\n'
-        '<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-nl">\n'
+        '<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-esref">\n'
+        '<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-esref">\n'
     )
     if "acbuy-nl-desk.css" not in head:
         head = head.rstrip() + "\n" + inject + "\n"
@@ -941,8 +949,10 @@ def live_check() -> None:
                 print(" FAIL invite/90"); fail += 1
             if "Independent desk — not the official" in html:
                 print(" FAIL english leftover"); fail += 1
-            if "Catalogus" not in html or "Met" not in html:
+            if "Catalogus" not in html or "ACBuy Spreadsheet" not in html:
                 print(" FAIL dutch hero"); fail += 1
+            if "allchinabuyspreadsheet.ca" in html:
+                print(" FAIL planning dump on home"); fail += 1
             if "FAQPage" not in html:
                 print(" FAIL home FAQPage"); fail += 1
             for alien in ("Packstation", "form A1A 1A1"):
