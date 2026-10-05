@@ -31,7 +31,7 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
 .nav a:hover,.nav a[aria-current]{background:var(--soft);color:var(--acd);font-weight:700}
 .burger{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}
 .hero{position:relative;background:#1a0f05;overflow:hidden}
-.hero__bg{position:absolute;inset:0;background:url(/img/hero.jpg) center/cover no-repeat}
+.hero__bg{position:absolute;inset:0;background:url(/img/hero.jpg?v=20261005b) center/cover no-repeat}
 .hero__scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(26,15,5,.93) 0%,rgba(26,15,5,.72) 42%,rgba(232,112,0,.22) 100%)}
 .hero .wrap{position:relative;padding:74px 22px 78px}
 .eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#ffd7a8;margin-bottom:14px}
