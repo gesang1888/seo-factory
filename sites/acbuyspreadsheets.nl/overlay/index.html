@@ -6,18 +6,17 @@
 <title>ACBuy Spreadsheet in het Nederlands: kopen in China vanaf Nederland</title>
 <meta name="description" content="Onafhankelijke gids in het Nederlands: hoe je via ACBuy in China koopt, hoe de catalogus van w2clinks werkt, hoe een pakket naar Nederland reist.">
 <link rel="canonical" href="https://acbuyspreadsheets.nl/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-esref">
-<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-esref">
+<link rel="icon" href="/favicon1.ico">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-acbuy">
+<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-acbuy">
 <style>
 :root{
-  --acc:#E87000;--acd:#c45f00;--link:#c45f00;
-  --ink:#303133;--ink2:#626366;--mute:#666d80;--dark:#111827;
-  --panel:#FFF3E0;--line:#f3d5a8;--soft:#fff8f0;
+  --acc:#31B38C;--acd:#27BA9B;--link:#27BA9B;
+  --ink:#303133;--ink2:#495068;--mute:#8492b2;--dark:#181818;
+  --panel:#f5f6f7;--line:#eaecf0;--soft:#f5f6f7;
   --r:18px;--rs:12px;--maxw:1120px;--medida:34em;
-  --f:'DM Sans','Helvetica Neue',Helvetica,Arial,sans-serif;--m:ui-monospace,monospace;
+  --f:"Microsoft Yahei","PingFang SC",Avenir,"Segoe UI","Hiragino Sans GB",sans-serif;--m:ui-monospace,monospace;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;color-scheme:light;scroll-behavior:smooth}
@@ -35,24 +34,27 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:8px 18px;border-radius:var(--rs)}
-.top{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:18px;min-height:64px}
-.brand{display:flex;align-items:center;gap:9px;min-height:44px;font-weight:800;color:var(--dark);text-decoration:none;font-size:17px;white-space:nowrap}
-.brand img{height:28px;width:auto}
-.nav{margin-left:auto;display:flex;gap:4px;flex-wrap:nowrap}
-.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:var(--ink2);text-decoration:none;font-size:15.5px;white-space:nowrap}
-.nav a:hover,.nav a[aria-current]{background:var(--soft);color:var(--acd);font-weight:700}
+.top{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:var(--dark);text-decoration:none;font-size:15px;white-space:nowrap}
+.brand img{height:32px;width:auto}
+.brand span{color:#8492b2;font-weight:600}
+.nav{margin-left:auto;display:flex;gap:2px;flex-wrap:nowrap}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:#333;text-decoration:none;font-size:15px;white-space:nowrap}
+.nav a:hover,.nav a[aria-current]{color:var(--acc);background:transparent;font-weight:700}
+.hdr-login{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:var(--acc);color:#fff;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+.hdr-login:hover{background:var(--acd);color:#fff}
 .burger{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}
 .hero{position:relative;background:#1a0f05;overflow:hidden}
 .hero__bg{position:absolute;inset:0;background:url(/img/hero.jpg?v=20261005b) center/cover no-repeat}
-.hero__scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(26,15,5,.93) 0%,rgba(26,15,5,.72) 42%,rgba(232,112,0,.22) 100%)}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.55) 0%,rgba(49,179,140,.18) 100%)}
 .hero .wrap{position:relative;padding:74px 22px 78px}
 .eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#ffd7a8;margin-bottom:14px}
 .hero h1{color:#fff;max-width:15.5em}
 .hero p.lead{color:#f3e2cc;font-size:19px;max-width:34em}
 .sbox{margin-top:26px;max-width:660px}
-.sbox form{display:flex;gap:9px;background:#fff;border-radius:var(--r);padding:9px;box-shadow:0 14px 40px rgba(26,15,5,.34)}
-.sbox input{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 14px}
+.sbox form{display:flex;gap:9px;background:#fff;border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 14px 40px rgba(24,24,24,.22)}
+.sbox input{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 8px}
 .sbox button{min-height:44px;padding:0 24px;border:0;border-radius:999px;background:var(--acc);color:#fff;font:inherit;font-weight:700;cursor:pointer}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .chips a{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);color:#fff8f0;text-decoration:none;font-size:14px}
@@ -78,7 +80,14 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
 .cat{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 10px 14px;text-decoration:none;color:inherit}
 .cat:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(196,95,0,.12);border-color:#f0c48a}
 .cat img{width:72px;height:72px;object-fit:contain;padding:0;background:#fff}
-.cat__b{padding:10px 0 0;border-top:0}
+.cat__b{padding:10px 0 0}
+.cat em{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}
+.cat em{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}
+.cat-grid--rich{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.cat-grid--rich .cat{align-items:flex-start;text-align:left;padding:14px}
+.eq{width:100%;border-collapse:collapse;max-width:36em;font-size:15px}
+.eq th,.eq td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+.eq th{color:#8492b2;font-weight:600}
 .cat__b strong{display:block;color:var(--dark);font-size:14.5px}
 .cat__b span{font-size:12px;color:var(--mute);letter-spacing:.04em}
 .states{margin:0;padding:0;list-style:none}
@@ -134,6 +143,7 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
   .burger{display:inline-flex;align-items:center;justify-content:center}
   .nav{display:none;position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 12px}
   .nav.open{display:flex}
+  .hdr-login{display:none}
   .ft-grid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
@@ -151,11 +161,12 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
 <header class="top" role="banner">
   <div class="wrap">
     <a href="/" class="brand">
-      <img src="/assets/images/acbuy-wordmark.png?v=20261005-esref" alt="" width="162" height="35">
-      <span>ACBuy Spreadsheet</span>
+      <img src="/assets/images/acbuy-logo.svg" alt="ACBuy" width="118" height="39">
+      <span>Spreadsheet</span>
     </a>
     <button class="burger" type="button" aria-expanded="false" aria-label="Menu openen">&#9776;</button>
-    <nav class="nav" aria-label="Hoofdmenu"><a href="/" aria-current="page">Start</a><a href="/how-to-use-acbuy/">Handleiding</a><a href="#cat-wall">Catalogus</a><a href="/acbuy-shipping-guide/">Verzending</a><a href="/hulp/">Hulp</a><a href="/nieuws/">Nieuws</a></nav>
+    <nav class="nav" aria-label="Hoofdmenu"><a href="/" aria-current="page">Start</a><a href="/how-to-use-acbuy/">Handleiding</a><a href="/catalogus/">Catalogus</a><a href="/acbuy-shipping-guide/">Verzending</a><a href="/hulp/">Hulp</a><a href="/nieuws/">Nieuws</a></nav>
+    <a class="hdr-login" href="https://www.acbuy.com/register?utm_source=acbuyspreadsheets.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Inloggen op ACBuy</a>
   </div>
 </header>
 
@@ -217,7 +228,7 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
         <h2>Een spreadsheet is geen Excel-bestand</h2>
         <p class="lead">In het Nederlands leidt het woord af. Hier betekent «spreadsheet» geen tabel van rijen en kolommen: het is een catalogus van productkaarten met foto, merk, referentieprijs en de link om in de agent te plakken.</p>
         <p>Wat je op <a href="https://w2clinks.com/?utm_source=acbuyspreadsheets.nl&amp;utm_medium=referral&amp;utm_campaign=portada-que-es" rel="nofollow noopener" target="_blank">w2clinks</a> ziet zijn kaarten, geen cellen. Je bladert op categorie, filtert op merk, geslacht, kleur of materiaal, en elke fiche heeft de link die de agent nodig heeft. Dat is de hele truc: een link van Taobao, 1688 of Weidian omzetten in iets dat je vanuit Nederland kunt bestellen.</p>
-        <p><a class="btn btn--ghost" href="https://w2clinks.com/spreadsheet/acbuy/">Hoe de catalogus werkt</a></p>
+        <p><a class="btn btn--ghost" href="/catalogus/">Hoe de catalogus werkt</a></p>
       </div>
       <figure class="fig"><img src="/img/shots/catalogus.jpg" alt="ACBuy-catalogus op w2clinks: productkaarten met foto, merk en referentieprijs" loading="lazy" width="1200" height="900"><figcaption>Wat je op w2clinks ziet zijn kaarten, geen Excel-cellen. Prijzen in yuan veranderen per dag. Opname 5 Oct 2026, categorie SNEAKERS.</figcaption></figure>
     </div>
@@ -228,6 +239,7 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
     <h2>Drieëndertig categorieën voor de eerste dag</h2>
     <p class="lead">Elke kaart opent de bijbehorende categorie in de catalogus. Begin met één: vijf categorieën in de eerste haul is de snelste weg naar een dure, lastige doos.</p>
     <div class="cat-grid"><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=SNEAKERS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-30-shoes.png?v=24" alt="SNEAKERS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Turnschoenen</strong><span>SNEAKERS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=SLIPPERS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-27-slippers.png?v=24" alt="SLIPPERS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Slippers</strong><span>SLIPPERS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=T-SHIRT&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-03-t-shirt.png?v=24" alt="T-SHIRT" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>T-shirt</strong><span>T-SHIRT</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=POLO&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-04-polo.png?v=24" alt="POLO" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Polo</strong><span>POLO</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=SHIRT&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-05-shirt.png?v=24" alt="SHIRT" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Overhemd</strong><span>SHIRT</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=SHORTS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-07-shorts.png?v=24" alt="SHORTS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Shorts</strong><span>SHORTS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=VEST&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-20-vest.png?v=24" alt="VEST" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Bodywarmer</strong><span>VEST</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=LONG+SLEEVED&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-25-long-sleeved.png?v=24" alt="LONG SLEEVED" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Lange mouw</strong><span>LONG SLEEVED</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=HOODIE&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-06-hoodie.png?v=24" alt="HOODIE" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Hoodie</strong><span>HOODIE</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=SWEATER&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-11-sweater.png?v=24" alt="SWEATER" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Trui</strong><span>SWEATER</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=SHAWL&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-12-shawl.png?v=24" alt="SHAWL" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Omslagdoek</strong><span>SHAWL</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=JACKET&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-13-jacket.png?v=24" alt="JACKET" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Jas</strong><span>JACKET</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=SHELL+JACKET&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-18-jacket.png?v=24" alt="SHELL JACKET" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Shelljas</strong><span>SHELL JACKET</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=FLEECE+JACKET&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-17-fleece-jacket.png?v=24" alt="FLEECE JACKET" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Fleecejas</strong><span>FLEECE JACKET</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=DOWN+JACKETS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-08-down-jackets.png?v=24" alt="DOWN JACKETS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Donsjas</strong><span>DOWN JACKETS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=TROUSERS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-19-trousers.png?v=24" alt="TROUSERS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Broek</strong><span>TROUSERS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=Jersey&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-jersey.png?v=24" alt="Jersey" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Shirt</strong><span>Jersey</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=FEMALE+STYLE&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-28-femaie-styie.png?v=24" alt="FEMALE STYLE" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Dames</strong><span>FEMALE STYLE</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=Electronics&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-electronics.png?v=24" alt="Electronics" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Elektronica</strong><span>Electronics</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=GLOVES&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-15-giove.png?v=24" alt="GLOVES" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Handschoenen</strong><span>GLOVES</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=BAG&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-00-bag.png?v=24" alt="BAG" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Tas</strong><span>BAG</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=HAT&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-01-hat.png?v=24" alt="HAT" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Pet</strong><span>HAT</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=JEWELRY&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-02-jewelry.png?v=24" alt="JEWELRY" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Sieraden</strong><span>JEWELRY</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=UNDERWEAR&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-09-underwear.png?v=24" alt="UNDERWEAR" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Ondergoed</strong><span>UNDERWEAR</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=BELT&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-10-belt.png?v=24" alt="BELT" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Riem</strong><span>BELT</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=KNEEPAD&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-16-kneepad.png?v=24" alt="KNEEPAD" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Kniebeschermer</strong><span>KNEEPAD</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=SOCKS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-26-socks.png?v=24" alt="SOCKS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Sokken</strong><span>SOCKS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=HEADGEAR&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-22-headgear.png?v=24" alt="HEADGEAR" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Hoofddeksel</strong><span>HEADGEAR</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=EARMUFF&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-23-earmuff.png?v=24" alt="EARMUFF" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Oorwarmers</strong><span>EARMUFF</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=SCARF&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-24-scarf.png?v=24" alt="SCARF" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Sjaal</strong><span>SCARF</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=GLASSES&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-31-glasses.png?v=25" alt="GLASSES" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Bril</strong><span>GLASSES</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=WATCH&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-32-watch.png?v=26" alt="WATCH" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Horloge</strong><span>WATCH</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/acbuy/?category=CHILD&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-29-child.png?v=24" alt="CHILD" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Kinderen</strong><span>CHILD</span></div></a></div>
+    <p style="margin-top:26px"><a class="btn" href="/catalogus/#categorias">Wat je in elke categorie nagaat</a></p>
   </div>
 </section>
 <section class="sec" id="states">
@@ -317,7 +329,7 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
       <h3>Secties</h3>
       <ul>
         <li><a href="/how-to-use-acbuy/">Handleiding van ACBuy</a></li>
-        <li><a href="/#cat-wall">Het spreadsheet en de categorieën</a></li>
+        <li><a href="/catalogus/">Het spreadsheet en de categorieën</a></li>
         <li><a href="/acbuy-shipping-guide/">Verzending en douane</a></li>
         <li><a href="/hulp/">Hulp en vragen</a></li>
         <li><a href="/nieuws/">Nieuws</a></li>

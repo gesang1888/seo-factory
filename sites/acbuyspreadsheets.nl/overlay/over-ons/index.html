@@ -6,18 +6,17 @@
 <title>Over ons: onafhankelijke ACBuy-gids voor Nederland</title>
 <meta name="description" content="acbuyspreadsheets.nl is redactioneel onafhankelijk. Geen bestellingen, geen accounttoegang.">
 <link rel="canonical" href="https://acbuyspreadsheets.nl/over-ons/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-esref">
-<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-esref">
+<link rel="icon" href="/favicon1.ico">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-acbuy">
+<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-acbuy">
 <style>
 :root{
-  --acc:#E87000;--acd:#c45f00;--link:#c45f00;
-  --ink:#303133;--ink2:#626366;--mute:#666d80;--dark:#111827;
-  --panel:#FFF3E0;--line:#f3d5a8;--soft:#fff8f0;
+  --acc:#31B38C;--acd:#27BA9B;--link:#27BA9B;
+  --ink:#303133;--ink2:#495068;--mute:#8492b2;--dark:#181818;
+  --panel:#f5f6f7;--line:#eaecf0;--soft:#f5f6f7;
   --r:18px;--rs:12px;--maxw:1120px;--medida:34em;
-  --f:'DM Sans','Helvetica Neue',Helvetica,Arial,sans-serif;--m:ui-monospace,monospace;
+  --f:"Microsoft Yahei","PingFang SC",Avenir,"Segoe UI","Hiragino Sans GB",sans-serif;--m:ui-monospace,monospace;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;color-scheme:light;scroll-behavior:smooth}
@@ -35,24 +34,27 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:8px 18px;border-radius:var(--rs)}
-.top{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:18px;min-height:64px}
-.brand{display:flex;align-items:center;gap:9px;min-height:44px;font-weight:800;color:var(--dark);text-decoration:none;font-size:17px;white-space:nowrap}
-.brand img{height:28px;width:auto}
-.nav{margin-left:auto;display:flex;gap:4px;flex-wrap:nowrap}
-.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:var(--ink2);text-decoration:none;font-size:15.5px;white-space:nowrap}
-.nav a:hover,.nav a[aria-current]{background:var(--soft);color:var(--acd);font-weight:700}
+.top{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:var(--dark);text-decoration:none;font-size:15px;white-space:nowrap}
+.brand img{height:32px;width:auto}
+.brand span{color:#8492b2;font-weight:600}
+.nav{margin-left:auto;display:flex;gap:2px;flex-wrap:nowrap}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:#333;text-decoration:none;font-size:15px;white-space:nowrap}
+.nav a:hover,.nav a[aria-current]{color:var(--acc);background:transparent;font-weight:700}
+.hdr-login{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:var(--acc);color:#fff;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+.hdr-login:hover{background:var(--acd);color:#fff}
 .burger{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}
 .hero{position:relative;background:#1a0f05;overflow:hidden}
 .hero__bg{position:absolute;inset:0;background:url(/img/hero.jpg?v=20261005b) center/cover no-repeat}
-.hero__scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(26,15,5,.93) 0%,rgba(26,15,5,.72) 42%,rgba(232,112,0,.22) 100%)}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.55) 0%,rgba(49,179,140,.18) 100%)}
 .hero .wrap{position:relative;padding:74px 22px 78px}
 .eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#ffd7a8;margin-bottom:14px}
 .hero h1{color:#fff;max-width:15.5em}
 .hero p.lead{color:#f3e2cc;font-size:19px;max-width:34em}
 .sbox{margin-top:26px;max-width:660px}
-.sbox form{display:flex;gap:9px;background:#fff;border-radius:var(--r);padding:9px;box-shadow:0 14px 40px rgba(26,15,5,.34)}
-.sbox input{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 14px}
+.sbox form{display:flex;gap:9px;background:#fff;border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 14px 40px rgba(24,24,24,.22)}
+.sbox input{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 8px}
 .sbox button{min-height:44px;padding:0 24px;border:0;border-radius:999px;background:var(--acc);color:#fff;font:inherit;font-weight:700;cursor:pointer}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .chips a{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);color:#fff8f0;text-decoration:none;font-size:14px}
@@ -78,7 +80,14 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
 .cat{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 10px 14px;text-decoration:none;color:inherit}
 .cat:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(196,95,0,.12);border-color:#f0c48a}
 .cat img{width:72px;height:72px;object-fit:contain;padding:0;background:#fff}
-.cat__b{padding:10px 0 0;border-top:0}
+.cat__b{padding:10px 0 0}
+.cat em{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}
+.cat em{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}
+.cat-grid--rich{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.cat-grid--rich .cat{align-items:flex-start;text-align:left;padding:14px}
+.eq{width:100%;border-collapse:collapse;max-width:36em;font-size:15px}
+.eq th,.eq td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+.eq th{color:#8492b2;font-weight:600}
 .cat__b strong{display:block;color:var(--dark);font-size:14.5px}
 .cat__b span{font-size:12px;color:var(--mute);letter-spacing:.04em}
 .states{margin:0;padding:0;list-style:none}
@@ -134,6 +143,7 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
   .burger{display:inline-flex;align-items:center;justify-content:center}
   .nav{display:none;position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 12px}
   .nav.open{display:flex}
+  .hdr-login{display:none}
   .ft-grid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
@@ -150,11 +160,12 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
 <header class="top" role="banner">
   <div class="wrap">
     <a href="/" class="brand">
-      <img src="/assets/images/acbuy-wordmark.png?v=20261005-esref" alt="" width="162" height="35">
-      <span>ACBuy Spreadsheet</span>
+      <img src="/assets/images/acbuy-logo.svg" alt="ACBuy" width="118" height="39">
+      <span>Spreadsheet</span>
     </a>
     <button class="burger" type="button" aria-expanded="false" aria-label="Menu openen">&#9776;</button>
-    <nav class="nav" aria-label="Hoofdmenu"><a href="/">Start</a><a href="/how-to-use-acbuy/">Handleiding</a><a href="/#cat-wall">Catalogus</a><a href="/acbuy-shipping-guide/">Verzending</a><a href="/hulp/">Hulp</a><a href="/nieuws/">Nieuws</a></nav>
+    <nav class="nav" aria-label="Hoofdmenu"><a href="/">Start</a><a href="/how-to-use-acbuy/">Handleiding</a><a href="/catalogus/">Catalogus</a><a href="/acbuy-shipping-guide/">Verzending</a><a href="/hulp/">Hulp</a><a href="/nieuws/">Nieuws</a></nav>
+    <a class="hdr-login" href="https://www.acbuy.com/register?utm_source=acbuyspreadsheets.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Inloggen op ACBuy</a>
   </div>
 </header>
 
@@ -189,7 +200,7 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
       <h3>Secties</h3>
       <ul>
         <li><a href="/how-to-use-acbuy/">Handleiding van ACBuy</a></li>
-        <li><a href="/#cat-wall">Het spreadsheet en de categorieën</a></li>
+        <li><a href="/catalogus/">Het spreadsheet en de categorieën</a></li>
         <li><a href="/acbuy-shipping-guide/">Verzending en douane</a></li>
         <li><a href="/hulp/">Hulp en vragen</a></li>
         <li><a href="/nieuws/">Nieuws</a></li>

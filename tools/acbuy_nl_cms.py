@@ -51,7 +51,8 @@ OFFICIAL = "https://www.acbuy.com/"
 EST = "https://www.acbuy.com/estimation/"
 HELP = "https://www.acbuy.com/help"
 REG = "https://www.acbuy.com/"
-ACC = "#E87000"
+ACC = "#31B38C"
+ACC_DARK = "#27BA9B"
 MAIL = "cnfa85269032661@gmail.com"
 INVITE = "5F2RRA"
 INVITE2 = "EwjrSk"
@@ -88,7 +89,7 @@ KEEP = [
 CMS_PAGES = [
     ("/", "Start"),
     ("/how-to-use-acbuy/", "Handleiding"),
-    ("/#cat-wall", "Catalogus"),
+    ("/catalogus/", "Catalogus"),
     ("/acbuy-shipping-guide/", "Verzending"),
     ("/hulp/", "Hulp"),
     ("/nieuws/", "Nieuws"),
@@ -188,6 +189,41 @@ W2C_CATS = [
     ("WATCH", "Horloge", "cat-32-watch.png?v=26"),
     ("CHILD", "Kinderen", "cat-29-child.png?v=24"),
 ]
+CAT_NOTES = {
+    "SNEAKERS": "Kijk naar zool en leest op de QC-foto’s vóór je internationaal boekt: daar gaan de meeste retouren over.",
+    "SLIPPERS": "Licht en plat. Goed om een doos te vullen zonder het factuurgewicht hard te laten stijgen.",
+    "T-SHIRT": "De Aziatische snit valt vaak nauwer. Vergelijk de borstbreedte in centimeters, niet alleen de lettermaat.",
+    "POLO": "Kijk op de QC-foto naar kraag en piqué. Die twee details wijken het vaakst af van de catalogusfoto.",
+    "SHIRT": "Mouwlengte en schoudernaad op de foto met meetlint, niet op de lettermaat.",
+    "SHORTS": "Licht en plat: de makkelijkste manier om een pakket te vullen zonder het factuurgewicht te laten exploderen.",
+    "VEST": "Bodywarmers zijn dikker dan ze wegen. Reken het volume vóór je er een jas bijstopt.",
+    "LONG SLEEVED": "Mouwlengte en manchet op de QC-foto. Aziatische lengtes vallen vaak korter.",
+    "HOODIE": "Zwaar voor hun volume. Eén hoodie kan het gewichtstram van de hele doos bepalen.",
+    "SWEATER": "Grammage en krimp. Meet de borst, niet alleen de labelmaat.",
+    "SHAWL": "Licht, maar omvangrijk als hij niet plat gaat. Vraag plat inpakken.",
+    "JACKET": "Donsjassen nemen enorm veel ruimte in. Hier wint het volumgewicht bijna altijd van de weegschaal.",
+    "SHELL JACKET": "Kijk naar naden en rits op de QC-foto. Een scheurtje in de coating zie je pas dichtbij.",
+    "FLEECE JACKET": "Licht van gewicht, dik van volume. Zelfde reconte als bij dons.",
+    "DOWN JACKETS": "Volume wint. Eén donsjas alleen al kan een duurdere gewichtsklasse forceren.",
+    "TROUSERS": "Vraag foto’s van kruishoogte en pijplengte. Het W/L-label komt niet altijd overeen met de centimeter.",
+    "Jersey": "Controleer rugnummer, patches en seizoen op de foto’s: dat zijn de details die het vaakst misgaan.",
+    "FEMALE STYLE": "Pasvorm is zelden unisex. Meet borst en lengte; reken niet op Europese damesmaten.",
+    "Electronics": "Vaak lithium. Veel luchtlijnen weigeren ze: check de schatter vóór je bestelt.",
+    "GLOVES": "Vraag een foto van het paar. Eén handschoen op de catalogusfoto zegt niets over de tweede.",
+    "BAG": "Vult bijna in z’n eentje een doos. Reken het volume vóór je een tas bij kleding stopt.",
+    "HAT": "Vervormbaar en volumineus. Vraag opvulling, anders komt de klep gevouwen aan.",
+    "JEWELRY": "Klein en goedkoop om mee te sturen. Goed om een bijna volle doos af te ronden.",
+    "UNDERWEAR": "Minder referenties dan de rest. Als je niets vindt, zoek op merk in plaats van op het woord ondergoed.",
+    "BELT": "Gesp en lengte op de QC-foto. De catalogusfoto is vaak een andere kleurgesp.",
+    "KNEEPAD": "Dik en volumineus. Reken L×B×H, niet alleen de weegschaal.",
+    "SOCKS": "Licht. Goed vullingmateriaal, nauwelijks extra kilo.",
+    "HEADGEAR": "Vormhoudend inpakken, anders komt het geplet aan.",
+    "EARMUFF": "Licht van gewicht, bol van volume. Zelfde reconte als mutsen.",
+    "SCARF": "Licht en plat als hij gevouwen gaat. Vraag plat inpakken.",
+    "GLASSES": "Breekbaar en klein. Versterkt inpakken is de moeite, ook als het een paar gram scheelt.",
+    "WATCH": "Vraag foto’s van uurwerk en sluiting. De catalogusfoto lijkt hier het minst op wat aankomt.",
+    "CHILD": "Kindermaten zijn geen verkleinde volwassenenmaten. Meet, gok niet op ‘small’.",
+}
 
 
 def _faq_html(pairs: list[tuple[str, str]] | None = None, *, open_first: bool = True) -> str:
@@ -204,10 +240,6 @@ def _faq_html(pairs: list[tuple[str, str]] | None = None, *, open_first: bool = 
 def _nav(page: str) -> str:
     bits = []
     for href, lab in CMS_PAGES:
-        if href == "/#cat-wall":
-            dest = "#cat-wall" if page == "/" else "/#cat-wall"
-            bits.append(f'<a href="{escape(dest)}">{escape(lab)}</a>')
-            continue
         on = ' aria-current="page"' if href == page else ""
         bits.append(f'<a href="{escape(href)}"{on}>{escape(lab)}</a>')
     return "".join(bits)
@@ -217,11 +249,12 @@ def _header(page: str) -> str:
     return f"""{skip_link(skip_label("nl"))}<header class="top" role="banner">
   <div class="wrap">
     <a href="/" class="brand">
-      <img src="/assets/images/acbuy-wordmark.png?v=20261005-esref" alt="" width="162" height="35">
-      <span>ACBuy Spreadsheet</span>
+      <img src="/assets/images/acbuy-logo.svg" alt="ACBuy" width="118" height="39">
+      <span>Spreadsheet</span>
     </a>
     <button class="burger" type="button" aria-expanded="false" aria-label="Menu openen">&#9776;</button>
     <nav class="nav" aria-label="Hoofdmenu">{_nav(page)}</nav>
+    <a class="hdr-login" href="{escape(_official("/register"))}" rel="nofollow noopener" target="_blank">Inloggen op ACBuy</a>
   </div>
 </header>
 """
@@ -251,7 +284,7 @@ def _footer() -> str:
       <h3>Secties</h3>
       <ul>
         <li><a href="/how-to-use-acbuy/">Handleiding van ACBuy</a></li>
-        <li><a href="/#cat-wall">Het spreadsheet en de categorieën</a></li>
+        <li><a href="/catalogus/">Het spreadsheet en de categorieën</a></li>
         <li><a href="/acbuy-shipping-guide/">Verzending en douane</a></li>
         <li><a href="/hulp/">Hulp en vragen</a></li>
         <li><a href="/nieuws/">Nieuws</a></li>
@@ -291,11 +324,11 @@ def _footer() -> str:
 
 CSS = f"""
 :root{{
-  --acc:{ACC};--acd:#c45f00;--link:#c45f00;
-  --ink:#303133;--ink2:#626366;--mute:#666d80;--dark:#111827;
-  --panel:#FFF3E0;--line:#f3d5a8;--soft:#fff8f0;
+  --acc:{ACC};--acd:{ACC_DARK};--link:{ACC_DARK};
+  --ink:#303133;--ink2:#495068;--mute:#8492b2;--dark:#181818;
+  --panel:#f5f6f7;--line:#eaecf0;--soft:#f5f6f7;
   --r:18px;--rs:12px;--maxw:1120px;--medida:34em;
-  --f:'DM Sans','Helvetica Neue',Helvetica,Arial,sans-serif;--m:ui-monospace,monospace;
+  --f:"Microsoft Yahei","PingFang SC",Avenir,"Segoe UI","Hiragino Sans GB",sans-serif;--m:ui-monospace,monospace;
 }}
 *{{box-sizing:border-box}}
 html{{-webkit-text-size-adjust:100%;color-scheme:light;scroll-behavior:smooth}}
@@ -313,24 +346,27 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 .wrap{{max-width:var(--maxw);margin:0 auto;padding:0 22px}}
 .skip{{position:absolute;left:-9999px}}
 .skip:focus{{left:12px;top:12px;z-index:99;background:#fff;padding:8px 18px;border-radius:var(--rs)}}
-.top{{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}}
-.top .wrap{{display:flex;align-items:center;gap:18px;min-height:64px}}
-.brand{{display:flex;align-items:center;gap:9px;min-height:44px;font-weight:800;color:var(--dark);text-decoration:none;font-size:17px;white-space:nowrap}}
-.brand img{{height:28px;width:auto}}
-.nav{{margin-left:auto;display:flex;gap:4px;flex-wrap:nowrap}}
-.nav a{{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:var(--ink2);text-decoration:none;font-size:15.5px;white-space:nowrap}}
-.nav a:hover,.nav a[aria-current]{{background:var(--soft);color:var(--acd);font-weight:700}}
+.top{{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}}
+.top .wrap{{display:flex;align-items:center;gap:16px;min-height:72px}}
+.brand{{display:flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:var(--dark);text-decoration:none;font-size:15px;white-space:nowrap}}
+.brand img{{height:32px;width:auto}}
+.brand span{{color:#8492b2;font-weight:600}}
+.nav{{margin-left:auto;display:flex;gap:2px;flex-wrap:nowrap}}
+.nav a{{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:#333;text-decoration:none;font-size:15px;white-space:nowrap}}
+.nav a:hover,.nav a[aria-current]{{color:var(--acc);background:transparent;font-weight:700}}
+.hdr-login{{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:var(--acc);color:#fff;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}}
+.hdr-login:hover{{background:var(--acd);color:#fff}}
 .burger{{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}}
 .hero{{position:relative;background:#1a0f05;overflow:hidden}}
 .hero__bg{{position:absolute;inset:0;background:url(/img/hero.jpg?v=20261005b) center/cover no-repeat}}
-.hero__scrim{{position:absolute;inset:0;background:linear-gradient(100deg,rgba(26,15,5,.93) 0%,rgba(26,15,5,.72) 42%,rgba(232,112,0,.22) 100%)}}
+.hero__scrim{{position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.55) 0%,rgba(49,179,140,.18) 100%)}}
 .hero .wrap{{position:relative;padding:74px 22px 78px}}
 .eyebrow{{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#ffd7a8;margin-bottom:14px}}
 .hero h1{{color:#fff;max-width:15.5em}}
 .hero p.lead{{color:#f3e2cc;font-size:19px;max-width:34em}}
 .sbox{{margin-top:26px;max-width:660px}}
-.sbox form{{display:flex;gap:9px;background:#fff;border-radius:var(--r);padding:9px;box-shadow:0 14px 40px rgba(26,15,5,.34)}}
-.sbox input{{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 14px}}
+.sbox form{{display:flex;gap:9px;background:#fff;border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 14px 40px rgba(24,24,24,.22)}}
+.sbox input{{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 8px}}
 .sbox button{{min-height:44px;padding:0 24px;border:0;border-radius:999px;background:var(--acc);color:#fff;font:inherit;font-weight:700;cursor:pointer}}
 .chips{{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}}
 .chips a{{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);color:#fff8f0;text-decoration:none;font-size:14px}}
@@ -356,7 +392,14 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 .cat{{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 10px 14px;text-decoration:none;color:inherit}}
 .cat:hover{{transform:translateY(-3px);box-shadow:0 12px 28px rgba(196,95,0,.12);border-color:#f0c48a}}
 .cat img{{width:72px;height:72px;object-fit:contain;padding:0;background:#fff}}
-.cat__b{{padding:10px 0 0;border-top:0}}
+.cat__b{{padding:10px 0 0}}
+.cat em{{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}}
+.cat em{{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}}
+.cat-grid--rich{{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
+.cat-grid--rich .cat{{align-items:flex-start;text-align:left;padding:14px}}
+.eq{{width:100%;border-collapse:collapse;max-width:36em;font-size:15px}}
+.eq th,.eq td{{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}}
+.eq th{{color:#8492b2;font-weight:600}}
 .cat__b strong{{display:block;color:var(--dark);font-size:14.5px}}
 .cat__b span{{font-size:12px;color:var(--mute);letter-spacing:.04em}}
 .states{{margin:0;padding:0;list-style:none}}
@@ -412,6 +455,7 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
   .burger{{display:inline-flex;align-items:center;justify-content:center}}
   .nav{{display:none;position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 12px}}
   .nav.open{{display:flex}}
+  .hdr-login{{display:none}}
   .ft-grid{{grid-template-columns:1fr}}
 }}
 @media(max-width:640px){{
@@ -448,11 +492,10 @@ def _shell(title: str, desc: str, canonical: str, extra_ld: list[dict], body: st
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(desc)}">
 <link rel="canonical" href="{escape(canonical)}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-esref">
-<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-esref">
+<link rel="icon" href="/favicon1.ico">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-acbuy">
+<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-acbuy">
 <style>{CSS}</style>
 </head>
 <body>
@@ -578,7 +621,7 @@ def build_home() -> str:
         <h2>Een spreadsheet is geen Excel-bestand</h2>
         <p class="lead">In het Nederlands leidt het woord af. Hier betekent «spreadsheet» geen tabel van rijen en kolommen: het is een catalogus van productkaarten met foto, merk, referentieprijs en de link om in de agent te plakken.</p>
         <p>Wat je op <a href="{escape(W2C)}/?{utm}" rel="nofollow noopener" target="_blank">w2clinks</a> ziet zijn kaarten, geen cellen. Je bladert op categorie, filtert op merk, geslacht, kleur of materiaal, en elke fiche heeft de link die de agent nodig heeft. Dat is de hele truc: een link van Taobao, 1688 of Weidian omzetten in iets dat je vanuit Nederland kunt bestellen.</p>
-        <p><a class="btn btn--ghost" href="{escape(W2C_ACBUY_SHEET)}">Hoe de catalogus werkt</a></p>
+        <p><a class="btn btn--ghost" href="/catalogus/">Hoe de catalogus werkt</a></p>
       </div>
       {fig_sheet}
     </div>
@@ -589,6 +632,7 @@ def build_home() -> str:
     <h2>Drieëndertig categorieën voor de eerste dag</h2>
     <p class="lead">Elke kaart opent de bijbehorende categorie in de catalogus. Begin met één: vijf categorieën in de eerste haul is de snelste weg naar een dure, lastige doos.</p>
     <div class="cat-grid">{wall}</div>
+    <p style="margin-top:26px"><a class="btn" href="/catalogus/#categorias">Wat je in elke categorie nagaat</a></p>
   </div>
 </section>
 <section class="sec" id="states">
@@ -673,6 +717,102 @@ def build_home() -> str:
         [faq_ld("nl-NL", _nl_faqs())],
         body,
         "/",
+    )
+
+
+def build_catalog() -> str:
+    wall = "".join(
+        f'<a class="cat" href="{escape(W2C_ACBUY_SHEET)}?category={quote_plus(key)}&amp;page=1&amp;sort=newest" '
+        f'rel="noopener" target="_blank">'
+        f'<img src="{escape(W2C)}/public/static/w2c/categories/{escape(fn)}" alt="{escape(key)}" '
+        f'loading="lazy" decoding="async" width="96" height="96">'
+        f'<div class="cat__b"><strong>{escape(labn)}</strong><span>{escape(key)}</span>'
+        f"<em>{escape(CAT_NOTES[key])}</em></div></a>"
+        for key, labn, fn in W2C_CATS
+    )
+    fig_sheet = _fig(
+        "/img/shots/catalogus.jpg",
+        "ACBuy-catalogus op w2clinks: productkaarten met foto, merk en referentieprijs",
+        "Een categorie van de catalogus: kaarten met beeld, merk en referentieprijs in yuan. Die prijzen veranderen per dag. Opname 5 Oct 2026.",
+        1200,
+        900,
+    )
+    fig_zoek = _fig(
+        "/img/shots/catalogus-zoek.jpg",
+        "Zoekresultaten hoodie in de ACBuy-catalogus van w2clinks, met filters links",
+        "Resultaten met de filterkolom. Zichtbare prijzen zijn steekproeven van het platform en wisselen dagelijks. Opname 5 Oct 2026.",
+        1200,
+        900,
+    )
+    body = f"""
+<section class="sec sec--first">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <span class="eyebrow" style="color:var(--acc)">De catalogus</span>
+        <h1>Wat ACBuy Spreadsheet is, en wat je erin vindt</h1>
+        <p class="lead">Het is een catalogus van productkaarten, geen Excel-bestand. Je bladert als in een winkel: drieëndertig categorieën, filters en kaarten met foto, merk en de link voor de agent. Hieronder staan die categorieën, met wat je in elk daarvan nagaat.</p>
+        <p>De verwarring over de naam is normaal in het Nederlands, omdat «spreadsheet» letterlijk een rekenblad is. Hier zijn geen rijen, cellen of tabbladen: er zijn fiches. Elke fiche is een concreet product uit een Chinese shop, met beeld, categorie en de link die je daarna in ACBuy plakt.</p>
+      </div>
+      {fig_sheet}
+    </div>
+  </div>
+</section>
+<section class="sec sec--tint">
+  <div class="wrap">
+    <div class="split split--rev">
+      <div>
+        <h2>Waarom een aparte catalogus</h2>
+        <p>De zoekbalk van een agent geeft de hele voorraad van Chinese shops, gigantisch en in het Chinees. Een catalogus doet het voorwerk: iemand heeft al gekozen welke fiches de moeite waard zijn, ze op categorie gezet en de link klaargezet.</p>
+        <p>In de praktijk: je vindt de fiche in de catalogus van w2clinks, kopieert de bronlink en plakt die in de zoekbalk van ACBuy of in het handmatige bestelformulier. De catalogus int niets en verkoopt niets: hij spaart het zoekwerk.</p>
+        <p>De filters links worden het meest onderschat. Merk, geslacht, seizoen, kleur, materiaal en prijsklasse maken van duizenden fiches in twee klikken iets naspeurbends.</p>
+      </div>
+      {fig_zoek}
+    </div>
+  </div>
+</section>
+<section class="sec" id="categorias">
+  <div class="wrap">
+    <h2>De drieëndertig categorieën, en wat je in elk nagaat</h2>
+    <p class="lead">Dit is de catalogus. Elke kaart opent die categorie in w2clinks. De zin eronder is geen vulling: het is de fout die in die categorie het vaakst terugkomt als je op afstand koopt.</p>
+    <div class="cat-grid cat-grid--rich">{wall}</div>
+  </div>
+</section>
+<section class="sec sec--tint">
+  <div class="wrap">
+    <h2>Ongemakkelijk gegeven: de catalogus zoekt in het Engels</h2>
+    <p class="lead">We hebben het term voor term nagekeken op {escape(DATE)}. Dat wil je weten vóór je je eerste zoekopdracht in het Nederlands typt.</p>
+    <p>Nederlandse woorden zoals «turnschoenen», «trui», «jas» of «bril» gaven vaak nul resultaten. De Engelse keys sneakers, hoodie, jacket, trousers, bag, glasses of watch gaven pagina’s fiches. Daarom stuurt de zoekbalk op de homepage naar w2clinks met die Engelse term.</p>
+    <table class="eq">
+      <thead><tr><th>Als je denkt aan</th><th>Typ</th></tr></thead>
+      <tbody>
+        <tr><td>turnschoenen</td><td>sneakers</td></tr>
+        <tr><td>hoodie / vest met capuchon</td><td>hoodie</td></tr>
+        <tr><td>jas</td><td>jacket</td></tr>
+        <tr><td>broek</td><td>trousers</td></tr>
+        <tr><td>tas</td><td>bag</td></tr>
+        <tr><td>bril</td><td>glasses</td></tr>
+        <tr><td>horloge</td><td>watch</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="sec">
+  <div class="wrap">
+    <h2>Van catalogus naar bestelling, zonder de link te verliezen</h2>
+    <p class="lead">De fiche is het begin, niet de kassa. Kopieer de bronlink, plak die in ACBuy, controleer prijs en variant, en betaal pas internationaal als de QC-foto’s kloppen.</p>
+    <p><a class="btn" href="{escape(W2C_ACBUY_SHEET)}">Open de ACBuy-catalogus op w2clinks</a>
+       <a class="btn btn--ghost" href="/how-to-use-acbuy/">Handleiding stap voor stap</a></p>
+  </div>
+</section>
+"""
+    return _shell(
+        "Wat ACBuy Spreadsheet is en welke categorieën je erin vindt",
+        "Onafhankelijke catalogusgids: drieëndertig categorieën van w2clinks, Engelse zoekkeys, en hoe je van fiche naar ACBuy-bestelling gaat.",
+        f"https://{HOST}/catalogus/",
+        [],
+        body,
+        "/catalogus/",
     )
 
 
@@ -846,6 +986,10 @@ def _assert_ok(html: str, page: str) -> None:
         err.append("huisadres briefing leftover")
     if "w2cspreadsheet" in html.lower() or "W2CSpreadsheet" in html or "W2C Spreadsheet" in html:
         err.append("w2cspreadsheet leftover")
+    if "acbuy-logo.svg" not in html:
+        err.append("missing official ACBuy logo")
+    if "README.md" in html or "expand this stub" in html:
+        err.append("english factory stub")
     if page == "home":
         if html.count('class="sg-faq"') >= 8:
             err.append("faq dump on homepage")
@@ -865,6 +1009,13 @@ def _assert_ok(html: str, page: str) -> None:
             err.append("categories meta dump")
         if 'id="local"' in html or 'id="catalog"' in html:
             err.append("ops ids leftover on home")
+        if 'href="/catalogus/"' not in html:
+            err.append("catalogus nav missing")
+    if page == "catalog":
+        if "cat-30-shoes.png" not in html or "id=\"categorias\"" not in html:
+            err.append("catalog page missing category wall")
+        if "geen Excel-bestand" not in html:
+            err.append("catalog missing spreadsheet-not-excel copy")
     if page == "news" and ("Novedades" in html or "op de platform" in html):
         err.append("news meta leftover")
     if err:
@@ -904,10 +1055,14 @@ def generate() -> dict[str, Path]:
     (dest / "hulp").mkdir(exist_ok=True)
     (dest / "nieuws").mkdir(exist_ok=True)
     (dest / "over-ons").mkdir(exist_ok=True)
+    (dest / "catalogus").mkdir(exist_ok=True)
     css_path = _desk_css_path()
     css_path.parent.mkdir(parents=True, exist_ok=True)
     css_path.write_text(CSS, encoding="utf-8")
     logo = write_wordmark(_wordmark_path())
+    logo_svg = dest / "assets" / "images" / "acbuy-logo.svg"
+    if not logo_svg.is_file():
+        raise SystemExit("missing official acbuy-logo.svg")
     img_root = dest / "img"
     missing: list[str] = []
     shots = (
@@ -917,6 +1072,7 @@ def generate() -> dict[str, Path]:
         "oficial-diy.jpg",
         "estimator-nl.jpg",
         "catalogus.jpg",
+        "catalogus-zoek.jpg",
         "volume-voorbeeld.jpg",
     )
     missing += [n for n in shots if not (img_root / "shots" / n).is_file()]
@@ -929,6 +1085,7 @@ def generate() -> dict[str, Path]:
         "help": (dest / "hulp" / "index.html", build_help(), "help"),
         "news": (dest / "nieuws" / "index.html", build_news(), "news"),
         "about": (dest / "over-ons" / "index.html", build_about(), "about"),
+        "catalog": (dest / "catalogus" / "index.html", build_catalog(), "catalog"),
     }
     out: dict[str, Path] = {"css": css_path, "logo": logo}
     for key, (path, html, page) in pages.items():
@@ -941,11 +1098,10 @@ def generate() -> dict[str, Path]:
         out[key] = path
     theme = OUT / "shared" / "themes" / "acbuy-theme.css"
     theme.parent.mkdir(parents=True, exist_ok=True)
-    if not theme.is_file():
-        theme.write_text(
-            "/* ACBuy country dest */\n:root { --primary: #E87000; --primary-dark: #c45f00; --primary-soft: #FFF3E0; --nav-dark: #111111; }\n",
-            encoding="utf-8",
-        )
+    theme.write_text(
+        "/* ACBuy country dest — official mint */\n:root { --primary: #31B38C; --primary-dark: #27BA9B; --primary-soft: #f5f6f7; --nav-dark: #181818; }\n",
+        encoding="utf-8",
+    )
     return out
 
 
@@ -966,23 +1122,39 @@ def _clean_article(html: str) -> str | None:
     return article
 
 
+def _strip_factory_english(article: str) -> str:
+    pats = (
+        r"To add full content[\s\S]{0,120}README\.md\.?",
+        r"Step-by-step guide to using ACBuy:[^.<]{0,240}\.",
+        r"Takes 10 minutes to learn\.",
+        r"This page is part of ACBuy Nederland\s*\.",
+        r"Language\s*&(?:amp;)?\s*Currency[\s\S]{0,80}Confirm",
+        r"LANGUAGE\s+CURRENCY",
+    )
+    out = article
+    for pat in pats:
+        out = re.sub(pat, " ", out, flags=re.I)
+    return re.sub(r"\n{3,}", "\n\n", out)
+
+
 def wrap_inner(html: str, page_href: str) -> tuple[str | None, str]:
     article = _clean_article(html)
     if not article:
         return None, "no-article"
+    article = _strip_factory_english(article)
     if _text_len(article) < 120:
         return None, "thin-article"
     head = _head_inner(html)
     inject = (
-        "<!-- acbuy nl desk chrome 20261005 -->\n"
-        '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
-        '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-        '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">\n'
-        '<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-esref">\n'
-        '<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-esref">\n'
+        "<!-- acbuy nl desk chrome 20261005-acbuy -->\n"
+        '<link rel="icon" href="/favicon1.ico">\n'
+        '<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v=20261005-acbuy">\n'
+        '<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v=20261005-acbuy">\n'
     )
     if "acbuy-nl-desk.css" not in head:
         head = head.rstrip() + "\n" + inject + "\n"
+    if "favicon1.ico" not in head:
+        head = head.rstrip() + '\n<link rel="icon" href="/favicon1.ico">\n'
     trailing = after_footer_keep(html, article)
     extra_scripts = _body_scripts_outside_article(html, article + trailing)
     out = (
@@ -1117,7 +1289,7 @@ def put() -> None:
     root = f"/www/wwwroot/{HOST}"
     _run(
         client,
-        f"mkdir -p '{bak}' '{root}/hulp' '{root}/nieuws' '{root}/over-ons' "
+        f"mkdir -p '{bak}' '{root}/hulp' '{root}/nieuws' '{root}/over-ons' '{root}/catalogus' "
         f"'{root}/assets/css' '{root}/assets/images' '{root}/img/cat' '{root}/img/shots'",
     )
     sftp = client.open_sftp()
@@ -1126,6 +1298,7 @@ def put() -> None:
         "help": f"{root}/hulp/index.html",
         "news": f"{root}/nieuws/index.html",
         "about": f"{root}/over-ons/index.html",
+        "catalog": f"{root}/catalogus/index.html",
     }
     for key, remote in mapping.items():
         local = files[key]
@@ -1141,6 +1314,11 @@ def put() -> None:
     sftp.put(str(theme), f"{root}/assets/css/acbuy-theme.css")
     sftp.put(str(files["css"]), f"{root}/assets/css/acbuy-nl-desk.css")
     sftp.put(str(files["logo"]), f"{root}/assets/images/acbuy-wordmark.png")
+    overlay = OUT / HOST / "overlay"
+    sftp.put(str(overlay / "assets" / "images" / "acbuy-logo.svg"), f"{root}/assets/images/acbuy-logo.svg")
+    sftp.put(str(overlay / "favicon1.ico"), f"{root}/favicon1.ico")
+    sftp.put(str(overlay / "favicon.ico"), f"{root}/favicon.ico")
+    print("PUT official logo + favicon")
     img_local = OUT / HOST / "overlay" / "img"
     sftp.put(str(img_local / "hero.jpg"), f"{root}/img/hero.jpg")
     print("PUT", f"{root}/img/hero.jpg")
@@ -1166,7 +1344,7 @@ def put() -> None:
             print("WARN unique small", rel, inner_n)
     _run(
         client,
-        f"chown -R www:www '{root}/index.html' '{root}/hulp' '{root}/nieuws' '{root}/over-ons' '{root}/assets/css' "
+        f"chown -R www:www '{root}/index.html' '{root}/hulp' '{root}/nieuws' '{root}/over-ons' '{root}/catalogus' '{root}/favicon.ico' '{root}/favicon1.ico' '{root}/assets/css' "
         f"'{root}/img' '{root}/acbuy-shipping-guide' '{root}/is-acbuy-legit' '{root}/how-to-use-acbuy' '{root}/acbuy-coupons' "
         f"'{root}/acbuy-spreadsheet' '{root}/blog' 2>/dev/null || true",
     )
@@ -1201,6 +1379,7 @@ def live_check() -> None:
         (f"https://{HOST}/hulp/", "help", True),
         (f"https://{HOST}/nieuws/", "news", False),
         (f"https://{HOST}/over-ons/", "about", False),
+        (f"https://{HOST}/catalogus/", "catalog", False),
         (f"https://{HOST}/acbuy-shipping-guide/", "ranked", False),
         (f"https://{HOST}/is-acbuy-legit/", "ranked", False),
         (f"https://{HOST}/how-to-use-acbuy/", "ranked", False),
@@ -1208,12 +1387,14 @@ def live_check() -> None:
     for url, kind, need_fp in checks:
         code, final, loc, body = fetch(url, follow=True)
         html = body.decode("utf-8", "replace")
-        print(kind, code, "bytes", len(body), "cms", "nlo-logo" in html or "acbuy-wordmark" in html)
+        print(kind, code, "bytes", len(body), "cms", "acbuy-logo.svg" in html or "acbuy-wordmark" in html)
         if code != 200:
             print(" FAIL status"); fail += 1
+        if "acbuy-logo.svg" not in html:
+            print(" FAIL official logo"); fail += 1
         if need_fp and fp not in html:
             print(" FAIL fingerprint"); fail += 1
-        if kind in ("home", "help", "news", "about"):
+        if kind in ("home", "help", "news", "about", "catalog"):
             if "/api/products/" in html or "Voor een huisadres in Nederland" in html:
                 print(" FAIL api/huisadres leftover"); fail += 1
             if "w2cspreadsheet" in html.lower() or "W2C Spreadsheet" in html:
@@ -1247,9 +1428,14 @@ def live_check() -> None:
                 print(" FAIL sheet-explain / categories dump"); fail += 1
             if 'id="local"' in html or 'id="catalog"' in html:
                 print(" FAIL ops ids on home"); fail += 1
+            if "/catalogus/" not in html:
+                print(" FAIL catalogus nav"); fail += 1
             for alien in ("Packstation", "form A1A 1A1"):
                 if alien in html:
                     print(" FAIL alien", alien); fail += 1
+        if kind == "catalog":
+            if html.count('class="cat"') < 30 or "geen Excel-bestand" not in html:
+                print(" FAIL catalog page"); fail += 1
         if kind == "news" and ("Novedades" in html or "op de platform" in html):
             print(" FAIL news meta leftover"); fail += 1
         if kind == "help" and "FAQPage" not in html:
@@ -1261,8 +1447,10 @@ def live_check() -> None:
         if kind == "ranked":
             if len(body) < 4000:
                 print(" FAIL ranked thin"); fail += 1
-            if "nlo-logo" not in html and "acbuy-wordmark" not in html:
+            if "acbuy-logo.svg" not in html:
                 print(" FAIL ranked chrome"); fail += 1
+            if "README.md" in html or "expand this stub" in html:
+                print(" FAIL ranked english stub"); fail += 1
     for twin, target in (
         ("allchinabuyspreadsheet.nl", HOST),
         ("acbuyspreadsheets.ca", "allchinabuyspreadsheet.ca"),
