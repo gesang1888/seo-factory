@@ -1,23 +1,13 @@
 #!/usr/bin/env python3
-"""W2C Links hub: surgical #local on unique EyouCMS. No 5KB overlay.
+"""W2C Links hub: remove the surgical #local block from unique EyouCMS.
 
-Gates:
-1. Hub #local has the HUB fingerprint, no dest-country fingerprints.
-2. Estimator country ≠ TLD; .com catalog hub must say it is not a
-   customs territory. Live freight form is /shipping-calculator/ on
-   this host. W2C Links is not an agent warehouse — do not invent days.
-3. Homepage title has no invite token. Body has no customs coaching /
-   58-line snapshot.
-4. w2crep.org stays independently open (no 301 either way). Same-agent
-   extras w2cclothes.com / w2cshoes.com keep 301 $request_uri into
-   w2crep.org, not into this search CMS.
-5. No twins on w2clinks. www already 301 apex $request_uri.
-6. Unique PHP CMS stays (surgical insert into template/pc/index.htm +
-   header.htm nav). Do not PUT a 5KB dest template over the ~56KB PHP
-   home. Do not PUT overlay onto index.html / index.php.
+User asked to delete the “hostname is not a customs territory” desk
+on https://w2clinks.com/ (the Chinese screenshot of that same block).
+Restore template/pc/index.htm + header.htm from live-base. Do not PUT
+a 5KB dest overlay. Keep PHP CMS, ranked /spreadsheet/ /guide/ /news/.
 
-Skip repsicon.com (user: do not process). Skip unique dest overwrite
-of sugargoo.ca/.es. Skip cheap no-vhost dests.
+w2crep.org stays independently open. extras still 301 into w2crep.org.
+Skip repsicon.com.
 """
 from __future__ import annotations
 
@@ -25,22 +15,12 @@ import os
 import re
 import sys
 import time
-from html import escape
 from pathlib import Path
 
 _TOOLS = Path(__file__).resolve().parent
 if str(_TOOLS) not in sys.path:
     sys.path.insert(0, str(_TOOLS))
-from desk_template import (
-    SKIP_CSS,
-    _check_local_section,
-    assert_dest_packs_unique,
-    dest_local_pack,
-    local_cta,
-    local_guide_html,
-    skip_label,
-    skip_link,
-)
+from desk_template import assert_dest_packs_unique
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "sites"
@@ -152,10 +132,7 @@ TEMPLATE_CHROME = (
     "Get Links",
     "W2C",
 )
-LIVE_CHROME = TEMPLATE_CHROME + (
-    'class="nav-menu"',
-    "Pick a country",
-)
+LIVE_CHROME = TEMPLATE_CHROME + ('class="nav-menu"',)
 AGENT_FAQ_OLD = (
     "W2C Links is a purchasing agent: it buys from Chinese third-party "
     "shops in your name, photographs the parcel in its warehouse, then "
@@ -169,115 +146,59 @@ AGENT_FAQ_NEW = (
 )
 
 
-def _facts(spec: dict) -> dict:
-    return {
-        "agent": "W2C Links",
-        "host": spec["host"],
-        "lang": spec["lang"],
-        "loc": spec["loc"],
-        "dest": spec.get("dest"),
-        "dest_label": spec.get("dest_label") or "a country in the estimator",
-        "ccy": spec["ccy"],
-        "storage": STORAGE,
-        "estimator": EST,
-        "official": OFFICIAL,
-        "date": DATE,
-        "keep": spec.get("keep") or [],
-        "codes_off_title": [INVITE],
-        "strict_html_codes": True,
-    }
-
-
-def _local_block(key: str, spec: dict) -> str:
-    facts = _facts(spec)
-    loc = spec["loc"]
-    fp = dest_local_pack(facts.get("dest"))["fingerprint"]
-    store = STORE_NOTE.get(loc) or STORE_NOTE["en"]
-    live, not_co = TRAIL.get(loc) or TRAIL["en"]
-    extra = (
-        f'<p class="local-src">{escape(fp)}. {escape(EST_NOTE[key])} {escape(store)} '
-        f"{escape(live)} <a href=\"{escape(facts['estimator'])}\">{escape(facts['estimator'])}</a> "
-        f"— {escape(not_co)}</p>"
+def strip_local_nav(html: str) -> str:
+    html = re.sub(
+        r'\s*<li><a class="nav-link" href="/#local">.*?</a></li>\s*',
+        "\n",
+        html,
+        count=1,
+        flags=re.S,
     )
-    html = local_guide_html(facts).strip()
-    html = html.replace(AGENT_FAQ_OLD, AGENT_FAQ_NEW)
-    if not html.endswith("</section>"):
-        raise RuntimeError(f"{key}: missing section")
-    html = html[: -len("</section>")] + extra + "\n</section>"
-    err: list[str] = []
-    _check_local_section(html, facts, err)
-    if err:
-        raise RuntimeError(f"{key} #local: {'; '.join(err)}")
-    if AGENT_FAQ_OLD in html:
-        raise RuntimeError("purchasing-agent FAQ still on catalog hub")
-    return html
-
-
-def patch_header(html: str, spec: dict) -> str:
-    facts = _facts(spec)
-    cta = escape(local_cta(facts))
-    if 'href="/#local"' not in html and 'href="#local"' not in html:
-        if NAV_MARK not in html:
-            raise RuntimeError("header nav marker missing")
-        html = html.replace(
-            NAV_MARK,
-            "        "
-            f'<li><a class="nav-link" href="/#local">'
-            f'<i class="fas fa-map-marker-alt"></i> '
-            f"<span>{cta}</span></a></li>\n" + NAV_MARK,
-            1,
-        )
-    if 'href="/#local"' not in html:
-        raise RuntimeError("header missing /#local")
+    html = html.replace('href="/#local"', "").replace('href="#local"', "")
     if "nav-menu" not in html or 'href="/spreadsheet/"' not in html:
         raise RuntimeError("header chrome missing")
+    if 'href="/#local"' in html or 'id="local"' in html:
+        raise RuntimeError("header still has #local")
     if len(html.encode("utf-8")) < HEADER_MIN:
         raise RuntimeError(f"header collapsed to {len(html.encode('utf-8'))} B")
     return html
 
 
-def patch_php_hub(html: str) -> str:
-    key, spec = "com", HUBS["com"]
-    facts = _facts(spec)
-    block = _local_block(key, spec)
-    loc = spec["loc"]
-    if 'class="skip"' not in html:
-        html = html.replace(
-            "<body>",
-            "<body>\n" + skip_link(skip_label(loc)).rstrip(),
-            1,
-        )
-    if 'id="main"' not in html:
-        html = html.replace(
-            '<main class="w2c-main">',
-            '<main class="w2c-main" id="main">',
-            1,
-        )
-    if "#local{scroll-margin-top" not in html:
-        html = html.replace(
-            "</head>",
-            "<style>" + SKIP_CSS + HUB_LOCAL_CSS + "</style>\n</head>",
-            1,
-        )
-    if 'id="local"' in html:
-        html = re.sub(
-            r'<section class="sg-sec" id="local".*?</section>',
-            block,
-            html,
-            count=1,
-            flags=re.S,
-        )
-    else:
-        if HERO_END not in html:
-            raise RuntimeError("hub hero marker missing")
-        html = html.replace(
-            HERO_END,
-            "  </section>\n" + block + "\n"
-            '  <section class="w2c-section w2c-home-cats">',
-            1,
-        )
+def strip_php_hub(html: str) -> str:
+    html = re.sub(
+        r'<section class="sg-sec" id="local".*?</section>\s*',
+        "",
+        html,
+        count=1,
+        flags=re.S,
+    )
+    html = re.sub(
+        r'<a class="skip"[^>]*>.*?</a>\s*',
+        "",
+        html,
+        count=1,
+        flags=re.S,
+    )
+    html = html.replace('<main class="w2c-main" id="main">', '<main class="w2c-main">')
+    html = re.sub(
+        r"<style>\s*\.skip\{.*?HUB_LOCAL_PLACEHOLDER</style>\s*",
+        "",
+        html,
+        count=1,
+        flags=re.S,
+    )
+    html = re.sub(
+        r"<style>\.skip\{position:absolute;.*?</style>\s*",
+        "",
+        html,
+        count=1,
+        flags=re.S,
+    )
     err: list[str] = []
-    _check_local_section(html, facts, err)
+    if 'id="local"' in html or "not a customs territory" in html:
+        err.append("#local desk still present")
+    if "并非海关" in html:
+        err.append("Chinese customs-territory block still present")
     title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
     title = title_m.group(1) if title_m else ""
     if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
@@ -286,8 +207,6 @@ def patch_php_hub(html: str) -> str:
         err.append("sentinel invite leaked onto homepage")
     if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
         err.append("spain snapshot / coaching")
-    if "not a customs territory" not in html:
-        err.append("hub missing fingerprint")
     if len(html.encode("utf-8")) < TEMPLATE_MIN:
         err.append(f"template collapsed to {len(html.encode('utf-8'))} bytes")
     for marker in TEMPLATE_CHROME:
@@ -296,7 +215,7 @@ def patch_php_hub(html: str) -> str:
     if AGENT_FAQ_OLD in html:
         err.append("purchasing-agent FAQ leaked")
     if err:
-        raise RuntimeError(f"{key}: {'; '.join(err)}")
+        raise RuntimeError(f"com: {'; '.join(err)}")
     return html
 
 
@@ -305,33 +224,25 @@ def generate() -> None:
     spec = HUBS["com"]
     src = OUT / spec["host"] / "live-base" / "index.htm"
     hdr_src = OUT / spec["host"] / "live-base" / "header.htm"
-    php_html = patch_php_hub(src.read_text(encoding="utf-8"))
-    hdr_html = patch_header(hdr_src.read_text(encoding="utf-8"), spec)
+    php_html = strip_php_hub(src.read_text(encoding="utf-8"))
+    hdr_html = strip_local_nav(hdr_src.read_text(encoding="utf-8"))
     dest = OUT / spec["host"] / "overlay" / "index.htm"
     hdr_dest = OUT / spec["host"] / "overlay" / "header.htm"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(php_html, encoding="utf-8")
     hdr_dest.write_text(hdr_html, encoding="utf-8")
-    inner = re.search(r'<section class="sg-sec" id="local".*?</section>', php_html, flags=re.S)
-    blob = inner.group(0) if inner else ""
-    fp = dest_local_pack(spec.get("dest"))["fingerprint"]
-    if fp not in blob:
-        raise SystemExit(f"missing fingerprint {fp!r}")
-    for alien in ALIENS:
-        if alien in blob:
-            raise SystemExit(f"leaked dest {alien!r}")
-    if EST not in blob:
-        raise SystemExit("missing estimator")
-    if "not a customs territory" not in blob:
-        raise SystemExit("hub missing customs-territory line")
-    if INVITE in blob:
-        raise SystemExit("#local still has invite token")
-    if re.search(r"90\s*dagen|90\s*days|60\s*-?\s*day", blob, flags=re.I):
-        raise SystemExit("invented free-day count in #local")
+    if 'id="local"' in php_html or 'id="local"' in hdr_html:
+        raise SystemExit("#local still in overlay")
+    if "not a customs territory" in php_html or "并非海关" in php_html:
+        raise SystemExit("customs-territory copy still in overlay")
+    if 'href="/#local"' in hdr_html:
+        raise SystemExit("header still links /#local")
+    if INVITE in php_html:
+        raise SystemExit("invite token leaked")
     if AGENT_FAQ_OLD in php_html:
         raise SystemExit("purchasing-agent FAQ still present")
     print("hub", spec["host"], "template", len(php_html.encode("utf-8")), "header", len(hdr_html.encode("utf-8")))
-    print("generate ok 1 desks")
+    print("generate ok 1 desks, #local removed")
 
 
 def _connect():
@@ -367,14 +278,15 @@ def put() -> None:
     spec = HUBS["com"]
     for name, min_b, chrome in (
         ("index.htm", TEMPLATE_MIN, TEMPLATE_CHROME),
-        ("header.htm", HEADER_MIN, ("nav-menu", 'href="/spreadsheet/"', 'href="/#local"')),
+        ("header.htm", HEADER_MIN, ("nav-menu", 'href="/spreadsheet/"')),
     ):
         local = OUT / spec["host"] / "overlay" / name
         remote = f"/www/wwwroot/{spec['host']}/template/pc/{name}"
         raw = local.read_text(encoding="utf-8")
-        if name == "index.htm":
-            if 'id="local"' not in raw or "not a customs territory" not in raw:
-                raise SystemExit(f"refusing to PUT {name} without hub #local")
+        if 'id="local"' in raw or "not a customs territory" in raw or "并非海关" in raw:
+            raise SystemExit(f"refusing to PUT {name} that still has #local desk")
+        if 'href="/#local"' in raw:
+            raise SystemExit(f"refusing to PUT {name} that still links /#local")
         if INVITE in raw:
             raise SystemExit(f"refusing to PUT {name} with invite sentinel")
         if local.stat().st_size < min_b:
@@ -467,30 +379,22 @@ def live_check() -> None:
     title = title_m.group(1) if title_m else ""
     inner_m = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
     inner = inner_m.group(0) if inner_m else ""
-    fp = "not a customs territory"
-    print(f"com {code} bytes={len(body)} local={bool(inner)} fp={fp in html}")
+    print(f"com {code} bytes={len(body)} local={bool(inner)}")
     if code == 410:
         print("  FAIL homepage still 410")
         fail += 1
-    elif code != 200 or not inner or fp not in inner:
-        print("  FAIL status/local/fp")
+    elif code != 200:
+        print("  FAIL status", code)
+        fail += 1
+    elif inner or 'id="local"' in html or "not a customs territory" in html or "并非海关" in html:
+        print("  FAIL #local desk still live")
         fail += 1
     else:
-        for alien in ALIENS:
-            if alien in inner:
-                print("  FAIL sister", alien)
-                fail += 1
         if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
             print("  FAIL invite in title")
             fail += 1
         if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
             print("  FAIL snapshot/coaching")
-            fail += 1
-        if re.search(r"90\s*dagen|90\s*days|60\s*-?\s*day", inner, flags=re.I):
-            print("  FAIL invented free-day copy")
-            fail += 1
-        if EST not in inner:
-            print("  FAIL estimator")
             fail += 1
         if AGENT_FAQ_OLD in html:
             print("  FAIL purchasing-agent FAQ")
