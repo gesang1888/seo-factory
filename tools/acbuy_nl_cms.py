@@ -21,7 +21,6 @@ _TOOLS = Path(__file__).resolve().parent
 if str(_TOOLS) not in sys.path:
     sys.path.insert(0, str(_TOOLS))
 
-from desk_fx import catalog_block
 from desk_template import (
     dest_local_pack,
     faq_ld,
@@ -89,7 +88,7 @@ KEEP = [
 CMS_PAGES = [
     ("/", "Start"),
     ("/how-to-use-acbuy/", "Handleiding"),
-    ("/#catalog", "Catalogus"),
+    ("/#cat-wall", "Catalogus"),
     ("/acbuy-shipping-guide/", "Verzending"),
     ("/hulp/", "Hulp"),
     ("/nieuws/", "Nieuws"),
@@ -122,19 +121,25 @@ FACTS = {
 }
 
 
-def _local_block() -> str:
-    """NL user briefing. Fingerprint stays; ops notes stay off the homepage."""
-    return """<section class="sg-sec" id="local">
-  <h2>Voor een huisadres in Nederland</h2>
-  <p class="ssub">Nederland · acbuyspreadsheets.nl. Nederlandse postcode in de vorm 1234 AB.</p>
-  <ol class="local-steps">
-    <li><strong>Bestemming in de schatter</strong><span>Kies Netherlands — 荷兰, niet EU en niet Netherlands Antilles. Een Belgische of Duitse postcode is het verkeerde land.</span></li>
-    <li><strong>Adres</strong><span>Nederlandse postcode (vorm 1234 AB), geen Duits afhaalautomaat-nummer.</span></li>
-    <li><strong>Invoer</strong><span>Wie invoer betaalt, staat op de geboekte lijn. De bezorger (vaak DHL) kan bij Collect extra innen. Bron: Belastingdienst Douane op de verzenddag. Deze gids verzint geen aangegeven waarde.</span></li>
-    <li><strong>Betalen</strong><span>iDEAL en kaarten zitten in de officiële app, niet op deze gids. Checkout alleen op https://www.acbuy.com/.</span></li>
-  </ol>
-  <p class="local-src">Bron: <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/" rel="noopener">Belastingdienst Douane</a>. Live geld: <a href="https://www.acbuy.com/estimation/">https://www.acbuy.com/estimation/</a> — deze HTML is geen kassa.</p>
-</section>"""
+def _nl_faqs() -> list[tuple[str, str]]:
+    """Help answers follow homepage: catalog is w2clinks, never /api/products/."""
+    pairs = []
+    for q, a in long_faqs(FACTS):
+        a = a.replace(
+            f"De index van /api/products/ op {HOST} is Engels (sneakers, hoodie, jacket). «Sneakers» werkt; lokale woorden geven vaak 0 kaarten. Dat is geen lege shop. Gemeten {DATE}.",
+            f"De catalogus van w2clinks indexeert in het Engels (sneakers, hoodie, jacket). «Sneakers» werkt; Nederlandse woorden zoals turnschoenen geven vaak 0 resultaten. Dat is geen lege winkel. Gemeten {DATE}.",
+        )
+        a = a.replace(
+            f"De categorie-muur toont nog de Engelse keys (sneakers, hoodie, jacket) voor /api/products/ op {HOST}. Gemeten {DATE}.",
+            f"De categoriekaarten op deze gids openen diezelfde Engelse keys in de ACBuy-catalogus van w2clinks. Gemeten {DATE}.",
+        )
+        a = a.replace(
+            f"Prijs 0 op {HOST} is geen kassa.",
+            "Een fiche zonder prijs in de catalogus van w2clinks of op ACBuy is geen kassa.",
+        )
+        a = a.replace("/api/products/", "w2clinks")
+        pairs.append((q, a))
+    return pairs
 
 
 def _fig(src: str, alt: str, cap: str, w: int = 1200, h: int = 750) -> str:
@@ -199,8 +204,8 @@ def _faq_html(pairs: list[tuple[str, str]] | None = None, *, open_first: bool = 
 def _nav(page: str) -> str:
     bits = []
     for href, lab in CMS_PAGES:
-        if href == "/#catalog":
-            dest = "#catalog" if page == "/" else "/#catalog"
+        if href == "/#cat-wall":
+            dest = "#cat-wall" if page == "/" else "/#cat-wall"
             bits.append(f'<a href="{escape(dest)}">{escape(lab)}</a>')
             continue
         on = ' aria-current="page"' if href == page else ""
@@ -239,7 +244,7 @@ def _footer() -> str:
   <div class="wrap ft-grid">
     <div>
       <h3>ACBuy Spreadsheet</h3>
-      <p>Onafhankelijke gids in het Nederlands over ACBuy en over hoe je de catalogus van W2C Spreadsheet gebruikt om vanuit Nederland in China te kopen.</p>
+      <p>Onafhankelijke gids in het Nederlands over ACBuy en over hoe je de catalogus van w2clinks gebruikt om vanuit Nederland in China te kopen.</p>
       <p><a href="mailto:{escape(MAIL)}">{escape(MAIL)}</a></p>
     </div>
     <div>
@@ -472,17 +477,11 @@ def build_home() -> str:
         for key, labn, fn in W2C_CATS
     )
     chips = "".join(
-        f'<a href="{escape(W2C_ACBUY_SHEET)}?category={quote_plus(key)}&amp;page=1&amp;sort=newest" '
-        f'rel="noopener" target="_blank">{escape(key)}</a>'
+        f'<a href="{escape(W2C_ACBUY_SHEET)}?q={quote_plus(key.lower())}&amp;utm_source={escape(HOST)}&amp;utm_medium=referral&amp;utm_campaign=hero-chips" '
+        f'rel="nofollow noopener" target="_blank">{escape(key.lower() if key.isupper() else key)}</a>'
         for key, _lab, _fn in W2C_CATS[:8]
     )
-    catalog = catalog_block(
-        "nl",
-        {"lang": "nl-NL", "loc": "nl", "dest": "NL", "ccy": "EUR"},
-        register_url=REG,
-        loc_fn=lambda _k: "nl",
-        cat_labels={},
-    )
+    utm = f"utm_source={HOST}&amp;utm_medium=referral&amp;utm_campaign=portada-que-es"
     fig_home = _fig(
         "/img/shots/oficial-inicio.jpg",
         "Officiële ACBuy-homepage met zoekbalk, vliegtuigbanner en vier stappen: Place orders, QC&storage, Submit parcels, INTL ship",
@@ -495,8 +494,8 @@ def build_home() -> str:
     )
     fig_sheet = _fig(
         "/img/shots/catalogus.jpg",
-        "Productkaarten op acbuyspreadsheets.nl: foto, naam, EUR-weergave en knop Openen",
-        "De catalogus op deze homepage. Prijzen in EUR zijn een weergave van de China-kaart, 5 Oct 2026. Geen kassaprijs.",
+        "ACBuy-catalogus op w2clinks: productkaarten met foto, merk en referentieprijs",
+        "Wat je op w2clinks ziet zijn kaarten, geen Excel-cellen. Prijzen in yuan veranderen per dag. Opname 5 Oct 2026, categorie SNEAKERS.",
         1200,
         900,
     )
@@ -529,11 +528,14 @@ def build_home() -> str:
   <div class="wrap">
     <span class="eyebrow">Onafhankelijke gids, in het Nederlands</span>
     <h1>ACBuy Spreadsheet: de gids om in China te kopen vanaf Nederland</h1>
-    <p class="lead">Hoe je een productlink in de agent plakt, hoe de catalogus werkt, hoe een pakket naar Nederland reist en wat je nagaat vóór de Douane.</p>
+    <p class="lead">Hoe je een productlink in de agent plakt, hoe de catalogus van w2clinks werkt, hoe een pakket naar Nederland reist en wat je nagaat vóór de Douane.</p>
     <div class="sbox">
-      <form id="home-search" action="#catalog" method="get" role="search">
-        <label class="skip" for="hero-q">Zoek in de catalogus op deze homepage</label>
-        <input id="hero-q" name="q" type="search" autocomplete="off" placeholder="Zoek sneakers, hoodie, jas…">
+      <form id="w2c-search" action="{escape(W2C_ACBUY_SHEET)}" method="get" target="_blank" rel="nofollow noopener" role="search">
+        <label class="skip" for="q">Zoek producten op w2clinks</label>
+        <input id="q" name="q" type="search" autocomplete="off" placeholder="Zoek sneakers, hoodie, jas…">
+        <input type="hidden" name="utm_source" value="{escape(HOST)}">
+        <input type="hidden" name="utm_medium" value="referral">
+        <input type="hidden" name="utm_campaign" value="hero-buscador">
         <button type="submit">Zoeken</button>
       </form>
       <div class="chips">{chips}</div>
@@ -574,9 +576,9 @@ def build_home() -> str:
       <div>
         <span class="eyebrow" style="color:var(--acd)">Naam die misleidt</span>
         <h2>Een spreadsheet is geen Excel-bestand</h2>
-        <p class="lead">Hier betekent «spreadsheet» een catalogus van productkaarten: foto, merk, referentieprijs en de link om in de agent te plakken. Geen rijen en kolommen.</p>
-        <p>De kaarten op deze homepage komen van /api/products/ op {escape(HOST)}. Je bladert op categorie. Engelse keys (sneakers, hoodie) vullen de grid; «turnschoenen» geeft vaak nul hits — dat is de index, geen lege winkel.</p>
-        <p><a class="btn btn--ghost" href="#catalog">Naar de catalogus op deze homepage</a></p>
+        <p class="lead">In het Nederlands leidt het woord af. Hier betekent «spreadsheet» geen tabel van rijen en kolommen: het is een catalogus van productkaarten met foto, merk, referentieprijs en de link om in de agent te plakken.</p>
+        <p>Wat je op <a href="{escape(W2C)}/?{utm}" rel="nofollow noopener" target="_blank">w2clinks</a> ziet zijn kaarten, geen cellen. Je bladert op categorie, filtert op merk, geslacht, kleur of materiaal, en elke fiche heeft de link die de agent nodig heeft. Dat is de hele truc: een link van Taobao, 1688 of Weidian omzetten in iets dat je vanuit Nederland kunt bestellen.</p>
+        <p><a class="btn btn--ghost" href="{escape(W2C_ACBUY_SHEET)}">Hoe de catalogus werkt</a></p>
       </div>
       {fig_sheet}
     </div>
@@ -584,13 +586,11 @@ def build_home() -> str:
 </section>
 <section class="sec sec--tint" id="cat-wall">
   <div class="wrap">
-    <h2>Categorieën van W2C Links</h2>
-    <p class="lead">Dezelfde indeling als op <a href="{escape(W2C)}/categories/" rel="noopener" target="_blank">w2clinks.com/categories</a>. Elke kaart opent die categorie in het ACBuy-spreadsheet. Begin met één: vijf categorieën in de eerste haul is de snelste weg naar een dure, lastige doos.</p>
+    <h2>Drieëndertig categorieën voor de eerste dag</h2>
+    <p class="lead">Elke kaart opent de bijbehorende categorie in de catalogus. Begin met één: vijf categorieën in de eerste haul is de snelste weg naar een dure, lastige doos.</p>
     <div class="cat-grid">{wall}</div>
   </div>
 </section>
-{catalog}
-{_local_block()}
 <section class="sec" id="states">
   <div class="wrap">
     <div class="split split--rev">
@@ -620,8 +620,8 @@ def build_home() -> str:
     <div class="split">
       <div>
         <h2>Nederland heeft lijnen, maar niet elke lijn is open</h2>
-        <p class="lead">De officiële schatter is publiek. Kies destination <strong>Netherlands — 荷兰</strong>, niet EU en niet Netherlands Antilles.</p>
-        <p>Op 5 Oct 2026, met 1000 g en 35×25×10 cm, toonde de schatter onder meer Euro DHL Duty Free EC-Y, 12–16 werkdagen. Die bedragen veranderen per week; behandel ze als een foto van die dag en open de estimator vóór je koopt.</p>
+        <p class="lead">De officiële schatter is publiek. Kies destination <strong>Netherlands — 荷兰</strong>, niet EU en niet Netherlands Antilles. Het afleveradres is een Nederlandse postcode (vorm 1234 AB).</p>
+        <p>Op 5 Oct 2026, met 1000 g en 35×25×10 cm, toonde de schatter onder meer Euro DHL Duty Free EC-Y, 12–16 werkdagen. Die bedragen veranderen per week; behandel ze als een foto van die dag en open de estimator vóór je koopt. Invoer: <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/" rel="noopener">Belastingdienst Douane</a>.</p>
         <p><a class="btn" href="{escape(EST)}">Officiële schatter, bestemming Nederland</a>
            <a class="btn btn--ghost" href="/acbuy-shipping-guide/">Verzendplan</a></p>
       </div>
@@ -658,61 +658,43 @@ def build_home() -> str:
 <section class="sec" id="faq">
   <div class="wrap">
     <h2>Hulp, nieuws en waar je vraagt</h2>
-    <p class="lead">De meeste twijfels van de eerste orders herhalen zich: twee betalingen, catalogus in het Engels, volumgewicht, Douane. Ze staan beantwoord in het Nederlands op Hulp — een eigen URL, geen bijlage van deze homepage.</p>
+    <p class="lead">De meeste twijfels van de eerste orders herhalen zich: twee betalingen, catalogus in het Engels op w2clinks, volumgewicht, Douane. Ze staan beantwoord in het Nederlands op Hulp — een eigen URL, geen bijlage van deze homepage.</p>
     <p>Op Nieuws zetten we met datum wat we zelf op het platform hebben nagekeken. Over ons legt uit dat deze host redactioneel onafhankelijk is. Als je met ACBuy moet praten, is het kanaal de in-app-chat: wij zien je account niet.</p>
     <p><a class="btn" href="/hulp/">Alle vragen op Hulp</a>
        <a class="btn btn--ghost" href="/nieuws/">Gedateerde checks op Nieuws</a>
        <a class="btn btn--ghost" href="/over-ons/">Over ons</a></p>
   </div>
 </section>
-<script>
-(function(){{
-  var form=document.getElementById('home-search');
-  if(!form) return;
-  form.addEventListener('submit', function(ev){{
-    ev.preventDefault();
-    var q=(document.getElementById('hero-q')||{{}}).value||'';
-    var inp=document.getElementById('sg-q');
-    if(inp){{ inp.value=q; inp.dispatchEvent(new Event('input', {{bubbles:true}})); }}
-    var cat=document.getElementById('catalog');
-    if(cat) cat.scrollIntoView({{behavior:'smooth', block:'start'}});
-  }});
-  document.querySelectorAll('.chips a[data-q]').forEach(function(a){{
-    a.addEventListener('click', function(ev){{
-      ev.preventDefault();
-      var inp=document.getElementById('sg-q');
-      if(inp){{ inp.value=a.getAttribute('data-q')||''; inp.dispatchEvent(new Event('input', {{bubbles:true}})); }}
-      var cat=document.getElementById('catalog');
-      if(cat) cat.scrollIntoView({{behavior:'smooth', block:'start'}});
-    }});
-  }});
-}})();
-</script>
 """
     return _shell(
         "ACBuy Spreadsheet in het Nederlands: kopen in China vanaf Nederland",
-        "Onafhankelijke gids in het Nederlands: hoe je via ACBuy in China koopt, hoe de catalogus werkt, hoe een pakket naar Nederland reist.",
+        "Onafhankelijke gids in het Nederlands: hoe je via ACBuy in China koopt, hoe de catalogus van w2clinks werkt, hoe een pakket naar Nederland reist.",
         f"https://{HOST}/",
-        [faq_ld("nl-NL", long_faqs(FACTS))],
+        [faq_ld("nl-NL", _nl_faqs())],
         body,
         "/",
     )
 
 
 def build_help() -> str:
-    pairs = long_faqs(FACTS)
+    pairs = _nl_faqs()
     g1 = _faq_html(pairs[0:3], open_first=True)
     g2 = _faq_html(pairs[3:7], open_first=False)
     g3 = _faq_html(pairs[7:9], open_first=False)
     g4 = _faq_html(pairs[9:13], open_first=False)
     g5 = _faq_html(pairs[13:15], open_first=False)
+    fig_help = _fig(
+        "/img/shots/oficial-guidebook-3.jpg",
+        "Officiële ACBuy GuideBook: eerste betaling in de Checkout",
+        "Vragen over een concreet pakket horen in de officiële chat, niet op deze gids. Opname 5 Oct 2026.",
+    )
     body = f"""
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Hulp</span>
   <h1>Hulp en vragen over ACBuy in Nederland</h1>
   <p class="lead">Vijftien vragen die bij de eerste orders terugkomen, beantwoord met wat we zelf hebben nagekeken en met een link naar de officiële bron als het cijfer niet van ons is.</p>
   <p>Als je twijfel over een concreet pakket gaat: het juiste loket is de officiële support. Wij zien je account niet. Deze pagina legt het systeem uit vóór en ná het bestellen.</p>
-  {_local_block()}
+  {fig_help}
   <h2>Wat ACBuy is en in welke taal het werkt</h2>
   {g1}
   <h2>Wat je gaat betalen</h2>
@@ -730,7 +712,7 @@ def build_help() -> str:
 """
     return _shell(
         "Hulp en vragen over ACBuy in Nederland",
-        "FAQ voor een Nederlands huisadres: twee betalingen, catalogus, volumgewicht, Douane. Geen onderwaardering.",
+        "FAQ voor Nederland: twee betalingen, catalogus van w2clinks, volumgewicht, Douane. Geen onderwaardering.",
         f"https://{HOST}/hulp/",
         [faq_ld("nl-NL", pairs)],
         body,
@@ -751,9 +733,9 @@ def build_news() -> str:
             "Wat dat voor jou betekent: lees het bedrag in de app op de dag van betalen. Een eurosymbool op een ongewijzigd cijfer is geen koers.",
         ),
         (
-            "De catalogus zoekt in het Engels; de homepage vangt dat op",
-            "De index van /api/products/ op deze host is Engels. sneakers en hoodie geven kaarten; turnschoenen of hoodie in het Nederlands geven vaak nul. Dat is de index, geen lege winkel. Gemeten {date}.".format(date=DATE),
-            "Wat dat voor jou betekent: typ de Engelse key, of tik een chip op de homepage. De categorie-muur toont die keys expres.",
+            "De catalogus van w2clinks zoekt in het Engels",
+            "We zochten in de ACBuy-catalogus van w2clinks. sneakers, hoodie en jacket gaven pagina’s resultaten; turnschoenen, trui of jas gaven vaak nul. Dat is de index, geen lege winkel. Gemeten {date}.".format(date=DATE),
+            "Wat dat voor jou betekent: typ de Engelse key, of tik een chip op de homepage. De zoekbalk daar stuurt je naar w2clinks.",
         ),
         (
             "Officiële Help laadt zonder JavaScript niet",
@@ -762,7 +744,7 @@ def build_news() -> str:
         ),
         (
             "Hoe we dit controleren",
-            "Verzendcijfers komen uit de publieke estimator, steeds met dezelfde gewoonte (bestemming Nederland, 1000 g, 35×25×10 cm) en de datum van de ronde. Cataloguscijfers komen uit /api/products/ op deze host. Rankende gidsen (verzending, review, handleiding) blijven eigen URL’s; deze pagina overschrijft ze niet.",
+            "Verzendcijfers komen uit de publieke estimator, steeds met dezelfde gewoonte (bestemming Nederland, 1000 g, 35×25×10 cm) en de datum van de ronde. De catalogus waarover we schrijven is w2clinks, niet een productgrid op deze homepage. Rankende gidsen (verzending, review, handleiding) blijven eigen URL’s; deze pagina overschrijft ze niet.",
             "We publiceren geen SKU-prijs in de lopende tekst. Die verandert per week; daarvoor is de officiële schatter, die bovendien publiek is.",
         ),
     ]
@@ -786,7 +768,7 @@ def build_news() -> str:
 """
     return _shell(
         "Nieuws: wat we hebben nagekeken op ACBuy voor Nederland",
-        "Gedateerde checks: estimator NL, valutaswitch, Engelse catalogus, officiële Help. Geen bedrijfsblog.",
+        "Gedateerde checks: estimator NL, valutaswitch, Engelse catalogus op w2clinks, officiële Help. Geen bedrijfsblog.",
         f"https://{HOST}/nieuws/",
         [ld],
         body,
@@ -795,23 +777,27 @@ def build_news() -> str:
 
 
 def build_about() -> str:
+    fig_about = _fig(
+        "/img/shots/oficial-inicio.jpg",
+        "Officiële ACBuy-homepage, anders dan deze gids",
+        "De officiële site is een andere URL dan deze gids. Opname 5 Oct 2026.",
+    )
     body = f"""
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Over ons</span>
   <h1>Een onafhankelijke site over ACBuy, in het Nederlands</h1>
-  <p class="lead">{escape(HOST)} is geen ACBuy. Het is een redactionele gids: wat de agent doet, hoe de catalogus werkt, en hoe een pakket naar Nederland reist.</p>
+  <p class="lead">ACBuy Spreadsheet is geen ACBuy. Het is een redactionele gids: hoe die agent werkt, en hoe je de catalogus van w2clinks gebruikt vanaf Nederland.</p>
   <p>We nemen geen bestellingen aan, rekenen geen porto, bewaren geen goederen en zien geen account. Een probleem met een order hoort op {escape(OFFICIAL)}.</p>
-  <h2>Waar elk gegeven vandaan komt</h2>
+  {fig_about}
+  <h2>Hoe we werken</h2>
+  <h3>Waar elk gegeven vandaan komt</h3>
   <p>Verzendcijfers komen uit de publieke estimator, steeds met bestemming, gewicht, maten en de datum van de check. Invoer wijst naar <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/" rel="noopener">Belastingdienst Douane</a>. Wat we niet hebben nagekeken, publiceren we niet.</p>
-  <h2>Waarom je hier weinig tarieven ziet</h2>
+  <h3>Waarom je hier weinig tarieven ziet</h3>
   <p>SKU-prijzen veranderen per week. Een vast bedrag op deze pagina zou binnen dagen misleidend zijn. We leggen het mechanisme uit en sturen je naar <a href="{escape(EST)}">{escape(EST)}</a> voor het bedrag van die dag.</p>
-  <h2>Wat deze host wel en niet is</h2>
-  <p>Dit is de Nederland-gids voor ACBuy: homepage met catalogus, verzendplan, hulp, nieuws en deze pagina. De oranje balk zegt welk platform we bespreken — niet dat wij de app zijn.</p>
-  <p>Canada is een andere dest (AllChinaBuy). Een extra hostname van hetzelfde land wijst naar deze gids. Landen worden niet samengevoegd.</p>
-  <h2>Registratiecodes</h2>
-  <p>Codes horen op de coupon-URL, niet in de titel van de homepage. Zonder code registreren kan ook, rechtstreeks op de officiële site. Dat verandert niet wat we schrijven: ongemakkelijke metingen (Engelse catalogus, valutaswitch die alleen het teken wisselt) staan hier omdat ze kloppen.</p>
+  <h3>Wat de screenshots tonen</h3>
+  <p>Opnames van acbuy.com zijn van {escape(DATE)}. Productkaarten bij «spreadsheet» komen van w2clinks, niet van een productgrid op deze homepage. Bedragen in een tutorial zijn voorbeelden van die dag, geen kassaprijs voor jouw doos.</p>
   <h2>Contact</h2>
-  <p>Orders: in-app chat op ACBuy. Deze gids: <a href="mailto:{escape(MAIL)}">{escape(MAIL)}</a>. Als een kolom of een link stukgaat, zetten we dat met datum op <a href="/nieuws/">Nieuws</a>.</p>
+  <p>Schrijf als een gegeven, een link of een vertaling stukgaat. We zetten de correctie met datum op <a href="/nieuws/">Nieuws</a>. Orders: in-app chat op ACBuy. Deze gids: <a href="mailto:{escape(MAIL)}">{escape(MAIL)}</a>.</p>
 </article>
 """
     return _shell(
@@ -825,7 +811,14 @@ def build_about() -> str:
 
 
 def _assert_ok(html: str, page: str) -> None:
-    err = validate_desk(html, FACTS, page=page)
+    skip = {
+        "missing #local dest briefing",
+        "missing #local",
+        "missing #catalog",
+        "missing catalogue API",
+        "missing FX_CCY EUR",
+    }
+    err = [e for e in validate_desk(html, FACTS, page=page) if e not in skip]
     if INVITE in html or INVITE2 in html or INVITE3 in html:
         if page == "home":
             err.append("invite token on homepage")
@@ -847,6 +840,12 @@ def _assert_ok(html: str, page: str) -> None:
     for alien in ALIENS:
         if alien in html:
             err.append(f"sister leak {alien}")
+    if "/api/products/" in html:
+        err.append("api products dump")
+    if "Voor een huisadres in Nederland" in html:
+        err.append("huisadres briefing leftover")
+    if "w2cspreadsheet" in html.lower() or "W2CSpreadsheet" in html or "W2C Spreadsheet" in html:
+        err.append("w2cspreadsheet leftover")
     if page == "home":
         if html.count('class="sg-faq"') >= 8:
             err.append("faq dump on homepage")
@@ -860,6 +859,12 @@ def _assert_ok(html: str, page: str) -> None:
             err.append("missing illustrated figures")
         if "geen stockfoto" in html:
             err.append("empty shots panel leftover")
+        if "geen Excel-bestand" not in html or "w2clinks" not in html:
+            err.append("sheet-explain not aligned with hipobuy.es / w2clinks")
+        if "Dezelfde indeling" in html:
+            err.append("categories meta dump")
+        if 'id="local"' in html or 'id="catalog"' in html:
+            err.append("ops ids leftover on home")
     if page == "news" and ("Novedades" in html or "op de platform" in html):
         err.append("news meta leftover")
     if err:
@@ -1198,15 +1203,21 @@ def live_check() -> None:
         (f"https://{HOST}/over-ons/", "about", False),
         (f"https://{HOST}/acbuy-shipping-guide/", "ranked", False),
         (f"https://{HOST}/is-acbuy-legit/", "ranked", False),
+        (f"https://{HOST}/how-to-use-acbuy/", "ranked", False),
     ]
-    for url, kind, need_local in checks:
+    for url, kind, need_fp in checks:
         code, final, loc, body = fetch(url, follow=True)
         html = body.decode("utf-8", "replace")
         print(kind, code, "bytes", len(body), "cms", "nlo-logo" in html or "acbuy-wordmark" in html)
         if code != 200:
             print(" FAIL status"); fail += 1
-        if need_local and (fp not in html or 'id="local"' not in html):
-            print(" FAIL local"); fail += 1
+        if need_fp and fp not in html:
+            print(" FAIL fingerprint"); fail += 1
+        if kind in ("home", "help", "news", "about"):
+            if "/api/products/" in html or "Voor een huisadres in Nederland" in html:
+                print(" FAIL api/huisadres leftover"); fail += 1
+            if "w2cspreadsheet" in html.lower() or "W2C Spreadsheet" in html:
+                print(" FAIL w2cspreadsheet leftover"); fail += 1
         if kind == "home":
             if INVITE in html or re.search(r"90\s*days", html, re.I):
                 print(" FAIL invite/90"); fail += 1
@@ -1232,6 +1243,10 @@ def live_check() -> None:
                 print(" FAIL footer independence/mail"); fail += 1
             if "Jointown" in html or "EVERLINE" in html or f"support@{HOST}" in html:
                 print(" FAIL operator/old mailbox"); fail += 1
+            if "geen Excel-bestand" not in html or "Dezelfde indeling" in html:
+                print(" FAIL sheet-explain / categories dump"); fail += 1
+            if 'id="local"' in html or 'id="catalog"' in html:
+                print(" FAIL ops ids on home"); fail += 1
             for alien in ("Packstation", "form A1A 1A1"):
                 if alien in html:
                     print(" FAIL alien", alien); fail += 1
