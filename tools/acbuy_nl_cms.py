@@ -37,6 +37,7 @@ from desk_template import (
 )
 from dest_inner_chrome import (
     _body_scripts_outside_article,
+    _element_inner,
     _head_inner,
     _html_tag,
     _text_len,
@@ -156,7 +157,7 @@ def _header(page: str) -> str:
 <header class="nav" role="banner">
   <div class="nbrand">
     <a href="/" class="nlo">
-      <img src="/assets/images/acbuy-wordmark.png" alt="ACBuy" class="nlo-logo"
+      <img src="/assets/images/acbuy-wordmark.png?v=20261005-nl" alt="ACBuy" class="nlo-logo"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <span class="nfb" style="display:none">A</span>
     </a>
@@ -177,7 +178,7 @@ def _footer() -> str:
     return f"""<footer class="ft">
   <div class="fti">
     <div>
-      <div class="flo"><img src="/assets/images/acbuy-wordmark.png" alt="ACBuy" class="flo-logo"><span>ACBuy Nederland</span></div>
+      <div class="flo"><img src="/assets/images/acbuy-wordmark.png?v=20261005-nl" alt="ACBuy" class="flo-logo"><span>ACBuy Nederland</span></div>
       <p class="ftg">Onafhankelijke infodesk op {escape(HOST)}. Niet de officiële ACBuy-app. Geen bestellingen, geen kassa. AllChinaBuy Canada blijft een aparte host — geen 301 tussen landen.</p>
     </div>
     <div class="fc"><h4>Op deze host</h4><ul>{keep}</ul></div>
@@ -246,7 +247,7 @@ img{{max-width:100%;display:block}}
 .prose h2,.prose h3{{margin:28px 0 10px;font-size:22px;color:var(--bk)}}
 .sg-cats{{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}}
 .sg-cat{{display:block;border:1px solid var(--g5);border-radius:12px;padding:14px;text-decoration:none;color:inherit;background:#fff}}
-.sg-cat span{{color:var(--g4);font-size:12px}}
+.sg-cat span{{display:block;color:var(--g4);font-size:12px;margin-top:4px}}
 .sg-mw{{max-width:1100px;margin:0 auto;padding:12px 24px 40px}}
 .sg-chips{{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}}
 .sg-chips button{{border:1px solid var(--g5);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer}}
@@ -626,6 +627,29 @@ def _desk_css_path() -> Path:
     return OUT / HOST / "overlay" / "assets" / "css" / "acbuy-nl-desk.css"
 
 
+def _wordmark_path() -> Path:
+    return OUT / HOST / "overlay" / "assets" / "images" / "acbuy-wordmark.png"
+
+
+def write_wordmark(path: Path) -> Path:
+    """Orange ACBuy wordmark — replaces the leftover AllChinaBuy teal icon."""
+    from PIL import Image, ImageDraw, ImageFont
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    w, h = 324, 70
+    im = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((0, 0, 70, 70), 16, fill=(232, 112, 0, 255))
+    font_a = ImageFont.truetype("/usr/share/fonts/truetype/macos/Inter-Bold.ttf", 36)
+    font_w = ImageFont.truetype("/usr/share/fonts/truetype/macos/Inter-Bold.ttf", 40)
+    bbox = d.textbbox((0, 0), "A", font=font_a)
+    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    d.text(((70 - tw) / 2 - bbox[0], (70 - th) / 2 - bbox[1] - 1), "A", font=font_a, fill=(255, 255, 255, 255))
+    d.text((86, 12), "ACBuy", font=font_w, fill=(17, 17, 17, 255))
+    im.save(path, "PNG")
+    return path
+
+
 def generate() -> dict[str, Path]:
     dest = OUT / HOST / "overlay"
     dest.mkdir(parents=True, exist_ok=True)
@@ -635,13 +659,14 @@ def generate() -> dict[str, Path]:
     css_path = _desk_css_path()
     css_path.parent.mkdir(parents=True, exist_ok=True)
     css_path.write_text(CSS, encoding="utf-8")
+    logo = write_wordmark(_wordmark_path())
     pages = {
         "home": (dest / "index.html", build_home(), "home"),
         "help": (dest / "hulp" / "index.html", build_help(), "help"),
         "news": (dest / "nieuws" / "index.html", build_news(), "news"),
         "about": (dest / "over-ons" / "index.html", build_about(), "about"),
     }
-    out: dict[str, Path] = {"css": css_path}
+    out: dict[str, Path] = {"css": css_path, "logo": logo}
     for key, (path, html, page) in pages.items():
         _assert_ok(html, page)
         n = len(html.encode("utf-8"))
@@ -660,10 +685,25 @@ def generate() -> dict[str, Path]:
     return out
 
 
-def wrap_inner(html: str, page_href: str) -> tuple[str | None, str]:
-    if INNER_MARKER in html:
-        return None, "already"
+def _clean_article(html: str) -> str | None:
     article = extract_article(html)
+    if not article:
+        return None
+    wrapped = "<body>" + article + "</body>"
+    while True:
+        block = _element_inner(wrapped, "main")
+        if not block:
+            break
+        inner, _s, _e = block
+        if _text_len(inner) < max(120, int(_text_len(article) * 0.75)):
+            break
+        article = inner.strip()
+        wrapped = "<body>" + article + "</body>"
+    return article
+
+
+def wrap_inner(html: str, page_href: str) -> tuple[str | None, str]:
+    article = _clean_article(html)
     if not article:
         return None, "no-article"
     if _text_len(article) < 120:
@@ -730,6 +770,41 @@ def _connect():
 def _run(client, cmd: str, timeout: int = 90) -> str:
     _, stdout, stderr = client.exec_command(cmd, timeout=timeout)
     return (stdout.read() + stderr.read()).decode(errors="replace").strip()
+
+
+OLD_API = """    location /api/ {
+        try_files $uri =404;
+        add_header X-Robots-Tag "noindex, nofollow" always;
+    }
+"""
+NEW_API = """    location /api/ {
+        rewrite ^/api/([^/]+)/?$ /api/$1/index.php last;
+        add_header X-Robots-Tag "noindex, nofollow" always;
+    }
+"""
+
+
+def _patch_api_nginx(client, sftp) -> None:
+    remote = f"/www/server/panel/vhost/nginx/{HOST}.conf"
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    _run(client, f"cp -a '{remote}' '/www/backup/acbuy-nl-nginx-{stamp}.conf'")
+    with sftp.open(remote, "r") as fh:
+        text = fh.read().decode()
+    if NEW_API in text:
+        print("nginx api already patched")
+        return
+    if OLD_API not in text:
+        raise SystemExit("nginx /api/ block not found")
+    text = text.replace(OLD_API, NEW_API, 1)
+    tmp = Path("/tmp/acbuy-nl.conf")
+    tmp.write_text(text, encoding="utf-8")
+    sftp.put(str(tmp), remote)
+    chk = _run(client, "nginx -t")
+    print(chk)
+    if "successful" not in chk.lower() and "ok" not in chk.lower():
+        raise SystemExit("nginx -t failed")
+    print(_run(client, "nginx -s reload"))
+    print("nginx api patched")
 
 
 def _wrap_ranked(client, sftp, bak: str, root: str) -> None:
@@ -800,15 +875,8 @@ def put() -> None:
     theme = OUT / "shared" / "themes" / "acbuy-theme.css"
     sftp.put(str(theme), f"{root}/assets/css/acbuy-theme.css")
     sftp.put(str(files["css"]), f"{root}/assets/css/acbuy-nl-desk.css")
-    logo_ok = _run(client, f"test -f '{root}/assets/images/acbuy-wordmark.png' && echo yes || echo no")
-    if logo_ok.strip() != "yes":
-        src = "/www/wwwroot/allchinabuyspreadsheet.ca/assets/images/acbuy-wordmark.png"
-        alt = "/www/wwwroot/acbuyspreadsheets.nl/assets/images/allchinabuy-wordmark.png"
-        _run(
-            client,
-            f"test -f '{src}' && cp -a '{src}' '{root}/assets/images/acbuy-wordmark.png' || "
-            f"(test -f '{alt}' && cp -a '{alt}' '{root}/assets/images/acbuy-wordmark.png' || true)",
-        )
+    sftp.put(str(files["logo"]), f"{root}/assets/images/acbuy-wordmark.png")
+    _patch_api_nginx(client, sftp)
     _wrap_ranked(client, sftp, bak, root)
     for rel, min_b in RANKED:
         inner = f"{root}{rel}index.html"
