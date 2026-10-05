@@ -1182,6 +1182,18 @@ def _strip_factory_english(article: str) -> str:
     )
     for pat in pats:
         out = re.sub(pat, " ", out, flags=re.I)
+    out = re.sub(r"(?is)<p\b[^>]*>\s*(?:<br\s*/?>|\s|&nbsp;)*p>\s*", " ", out)
+    out = re.sub(r'(?is)<a href="/acbuy-spreadsheet/"[^>]*>\s*</a>', " ", out)
+    out = re.sub(
+        r'(?is)(<div style="max-width:720px;[^"]*">)\s*(<h1[\s\S]*?</h1>)\s*<p\b[^>]*>[\s\S]*?</p>\s*',
+        r"\1\n  \2\n  ",
+        out,
+        count=1,
+    )
+    out = out.replace("background:#fff8f0;border:1px solid #ffd8b0", "background:#e8f7f2;border:1px solid #9ee8d2")
+    out = out.replace("color:#b35b00", "color:#27BA9B")
+    out = out.replace("background:#f7fbff;border:1px solid #c9dff5", "background:#f5f6f7;border:1px solid #eaecf0")
+    out = out.replace("color:#0b5cab", "color:#27BA9B")
     out = re.sub(
         r">Home</a>",
         ">Start</a>",
@@ -1517,7 +1529,7 @@ def live_check() -> None:
                 print(" FAIL ranked chrome"); fail += 1
             if "README.md" in html or "expand this stub" in html:
                 print(" FAIL ranked english stub"); fail += 1
-            if 'id="lang-modal"' in html or "This page is part of" in html:
+            if 'id="lang-modal"' in html or "This page is part of" in html or re.search(r">\s*p>", html):
                 print(" FAIL ranked english chrome"); fail += 1
             if f"acbuy-nl-desk.css?v={CSS_V}" not in html or "allchinabuy-theme.css" in html:
                 print(" FAIL ranked mint css"); fail += 1
