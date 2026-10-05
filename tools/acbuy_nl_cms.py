@@ -881,8 +881,8 @@ def build_help() -> str:
 </article>
 """
     return _shell(
-        "Hulp en vragen over ACBuy in Nederland",
-        "FAQ voor Nederland: twee betalingen, catalogus van w2clinks, volumgewicht, Douane. Geen onderwaardering.",
+        "Hulp en veelgestelde vragen | ACBuy Spreadsheet",
+        "Vijftien veelgestelde vragen over ACBuy, in het Nederlands: betalingen, volumgewicht, Douane in Nederland, catalogus van w2clinks.",
         f"https://{HOST}/hulp/",
         [faq_ld("nl-NL", pairs)],
         body,
@@ -931,14 +931,15 @@ def build_news() -> str:
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Nieuws</span>
   <h1>Wat we op het platform hebben nagekeken, met datum</h1>
-  <p class="lead">Dit is geen bedrijfsblog. Het zijn onze eigen checks, met datum, zodat je ziet welke informatie van deze maand is en welke al ouder. Stand {escape(DATE)}.</p>
-  <p>Eerste ronde: {escape(DATE)}. De checks hieronder komen uit dezelfde sessie, terwijl we deze gids bouwden. Volgende rondes komen erboven, met hun eigen datum.</p>
+  <p class="lead">Dit is geen bedrijfsnieuwsbrief. Het zijn onze eigen controles, met datum, zodat je weet welke informatie recent is en welke al maanden niet nagekeken is.</p>
+  <p>Eerste ronde: {escape(DATE)}. De controles hieronder komen uit dezelfde sessie, terwijl we deze gids bouwden. Het zijn geen vijf losse berichten van verschillende dagen, en we presenteren ze ook niet zo. Volgende rondes komen erboven, met hun eigen datum.</p>
+  <p>Als een gegeven op deze site verandert, komt het hier te staan met de datum van de nieuwe check, in plaats van stilletjes herschreven te worden.</p>
   {cards}
 </article>
 """
     return _shell(
-        "Nieuws: wat we hebben nagekeken op ACBuy voor Nederland",
-        "Gedateerde checks: estimator NL, valutaswitch, Engelse catalogus op w2clinks, officiële Help. Geen bedrijfsblog.",
+        "Nieuws van het platform | ACBuy Spreadsheet",
+        "Gedateerde controles over ACBuy: verzendlijnen naar Nederland, valuta, en het zoekgedrag van de catalogus.",
         f"https://{HOST}/nieuws/",
         [ld],
         body,
@@ -971,8 +972,8 @@ def build_about() -> str:
 </article>
 """
     return _shell(
-        "Over ons: onafhankelijke ACBuy-gids voor Nederland",
-        "acbuyspreadsheets.nl is redactioneel onafhankelijk. Geen bestellingen, geen accounttoegang.",
+        "Wie we zijn en hoe je ons bereikt | ACBuy Spreadsheet",
+        "Onafhankelijke site in het Nederlands over ACBuy: hoe we gegevens nalopen, waarom we weinig tarieven zetten, en hoe je ons schrijft.",
         f"https://{HOST}/over-ons/",
         [],
         body,
@@ -1052,8 +1053,13 @@ def _assert_ok(html: str, page: str) -> None:
             err.append("catalog missing first-category section")
         if "bronlink" not in html:
             err.append("catalog missing source-link copy")
-    if page == "news" and ("Novedades" in html or "op de platform" in html):
-        err.append("news meta leftover")
+    if page == "news":
+        if "Novedades" in html or "op de platform" in html:
+            err.append("news meta leftover")
+        if "Nieuws van het platform | ACBuy Spreadsheet" not in html:
+            err.append("news title not aligned with hipobuy.es")
+        if "Nieuws: wat we hebben nagekeken" in html:
+            err.append("old news tab title leftover")
     if err:
         raise SystemExit(f"{page}: {'; '.join(err)}")
 
@@ -1520,6 +1526,8 @@ def live_check() -> None:
                 print(" FAIL catalog css bust"); fail += 1
         if kind == "news" and ("Novedades" in html or "op de platform" in html):
             print(" FAIL news meta leftover"); fail += 1
+        if kind == "news" and "Nieuws van het platform | ACBuy Spreadsheet" not in html:
+            print(" FAIL news title"); fail += 1
         if kind == "help" and "FAQPage" not in html:
             print(" FAIL help FAQPage"); fail += 1
         if kind == "news" and "ItemList" not in html:
