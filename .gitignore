@@ -20,6 +20,7 @@ sites/*/.cache/
 !.env.example
 credentials.json
 *.pem
+**/config.local.php
 
 # OS & editor
 .DS_Store
