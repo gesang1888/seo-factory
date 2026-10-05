@@ -91,7 +91,8 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
 .sg-fx{color:var(--mute);font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:var(--medida)}
 .sg-faq{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff;max-width:40em}
 .sg-faq summary{cursor:pointer;font-weight:700}
-.ncard{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:12px;max-width:40em}
+.ncard{border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 8px;margin-bottom:18px;max-width:40em}
+.ncard h2{font-size:22px}
 .shot-panel{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:var(--soft);max-width:40em}
 .site-ft{background:#111;color:#ccc;padding:40px 0 24px;margin-top:24px}
 .ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}
@@ -315,48 +316,41 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
     <h2>Nederland heeft lijnen, maar niet elke lijn is open</h2>
     <p class="lead">De officiële schatter is publiek. Kies bestemming Nederland, niet EU. Live geld staat in de estimator, niet in deze homepage.</p>
     <p>Open de officiële estimator met bestemming <strong>Nederland</strong> voordat je internationaal betaalt. Labgewoonte: 1000 g / 35×25×10 cm, kleding. Lab 5 Oct 2026. USD-cijfers kunnen dollar blijven als alleen het teken wisselt.</p>
-    <p>Het gewicht dat je betaalt is bijna nooit alleen de weegschaal. Veel luchtlijnen rekenen volumgewicht L×B×H/8000 en factureren het maximum. Een donsjas is licht en volumineus: daar beslist het volume. Die rekening, plus Douane, staat in het onafhankelijke verzendplan.</p>
-    <p><a class="btn" href="/acbuy-shipping-guide/">Verzendplan: lijnen, Douane, volumgewicht</a>
-       <a class="btn btn--ghost" href="https://www.acbuy.com/estimation/">Open de officiële estimator</a></p>
+    <p><a class="btn" href="https://www.acbuy.com/estimation/">Open de officiële estimator</a>
+       <a class="btn btn--ghost" href="/acbuy-shipping-guide/">Verzendplan: lijnen en Douane</a></p>
   </div>
 </section>
-<section class="sec" id="restricted">
+<section class="sec" id="volume">
+  <div class="wrap">
+    <h2>Het gewicht dat je betaalt is bijna nooit alleen de weegschaal</h2>
+    <p class="lead">Veel luchtlijnen rekenen volumgewicht L×B×H/8000 en factureren het maximum van weegschaal en volume. Een donsjas is licht en volumineus: daar beslist het volume.</p>
+    <p>Die rekening, plus wat de Douane die ochtend vraagt, staat in het verzendplan — een eigen URL, geen bijlage onder deze homepage. Deze pagina kopieert geen lijnentelling en geen SKU-prijs: die cijfers veranderen per week.</p>
+    <p><a class="btn" href="/acbuy-shipping-guide/">Verzendplan met volumgewicht</a></p>
+  </div>
+</section>
+<section class="sec sec--tint" id="restricted">
   <div class="wrap">
     <h2>Veel producten kun je niet kopen, ook al staan ze er</h2>
-    <p class="lead">Op het officiële site zie je fiches «Restricted item» en fiches met prijs nul. Dat is geen fout van deze homepage: de bronlink is niet koopbaar via de agent, of de prijs liet zich niet lezen.</p>
+    <p class="lead">Op de officiële site zie je fiches «Restricted item» en fiches met prijs nul. Dat is geen fout van deze homepage: de bronlink is niet koopbaar via de agent, of de prijs liet zich niet lezen.</p>
     <p>Regel: zonder echte prijs en varianten niet bestellen. Tabak, alcohol en geneesmiddelen reizen niet. Restricted is een inkoopblokkade, geen bericht van de Douane.</p>
   </div>
 </section>
-<section class="sec sec--tint" id="shots">
+<section class="sec" id="shots">
   <div class="wrap">
     <h2>Officiële schermen, geen stockfoto’s</h2>
     <p class="lead">Live estimator, QC-foto’s en iDEAL zitten in de ACBuy-app. Deze homepage plakt geen verzonnen screenshots.</p>
     <div class="shot-panel">
-      <p>Open de schatter met bestemming Netherlands. De gids, de hulpvragen en de gedateerde checks staan op eigen URL’s — niet als bijlage onder deze hero.</p>
+      <p>Open de schatter met bestemming Netherlands. De bedragen die je daar ziet, zijn van die dag — niet van deze HTML.</p>
       <p><a class="btn" href="https://www.acbuy.com/">Open ACBuy</a>
          <a class="btn btn--ghost" href="https://www.acbuy.com/estimation/">Vracht-schatter</a></p>
     </div>
   </div>
 </section>
-<section class="sec" id="faq">
+<section class="sec sec--tint" id="faq">
   <div class="wrap">
     <h2>Hulp, nieuws en waar je vraagt</h2>
-    <p class="lead">De meeste twijfels van de eerste orders herhalen zich. Ze staan beantwoord in het Nederlands op de hulppagina — een eigen URL, geen bijlage van deze homepage.</p>
-    <details class="sg-faq" open><summary>Verkoopt ACBuy de spullen op deze site?</summary><p>Nee. ACBuy is een inkoopagent: hij koopt in Chinese derdewinkels op jouw naam, fotografeert in het magazijn, daarna boek jij een internationale SKU naar Nederland. acbuyspreadsheets.nl is een onafhankelijke infodesk. Bestellen en klachten alleen op https://www.acbuy.com/. De kaarten op acbuyspreadsheets.nl zijn een index, geen voorraad van ACBuy. Op deze hostname wordt niet geïnd.</p></details>
-<details class="sg-faq"><summary>Kan ik ACBuy in het Nederlands zetten?</summary><p>De taalschakelaar van het platform is onafhankelijk van deze desk. Gemeten 5 Oct 2026. Veldnamen in de estimator blijven vaak Engels. Het afleveradres moet Nederland-formaat hebben. De taal van deze desk verandert de app niet. Check de in-app-taal op de ochtend van bestellen naar Nederland.</p></details>
-<details class="sg-faq"><summary>Waarom vindt de catalogus niets in het Nederlands?</summary><p>De index van /api/products/ op acbuyspreadsheets.nl is Engels (sneakers, hoodie, jacket). «Sneakers» werkt; lokale woorden geven vaak 0 kaarten. Dat is geen lege shop. Gemeten 5 Oct 2026. De categorie-muur toont nog de Engelse keys (sneakers, hoodie, jacket) voor /api/products/ op acbuyspreadsheets.nl. Gemeten 5 Oct 2026.</p></details>
-<details class="sg-faq"><summary>Hoe vaak betaal ik?</summary><p>Twee keer: eerst goederen plus binnenlands China, later de internationale lijn naar Nederland. Daartussen kun je bundelen. Deze desk int niks. Magazijnfoto’s zitten tussen de twee betalingen. Boek geen internationale vracht naar Nederland voor je QC in de app accepteert.</p></details>
-<details class="sg-faq"><summary>Waarom dollars op de officiële site en EUR hier?</summary><p>De officiële valutaswitch verandert vaak alleen het teken, niet het cijfer. Deze desk rekent de China-kaart om naar EUR (X-Rates 5 Oct 2026) als weergave, niet als kassa. Lees het bedrag in de app op de dag van betalen. Als de officiële SPA na EUR nog USD-cijfers toont, vertrouw de cijfers en https://www.acbuy.com/estimation/, niet deze HTML. Koers 5 Oct 2026.</p></details>
-<details class="sg-faq"><summary>Hoe betaal ik?</summary><p>Alleen op https://www.acbuy.com/. Kaart, PayPal, saldo — officiële FAQ van die dag. acbuyspreadsheets.nl bewaart geen kaarten. Register-links op deze desk verzamelen geen kaartnummers. Die velden bestaan alleen op https://www.acbuy.com/. acbuyspreadsheets.nl bewaart geen methode.</p></details>
-<details class="sg-faq"><summary>Wat is volumgewicht?</summary><p>De meeste lucht-SKU’s rekenen max(werkelijk, L×B×H/deler) in kg (widget in gram). Een donsjas is licht en volumineus. Alleen meetkunde — het geld staat in https://www.acbuy.com/estimation/ met bestemming Nederland. De widget gebruikt 35×25×10 cm en 1000 g als labgewoonte; jouw doos wijkt af. Open https://www.acbuy.com/estimation/ naar Nederland voor je porto betaalt.</p></details>
-<details class="sg-faq"><summary>Wie betaalt invoer naar Nederland?</summary><p>Wie invoer naar Nederland betaalt, staat op de SKU. DHL kan bij Collect een inklaringsfee innen. Bron: Belastingdienst Douane. Bestemming NL met Nederlandse postcode, geen Duits afhaalautomaat-nummer. Geen onderwaardering. Prepaid of ontvanger kies je bij het pakket, niet bij de aankoop. Lees de SKU-kop en Douane die ochtend.</p></details>
-<details class="sg-faq"><summary>Is er een drempel om te spelen?</summary><p>BTW, IOSS en drempels wijzigen. Lees de Douane en de SKU op de verzenddag. Deze desk verzint geen aangegeven waarde en kopieert geen Duitse Zoll-drempel. Een Discord-screenshot van een drempel is geen aangifte. Bron van deze desk: Douane. Wij verzinnen geen aangegeven waarde voor Nederland.</p></details>
-<details class="sg-faq"><summary>Kan ik bestellingen bundelen?</summary><p>Ja, de gebruikelijke besparing. Stukken wachten in het magazijn. Opslag: Officiële ACBuy Help is de live SPA (https://www.acbuy.com/help); bevestig die tekst op de ochtend van verzenden. Deze desk verzint geen gratis-dagen-aantal.. Als QC kartons splitst, schat elk karton naar Nederland. Opslagklok: Officiële ACBuy Help is de live SPA (https://www.acbuy.com/help); bevestig die tekst op de ochtend van verzenden. Deze desk verzint geen gratis-dagen-aantal.. Daarna kan het magazijn rekenen of vernietigen — officiële help, niet deze pagina. Gesplitste kartons elk naar Nederland schatten.</p></details>
-<details class="sg-faq"><summary>Maken ze foto’s?</summary><p>Ja, magazijn-QC-foto’s landen in de app zodra het stuk in China is. Extra hoeken zijn vaak betaald. Reclame is makkelijker zolang het nog in het magazijn ligt, niet na de douane. Wazige foto: koop een extra hoek in-app voordat het stuk naar Nederland vertrekt. Deze desk opent geen ticket.</p></details>
-<details class="sg-faq"><summary>Wat mag niet mee?</summary><p>Tabak, alcohol, medicijnen, verboden spullen. Vloeistoffen en poeders kunnen gevaarlijke goederen zijn. Platformregel, niet Douane. Restricted of prijs 0 niet bestellen. Restricted is een platform-koopblokkade, geen Douane-inbeslagname. Prijs 0 op acbuyspreadsheets.nl is geen kassa.</p></details>
-<details class="sg-faq"><summary>Waarom restricted of prijs 0?</summary><p>De bronlink is niet koopbaar via de agent, of de prijs is niet gelezen. Bouw de haul niet op een nul. Check de live ACBuy-fiche. Prijs 0 betekent vaak: Weidian- of Taobao-link dood. Open de live ACBuy-fiche dezelfde dag; deze HTML is niet de haul.</p></details>
-<details class="sg-faq"><summary>Het pakket is lichter dan de schatting?</summary><p>De officiële FAQ dekt schatting vs werkelijk en portoterugbetaling. Deze HTML is geen live quote. Draai https://www.acbuy.com/estimation/ opnieuw naar Nederland na magazijnfoto’s. Terugbetaling schatting vs werkelijk staat in de officiële FAQ. Draai https://www.acbuy.com/estimation/ opnieuw naar Nederland na foto’s, dan betalen.</p></details>
-<details class="sg-faq"><summary>Waar klaag ik?</summary><p>Alleen op https://www.acbuy.com/, nooit hier. acbuyspreadsheets.nl ziet je account niet. In-app chat / officiële help. Estimator-bestemming is Nederland, niet de TLD. acbuyspreadsheets.nl kan geen order-ID opzoeken. Bewaar het in-app-nummer. Klachten en chat alleen op https://www.acbuy.com/.</p></details>
+    <p class="lead">De meeste twijfels van de eerste orders herhalen zich: twee betalingen, catalogus in het Engels, volumgewicht, Douane. Ze staan beantwoord in het Nederlands op Hulp — een eigen URL, geen bijlage van deze homepage.</p>
+    <p>Op Nieuws zetten we met datum wat we zelf op het platform hebben nagekeken, zodat je ziet wat van deze maand is. Over ons legt uit dat deze host redactioneel onafhankelijk is. Als je met ACBuy moet praten, is het kanaal de in-app-chat: wij zien je account niet.</p>
     <p><a class="btn" href="/hulp/">Alle vragen op Hulp</a>
        <a class="btn btn--ghost" href="/nieuws/">Gedateerde checks op Nieuws</a>
        <a class="btn btn--ghost" href="/over-ons/">Over ons</a></p>

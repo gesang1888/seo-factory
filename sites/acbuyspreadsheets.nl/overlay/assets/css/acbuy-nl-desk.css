@@ -78,7 +78,8 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
 .sg-fx{color:var(--mute);font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:var(--medida)}
 .sg-faq{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff;max-width:40em}
 .sg-faq summary{cursor:pointer;font-weight:700}
-.ncard{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:12px;max-width:40em}
+.ncard{border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 8px;margin-bottom:18px;max-width:40em}
+.ncard h2{font-size:22px}
 .shot-panel{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:var(--soft);max-width:40em}
 .site-ft{background:#111;color:#ccc;padding:40px 0 24px;margin-top:24px}
 .ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}

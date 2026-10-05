@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Rebuild acbuyspreadsheets.nl as an ACBuy NL country desk (HipoBuy-NL depth).
+"""Rebuild acbuyspreadsheets.nl as an ACBuy NL country desk (hipobuy.es IA).
 
-Dutch throughout. Orange ACBuy chrome. Help / News / About as independent pages.
+Homepage is the user guide. Help / News / About / shipping are independent URLs.
 Does not PUT 5KB overlays over ranked inners. Does not invent warehouse-day
 counts or invite tokens on titles. CA AllChinaBuy dest is the next agent.
 Twin allchinabuyspreadsheet.nl stays 301 $request_uri into this dest.
@@ -127,10 +127,11 @@ def _local_block() -> str:
     return local_guide_html(FACTS).strip()
 
 
-def _faq_html() -> str:
+def _faq_html(pairs: list[tuple[str, str]] | None = None, *, open_first: bool = True) -> str:
     items = []
-    for i, (q, a) in enumerate(long_faqs(FACTS)):
-        op = " open" if i == 0 else ""
+    src = pairs if pairs is not None else long_faqs(FACTS)
+    for i, (q, a) in enumerate(src):
+        op = " open" if open_first and i == 0 else ""
         items.append(
             f'<details class="sg-faq"{op}><summary>{escape(q)}</summary><p>{escape(a)}</p></details>'
         )
@@ -280,7 +281,8 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 .sg-fx{{color:var(--mute);font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:var(--medida)}}
 .sg-faq{{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff;max-width:40em}}
 .sg-faq summary{{cursor:pointer;font-weight:700}}
-.ncard{{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:12px;max-width:40em}}
+.ncard{{border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 8px;margin-bottom:18px;max-width:40em}}
+.ncard h2{{font-size:22px}}
 .shot-panel{{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:var(--soft);max-width:40em}}
 .site-ft{{background:#111;color:#ccc;padding:40px 0 24px;margin-top:24px}}
 .ft-grid{{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}}
@@ -382,7 +384,6 @@ def build_home() -> str:
         loc_fn=lambda _k: "nl",
         cat_labels={},
     )
-    faqs = _faq_html()
     body = f"""
 <section class="hero">
   <div class="hero__scrim"></div>
@@ -449,34 +450,41 @@ def build_home() -> str:
     <h2>Nederland heeft lijnen, maar niet elke lijn is open</h2>
     <p class="lead">De officiële schatter is publiek. Kies bestemming Nederland, niet EU. Live geld staat in de estimator, niet in deze homepage.</p>
     <p>{lab["ssub"]}</p>
-    <p>Het gewicht dat je betaalt is bijna nooit alleen de weegschaal. Veel luchtlijnen rekenen volumgewicht L×B×H/8000 en factureren het maximum. Een donsjas is licht en volumineus: daar beslist het volume. Die rekening, plus Douane, staat in het onafhankelijke verzendplan.</p>
-    <p><a class="btn" href="/acbuy-shipping-guide/">Verzendplan: lijnen, Douane, volumgewicht</a>
-       <a class="btn btn--ghost" href="{escape(EST)}">{escape(lab["cta"])}</a></p>
+    <p><a class="btn" href="{escape(EST)}">{escape(lab["cta"])}</a>
+       <a class="btn btn--ghost" href="/acbuy-shipping-guide/">Verzendplan: lijnen en Douane</a></p>
   </div>
 </section>
-<section class="sec" id="restricted">
+<section class="sec" id="volume">
+  <div class="wrap">
+    <h2>Het gewicht dat je betaalt is bijna nooit alleen de weegschaal</h2>
+    <p class="lead">Veel luchtlijnen rekenen volumgewicht L×B×H/8000 en factureren het maximum van weegschaal en volume. Een donsjas is licht en volumineus: daar beslist het volume.</p>
+    <p>Die rekening, plus wat de Douane die ochtend vraagt, staat in het verzendplan — een eigen URL, geen bijlage onder deze homepage. Deze pagina kopieert geen lijnentelling en geen SKU-prijs: die cijfers veranderen per week.</p>
+    <p><a class="btn" href="/acbuy-shipping-guide/">Verzendplan met volumgewicht</a></p>
+  </div>
+</section>
+<section class="sec sec--tint" id="restricted">
   <div class="wrap">
     <h2>Veel producten kun je niet kopen, ook al staan ze er</h2>
-    <p class="lead">Op het officiële site zie je fiches «Restricted item» en fiches met prijs nul. Dat is geen fout van deze homepage: de bronlink is niet koopbaar via de agent, of de prijs liet zich niet lezen.</p>
+    <p class="lead">Op de officiële site zie je fiches «Restricted item» en fiches met prijs nul. Dat is geen fout van deze homepage: de bronlink is niet koopbaar via de agent, of de prijs liet zich niet lezen.</p>
     <p>Regel: zonder echte prijs en varianten niet bestellen. Tabak, alcohol en geneesmiddelen reizen niet. Restricted is een inkoopblokkade, geen bericht van de Douane.</p>
   </div>
 </section>
-<section class="sec sec--tint" id="shots">
+<section class="sec" id="shots">
   <div class="wrap">
     <h2>Officiële schermen, geen stockfoto’s</h2>
     <p class="lead">Live estimator, QC-foto’s en iDEAL zitten in de ACBuy-app. Deze homepage plakt geen verzonnen screenshots.</p>
     <div class="shot-panel">
-      <p>Open de schatter met bestemming Netherlands. De gids, de hulpvragen en de gedateerde checks staan op eigen URL’s — niet als bijlage onder deze hero.</p>
+      <p>Open de schatter met bestemming Netherlands. De bedragen die je daar ziet, zijn van die dag — niet van deze HTML.</p>
       <p><a class="btn" href="{escape(OFFICIAL)}">Open ACBuy</a>
          <a class="btn btn--ghost" href="{escape(EST)}">Vracht-schatter</a></p>
     </div>
   </div>
 </section>
-<section class="sec" id="faq">
+<section class="sec sec--tint" id="faq">
   <div class="wrap">
     <h2>Hulp, nieuws en waar je vraagt</h2>
-    <p class="lead">De meeste twijfels van de eerste orders herhalen zich. Ze staan beantwoord in het Nederlands op de hulppagina — een eigen URL, geen bijlage van deze homepage.</p>
-    {faqs}
+    <p class="lead">De meeste twijfels van de eerste orders herhalen zich: twee betalingen, catalogus in het Engels, volumgewicht, Douane. Ze staan beantwoord in het Nederlands op Hulp — een eigen URL, geen bijlage van deze homepage.</p>
+    <p>Op Nieuws zetten we met datum wat we zelf op het platform hebben nagekeken, zodat je ziet wat van deze maand is. Over ons legt uit dat deze host redactioneel onafhankelijk is. Als je met ACBuy moet praten, is het kanaal de in-app-chat: wij zien je account niet.</p>
     <p><a class="btn" href="/hulp/">Alle vragen op Hulp</a>
        <a class="btn btn--ghost" href="/nieuws/">Gedateerde checks op Nieuws</a>
        <a class="btn btn--ghost" href="/over-ons/">Over ons</a></p>
@@ -517,16 +525,29 @@ def build_home() -> str:
 
 
 def build_help() -> str:
-    faqs = _faq_html()
+    pairs = long_faqs(FACTS)
+    g1 = _faq_html(pairs[0:3], open_first=True)
+    g2 = _faq_html(pairs[3:7], open_first=False)
+    g3 = _faq_html(pairs[7:9], open_first=False)
+    g4 = _faq_html(pairs[9:13], open_first=False)
+    g5 = _faq_html(pairs[13:15], open_first=False)
     body = f"""
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Hulp</span>
   <h1>Hulp en vragen over ACBuy in Nederland</h1>
-  <p class="lead">De meeste twijfels van de eerste orders herhalen zich: twee betalingen, catalogus in het Engels, volumgewicht, Douane. Hier in het Nederlands, voor een huisadres in Nederland.</p>
+  <p class="lead">Vijftien vragen die bij de eerste orders terugkomen, beantwoord met wat we zelf hebben nagekeken en met een link naar de officiële bron als het cijfer niet van ons is.</p>
+  <p>Als je twijfel over een concreet pakket gaat: het juiste loket is de officiële support. Wij zien je account niet. Deze pagina legt het systeem uit vóór en ná het bestellen.</p>
   {_local_block()}
-  <h2>Wat ACBuy is</h2>
-  <p>ACBuy is een inkoopagent: hij koopt in Chinese shops op jouw naam en houdt de goederen in het magazijn tot jij een internationale lijn boekt. Bestellen, betalen en claims gaan alleen via <a href="{escape(OFFICIAL)}">{escape(OFFICIAL)}</a>.</p>
-  {faqs}
+  <h2>Wat ACBuy is en in welke taal het werkt</h2>
+  {g1}
+  <h2>Wat je gaat betalen</h2>
+  {g2}
+  <h2>Invoer naar Nederland</h2>
+  {g3}
+  <h2>Magazijn, foto’s en wat mag reizen</h2>
+  {g4}
+  <h2>Als iets niet klopt</h2>
+  {g5}
   <p><a class="btn" href="{escape(EST)}">Officiële estimator, bestemming Nederland</a>
      <a class="btn btn--ghost" href="/acbuy-shipping-guide/">Verzendplan</a>
      <a class="btn btn--ghost" href="/nieuws/">Nieuws</a></p>
@@ -536,7 +557,7 @@ def build_help() -> str:
         "Hulp en vragen over ACBuy in Nederland",
         "FAQ voor een Nederlands huisadres: twee betalingen, catalogus, volumgewicht, Douane. Geen onderwaardering.",
         f"https://{HOST}/hulp/",
-        [faq_ld("nl-NL", long_faqs(FACTS))],
+        [faq_ld("nl-NL", pairs)],
         body,
         "/hulp/",
     )
@@ -544,39 +565,53 @@ def build_help() -> str:
 
 def build_news() -> str:
     items = [
-        ("Check 1 · Estimator-bestemming NL, niet EU",
-         "Kies Nederland in de officiële schatter. Belgische of Duitse postcode is het verkeerde land. Nederlandse postcode 1234 AB."),
-        ("Check 2 · Officiële Help is een SPA-shell",
-         "https://www.acbuy.com/help geeft zonder JavaScript een SPA-fout. Deze pagina kopieert daar geen verzonnen magazijn-dagentelling uit."),
-        ("Check 3 · EUR-weergave versus USD-cijfers in de app",
-         "De catalogus op deze host toont EUR als weergave van de China-kaart (X-Rates 1 Oct 2026). Live quote blijft de officiële estimator."),
-        ("Check 4 · Catalogus-index is Engels",
-         "/api/products/ op deze host blijft Engels. sneakers werkt; turnschoenen vaak niet."),
-        ("Check 5 · AllChinaBuy Canada blijft een andere dest",
-         "allchinabuyspreadsheet.ca is AllChinaBuy Canada. acbuyspreadsheets.nl blijft ACBuy Nederland. Geen 301 tussen landen."),
-        ("Hoe we dit controleren",
-         "Gedateerde checks, geen bedrijfsblog. Rankende gidsen (verzending, review, handleiding) blijven eigen URL’s; deze Nieuws-pagina overschrijft ze niet."),
+        (
+            "Eerste ronde: estimator-bestemming is Nederland, niet EU",
+            "We openden de officiële schatter met bestemming Nederland. Belgische of Duitse postcode is het verkeerde land. Nederlandse postcode heeft de vorm 1234 AB. Live geld staat in die schatter, niet in deze HTML.",
+            "Wat dat voor jou betekent: filter altijd op Nederland voordat je lijnen vergelijkt. Een EU-keuze is geen Nederlands huisadres.",
+        ),
+        (
+            "Nagekeken: de valutaswitch zet vaak alleen het teken om",
+            "Op de officiële site blijven de cijfers vaak USD-cijfers als je EUR kiest; alleen het symbool wisselt. Deze host toont EUR als weergave van de China-kaart (X-Rates 1 Oct 2026). De kassa blijft de officiële estimator.",
+            "Wat dat voor jou betekent: lees het bedrag in de app op de dag van betalen. Een eurosymbool op een ongewijzigd cijfer is geen koers.",
+        ),
+        (
+            "De catalogus zoekt in het Engels; de homepage vangt dat op",
+            "De index van /api/products/ op deze host is Engels. sneakers en hoodie geven kaarten; turnschoenen of hoodie in het Nederlands geven vaak nul. Dat is de index, geen lege winkel. Gemeten {date}.".format(date=DATE),
+            "Wat dat voor jou betekent: typ de Engelse key, of tik een chip op de homepage. De categorie-muur toont die keys expres.",
+        ),
+        (
+            "Officiële Help laadt zonder JavaScript niet",
+            "https://www.acbuy.com/help is een app-schil. Zonder JavaScript zie je geen magazijnregel. Deze gids kopieert daar geen verzonnen aantal gratis dagen uit; de live tekst staat in de app op de ochtend van verzenden.",
+            "Wat dat voor jou betekent: bewaartermijn en extra hoeken lees je in de officiële Help die dag, niet als een vast getal op deze site.",
+        ),
+        (
+            "Hoe we dit controleren",
+            "Verzendcijfers komen uit de publieke estimator, steeds met dezelfde gewoonte (bestemming Nederland, 1000 g, 35×25×10 cm) en de datum van de ronde. Cataloguscijfers komen uit /api/products/ op deze host. Rankende gidsen (verzending, review, handleiding) blijven eigen URL’s; deze pagina overschrijft ze niet.",
+            "We publiceren geen SKU-prijs in de lopende tekst. Die verandert per week; daarvoor is de officiële schatter, die bovendien publiek is.",
+        ),
     ]
     ld = itemlist_ld(
         url=f"https://{HOST}/nieuws/",
         name="ACBuy NL desk checks",
-        items=[(h, p) for h, p in items],
+        items=[(h, f"{p} {m}") for h, p, m in items],
     )
     cards = "".join(
-        f'<article class="ncard"><h3>{escape(h)}</h3><p>{escape(p)}</p></article>'
-        for h, p in items
+        f'<article class="ncard"><h2>{escape(h)}</h2><p>{escape(p)}</p><p>{escape(m)}</p></article>'
+        for h, p, m in items
     )
     body = f"""
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Nieuws</span>
-  <h1>Wat we op de platform hebben nagekeken, met datum</h1>
-  <p class="lead">Eigen URL, zoals Novedades op de Spaanse gids. Geen bijlage onder de homepage. Stand {escape(DATE)}.</p>
+  <h1>Wat we op het platform hebben nagekeken, met datum</h1>
+  <p class="lead">Dit is geen bedrijfsblog. Het zijn onze eigen checks, met datum, zodat je ziet welke informatie van deze maand is en welke al ouder. Stand {escape(DATE)}.</p>
+  <p>Eerste ronde: {escape(DATE)}. De checks hieronder komen uit dezelfde sessie, terwijl we deze gids bouwden. Volgende rondes komen erboven, met hun eigen datum.</p>
   {cards}
 </article>
 """
     return _shell(
         "Nieuws: wat we hebben nagekeken op ACBuy voor Nederland",
-        "Gedateerde checks: estimator NL, Help-SPA, EUR-weergave, Engelse catalogus, geen 301 naar Canada.",
+        "Gedateerde checks: estimator NL, valutaswitch, Engelse catalogus, officiële Help. Geen bedrijfsblog.",
         f"https://{HOST}/nieuws/",
         [ld],
         body,
@@ -589,15 +624,17 @@ def build_about() -> str:
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Over ons</span>
   <h1>Een onafhankelijke site over ACBuy, in het Nederlands</h1>
-  <p class="lead">{escape(HOST)} is redactioneel onafhankelijk. We nemen geen bestellingen aan, zien je account niet, en rekenen geen porto.</p>
-  <h2>Wat deze host is</h2>
-  <p>Een Nederland-gids in de trant van een landssite: homepage met catalogus, een verzendplan, hulp, nieuws en deze Over-ons-pagina. De oranje balk zegt welk platform we bespreken — niet dat wij de app zijn.</p>
-  <h2>Wat deze host niet is</h2>
-  <p>Geen shop, geen magazijn, geen ticketsysteem. Claims alleen op {escape(OFFICIAL)}. Canada blijft AllChinaBuy op allchinabuyspreadsheet.ca. allchinabuyspreadsheet.nl is een extra host van hetzelfde land en wijst naar deze dest. Geen land-wissel.</p>
-  <h2>Bronnen</h2>
-  <p>Invoer: <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/" rel="noopener">Belastingdienst Douane</a>. Live geld: <a href="{escape(EST)}">{escape(EST)}</a>. Officiële Help is een JavaScript-shell — {escape(STORAGE)}</p>
+  <p class="lead">{escape(HOST)} is geen ACBuy. Het is een redactionele gids: wat de agent doet, hoe de catalogus werkt, en hoe een pakket naar Nederland reist.</p>
+  <p>We nemen geen bestellingen aan, rekenen geen porto, bewaren geen goederen en zien geen account. Een probleem met een order hoort op {escape(OFFICIAL)}.</p>
+  <h2>Waar elk gegeven vandaan komt</h2>
+  <p>Verzendcijfers komen uit de publieke estimator, steeds met bestemming, gewicht, maten en de datum van de check. Invoer wijst naar <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/" rel="noopener">Belastingdienst Douane</a>. Wat we niet hebben nagekeken, publiceren we niet.</p>
+  <h2>Waarom je hier weinig tarieven ziet</h2>
+  <p>SKU-prijzen veranderen per week. Een vast bedrag op deze pagina zou binnen dagen misleidend zijn. We leggen het mechanisme uit en sturen je naar <a href="{escape(EST)}">{escape(EST)}</a> voor het bedrag van die dag.</p>
+  <h2>Wat deze host wel en niet is</h2>
+  <p>Dit is de Nederland-gids voor ACBuy: homepage met catalogus, verzendplan, hulp, nieuws en deze pagina. De oranje balk zegt welk platform we bespreken — niet dat wij de app zijn.</p>
+  <p>Canada is een andere dest (AllChinaBuy). Een extra hostname van hetzelfde land wijst naar deze gids. Landen worden niet samengevoegd.</p>
   <h2>Registratiecodes</h2>
-  <p>Codes horen op de coupon-URL. Ze staan niet in de title van de homepage en niet in deze kop. Zonder code kan ook.</p>
+  <p>Codes horen op de coupon-URL, niet in de titel van de homepage. Zonder code registreren kan ook, rechtstreeks op de officiële site. Dat verandert niet wat we schrijven: ongemakkelijke metingen (Engelse catalogus, valutaswitch die alleen het teken wisselt) staan hier omdat ze kloppen.</p>
   <h2>Contact</h2>
   <p>Orders: in-app chat op ACBuy. Deze gids: <a href="mailto:support@{escape(HOST)}">support@{escape(HOST)}</a>. Als een kolom of een link stukgaat, zetten we dat met datum op <a href="/nieuws/">Nieuws</a>.</p>
 </article>
@@ -627,6 +664,15 @@ def _assert_ok(html: str, page: str) -> None:
     for alien in ALIENS:
         if alien in html:
             err.append(f"sister leak {alien}")
+    if page == "home":
+        if html.count('class="sg-faq"') >= 8:
+            err.append("faq dump on homepage")
+        if "allchinabuyspreadsheet.ca" in html or "Novedades" in html:
+            err.append("planning dump on homepage")
+        if "op de platform" in html:
+            err.append("dutch grammar leftover on home")
+    if page == "news" and ("Novedades" in html or "op de platform" in html):
+        err.append("news meta leftover")
     if err:
         raise SystemExit(f"{page}: {'; '.join(err)}")
 
@@ -951,13 +997,19 @@ def live_check() -> None:
                 print(" FAIL english leftover"); fail += 1
             if "Catalogus" not in html or "ACBuy Spreadsheet" not in html:
                 print(" FAIL dutch hero"); fail += 1
-            if "allchinabuyspreadsheet.ca" in html:
+            if "allchinabuyspreadsheet.ca" in html or "Novedades" in html:
                 print(" FAIL planning dump on home"); fail += 1
+            if html.count('class="sg-faq"') >= 8:
+                print(" FAIL faq dump on home"); fail += 1
             if "FAQPage" not in html:
                 print(" FAIL home FAQPage"); fail += 1
+            if "op de platform" in html:
+                print(" FAIL dutch grammar"); fail += 1
             for alien in ("Packstation", "form A1A 1A1"):
                 if alien in html:
                     print(" FAIL alien", alien); fail += 1
+        if kind == "news" and ("Novedades" in html or "op de platform" in html):
+            print(" FAIL news meta leftover"); fail += 1
         if kind == "help" and "FAQPage" not in html:
             print(" FAIL help FAQPage"); fail += 1
         if kind == "news" and "ItemList" not in html:
