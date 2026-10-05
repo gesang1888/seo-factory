@@ -26,8 +26,6 @@ from desk_template import (
     faq_ld,
     inject_jsonld,
     itemlist_ld,
-    lab_copy,
-    local_guide_html,
     long_faqs,
     organization_ld,
     skip_label,
@@ -123,8 +121,46 @@ FACTS = {
 
 
 def _local_block() -> str:
-    """User-facing NL briefing only. Planning notes live on /nieuws/ and /over-ons/."""
-    return local_guide_html(FACTS).strip()
+    """NL user briefing. Fingerprint stays; ops notes stay off the homepage."""
+    return """<section class="sg-sec" id="local">
+  <h2>Voor een huisadres in Nederland</h2>
+  <p class="ssub">Nederland · acbuyspreadsheets.nl. Nederlandse postcode in de vorm 1234 AB.</p>
+  <ol class="local-steps">
+    <li><strong>Bestemming in de schatter</strong><span>Kies Netherlands — 荷兰, niet EU en niet Netherlands Antilles. Een Belgische of Duitse postcode is het verkeerde land.</span></li>
+    <li><strong>Adres</strong><span>Nederlandse postcode (vorm 1234 AB), geen Duits afhaalautomaat-nummer.</span></li>
+    <li><strong>Invoer</strong><span>Wie invoer betaalt, staat op de geboekte lijn. De bezorger (vaak DHL) kan bij Collect extra innen. Bron: Belastingdienst Douane op de verzenddag. Deze gids verzint geen aangegeven waarde.</span></li>
+    <li><strong>Betalen</strong><span>iDEAL en kaarten zitten in de officiële app, niet op deze gids. Checkout alleen op https://www.acbuy.com/.</span></li>
+  </ol>
+  <p class="local-src">Bron: <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/" rel="noopener">Belastingdienst Douane</a>. Live geld: <a href="https://www.acbuy.com/estimation/">https://www.acbuy.com/estimation/</a> — deze HTML is geen kassa.</p>
+</section>"""
+
+
+def _fig(src: str, alt: str, cap: str, w: int = 1200, h: int = 750) -> str:
+    return (
+        f'<figure class="fig"><img src="{escape(src)}" alt="{escape(alt)}" '
+        f'loading="lazy" width="{w}" height="{h}">'
+        f"<figcaption>{escape(cap)}</figcaption></figure>"
+    )
+
+
+CATS = [
+    ("sneakers", "Turnschoenen", "sneakers.jpg"),
+    ("t-shirt", "T-shirt", "t-shirt.jpg"),
+    ("hoodie", "Hoodie", "hoodie.jpg"),
+    ("jacket", "Jas", "jacket.jpg"),
+    ("jeans", "Spijkerbroek", "jeans.jpg"),
+    ("shorts", "Shorts", "shorts.jpg"),
+    ("underwear", "Ondergoed", "underwear.jpg"),
+    ("jersey", "Shirt", "jersey.jpg"),
+    ("hat", "Petten", "hats.jpg"),
+    ("bags", "Tassen", "bags.jpg"),
+    ("sunglasses", "Brillen", "eyewear.jpg"),
+    ("headphones", "Koptelefoons", "headphones.jpg"),
+    ("perfume", "Parfum", "perfume.jpg"),
+    ("watch", "Horloges", "watches.jpg"),
+    ("jewelry", "Sieraden", "jewelry.jpg"),
+    ("toy", "Speelgoed", "toys.jpg"),
+]
 
 
 def _faq_html(pairs: list[tuple[str, str]] | None = None, *, open_first: bool = True) -> str:
@@ -234,13 +270,14 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 .nav a:hover,.nav a[aria-current]{{background:var(--soft);color:var(--acd);font-weight:700}}
 .burger{{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}}
 .hero{{position:relative;background:#1a0f05;overflow:hidden}}
-.hero__scrim{{position:absolute;inset:0;background:linear-gradient(100deg,rgba(26,15,5,.96) 0%,rgba(232,112,0,.28) 100%)}}
+.hero__bg{{position:absolute;inset:0;background:url(/img/hero.jpg) center/cover no-repeat}}
+.hero__scrim{{position:absolute;inset:0;background:linear-gradient(100deg,rgba(26,15,5,.93) 0%,rgba(26,15,5,.72) 42%,rgba(232,112,0,.22) 100%)}}
 .hero .wrap{{position:relative;padding:74px 22px 78px}}
 .eyebrow{{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#ffd7a8;margin-bottom:14px}}
 .hero h1{{color:#fff;max-width:15.5em}}
 .hero p.lead{{color:#f3e2cc;font-size:19px;max-width:34em}}
 .sbox{{margin-top:26px;max-width:660px}}
-.sbox form{{display:flex;gap:9px;background:#fff;border-radius:var(--r);padding:9px}}
+.sbox form{{display:flex;gap:9px;background:#fff;border-radius:var(--r);padding:9px;box-shadow:0 14px 40px rgba(26,15,5,.34)}}
 .sbox input{{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 14px}}
 .sbox button{{min-height:44px;padding:0 24px;border:0;border-radius:999px;background:var(--acc);color:#fff;font:inherit;font-weight:700;cursor:pointer}}
 .chips{{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}}
@@ -248,10 +285,28 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 .sec{{padding:62px 0;border-top:1px solid var(--line)}}
 .sec--tint{{background:linear-gradient(var(--soft) 0%,#fff 100%);border-top:0}}
 .sec--first{{border-top:0}}
+.split{{display:grid;grid-template-columns:1.04fr .96fr;gap:46px;align-items:center}}
+.split--rev .fig{{order:-1}}
+.fig{{margin:0}}
+.fig img{{border-radius:var(--r);border:1px solid var(--line);background:#fff}}
+.fig figcaption{{margin-top:11px;font-size:13.5px;line-height:1.55;color:var(--mute)}}
 .lead{{font-size:18px;color:var(--ink2);max-width:var(--medida)}}
 .btn{{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none}}
 .btn:hover{{background:var(--acd);color:#fff}}
 .btn--ghost{{background:#fff;color:var(--acd);border:1px solid var(--line)}}
+.tl{{list-style:none;margin:0;padding:0 0 0 30px;border-left:2px solid var(--line)}}
+.tl li{{position:relative;padding:0 0 18px 8px}}
+.tl li:last-child{{padding-bottom:0}}
+.tl li::before{{content:"";position:absolute;left:-39px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px #fff}}
+.tl b{{display:block;color:var(--dark);font-size:17px}}
+.tl span{{color:var(--mute);font-size:14px}}
+.cat-grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:8px}}
+.cat{{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit}}
+.cat:hover{{transform:translateY(-3px);box-shadow:0 12px 28px rgba(196,95,0,.12);border-color:#f0c48a}}
+.cat img{{aspect-ratio:1/1;object-fit:contain;padding:12px;background:#fff}}
+.cat__b{{padding:12px 15px 15px;border-top:1px solid var(--line)}}
+.cat__b strong{{display:block;color:var(--dark);font-size:16px}}
+.cat__b span{{font-size:13.5px;color:var(--mute)}}
 .states{{margin:0;padding:0;list-style:none}}
 .states li{{padding:10px 0;border-bottom:1px solid var(--line);max-width:40em}}
 .states code{{font-family:var(--m);font-size:13px}}
@@ -295,11 +350,21 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 .ft-copy{{margin-top:24px;padding-top:16px;border-top:1px solid #2D2D2D;font-size:12px;color:#666}}
 .pw{{max-width:40em;margin:0 auto;padding:40px 22px 64px}}
 .inner-article{{max-width:860px;margin:0 auto;padding:28px 24px 48px}}
+@media(max-width:1000px){{
+  .split{{grid-template-columns:1fr;gap:30px}}
+  .split--rev .fig{{order:0}}
+  .cat-grid{{grid-template-columns:repeat(3,1fr)}}
+}}
 @media(max-width:860px){{
   .burger{{display:inline-flex;align-items:center;justify-content:center}}
   .nav{{display:none;position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 12px}}
   .nav.open{{display:flex}}
   .ft-grid{{grid-template-columns:1fr}}
+}}
+@media(max-width:640px){{
+  .cat-grid{{grid-template-columns:repeat(2,1fr)}}
+  .sbox form{{flex-direction:column}}
+  .sbox button{{width:100%}}
 }}
 """
 
@@ -350,32 +415,15 @@ def _shell(title: str, desc: str, canonical: str, extra_ld: list[dict], body: st
 
 
 def build_home() -> str:
-    lab = lab_copy(FACTS)
-    cats = [
-        ("sneakers", "Turnschoenen"),
-        ("t-shirt", "T-shirt"),
-        ("hoodie", "Hoodie"),
-        ("jacket", "Jas"),
-        ("jeans", "Spijkerbroek"),
-        ("shorts", "Shorts"),
-        ("underwear", "Ondergoed"),
-        ("jersey", "Shirt"),
-        ("hat", "Petten"),
-        ("bags", "Tassen"),
-        ("sunglasses", "Brillen"),
-        ("headphones", "Koptelefoons"),
-        ("perfume", "Parfum"),
-        ("watch", "Horloges"),
-        ("jewelry", "Sieraden"),
-        ("toy", "Speelgoed"),
-    ]
     wall = "".join(
-        f'<a class="sg-cat" href="#catalog" data-q="{escape(q)}"><strong>{escape(labn)}</strong><span>{escape(q)}</span></a>'
-        for q, labn in cats
+        f'<a class="cat" href="#catalog" data-q="{escape(q)}">'
+        f'<img src="/img/cat/{escape(fn)}" alt="{escape(labn)} op witte achtergrond" loading="lazy" width="560" height="560">'
+        f'<div class="cat__b"><strong>{escape(labn)}</strong><span>{escape(q)}</span></div></a>'
+        for q, labn, fn in CATS
     )
     chips = "".join(
         f'<a href="#catalog" data-q="{escape(q)}">{escape(q)}</a>'
-        for q, _lab in cats[:8]
+        for q, _lab, _fn in CATS[:8]
     )
     catalog = catalog_block(
         "nl",
@@ -384,13 +432,53 @@ def build_home() -> str:
         loc_fn=lambda _k: "nl",
         cat_labels={},
     )
+    fig_home = _fig(
+        "/img/shots/oficial-inicio.jpg",
+        "Officiële ACBuy-homepage met zoekbalk, vliegtuigbanner en vier stappen: Place orders, QC&storage, Submit parcels, INTL ship",
+        "De officiële homepage van acbuy.com, 5 Oct 2026. De vier stappen onder de zoekbalk zijn het hele traject: bestellen in China, QC in het magazijn, bundelen, internationaal versturen.",
+    )
+    fig_guide = _fig(
+        "/img/shots/oficial-guidebook.jpg",
+        "Officiële ACBuy GuideBook, stap 1: product kiezen via Taobao-link of via de zoekbalk",
+        "GuideBook van ACBuy, stap 1. Links: link van Taobao / 1688 plakken. Rechts: zoeken in de app. Opname 5 Oct 2026.",
+    )
+    fig_sheet = _fig(
+        "/img/shots/catalogus.jpg",
+        "Productkaarten op acbuyspreadsheets.nl: foto, naam, EUR-weergave en knop Openen",
+        "De catalogus op deze homepage. Prijzen in EUR zijn een weergave van de China-kaart, 5 Oct 2026. Geen kassaprijs.",
+        1200,
+        900,
+    )
+    fig_pay = _fig(
+        "/img/shots/oficial-guidebook-3.jpg",
+        "Officiële ACBuy GuideBook, stap 3: eerste betaling van product plus binnenlands China, Checkout-knop",
+        "Stap 3 van het officiële GuideBook: je betaalt eerst het product en het binnenlandse China-vervoer tot het magazijn. Internationaal zit daar niet bij. Opname 5 Oct 2026.",
+    )
+    fig_est = _fig(
+        "/img/shots/estimator-nl.jpg",
+        "Officiële ACBuy-schatter met bestemming Netherlands 荷兰, 1000 g, 35×25×10 cm, lijn Euro DHL Duty Free EC-Y",
+        "Publieke schatter, bestemming Netherlands — 荷兰, 1000 g en 35×25×10 cm. 5 Oct 2026 toonde o.a. Euro DHL Duty Free EC-Y, 12–16 werkdagen. Die cijfers veranderen; open de estimator opnieuw.",
+    )
+    fig_vol = _fig(
+        "/img/shots/volume-voorbeeld.jpg",
+        "Rekenvoorbeeld volumgewicht: 40×40×3 cm en 200 g weegschaal wordt 600 g volume",
+        "Rekenvoorbeeld, geen magazijnfoto. Dezelfde deler 8000 staat in de DHL-regel van de schatter. Jouw doos reken je daar, bestemming Nederland.",
+        1200,
+        640,
+    )
+    fig_diy = _fig(
+        "/img/shots/oficial-diy.jpg",
+        "ACBuy DIY-formulier: link, naam, specificaties, prijs in CNY, en disclaimer dat ACBuy geen eigen voorraad verkoopt",
+        "DIY Order op acbuy.com. Als de zoekbalk de link niet leest, vul je het formulier handmatig. De groene disclaimer zegt het zelf: artikelen komen van derden. Opname 5 Oct 2026.",
+    )
     body = f"""
 <section class="hero">
+  <div class="hero__bg" role="img" aria-label="Officiële ACBuy-banner: vliegtuig en zoekbalk om een Chinese productlink te plakken"></div>
   <div class="hero__scrim"></div>
   <div class="wrap">
     <span class="eyebrow">Onafhankelijke gids, in het Nederlands</span>
     <h1>ACBuy Spreadsheet: de gids om in China te kopen vanaf Nederland</h1>
-    <p class="lead">Wat een inkoopagent doet, hoe je de catalogus zoekt, hoe een pakket naar Nederland reist en wat je nagaat vóór de Douane.</p>
+    <p class="lead">Hoe je een productlink in de agent plakt, hoe de catalogus werkt, hoe een pakket naar Nederland reist en wat je nagaat vóór de Douane.</p>
     <div class="sbox">
       <form id="home-search" action="#catalog" method="get" role="search">
         <label class="skip" for="hero-q">Zoek in de catalogus op deze homepage</label>
@@ -403,88 +491,124 @@ def build_home() -> str:
 </section>
 <section class="sec sec--first" id="agent">
   <div class="wrap">
-    <h2>Een inkoopagent is een tussenpersoon, geen winkel</h2>
-    <p class="lead">ACBuy verkoopt zelf niets. Hij koopt voor jou in Chinese shops die niet naar het buitenland sturen, ontvangt het pakket in het magazijn, fotografeert het, bewaart het, en stuurt het naar Nederland wanneer jij dat besluit.</p>
-    <p>Dat verandert alles: je betaalt twee keer (eerst het product, daarna internationaal), je wacht twee keer, en ertussen kun je nog annuleren, bundelen of van lijn wisselen. Betalen en tickets blijven op {escape(OFFICIAL)}.</p>
-    <p><a class="btn" href="/how-to-use-acbuy/">Handleiding stap voor stap</a></p>
+    <div class="split">
+      <div>
+        <h2>Een inkoopagent is een tussenpersoon, geen winkel</h2>
+        <p class="lead">ACBuy verkoopt zelf niets. Hij koopt voor jou in Chinese shops die niet naar het buitenland sturen, ontvangt het pakket in het magazijn, fotografeert het, bewaart het, en stuurt het naar Nederland wanneer jij dat besluit.</p>
+        <p>Dat verandert alles: je betaalt twee keer (eerst het product, daarna internationaal), je wacht twee keer, en ertussen kun je nog annuleren, bundelen of van lijn wisselen. Betalen en tickets blijven op {escape(OFFICIAL)}.</p>
+        <p><a class="btn" href="/how-to-use-acbuy/">Handleiding stap voor stap</a></p>
+      </div>
+      {fig_home}
+    </div>
   </div>
 </section>
-<section class="sec sec--tint" id="sheet-explain">
+<section class="sec sec--tint" id="shots">
   <div class="wrap">
-    <span class="eyebrow" style="color:var(--acd)">Naam die misleidt</span>
-    <h2>Een spreadsheet is geen Excel-bestand</h2>
-    <p class="lead">Hier betekent «spreadsheet» een catalogus van productkaarten: foto, merk, referentieprijs en de link om in de agent te plakken. Geen rijen en kolommen.</p>
-    <p>De kaarten op deze homepage komen van /api/products/ op {escape(HOST)}. Je bladert op categorie. Engelse keys (sneakers, hoodie) vullen de grid; «turnschoenen» geeft vaak nul hits — dat is de index, geen lege winkel.</p>
-    <p><a class="btn btn--ghost" href="#catalog">Naar de catalogus op deze homepage</a></p>
+    <div class="split split--rev">
+      <div>
+        <span class="eyebrow" style="color:var(--acd)">Zo koop je</span>
+        <h2>Plak een Chinese link, of zoek in de app</h2>
+        <p class="lead">Het officiële GuideBook begint hier: een link van Taobao, 1688 of Weidian plakken, of de naam in de zoekbalk typen. Dat is de hele truc van een inkoopagent — de Chinese shop ziet ACBuy, jij ziet daarna QC-foto’s en een lijn naar Nederland.</p>
+        <p>Leest de zoekbalk de link niet, dan is het DIY-formulier de volgende stap: naam, maat, kleur en prijs in yuan. Internationaal betaal je pas later, vanuit het magazijn.</p>
+        <p><a class="btn" href="/how-to-use-acbuy/">Nederlandse stap-voor-stap</a>
+           <a class="btn btn--ghost" href="{escape(OFFICIAL)}shopping-guide">Officiële GuideBook</a></p>
+      </div>
+      {fig_guide}
+    </div>
   </div>
 </section>
-<section class="sec" id="cat-wall">
+<section class="sec" id="sheet-explain">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <span class="eyebrow" style="color:var(--acd)">Naam die misleidt</span>
+        <h2>Een spreadsheet is geen Excel-bestand</h2>
+        <p class="lead">Hier betekent «spreadsheet» een catalogus van productkaarten: foto, merk, referentieprijs en de link om in de agent te plakken. Geen rijen en kolommen.</p>
+        <p>De kaarten op deze homepage komen van /api/products/ op {escape(HOST)}. Je bladert op categorie. Engelse keys (sneakers, hoodie) vullen de grid; «turnschoenen» geeft vaak nul hits — dat is de index, geen lege winkel.</p>
+        <p><a class="btn btn--ghost" href="#catalog">Naar de catalogus op deze homepage</a></p>
+      </div>
+      {fig_sheet}
+    </div>
+  </div>
+</section>
+<section class="sec sec--tint" id="cat-wall">
   <div class="wrap">
     <h2>Zestien categorieën voor de eerste dag</h2>
     <p class="lead">Elke kaart opent de bijbehorende catalogus. Begin met één: vijf categorieën in de eerste haul is de snelste weg naar een dure, lastige doos.</p>
-    <div class="sg-cats">{wall}</div>
+    <div class="cat-grid">{wall}</div>
   </div>
 </section>
 {catalog}
 {_local_block()}
 <section class="sec" id="states">
   <div class="wrap">
-    <h2>Negen statussen, drie schermen</h2>
-    <p class="lead">Het officiële verloop past in negen staten. Ze uit je hoofd kennen voorkomt de vraag van de eerste maand: «waarom staat het stil?». Meestal staat het niet stil — het zit in een staat die je niet verwachtte.</p>
-    <ol class="states">
-      <li><code>Order Submitted</code> — bestelling verstuurd, product in China betaald.</li>
-      <li><code>Order Placed</code> — ACBuy koopt in de Chinese shop op jouw naam.</li>
-      <li><code>Seller Shipped</code> — de Chinese verkoper heeft verzonden.</li>
-      <li><code>Arrived at Warehouse</code> — aangekomen in het magazijn.</li>
-      <li><code>Inspection &amp; Storage</code> — controle en opslag. Live labels staan in de app.</li>
-      <li><code>Shipping Requested</code> — jij bundelt en boekt de internationale lijn naar Nederland.</li>
-      <li><code>Parcel Packed</code> — de doos wordt ingepakt.</li>
-      <li><code>Shipped</code> — vertrek uit China.</li>
-      <li><code>Delivered</code> — bezorgd; ontvangst bevestigen in de app.</li>
-    </ol>
-    <p>De eerste vier zitten onder Order, daarna Warehouse, daarna Parcel. <a href="/how-to-use-acbuy/">Handleiding met het traject →</a></p>
+    <div class="split split--rev">
+      <div>
+        <span class="eyebrow" style="color:var(--acd)">Twee betalingen</span>
+        <h2>Negen statussen, drie schermen</h2>
+        <p class="lead">Eerst betaal je het product plus het binnenlandse China-vervoer tot het magazijn. Internationaal komt later, als jij een lijn naar Nederland kiest. De vraag «waarom staat het stil?» is bijna altijd: je kijkt op het verkeerde scherm.</p>
+        <ul class="tl">
+          <li><b>Order Submitted</b><span>Bestelling verstuurd, product in China betaald.</span></li>
+          <li><b>Order Placed</b><span>ACBuy koopt in de Chinese shop op jouw naam.</span></li>
+          <li><b>Seller Shipped</b><span>De Chinese verkoper heeft verzonden.</span></li>
+          <li><b>Arrived at Warehouse</b><span>Aangekomen in het magazijn.</span></li>
+          <li><b>Inspection &amp; Storage</b><span>Controle, foto’s en opslag. Live labels staan in de app.</span></li>
+          <li><b>Shipping Requested</b><span>Jij bundelt en boekt de internationale lijn naar Nederland.</span></li>
+          <li><b>Parcel Packed</b><span>De doos wordt ingepakt.</span></li>
+          <li><b>Shipped</b><span>Vertrek uit China.</span></li>
+          <li><b>Delivered</b><span>Bezorgd; ontvangst bevestigen in de app.</span></li>
+        </ul>
+        <p>De eerste vier zitten onder Order, daarna Warehouse, daarna Parcel. <a href="/how-to-use-acbuy/">Handleiding met het traject →</a></p>
+      </div>
+      {fig_pay}
+    </div>
   </div>
 </section>
 <section class="sec sec--tint" id="lab">
   <div class="wrap">
-    <h2>Nederland heeft lijnen, maar niet elke lijn is open</h2>
-    <p class="lead">De officiële schatter is publiek. Kies bestemming Nederland, niet EU. Live geld staat in de estimator, niet in deze homepage.</p>
-    <p>{lab["ssub"]}</p>
-    <p><a class="btn" href="{escape(EST)}">{escape(lab["cta"])}</a>
-       <a class="btn btn--ghost" href="/acbuy-shipping-guide/">Verzendplan: lijnen en Douane</a></p>
+    <div class="split">
+      <div>
+        <h2>Nederland heeft lijnen, maar niet elke lijn is open</h2>
+        <p class="lead">De officiële schatter is publiek. Kies destination <strong>Netherlands — 荷兰</strong>, niet EU en niet Netherlands Antilles.</p>
+        <p>Op 5 Oct 2026, met 1000 g en 35×25×10 cm, toonde de schatter onder meer Euro DHL Duty Free EC-Y, 12–16 werkdagen. Die bedragen veranderen per week; behandel ze als een foto van die dag en open de estimator vóór je koopt.</p>
+        <p><a class="btn" href="{escape(EST)}">Officiële schatter, bestemming Nederland</a>
+           <a class="btn btn--ghost" href="/acbuy-shipping-guide/">Verzendplan</a></p>
+      </div>
+      {fig_est}
+    </div>
   </div>
 </section>
 <section class="sec" id="volume">
   <div class="wrap">
-    <h2>Het gewicht dat je betaalt is bijna nooit alleen de weegschaal</h2>
-    <p class="lead">Veel luchtlijnen rekenen volumgewicht L×B×H/8000 en factureren het maximum van weegschaal en volume. Een donsjas is licht en volumineus: daar beslist het volume.</p>
-    <p>Die rekening, plus wat de Douane die ochtend vraagt, staat in het verzendplan — een eigen URL, geen bijlage onder deze homepage. Deze pagina kopieert geen lijnentelling en geen SKU-prijs: die cijfers veranderen per week.</p>
-    <p><a class="btn" href="/acbuy-shipping-guide/">Verzendplan met volumgewicht</a></p>
+    <div class="split split--rev">
+      <div>
+        <span class="eyebrow" style="color:var(--acd)">De dure fout</span>
+        <h2>Het gewicht dat je betaalt is bijna nooit alleen de weegschaal</h2>
+        <p class="lead">De DHL-regel in de schatter zelf zegt het: volume weight = L×W×H (cm) / 8000, en ze factureren het maximum van weegschaal en volume. Een donsjas is licht en volumineus: daar beslist het volume.</p>
+        <p>Voorbeeld: 40×40×3 cm is 4800 cm³, gedeeld door 8000 is 600 g volume bij 200 g echt gewicht. Alleen reist die jas, dan betaal je 600 g. Jouw maten vul je in de schatter, bestemming Nederland.</p>
+        <p><a class="btn btn--ghost" href="/acbuy-shipping-guide/">Verzendplan met volumgewicht</a></p>
+      </div>
+      {fig_vol}
+    </div>
   </div>
 </section>
 <section class="sec sec--tint" id="restricted">
   <div class="wrap">
-    <h2>Veel producten kun je niet kopen, ook al staan ze er</h2>
-    <p class="lead">Op de officiële site zie je fiches «Restricted item» en fiches met prijs nul. Dat is geen fout van deze homepage: de bronlink is niet koopbaar via de agent, of de prijs liet zich niet lezen.</p>
-    <p>Regel: zonder echte prijs en varianten niet bestellen. Tabak, alcohol en geneesmiddelen reizen niet. Restricted is een inkoopblokkade, geen bericht van de Douane.</p>
-  </div>
-</section>
-<section class="sec" id="shots">
-  <div class="wrap">
-    <h2>Officiële schermen, geen stockfoto’s</h2>
-    <p class="lead">Live estimator, QC-foto’s en iDEAL zitten in de ACBuy-app. Deze homepage plakt geen verzonnen screenshots.</p>
-    <div class="shot-panel">
-      <p>Open de schatter met bestemming Netherlands. De bedragen die je daar ziet, zijn van die dag — niet van deze HTML.</p>
-      <p><a class="btn" href="{escape(OFFICIAL)}">Open ACBuy</a>
-         <a class="btn btn--ghost" href="{escape(EST)}">Vracht-schatter</a></p>
+    <div class="split">
+      <div>
+        <h2>Veel producten kun je niet kopen, ook al staan ze er</h2>
+        <p class="lead">Op de officiële site zie je fiches zonder prijs, of een DIY-formulier in plaats van een winkelkaart. Dat is geen fout van deze homepage: de bronlink is niet koopbaar via de agent, of de prijs liet zich niet lezen.</p>
+        <p>Regel: zonder echte prijs en varianten niet bestellen. Tabak, alcohol en geneesmiddelen reizen niet. Restricted is een inkoopblokkade, geen bericht van de Douane. De groene disclaimer op het DIY-scherm zegt hetzelfde: ACBuy verkoopt geen eigen voorraad.</p>
+      </div>
+      {fig_diy}
     </div>
   </div>
 </section>
-<section class="sec sec--tint" id="faq">
+<section class="sec" id="faq">
   <div class="wrap">
     <h2>Hulp, nieuws en waar je vraagt</h2>
     <p class="lead">De meeste twijfels van de eerste orders herhalen zich: twee betalingen, catalogus in het Engels, volumgewicht, Douane. Ze staan beantwoord in het Nederlands op Hulp — een eigen URL, geen bijlage van deze homepage.</p>
-    <p>Op Nieuws zetten we met datum wat we zelf op het platform hebben nagekeken, zodat je ziet wat van deze maand is. Over ons legt uit dat deze host redactioneel onafhankelijk is. Als je met ACBuy moet praten, is het kanaal de in-app-chat: wij zien je account niet.</p>
+    <p>Op Nieuws zetten we met datum wat we zelf op het platform hebben nagekeken. Over ons legt uit dat deze host redactioneel onafhankelijk is. Als je met ACBuy moet praten, is het kanaal de in-app-chat: wij zien je account niet.</p>
     <p><a class="btn" href="/hulp/">Alle vragen op Hulp</a>
        <a class="btn btn--ghost" href="/nieuws/">Gedateerde checks op Nieuws</a>
        <a class="btn btn--ghost" href="/over-ons/">Over ons</a></p>
@@ -502,7 +626,7 @@ def build_home() -> str:
     var cat=document.getElementById('catalog');
     if(cat) cat.scrollIntoView({{behavior:'smooth', block:'start'}});
   }});
-  document.querySelectorAll('.chips a[data-q]').forEach(function(a){{
+  document.querySelectorAll('.chips a[data-q], .cat[data-q]').forEach(function(a){{
     a.addEventListener('click', function(ev){{
       ev.preventDefault();
       var inp=document.getElementById('sg-q');
@@ -516,7 +640,7 @@ def build_home() -> str:
 """
     return _shell(
         "ACBuy Spreadsheet in het Nederlands: kopen in China vanaf Nederland",
-        "Onafhankelijke gids in het Nederlands: wat ACBuy doet, hoe de catalogus werkt, hoe een pakket naar Nederland reist en wat je nagaat bij de Douane.",
+        "Onafhankelijke gids in het Nederlands: hoe je via ACBuy in China koopt, hoe de catalogus werkt, hoe een pakket naar Nederland reist.",
         f"https://{HOST}/",
         [faq_ld("nl-NL", long_faqs(FACTS))],
         body,
@@ -671,6 +795,10 @@ def _assert_ok(html: str, page: str) -> None:
             err.append("planning dump on homepage")
         if "op de platform" in html:
             err.append("dutch grammar leftover on home")
+        if "/img/cat/sneakers.jpg" not in html or 'class="fig"' not in html:
+            err.append("missing illustrated figures")
+        if "geen stockfoto" in html:
+            err.append("empty shots panel leftover")
     if page == "news" and ("Novedades" in html or "op de platform" in html):
         err.append("news meta leftover")
     if err:
@@ -714,6 +842,22 @@ def generate() -> dict[str, Path]:
     css_path.parent.mkdir(parents=True, exist_ok=True)
     css_path.write_text(CSS, encoding="utf-8")
     logo = write_wordmark(_wordmark_path())
+    img_root = dest / "img"
+    missing = [fn for _q, _l, fn in CATS if not (img_root / "cat" / fn).is_file()]
+    shots = (
+        "oficial-inicio.jpg",
+        "oficial-guidebook.jpg",
+        "oficial-guidebook-3.jpg",
+        "oficial-diy.jpg",
+        "estimator-nl.jpg",
+        "catalogus.jpg",
+        "volume-voorbeeld.jpg",
+    )
+    missing += [n for n in shots if not (img_root / "shots" / n).is_file()]
+    if not (img_root / "hero.jpg").is_file():
+        missing.append("hero.jpg")
+    if missing:
+        raise SystemExit(f"missing images {missing}")
     pages = {
         "home": (dest / "index.html", build_home(), "home"),
         "help": (dest / "hulp" / "index.html", build_help(), "help"),
@@ -907,7 +1051,8 @@ def put() -> None:
     root = f"/www/wwwroot/{HOST}"
     _run(
         client,
-        f"mkdir -p '{bak}' '{root}/hulp' '{root}/nieuws' '{root}/over-ons' '{root}/assets/css' '{root}/assets/images'",
+        f"mkdir -p '{bak}' '{root}/hulp' '{root}/nieuws' '{root}/over-ons' "
+        f"'{root}/assets/css' '{root}/assets/images' '{root}/img/cat' '{root}/img/shots'",
     )
     sftp = client.open_sftp()
     mapping = {
@@ -930,6 +1075,17 @@ def put() -> None:
     sftp.put(str(theme), f"{root}/assets/css/acbuy-theme.css")
     sftp.put(str(files["css"]), f"{root}/assets/css/acbuy-nl-desk.css")
     sftp.put(str(files["logo"]), f"{root}/assets/images/acbuy-wordmark.png")
+    img_local = OUT / HOST / "overlay" / "img"
+    sftp.put(str(img_local / "hero.jpg"), f"{root}/img/hero.jpg")
+    print("PUT", f"{root}/img/hero.jpg")
+    for src in sorted((img_local / "cat").glob("*.jpg")):
+        remote = f"{root}/img/cat/{src.name}"
+        sftp.put(str(src), remote)
+        print("PUT", remote, src.stat().st_size)
+    for src in sorted((img_local / "shots").glob("*.jpg")):
+        remote = f"{root}/img/shots/{src.name}"
+        sftp.put(str(src), remote)
+        print("PUT", remote, src.stat().st_size)
     _patch_api_nginx(client, sftp)
     _wrap_ranked(client, sftp, bak, root)
     for rel, min_b in RANKED:
@@ -945,7 +1101,7 @@ def put() -> None:
     _run(
         client,
         f"chown -R www:www '{root}/index.html' '{root}/hulp' '{root}/nieuws' '{root}/over-ons' '{root}/assets/css' "
-        f"'{root}/acbuy-shipping-guide' '{root}/is-acbuy-legit' '{root}/how-to-use-acbuy' '{root}/acbuy-coupons' "
+        f"'{root}/img' '{root}/acbuy-shipping-guide' '{root}/is-acbuy-legit' '{root}/how-to-use-acbuy' '{root}/acbuy-coupons' "
         f"'{root}/acbuy-spreadsheet' '{root}/blog' 2>/dev/null || true",
     )
     sftp.close()
@@ -1005,6 +1161,10 @@ def live_check() -> None:
                 print(" FAIL home FAQPage"); fail += 1
             if "op de platform" in html:
                 print(" FAIL dutch grammar"); fail += 1
+            if "/img/cat/sneakers.jpg" not in html or 'class="fig"' not in html:
+                print(" FAIL missing photos"); fail += 1
+            if "geen stockfoto" in html:
+                print(" FAIL empty shots"); fail += 1
             for alien in ("Packstation", "form A1A 1A1"):
                 if alien in html:
                     print(" FAIL alien", alien); fail += 1
