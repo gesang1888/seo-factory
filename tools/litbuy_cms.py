@@ -995,6 +995,9 @@ def _faqs(key: str) -> list[tuple[str, str]]:
     pairs = []
     for q, a in long_faqs(_facts(key)):
         a = a.replace("/api/products/", "w2clinks")
+        a = re.sub(r"ni copia un snapshot de 58 l[ií]neas ajenas\.?", "", a, flags=re.I)
+        a = re.sub(r"58 l[ií]neas(?: para Espa\w*)?", "", a, flags=re.I)
+        a = re.sub(r"23[,.]81\s*USD", "", a, flags=re.I)
         pairs.append((q, a))
     extra = f"The delivery address uses a {p['postal']}."
     if p["loc"] == "de":
@@ -3188,6 +3191,8 @@ def _assert_ok(html: str, page: str, key: str) -> None:
         for tok in INVITES:
             if tok in html:
                 err.append(f"invite {tok}")
+        if re.search(r"58 l[ií]neas", html, re.I) or re.search(r"23[,.]81\s*USD", html, re.I):
+            err.append("58-line / 23.81 leak")
     if page == "help" and p["fingerprint"] not in html:
         err.append("help fingerprint")
     if page == "help":
@@ -4109,6 +4114,8 @@ def live_check(key: str | None = None) -> None:
             for tok in INVITES:
                 if tok in html:
                     print(" FAIL invite"); fail += 1
+            if re.search(r"58 l[ií]neas", html, re.I) or re.search(r"23[,.]81\s*USD", html, re.I):
+                print(" FAIL 58-line / 23.81"); fail += 1
             if "litbuy-logo.png" not in html:
                 print(" FAIL logo"); fail += 1
             if f'lang="{p["lang"]}"' not in html:

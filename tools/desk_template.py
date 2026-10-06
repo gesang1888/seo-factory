@@ -127,7 +127,7 @@ DEST_LOCAL = {
             ("Última milla", "A menudo Correos. El artículo de aduana que ya posiciona en este host se conserva; esta portada no lo pisa."),
         ],
         "duty": "Quién paga aranceles al entrar en España lo dice la SKU. Correos puede añadir una tasa de despacho en Collect. Fuente: Agencia Tributaria, no un recuento de líneas de otro agente. Destino del estimador: España. Sin infradeclaración.",
-        "threshold": "IVA, IOSS y umbrales cambian. Lee la AEAT y la SKU el día del envío. Este desk no inventa un valor declarado ni copia un snapshot de 58 líneas ajenas.",
+        "threshold": "IVA, IOSS y umbrales cambian. Lee la AEAT y la SKU el día del envío. Este desk no inventa un valor declarado para una dirección en España.",
     },
     "FR": {
         "h2": "Ce qui vaut aujourd’hui pour une adresse en France",
