@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """OrientDig country dests: UK, US, DE, AT, ES, FR, NL, IT.
 
-Gold IA: hipobuy.es. Gold brand: orientdig.com (official orange #f7931e / #d67e14).
-Gold dest: orientdigspreadsheet.uk (English UK). No CA dest. Same-agent country
-hosts stay independent (no 301 between them). Twins 301 into the dest with
-$request_uri after the dest CMS is live.
+Gold IA: hipobuy.es. Gold completeness (content + shots): acbuyspreadsheets.nl
+(7 unique figs, 9-status timeline, public estimator snapshot, FAQPage JSON-LD
+on home with visible FAQs only on Help). Gold brand: orientdig.com (official
+orange #f7931e / #d67e14). Gold dest: orientdigspreadsheet.uk (English UK).
+No CA dest. Same-agent country hosts stay independent (no 301 between them).
+Twins 301 into the dest with $request_uri after the dest CMS is live.
 
 Skip PUT: orientdig.cheap (wwwroot, no DNS). Never put dest hostnames in
 SKIP_PUT (substring trap). No .net/.org/haul hub in this cluster.
@@ -76,13 +78,32 @@ HUBS = ()
 SKIP_PUT_HOSTS = {"orientdig.cheap"}
 PHP_HOSTS = ()
 PHP_KEYS = ()
-DEST_MIN = 22000
-CSS_V = "20261006v"
+DEST_MIN = 40000
+CSS_V = "20261006w"
 INVITES = ("100246065",)
 LOGO = "orientdig-logo.png"
 THEME_CSS = "orientdig-theme.css"
 SHEET_SLUG = "orientdig"
-SHOTS = ("oficial.jpg", "oficial-diy.jpg", "catalogus.jpg", "catalogus-zoek.jpg", "volume-voorbeeld.jpg")
+SHOTS = (
+    "oficial-inicio.jpg",
+    "oficial-guidebook.jpg",
+    "oficial-guidebook-3.jpg",
+    "oficial-diy.jpg",
+    "catalogus.jpg",
+    "catalogus-zoek.jpg",
+    "volume-voorbeeld.jpg",
+)
+# Public estimator, 6 Oct 2026, 1000 g × 35×25×10 cm, English/USD on orientdig.com.
+EST_SNAP = {
+    "uk": {"dest": "United Kingdom", "line": "UK-RoyalMail-P", "price": "$22.23", "days": "10–17", "n": "8"},
+    "us": {"dest": "United States of America(USA)", "line": "US-air-F", "price": "$41.09", "days": "8–17", "n": "4"},
+    "de": {"dest": "Germany", "line": "EUR-F-DHLh", "price": "$34.78", "days": "10–17", "n": "7"},
+    "at": {"dest": "Austria", "line": "EUR-F-DHLh", "price": "$38.81", "days": "10–17", "n": "7"},
+    "es": {"dest": "Spain", "line": "EUR-F-DHLh", "price": "$42.18", "days": "10–17", "n": "7"},
+    "fr": {"dest": "France", "line": "EUR-F-DHLh", "price": "$42.20", "days": "10–17", "n": "7"},
+    "nl": {"dest": "Netherlands", "line": "EUR-F-DHLh", "price": "$39.16", "days": "10–17", "n": "7"},
+    "it": {"dest": "Italy", "line": "EUR-F-DHLh", "price": "$42.31", "days": "10–17", "n": "7"},
+}
 GUIDE_HREF = "/how-to-use-orientdig/"
 SHIP_HREF = "/orientdig-freight/"
 SISTER_LEFTOVER = ("cssbuy", "1yi9", "cssb.uy", "ootdbuy leftover")
@@ -1404,12 +1425,204 @@ def _chips(key: str) -> str:
     )
 
 
-def _shots(key: str):
+def _est_note(key: str) -> str:
+    s = EST_SNAP[key]
     loc = PACKS[key]["loc"]
+    dest_zh = PACKS[key]["dest_zh"]
     if loc == "de":
-        off_alt, off_cap = (
-            "Offizielle OrientDig-Startseite: grünes Wortmark, Suche, Forwarding und Estimation in der Navigation",
-            f"Offizielle orientdig.com, {DATE}. Estimation in der Navigation öffnete an dem Morgen ein Login. Dieser Desk erfindet keine Linie und keinen Betrag.",
+        return (
+            f"Am {DATE} zeigte der öffentliche Schätzer Ziel {s['dest']} ({dest_zh}), "
+            f"1000 g und 35×25×10 cm, unter anderem {s['line']}, {s['price']}, {s['days']} Tage, {s['n']} Linien. "
+            "Die Zahlen stehen in USD auf der offiziellen Site und ändern sich; öffne den Schätzer erneut."
+        )
+    if loc == "it":
+        return (
+            f"Il {DATE} lo stimatore pubblico con destinazione {s['dest']} ({dest_zh}), "
+            f"1000 g e 35×25×10 cm ha mostrato tra le altre {s['line']}, {s['price']}, {s['days']} giorni, {s['n']} linee. "
+            "I cifre sono in USD sul sito ufficiale e cambiano; riapri lo stimatore."
+        )
+    if loc == "es":
+        return (
+            f"El {DATE} el estimador público con destino {s['dest']} ({dest_zh}), "
+            f"1000 g y 35×25×10 cm mostró entre otras {s['line']}, {s['price']}, {s['days']} días, {s['n']} líneas. "
+            "Las cifras salen en USD en el sitio oficial y cambian; abre el estimador otra vez."
+        )
+    if loc == "fr":
+        return (
+            f"Le {DATE} l’estimateur public avec destination {s['dest']} ({dest_zh}), "
+            f"1000 g et 35×25×10 cm a montré entre autres {s['line']}, {s['price']}, {s['days']} jours, {s['n']} lignes. "
+            "Les montants sont en USD sur le site officiel et changent ; rouvre l’estimateur."
+        )
+    if loc == "nl":
+        return (
+            f"Op {DATE} toonde de publieke schatter bestemming {s['dest']} ({dest_zh}), "
+            f"1000 g en 35×25×10 cm onder meer {s['line']}, {s['price']}, {s['days']} dagen, {s['n']} lijnen. "
+            "De bedragen staan in USD op de officiële site en veranderen; open de schatter opnieuw."
+        )
+    return (
+        f"On {DATE} the public estimator with destination {s['dest']} ({dest_zh}), "
+        f"1000 g and 35×25×10 cm showed among others {s['line']}, {s['price']}, {s['days']} days, {s['n']} lines. "
+        "Amounts are USD on the official site and they change; open the estimator again."
+    )
+
+
+def _status_ul(key: str) -> str:
+    loc = PACKS[key]["loc"]
+    rows = {
+        "de": [
+            ("Order Submitted", "Bestellung gesendet, Produkt in China bezahlt."),
+            ("Order Placed", "OrientDig kauft im chinesischen Shop auf deinen Namen."),
+            ("Seller Shipped", "Der chinesische Verkäufer hat versandt."),
+            ("Arrived at Warehouse", "Im Lager angekommen."),
+            ("Inspection & Storage", "Prüfung, Fotos und Lager. Live-Labels stehen in der App."),
+            ("Shipping Requested", "Du bündelst und buchst die internationale Linie."),
+            ("Parcel Packed", "Die Box wird gepackt."),
+            ("Shipped", "Abfahrt aus China."),
+            ("Delivered", "Zugestellt; Empfang in der App bestätigen."),
+        ],
+        "it": [
+            ("Order Submitted", "Ordine inviato, prodotto pagato in Cina."),
+            ("Order Placed", "OrientDig compra nel negozio cinese a tuo nome."),
+            ("Seller Shipped", "Il venditore cinese ha spedito."),
+            ("Arrived at Warehouse", "Arrivato in magazzino."),
+            ("Inspection & Storage", "Controllo, foto e stoccaggio. Le etichette live stanno in app."),
+            ("Shipping Requested", "Tu consolidi e prenoti la linea internazionale."),
+            ("Parcel Packed", "La scatola viene imballata."),
+            ("Shipped", "Partenza dalla Cina."),
+            ("Delivered", "Consegnato; conferma in app."),
+        ],
+        "es": [
+            ("Order Submitted", "Pedido enviado, producto pagado en China."),
+            ("Order Placed", "OrientDig compra en la tienda china a tu nombre."),
+            ("Seller Shipped", "El vendedor chino ha enviado."),
+            ("Arrived at Warehouse", "Llegó al almacén."),
+            ("Inspection & Storage", "Control, fotos y almacenamiento. Las etiquetas en vivo están en la app."),
+            ("Shipping Requested", "Tú consolidas y reservas la línea internacional."),
+            ("Parcel Packed", "La caja se empaca."),
+            ("Shipped", "Salida de China."),
+            ("Delivered", "Entregado; confirma en la app."),
+        ],
+        "fr": [
+            ("Order Submitted", "Commande envoyée, produit payé en Chine."),
+            ("Order Placed", "OrientDig achète dans la boutique chinoise à ton nom."),
+            ("Seller Shipped", "Le vendeur chinois a expédié."),
+            ("Arrived at Warehouse", "Arrivé à l’entrepôt."),
+            ("Inspection & Storage", "Contrôle, photos et stockage. Les libellés live sont dans l’app."),
+            ("Shipping Requested", "Tu regroupes et réserves la ligne internationale."),
+            ("Parcel Packed", "La boîte est emballée."),
+            ("Shipped", "Départ de Chine."),
+            ("Delivered", "Livré ; confirme dans l’app."),
+        ],
+        "nl": [
+            ("Order Submitted", "Bestelling verstuurd, product in China betaald."),
+            ("Order Placed", "OrientDig koopt in de Chinese shop op jouw naam."),
+            ("Seller Shipped", "De Chinese verkoper heeft verzonden."),
+            ("Arrived at Warehouse", "Aangekomen in het magazijn."),
+            ("Inspection & Storage", "Controle, foto’s en opslag. Live labels staan in de app."),
+            ("Shipping Requested", "Jij bundelt en boekt de internationale lijn."),
+            ("Parcel Packed", "De doos wordt ingepakt."),
+            ("Shipped", "Vertrek uit China."),
+            ("Delivered", "Bezorgd; ontvangst bevestigen in de app."),
+        ],
+        "en": [
+            ("Order Submitted", "Order sent, product paid in China."),
+            ("Order Placed", "OrientDig buys in the Chinese shop in your name."),
+            ("Seller Shipped", "The Chinese seller has shipped."),
+            ("Arrived at Warehouse", "Arrived at the warehouse."),
+            ("Inspection & Storage", "Check, photos and storage. Live labels sit in the app."),
+            ("Shipping Requested", "You consolidate and book the international line."),
+            ("Parcel Packed", "The box is packed."),
+            ("Shipped", "Departure from China."),
+            ("Delivered", "Delivered; confirm receipt in the app."),
+        ],
+    }[loc if loc in ("de", "it", "es", "fr", "nl") else "en"]
+    return "<ul class=\"tl\">" + "".join(
+        f"<li><b>{escape(a)}</b><span>{escape(b)}</span></li>" for a, b in rows
+    ) + "</ul>"
+
+
+def _guide_extra(key: str, fig_pay: str, fig_est: str) -> str:
+    loc = PACKS[key]["loc"]
+    ul = _status_ul(key)
+    note = escape(_est_note(key))
+    store = escape(_storage(loc if loc in ("de", "it", "es", "fr", "nl") else "en"))
+    if loc == "de":
+        return f"""
+  {ul}
+  {fig_pay}
+  <h2>Der Schätzer ist öffentlich; DIY Order nicht</h2>
+  <p>{note} DIY Order auf orientdig.com öffnete die Login-Wand. Dieser Desk füllt kein DIY-Formular aus.</p>
+  {fig_est}
+  <h2>Lagerfrist steht in Help, nicht als erfundene Zahl hier</h2>
+  <p>{store} Customs & Taxes, Delivery Fees und Mail Restrictions liegen unter Shipping & delivery im Help Center.</p>
+"""
+    if loc == "it":
+        return f"""
+  {ul}
+  {fig_pay}
+  <h2>Lo stimatore è pubblico; DIY Order no</h2>
+  <p>{note} DIY Order su orientdig.com ha aperto il login. Questa guida non compila un modulo DIY.</p>
+  {fig_est}
+  <h2>I giorni di magazzino stanno in Help, non come cifra inventata qui</h2>
+  <p>{store} Customs & Taxes, Delivery Fees e Mail Restrictions stanno sotto Shipping & delivery nel Help Center.</p>
+"""
+    if loc == "es":
+        return f"""
+  {ul}
+  {fig_pay}
+  <h2>El estimador es público; DIY Order no</h2>
+  <p>{note} DIY Order en orientdig.com abrió el login. Esta guía no rellena un formulario DIY.</p>
+  {fig_est}
+  <h2>El plazo de almacén está en Help, no como cifra inventada aquí</h2>
+  <p>{store} Customs & Taxes, Delivery Fees y Mail Restrictions están bajo Shipping & delivery en el Help Center.</p>
+"""
+    if loc == "fr":
+        return f"""
+  {ul}
+  {fig_pay}
+  <h2>L’estimateur est public ; DIY Order non</h2>
+  <p>{note} DIY Order sur orientdig.com a ouvert le login. Ce guide ne remplit pas un formulaire DIY.</p>
+  {fig_est}
+  <h2>Le délai d’entrepôt est dans Help, pas un chiffre inventé ici</h2>
+  <p>{store} Customs & Taxes, Delivery Fees et Mail Restrictions sont sous Shipping & delivery dans le Help Center.</p>
+"""
+    if loc == "nl":
+        return f"""
+  {ul}
+  {fig_pay}
+  <h2>De schatter is publiek; DIY Order niet</h2>
+  <p>{note} DIY Order op orientdig.com opende de loginmuur. Deze gids vult geen DIY-formulier in.</p>
+  {fig_est}
+  <h2>De magazijntermijn staat in Help, niet als verzonnen getal hier</h2>
+  <p>{store} Customs & Taxes, Delivery Fees en Mail Restrictions staan onder Shipping & delivery in het Help Center.</p>
+"""
+    return f"""
+  {ul}
+  {fig_pay}
+  <h2>The estimator is public; DIY Order is not</h2>
+  <p>{note} DIY Order on orientdig.com opened the login wall. This desk does not fill in a DIY form.</p>
+  {fig_est}
+  <h2>Warehouse days are named in Help, not invented here</h2>
+  <p>{store} Customs & Taxes, Delivery Fees and Mail Restrictions sit under Shipping & delivery in the Help Center.</p>
+"""
+
+
+def _shots(key: str) -> dict[str, str]:
+    loc = PACKS[key]["loc"]
+    snap = EST_SNAP[key]
+    dest_zh = PACKS[key]["dest_zh"]
+    if loc == "de":
+        home_alt, home_cap = (
+            "Offizielle OrientDig-Startseite: oranges Wortmark, Paste-Leiste und drei Schritte Place Orders, Submit Parcels, Sign Delivery",
+            f"Offizielle Homepage von orientdig.com, {DATE}. Die drei Schritte unter der Suche sind der Kreis: in China bestellen, im Lager bündeln, international empfangen.",
+        )
+        guide_alt, guide_cap = (
+            "Offizielle OrientDig-Paste-Leiste: Goods/shop's link or name und die drei Schritte darunter",
+            "Paste-Leiste auf orientdig.com. Ein Taobao-, 1688- oder Weidian-Link einfügen, oder den Namen tippen. Aufnahme 6 Oct 2026.",
+        )
+        pay_alt, pay_cap = (
+            "Offizielles OrientDig Help Center, Reiter Shipping & delivery: Customs & Taxes, Delivery Fees, Mail Restrictions",
+            f"Help Center, Shipping & delivery, {DATE}. Die 90-Tage-Lagerregel steht in Help, nicht als erfundene Zahl auf dieser Homepage.",
         )
         sheet_alt, sheet_cap = (
             "OrientDig-Katalog auf w2clinks: Produktkarten mit Foto, Marke und Referenzpreis",
@@ -1424,13 +1637,25 @@ def _shots(key: str):
             "Ergebnisse mit Filterspalte. Aufnahme 6 Oct 2026.",
         )
         diy_alt, diy_cap = (
-            "OrientDig-Suche: Goods/shop's link or name, um einen Taobao-, 1688- oder Weidian-Link einzufügen",
-            "Öffentliche Paste-Leiste auf orientdig.com. Die öffentliche Paste-Leiste heißt «Goods/shop's link or name». Dieser Desk erfindet kein ausgefülltes Formular.",
+            "OrientDig DIY Order öffnete die Login-Wand: Log in, Register, Continue With Google",
+            "DIY Order auf orientdig.com verlangt Login. Der öffentliche Schätzer unter /estimation/ ist ohne Login. Dieser Desk erfindet kein ausgefülltes DIY-Formular.",
+        )
+        est_alt, est_cap = (
+            f"Offizieller OrientDig-Schätzer, Ziel {snap['dest']}, 1000 g, 35×25×10 cm, Linie {snap['line']}",
+            f"Öffentlicher Schätzer, Ziel {snap['dest']} ({dest_zh}), 1000 g und 35×25×10 cm. {DATE} zeigte u. a. {snap['line']}, {snap['price']}, {snap['days']} Tage, {snap['n']} Linien. Die Zahlen ändern sich; öffne den Schätzer erneut.",
         )
     elif loc == "it":
-        off_alt, off_cap = (
-            "Homepage ufficiale OrientDig: wordmark verde, ricerca, forwarding e estimation nel menu",
-            f"Sito ufficiale orientdig.com, {DATE}. I noli arrivano da /estimation/. Questa guida non inventa una linea né un importo.",
+        home_alt, home_cap = (
+            "Homepage ufficiale OrientDig: wordmark arancione, barra per incollare e tre passi Place Orders, Submit Parcels, Sign Delivery",
+            f"Homepage ufficiale di orientdig.com, {DATE}. I tre passi sotto la ricerca sono il giro: ordinare in Cina, consolidare in magazzino, ricevere all’estero.",
+        )
+        guide_alt, guide_cap = (
+            "Barra ufficiale OrientDig: Goods/shop's link or name e i tre passi sotto",
+            "Barra su orientdig.com. Incolla un link Taobao, 1688 o Weidian, o digita il nome. Scatto 6 Oct 2026.",
+        )
+        pay_alt, pay_cap = (
+            "Help Center ufficiale OrientDig, scheda Shipping & delivery: Customs & Taxes, Delivery Fees, Mail Restrictions",
+            f"Help Center, Shipping & delivery, {DATE}. La regola dei 90 giorni di magazzino sta in Help, non come cifra inventata in homepage.",
         )
         sheet_alt, sheet_cap = (
             "Catalogo OrientDig su w2clinks: schede con foto, marca e prezzo di riferimento",
@@ -1445,13 +1670,25 @@ def _shots(key: str):
             "Risultati con colonna filtri. Scatto 6 Oct 2026.",
         )
         diy_alt, diy_cap = (
-            "Ricerca OrientDig: Goods/shop's link or name per incollare un link Taobao, 1688 o Weidian",
-            "Barra pubblica su orientdig.com. La barra pubblica è «Goods/shop's link or name». Questa guida non inventa un modulo compilato.",
+            "OrientDig DIY Order ha aperto il login: Log in, Register, Continue With Google",
+            "DIY Order su orientdig.com chiede il login. Lo stimatore pubblico /estimation/ è senza login. Questa guida non inventa un modulo DIY compilato.",
+        )
+        est_alt, est_cap = (
+            f"Stimatore ufficiale OrientDig, destinazione {snap['dest']}, 1000 g, 35×25×10 cm, linea {snap['line']}",
+            f"Stimatore pubblico, destinazione {snap['dest']} ({dest_zh}), 1000 g e 35×25×10 cm. Il {DATE} ha mostrato tra le altre {snap['line']}, {snap['price']}, {snap['days']} giorni, {snap['n']} linee. I cifre cambiano; riapri lo stimatore.",
         )
     elif loc == "es":
-        off_alt, off_cap = (
-            "Portada oficial de OrientDig: wordmark verde, búsqueda, forwarding y estimation en el menú",
-            f"Sitio oficial orientdig.com, {DATE}. Los fletes salen de /estimation/. Esta guía no inventa una línea ni un importe.",
+        home_alt, home_cap = (
+            "Portada oficial de OrientDig: wordmark naranja, barra para pegar y tres pasos Place Orders, Submit Parcels, Sign Delivery",
+            f"Portada oficial de orientdig.com, {DATE}. Los tres pasos bajo la búsqueda son el circuito: pedir en China, consolidar en almacén, recibir fuera.",
+        )
+        guide_alt, guide_cap = (
+            "Barra oficial OrientDig: Goods/shop's link or name y los tres pasos debajo",
+            "Barra en orientdig.com. Pega un enlace Taobao, 1688 o Weidian, o escribe el nombre. Captura 6 Oct 2026.",
+        )
+        pay_alt, pay_cap = (
+            "Help Center oficial de OrientDig, pestaña Shipping & delivery: Customs & Taxes, Delivery Fees, Mail Restrictions",
+            f"Help Center, Shipping & delivery, {DATE}. La regla de 90 días de almacén está en Help, no como cifra inventada en esta portada.",
         )
         sheet_alt, sheet_cap = (
             "Catálogo OrientDig en w2clinks: fichas con foto, marca y precio de referencia",
@@ -1466,13 +1703,25 @@ def _shots(key: str):
             "Resultados con columna de filtros. Captura 6 Oct 2026.",
         )
         diy_alt, diy_cap = (
-            "Búsqueda OrientDig: Goods/shop's link or name para pegar un enlace Taobao, 1688 o Weidian",
-            "Barra pública en orientdig.com. La barra pública es «Goods/shop's link or name». Esta guía no inventa un formulario relleno.",
+            "OrientDig DIY Order abrió el login: Log in, Register, Continue With Google",
+            "DIY Order en orientdig.com pide login. El estimador público /estimation/ no pide login. Esta guía no inventa un formulario DIY relleno.",
+        )
+        est_alt, est_cap = (
+            f"Estimador oficial OrientDig, destino {snap['dest']}, 1000 g, 35×25×10 cm, línea {snap['line']}",
+            f"Estimador público, destino {snap['dest']} ({dest_zh}), 1000 g y 35×25×10 cm. El {DATE} mostró entre otras {snap['line']}, {snap['price']}, {snap['days']} días, {snap['n']} líneas. Las cifras cambian; abre el estimador otra vez.",
         )
     elif loc == "fr":
-        off_alt, off_cap = (
-            "Page d’accueil officielle OrientDig : wordmark vert, recherche, forwarding et estimation dans le menu",
-            f"Site officiel orientdig.com, {DATE}. Les chiffres de fret viennent de /estimation/. Ce guide n’invente ni ligne ni montant.",
+        home_alt, home_cap = (
+            "Page d’accueil officielle OrientDig : wordmark orange, barre de collage et trois étapes Place Orders, Submit Parcels, Sign Delivery",
+            f"Page d’accueil officielle d’orientdig.com, {DATE}. Les trois étapes sous la recherche sont le circuit : commander en Chine, regrouper en entrepôt, recevoir à l’étranger.",
+        )
+        guide_alt, guide_cap = (
+            "Barre officielle OrientDig : Goods/shop's link or name et les trois étapes en dessous",
+            "Barre sur orientdig.com. Colle un lien Taobao, 1688 ou Weidian, ou tape le nom. Capture 6 Oct 2026.",
+        )
+        pay_alt, pay_cap = (
+            "Help Center officiel OrientDig, onglet Shipping & delivery : Customs & Taxes, Delivery Fees, Mail Restrictions",
+            f"Help Center, Shipping & delivery, {DATE}. La règle des 90 jours d’entrepôt est dans Help, pas un chiffre inventé sur cette page d’accueil.",
         )
         sheet_alt, sheet_cap = (
             "Catalogue OrientDig sur w2clinks : fiches avec photo, marque et prix de référence",
@@ -1487,13 +1736,25 @@ def _shots(key: str):
             "Résultats avec colonne de filtres. Capture 6 Oct 2026.",
         )
         diy_alt, diy_cap = (
-            "Recherche OrientDig : Goods/shop's link or name pour coller un lien Taobao, 1688 ou Weidian",
-            "Barre publique sur orientdig.com. La barre publique est «Goods/shop's link or name». Ce guide n’invente pas un formulaire rempli.",
+            "OrientDig DIY Order a ouvert le login : Log in, Register, Continue With Google",
+            "DIY Order sur orientdig.com demande un login. L’estimateur public /estimation/ n’en demande pas. Ce guide n’invente pas un formulaire DIY rempli.",
+        )
+        est_alt, est_cap = (
+            f"Estimateur officiel OrientDig, destination {snap['dest']}, 1000 g, 35×25×10 cm, ligne {snap['line']}",
+            f"Estimateur public, destination {snap['dest']} ({dest_zh}), 1000 g et 35×25×10 cm. Le {DATE} a montré entre autres {snap['line']}, {snap['price']}, {snap['days']} jours, {snap['n']} lignes. Les montants changent ; rouvre l’estimateur.",
         )
     elif loc == "nl":
-        off_alt, off_cap = (
-            "Officiële OrientDig-homepage: groen wordmark, zoekbalk, forwarding en estimation in het menu",
-            f"Officiële orientdig.com, {DATE}. Vrachtcijfers komen van /estimation/. Deze gids verzint geen lijn en geen bedrag.",
+        home_alt, home_cap = (
+            "Officiële OrientDig-homepage: oranje wordmark, plakbalk en drie stappen Place Orders, Submit Parcels, Sign Delivery",
+            f"Officiële homepage van orientdig.com, {DATE}. De drie stappen onder de zoekbalk zijn de ronde: bestellen in China, bundelen in het magazijn, internationaal ontvangen.",
+        )
+        guide_alt, guide_cap = (
+            "Officiële OrientDig-plakbalk: Goods/shop's link or name en de drie stappen eronder",
+            "Plakbalk op orientdig.com. Plak een Taobao-, 1688- of Weidian-link, of typ de naam. Opname 6 Oct 2026.",
+        )
+        pay_alt, pay_cap = (
+            "Officieel OrientDig Help Center, tab Shipping & delivery: Customs & Taxes, Delivery Fees, Mail Restrictions",
+            f"Help Center, Shipping & delivery, {DATE}. De 90-dagen-magazijnregel staat in Help, niet als verzonnen getal op deze homepage.",
         )
         sheet_alt, sheet_cap = (
             "OrientDig-catalogus op w2clinks: kaarten met foto, merk en referentieprijs",
@@ -1508,13 +1769,25 @@ def _shots(key: str):
             "Resultaten met filterkolom. Opname 6 Oct 2026.",
         )
         diy_alt, diy_cap = (
-            "OrientDig-zoekbalk: Goods/shop's link or name om een Taobao-, 1688- of Weidian-link te plakken",
-            "Publieke plakbalk op orientdig.com. De publieke plakbalk heet «Goods/shop's link or name». Deze gids verzint geen ingevuld formulier.",
+            "OrientDig DIY Order opende de loginmuur: Log in, Register, Continue With Google",
+            "DIY Order op orientdig.com vraagt login. De publieke schatter onder /estimation/ niet. Deze gids verzint geen ingevuld DIY-formulier.",
+        )
+        est_alt, est_cap = (
+            f"Officiële OrientDig-schatter, bestemming {snap['dest']}, 1000 g, 35×25×10 cm, lijn {snap['line']}",
+            f"Publieke schatter, bestemming {snap['dest']} ({dest_zh}), 1000 g en 35×25×10 cm. {DATE} toonde o.a. {snap['line']}, {snap['price']}, {snap['days']} dagen, {snap['n']} lijnen. Die cijfers veranderen; open de schatter opnieuw.",
         )
     else:
-        off_alt, off_cap = (
-            "Official OrientDig homepage: orange wordmark, paste bar and estimation in the nav",
-            f"Official orientdig.com, {DATE}. Freight figures come from {EST_PATH}. This desk does not invent a line or a dollar amount.",
+        home_alt, home_cap = (
+            "Official OrientDig homepage: orange wordmark, paste bar and three steps Place Orders, Submit Parcels, Sign Delivery",
+            f"Official homepage of orientdig.com, {DATE}. The three steps under the search bar are the loop: order in China, consolidate in the warehouse, receive abroad.",
+        )
+        guide_alt, guide_cap = (
+            "Official OrientDig paste bar: Goods/shop's link or name and the three steps below",
+            "Paste bar on orientdig.com. Paste a Taobao, 1688 or Weidian link, or type the name. Capture 6 Oct 2026.",
+        )
+        pay_alt, pay_cap = (
+            "Official OrientDig Help Center, Shipping & delivery tab: Customs & Taxes, Delivery Fees, Mail Restrictions",
+            f"Help Center, Shipping & delivery, {DATE}. The 90-day warehouse rule is named in Help, not as an invented number on this homepage.",
         )
         sheet_alt, sheet_cap = (
             "OrientDig catalogue on w2clinks: product cards with photo, brand and reference price",
@@ -1529,15 +1802,23 @@ def _shots(key: str):
             "Results with the filter column. Capture 6 Oct 2026.",
         )
         diy_alt, diy_cap = (
-            "OrientDig search: Goods/shop's link or name to paste a Taobao, 1688 or Weidian link",
-            "Public paste bar on orientdig.com: Goods/shop's link or name. This desk does not invent a filled DIY total.",
+            "OrientDig DIY Order opened the login wall: Log in, Register, Continue With Google",
+            "DIY Order on orientdig.com asks for login. The public estimator at /estimation/ does not. This desk does not invent a filled DIY total.",
         )
-    fig_off = _fig("/img/shots/oficial.jpg", off_alt, off_cap)
-    fig_sheet = _fig("/img/shots/catalogus.jpg", sheet_alt, sheet_cap, 1200, 900)
-    fig_vol = _fig("/img/shots/volume-voorbeeld.jpg", vol_alt, vol_cap, 1200, 640)
-    fig_zoek = _fig("/img/shots/catalogus-zoek.jpg", zoek_alt, zoek_cap, 1200, 900)
-    fig_diy = _fig("/img/shots/oficial-diy.jpg", diy_alt, diy_cap, 1200, 280)
-    return fig_off, fig_sheet, fig_vol, fig_zoek, fig_diy
+        est_alt, est_cap = (
+            f"Official OrientDig estimator, destination {snap['dest']}, 1000 g, 35×25×10 cm, line {snap['line']}",
+            f"Public estimator, destination {snap['dest']} ({dest_zh}), 1000 g and 35×25×10 cm. {DATE} showed among others {snap['line']}, {snap['price']}, {snap['days']} days, {snap['n']} lines. Those figures change; open the estimator again.",
+        )
+    return {
+        "home": _fig("/img/shots/oficial-inicio.jpg", home_alt, home_cap),
+        "guide": _fig("/img/shots/oficial-guidebook.jpg", guide_alt, guide_cap, 1200, 450),
+        "pay": _fig("/img/shots/oficial-guidebook-3.jpg", pay_alt, pay_cap),
+        "sheet": _fig("/img/shots/catalogus.jpg", sheet_alt, sheet_cap, 1200, 900),
+        "est": _fig(f"/img/shots/estimator-{key}.jpg", est_alt, est_cap),
+        "vol": _fig("/img/shots/volume-voorbeeld.jpg", vol_alt, vol_cap, 1200, 640),
+        "diy": _fig("/img/shots/oficial-diy.jpg", diy_alt, diy_cap),
+        "zoek": _fig("/img/shots/catalogus-zoek.jpg", zoek_alt, zoek_cap, 1200, 900),
+    }
 
 
 def _sec_shots(key: str, fig) -> str:
@@ -1625,7 +1906,8 @@ def _sec_states(key: str, fig) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>Neun Status, drei Bildschirme</h2>
     <p class="lead">Zuerst zahlst du das Produkt plus den Inlandsweg in China bis zum Lager. International kommt später, wenn du eine Linie nach {escape(dest)} wählst. «Warum steht es still?» heißt fast immer: du schaust auf den falschen Bildschirm.</p>
-    <p>Die ersten Schritte liegen unter Bestellungen, danach Lager, danach das Paket, das du absendest. Am {escape(DATE)} öffnete der öffentliche Schätzer ein Login: dieser Desk erfindet keine Lagerfrist.</p>
+    {_status_ul(key)}
+    <p>Die ersten Schritte liegen unter Bestellungen, danach Lager, danach das Paket, das du absendest. {escape(_est_note(key))} {escape(_storage(loc))}</p>
     <p><a class="btn" href="{escape(p["guide"])}">Anleitung mit dem Verlauf</a></p>
   </div>{fig}</div></div>
 </section>
@@ -1636,7 +1918,8 @@ def _sec_states(key: str, fig) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>Nove stati, tre schermate</h2>
     <p class="lead">Prima paghi il prodotto più il trasporto interno in Cina fino al magazzino. L’internazionale arriva dopo, quando scegli una linea verso l’Italia. «Perché è fermo?» quasi sempre significa: stai guardando la schermata sbagliata.</p>
-    <p>I primi passi stanno sotto gli ordini, poi il magazzino, poi il pacco che invii. Il {escape(DATE)} i noli arrivano dallo stimatore ufficiale: scegli il paese, non questo hostname.</p>
+    {_status_ul(key)}
+    <p>I primi passi stanno sotto gli ordini, poi il magazzino, poi il pacco che invii. {escape(_est_note(key))} {escape(_storage(loc))}</p>
     <p><a class="btn" href="{escape(p["guide"])}">Guida con il percorso</a></p>
   </div>{fig}</div></div>
 </section>
@@ -1647,7 +1930,8 @@ def _sec_states(key: str, fig) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>Nueve estados, tres pantallas</h2>
     <p class="lead">Primero pagas el producto más el tramo interno en China hasta el almacén. El internacional llega después, cuando eliges una línea hacia {escape(dest)}. «¿Por qué está parado?» casi siempre significa: estás mirando la pantalla equivocada.</p>
-    <p>Los primeros pasos están bajo pedidos, luego almacén, luego el paquete que envías. El {escape(DATE)} los fletes salen del estimador oficial: elige el país, no este hostname.</p>
+    {_status_ul(key)}
+    <p>Los primeros pasos están bajo pedidos, luego almacén, luego el paquete que envías. {escape(_est_note(key))} {escape(_storage(loc))}</p>
     <p><a class="btn" href="{escape(p["guide"])}">Guía con el recorrido</a></p>
   </div>{fig}</div></div>
 </section>
@@ -1658,7 +1942,8 @@ def _sec_states(key: str, fig) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>Neuf statuts, trois écrans</h2>
     <p class="lead">Tu paies d’abord le produit plus le trajet intérieur en Chine jusqu’à l’entrepôt. L’international vient ensuite, quand tu choisis une ligne vers {escape(dest)}. « Pourquoi c’est bloqué ? » veut presque toujours dire : tu regardes le mauvais écran.</p>
-    <p>Les premiers pas sont sous les commandes, puis l’entrepôt, puis le colis que tu envoies. Le {escape(DATE)} les chiffres de fret viennent de l’estimateur officiel : choisis le pays, pas ce hostname.</p>
+    {_status_ul(key)}
+    <p>Les premiers pas sont sous les commandes, puis l’entrepôt, puis le colis que tu envoies. {escape(_est_note(key))} {escape(_storage(loc))}</p>
     <p><a class="btn" href="{escape(p["guide"])}">Guide avec le parcours</a></p>
   </div>{fig}</div></div>
 </section>
@@ -1669,7 +1954,8 @@ def _sec_states(key: str, fig) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>Negen statussen, drie schermen</h2>
     <p class="lead">Eerst betaal je het product plus het binnenlandse traject in China tot het magazijn. Internationaal komt later, als je een lijn naar {escape(dest)} kiest. «Waarom staat het stil?» betekent bijna altijd: je kijkt naar het verkeerde scherm.</p>
-    <p>De eerste stappen staan onder bestellingen, daarna magazijn, daarna het pakket dat je verzendt. Op {escape(DATE)} komen vrachtcijfers uit de officiële schatter: kies het land, niet deze hostname.</p>
+    {_status_ul(key)}
+    <p>De eerste stappen staan onder bestellingen, daarna magazijn, daarna het pakket dat je verzendt. {escape(_est_note(key))} {escape(_storage(loc))}</p>
     <p><a class="btn" href="{escape(p["guide"])}">Handleiding met het pad</a></p>
   </div>{fig}</div></div>
 </section>
@@ -1679,7 +1965,8 @@ def _sec_states(key: str, fig) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>Nine statuses, three screens</h2>
     <p class="lead">You first pay the product plus domestic China freight to the warehouse. International comes later, when you pick a line to {escape(dest)}. “Why is it stuck?” is almost always: you are looking at the wrong screen.</p>
-    <p>The first stretch lives under orders, then warehouse, then the parcel you submit. Freight figures come from {escape(EST)}: pick the country, not this hostname. {escape(_storage("en"))}</p>
+    {_status_ul(key)}
+    <p>The first stretch lives under orders, then warehouse, then the parcel you submit. {escape(_est_note(key))} {escape(_storage("en"))}</p>
     <p><a class="btn" href="{escape(p["guide"])}">Guide with the path</a></p>
   </div>{fig}</div></div>
 </section>
@@ -1757,12 +2044,14 @@ def build_home(key: str) -> str:
     sheet = _sheet(desk)
     wall = _wall(key)
     chips = _chips(key)
-    fig_off, fig_sheet, fig_vol, fig_zoek, _fig_diy = _shots(key)
+    s = _shots(key)
+    fig_off, fig_sheet, fig_vol = s["home"], s["sheet"], s["vol"]
+    fig_est, fig_diy = s["est"], s["diy"]
     dest = p["dest_label"]
     loc = p["loc"]
-    shots = _sec_shots(key, fig_zoek)
-    states = _sec_states(key, fig_off)
-    restricted = _sec_restricted(key, fig_sheet)
+    shots = _sec_shots(key, s["guide"])
+    states = _sec_states(key, s["pay"])
+    restricted = _sec_restricted(key, fig_diy)
     if loc == "de":
         body = f"""
 <section class="hero">
@@ -1815,16 +2104,16 @@ def build_home(key: str) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>{escape(dest)} hat Linien, aber nicht jede Linie ist offen</h2>
     <p class="lead">Im Schätzer Ziel <strong>{escape(p["dest_zh"])}</strong> wählen, {escape(p.get("lab_not", "nicht EU"))}. Die Lieferadresse ist eine {escape(p["postal"])}.</p>
-    <p>Am {escape(DATE)} öffnete die öffentliche Estimator-URL ein Login, keinen Live-Preis. Dieser Desk erfindet keine Linie, keine Transitzeit und keinen Eurobetrag. Quelle: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
+    <p>{escape(_est_note(key))} Quelle: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
     <p><a class="btn" href="{escape(EST)}">Offizielle OrientDig-Site</a>
        <a class="btn btn--ghost" href="{escape(p["ship"])}">Versandplan</a></p>
-  </div>{fig_off}</div></div>
+  </div>{fig_est}</div></div>
 </section>
 <section class="sec" id="volume">
   <div class="wrap"><div class="split split--rev"><div>
     <h2>Das Gewicht, das du zahlst, ist fast nie nur die Waage</h2>
     <p class="lead">Viele Linien rechnen das Maximum aus Waage und Volumen. Ein üblicher Teiler ist L×B×H (cm) / 8000. Eine Daunenjacke ist leicht und voluminös: dort entscheidet das Volumen.</p>
-    <p>Beispiel: 40×40×3 cm sind 4800 cm³, geteilt durch 8000 sind 600 g Volumen bei 200 g Echtgewicht. Deine Maße trägst du im offiziellen Schätzer ein, Ziel {escape(dest)}, sobald du eingeloggt bist.</p>
+    <p>Beispiel: 40×40×3 cm sind 4800 cm³, geteilt durch 8000 sind 600 g Volumen bei 200 g Echtgewicht. Deine Maße trägst du im öffentlichen Schätzer ein, Ziel {escape(dest)} — ohne Login.</p>
   </div>{fig_vol}</div></div>
 </section>
 {restricted}
@@ -1891,16 +2180,16 @@ def build_home(key: str) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>L’Italia ha linee, ma non ogni linea è aperta</h2>
     <p class="lead">Nell’estimator scegli destinazione <strong>{escape(p["dest_zh"])}</strong>, non EU. L’indirizzo è una {escape(p["postal"])}.</p>
-    <p>Il {escape(DATE)} l’URL pubblico del preventivo è lo strumento live. Questa guida non inventa una linea, un transito né un importo. Fonte: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
+    <p>{escape(_est_note(key))} Fonte: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
     <p><a class="btn" href="{escape(EST)}">Sito ufficiale OrientDig</a>
        <a class="btn btn--ghost" href="{escape(p["ship"])}">Piano spedizione</a></p>
-  </div>{fig_off}</div></div>
+  </div>{fig_est}</div></div>
 </section>
 <section class="sec" id="volume">
   <div class="wrap"><div class="split split--rev"><div>
     <h2>Il peso che paghi quasi mai è solo la bilancia</h2>
     <p class="lead">Molte linee fatturano il massimo tra bilancia e volume. Un divisore comune è L×W×H (cm) / 8000. Un piumino è leggero e ingombrante: lì decide il volume.</p>
-    <p>Esempio: 40×40×3 cm sono 4800 cm³, divisi per 8000 sono 600 g di volume a 200 g reali. Le tue misure le inserisci nel preventivo ufficiale, destinazione Italia, quando sei loggato.</p>
+    <p>Esempio: 40×40×3 cm sono 4800 cm³, divisi per 8000 sono 600 g di volume a 200 g reali. Le tue misure le inserisci nello stimatore pubblico, destinazione Italia — senza login.</p>
   </div>{fig_vol}</div></div>
 </section>
 {restricted}
@@ -1967,16 +2256,16 @@ def build_home(key: str) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>{escape(dest)} tiene líneas, pero no todas están abiertas</h2>
     <p class="lead">En el estimador elige destino <strong>{escape(p["dest_zh"])}</strong>, no EU. La dirección es una {escape(p["postal"])}.</p>
-    <p>El {escape(DATE)} la URL pública del estimador es la tarifa en vivo. Esta guía no inventa una línea, un tránsito ni un importe. Fuente: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
+    <p>{escape(_est_note(key))} Fuente: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
     <p><a class="btn" href="{escape(EST)}">Sitio oficial OrientDig</a>
        <a class="btn btn--ghost" href="{escape(p["ship"])}">Plan de envío</a></p>
-  </div>{fig_off}</div></div>
+  </div>{fig_est}</div></div>
 </section>
 <section class="sec" id="volume">
   <div class="wrap"><div class="split split--rev"><div>
     <h2>El peso que pagas casi nunca es solo la báscula</h2>
     <p class="lead">Muchas líneas facturan el máximo entre báscula y volumen. Un divisor habitual es L×W×H (cm) / 8000. Un plumífero es ligero y voluminoso: ahí decide el volumen.</p>
-    <p>Ejemplo: 40×40×3 cm son 4800 cm³, divididos por 8000 son 600 g de volumen con 200 g reales. Tus medidas las metes en el estimador oficial, destino {escape(dest)}, cuando estás logueado.</p>
+    <p>Ejemplo: 40×40×3 cm son 4800 cm³, divididos por 8000 son 600 g de volumen con 200 g reales. Tus medidas las metes en el estimador público, destino {escape(dest)} — sin login.</p>
   </div>{fig_vol}</div></div>
 </section>
 {restricted}
@@ -2043,16 +2332,16 @@ def build_home(key: str) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>{escape(dest[0].upper() + dest[1:])} a des lignes, mais pas toutes sont ouvertes</h2>
     <p class="lead">Dans l’estimateur, choisis destination <strong>{escape(p["dest_zh"])}</strong>, pas EU. L’adresse est une {escape(p["postal"])}.</p>
-    <p>Le {escape(DATE)} l’URL publique de l’estimateur est l’outil live. Ce guide n’invente ni ligne, ni transit, ni montant. Source : <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
+    <p>{escape(_est_note(key))} Source : <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
     <p><a class="btn" href="{escape(EST)}">Site officiel OrientDig</a>
        <a class="btn btn--ghost" href="{escape(p["ship"])}">Plan de livraison</a></p>
-  </div>{fig_off}</div></div>
+  </div>{fig_est}</div></div>
 </section>
 <section class="sec" id="volume">
   <div class="wrap"><div class="split split--rev"><div>
     <h2>Le poids que tu paies n’est presque jamais la balance seule</h2>
     <p class="lead">Beaucoup de lignes facturent le maximum entre balance et volume. Un diviseur courant est L×W×H (cm) / 8000. Une doudoune est légère et volumineuse : c’est le volume qui décide.</p>
-    <p>Exemple : 40×40×3 cm font 4800 cm³, divisés par 8000 font 600 g de volume pour 200 g réels. Tes mesures, tu les saisis dans l’estimateur officiel, destination {escape(dest)}, une fois connecté.</p>
+    <p>Exemple : 40×40×3 cm font 4800 cm³, divisés par 8000 font 600 g de volume pour 200 g réels. Tes mesures, tu les saisis dans l’estimateur public, destination {escape(dest)} — sans login.</p>
   </div>{fig_vol}</div></div>
 </section>
 {restricted}
@@ -2119,16 +2408,16 @@ def build_home(key: str) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>{escape(dest)} heeft lijnen, maar niet elke lijn is open</h2>
     <p class="lead">Kies in de schatter bestemming <strong>{escape(p["dest_zh"])}</strong>, niet EU. Het afleveradres is een {escape(p["postal"])}.</p>
-    <p>Op {escape(DATE)} komen vrachtcijfers alleen uit de officiële schatter: kies het land, niet deze hostname. Deze gids verzint geen lijn, transittijd of bedrag. Bron: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
+    <p>{escape(_est_note(key))} Bron: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
     <p><a class="btn" href="{escape(EST)}">Officiële OrientDig-site</a>
        <a class="btn btn--ghost" href="{escape(p["ship"])}">Verzendplan</a></p>
-  </div>{fig_off}</div></div>
+  </div>{fig_est}</div></div>
 </section>
 <section class="sec" id="volume">
   <div class="wrap"><div class="split split--rev"><div>
     <h2>Het gewicht dat je betaalt is bijna nooit alleen de weegschaal</h2>
     <p class="lead">Veel lijnen factureren het maximum van weegschaal en volume. Een gebruikelijke deler is L×W×H (cm) / 8000. Een donsjas is licht en volumineus: daar beslist het volume.</p>
-    <p>Voorbeeld: 40×40×3 cm is 4800 cm³, gedeeld door 8000 is 600 g volume bij 200 g echt gewicht. Jouw maten vul je in de officiële schatter in, bestemming {escape(dest)}, zodra je ingelogd bent.</p>
+    <p>Voorbeeld: 40×40×3 cm is 4800 cm³, gedeeld door 8000 is 600 g volume bij 200 g echt gewicht. Jouw maten vul je in de publieke schatter in, bestemming {escape(dest)} — zonder login.</p>
   </div>{fig_vol}</div></div>
 </section>
 {restricted}
@@ -2194,17 +2483,17 @@ def build_home(key: str) -> str:
 <section class="sec sec--tint" id="lab">
   <div class="wrap"><div class="split"><div>
     <h2>{escape(dest[0].upper() + dest[1:])} has lines, but not every line is open</h2>
-    <p class="lead">Pick destination <strong>{escape(p["dest_zh"])}</strong> in the official estimator when you are logged in. The delivery address is a {escape(p["postal"])}.</p>
-    <p>On {escape(DATE)} freight figures come only from {escape(EST)}: pick the country, not this hostname. This desk does not invent a line, a transit-day count or a money amount. Import: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
+    <p class="lead">Pick destination <strong>{escape(p["dest_zh"])}</strong> in the public estimator — no login. The delivery address is a {escape(p["postal"])}.</p>
+    <p>{escape(_est_note(key))} Import: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
     <p><a class="btn" href="{escape(EST)}">Official OrientDig site</a>
        <a class="btn btn--ghost" href="{escape(p["ship"])}">Shipping plan</a></p>
-  </div>{fig_off}</div></div>
+  </div>{fig_est}</div></div>
 </section>
 <section class="sec" id="volume">
   <div class="wrap"><div class="split split--rev"><div>
     <h2>The weight you pay is almost never the scale alone</h2>
     <p class="lead">Many lines bill the greater of scale and volume. A common divisor is L×W×H (cm) / 8000. A down jacket is light and bulky: volume decides.</p>
-    <p>Example: 40×40×3 cm is 4800 cm³, divided by 8000 is 600 g volume at 200 g real weight. You enter your measurements in the official estimator when you are logged in, destination {escape(p["dest_zh"].split("—")[0].strip())}.</p>
+    <p>Example: 40×40×3 cm is 4800 cm³, divided by 8000 is 600 g volume at 200 g real weight. You enter your measurements in the public estimator — no login — destination {escape(p["dest_zh"].split("—")[0].strip())}.</p>
   </div>{fig_vol}</div></div>
 </section>
 {restricted}
@@ -2226,7 +2515,7 @@ def build_home(key: str) -> str:
         page_title(desk, p["home_topic"]),
         desc,
         f"https://{p['host']}/",
-        [],
+        [faq_ld(p["lang"], _faqs(key))],
         body,
         "/start/",
     )
@@ -2238,7 +2527,8 @@ def build_catalog(key: str) -> str:
     loc = p["loc"]
     notes = {"de": CAT_NOTES_DE, "it": CAT_NOTES_IT, "es": CAT_NOTES_ES, "fr": CAT_NOTES_FR, "nl": CAT_NOTES_NL}.get(loc, CAT_NOTES_EN)
     wall = _wall(key, notes)
-    _fig_off, fig_sheet, _fig_vol, fig_zoek, fig_diy = _shots(key)
+    s = _shots(key)
+    fig_sheet, fig_zoek, fig_diy = s["sheet"], s["zoek"], s["diy"]
     dest = p["dest_label"]
     sheet = _sheet(desk)
     keys = _keys_table(key)
@@ -2488,7 +2778,7 @@ def build_help(key: str) -> str:
     desk = desk_for(key)
     pairs = _faqs(key)
     html_f = _faq_grouped_html(key)
-    fig_off, *_ = _shots(key)
+    fig_off = _shots(key)["home"]
     loc = p["loc"]
     if loc == "de":
         topic = "Hilfe und häufige Fragen"
@@ -2575,15 +2865,15 @@ def build_news(key: str) -> str:
     loc = p["loc"]
     if loc == "de":
         items = [
-            ("Erste Runde: Estimator hinter Login",
-             f"Am {DATE} öffnete https://orientdig.com/estimation ein Login, keinen Live-Preis. Keine erfundene Linie.",
+            ("Erste Runde: öffentlicher Schätzer",
+             _est_note(key),
              f"Am Versandmorgen die offizielle Site öffnen, Ziel {p['dest_zh']}. {p['postal']}."),
             ("w2clinks sucht auf Englisch",
              "sneakers, hoodie, jacket liefern Seiten; Turnschuhe oft null. Gemessen 6 Oct 2026.",
              "Englischen Key tippen oder einen Chip auf der Homepage antippen."),
             ("Volumengewicht",
              "Viele Linien nehmen das Maximum aus Waage und L×B×H/8000. Kein SKU-Preis in diesem HTML.",
-             "Deine Box im offiziellen Schätzer rechnen, sobald du eingeloggt bist."),
+             "Deine Box im öffentlichen Schätzer rechnen — ohne Login."),
             ("Schwester-Hosts bleiben getrennt",
              "UK, US, DE, AT, ES, FR, IT und NL sind eigene Dateien. Kein 301 untereinander.",
              "Es gibt keinen OrientDig-Hub und kein Zollgebiet, das diese Dest-Hosts zusammenzieht."),
@@ -2600,7 +2890,7 @@ def build_news(key: str) -> str:
              "Scrivi la key inglese, o tocca un chip in homepage."),
             ("Peso volumetrico",
              "Molte linee prendono il massimo tra bilancia e L×W×H/8000. Nessun prezzo SKU in questo HTML.",
-             "Calcola la tua scatola nel preventivo ufficiale quando sei loggato."),
+             "Calcola la tua scatola nello stimatore pubblico, senza login."),
             ("Gli host sorella restano separati",
              "UK, US, DE, AT, ES, FR, IT e NL sono file distinti. Nessun 301 fra loro.",
              "Non c’è un hub OrientDig né un territorio doganale che unisca questi host."),
@@ -2617,7 +2907,7 @@ def build_news(key: str) -> str:
              "Escribe la key inglesa, o toca un chip en la portada."),
             ("Peso volumétrico",
              "Muchas líneas toman el máximo entre báscula y L×W×H/8000. Ningún precio SKU en este HTML.",
-             "Calcula tu caja en el estimador oficial cuando estés logueado."),
+             "Calcula tu caja en el estimador público, sin login."),
             ("Los hosts hermanos siguen separados",
              "UK, US, DE, AT, ES, FR, IT y NL son archivos distintos. Ningún 301 entre ellos.",
              "No hay un hub OrientDig ni un territorio aduanero que una estos hosts."),
@@ -2634,7 +2924,7 @@ def build_news(key: str) -> str:
              "Tape la key anglaise, ou touche un chip sur la page d’accueil."),
             ("Poids volumétrique",
              "Beaucoup de lignes prennent le max entre balance et L×W×H/8000. Aucun prix SKU dans cet HTML.",
-             "Calcule ta boîte dans l’estimateur officiel une fois connecté."),
+             "Calcule ta boîte dans l’estimateur public, sans login."),
             ("Les hôtes sœurs restent séparés",
              "UK, US, DE, AT, ES, FR, IT et NL sont des fichiers distincts. Aucun 301 entre eux.",
              "Il n’y a pas de hub OrientDig ni de territoire douanier qui rassemble ces hôtes."),
@@ -2651,7 +2941,7 @@ def build_news(key: str) -> str:
              "Typ de Engelse key, of tik een chip op de homepage."),
             ("Volumgewicht",
              "Veel lijnen nemen het maximum van weegschaal en L×W×H/8000. Geen SKU-prijs in deze HTML.",
-             "Reken je doos in de officiële schatter zodra je ingelogd bent."),
+             "Reken je doos in de publieke schatter, zonder login."),
             ("Zusthosts blijven apart",
              "UK, US, DE, AT, ES, FR, IT en NL zijn eigen bestanden. Geen 301 onderling.",
              "Er is geen OrientDig-hub en geen douanegebied dat deze hosts samenvoegt."),
@@ -2668,7 +2958,7 @@ def build_news(key: str) -> str:
              "Type the English key, or tap a chip on the homepage."),
             ("Volume weight",
              "Many lines bill the greater of scale and L×W×H/8000. No SKU price in this HTML.",
-             "Run your box on the official estimator when you are logged in."),
+             "Run your box on the public estimator — no login."),
             ("Sister country hosts stay separate",
              "UK, US, Germany, Austria, Spain, France, Italy and the Netherlands on OrientDig stay on their own hosts. None of them 301 into each other.",
              "There is no OrientDig hub and no customs territory that folds these dest hosts together."),
@@ -2702,7 +2992,7 @@ def build_news(key: str) -> str:
 def build_about(key: str) -> str:
     p = PACKS[key]
     desk = desk_for(key)
-    fig_off, *_ = _shots(key)
+    fig_off = _shots(key)["home"]
     loc = p["loc"]
     if loc == "de":
         topic = "wer wir sind und wie du uns erreichst"
@@ -2790,7 +3080,9 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
     p = PACKS[key]
     dest = p["dest_label"]
     loc = p["loc"]
-    fig_off, fig_sheet, fig_vol, _fig_zoek, fig_diy = _shots(key)
+    s = _shots(key)
+    fig_off, fig_sheet, fig_vol, fig_diy = s["home"], s["sheet"], s["vol"], s["diy"]
+    fig_est, fig_pay = s["est"], s["pay"]
     est = escape(EST)
     official = escape(OFFICIAL)
     fp = escape(p["postal"])
@@ -2824,9 +3116,10 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Zahlung und Tickets bleiben auf {official}. Dieser Desk sieht dein Konto nicht. Liest die Suche den Link nicht, hat die offizielle Site ein manuelles Formular.</p>
   {fig_diy}
   <h2>3. Foto, dann bündeln, dann senden</h2>
-  <p>Am {escape(DATE)} öffnete der öffentliche Schätzer ein Login, keinen Live-Preis. Keine erfundene Lagerfrist, keine erfundene Linie.</p>
+  <p>Der öffentliche Schätzer unter /estimation/ braucht kein Login. DIY Order schon. Keine erfundene Lagerfrist, keine erfundene Linie.</p>
   <h2>Neun Status, drei Bildschirme</h2>
   <p>Zuerst Produkt plus Inlandsweg bis zum Lager. International später. «Warum steht es still?» heißt fast immer: falscher Bildschirm — Bestellungen, dann Lager, dann Paket.</p>
+  {_guide_extra(key, fig_pay, fig_est)}
   <h2>Erste Haul: flach zuerst</h2>
   <p>T-Shirts, Shorts, Schmuck für die erste Runde. Daune, Taschen, Mützen für die zweite. Elektronik oft Lithium: Linie auf der offiziellen Site prüfen.</p>
   <p><a class="btn" href="{guide}">Anleitung</a> <a class="btn btn--ghost" href="{ship}">Versandplan</a></p>
@@ -2840,7 +3133,8 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p class="lead">Ziel {dest_zh}, {lab_not}. Die Lieferadresse ist eine {fp}.</p>
   {fig_off}
   <h2>Der offizielle Schätzer entscheidet</h2>
-  <p>Am {escape(DATE)} kommen Frachtzahlen nur aus {est}: das Land wählen, nicht diesen Hostnamen. Dieser Desk erfindet keine Linie, keine Transitzeit und keinen Eurobetrag. Quelle: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <p>{escape(_est_note(key))} Quelle: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  {fig_est}
   <h2>Waage gegen Volumen</h2>
   <p>Viele Linien rechnen das Maximum aus Waage und L×B×H (cm) / 8000. Beispiel: 40×40×3 cm sind 4800 cm³, geteilt durch 8000 sind 600 g Volumen bei 200 g Echtgewicht. Kein SKU-Preis in diesem HTML.</p>
   {fig_vol}
@@ -2862,7 +3156,7 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <h1>Ist OrientDig ein echter Einkaufsagent?</h1>
   <p class="lead">orientdig.com ist das offizielle Produkt. Dieser Desk ist unabhängig — kein Hub. Dieser Dest ist nicht OrientDig.</p>
   {fig_off}
-  <p>Am {escape(DATE)} war der öffentliche Schätzer hinter Login. Wir erfinden deshalb keine Lagerfrist und keinen Tarif. Bestellungen nur über {official}.</p>
+  <p>{escape(_est_note(key))} Bestellungen nur über {official}.</p>
   <p>Die Lieferadresse auf diesem Dest ist eine {fp}.</p>
   <p><a class="btn" href="{guide}">Anleitung</a> <a class="btn btn--ghost" href="{help_h}">Hilfe</a></p>
 </article>
@@ -2907,6 +3201,7 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Il {escape(DATE)} il preventivo pubblico è lo strumento live. Nessuna giacenza inventata, nessuna linea inventata.</p>
   <h2>Nove stati, tre schermate</h2>
   <p>Prima il prodotto più il trasporto interno fino al magazzino. L’internazionale dopo. «Perché è fermo?» quasi sempre: schermata sbagliata — ordini, poi magazzino, poi pacco.</p>
+  {_guide_extra(key, fig_pay, fig_est)}
   <h2>Primo haul: piatto prima</h2>
   <p>T-shirt, shorts, gioielli per il primo giro. Piumini, borse, cappelli per il secondo. Elettronica spesso litio: controlla la linea sul sito ufficiale.</p>
   <p><a class="btn" href="{guide}">Guida</a> <a class="btn btn--ghost" href="{ship}">Piano spedizione</a></p>
@@ -2920,7 +3215,8 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p class="lead">Destinazione {dest_zh}, non EU. L’indirizzo è una {fp}.</p>
   {fig_off}
   <h2>Il preventivo ufficiale decide</h2>
-  <p>Il {escape(DATE)} {est} è lo strumento live. Questa guida non inventa una linea, un transito né un importo. Fonte: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <p>{escape(_est_note(key))} Fonte: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  {fig_est}
   <h2>Bilancia contro volume</h2>
   <p>Molte linee fatturano il massimo tra bilancia e L×W×H (cm) / 8000. Esempio: 40×40×3 cm sono 4800 cm³, divisi per 8000 sono 600 g di volume a 200 g reali. Nessun prezzo SKU in questo HTML.</p>
   {fig_vol}
@@ -2987,6 +3283,7 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>El {escape(DATE)} el estimador público es la tarifa en vivo. Ningún plazo de almacén inventado, ninguna línea inventada.</p>
   <h2>Nueve estados, tres pantallas</h2>
   <p>Primero el producto más el tramo interno hasta el almacén. El internacional después. «¿Por qué está parado?» casi siempre: pantalla equivocada — pedidos, luego almacén, luego paquete.</p>
+  {_guide_extra(key, fig_pay, fig_est)}
   <h2>Primer haul: plano primero</h2>
   <p>Camisetas, shorts, joyería para la primera ronda. Plumíferos, bolsos, gorras para la segunda. Electrónica a menudo litio: mira la línea en el sitio oficial.</p>
   <p><a class="btn" href="{guide}">Guía</a> <a class="btn btn--ghost" href="{ship}">Plan de envío</a></p>
@@ -3000,7 +3297,8 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p class="lead">Destino {dest_zh}, no EU. La dirección es una {fp}.</p>
   {fig_off}
   <h2>El estimador oficial decide</h2>
-  <p>El {escape(DATE)} {est} es la tarifa en vivo. Esta guía no inventa una línea, un tránsito ni un importe. Fuente: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <p>{escape(_est_note(key))} Fuente: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  {fig_est}
   <h2>Báscula contra volumen</h2>
   <p>Muchas líneas facturan el máximo entre báscula y L×W×H (cm) / 8000. Ejemplo: 40×40×3 cm son 4800 cm³, divididos por 8000 son 600 g de volumen con 200 g reales. Ningún precio SKU en este HTML.</p>
   {fig_vol}
@@ -3067,6 +3365,7 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Le {escape(DATE)} l’estimateur public est l’outil live. Aucun délai de stockage inventé, aucune ligne inventée.</p>
   <h2>Neuf statuts, trois écrans</h2>
   <p>D’abord le produit plus le trajet intérieur jusqu’à l’entrepôt. L’international après. « Pourquoi c’est bloqué ? » presque toujours : mauvais écran — commandes, puis entrepôt, puis colis.</p>
+  {_guide_extra(key, fig_pay, fig_est)}
   <h2>Premier haul : plat d’abord</h2>
   <p>T-shirts, shorts, bijoux pour le premier tour. Doudounes, sacs, casquettes pour le second. Électronique souvent lithium : vérifie la ligne sur le site officiel.</p>
   <p><a class="btn" href="{guide}">Guide</a> <a class="btn btn--ghost" href="{ship}">Plan de livraison</a></p>
@@ -3080,7 +3379,8 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p class="lead">Destination {dest_zh}, pas EU. L’adresse est une {fp}.</p>
   {fig_off}
   <h2>L’estimateur officiel décide</h2>
-  <p>Le {escape(DATE)} {est} est l’outil live. Ce guide n’invente ni ligne, ni transit, ni montant. Source : <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <p>{escape(_est_note(key))} Source : <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  {fig_est}
   <h2>Balance contre volume</h2>
   <p>Beaucoup de lignes facturent le max entre balance et L×W×H (cm) / 8000. Exemple : 40×40×3 cm font 4800 cm³, divisés par 8000 font 600 g de volume pour 200 g réels. Aucun prix SKU dans cet HTML.</p>
   {fig_vol}
@@ -3147,6 +3447,7 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Op {escape(DATE)} komen vrachtcijfers uit de officiële schatter. Geen verzonnen opslagdagen, geen verzonnen lijn.</p>
   <h2>Negen statussen, drie schermen</h2>
   <p>Eerst product plus binnenlands traject tot het magazijn. Internationaal later. «Waarom staat het stil?» bijna altijd: verkeerd scherm — bestellingen, dan magazijn, dan pakket.</p>
+  {_guide_extra(key, fig_pay, fig_est)}
   <h2>Eerste haul: plat eerst</h2>
   <p>T-shirts, shorts, sieraden voor de eerste ronde. Dons, tassen, petten voor de tweede. Elektronica vaak lithium: check de lijn op de officiële site.</p>
   <p><a class="btn" href="{guide}">Handleiding</a> <a class="btn btn--ghost" href="{ship}">Verzendplan</a></p>
@@ -3160,7 +3461,8 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p class="lead">Bestemming {dest_zh}, niet EU. Het afleveradres is een {fp}.</p>
   {fig_off}
   <h2>De officiële schatter beslist</h2>
-  <p>Op {escape(DATE)} komen vrachtcijfers alleen uit {est}: kies het land, niet deze hostname. Deze gids verzint geen lijn, transittijd of bedrag. Bron: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <p>{escape(_est_note(key))} Bron: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  {fig_est}
   <h2>Weegschaal versus volume</h2>
   <p>Veel lijnen factureren het maximum van weegschaal en L×W×H (cm) / 8000. Voorbeeld: 40×40×3 cm is 4800 cm³, gedeeld door 8000 is 600 g volume bij 200 g echt gewicht. Geen SKU-prijs in deze HTML.</p>
   {fig_vol}
@@ -3227,6 +3529,7 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>On {escape(DATE)} freight figures come only from the official estimator: pick the country, not this hostname. This desk does not invent a line.</p>
   <h2>Nine statuses, three screens</h2>
   <p>First the product plus domestic freight to the warehouse. International later. “Why is it stuck?” is almost always the wrong screen — orders, then warehouse, then the parcel.</p>
+  {_guide_extra(key, fig_pay, fig_est)}
   <h2>First haul: flat first</h2>
   <p>T-shirts, shorts, jewelry for the first round. Down, bags, hats for the second. Electronics often mean lithium: check the line on the official site.</p>
   <p><a class="btn" href="{guide}">Guide</a> <a class="btn btn--ghost" href="{ship}">Shipping plan</a></p>
@@ -3237,10 +3540,11 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Shipping</span>
   <h1>Shipping to {dest_e}: estimator, volume, customs</h1>
-  <p class="lead">Pick destination {dest_zh} in the official estimator when you are logged in. The delivery address uses a {fp}.</p>
+  <p class="lead">Pick destination {dest_zh} in the public estimator — no login. The delivery address uses a {fp}.</p>
   {fig_off}
   <h2>The official estimator decides</h2>
-  <p>On {escape(DATE)} {est} is the live freight tool. This desk does not invent a line, a transit-day count or a money amount. Import: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <p>{escape(_est_note(key))} Import: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  {fig_est}
   <h2>Scale versus volume</h2>
   <p>Many lines bill the greater of scale and L×W×H (cm) / 8000. Example: 40×40×3 cm is 4800 cm³, divided by 8000 is 600 g volume at 200 g real weight. No SKU price in this HTML.</p>
   {fig_vol}
@@ -3353,8 +3657,18 @@ def _assert_ok(html: str, page: str, key: str) -> None:
         for tok in INVITES:
             if tok in html:
                 err.append(f"invite {tok}")
-        if "FAQPage" in html:
-            err.append("home FAQPage")
+        if 'class="sg-faq"' in html:
+            err.append("home visible faq")
+        if "FAQPage" not in html:
+            err.append("home FAQ JSON-LD")
+        if 'class="tl"' not in html:
+            err.append("status timeline")
+        for shot in (
+            "oficial-inicio.jpg", "oficial-guidebook.jpg", "oficial-guidebook-3.jpg",
+            f"estimator-{key}.jpg", "oficial-diy.jpg", "catalogus.jpg", "volume-voorbeeld.jpg",
+        ):
+            if shot not in html:
+                err.append(f"missing {shot}")
         if re.search(r"58 l[ií]neas|23[,.]81\s*USD", html, flags=re.I):
             err.append("58/23.81")
     if page == "help" and p["fingerprint"] not in html:
@@ -3392,7 +3706,7 @@ def _overlay(key: str) -> Path:
     return OUT / PACKS[key]["host"] / "overlay"
 
 
-def _copy_assets(dest: Path) -> None:
+def _copy_assets(dest: Path, key: str) -> None:
     img = dest / "img"
     (img / "shots").mkdir(parents=True, exist_ok=True)
     (dest / "assets" / "images").mkdir(parents=True, exist_ok=True)
@@ -3401,8 +3715,9 @@ def _copy_assets(dest: Path) -> None:
     shutil.copy(ASSETS / "hero.jpg", img / "hero.jpg")
     shutil.copy(ASSETS / "favicon.ico", dest / "favicon.ico")
     shutil.copy(ASSETS / "favicon1.ico", dest / "favicon1.ico")
-    for name in ("oficial.jpg", "oficial-diy.jpg", "catalogus.jpg", "catalogus-zoek.jpg", "volume-voorbeeld.jpg"):
+    for name in SHOTS:
         shutil.copy(ASSETS / "shots" / name, img / "shots" / name)
+    shutil.copy(ASSETS / "shots" / f"estimator-{key}.jpg", img / "shots" / f"estimator-{key}.jpg")
 
 
 def generate(key: str) -> dict[str, Path]:
@@ -3414,7 +3729,7 @@ def generate(key: str) -> dict[str, Path]:
     inner_rels = [href.strip("/") for href, _t, _b in _inner_pages(key).values()]
     for rel in ("start", p["help"].strip("/"), p["news"].strip("/"), p["about"].strip("/"), p["catalog"].strip("/"), *inner_rels):
         (dest / rel).mkdir(exist_ok=True)
-    _copy_assets(dest)
+    _copy_assets(dest, key)
     css_path = dest / "assets" / "css" / p["desk_css"]
     css_path.write_text(render_css(desk_for(key)), encoding="utf-8")
     theme = OUT / "shared" / "themes" / THEME_CSS
@@ -4427,8 +4742,16 @@ def live_check(key: str | None = None) -> None:
                     print(" FAIL cats"); fail += 1
                 if html.count('class="sg-faq"') >= 8:
                     print(" FAIL faq dump"); fail += 1
-                if "FAQPage" in html:
-                    print(" FAIL homepage FAQPage"); fail += 1
+                if "FAQPage" not in html:
+                    print(" FAIL homepage FAQ JSON-LD"); fail += 1
+                if 'class="tl"' not in html:
+                    print(" FAIL status timeline"); fail += 1
+                for shot in (
+                    "oficial-inicio.jpg", "oficial-guidebook.jpg", "oficial-guidebook-3.jpg",
+                    f"estimator-{k}.jpg", "oficial-diy.jpg",
+                ):
+                    if shot not in html:
+                        print(" FAIL missing", shot); fail += 1
                 for sid in ("shots", "states", "restricted"):
                     if f'id="{sid}"' not in html:
                         print(" FAIL missing #", sid, sep=""); fail += 1
