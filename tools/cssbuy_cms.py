@@ -3688,6 +3688,26 @@ def _cutover_php_vhost(client, sftp, key: str) -> None:
     text = text.replace("/www/wwwroot/cssbuy-lite/public", dest_root)
     text = text.replace("index index.php;", "index index.html;")
     text = re.sub(r"\n[ \t]*include enable-php-74\.conf;\s*", "\n", text)
+    text = re.sub(r"\n[ \t]*location = /index\.html\s*\{[^}]*\}\s*", "\n", text)
+    text = re.sub(r"\n[ \t]*location = /index\.htm\s*\{[^}]*\}\s*", "\n", text)
+    if "error_page 404" not in text:
+        inject = (
+            f"    error_page 404 /404.html;\n"
+            f"    location = /404.html {{\n"
+            f"        internal;\n"
+            f"        root {dest_root};\n"
+            f'        add_header X-Robots-Tag "noindex, nofollow" always;\n'
+            f'        add_header Cache-Control "no-store" always;\n'
+            f"    }}\n"
+        )
+        if "error_page 497 https://$host$request_uri;" in text:
+            text = text.replace(
+                "error_page 497 https://$host$request_uri;",
+                "error_page 497 https://$host$request_uri;\n" + inject,
+                1,
+            )
+        else:
+            raise SystemExit(f"{host} missing error_page 497 needle for 404 inject")
     if "/www/wwwroot/cssbuy-lite/public" in text or "cssbuy-lite/public" in text:
         raise SystemExit(f"refusing {host} vhost still on lite/public")
     if "enable-php-74.conf" in text:
@@ -3795,17 +3815,45 @@ def _fix_twins(client, sftp) -> None:
             print("retargeted twin gsc host", twin, "->", target)
             graw = _run(client, f"cat '{gsc}'")
         extra = TWIN_EXTRA.get(twin) or []
-        add = []
+        wanted: dict[str, str] = {}
         for src, dest in extra:
-            line = f"location = {src} {{ return 301 https://{target}{dest}; }}"
-            line2 = f"location = {src}/ {{ return 301 https://{target}{dest}; }}"
-            if line not in graw:
-                add.append(line + "\n" + line2 + "\n")
-        if add:
-            _run(client, f"cp -a '{gsc}' '/www/backup/cssbuy-twin-gsc-extra-{twin}-{stamp}.conf'")
-            Path(f"/tmp/cssbuy-twin-gsc-{twin}.conf").write_text(graw + "\n" + "".join(add), encoding="utf-8")
+            wanted[src] = dest
+            if not src.endswith("/"):
+                wanted[src + "/"] = dest
+        graw = re.sub(r"\}(\s*)location\s+=", "}\nlocation =", graw or "")
+        if graw and not graw.endswith("\n"):
+            graw += "\n"
+        seen: set[str] = set()
+        out: list[str] = []
+        loc_re = re.compile(r"location\s+=\s+(\S+)\s*\{")
+        file_changed = False
+        for ln in graw.splitlines(True):
+            m = loc_re.search(ln)
+            if m and m.group(1) in wanted:
+                path = m.group(1)
+                if path in seen:
+                    file_changed = True
+                    continue
+                want = f"location = {path} {{ return 301 https://{target}{wanted[path]}; }}\n"
+                prefix = ln[: m.start()] if m.start() else ""
+                if prefix.strip() and not prefix.endswith("\n"):
+                    out.append(prefix.rstrip() + "\n")
+                out.append(want)
+                seen.add(path)
+                if ln.strip() != want.strip():
+                    file_changed = True
+                continue
+            out.append(ln)
+        for path, dest in wanted.items():
+            if path not in seen:
+                out.append(f"location = {path} {{ return 301 https://{target}{dest}; }}\n")
+                seen.add(path)
+                file_changed = True
+        if file_changed:
+            _run(client, f"mkdir -p '{Path(gsc).parent}'; cp -a '{gsc}' '/www/backup/cssbuy-twin-gsc-extra-{twin}-{stamp}.conf' 2>/dev/null || true")
+            Path(f"/tmp/cssbuy-twin-gsc-{twin}.conf").write_text("".join(out), encoding="utf-8")
             sftp.put(f"/tmp/cssbuy-twin-gsc-{twin}.conf", gsc)
-            print("appended", len(add), "twin path maps", twin)
+            print("rewrote twin path maps", twin, len(wanted))
     _reload_nginx(client)
 
 
@@ -4235,8 +4283,8 @@ def live_check(key: str | None = None) -> None:
         print(" twin deep", code2, loc2)
         if code2 not in (301, 302, 308) or target not in (loc2 or ""):
             print(" FAIL twin deep"); fail += 1
-        elif "/cssbuy-shipping" not in (loc2 or "") and loc2.rstrip("/") == f"https://{target}":
-            print(" FAIL twin deep collapsed to home"); fail += 1
+        elif "/cssbuy-shipping" not in (loc2 or ""):
+            print(" FAIL twin deep not dest shipping slug"); fail += 1
     code, _, loc, _ = fetch(f"https://{HUB}/", follow=False)
     print("hub", code, loc or HUB)
     if code != 200:
