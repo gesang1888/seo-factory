@@ -789,7 +789,8 @@ def _sheet(desk: CountryDesk) -> str:
 
 
 def _fig(src: str, alt: str, cap: str, w: int = 1200, h: int = 750) -> str:
-    return cms_fig(src, alt, cap, w, h)
+    sep = "&" if "?" in src else "?"
+    return cms_fig(f"{src}{sep}v={CSS_V}", alt, cap, w, h)
 
 
 def _wall(key: str, notes: dict[str, str] | None = None) -> str:
