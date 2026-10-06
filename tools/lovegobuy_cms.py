@@ -393,7 +393,12 @@ TWIN_EXTRA = {
 
 # Deep twin URLs that must land on the same path on the target (not the target home).
 TWIN_DEEP_PROBES = {
-    "lovegobuyspreadsheet.nl": ("/lovegobuy-ervaringen/", "/lovegobuy-coupons", "/lovegobuy-qc"),
+    "lovegobuyspreadsheet.nl": (
+        "/lovegobuy-ervaringen/",
+        "/how-to-use-lovegobuy/",
+        "/lovegobuy-coupons",
+        "/lovegobuy-qc",
+    ),
     "lovegobuyspreadsheet.it": ("/lovegobuy-recensioni/", "/lovegobuy-review", "/lovegobuy-coupons"),
 }
 
