@@ -51,7 +51,7 @@ ACC_DARK = "#C45A0A"
 MAIL = "cnfd85269032661@gmail.com"
 HUB = "bbdbuyeu.net"
 DEST_MIN = 22000
-CSS_V = "20261006c"
+CSS_V = "20261006d"
 INVITES = ("1QodRw", "BBD5OFF")
 
 EN_LABELS = {
@@ -654,33 +654,63 @@ def _chips(key: str) -> str:
     )
 
 
-def _shots():
-    fig_off = _fig(
-        "/img/shots/oficial.jpg",
-        "Official BBDBuy homepage: orange BBD tag, search bar, forwarding and estimation in the nav",
-        f"Official bbdbuy.com, {DATE}. Estimation in the nav still opened a login wall that morning. This desk does not invent a line or a dollar amount.",
-    )
-    fig_sheet = _fig(
-        "/img/shots/catalogus.jpg",
-        "BBDBuy catalogue on w2clinks: product cards with photo, brand and reference price",
-        "Cards, not Excel cells. Yuan prices change by the day. Capture 6 Oct 2026, category SNEAKERS.",
-        1200,
-        900,
-    )
-    fig_vol = _fig(
-        "/img/shots/volume-voorbeeld.jpg",
-        "Worked example of volume weight: 40×40×3 cm and 200 g scale becomes 600 g volume",
-        "A worked example, not a warehouse photo. Many lines bill the greater of scale and volume, often L×W×H (cm) / 8000.",
-        1200,
-        640,
-    )
-    fig_zoek = _fig(
-        "/img/shots/catalogus-zoek.jpg",
-        "Hoodie search in the BBDBuy catalogue on w2clinks",
-        "Results with the filter column. Capture 6 Oct 2026.",
-        1200,
-        900,
-    )
+def _shots(key: str):
+    loc = PACKS[key]["loc"]
+    if loc == "de":
+        off_alt, off_cap = (
+            "Offizielle BBDBuy-Startseite: orangeres BBD-Tag, Suche, Forwarding und Estimation in der Navigation",
+            f"Offizielle bbdbuy.com, {DATE}. Estimation in der Navigation öffnete an dem Morgen ein Login. Dieser Desk erfindet keine Linie und keinen Betrag.",
+        )
+        sheet_alt, sheet_cap = (
+            "BBDBuy-Katalog auf w2clinks: Produktkarten mit Foto, Marke und Referenzpreis",
+            "Karten, keine Excel-Zellen. Yuan-Preise ändern sich täglich. Aufnahme 6 Oct 2026, Kategorie SNEAKERS.",
+        )
+        vol_alt, vol_cap = (
+            "Rechenbeispiel Volumengewicht: 40×40×3 cm und 200 g Waage werden 600 g Volumen",
+            "Ein Rechenbeispiel, kein Lagerfoto. Viele Linien rechnen das Maximum aus Waage und Volumen, oft L×B×H (cm) / 8000.",
+        )
+        zoek_alt, zoek_cap = (
+            "Hoodie-Suche im BBDBuy-Katalog auf w2clinks",
+            "Ergebnisse mit Filterspalte. Aufnahme 6 Oct 2026.",
+        )
+    elif loc == "it":
+        off_alt, off_cap = (
+            "Homepage ufficiale BBDBuy: tag BBD arancione, ricerca, forwarding e estimation nel menu",
+            f"Sito ufficiale bbdbuy.com, {DATE}. Estimation nel menu quella mattina apriva un login. Questa guida non inventa una linea né un importo.",
+        )
+        sheet_alt, sheet_cap = (
+            "Catalogo BBDBuy su w2clinks: schede con foto, marca e prezzo di riferimento",
+            "Schede, non celle Excel. I prezzi in yuan cambiano ogni giorno. Scatto 6 Oct 2026, categoria SNEAKERS.",
+        )
+        vol_alt, vol_cap = (
+            "Esempio di peso volumetrico: 40×40×3 cm e 200 g in bilancia diventano 600 g di volume",
+            "Un esempio calcolato, non una foto di magazzino. Molte linee fatturano il massimo tra bilancia e volume, spesso L×W×H (cm) / 8000.",
+        )
+        zoek_alt, zoek_cap = (
+            "Ricerca hoodie nel catalogo BBDBuy su w2clinks",
+            "Risultati con colonna filtri. Scatto 6 Oct 2026.",
+        )
+    else:
+        off_alt, off_cap = (
+            "Official BBDBuy homepage: orange BBD tag, search bar, forwarding and estimation in the nav",
+            f"Official bbdbuy.com, {DATE}. Estimation in the nav still opened a login wall that morning. This desk does not invent a line or a dollar amount.",
+        )
+        sheet_alt, sheet_cap = (
+            "BBDBuy catalogue on w2clinks: product cards with photo, brand and reference price",
+            "Cards, not Excel cells. Yuan prices change by the day. Capture 6 Oct 2026, category SNEAKERS.",
+        )
+        vol_alt, vol_cap = (
+            "Worked example of volume weight: 40×40×3 cm and 200 g scale becomes 600 g volume",
+            "A worked example, not a warehouse photo. Many lines bill the greater of scale and volume, often L×W×H (cm) / 8000.",
+        )
+        zoek_alt, zoek_cap = (
+            "Hoodie search in the BBDBuy catalogue on w2clinks",
+            "Results with the filter column. Capture 6 Oct 2026.",
+        )
+    fig_off = _fig("/img/shots/oficial.jpg", off_alt, off_cap)
+    fig_sheet = _fig("/img/shots/catalogus.jpg", sheet_alt, sheet_cap, 1200, 900)
+    fig_vol = _fig("/img/shots/volume-voorbeeld.jpg", vol_alt, vol_cap, 1200, 640)
+    fig_zoek = _fig("/img/shots/catalogus-zoek.jpg", zoek_alt, zoek_cap, 1200, 900)
     return fig_off, fig_sheet, fig_vol, fig_zoek
 
 
@@ -690,7 +720,7 @@ def build_home(key: str) -> str:
     sheet = _sheet(desk)
     wall = _wall(key)
     chips = _chips(key)
-    fig_off, fig_sheet, fig_vol, _fig_zoek = _shots()
+    fig_off, fig_sheet, fig_vol, _fig_zoek = _shots(key)
     dest = p["dest_label"]
     loc = p["loc"]
     if loc == "de":
@@ -931,7 +961,7 @@ def build_catalog(key: str) -> str:
     loc = p["loc"]
     notes = CAT_NOTES_EN if loc == "en" else None
     wall = _wall(key, notes)
-    _fig_off, fig_sheet, _fig_vol, fig_zoek = _shots()
+    _fig_off, fig_sheet, _fig_vol, fig_zoek = _shots(key)
     if loc == "de":
         topic = "was es ist und welche Kategorien du findest"
         body = f"""
@@ -999,7 +1029,7 @@ def build_help(key: str) -> str:
     desk = desk_for(key)
     pairs = _faqs(key)
     html_f = _faq_html(pairs, open_first=True)
-    fig_off, *_ = _shots()
+    fig_off, *_ = _shots(key)
     loc = p["loc"]
     if loc == "de":
         topic = "Hilfe und häufige Fragen"
@@ -1126,7 +1156,7 @@ def build_news(key: str) -> str:
 def build_about(key: str) -> str:
     p = PACKS[key]
     desk = desk_for(key)
-    fig_off, *_ = _shots()
+    fig_off, *_ = _shots(key)
     loc = p["loc"]
     if loc == "de":
         topic = "wer wir sind und wie du uns erreichst"
@@ -1178,7 +1208,7 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
     p = PACKS[key]
     dest = p["dest_label"]
     loc = p["loc"]
-    fig_off, fig_sheet, fig_vol, _fig_zoek = _shots()
+    fig_off, fig_sheet, fig_vol, _fig_zoek = _shots(key)
     est = escape(EST)
     official = escape(OFFICIAL)
     fp = escape(p["postal"])
@@ -1460,6 +1490,8 @@ def _assert_ok(html: str, page: str, key: str) -> None:
             err.append("ops dump")
         if 'class="fig"' not in html:
             err.append("photos")
+        if p["loc"] != "en" and "Official bbdbuy.com, 6 Oct" in html:
+            err.append("english fig caption")
         for alien in p["aliens"]:
             if alien in html:
                 err.append(f"alien {alien}")
@@ -1592,6 +1624,43 @@ def _strip_cms_home_301s(client, sftp, key: str) -> None:
     sftp.put(f"/tmp/bbdbuy-{key}-gsc.conf", gsc)
     print(key, "stripped", stripped, "CMS-page home 301s")
     _reload_nginx(client)
+
+
+def _map_legacy_english_cms(client, sftp, key: str) -> None:
+    """DE/IT keep leftover /about/ (OrientDig). 301 English CMS slugs to dest slugs and drop the files."""
+    p = PACKS[key]
+    host = p["host"]
+    root = f"/www/wwwroot/{host}"
+    pairs = (
+        ("about", p["about"]),
+        ("help", p["help"]),
+        ("news", p["news"]),
+        ("catalog", p["catalog"]),
+    )
+    gsc = f"/www/server/panel/vhost/nginx/extension/{host}/gsc-redirects.conf"
+    raw = _run(client, f"cat '{gsc}' 2>/dev/null || true")
+    add = []
+    dropped = []
+    for old, dest in pairs:
+        if dest.strip("/") == old:
+            continue
+        for variant in (f"/{old}", f"/{old}/"):
+            line = f"location = {variant} {{ return 301 https://{host}{dest}; }}"
+            if line not in raw and line not in "".join(add):
+                add.append(line + "\n")
+        dropped.append(old)
+        _run(client, f"rm -rf '{root}/{old}'")
+    if not add and not dropped:
+        return
+    if add:
+        stamp = time.strftime("%Y%m%d-%H%M%S")
+        _run(client, f"mkdir -p /www/backup; cp -a '{gsc}' '/www/backup/bbdbuy-{key}-gsc-legacy-{stamp}.conf' 2>/dev/null || true")
+        Path(f"/tmp/bbdbuy-{key}-gsc-legacy.conf").write_text((raw or "") + "\n" + "".join(add), encoding="utf-8")
+        sftp.put(f"/tmp/bbdbuy-{key}-gsc-legacy.conf", gsc)
+        print(key, "legacy CMS 301s", " ".join(x.strip() for x in add))
+        _reload_nginx(client)
+    if dropped:
+        print(key, "dropped leftover English CMS dirs", dropped)
 
 
 def _harden_catchall(client, sftp, key: str) -> None:
@@ -1807,6 +1876,7 @@ def put(key: str) -> None:
     sftp = client.open_sftp()
     _harden_catchall(client, sftp, key)
     _strip_cms_home_301s(client, sftp, key)
+    _map_legacy_english_cms(client, sftp, key)
     mapping = {
         "home": f"{root}/index.html",
         "start": f"{root}/start/index.html",
@@ -1924,6 +1994,8 @@ def live_check(key: str | None = None) -> None:
                     print(" FAIL cats"); fail += 1
                 if html.count('class="sg-faq"') >= 8:
                     print(" FAIL faq dump"); fail += 1
+                if p["loc"] != "en" and "Official bbdbuy.com, 6 Oct" in html:
+                    print(" FAIL english fig caption"); fail += 1
             if kind in ("guide", "ship"):
                 mark = {
                     "de": ("Erste Bestellung bei BBDBuy" if kind == "guide" else "Versand nach Deutschland"),
@@ -1946,6 +2018,15 @@ def live_check(key: str | None = None) -> None:
                     print(" FAIL about 301 home"); fail += 1
             if kind == "help" and "FAQPage" not in html:
                 print(" FAIL help FAQPage"); fail += 1
+        if p["about"] != "/about/":
+            code_ab, _, loc_ab, body_ab = fetch(f"https://{host}/about/", follow=False)
+            print(k, "legacy about", code_ab, loc_ab)
+            if code_ab not in (301, 302, 308) or p["about"].rstrip("/") not in (loc_ab or ""):
+                print(" FAIL leftover /about/ not 301 to dest about"); fail += 1
+            code_ab2, _, _, body_ab2 = fetch(f"https://{host}/about/", follow=True)
+            html_ab = body_ab2.decode("utf-8", "replace")
+            if "orientdig" in html_ab.lower() or any(tok in html_ab for tok in INVITES):
+                print(" FAIL leftover /about/ still OrientDig/invite"); fail += 1
         code, _, _, nf = fetch(f"https://{host}/this-page-does-not-exist-cms/", follow=True)
         nhtml = nf.decode("utf-8", "replace")
         print(k, "404", code)
