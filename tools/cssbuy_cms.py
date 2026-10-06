@@ -3805,6 +3805,36 @@ def _fix_twins(client, sftp) -> None:
             print("twin catch-all now $request_uri", twin)
         else:
             print("WARN twin catch-all needle missing", twin)
+        extra = TWIN_EXTRA.get(twin) or []
+        pdest = next(p for p in PACKS.values() if p["host"] == target)
+        wanted: dict[str, str] = {}
+        for src, dest in extra:
+            wanted[src] = dest
+            if not src.endswith("/"):
+                wanted[src + "/"] = dest
+        for src, dest in (
+            ("/guides/how-to-buy", pdest["guide"]),
+            ("/guides/qc-photos", pdest["catalog"]),
+            ("/guides/dead-links", pdest["catalog"]),
+            ("/guides", pdest["guide"]),
+        ):
+            wanted.setdefault(src, dest)
+            wanted.setdefault(src + "/", dest)
+        vhost_new = raw
+        vhost_changed = False
+        for path, dest in wanted.items():
+            pat = re.compile(
+                rf"(location = {re.escape(path)} \{{ return 301 )https://{re.escape(target)}[^\s;]*"
+            )
+            vhost_new, n = pat.subn(rf"\g<1>https://{target}{dest}", vhost_new)
+            if n:
+                vhost_changed = True
+        if vhost_changed:
+            _run(client, f"cp -a '{vhost}' '/www/backup/cssbuy-twin-vhost-maps-{twin}-{stamp}.conf'")
+            Path(f"/tmp/cssbuy-twin-{twin}.conf").write_text(vhost_new, encoding="utf-8")
+            sftp.put(f"/tmp/cssbuy-twin-{twin}.conf", vhost)
+            print("rewrote twin vhost exact maps", twin)
+            raw = vhost_new
         gsc = f"/www/server/panel/vhost/nginx/extension/{twin}/gsc-redirects.conf"
         graw = _run(client, f"cat '{gsc}' 2>/dev/null || true")
         if graw and f"https://{twin}" in graw:
@@ -3814,12 +3844,6 @@ def _fix_twins(client, sftp) -> None:
             sftp.put(f"/tmp/cssbuy-twin-gsc-{twin}.conf", gsc)
             print("retargeted twin gsc host", twin, "->", target)
             graw = _run(client, f"cat '{gsc}'")
-        extra = TWIN_EXTRA.get(twin) or []
-        wanted: dict[str, str] = {}
-        for src, dest in extra:
-            wanted[src] = dest
-            if not src.endswith("/"):
-                wanted[src + "/"] = dest
         graw = re.sub(r"\}(\s*)location\s+=", "}\nlocation =", graw or "")
         if graw and not graw.endswith("\n"):
             graw += "\n"
