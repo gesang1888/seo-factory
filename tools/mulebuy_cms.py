@@ -70,7 +70,7 @@ HUBS = (HUB,)
 SKIP_PUT_HOSTS = {HUB, "mulebuy.cheap"}
 OFF_ORIGIN = ("mulebuy.co.uk", "mulebuy.es", "mulebuy.us")
 DEST_MIN = 22000
-CSS_V = "20261006m"
+CSS_V = "20261006n"
 INVITES = ("200345875",)
 LOGO = "mulebuy-logo.png"
 THEME_CSS = "mulebuy-theme.css"
@@ -823,8 +823,8 @@ def _shots(key: str):
     loc = PACKS[key]["loc"]
     if loc == "es":
         off_alt, off_cap = (
-            "Portada oficial de MuleBuy: búsqueda, menú y estimador de envío",
-            f"Sitio oficial mulebuy.com, {DATE}. El estimador está en {EST_PATH}. Esta guía no inventa una línea ni un importe.",
+            "Hoja MuleBuy en w2clinks: hallazgos, filtros y enlaces Buy",
+            f"Captura {DATE} en w2clinks.com/spreadsheet/mulebuy/. El agente oficial es mulebuy.com (estimador {EST_PATH}); esta foto no es el hub .com.",
         )
         sheet_alt, sheet_cap = (
             "Catálogo MuleBuy en w2clinks: fichas con foto, marca y precio de referencia",
@@ -844,8 +844,8 @@ def _shots(key: str):
         )
     elif loc == "fr":
         off_alt, off_cap = (
-            "Page d’accueil officielle MuleBuy : recherche, menu et estimateur d’expédition",
-            f"Site officiel mulebuy.com, {DATE}. L’estimateur est sur {EST_PATH}. Ce guide n’invente ni ligne ni montant.",
+            "Feuille MuleBuy sur w2clinks : trouvailles, filtres et liens Buy",
+            f"Capture {DATE} sur w2clinks.com/spreadsheet/mulebuy/. L’agent officiel est mulebuy.com (estimateur {EST_PATH}) ; cette photo n’est pas le hub .com.",
         )
         sheet_alt, sheet_cap = (
             "Catalogue MuleBuy sur w2clinks : fiches avec photo, marque et prix de référence",
@@ -865,8 +865,8 @@ def _shots(key: str):
         )
     else:
         off_alt, off_cap = (
-            "Official MuleBuy homepage: search bar, navigation and the shipping estimator",
-            f"Official mulebuy.com, {DATE}. The estimator lives at {EST_PATH}. This desk does not invent a line or a dollar amount.",
+            "MuleBuy spreadsheet on w2clinks: live finds, filters and Buy links",
+            f"Capture {DATE} at w2clinks.com/spreadsheet/mulebuy/. Official agent is mulebuy.com (estimator {EST_PATH}); this photo is not the .com hub.",
         )
         sheet_alt, sheet_cap = (
             "MuleBuy catalogue on w2clinks: product cards with photo, brand and reference price",
