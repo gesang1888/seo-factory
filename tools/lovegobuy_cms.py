@@ -30,7 +30,7 @@ import sys
 import time
 from html import escape
 from pathlib import Path
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, urlparse
 
 _TOOLS = Path(__file__).resolve().parent
 if str(_TOOLS) not in sys.path:
@@ -2494,7 +2494,7 @@ def _map_faq_to_help(client, sftp, key: str) -> None:
         "/faq", "/faq/",
         "/lovegobuy-invite-code", "/lovegobuy-invite-code/",
     }
-    loc_re = re.compile(r"location\s+=\s+(\S+)\s*\{")
+    loc_re = re.compile(r"location\s+(?:=|\^~)\s+(\S+)\s*\{")
     seen_faq: set[str] = set()
     changed = 0
     stamp = time.strftime("%Y%m%d-%H%M%S")
@@ -2554,6 +2554,68 @@ def _map_faq_to_help(client, sftp, key: str) -> None:
         _reload_nginx(client)
     else:
         print(key, "faq/CMS redirects already mapped")
+
+
+_LOC_LINE = re.compile(
+    r"location\s+(?P<mod>=|\^~)\s+(?P<path>\S+)\s*\{(?P<body>[^{}]*)\}"
+)
+
+
+def _unstick_shadows(client, sftp, key: str) -> None:
+    """Drop locations that steal CMS slugs or ranked wrap URLs.
+
+    `location =` unstick in `_map_faq_to_help` misses `location ^~ /lovegobuy-shipping`
+    (IT still 301'd the CMS ship page onto `/spedizione-lovegobuy/`) and dest 301s
+    that send a ranked inner onto the CMS ship slug (NL `/lovegobuy-verzending/`).
+    Trailing-slash canonicalization onto the same wrap href is kept.
+    """
+    p = PACKS[key]
+    host = p["host"]
+    cms = {h.strip("/") for h in _cms_hrefs(key)}
+    ranked = {href.rstrip("/") for href, _ in _wrap_targets(key)}
+    ext = f"/www/server/panel/vhost/nginx/extension/{host}"
+    listing = _run(client, f"find '{ext}' -maxdepth 1 -name '*.conf' -print 2>/dev/null || true")
+    files = [ln.strip() for ln in listing.splitlines() if ln.strip().endswith(".conf")]
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    changed = 0
+    for remote in files:
+        raw = _run(client, f"cat '{remote}' 2>/dev/null || true")
+        if not raw:
+            continue
+        out: list[str] = []
+        file_changed = False
+        for ln in raw.splitlines(True):
+            m = _LOC_LINE.search(ln)
+            if not m:
+                out.append(ln)
+                continue
+            path = m.group("path")
+            slug = path.strip("/")
+            body = m.group("body")
+            tm = re.search(r"return\s+30[1278]\s+https?://[^/\s]+(\S*)", body)
+            tgt = (tm.group(1) or "/") if tm else None
+            if slug in cms:
+                print(key, "unstick cms", path, "->", tgt, Path(remote).name)
+                file_changed = True
+                continue
+            if slug in ranked:
+                self_href = "/" + slug + "/"
+                if tgt is None or tgt.rstrip("/") != self_href.rstrip("/"):
+                    print(key, "unstick ranked", path, "->", tgt, Path(remote).name)
+                    file_changed = True
+                    continue
+            out.append(ln)
+        if not file_changed:
+            continue
+        _run(client, f"cp -a '{remote}' '/www/backup/lovegobuy-{key}-unstick-{Path(remote).name}-{stamp}.conf'")
+        tmp = Path(f"/tmp/lovegobuy-{key}-unstick-{Path(remote).name}")
+        tmp.write_text("".join(out), encoding="utf-8")
+        sftp.put(str(tmp), remote)
+        changed += 1
+    if changed:
+        _reload_nginx(client)
+    else:
+        print(key, "no cms/ranked shadow 301s")
 
 
 def _harden_catchall(client, sftp, key: str) -> None:
@@ -2792,6 +2854,7 @@ def put(key: str) -> None:
     _strip_cms_home_301s(client, sftp, key)
     _map_legacy_english_cms(client, sftp, key)
     _map_faq_to_help(client, sftp, key)
+    _unstick_shadows(client, sftp, key)
     mapping = {
         "home": f"{root}/index.html",
         "start": f"{root}/start/index.html",
@@ -3156,7 +3219,11 @@ def live_check(key: str | None = None) -> None:
                     print(" FAIL ranked 58-line / 23.81"); fail += 1
                 if desk.inner_marker not in html:
                     print(" WARN ranked inner not wrapped in dest chrome", href)
-            elif code not in (301, 302, 308):
+            elif code in (301, 302, 308):
+                loc_path = urlparse(loc).path if loc else ""
+                if loc_path.rstrip("/") != href.rstrip("/"):
+                    print(" FAIL ranked 301 away", href, "->", loc); fail += 1
+            else:
                 print(" FAIL ranked status", code); fail += 1
         code_c, _, loc_c, _ = _fetch(f"https://{host}/lovegobuy-coupons/", follow=False)
         print(k, "coupons", code_c, loc_c)
