@@ -51,7 +51,7 @@ ACC_DARK = "#C45A0A"
 MAIL = "cnfd85269032661@gmail.com"
 HUB = "bbdbuyeu.net"
 DEST_MIN = 22000
-CSS_V = "20261006e"
+CSS_V = "20261006f"
 INVITES = ("1QodRw", "BBD5OFF")
 
 EN_LABELS = {
@@ -681,6 +681,102 @@ def _faq_html(pairs: list[tuple[str, str]], *, open_first: bool = True) -> str:
     return "\n".join(items)
 
 
+def _faq_group_titles(key: str) -> list[str]:
+    p = PACKS[key]
+    dest = p["dest_label"]
+    loc = p["loc"]
+    if loc == "de":
+        return [
+            "Was BBDBuy ist und in welcher Sprache es läuft",
+            "Was du zahlen wirst",
+            "Einfuhr nach Deutschland",
+            "Lager, Fotos und was reisen darf",
+            "Wenn etwas nicht stimmt",
+        ]
+    if loc == "it":
+        return [
+            "Che cos’è BBDBuy e in quale lingua funziona",
+            "Cosa paghi",
+            "Importazione in Italia",
+            "Magazzino, foto e cosa può viaggiare",
+            "Se qualcosa non torna",
+        ]
+    return [
+        "What BBDBuy is, and which language it uses",
+        "What you will pay",
+        f"Import into {dest}",
+        "Warehouse, photos and what may travel",
+        "If something is wrong",
+    ]
+
+
+def _faq_grouped_html(key: str) -> str:
+    pairs = _faqs(key)
+    titles = _faq_group_titles(key)
+    slices = ((0, 3), (3, 7), (7, 9), (9, 13), (13, None))
+    bits = []
+    open_first = True
+    for title, (a, b) in zip(titles, slices):
+        chunk = pairs[a:b]
+        bits.append(f"<h2>{escape(title)}</h2>")
+        bits.append(_faq_html(chunk, open_first=open_first))
+        open_first = False
+    return "\n".join(bits)
+
+
+def _keys_table(key: str) -> str:
+    loc = PACKS[key]["loc"]
+    if loc == "de":
+        head = ("Wenn du denkst an", "Tippe")
+        rows = (
+            ("Turnschuhe", "sneakers"),
+            ("Kapuzenpullover / Hoodie", "hoodie"),
+            ("Jacke", "jacket"),
+            ("Hose", "trousers"),
+            ("Tasche", "bag"),
+            ("Brille", "glasses"),
+            ("Uhr", "watch"),
+        )
+    elif loc == "it":
+        head = ("Se pensi a", "Scrivi")
+        rows = (
+            ("scarpe", "sneakers"),
+            ("felpa", "hoodie"),
+            ("giacca", "jacket"),
+            ("pantaloni", "trousers"),
+            ("borsa", "bag"),
+            ("occhiali", "glasses"),
+            ("orologio", "watch"),
+        )
+    elif key == "uk":
+        head = ("If you think of", "Type")
+        rows = (
+            ("trainers", "sneakers"),
+            ("jumper", "sweater"),
+            ("hoodie", "hoodie"),
+            ("trousers", "trousers"),
+            ("bag", "bag"),
+            ("glasses", "glasses"),
+            ("watch", "watch"),
+        )
+    else:
+        head = ("If you think of", "Type")
+        rows = (
+            ("sneakers / trainers", "sneakers"),
+            ("hoodie", "hoodie"),
+            ("jacket", "jacket"),
+            ("trousers / pants", "trousers"),
+            ("bag", "bag"),
+            ("glasses", "glasses"),
+            ("watch", "watch"),
+        )
+    body = "".join(f"<tr><td>{escape(a)}</td><td>{escape(b)}</td></tr>" for a, b in rows)
+    return (
+        f'<table class="eq"><thead><tr><th>{escape(head[0])}</th><th>{escape(head[1])}</th></tr></thead>'
+        f"<tbody>{body}</tbody></table>"
+    )
+
+
 def _cats(key: str):
     loc = PACKS[key]["loc"]
     if loc == "de":
@@ -745,6 +841,10 @@ def _shots(key: str):
             "Hoodie-Suche im BBDBuy-Katalog auf w2clinks",
             "Ergebnisse mit Filterspalte. Aufnahme 6 Oct 2026.",
         )
+        diy_alt, diy_cap = (
+            "BBDBuy-Suche: Link or Keyword, um einen Taobao-, 1688- oder Weidian-Link einzufügen",
+            "Öffentliche Paste-Leiste auf bbdbuy.com. Custom Order /diy öffnete am 6 Oct 2026 ein Login. Dieser Desk erfindet kein ausgefülltes DIY-Formular.",
+        )
     elif loc == "it":
         off_alt, off_cap = (
             "Homepage ufficiale BBDBuy: tag BBD arancione, ricerca, forwarding e estimation nel menu",
@@ -761,6 +861,10 @@ def _shots(key: str):
         zoek_alt, zoek_cap = (
             "Ricerca hoodie nel catalogo BBDBuy su w2clinks",
             "Risultati con colonna filtri. Scatto 6 Oct 2026.",
+        )
+        diy_alt, diy_cap = (
+            "Ricerca BBDBuy: Link or Keyword per incollare un link Taobao, 1688 o Weidian",
+            "Barra pubblica su bbdbuy.com. Custom Order /diy il 6 Oct 2026 apriva un login. Questa guida non inventa un modulo DIY compilato.",
         )
     else:
         off_alt, off_cap = (
@@ -779,11 +883,16 @@ def _shots(key: str):
             "Hoodie search in the BBDBuy catalogue on w2clinks",
             "Results with the filter column. Capture 6 Oct 2026.",
         )
+        diy_alt, diy_cap = (
+            "BBDBuy search: Link or Keyword to paste a Taobao, 1688 or Weidian link",
+            "Public paste bar on bbdbuy.com. Custom Order /diy opened a login wall on 6 Oct 2026. This desk does not invent a filled DIY total.",
+        )
     fig_off = _fig("/img/shots/oficial.jpg", off_alt, off_cap)
     fig_sheet = _fig("/img/shots/catalogus.jpg", sheet_alt, sheet_cap, 1200, 900)
     fig_vol = _fig("/img/shots/volume-voorbeeld.jpg", vol_alt, vol_cap, 1200, 640)
     fig_zoek = _fig("/img/shots/catalogus-zoek.jpg", zoek_alt, zoek_cap, 1200, 900)
-    return fig_off, fig_sheet, fig_vol, fig_zoek
+    fig_diy = _fig("/img/shots/oficial-diy.jpg", diy_alt, diy_cap, 1200, 280)
+    return fig_off, fig_sheet, fig_vol, fig_zoek, fig_diy
 
 
 def _sec_shots(key: str, fig) -> str:
@@ -904,7 +1013,7 @@ def build_home(key: str) -> str:
     sheet = _sheet(desk)
     wall = _wall(key)
     chips = _chips(key)
-    fig_off, fig_sheet, fig_vol, fig_zoek = _shots(key)
+    fig_off, fig_sheet, fig_vol, fig_zoek, _fig_diy = _shots(key)
     dest = p["dest_label"]
     loc = p["loc"]
     shots = _sec_shots(key, fig_zoek)
@@ -1157,8 +1266,10 @@ def build_catalog(key: str) -> str:
     loc = p["loc"]
     notes = {"de": CAT_NOTES_DE, "it": CAT_NOTES_IT}.get(loc, CAT_NOTES_EN)
     wall = _wall(key, notes)
-    _fig_off, fig_sheet, _fig_vol, fig_zoek = _shots(key)
+    _fig_off, fig_sheet, _fig_vol, fig_zoek, fig_diy = _shots(key)
     dest = p["dest_label"]
+    sheet = _sheet(desk)
+    keys = _keys_table(key)
     if loc == "de":
         topic = "was es ist und welche Kategorien du findest"
         body = f"""
@@ -1183,15 +1294,20 @@ def build_catalog(key: str) -> str:
 <p>Voluminöses für die zweite Order: Daunenjacken, Taschen, Mützen. Nicht weil sie schlechter sind, sondern weil ihr Porto vom Volumen abhängt — und das rechnest du erst gut, wenn du eine Runde gesehen hast.</p>
 <p>Drei Kategorien mit Extra-Bedingungen: Elektronik (oft Lithium), Brillen (zerbrechlich) und alles mit Akku oder Magnet. Nicht jede Linie nach Deutschland nimmt das. Schätzer prüfen, bevor sie im Lager liegen bleiben.</p>
 </div></section>
-<section class="sec"><div class="wrap">
+<section class="sec" id="keys"><div class="wrap">
 <h2>Unbequemes Faktum: der Katalog sucht auf Englisch</h2>
-<p>Wir haben es Wort für Wort am {escape(DATE)} nachgeprüft. Deutsche Schreibweisen wie Turnschuhe, Pullover oder Brille liefern oft null. Die englischen Keys sneakers, hoodie, jacket, trousers, bag, glasses oder watch liefern Seiten.</p>
+<p class="lead">Wir haben es Wort für Wort am {escape(DATE)} nachgeprüft. Das willst du wissen, bevor du die erste Suche auf Deutsch tippst.</p>
+<p>Deutsche Schreibweisen wie Turnschuhe, Pullover oder Brille liefern oft null. Die englischen Keys sneakers, hoodie, jacket, trousers, bag, glasses oder watch liefern Seiten. Deshalb schickt die Homepage-Suche englische Keys zu w2clinks.</p>
+{keys}
 </div></section>
-<section class="sec sec--tint"><div class="wrap">
+<section class="sec sec--tint"><div class="wrap"><div class="split"><div>
 <h2>Vom Katalog zur Bestellung, ohne den Link zu verlieren</h2>
 <p class="lead">Die Karte ist der Anfang, nicht die Kasse. Der Schritt, der am häufigsten schiefläuft: du kopierst die Katalog-URL statt des Shop-Links. BBDBuy braucht den Taobao-, 1688- oder Weidian-Link.</p>
-<p>Liest die Suche den Link nicht, bleibt das manuelle Formular. Karten ohne Preis überspringen — der Quellenlink ist in China oft schon tot.</p>
-</div></section>
+<p>Klebst du die URL der Katalogkarte selbst, weiß der Agent nicht, was er kaufen soll. Kopiere den Shop-Link, füge ihn in «Link or Keyword» ein, prüfe Preis und Variante, und zahle international erst, wenn die Lagerfotos stimmen.</p>
+<p>Liest die Suche den Link nicht, bleibt Custom Order — am {escape(DATE)} öffnete /diy ein Login. Karten ohne Preis überspringen — der Quellenlink ist in China oft schon tot.</p>
+<p><a class="btn" href="{escape(sheet)}">Katalog auf w2clinks öffnen</a>
+   <a class="btn btn--ghost" href="{escape(p["guide"])}">Anleitung Schritt für Schritt</a></p>
+</div>{fig_diy}</div></div></section>
 """
     elif loc == "it":
         topic = "cos’è e quali categorie trovi"
@@ -1217,15 +1333,20 @@ def build_catalog(key: str) -> str:
 <p>Il voluminoso per il secondo ordine: piumini, borse, cappelli. Non perché siano peggiori, ma perché il nolo dipende dal volume — e quello lo calcoli bene solo dopo un giro.</p>
 <p>Tre categorie con extra: elettronica (spesso litio), occhiali (fragili) e tutto con batteria o magnete. Non ogni linea verso l’Italia li accetta. Controlla il preventivo prima di lasciarli in magazzino.</p>
 </div></section>
-<section class="sec"><div class="wrap">
+<section class="sec" id="keys"><div class="wrap">
 <h2>Dato scomodo: il catalogo cerca in inglese</h2>
-<p>L’abbiamo verificato termine per termine il {escape(DATE)}. Grafie locali come scarpe, felpa o occhiali danno spesso zero. Le key inglesi sneakers, hoodie, jacket, trousers, bag, glasses o watch danno pagine.</p>
+<p class="lead">L’abbiamo verificato termine per termine il {escape(DATE)}. Conviene saperlo prima di digitare la prima ricerca in italiano.</p>
+<p>Grafie locali come scarpe, felpa o occhiali danno spesso zero. Le key inglesi sneakers, hoodie, jacket, trousers, bag, glasses o watch danno pagine. Per questo la ricerca in homepage manda key inglesi a w2clinks.</p>
+{keys}
 </div></section>
-<section class="sec sec--tint"><div class="wrap">
+<section class="sec sec--tint"><div class="wrap"><div class="split"><div>
 <h2>Dal catalogo all’ordine, senza perdere il link</h2>
 <p class="lead">La scheda è l’inizio, non la cassa. Il passo che fallisce più spesso: copi l’URL della scheda catalogo invece del link negozio. A BBDBuy serve il link Taobao, 1688 o Weidian.</p>
-<p>Se la ricerca non legge il link, resta il modulo manuale. Schede senza prezzo: saltale — il link sorgente in Cina è spesso già morto.</p>
-</div></section>
+<p>Se incolli l’URL della scheda catalogo, l’agente non sa cosa comprare. Copia il link del negozio, incollalo in «Link or Keyword», controlla prezzo e variante, e paga l’internazionale solo quando le foto di magazzino tornano.</p>
+<p>Se la ricerca non legge il link, resta Custom Order — il {escape(DATE)} /diy apriva un login. Schede senza prezzo: saltale — il link sorgente in Cina è spesso già morto.</p>
+<p><a class="btn" href="{escape(sheet)}">Apri il catalogo su w2clinks</a>
+   <a class="btn btn--ghost" href="{escape(p["guide"])}">Guida passo passo</a></p>
+</div>{fig_diy}</div></div></section>
 """
     else:
         topic = "what it is and which categories you will find"
@@ -1251,15 +1372,20 @@ def build_catalog(key: str) -> str:
 <p>Leave bulky for the second order: down jackets, bags, hats. Not because they are worse, but because their freight depends on volume — and you only calculate that well after one round.</p>
 <p>Three categories with extra conditions: electronics (often lithium), glasses (fragile) and anything with a battery or a magnet. Not every line to {escape(dest)} accepts those. Check the official estimator before you leave them in the warehouse.</p>
 </div></section>
-<section class="sec"><div class="wrap">
+<section class="sec" id="keys"><div class="wrap">
 <h2>Uncomfortable fact: the catalogue searches in English</h2>
-<p>We checked it term by term on {escape(DATE)}. Local spellings often returned zero. The English keys sneakers, hoodie, jacket, trousers, bag, glasses or watch returned pages of fiches. That is why the homepage search bar still sends English keys to w2clinks.</p>
+<p class="lead">We checked it term by term on {escape(DATE)}. You want that before you type the first search in a local spelling.</p>
+<p>Local spellings often returned zero. The English keys sneakers, hoodie, jacket, trousers, bag, glasses or watch returned pages of fiches. That is why the homepage search bar still sends English keys to w2clinks.</p>
+{keys}
 </div></section>
-<section class="sec sec--tint"><div class="wrap">
+<section class="sec sec--tint"><div class="wrap"><div class="split"><div>
 <h2>From catalogue to order, without losing the link</h2>
 <p class="lead">The fiche is the start, not checkout. The step that fails most often is copying the catalogue URL instead of the shop link. BBDBuy needs the Taobao, 1688 or Weidian link.</p>
-<p>If search does not read the link, the manual form remains. Skip cards without a price — that source link is often already dead in China.</p>
-</div></section>
+<p>If you paste the catalogue-card URL itself, the agent does not know what to buy. Copy the shop link, paste it into «Link or Keyword», check price and variant, and pay international only after the warehouse photos match.</p>
+<p>If search does not read the link, Custom Order remains — on {escape(DATE)} /diy opened a login wall. Skip cards without a price — that source link is often already dead in China.</p>
+<p><a class="btn" href="{escape(sheet)}">Open the catalogue on w2clinks</a>
+   <a class="btn btn--ghost" href="{escape(p["guide"])}">Step-by-step guide</a></p>
+</div>{fig_diy}</div></div></section>
 """
     return cms_shell(
         desk, page_title(desk, topic),
@@ -1272,7 +1398,7 @@ def build_help(key: str) -> str:
     p = PACKS[key]
     desk = desk_for(key)
     pairs = _faqs(key)
-    html_f = _faq_html(pairs, open_first=True)
+    html_f = _faq_grouped_html(key)
     fig_off, *_ = _shots(key)
     loc = p["loc"]
     if loc == "de":
@@ -1452,7 +1578,7 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
     p = PACKS[key]
     dest = p["dest_label"]
     loc = p["loc"]
-    fig_off, fig_sheet, fig_vol, _fig_zoek = _shots(key)
+    fig_off, fig_sheet, fig_vol, _fig_zoek, fig_diy = _shots(key)
     est = escape(EST)
     official = escape(OFFICIAL)
     fp = escape(p["postal"])
@@ -1477,7 +1603,8 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Eine der dreiunddreißig Kategorien, Foto und Shop-Link. Das ist der Katalog, keine Excel-Datei.</p>
   {fig_sheet}
   <h2>2. Auf der offiziellen Site einfügen</h2>
-  <p>Zahlung und Tickets bleiben auf {official}. Dieser Desk sieht dein Konto nicht.</p>
+  <p>Zahlung und Tickets bleiben auf {official}. Dieser Desk sieht dein Konto nicht. Die öffentliche Paste-Leiste heißt «Link or Keyword». Custom Order /diy öffnete am {escape(DATE)} ein Login.</p>
+  {fig_diy}
   <h2>3. Foto, dann bündeln, dann senden</h2>
   <p>Am {escape(DATE)} öffnete der öffentliche Schätzer ein Login, keinen Live-Preis. Keine erfundene Lagerfrist, keine erfundene Linie.</p>
   <h2>Neun Status, drei Bildschirme</h2>
@@ -1503,6 +1630,10 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Mehrere Lagerpositionen in einem Karton können Gebühren sparen. Was du dem Zoll angibst, steht in der offiziellen Sendung, nicht auf dieser Seite.</p>
   <h2>Restricted ist keine Zollnachricht</h2>
   <p>Karten ohne Preis oder ein manuelles Formular heißen: der Quellenlink ist über den Agenten nicht kaufbar. Tabak, Alkohol und Arzneimittel reisen nicht.</p>
+  <h2>Lagerfotos vor der Linie</h2>
+  <p>QC-Fotos landen in der App, sobald das Stück im Lager ist. Extra-Winkel sind oft kostenpflichtig. Reklamieren ist einfacher, solange es noch im Lager liegt.</p>
+  <h2>Die Adresse auf diesem Dest</h2>
+  <p>Die Lieferadresse ist eine {fp}. Packstation zählt, wenn die gewählte Linie sie akzeptiert — das steht auf der offiziellen Sendung, nicht hier.</p>
   <p><a class="btn" href="{est}">Offizielle BBDBuy-Site</a> <a class="btn btn--ghost" href="{help_h}">Hilfe</a></p>
 </article>
 """
@@ -1552,7 +1683,8 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Una delle trentatré categorie, foto e link del negozio. È un catalogo, non un file Excel.</p>
   {fig_sheet}
   <h2>2. Incolla sul sito ufficiale</h2>
-  <p>Pagamenti e ticket restano su {official}. Questa guida non vede il tuo account.</p>
+  <p>Pagamenti e ticket restano su {official}. Questa guida non vede il tuo account. La barra pubblica è «Link or Keyword». Custom Order /diy il {escape(DATE)} apriva un login.</p>
+  {fig_diy}
   <h2>3. Foto, poi consolida, poi spedisci</h2>
   <p>Il {escape(DATE)} il preventivo pubblico apriva un login, non un prezzo live. Nessuna giacenza inventata, nessuna linea inventata.</p>
   <h2>Nove stati, tre schermate</h2>
@@ -1578,6 +1710,10 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Più pezzi in un cartone possono ridurre le riga di nolo. Cosa dichiari in dogana sta sulla spedizione ufficiale, non in questa pagina.</p>
   <h2>Restricted non è un avviso di dogana</h2>
   <p>Schede senza prezzo o un modulo manuale significano: il link sorgente non è acquistabile tramite l’agente. Tabacco, alcol e farmaci non viaggiano.</p>
+  <h2>Foto di magazzino prima della linea</h2>
+  <p>Le foto QC arrivano in app quando il pezzo è in magazzino. Angoli extra spesso a pagamento. Reclami più facili finché sta ancora lì.</p>
+  <h2>L’indirizzo su questo dest</h2>
+  <p>L’indirizzo è una {fp}. Poste Italiane conta se la linea scelta la accetta — sta sulla spedizione ufficiale, non qui.</p>
   <p><a class="btn" href="{est}">Sito ufficiale BBDBuy</a> <a class="btn btn--ghost" href="{help_h}">Aiuto</a></p>
 </article>
 """
@@ -1627,7 +1763,8 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>One of the thirty-three categories, a photo and the shop link. That is the catalogue, not an Excel file.</p>
   {fig_sheet}
   <h2>2. Paste it on the official site</h2>
-  <p>Payment and tickets stay on {official}. This desk cannot see your account.</p>
+  <p>Payment and tickets stay on {official}. This desk cannot see your account. The public paste bar is «Link or Keyword». Custom Order /diy opened a login wall on {escape(DATE)}.</p>
+  {fig_diy}
   <h2>3. Photo, then consolidate, then ship</h2>
   <p>On {escape(DATE)} the public estimator opened a login wall, not a live rate. This desk does not invent a free-storage day count or a line.</p>
   <h2>Nine statuses, three screens</h2>
@@ -1653,6 +1790,10 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Several warehouse items in one box can cut the number of international lines. What you declare to customs is on the official shipment, not on this page.</p>
   <h2>Restricted is not a customs notice</h2>
   <p>Cards without a price, or a manual form, mean the source link is not buyable through the agent. Tobacco, alcohol and medicines do not travel.</p>
+  <h2>Warehouse photos before you book a line</h2>
+  <p>QC photos land in the app once the piece is in the warehouse. Extra angles are often paid. Disputes are easier while it is still there.</p>
+  <h2>The address on this dest</h2>
+  <p>The delivery address uses a {fp}. That format belongs on the official shipment, not as a trick on this page.</p>
   <p><a class="btn" href="{est}">Official BBDBuy site</a> <a class="btn btn--ghost" href="{help_h}">Help</a></p>
 </article>
 """
@@ -1762,6 +1903,18 @@ def _assert_ok(html: str, page: str, key: str) -> None:
                 err.append(f"invite {tok}")
     if page == "help" and p["fingerprint"] not in html:
         err.append("help fingerprint")
+    if page == "help":
+        if html.count("<h2>") < 5:
+            err.append("help groups")
+        if html.count('class="sg-faq"') < 12:
+            err.append("help faq count")
+    if page == "catalog":
+        if 'class="eq"' not in html:
+            err.append("catalog keys table")
+        if "oficial-diy.jpg" not in html:
+            err.append("catalog diy shot")
+        if html.count('class="fig"') < 3:
+            err.append("catalog figs")
     if page in ("guide", "ship", "legit", "coupons", "spreadsheet", "serioes"):
         if "orientdig" in html.lower():
             err.append("orientdig leftover")
@@ -1790,7 +1943,7 @@ def _copy_assets(dest: Path) -> None:
     shutil.copy(ASSETS / "hero.jpg", img / "hero.jpg")
     shutil.copy(ASSETS / "favicon.ico", dest / "favicon.ico")
     shutil.copy(ASSETS / "favicon1.ico", dest / "favicon1.ico")
-    for name in ("oficial.jpg", "catalogus.jpg", "catalogus-zoek.jpg", "volume-voorbeeld.jpg"):
+    for name in ("oficial.jpg", "oficial-diy.jpg", "catalogus.jpg", "catalogus-zoek.jpg", "volume-voorbeeld.jpg"):
         shutil.copy(ASSETS / "shots" / name, img / "shots" / name)
 
 
@@ -2307,6 +2460,14 @@ def live_check(key: str | None = None) -> None:
                     print(" FAIL about 301 home"); fail += 1
             if kind == "help" and "FAQPage" not in html:
                 print(" FAIL help FAQPage"); fail += 1
+            if kind == "help" and html.count("<h2>") < 5:
+                print(" FAIL help groups"); fail += 1
+            if kind == "catalog" and 'class="eq"' not in html:
+                print(" FAIL catalog keys table"); fail += 1
+            if kind == "catalog" and "oficial-diy.jpg" not in html:
+                print(" FAIL catalog diy"); fail += 1
+            if kind == "catalog" and html.count('class="fig"') < 3:
+                print(" FAIL catalog figs"); fail += 1
         if p["about"] != "/about/":
             code_ab, _, loc_ab, body_ab = fetch(f"https://{host}/about/", follow=False)
             print(k, "legacy about", code_ab, loc_ab)
