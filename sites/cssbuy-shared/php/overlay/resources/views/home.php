@@ -87,9 +87,9 @@ $country = e($config['country']);
 .lite-categories .cat-card .emoji { font-size: 1.75rem; line-height: 1; }
 .lite-categories .cat-card .cat-label { color: inherit; }
 .lite-categories .cat-card:hover {
-  border-color: #E85D1A;
-  background: #fff4ed;
-  color: #E85D1A !important;
+  border-color: #00C853;
+  background: #e8f8ee;
+  color: #009E44 !important;
 }
 @media (max-width: 960px) {
   .lite-categories .cat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }

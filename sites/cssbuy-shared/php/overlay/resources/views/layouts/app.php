@@ -31,14 +31,14 @@ $navGuides = nav_guide_slugs();
 <meta property="og:title" content="<?= e($page_title) ?>">
 <meta property="og:description" content="<?= e($meta_desc) ?>">
 <meta property="og:url" content="<?= e($canonical) ?>">
-<meta name="theme-color" content="#E85D1A">
+<meta name="theme-color" content="#00C853">
 <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=<?= $fontsBody ?>:wght@400;600;700&family=<?= $fontsDisplay ?>:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/lite.css?v=4">
 <style id="site-theme">:root {
-  --color-brand-orange: #E85D1A;
+  --color-brand-orange: #00C853;
   --color-local-primary: <?= e($c['colors']['local_primary']) ?>;
   --color-local-accent: <?= e($c['colors']['local_accent']) ?>;
   --font-main: "<?= e($c['fonts']['body']) ?>", Inter, system-ui, sans-serif;
