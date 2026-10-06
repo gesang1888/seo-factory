@@ -4824,9 +4824,9 @@ def live_check(key: str | None = None) -> None:
             print(" FAIL 404 title"); fail += 1
     if key is None:
         for a, b in (
-            ("https://sugargoospreadsheets.fr/", "sugargoospreadsheet.es"),
-            ("https://sugargoo.at/", "sugargoo.nl"),
-            ("https://sugargoospreadsheet.it/", "sugargoospreadsheets.fr"),
+            ("https://sugargoospreadsheets.uk/", "sugargoospreadsheets.us"),
+            ("https://sugargoospreadsheets2026.ca/", "sugargoospreadsheet.au"),
+            ("https://sugargoospreadsheet.es/", "sugargoospreadsheets.nl"),
         ):
             code, final, loc, _ = fetch(a, follow=False)
             if code in (301, 302, 308) and ((loc or "") and (b in (loc or "") or b in (final or ""))):
