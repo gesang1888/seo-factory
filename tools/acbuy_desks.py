@@ -3,8 +3,8 @@
 
 Gates:
 1. NL #local has Nederlandse postcode, no sister dest fingerprints.
-   CA target allchinabuyspreadsheet.ca already has form A1A 1A1 — extra
-   acbuyspreadsheets.ca stays the 301 twin (do not PUT a dest overlay there).
+   ACBuy CA dest is acbuyspreadsheets.ca (independent). AllChinaBuy CA
+   dest allchinabuyspreadsheet.ca stays its own host — do not 301 them together.
 2. Estimator country ≠ TLD. NL picks NL, not EU, not BE, not the .com hub.
    Official Help is a 2KB SPA shell — do not invent a free-day count.
 3. Titles have no invite token. Homepage strips frozen 5F2RRA. Body has no
@@ -12,10 +12,9 @@ Gates:
    /acbuy-coupons/ and /acbuy-invite-code/ (do not TITLE_SCRUB those).
 4. CA dest and NL dest stay independent (no 301 between countries).
    Skip acbuy.cheap (no DNS, no vhost).
-5. Same-country twins: CA extra 301s into allchinabuyspreadsheet.ca after
-   that target already has #local; NL extra allchinabuyspreadsheet.nl 301s
+5. Same-country twins: NL extra allchinabuyspreadsheet.nl 301s
    into acbuyspreadsheets.nl. Catch-all must keep $request_uri so unmapped
-   deep paths (e.g. extra /acbuy-coupons/) land on dest coupons, not home.
+   deep paths land on dest coupons, not home.
    Keep existing gsc-redirects (exact locations beat the catch-all).
 6. Unique 25–58KB CMS stays. Georgia NL home (~6.5KB) gets surgical #local
    only — never PUT a 5KB overlay over unique inners, CA extra, or the
@@ -125,9 +124,8 @@ DESTS = {
 }
 
 # Extra → target. Dest = GSC clicks, then ccTLD.
-# CA extra of the AllChinaBuy rebrand; NL extra of this dest.
+# NL extra of this dest. ACBuy CA (acbuyspreadsheets.ca) is now its own dest.
 CONVERT_TWINS = {
-    "acbuyspreadsheets.ca": "allchinabuyspreadsheet.ca",
     "allchinabuyspreadsheet.nl": "acbuyspreadsheets.nl",
 }
 

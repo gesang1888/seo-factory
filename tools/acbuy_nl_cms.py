@@ -1246,16 +1246,19 @@ def live_check() -> None:
         print(" FAIL 404 robots"); fail += 1
     for twin, target in (
         ("allchinabuyspreadsheet.nl", HOST),
-        ("acbuyspreadsheets.ca", "allchinabuyspreadsheet.ca"),
     ):
         code, _, loc, _ = fetch(f"https://{twin}/", follow=False)
         print("twin", twin, code, loc)
         if code not in (301, 302, 308) or target not in (loc or ""):
             print(" FAIL twin"); fail += 1
     code, final, _, _ = fetch("https://allchinabuyspreadsheet.ca/", follow=True)
-    print("ca dest", code, final)
+    print("allchinabuy ca dest", code, final)
     if HOST in final:
         print(" FAIL CA collapsed into NL"); fail += 1
+    code, final, loc, body = fetch("https://acbuyspreadsheets.ca/", follow=False)
+    print("acbuy ca dest", code, final or loc)
+    if code in (301, 302, 308) and "allchinabuyspreadsheet.ca" in (loc or ""):
+        print(" FAIL ACBuy CA still 301 into AllChinaBuy"); fail += 1
     if fail:
         raise SystemExit(f"live_check fail {fail}")
     print("live_check ok")
