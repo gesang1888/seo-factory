@@ -1158,6 +1158,114 @@ def _reload_nginx(client) -> None:
     print(_run(client, "nginx -s reload"))
 
 
+CMS_PAGE_LOCS = (
+    "about",
+    "about/",
+    "help",
+    "help/",
+    "news",
+    "news/",
+    "catalog",
+    "catalog/",
+    "catalogus",
+    "catalogus/",
+    "hulp",
+    "hulp/",
+    "nieuws",
+    "nieuws/",
+    "over-ons",
+    "over-ons/",
+    "start",
+    "start/",
+)
+
+WRAP_SKIP_PREFIXES = (
+    "help/",
+    "news/",
+    "about/",
+    "catalog/",
+    "catalogus/",
+    "hulp/",
+    "nieuws/",
+    "over-ons/",
+    "start/",
+    "api/",
+    "assets/",
+    "img/",
+)
+
+
+def _strip_cms_home_301s(client, sftp, key: str) -> None:
+    host = PACKS[key]["host"]
+    gsc = f"/www/server/panel/vhost/nginx/extension/{host}/gsc-redirects.conf"
+    raw = _run(client, f"cat '{gsc}' 2>/dev/null || true")
+    if not raw:
+        return
+    drop = {f"location = /{loc} {{ return 301 https://{host}/; }}" for loc in CMS_PAGE_LOCS}
+    keep = []
+    stripped = 0
+    for ln in raw.splitlines(True):
+        if ln.strip() in drop:
+            stripped += 1
+            continue
+        keep.append(ln)
+    if not stripped:
+        print(key, "no CMS-page home 301s")
+        return
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    _run(client, f"cp -a '{gsc}' '/www/backup/allchinabuy-{key}-gsc-about-{stamp}.conf'")
+    Path(f"/tmp/allchinabuy-{key}-gsc.conf").write_text("".join(keep), encoding="utf-8")
+    sftp.put(f"/tmp/allchinabuy-{key}-gsc.conf", gsc)
+    print(key, "stripped", stripped, "CMS-page home 301s")
+    _reload_nginx(client)
+
+
+def _harden_catchall(client, sftp, key: str) -> None:
+    host = PACKS[key]["host"]
+    vhost = f"/www/server/panel/vhost/nginx/{host}.conf"
+    with sftp.open(vhost, "r") as fh:
+        text = fh.read().decode()
+    marker = f'X-Desk "allchinabuy-{key}-independent"'
+    if marker in text:
+        print(key, "catch-all already independent")
+        return
+    old = """    location / {
+        try_files $uri $uri/ $uri/index.html =404;
+    }
+"""
+    new = f"""    location / {{
+        try_files $uri $uri/ $uri/index.html =404;
+        add_header Strict-Transport-Security "max-age=31536000" always;
+        add_header Cache-Control "private, no-cache, must-revalidate" always;
+        add_header X-Desk "allchinabuy-{key}-independent" always;
+    }}
+"""
+    if old not in text:
+        print(key, "catch-all needle not the plain try_files; skip harden")
+        return
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    _run(client, f"cp -a '{vhost}' '/www/backup/allchinabuy-{key}-nginx-{stamp}.conf'")
+    text = text.replace(old, new, 1)
+    tmp = Path(f"/tmp/allchinabuy-{key}.conf")
+    tmp.write_text(text, encoding="utf-8")
+    sftp.put(str(tmp), vhost)
+    print(key, "hardened HTTPS catch-all")
+    _reload_nginx(client)
+
+
+def _origin_inners(client, root: str) -> list[str]:
+    raw = _run(client, f"find '{root}' -name index.html | sed 's|^{root}/||'")
+    rels = []
+    for rel in raw.splitlines():
+        rel = rel.strip().lstrip("/")
+        if not rel or rel == "index.html":
+            continue
+        if any(rel == p.rstrip("/") or rel.startswith(p) for p in WRAP_SKIP_PREFIXES):
+            continue
+        rels.append(rel)
+    return rels
+
+
 def _lift_nl_acbuy_301(client, sftp) -> None:
     host = PACKS["nl"]["host"]
     vhost = f"/www/server/panel/vhost/nginx/{host}.conf"
@@ -1200,17 +1308,20 @@ def _wrap_ranked(client, sftp, bak: str, root: str, key: str) -> None:
     desk = desk_for(key)
     skip = {"index.html", "404.html", "404/index.html"}
     inventory = Path("/tmp/dest-inners.json")
+    rels: list[str] = []
     if inventory.is_file():
-        rels = []
         for row in json.loads(inventory.read_text()):
             if row.get("host") == PACKS[key]["host"]:
                 rels = [item["rel"].lstrip("/") for item in row.get("files") or []]
                 break
-    else:
+    if not rels:
+        rels = _origin_inners(client, root)
+        print(key, "wrap inventory miss; origin inners", len(rels))
+    if not rels:
         rels = [f"{rel.lstrip('/')}index.html" for rel, _ in RANKED]
     mins = {rel.lstrip("/"): min_b for rel, min_b in RANKED}
     for rel in rels:
-        if rel in skip:
+        if rel in skip or any(rel == p.rstrip("/") or rel.startswith(p) for p in WRAP_SKIP_PREFIXES):
             continue
         remote = f"{root}/{rel}"
         try:
@@ -1261,6 +1372,9 @@ def put(key: str) -> None:
     sftp = client.open_sftp()
     if key == "nl":
         _lift_nl_acbuy_301(client, sftp)
+    else:
+        _harden_catchall(client, sftp, key)
+    _strip_cms_home_301s(client, sftp, key)
     mapping = {
         "home": f"{root}/index.html",
         "start": f"{root}/start/index.html",
@@ -1338,9 +1452,10 @@ def live_check(key: str | None = None) -> None:
             (f"https://{host}{p['ship']}", "ranked", False),
         ]
         for url, kind, need_fp in checks:
-            code, final, loc, body = fetch(url, follow=True)
+            follow = kind in ("home", "start", "ranked")
+            code, final, loc, body = fetch(url, follow=follow)
             html = body.decode("utf-8", "replace")
-            print(k, kind, code, "bytes", len(body))
+            print(k, kind, code, "bytes", len(body), "loc", loc or final)
             if any(a in (final or "") or a in (loc or "") for a in (ACBUY_CA, ACBUY_NL)):
                 print(" FAIL 301 into ACBuy"); fail += 1
             if kind != "ranked" and code != 200:
@@ -1370,8 +1485,16 @@ def live_check(key: str | None = None) -> None:
                 print(" FAIL catalog wall"); fail += 1
             if kind == "news" and "ItemList" not in html:
                 print(" FAIL news ItemList"); fail += 1
-            if kind == "about" and "ContactPoint" not in html:
-                print(" FAIL about ContactPoint"); fail += 1
+            if kind == "about":
+                mark = (
+                    "Een onafhankelijke site over AllChinaBuy"
+                    if k == "nl"
+                    else "An independent site about AllChinaBuy"
+                )
+                if mark not in html:
+                    print(" FAIL about copy"); fail += 1
+                if (loc or "").rstrip("/") == f"https://{host}":
+                    print(" FAIL about 301 home"); fail += 1
             if kind == "help" and "FAQPage" not in html:
                 print(" FAIL help FAQPage"); fail += 1
         code, _, _, nf = fetch(f"https://{host}/this-page-does-not-exist-cms/", follow=True)
@@ -1398,6 +1521,47 @@ def live_check(key: str | None = None) -> None:
     print("live_check ok")
 
 
+def _cf_bust(hosts: list[str]) -> None:
+    import json
+    import urllib.error
+    import urllib.request
+
+    token = os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
+    if not token:
+        print("skip CF purge: no token")
+        return
+    api = "https://api.cloudflare.com/client/v4"
+
+    def req(method: str, path: str, body: dict | None = None) -> dict:
+        data = json.dumps(body).encode() if body is not None else None
+        r = urllib.request.Request(
+            f"{api}{path}",
+            data=data,
+            method=method,
+            headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+        )
+        try:
+            with urllib.request.urlopen(r, timeout=30) as resp:
+                return json.loads(resp.read().decode())
+        except urllib.error.HTTPError as e:
+            raw = e.read().decode(errors="replace")
+            try:
+                return json.loads(raw)
+            except json.JSONDecodeError:
+                return {"success": False, "errors": [{"message": raw[:300]}]}
+
+    for host in hosts:
+        z = req("GET", f"/zones?name={host}")
+        zid = ((z.get("result") or [{}])[0] or {}).get("id")
+        if not zid:
+            print("CF zone missing", host, z.get("errors"))
+            continue
+        d = req("PATCH", f"/zones/{zid}/settings/development_mode", {"value": "on"})
+        print("CF development_mode", host, d.get("success"), (d.get("errors") or d.get("result") or ""))
+        p = req("POST", f"/zones/{zid}/purge_cache", {"purge_everything": True})
+        print("CF purge", host, p.get("success"), p.get("errors") or "")
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     cmd = args[0] if args else "generate"
@@ -1405,11 +1569,13 @@ if __name__ == "__main__":
     if cmd == "put":
         for k in rest:
             put(k)
+        _cf_bust([PACKS[k]["host"] for k in rest])
     elif cmd == "live":
         live_check(rest[0] if len(rest) == 1 else None)
     elif cmd == "all":
         for k in rest:
             put(k)
+        _cf_bust([PACKS[k]["host"] for k in rest])
         live_check()
     else:
         for k in rest:
