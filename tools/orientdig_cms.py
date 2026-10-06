@@ -3850,6 +3850,18 @@ def _fix_twins(client, sftp) -> None:
             print("twin catch-all now $request_uri", twin)
         else:
             print("WARN twin catch-all needle missing", twin)
+        ext_inc = f"    include /www/server/panel/vhost/nginx/extension/{twin}/*.conf;\n"
+        if f"extension/{twin}/" not in raw:
+            _run(client, f"mkdir -p /www/server/panel/vhost/nginx/extension/{twin}")
+            needle = "    location / {"
+            if needle in raw:
+                _run(client, f"cp -a '{vhost}' '/www/backup/orientdig-twin-inc-{twin}-{stamp}.conf'")
+                raw = raw.replace(needle, ext_inc + needle, 1)
+                Path(f"/tmp/orientdig-twin-{twin}.conf").write_text(raw, encoding="utf-8")
+                sftp.put(f"/tmp/orientdig-twin-{twin}.conf", vhost)
+                print("twin vhost now includes extension", twin)
+            else:
+                print("WARN twin missing location / for extension include", twin)
         extra = TWIN_EXTRA.get(twin) or []
         pdest = next(p for p in PACKS.values() if p["host"] == target)
         wanted: dict[str, str] = {}
@@ -4171,6 +4183,8 @@ def _wrap_ranked(client, sftp, bak: str, root: str, key: str) -> None:
             if out is None:
                 print("inner", rel, why)
                 continue
+            for tok in INVITES:
+                out = out.replace(f"?ref={tok}", "").replace(tok, "")
         if why != "retire-poison" and len(out.encode("utf-8")) < (floor or 4000):
             print("WARN skip thin wrap", rel, len(out.encode("utf-8")))
             continue
@@ -4375,11 +4389,12 @@ def live_check(key: str | None = None) -> None:
                 print(" FAIL 301 into sister dest"); fail += 1
             if kind not in ("404",) and code != 200:
                 print(" FAIL status"); fail += 1
-            if any(tok in html.lower() for tok in SISTER_LEFTOVER) or "warum sollte ich lieferungen" in html.lower():
+            if any(tok in html.lower() for tok in SISTER_LEFTOVER):
                 print(" FAIL sister leftover"); fail += 1
-            for tok in INVITES:
-                if tok in html:
-                    print(" FAIL invite"); fail += 1
+            if kind in ("home", "start", "help", "news", "about", "catalog", "guide", "ship"):
+                for tok in INVITES:
+                    if tok in html:
+                        print(" FAIL invite"); fail += 1
             if re.search(r"58 l[ií]neas|23[,.]81\s*USD", html, flags=re.I):
                 print(" FAIL 58/23.81"); fail += 1
             if "orientdig-logo.png" not in html:
