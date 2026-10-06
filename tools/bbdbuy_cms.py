@@ -1911,15 +1911,21 @@ def _map_legacy_english_cms(client, sftp, key: str) -> None:
         return
     gsc = f"/www/server/panel/vhost/nginx/extension/{host}/gsc-redirects.conf"
     raw = _run(client, f"cat '{gsc}' 2>/dev/null || true")
+    raw = re.sub(r"\}(\s*)location\s+=", "}\nlocation =", raw or "")
+    if raw and not raw.endswith("\n"):
+        raw += "\n"
     seen: set[str] = set()
     out: list[str] = []
-    loc_re = re.compile(r"^\s*location\s+=\s+(\S+)\s*\{")
-    for ln in (raw or "").splitlines(True):
-        m = loc_re.match(ln)
+    loc_re = re.compile(r"location\s+=\s+(\S+)\s*\{")
+    for ln in raw.splitlines(True):
+        m = loc_re.search(ln)
         if m and m.group(1) in wanted:
             path = m.group(1)
             if path in seen:
                 continue
+            prefix = ln[: m.start()] if m.start() else ""
+            if prefix.strip() and not prefix.endswith("\n"):
+                out.append(prefix.rstrip() + "\n")
             out.append(f"location = {path} {{ return 301 https://{host}{wanted[path]}; }}\n")
             seen.add(path)
             continue
