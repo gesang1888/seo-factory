@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Rebuild acbuyspreadsheets.nl as an ACBuy NL country desk (hipobuy.es IA).
+"""ACBuy Netherlands pack of the country-dest CMS template.
 
-Homepage is the user guide. Help / News / About / shipping are independent URLs.
-Does not PUT 5KB overlays over ranked inners. Does not invent warehouse-day
-counts or invite tokens on titles. CA AllChinaBuy dest is the next agent.
-Twin allchinabuyspreadsheet.nl stays 301 $request_uri into this dest.
+Chrome / IA / wrap live in tools/country_cms.py (gold IA: hipobuy.es, gold
+brand: acbuy.com). This file is the first filled pack: Dutch copy, NL facts,
+W2C category notes. Next dest: copy this file, swap DESK + copy builders.
+Does not PUT 5KB overlays over ranked unique inners. CA AllChinaBuy dest is
+the next agent when asked. Twin allchinabuyspreadsheet.nl stays 301 into this host.
 """
 from __future__ import annotations
 
@@ -21,27 +22,20 @@ _TOOLS = Path(__file__).resolve().parent
 if str(_TOOLS) not in sys.path:
     sys.path.insert(0, str(_TOOLS))
 
-from desk_template import (
-    dest_local_pack,
-    faq_ld,
-    inject_jsonld,
-    itemlist_ld,
-    long_faqs,
-    organization_ld,
-    skip_label,
-    skip_link,
-    validate_desk,
-    webpage_ld,
+from country_cms import (
+    CountryDesk,
+    W2C,
+    W2C_CATS,
+    build_404,
+    fig as cms_fig,
+    official_url,
+    page_title,
+    render_css,
+    shell as cms_shell,
+    w2c_sheet,
+    wrap_inner as cms_wrap_inner,
 )
-from dest_inner_chrome import (
-    _body_scripts_outside_article,
-    _element_inner,
-    _head_inner,
-    _html_tag,
-    _text_len,
-    after_footer_keep,
-    extract_article,
-)
+from desk_template import dest_local_pack, faq_ld, itemlist_ld, long_faqs, validate_desk
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "sites"
@@ -63,16 +57,8 @@ STORAGE = (
     "Deze desk verzint geen gratis-dagen-aantal."
 )
 DEST_MIN = 22000
-INNER_MARKER = 'data-inner-chrome="20261005c-acbuy-nl"'
-CSS_V = "20261005c"
-CHROME_LOCK = """
-:root{--acc:#31B38C!important;--acd:#27BA9B!important;--link:#27BA9B!important;--primary:#31B38C!important;--primary-dark:#27BA9B!important;--primary-soft:#e8f7f2!important}
-#lang-modal,#lang-backdrop,.lmo,.lbk,.bc{display:none!important}
-header.top .nav a{color:#333!important}
-header.top .nav a[aria-current],header.top .nav a:hover{color:#31B38C!important;background:transparent!important}
-header.top .hdr-login{background:#31B38C!important;color:#fff!important}
-header.top .hdr-login:hover{background:#27BA9B!important;color:#fff!important}
-""".strip()
+CSS_V = "20261006a"
+INNER_MARKER = f'data-inner-chrome="{CSS_V}-acbuy-nl"'
 ALIENS = (
     "1010 Wien",
     "Packstation",
@@ -152,52 +138,6 @@ def _nl_faqs() -> list[tuple[str, str]]:
     return pairs
 
 
-def _fig(src: str, alt: str, cap: str, w: int = 1200, h: int = 750) -> str:
-    return (
-        f'<figure class="fig"><img src="{escape(src)}" alt="{escape(alt)}" '
-        f'loading="lazy" width="{w}" height="{h}">'
-        f"<figcaption>{escape(cap)}</figcaption></figure>"
-    )
-
-
-W2C = "https://w2clinks.com"
-W2C_ACBUY_SHEET = f"{W2C}/spreadsheet/acbuy/"
-# Same order and icons as https://w2clinks.com/categories/
-W2C_CATS = [
-    ("SNEAKERS", "Turnschoenen", "cat-30-shoes.png?v=24"),
-    ("SLIPPERS", "Slippers", "cat-27-slippers.png?v=24"),
-    ("T-SHIRT", "T-shirt", "cat-03-t-shirt.png?v=24"),
-    ("POLO", "Polo", "cat-04-polo.png?v=24"),
-    ("SHIRT", "Overhemd", "cat-05-shirt.png?v=24"),
-    ("SHORTS", "Shorts", "cat-07-shorts.png?v=24"),
-    ("VEST", "Bodywarmer", "cat-20-vest.png?v=24"),
-    ("LONG SLEEVED", "Lange mouw", "cat-25-long-sleeved.png?v=24"),
-    ("HOODIE", "Hoodie", "cat-06-hoodie.png?v=24"),
-    ("SWEATER", "Trui", "cat-11-sweater.png?v=24"),
-    ("SHAWL", "Omslagdoek", "cat-12-shawl.png?v=24"),
-    ("JACKET", "Jas", "cat-13-jacket.png?v=24"),
-    ("SHELL JACKET", "Shelljas", "cat-18-jacket.png?v=24"),
-    ("FLEECE JACKET", "Fleecejas", "cat-17-fleece-jacket.png?v=24"),
-    ("DOWN JACKETS", "Donsjas", "cat-08-down-jackets.png?v=24"),
-    ("TROUSERS", "Broek", "cat-19-trousers.png?v=24"),
-    ("Jersey", "Shirt", "cat-jersey.png?v=24"),
-    ("FEMALE STYLE", "Dames", "cat-28-femaie-styie.png?v=24"),
-    ("Electronics", "Elektronica", "cat-electronics.png?v=24"),
-    ("GLOVES", "Handschoenen", "cat-15-giove.png?v=24"),
-    ("BAG", "Tas", "cat-00-bag.png?v=24"),
-    ("HAT", "Pet", "cat-01-hat.png?v=24"),
-    ("JEWELRY", "Sieraden", "cat-02-jewelry.png?v=24"),
-    ("UNDERWEAR", "Ondergoed", "cat-09-underwear.png?v=24"),
-    ("BELT", "Riem", "cat-10-belt.png?v=24"),
-    ("KNEEPAD", "Kniebeschermer", "cat-16-kneepad.png?v=24"),
-    ("SOCKS", "Sokken", "cat-26-socks.png?v=24"),
-    ("HEADGEAR", "Hoofddeksel", "cat-22-headgear.png?v=24"),
-    ("EARMUFF", "Oorwarmers", "cat-23-earmuff.png?v=24"),
-    ("SCARF", "Sjaal", "cat-24-scarf.png?v=24"),
-    ("GLASSES", "Bril", "cat-31-glasses.png?v=25"),
-    ("WATCH", "Horloge", "cat-32-watch.png?v=26"),
-    ("CHILD", "Kinderen", "cat-29-child.png?v=24"),
-]
 CAT_NOTES = {
     "SNEAKERS": "Kijk naar zool en leest op de QC-foto’s vóór je internationaal boekt: daar gaan de meeste retouren over.",
     "SLIPPERS": "Licht en plat. Goed om een doos te vullen zonder het factuurgewicht hard te laten stijgen.",
@@ -245,279 +185,100 @@ def _faq_html(pairs: list[tuple[str, str]] | None = None, *, open_first: bool = 
         )
     return "\n".join(items)
 
-
-def _nav(page: str) -> str:
-    bits = []
-    for href, lab in CMS_PAGES:
-        on = ' aria-current="page"' if href == page else ""
-        bits.append(f'<a href="{escape(href)}"{on}>{escape(lab)}</a>')
-    return "".join(bits)
-
-
-def _header(page: str) -> str:
-    return f"""{skip_link(skip_label("nl"))}<header class="top" role="banner">
-  <div class="wrap">
-    <a href="/" class="brand">
-      <img src="/assets/images/acbuy-logo.svg" alt="ACBuy" width="118" height="39">
-      <span>Spreadsheet</span>
-    </a>
-    <button class="burger" type="button" aria-expanded="false" aria-label="Menu openen">&#9776;</button>
-    <nav class="nav" aria-label="Hoofdmenu">{_nav(page)}</nav>
-    <a class="hdr-login" href="{escape(_official("/register"))}" rel="nofollow noopener" target="_blank">Inloggen op ACBuy</a>
-  </div>
-</header>
-"""
-
-
-def _official(path: str = "") -> str:
+def _off(path: str = "") -> str:
     url = OFFICIAL.rstrip("/") + path
     sep = "&" if "?" in url else "?"
     return f"{url}{sep}utm_source={HOST}&utm_medium=referral&utm_campaign=portada"
 
 
-def _footer() -> str:
-    off_site = _official("/")
-    off_reg = _official("/register")
-    off_est = _official("/estimation/")
-    off_help = _official("/help")
-    off_faq = _official("/issueView")
-    reddit = "https://www.reddit.com/r/Acbuyofficial/"
-    return f"""<footer class="site-ft">
-  <div class="wrap ft-grid">
-    <div>
-      <h3>ACBuy Spreadsheet</h3>
-      <p>Onafhankelijke gids in het Nederlands over ACBuy en over hoe je de catalogus van w2clinks gebruikt om vanuit Nederland in China te kopen.</p>
-      <p><a href="mailto:{escape(MAIL)}">{escape(MAIL)}</a></p>
-    </div>
-    <div>
-      <h3>Secties</h3>
-      <ul>
-        <li><a href="/how-to-use-acbuy/">Handleiding van ACBuy</a></li>
-        <li><a href="/catalogus/">Het spreadsheet en de categorieën</a></li>
-        <li><a href="/acbuy-shipping-guide/">Verzending en douane</a></li>
-        <li><a href="/hulp/">Hulp en vragen</a></li>
-        <li><a href="/nieuws/">Nieuws</a></li>
-        <li><a href="/over-ons/">Over ons</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3>Officiële links</h3>
-      <ul>
-        <li><a href="{escape(off_site)}" rel="nofollow noopener" target="_blank">ACBuy (officiële site)</a></li>
-        <li><a href="{escape(off_reg)}" rel="nofollow noopener" target="_blank">Account aanmaken op ACBuy</a></li>
-        <li><a href="{escape(off_est)}" rel="nofollow noopener" target="_blank">Verzendschatter</a></li>
-        <li><a href="{escape(off_help)}" rel="nofollow noopener" target="_blank">Helpcentrum</a></li>
-        <li><a href="{escape(off_faq)}" rel="nofollow noopener" target="_blank">Officiële FAQ</a></li>
-        <li><a href="{escape(reddit)}" rel="nofollow noopener" target="_blank">Reddit officieel</a></li>
-      </ul>
-    </div>
-    <div class="legal">
-      <p><strong>Onafhankelijkheidsverklaring.</strong> ACBuy Spreadsheet is een onafhankelijke informatiesite. Wij zijn niet ACBuy, we verwerken geen bestellingen, we innen geen verzendkosten en we hebben geen toegang tot je account. Elke bestelling, betaling en klacht loopt via de officiële site.</p>
-      <p>&copy; 2026 ACBuy Spreadsheet. Inhoud in het Nederlands, door mensen geredigeerd en nagekeken vóór publicatie.</p>
-    </div>
-  </div>
-</footer>
-<script>
-(function(){{
-  var b=document.querySelector('.burger'), n=document.querySelector('nav.nav');
-  if(!b||!n) return;
-  b.addEventListener('click', function(){{
-    var on=b.getAttribute('aria-expanded')==='true';
-    b.setAttribute('aria-expanded', on?'false':'true');
-    n.classList.toggle('open', !on);
-  }});
-}})();
-</script>
-"""
+DESK = CountryDesk(
+    host=HOST,
+    agent="ACBuy",
+    dest="NL",
+    dest_label="Nederland",
+    lang="nl-NL",
+    in_language="in het Nederlands",
+    official=OFFICIAL,
+    estimator=EST,
+    help_url=HELP,
+    mail=MAIL,
+    acc=ACC,
+    acc_dark=ACC_DARK,
+    date=DATE,
+    css_v=CSS_V,
+    logo_src="/assets/images/acbuy-logo.svg",
+    nav=list(CMS_PAGES),
+    footer_intro=(
+        "Onafhankelijke gids in het Nederlands over ACBuy en over hoe je de catalogus "
+        "van w2clinks gebruikt om vanuit Nederland in China te kopen."
+    ),
+    footer_sections=[
+        ("/how-to-use-acbuy/", "Handleiding van ACBuy"),
+        ("/catalogus/", "Het spreadsheet en de categorieën"),
+        ("/acbuy-shipping-guide/", "Verzending en douane"),
+        ("/hulp/", "Hulp en vragen"),
+        ("/nieuws/", "Nieuws"),
+        ("/over-ons/", "Over ons"),
+    ],
+    footer_official=[
+        (_off("/"), "ACBuy (officiële site)"),
+        (_off("/register"), "Account aanmaken op ACBuy"),
+        (_off("/estimation/"), "Verzendschatter"),
+        (_off("/help"), "Helpcentrum"),
+        (_off("/issueView"), "Officiële FAQ"),
+        ("https://www.reddit.com/r/Acbuyofficial/", "Reddit officieel"),
+    ],
+    independence=(
+        "ACBuy Spreadsheet is een onafhankelijke informatiesite. Wij zijn niet ACBuy, "
+        "we verwerken geen bestellingen, we innen geen verzendkosten en we hebben geen "
+        "toegang tot je account. Elke bestelling, betaling en klacht loopt via de officiële site."
+    ),
+    copyright="&copy; 2026 ACBuy Spreadsheet. Inhoud in het Nederlands, door mensen geredigeerd en nagekeken vóór publicatie.",
+    login_label="Inloggen op ACBuy",
+    menu_label="Menu openen",
+    skip_lang="nl",
+    not_found_h1="Deze pagina bestaat niet",
+    not_found_lead="De link is misschien oud. Dit zijn de secties die wél bestaan:",
+    home_cta="Terug naar de startpagina",
+    theme_css="acbuy-theme.css",
+    desk_css="acbuy-nl-desk.css",
+    inner_marker=INNER_MARKER,
+    reddit="https://www.reddit.com/r/Acbuyofficial/",
+    register_path="/register",
+    sheet_slug="acbuy",
+    invites=(INVITE, INVITE2, INVITE3),
+    factory_pats=(
+        r"Step-by-step guide to using ACBuy:[^.<]{0,240}\.",
+        r"This page is part of\s*(?:<strong>)?ACBuy Nederland(?:</strong>)?\s*\.[\s./<code>]*",
+        r"Browse ACBuy Spreadsheet\s*(?:&rarr;|→)?",
+    ),
+    extra_subs=(
+        (
+            r'(?is)(<div style="max-width:720px;[^"]*">)\s*(<h1[\s\S]*?</h1>)\s*<p\b[^>]*>[\s\S]*?</p>\s*',
+            r"\1\n  \2\n  ",
+        ),
+    ),
+    strip_home_crumb="Start",
+    not_found_tab="Pagina niet gevonden",
+)
+
+W2C_ACBUY_SHEET = w2c_sheet(DESK)
 
 
-CSS = f"""
-:root{{
-  --acc:{ACC};--acd:{ACC_DARK};--link:{ACC_DARK};
-  --ink:#303133;--ink2:#495068;--mute:#8492b2;--dark:#181818;
-  --panel:#f5f6f7;--line:#eaecf0;--soft:#f5f6f7;
-  --r:18px;--rs:12px;--maxw:1120px;--medida:34em;
-  --f:"Microsoft Yahei","PingFang SC",Avenir,"Segoe UI","Hiragino Sans GB",sans-serif;--m:ui-monospace,monospace;
-}}
-*{{box-sizing:border-box}}
-html{{-webkit-text-size-adjust:100%;color-scheme:light;scroll-behavior:smooth}}
-body{{margin:0;font-family:var(--f);font-size:17px;line-height:1.72;color:var(--ink);background:#fff}}
-img{{max-width:100%;height:auto;display:block}}
-a{{color:var(--link)}}
-a:hover{{color:var(--acd)}}
-#main,[id]{{scroll-margin-top:76px}}
-h1,h2,h3{{color:var(--dark);line-height:1.25;letter-spacing:-.01em;margin:0 0 .5em}}
-h1{{font-size:clamp(30px,4.4vw,45px);font-weight:800}}
-h2{{font-size:clamp(24px,3vw,32px);font-weight:800}}
-h3{{font-size:20px;font-weight:700}}
-p{{margin:0 0 1.05em}}
-main p,main li,.sg-faq p{{max-width:var(--medida)}}
-.wrap{{max-width:var(--maxw);margin:0 auto;padding:0 22px}}
-.skip{{position:absolute;left:-9999px}}
-.skip:focus{{left:12px;top:12px;z-index:99;background:#fff;padding:8px 18px;border-radius:var(--rs)}}
-.top{{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}}
-.top .wrap{{display:flex;align-items:center;gap:16px;min-height:72px}}
-.brand{{display:flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:var(--dark);text-decoration:none;font-size:15px;white-space:nowrap}}
-.brand img{{height:32px;width:auto}}
-.brand span{{color:#8492b2;font-weight:600}}
-.nav{{margin-left:auto;display:flex;gap:2px;flex-wrap:nowrap}}
-.nav a{{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:#333;text-decoration:none;font-size:15px;white-space:nowrap}}
-.nav a:hover,.nav a[aria-current]{{color:var(--acc);background:transparent;font-weight:700}}
-.hdr-login{{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:var(--acc);color:#fff;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}}
-.hdr-login:hover{{background:var(--acd);color:#fff}}
-.burger{{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}}
-.hero{{position:relative;background:#181818;overflow:hidden}}
-.hero__bg{{position:absolute;inset:0;background:url(/img/hero.jpg?v=20261005c) center/cover no-repeat}}
-.hero__scrim{{position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.58) 0%,rgba(49,179,140,.22) 100%)}}
-.hero .wrap{{position:relative;padding:74px 22px 78px}}
-.eyebrow{{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--acc);margin-bottom:14px}}
-.hero .eyebrow{{color:#9ee8d2}}
-.hero h1{{color:#fff;max-width:15.5em}}
-.hero p.lead{{color:#e7f7f1;font-size:19px;max-width:34em}}
-.sbox{{margin-top:26px;max-width:660px}}
-.sbox form{{display:flex;gap:9px;background:#fff;border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 14px 40px rgba(24,24,24,.22)}}
-.sbox input{{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 8px}}
-.sbox button{{min-height:44px;padding:0 24px;border:0;border-radius:999px;background:var(--acc);color:#fff;font:inherit;font-weight:700;cursor:pointer}}
-.chips{{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}}
-.chips a{{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);color:#fff8f0;text-decoration:none;font-size:14px}}
-.sec{{padding:62px 0;border-top:1px solid var(--line)}}
-.sec--tint{{background:linear-gradient(var(--soft) 0%,#fff 100%);border-top:0}}
-.sec--first{{border-top:0}}
-.split{{display:grid;grid-template-columns:1.04fr .96fr;gap:46px;align-items:center}}
-.split--rev .fig{{order:-1}}
-.fig{{margin:0}}
-.fig img{{border-radius:var(--r);border:1px solid var(--line);background:#fff}}
-.fig figcaption{{margin-top:11px;font-size:13.5px;line-height:1.55;color:var(--mute)}}
-.lead{{font-size:18px;color:var(--ink2);max-width:var(--medida)}}
-.btn{{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none}}
-.btn:hover{{background:var(--acd);color:#fff}}
-.btn--ghost{{background:#fff;color:var(--acd);border:1px solid var(--line)}}
-.tl{{list-style:none;margin:0;padding:0 0 0 30px;border-left:2px solid var(--line)}}
-.tl li{{position:relative;padding:0 0 18px 8px}}
-.tl li:last-child{{padding-bottom:0}}
-.tl li::before{{content:"";position:absolute;left:-39px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px #fff}}
-.tl b{{display:block;color:var(--dark);font-size:17px}}
-.tl span{{color:var(--mute);font-size:14px}}
-.cat-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px;margin-top:8px}}
-.cat{{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 10px 14px;text-decoration:none;color:inherit}}
-.cat:hover{{transform:translateY(-3px);box-shadow:0 12px 28px rgba(49,179,140,.16);border-color:#9ee8d2}}
-.cat img{{width:72px;height:72px;object-fit:contain;padding:0;background:#fff}}
-.cat__b{{padding:10px 0 0}}
-.cat em{{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}}
-.cat-grid--rich{{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
-.cat-grid--rich .cat{{align-items:flex-start;text-align:left;padding:14px}}
-.eq{{width:100%;border-collapse:collapse;max-width:36em;font-size:15px}}
-.eq th,.eq td{{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}}
-.eq th{{color:#8492b2;font-weight:600}}
-.cat__b strong{{display:block;color:var(--dark);font-size:14.5px}}
-.cat__b span{{font-size:12px;color:var(--mute);letter-spacing:.04em}}
-.states{{margin:0;padding:0;list-style:none}}
-.states li{{padding:10px 0;border-bottom:1px solid var(--line);max-width:40em}}
-.states code{{font-family:var(--m);font-size:13px}}
-.sg-sec{{max-width:var(--maxw);margin:0 auto;padding:28px 22px}}
-.ssub{{color:var(--ink2);margin:0 0 14px}}
-.local-steps{{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px;max-width:40em}}
-.local-steps li{{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;max-width:none}}
-.local-steps strong{{display:block;margin:0 0 6px}}
-.local-src{{font-size:14px;color:var(--mute);line-height:1.7;margin:14px 0 0;max-width:var(--medida)}}
-.sg-cats{{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}}
-.sg-cat{{display:block;border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:inherit;background:#fff}}
-.sg-cat span{{display:block;color:var(--mute);font-size:13px;margin-top:4px}}
-.sg-mw{{max-width:var(--maxw);margin:0 auto;padding:8px 22px 40px}}
-.sg-chips{{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}}
-.sg-chips button{{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer}}
-.sg-chips button.on{{background:var(--panel);border-color:var(--acc);color:var(--acd);font-weight:700}}
-.sg-fbar{{display:flex;gap:10px;align-items:center;margin:8px 0 14px}}
-.sg-fbar input{{flex:1;padding:10px 12px;border-radius:8px;border:1px solid var(--line)}}
-.sg-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}}
-.sg-card{{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}}
-.sg-card img{{width:100%;aspect-ratio:1;object-fit:cover;background:#f1f5f9}}
-.sg-card .b{{padding:10px}}
-.sg-card .t{{font-size:13px;font-weight:600;min-height:2.4em}}
-.sg-card .pr{{font-weight:800;color:var(--acc)}}
-.sg-card .pr-src{{font-size:11px;color:#94a3b8}}
-.sg-card a.buy{{margin:0 10px 10px;text-align:center;padding:8px;border-radius:8px;background:var(--acc);color:#fff;font-size:12.5px;font-weight:600;text-decoration:none}}
-.sg-fx{{color:var(--mute);font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:var(--medida)}}
-.sg-faq{{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff;max-width:40em}}
-.sg-faq summary{{cursor:pointer;font-weight:700}}
-.ncard{{border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 8px;margin-bottom:18px;max-width:40em}}
-.ncard h2{{font-size:22px}}
-.shot-panel{{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:var(--soft);max-width:40em}}
-.site-ft{{background:#111;color:#ccc;padding:52px 0 30px;margin-top:24px;font-size:15.5px}}
-.ft-grid{{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px}}
-.site-ft h3{{color:#fff;font-size:15.5px;margin:0 0 12px;letter-spacing:.02em;font-weight:700}}
-.site-ft p{{margin:0 0 12px;max-width:36em}}
-.site-ft a{{color:#c2c2c2;text-decoration:none}}
-.site-ft a:hover{{color:#fff;text-decoration:underline}}
-.site-ft ul{{list-style:none;margin:0;padding:0}}
-.site-ft li{{margin-bottom:8px}}
-.site-ft .legal{{grid-column:1/-1;border-top:1px solid #2D2D2D;padding-top:20px;font-size:13.5px;color:#8a8a8a}}
-.site-ft .legal p{{margin:0 0 8px;max-width:none}}
-.pw{{max-width:40em;margin:0 auto;padding:40px 22px 64px}}
-.inner-article{{max-width:860px;margin:0 auto;padding:28px 24px 48px}}
-#lang-modal,#lang-backdrop,.lmo,.lbk,.bc{{display:none!important}}
-@media(max-width:1000px){{
-  .split{{grid-template-columns:1fr;gap:30px}}
-  .split--rev .fig{{order:0}}
-  .ft-grid{{grid-template-columns:1fr 1fr}}
-}}
-@media(max-width:860px){{
-  .burger{{display:inline-flex;align-items:center;justify-content:center}}
-  .nav{{display:none;position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 12px}}
-  .nav.open{{display:flex}}
-  .hdr-login{{display:none}}
-  .ft-grid{{grid-template-columns:1fr}}
-}}
-@media(max-width:640px){{
-  .cat-grid{{grid-template-columns:repeat(2,1fr)}}
-  .sbox form{{flex-direction:column}}
-  .sbox button{{width:100%}}
-}}
-"""
+def _fig(src: str, alt: str, cap: str, w: int = 1200, h: int = 750) -> str:
+    return cms_fig(src, alt, cap, w, h)
+
+
+def _official(path: str = "") -> str:
+    return official_url(DESK, path)
 
 
 def _shell(title: str, desc: str, canonical: str, extra_ld: list[dict], body: str, page: str) -> str:
-    ld = [
-        webpage_ld(
-            url=canonical,
-            name=title,
-            desc=desc,
-            lang="nl-NL",
-            brand="ACBuy",
-            host=HOST,
-        ),
-        organization_ld(
-            name=f"{HOST} independent desk",
-            url=f"https://{HOST}/",
-            email=MAIL,
-            lang="nl-NL",
-            desc=desc,
-        ),
-    ] + extra_ld
-    html = f"""<!DOCTYPE html>
-<html lang="nl-NL">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{escape(title)}</title>
-<meta name="description" content="{escape(desc)}">
-<link rel="canonical" href="{escape(canonical)}">
-<link rel="icon" href="/favicon1.ico">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v={CSS_V}">
-<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v={CSS_V}">
-<style>{CSS}\n{CHROME_LOCK}</style>
-</head>
-<body>
-{_header(page)}
-<main id="main">
-{body}
-</main>
-{_footer()}
-</body>
-</html>
-"""
-    return inject_jsonld(html, *ld)
+    return cms_shell(DESK, title, desc, canonical, extra_ld, body, page)
+
+
+def wrap_inner(html: str, page_href: str) -> tuple[str | None, str]:
+    return cms_wrap_inner(DESK, html, page_href)
 
 
 def build_home() -> str:
@@ -721,7 +482,7 @@ def build_home() -> str:
 </section>
 """
     return _shell(
-        "ACBuy Spreadsheet in het Nederlands: kopen in China vanaf Nederland, veilig",
+        page_title(DESK, "kopen in China vanaf Nederland, veilig"),
         "Onafhankelijke gids in het Nederlands: hoe je via ACBuy in China koopt, hoe de catalogus van w2clinks werkt, hoe een pakket naar Nederland reist.",
         f"https://{HOST}/",
         [faq_ld("nl-NL", _nl_faqs())],
@@ -837,7 +598,7 @@ def build_catalog() -> str:
 </section>
 """
     return _shell(
-        "ACBuy Spreadsheet in het Nederlands: wat het is en welke categorieën je erin vindt",
+        page_title(DESK, "wat het is en welke categorieën je erin vindt"),
         "Onafhankelijke catalogusgids: drieëndertig categorieën van w2clinks, Engelse zoekkeys, en hoe je van fiche naar ACBuy-bestelling gaat.",
         f"https://{HOST}/catalogus/",
         [],
@@ -881,7 +642,7 @@ def build_help() -> str:
 </article>
 """
     return _shell(
-        "ACBuy Spreadsheet in het Nederlands: hulp en veelgestelde vragen",
+        page_title(DESK, "hulp en veelgestelde vragen"),
         "Vijftien veelgestelde vragen over ACBuy, in het Nederlands: betalingen, volumgewicht, Douane in Nederland, catalogus van w2clinks.",
         f"https://{HOST}/hulp/",
         [faq_ld("nl-NL", pairs)],
@@ -938,7 +699,7 @@ def build_news() -> str:
 </article>
 """
     return _shell(
-        "ACBuy Spreadsheet in het Nederlands: wat we op het platform hebben nagekeken",
+        page_title(DESK, "wat we op het platform hebben nagekeken"),
         "Gedateerde controles over ACBuy: verzendlijnen naar Nederland, valuta, en het zoekgedrag van de catalogus.",
         f"https://{HOST}/nieuws/",
         [ld],
@@ -972,7 +733,7 @@ def build_about() -> str:
 </article>
 """
     return _shell(
-        "ACBuy Spreadsheet in het Nederlands: wie we zijn en hoe je ons bereikt",
+        page_title(DESK, "wie we zijn en hoe je ons bereikt"),
         "Onafhankelijke site in het Nederlands over ACBuy: hoe we gegevens nalopen, waarom we weinig tarieven zetten, en hoe je ons schrijft.",
         f"https://{HOST}/over-ons/",
         [],
@@ -982,6 +743,25 @@ def build_about() -> str:
 
 
 def _assert_ok(html: str, page: str) -> None:
+    if page == "nf":
+        err = []
+        if "Pagina niet gevonden | ACBuy Spreadsheet" not in html:
+            err.append("404 title not aligned with hipobuy.es")
+        if "Deze pagina bestaat niet" not in html:
+            err.append("404 h1")
+        if "noindex" not in html:
+            err.append("404 robots")
+        if MAIL not in html or "acbuy-logo.svg" not in html:
+            err.append("404 chrome")
+        if "Catalogus" not in html or "Handleiding" not in html:
+            err.append("404 nav")
+        if ".waf,.wabu,.wafb" not in html:
+            err.append("404 missing waf hide")
+        if 'lang="nl-NL"' not in html:
+            err.append("404 lang")
+        if err:
+            raise SystemExit(f"{page}: {'; '.join(err)}")
+        return
     skip = {
         "missing #local dest briefing",
         "missing #local",
@@ -1044,8 +824,12 @@ def _assert_ok(html: str, page: str) -> None:
             err.append("ops ids leftover on home")
         if 'href="/catalogus/"' not in html:
             err.append("catalogus nav missing")
-        if "ACBuy Spreadsheet in het Nederlands: kopen in China vanaf Nederland, veilig" not in html:
+        if page_title(DESK, "kopen in China vanaf Nederland, veilig") not in html:
             err.append("home title not aligned with hipobuy.es")
+        if 'lang="nl-NL"' not in html:
+            err.append("home lang")
+        if ".waf,.wabu,.wafb" not in html:
+            err.append("home missing waf hide")
     if page == "catalog":
         if "cat-30-shoes.png" not in html or "id=\"categorias\"" not in html:
             err.append("catalog page missing category wall")
@@ -1102,7 +886,7 @@ def generate() -> dict[str, Path]:
     (dest / "catalogus").mkdir(exist_ok=True)
     css_path = _desk_css_path()
     css_path.parent.mkdir(parents=True, exist_ok=True)
-    css_path.write_text(CSS, encoding="utf-8")
+    css_path.write_text(render_css(DESK), encoding="utf-8")
     logo = write_wordmark(_wordmark_path())
     logo_svg = dest / "assets" / "images" / "acbuy-logo.svg"
     if not logo_svg.is_file():
@@ -1130,12 +914,14 @@ def generate() -> dict[str, Path]:
         "news": (dest / "nieuws" / "index.html", build_news(), "news"),
         "about": (dest / "over-ons" / "index.html", build_about(), "about"),
         "catalog": (dest / "catalogus" / "index.html", build_catalog(), "catalog"),
+        "nf": (dest / "404.html", build_404(DESK), "nf"),
     }
     out: dict[str, Path] = {"css": css_path, "logo": logo}
+    floors = {"home": DEST_MIN, "nf": 3000}
     for key, (path, html, page) in pages.items():
         _assert_ok(html, page)
         n = len(html.encode("utf-8"))
-        if n < (DEST_MIN if key == "home" else 4000):
+        if n < floors.get(key, 4000):
             raise SystemExit(f"{key} too small {n}")
         path.write_text(html, encoding="utf-8")
         print("wrote", path, n)
@@ -1147,117 +933,6 @@ def generate() -> dict[str, Path]:
         encoding="utf-8",
     )
     return out
-
-
-def _clean_article(html: str) -> str | None:
-    article = extract_article(html)
-    if not article:
-        return None
-    wrapped = "<body>" + article + "</body>"
-    while True:
-        block = _element_inner(wrapped, "main")
-        if not block:
-            break
-        inner, _s, _e = block
-        if _text_len(inner) < max(120, int(_text_len(article) * 0.75)):
-            break
-        article = inner.strip()
-        wrapped = "<body>" + article + "</body>"
-    return article
-
-
-def _strip_id_block(html: str, eid: str) -> str:
-    m = re.search(rf"<(div|section|aside)\b[^>]*\bid=\"{re.escape(eid)}\"[^>]*>", html, re.I)
-    if not m:
-        return html
-    block = _element_inner(html, m.group(1), m.start())
-    if not block:
-        return html
-    return html[: block[1]] + html[block[2] :]
-
-
-def _strip_factory_english(article: str) -> str:
-    out = _strip_id_block(article, "lang-modal")
-    out = _strip_id_block(out, "lang-backdrop")
-    out = re.sub(r'<div class="bc">[\s\S]*?</div>', " ", out, count=1, flags=re.I)
-    pats = (
-        r"To add full content[\s\S]{0,120}README\.md\.?",
-        r"Step-by-step guide to using ACBuy:[^.<]{0,240}\.",
-        r"Takes 10 minutes to learn\.",
-        r"This page is part of\s*(?:<strong>)?ACBuy Nederland(?:</strong>)?\s*\.[\s./<code>]*",
-        r"Language\s*&(?:amp;)?\s*Currency[\s\S]{0,400}?Confirm",
-        r"LANGUAGE\s+CURRENCY",
-        r"Browse ACBuy Spreadsheet\s*(?:&rarr;|→)?",
-        r"expand this stub[\s\S]{0,80}",
-    )
-    for pat in pats:
-        out = re.sub(pat, " ", out, flags=re.I)
-    out = re.sub(r"(?is)<p\b[^>]*>\s*(?:<br\s*/?>|\s|&nbsp;)*p>\s*", " ", out)
-    out = re.sub(r'(?is)<a href="/acbuy-spreadsheet/"[^>]*>\s*</a>', " ", out)
-    out = re.sub(
-        r'(?is)(<div style="max-width:720px;[^"]*">)\s*(<h1[\s\S]*?</h1>)\s*<p\b[^>]*>[\s\S]*?</p>\s*',
-        r"\1\n  \2\n  ",
-        out,
-        count=1,
-    )
-    out = out.replace("background:#fff8f0;border:1px solid #ffd8b0", "background:#e8f7f2;border:1px solid #9ee8d2")
-    out = out.replace("color:#b35b00", "color:#27BA9B")
-    out = out.replace("background:#f7fbff;border:1px solid #c9dff5", "background:#f5f6f7;border:1px solid #eaecf0")
-    out = out.replace("color:#0b5cab", "color:#27BA9B")
-    out = re.sub(
-        r">Home</a>",
-        ">Start</a>",
-        out,
-        count=1,
-        flags=re.I,
-    )
-    return re.sub(r"\n{3,}", "\n\n", out)
-
-
-def wrap_inner(html: str, page_href: str) -> tuple[str | None, str]:
-    article = _clean_article(html)
-    if not article:
-        return None, "no-article"
-    article = _strip_factory_english(article)
-    if _text_len(article) < 120:
-        return None, "thin-article"
-    head = _head_inner(html)
-    head = re.sub(
-        r"<link[^>]+(?:allchinabuy-theme|acbuy-theme|acbuy-nl-desk)\.css[^>]*>\s*",
-        "",
-        head,
-        flags=re.I,
-    )
-    head = re.sub(r'<style id="acbuy-nl-chrome">[\s\S]*?</style>\s*', "", head, flags=re.I)
-    inject = (
-        f"<!-- acbuy nl desk chrome {CSS_V} -->\n"
-        '<link rel="icon" href="/favicon1.ico">\n'
-        f'<link rel="stylesheet" href="/assets/css/acbuy-theme.css?v={CSS_V}">\n'
-        f'<link rel="stylesheet" href="/assets/css/acbuy-nl-desk.css?v={CSS_V}">\n'
-        f'<style id="acbuy-nl-chrome">{CHROME_LOCK}</style>\n'
-    )
-    head = head.rstrip() + "\n" + inject + "\n"
-    if "favicon1.ico" not in head:
-        head = head.rstrip() + '\n<link rel="icon" href="/favicon1.ico">\n'
-    trailing = after_footer_keep(html, article)
-    extra_scripts = _body_scripts_outside_article(html, article + trailing)
-    out = (
-        "<!DOCTYPE html>\n"
-        f"{_html_tag(html)}\n"
-        f"<head>\n{head.rstrip()}\n</head>\n"
-        f"<body {INNER_MARKER}>\n"
-        f"{_header(page_href)}"
-        f'<main id="main" class="inner-article">\n{article}\n</main>\n'
-        f"{_footer()}\n"
-        f"{trailing}\n"
-        f"{extra_scripts}\n"
-        "</body></html>\n"
-    )
-    if "Georgia" in out and "#00C853" in out:
-        return None, "georgia-leak"
-    if INVITE in out and page_href.rstrip("/") in {"", "/"}:
-        return None, "invite-on-home"
-    return out, "ok"
 
 
 def _inner_rels() -> list[str]:
@@ -1383,6 +1058,7 @@ def put() -> None:
         "news": f"{root}/nieuws/index.html",
         "about": f"{root}/over-ons/index.html",
         "catalog": f"{root}/catalogus/index.html",
+        "nf": f"{root}/404.html",
     }
     for key, remote in mapping.items():
         local = files[key]
@@ -1428,7 +1104,7 @@ def put() -> None:
             print("WARN unique small", rel, inner_n)
     _run(
         client,
-        f"chown -R www:www '{root}/index.html' '{root}/hulp' '{root}/nieuws' '{root}/over-ons' '{root}/catalogus' '{root}/favicon.ico' '{root}/favicon1.ico' '{root}/assets/css' "
+        f"chown -R www:www '{root}/index.html' '{root}/404.html' '{root}/hulp' '{root}/nieuws' '{root}/over-ons' '{root}/catalogus' '{root}/favicon.ico' '{root}/favicon1.ico' '{root}/assets/css' "
         f"'{root}/img' '{root}/acbuy-shipping-guide' '{root}/is-acbuy-legit' '{root}/how-to-use-acbuy' '{root}/acbuy-coupons' "
         f"'{root}/acbuy-spreadsheet' '{root}/blog' 2>/dev/null || true",
     )
@@ -1476,6 +1152,10 @@ def live_check() -> None:
             print(" FAIL status"); fail += 1
         if "acbuy-logo.svg" not in html:
             print(" FAIL official logo"); fail += 1
+        if 'lang="nl-NL"' not in html:
+            print(" FAIL lang nl-NL"); fail += 1
+        if ".waf,.wabu,.wafb" not in html:
+            print(" FAIL waf hide"); fail += 1
         if need_fp and fp not in html:
             print(" FAIL fingerprint"); fail += 1
         if kind in ("home", "help", "news", "about", "catalog"):
@@ -1549,6 +1229,21 @@ def live_check() -> None:
                 print(" FAIL ranked english chrome"); fail += 1
             if f"acbuy-nl-desk.css?v={CSS_V}" not in html or "allchinabuy-theme.css" in html:
                 print(" FAIL ranked mint css"); fail += 1
+            if "country-desk-chrome" not in html:
+                print(" FAIL ranked chrome lock id"); fail += 1
+    code, _, _, nf_body = fetch(f"https://{HOST}/this-page-does-not-exist-cms/", follow=True)
+    nf = nf_body.decode("utf-8", "replace")
+    print("404", code, "bytes", len(nf_body), "title", "Pagina niet gevonden" in nf)
+    if code != 404:
+        print(" FAIL 404 status"); fail += 1
+    if "Pagina niet gevonden | ACBuy Spreadsheet" not in nf:
+        print(" FAIL 404 title"); fail += 1
+    if "Deze pagina bestaat niet" not in nf or "Catalogus" not in nf:
+        print(" FAIL 404 chrome/nav"); fail += 1
+    if "acbuy-logo.svg" not in nf or MAIL not in nf:
+        print(" FAIL 404 logo/mail"); fail += 1
+    if "noindex" not in nf:
+        print(" FAIL 404 robots"); fail += 1
     for twin, target in (
         ("allchinabuyspreadsheet.nl", HOST),
         ("acbuyspreadsheets.ca", "allchinabuyspreadsheet.ca"),
