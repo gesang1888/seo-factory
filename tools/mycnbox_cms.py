@@ -3632,7 +3632,8 @@ def _wrap_ranked(client, sftp, bak: str, root: str, key: str) -> None:
             out = _retire_poison(key, href)
             why = "retire-poison"
             print("retire poison", rel)
-        elif desk.inner_marker in raw:
+        elif "data-inner-chrome=" in raw and p["css_id"] in raw:
+            # Marker includes CSS_V; a cache-bust bump must not re-wrap and shrink.
             print("skip already wrapped", rel)
             continue
         elif floor is None:
