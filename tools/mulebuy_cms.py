@@ -1997,7 +1997,12 @@ def _strip_cms_home_301s(client, sftp, key: str) -> None:
 
 
 def _map_legacy_english_cms(client, sftp, key: str) -> None:
-    """301 leftover English CMS slugs onto dest slugs; drop the leftover dirs."""
+    """301 leftover English CMS slugs onto dest slugs; drop the leftover dirs.
+
+    Rewrite in every extension conf (FR already has `location = /about` in
+    00-gsc-redirects.conf). Appending a second copy into gsc-redirects.conf
+    duplicates the location and breaks nginx -t.
+    """
     p = PACKS[key]
     host = p["host"]
     root = f"/www/wwwroot/{host}"
@@ -2022,42 +2027,60 @@ def _map_legacy_english_cms(client, sftp, key: str) -> None:
         _run(client, f"rm -rf '{root}/{old}'")
     if not wanted:
         return
-    gsc = f"/www/server/panel/vhost/nginx/extension/{host}/gsc-redirects.conf"
-    raw = _run(client, f"cat '{gsc}' 2>/dev/null || true")
-    raw = re.sub(r"\}(\s*)location\s+=", "}\nlocation =", raw or "")
-    if raw and not raw.endswith("\n"):
-        raw += "\n"
-    seen: set[str] = set()
-    out: list[str] = []
+    ext = f"/www/server/panel/vhost/nginx/extension/{host}"
+    listing = _run(client, f"find '{ext}' -maxdepth 1 -name '*.conf' -print 2>/dev/null || true")
+    files = [ln.strip() for ln in listing.splitlines() if ln.strip().endswith(".conf")]
     loc_re = re.compile(r"location\s+=\s+(\S+)\s*\{")
-    for ln in raw.splitlines(True):
-        m = loc_re.search(ln)
-        if m and m.group(1) in wanted:
+    seen: set[str] = set()
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    changed = 0
+    for remote in files:
+        raw = _run(client, f"cat '{remote}' 2>/dev/null || true")
+        if not raw:
+            continue
+        out: list[str] = []
+        file_changed = False
+        for ln in raw.splitlines(True):
+            m = loc_re.search(ln)
+            if not m or m.group(1) not in wanted:
+                out.append(ln)
+                continue
             path = m.group(1)
+            want = f"location = {path} {{ return 301 https://{host}{wanted[path]}; }}\n"
             if path in seen:
+                file_changed = True
                 continue
             prefix = ln[: m.start()] if m.start() else ""
             if prefix.strip() and not prefix.endswith("\n"):
                 out.append(prefix.rstrip() + "\n")
-            out.append(f"location = {path} {{ return 301 https://{host}{wanted[path]}; }}\n")
+            elif prefix and prefix.endswith("\n"):
+                out.append(prefix)
+            out.append(want)
             seen.add(path)
-            continue
-        out.append(ln)
-    for path, dest in wanted.items():
-        if path not in seen:
-            out.append(f"location = {path} {{ return 301 https://{host}{dest}; }}\n")
-            seen.add(path)
-    new = "".join(out)
-    if new == (raw or ""):
-        if dropped:
-            print(key, "dropped leftover English CMS dirs", dropped)
-        return
-    stamp = time.strftime("%Y%m%d-%H%M%S")
-    _run(client, f"mkdir -p /www/backup '{Path(gsc).parent}'; cp -a '{gsc}' '/www/backup/mulebuy-{key}-gsc-legacy-{stamp}.conf' 2>/dev/null || true")
-    Path(f"/tmp/mulebuy-{key}-gsc-legacy.conf").write_text(new, encoding="utf-8")
-    sftp.put(f"/tmp/mulebuy-{key}-gsc-legacy.conf", gsc)
-    print(key, "legacy CMS 301s", " ".join(f"{a}->{b}" for a, b in wanted.items()))
-    _reload_nginx(client)
+            if ln.strip() != want.strip():
+                file_changed = True
+        if file_changed:
+            _run(client, f"cp -a '{remote}' '/www/backup/mulebuy-{key}-legacy-{Path(remote).name}-{stamp}.conf'")
+            tmp = Path(f"/tmp/mulebuy-{key}-legacy-{Path(remote).name}")
+            tmp.write_text("".join(out), encoding="utf-8")
+            sftp.put(str(tmp), remote)
+            changed += 1
+            print(key, "legacy CMS 301s", Path(remote).name)
+    gsc = f"{ext}/gsc-redirects.conf"
+    missing = [path for path in wanted if path not in seen]
+    if missing:
+        raw = _run(client, f"cat '{gsc}' 2>/dev/null || true")
+        add = "".join(f"location = {path} {{ return 301 https://{host}{wanted[path]}; }}\n" for path in missing)
+        _run(client, f"mkdir -p '{ext}'; touch '{gsc}'")
+        body = raw or ""
+        if body and not body.endswith("\n"):
+            body += "\n"
+        Path(f"/tmp/mulebuy-{key}-gsc-legacy.conf").write_text(body + add, encoding="utf-8")
+        sftp.put(f"/tmp/mulebuy-{key}-gsc-legacy.conf", gsc)
+        changed += 1
+        print(key, "appended leftover CMS 301s", " ".join(missing))
+    if changed:
+        _reload_nginx(client)
     if dropped:
         print(key, "dropped leftover English CMS dirs", dropped)
 
