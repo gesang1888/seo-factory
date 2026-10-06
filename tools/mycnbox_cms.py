@@ -71,7 +71,7 @@ HUBS = ("mycnbox.eu", "mycnboxhaul.com")
 SKIP_PUT_HOSTS = {"mycnbox.eu", "mycnboxhaul.com", "mycnboxhual.com"}
 OFF_ORIGIN = ()  # none on Origin
 DEST_MIN = 22000
-CSS_V = "20261006p"
+CSS_V = "20261006q"
 INVITES = ("AABZKT",)
 LOGO = "mycnbox-logo.png"
 THEME_CSS = "mycnbox-theme.css"
@@ -3632,6 +3632,9 @@ def _wrap_ranked(client, sftp, bak: str, root: str, key: str) -> None:
             out = _retire_poison(key, href)
             why = "retire-poison"
             print("retire poison", rel)
+        elif desk.inner_marker in raw:
+            print("skip already wrapped", rel)
+            continue
         elif floor is None:
             print("skip unranked inner", rel)
             continue
