@@ -83,7 +83,7 @@ KEEP = [
     ("/how-to-use-acbuy/", "Guide"),
 ]
 CMS_PAGES = [
-    ("/", "Start"),
+    ("/start/", "Start"),
     ("/how-to-use-acbuy/", "Guide"),
     ("/catalog/", "Catalog"),
     ("/acbuy-shipping-guide/", "Shipping"),
@@ -274,6 +274,7 @@ DESK = CountryDesk(
     theme_css="acbuy-theme.css",
     desk_css="acbuy-ca-desk.css",
     inner_marker=INNER_MARKER,
+    home_href="/start/",
     reddit="https://www.reddit.com/r/Acbuyofficial/",
     register_path="/register",
     sheet_slug="acbuy",
@@ -522,7 +523,7 @@ def build_home() -> str:
         f"https://{HOST}/",
         [faq_ld("en-CA", _ca_faqs())],
         body,
-        "/",
+        DESK.home_href,
     )
 
 
@@ -854,6 +855,8 @@ def _assert_ok(html: str, page: str) -> None:
             err.append("ops ids leftover on home")
         if 'href="/catalog/"' not in html:
             err.append("catalog nav missing")
+        if 'href="/start/"' not in html or 'href="/" class="brand"' in html or 'href="/">Start' in html:
+            err.append("Start still points at cached /")
         if page_title(DESK, "buy in China from Canada, safely") not in html:
             err.append("home title not aligned with hipobuy.es")
         if 'lang="en-CA"' not in html:
@@ -909,7 +912,7 @@ def write_wordmark(path: Path) -> Path:
 def generate() -> dict[str, Path]:
     dest = OUT / HOST / "overlay"
     dest.mkdir(parents=True, exist_ok=True)
-    for name in ("help", "news", "about", "catalog"):
+    for name in ("help", "news", "about", "catalog", "start"):
         (dest / name).mkdir(exist_ok=True)
     css_path = _desk_css_path()
     css_path.parent.mkdir(parents=True, exist_ok=True)
@@ -935,8 +938,10 @@ def generate() -> dict[str, Path]:
         missing.append("hero.jpg")
     if missing:
         raise SystemExit(f"missing images {missing}")
+    home_html = build_home()
     pages = {
-        "home": (dest / "index.html", build_home(), "home"),
+        "home": (dest / "index.html", home_html, "home"),
+        "start": (dest / "start" / "index.html", home_html, "home"),
         "help": (dest / "help" / "index.html", build_help(), "help"),
         "news": (dest / "news" / "index.html", build_news(), "news"),
         "about": (dest / "about" / "index.html", build_about(), "about"),
@@ -1120,13 +1125,14 @@ def put() -> None:
     root = f"/www/wwwroot/{HOST}"
     _run(
         client,
-        f"mkdir -p '{bak}' '{root}/help' '{root}/news' '{root}/about' '{root}/catalog' "
+        f"mkdir -p '{bak}' '{root}/help' '{root}/news' '{root}/about' '{root}/catalog' '{root}/start' "
         f"'{root}/assets/css' '{root}/assets/images' '{root}/img/cat' '{root}/img/shots'",
     )
     sftp = client.open_sftp()
     _lift_ca_301(client, sftp)
     mapping = {
         "home": f"{root}/index.html",
+        "start": f"{root}/start/index.html",
         "help": f"{root}/help/index.html",
         "news": f"{root}/news/index.html",
         "about": f"{root}/about/index.html",
@@ -1136,9 +1142,9 @@ def put() -> None:
     for key, remote in mapping.items():
         local = files[key]
         raw = local.read_text(encoding="utf-8")
-        if key in ("home", "help") and dest_local_pack("CA")["fingerprint"] not in raw:
+        if key in ("home", "start", "help") and dest_local_pack("CA")["fingerprint"] not in raw:
             raise SystemExit(f"refusing {key} without fingerprint")
-        if key == "home" and (INVITE in raw or "90 days" in raw.lower()):
+        if key in ("home", "start") and (INVITE in raw or "90 days" in raw.lower()):
             raise SystemExit("refusing home with invite or 90-day copy")
         _run(client, f"test -f '{remote}' && cp -a '{remote}' '{bak}/{key}.html' || true")
         sftp.put(str(local), remote)
@@ -1176,7 +1182,7 @@ def put() -> None:
             print("WARN unique small", rel, inner_n)
     _run(
         client,
-        f"chown -R www:www '{root}/index.html' '{root}/404.html' '{root}/help' '{root}/news' '{root}/about' '{root}/catalog' '{root}/favicon.ico' '{root}/favicon1.ico' '{root}/assets/css' "
+        f"chown -R www:www '{root}/index.html' '{root}/404.html' '{root}/help' '{root}/news' '{root}/about' '{root}/catalog' '{root}/start' '{root}/favicon.ico' '{root}/favicon1.ico' '{root}/assets/css' "
         f"'{root}/img' '{root}/acbuy-shipping-guide' '{root}/is-acbuy-legit' '{root}/how-to-use-acbuy' '{root}/acbuy-coupons' "
         f"'{root}/acbuy-spreadsheet' '{root}/blog' 2>/dev/null || true",
     )
@@ -1213,6 +1219,7 @@ def live_check() -> None:
     fp = dest_local_pack("CA")["fingerprint"]
     checks = [
         (f"https://{HOST}/", "home", True),
+        (f"https://{HOST}/start/", "start", True),
         (f"https://{HOST}/help/", "help", True),
         (f"https://{HOST}/news/", "news", False),
         (f"https://{HOST}/about/", "about", False),
@@ -1237,12 +1244,14 @@ def live_check() -> None:
             print(" FAIL waf hide"); fail += 1
         if need_fp and fp not in html:
             print(" FAIL fingerprint"); fail += 1
-        if kind in ("home", "help", "news", "about", "catalog"):
+        if 'href="/start/"' not in html or 'href="/">Start' in html:
+            print(" FAIL Start still points at /"); fail += 1
+        if kind in ("home", "help", "news", "about", "catalog", "start"):
             if "/api/products/" in html or "Voor een huisadres in Nederland" in html:
                 print(" FAIL api/huisadres leftover"); fail += 1
             if "w2cspreadsheet" in html.lower() or "W2C Spreadsheet" in html:
                 print(" FAIL w2cspreadsheet leftover"); fail += 1
-        if kind == "home":
+        if kind in ("home", "start"):
             if INVITE in html or re.search(r"90\s*days", html, re.I):
                 print(" FAIL invite/90"); fail += 1
             if page_title(DESK, "buy in China from Canada, safely") not in html:
@@ -1311,6 +1320,8 @@ def live_check() -> None:
         print(" FAIL 404 logo/mail"); fail += 1
     if "noindex" not in nf:
         print(" FAIL 404 robots"); fail += 1
+    if 'href="/start/"' not in nf or 'href="/">Start' in nf:
+        print(" FAIL 404 Start still points at /"); fail += 1
     # Same-agent NL dest stays independent. AllChinaBuy CA stays independent.
     code, _, loc, _ = fetch(f"https://allchinabuyspreadsheet.nl/", follow=False)
     print("twin NL extra", code, loc)

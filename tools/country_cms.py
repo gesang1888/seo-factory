@@ -114,6 +114,7 @@ class CountryDesk:
     theme_css: str
     desk_css: str
     inner_marker: str
+    home_href: str = "/"
     reddit: str = ""
     register_path: str = "/register"
     brand_suffix: str = "Spreadsheet"
@@ -322,18 +323,25 @@ main p,main li,.sg-faq p{{max-width:var(--medida)}}
 {extra_block}"""
 
 
+def _is_home_page(desk: CountryDesk, page: str) -> bool:
+    p = (page or "").rstrip("/") or "/"
+    h = (desk.home_href or "/").rstrip("/") or "/"
+    return p in {"/", h}
+
+
 def nav_html(desk: CountryDesk, page: str) -> str:
     bits = []
     for href, lab in desk.nav:
-        on = ' aria-current="page"' if href == page else ""
-        bits.append(f'<a href="{escape(href)}"{on}>{escape(lab)}</a>')
+        on = href == page or (href == desk.home_href and _is_home_page(desk, page))
+        cur = ' aria-current="page"' if on else ""
+        bits.append(f'<a href="{escape(href)}"{cur}>{escape(lab)}</a>')
     return "".join(bits)
 
 
 def header(desk: CountryDesk, page: str) -> str:
     return f"""{skip_link(skip_label(desk.skip_lang))}<header class="top" role="banner">
   <div class="wrap">
-    <a href="/" class="brand">
+    <a href="{escape(desk.home_href)}" class="brand">
       <img src="{escape(desk.logo_src)}" alt="{escape(desk.agent)}" width="118" height="39">
       <span>{escape(desk.brand_suffix)}</span>
     </a>
@@ -455,7 +463,7 @@ def build_404(desk: CountryDesk) -> str:
     <h1>{escape(desk.not_found_h1)}</h1>
     <p class="lead">{escape(desk.not_found_lead)}</p>
     <ul class="list">{items}</ul>
-    <p><a class="btn" href="/">{escape(desk.home_cta)}</a></p>
+    <p><a class="btn" href="{escape(desk.home_href)}">{escape(desk.home_cta)}</a></p>
   </div>
 </section>
 """
@@ -466,7 +474,7 @@ def build_404(desk: CountryDesk) -> str:
         f"https://{desk.host}/404.html",
         [],
         body,
-        "/",
+        desk.home_href,
         extra_head='<meta name="robots" content="noindex, nofollow">',
     )
 
@@ -588,4 +596,7 @@ def wrap_inner(desk: CountryDesk, html: str, page_href: str) -> tuple[str | None
         return None, "georgia-leak"
     if any(tok and tok in out for tok in desk.invites) and page_href.rstrip("/") in {"", "/"}:
         return None, "invite-on-home"
+    home = desk.home_href or "/"
+    if home.rstrip("/") not in {"", "/"}:
+        out = out.replace('href="/"', f'href="{home}"')
     return out, "ok"
