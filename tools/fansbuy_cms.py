@@ -553,6 +553,35 @@ TWINS = {
 
 TWIN_EXTRA = {}
 
+CMS_PAGE_LOCS = (
+    "about", "about/", "help", "help/", "news", "news/", "catalog", "catalog/",
+    "start", "start/",
+    "ayuda", "ayuda/", "novedades", "novedades/", "noticias", "noticias/",
+    "sobre-nosotros", "sobre-nosotros/", "catalogo", "catalogo/",
+    "aide", "aide/", "catalogue", "catalogue/", "actualites", "actualites/",
+    "a-propos", "a-propos/",
+    "hilfe", "hilfe/", "aktuelles", "aktuelles/", "neuigkeiten", "neuigkeiten/",
+    "ueber-uns", "ueber-uns/", "katalog", "katalog/",
+    "hulp", "hulp/", "nieuws", "nieuws/", "over-ons", "over-ons/", "catalogus", "catalogus/",
+    "aiuto", "aiuto/", "notizie", "notizie/", "chi-siamo", "chi-siamo/",
+    "who-we-are", "who-we-are/",
+    "how-to-use-fansbuy", "how-to-use-fansbuy/",
+    "fansbuy-freight", "fansbuy-freight/",
+)
+
+WRAP_SKIP_PREFIXES = (
+    "help/", "news/", "about/", "who-we-are/", "catalog/", "start/",
+    "ayuda/", "novedades/", "noticias/", "sobre-nosotros/", "catalogo/",
+    "aide/", "catalogue/", "actualites/", "a-propos/",
+    "hilfe/", "aktuelles/", "neuigkeiten/", "ueber-uns/", "katalog/",
+    "hulp/", "nieuws/", "over-ons/", "catalogus/",
+    "aiuto/", "notizie/", "chi-siamo/",
+    "api/", "assets/", "img/",
+    "how-to-use-fansbuy/", "fansbuy-freight/",
+    "faq/", "guide/",
+    "fansbuy-invite-code/",
+)
+
 STORAGE = {
     "en": (
         f"Official Help ({HELP}): 90 free warehouse days from “In warehouse”, "
