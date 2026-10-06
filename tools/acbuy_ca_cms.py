@@ -1005,8 +1005,15 @@ NEW_API = """    location /api/ {
     }
 """
 CATCH_OLD = "    location / { return 301 https://allchinabuyspreadsheet.ca$request_uri; }\n"
+CATCH_PLAIN = """    location / {
+        try_files $uri $uri/ $uri/index.html =404;
+    }
+"""
 CATCH_NEW = """    location / {
         try_files $uri $uri/ $uri/index.html =404;
+        add_header Strict-Transport-Security "max-age=31536000" always;
+        add_header Cache-Control "private, no-cache, must-revalidate" always;
+        add_header X-Desk "acbuy-ca-independent" always;
     }
 """
 
@@ -1031,6 +1038,12 @@ def _lift_ca_301(client, sftp) -> None:
         text = text.replace(CATCH_OLD, CATCH_NEW, 1)
         changed = True
         print("lifted catch-all 301")
+    elif CATCH_PLAIN in text:
+        text = text.replace(CATCH_PLAIN, CATCH_NEW, 1)
+        changed = True
+        print("patched try_files with no-cache + X-Desk")
+    elif 'X-Desk "acbuy-ca-independent"' in text:
+        print("catch-all already independent no-cache")
     elif "try_files $uri $uri/ $uri/index.html =404" in text:
         print("catch-all already try_files")
     else:
