@@ -4117,6 +4117,19 @@ def _fix_twins(client, sftp) -> None:
         want = f"    location / {{ return 301 https://{target}$request_uri; }}"
         old = f"    location / {{ return 301 https://{target}/; }}"
         old2 = f"    location / {{ return 301 https://{target}; }}"
+        self_catch = f"return 301 https://{twin}$request_uri;"
+        if self_catch in raw or f"https://{twin}/" in raw or f"https://{twin}$" in raw:
+            _run(client, f"cp -a '{vhost}' '/www/backup/hipobuy-twin-{twin}-{stamp}.conf'")
+            raw = raw.replace(f"https://{twin}$request_uri", f"https://{target}$request_uri")
+            raw = raw.replace(f"https://{twin}/", f"https://{target}/")
+            raw = re.sub(
+                rf"return 301 https://{re.escape(twin)}(?![.\w])",
+                f"return 301 https://{target}",
+                raw,
+            )
+            Path(f"/tmp/hipobuy-twin-{twin}.conf").write_text(raw, encoding="utf-8")
+            sftp.put(f"/tmp/hipobuy-twin-{twin}.conf", vhost)
+            print("twin vhost 301s retargeted to", target)
         if want in raw:
             print("twin catch-all already $request_uri", twin)
         elif old in raw or old2 in raw:
@@ -4126,7 +4139,15 @@ def _fix_twins(client, sftp) -> None:
             sftp.put(f"/tmp/hipobuy-twin-{twin}.conf", vhost)
             print("twin catch-all now $request_uri", twin)
         else:
-            print("WARN twin catch-all needle missing", twin)
+            print("WARN twin catch-all needle missing", twin, "(rewrite may still try_files)")
+        rewrite = f"/www/server/panel/vhost/rewrite/{twin}.conf"
+        rraw = _run(client, f"cat '{rewrite}' 2>/dev/null || true")
+        if rraw and ("try_files" in rraw or f"https://{twin}" in rraw):
+            _run(client, f"cp -a '{rewrite}' '/www/backup/hipobuy-twin-rewrite-{twin}-{stamp}.conf'")
+            rnew = "location / {\n    return 301 https://" + target + "$request_uri;\n}\n"
+            Path(f"/tmp/hipobuy-twin-rewrite-{twin}.conf").write_text(rnew, encoding="utf-8")
+            sftp.put(f"/tmp/hipobuy-twin-rewrite-{twin}.conf", rewrite)
+            print("twin rewrite now $request_uri 301 to", target)
         ext_inc = f"    include /www/server/panel/vhost/nginx/extension/{twin}/*.conf;\n"
         # US already included extension/*.conf. Other twins listed exact maps in
         # the vhost; including gsc-redirects duplicates location = /about.
