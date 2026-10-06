@@ -2096,10 +2096,17 @@ def _map_faq_to_help(client, sftp, key: str) -> None:
     listing = _run(client, f"find '{ext}' -maxdepth 1 -name '*.conf' -print")
     files = [ln.strip() for ln in listing.splitlines() if ln.strip().endswith(".conf")]
     unstick = {
-        "start", "help", "news", "about", "catalog",
-        "hilfe", "neuigkeiten", "ueber-uns", "katalog",
-        "how-to-use-cssbuy", "cssbuy-shipping", "is-cssbuy-legit",
-        "cssbuy-coupons", "cssbuy-spreadsheet", "ist-cssbuy-serioes",
+        "start",
+        p["help"].strip("/"),
+        p["news"].strip("/"),
+        p["about"].strip("/"),
+        p["catalog"].strip("/"),
+        "how-to-use-cssbuy",
+        "cssbuy-shipping",
+        "is-cssbuy-legit",
+        "cssbuy-coupons",
+        "cssbuy-spreadsheet",
+        "ist-cssbuy-serioes",
     }
     faq_src = {
         "/faq", "/faq/",
