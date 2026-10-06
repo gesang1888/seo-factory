@@ -51,7 +51,7 @@ ACC_DARK = "#C45A0A"
 MAIL = "cnfd85269032661@gmail.com"
 HUB = "bbdbuyeu.net"
 DEST_MIN = 22000
-CSS_V = "20261006d"
+CSS_V = "20261006e"
 INVITES = ("1QodRw", "BBD5OFF")
 
 EN_LABELS = {
@@ -190,6 +190,78 @@ CAT_NOTES_EN = {
     "GLASSES": "Ask for a rigid case in the warehouse photo before you book the line.",
     "WATCH": "Small and cheap to send. Confirm the clasp on the QC photo.",
     "CHILD": "Asian kids’ sizes run smaller. Measure, do not guess from the age on the label.",
+}
+
+CAT_NOTES_DE = {
+    "SNEAKERS": "Sohle und Leisten auf den QC-Fotos prüfen, bevor du international buchst.",
+    "SLIPPERS": "Leicht und flach. Füllt die Box, ohne das tarifierte Gewicht hart zu drücken.",
+    "T-SHIRT": "Asiatische Schnitte sind oft schmaler. Brustweite in Zentimetern, nicht nur die Buchstabengröße.",
+    "POLO": "Kragen und Piqué auf dem QC-Foto. Die weichen am häufigsten vom Katalogshot ab.",
+    "SHIRT": "Ärmellänge und Schulternaht am Maßbandfoto, nicht am Buchstaben.",
+    "SHORTS": "Leicht und flach: der einfachste Weg, ein Paket zu füllen.",
+    "VEST": "Westen sind dicker, als sie wiegen. Volumen zählen, bevor eine Jacke dazu kommt.",
+    "LONG SLEEVED": "Ärmellänge und Bündchen auf dem QC-Foto. Asiatische Längen laufen oft kürzer.",
+    "HOODIE": "Schwer für ihr Volumen. Ein Hoodie kann die Gewichtsklasse der ganzen Box setzen.",
+    "SWEATER": "GSM und Einlaufen. Brust messen, nicht nur das Etikett.",
+    "SHAWL": "Leicht, aber voluminös wenn nicht flach gepackt.",
+    "JACKET": "Daune braucht enorm Platz. Volumengewicht schlägt hier fast immer die Waage.",
+    "SHELL JACKET": "Nähte und Reißverschluss nah auf dem QC-Foto.",
+    "FLEECE JACKET": "Leicht auf der Waage, dick im Volumen. Wie Daune nachrechnen.",
+    "DOWN JACKETS": "Volumen gewinnt. Eine Daunenjacke allein kann eine teurere Klasse erzwingen.",
+    "TROUSERS": "Bundhöhe und Innenbeinlänge fotografieren. W/L stimmt nicht immer mit Zentimetern.",
+    "Jersey": "Nummer, Patches und Saison auf den Fotos prüfen.",
+    "FEMALE STYLE": "Passform ist selten Unisex. Brust und Länge messen.",
+    "Electronics": "Oft Lithium. Viele Luftlinien lehnen ab: offizielle Site prüfen, bevor du bestellst.",
+    "GLOVES": "Paar auf dem QC-Foto. Ein Handschuh auf dem Katalogshot sagt nichts über den zweiten.",
+    "BAG": "Füllt eine Box fast allein. Volumen zählen, bevor Kleidung dazu kommt.",
+    "HAT": "Druckempfindlich und voluminös. Füllung verlangen, sonst knickt die Krempe.",
+    "JEWELRY": "Klein und billig zu senden. Gut, um eine fast volle Box zu runden.",
+    "UNDERWEAR": "Weniger Listings. Wenn nichts kommt, nach Marke suchen, nicht nach dem Wort.",
+    "BELT": "Flach und leicht. Ändert die Gewichtsklasse kaum.",
+    "KNEEPAD": "Paar auf dem QC-Foto. Ein Pad auf dem Shot ist kein Paar.",
+    "SOCKS": "Leichtes Füllmaterial. Paar und Größenaufdruck prüfen.",
+    "HEADGEAR": "Fragen, wie es gepackt wird. Krempen knicken in engen Kartons.",
+    "EARMUFF": "Leicht, aber der Bügel braucht Platz. Nicht unter einem Hoodie zerdrücken.",
+    "SCARF": "Flach packen lassen, sonst kommt ein Volumenball.",
+    "GLASSES": "Hartschale auf dem Lagerfoto verlangen, bevor du die Linie buchst.",
+    "WATCH": "Klein und billig zu senden. Schließe auf dem QC-Foto.",
+    "CHILD": "Asiatische Kindergrößen laufen kleiner. Messen, nicht vom Alter auf dem Etikett raten.",
+}
+
+CAT_NOTES_IT = {
+    "SNEAKERS": "Suola e forma sulle foto QC prima di prenotare l’internazionale.",
+    "SLIPPERS": "Leggere e piatte. Riempiono la scatola senza alzare troppo il peso fatturato.",
+    "T-SHIRT": "I tagli asiatici sono spesso più stretti. Misura il petto in centimetri, non solo la lettera.",
+    "POLO": "Colletto e piqué sulla foto QC. Sono i due dettagli che divergono di più.",
+    "SHIRT": "Lunghezza manica e spalla sulla foto con metro, non sulla lettera.",
+    "SHORTS": "Leggeri e piatti: il modo più semplice per riempire un pacco.",
+    "VEST": "I gilet sono più spessi di quanto pesino. Conta il volume prima di una giacca.",
+    "LONG SLEEVED": "Lunghezza manica e polsino sulla foto QC. Le lunghezze asiatiche corrono più corte.",
+    "HOODIE": "Pesante per il volume. Una felpa può fissare la fascia di peso di tutta la scatola.",
+    "SWEATER": "GSM e restringimento. Misura il petto, non solo l’etichetta.",
+    "SHAWL": "Leggero, ma ingombrante se non è piegato piatto.",
+    "JACKET": "Il piumino occupa enormemente. Il volume batte quasi sempre la bilancia.",
+    "SHELL JACKET": "Cuciture e zip da vicino sulla foto QC.",
+    "FLEECE JACKET": "Leggero in bilancia, spesso in volume. Stesso ricalcolo del piumino.",
+    "DOWN JACKETS": "Vince il volume. Un piumino da solo può forzare una classe più cara.",
+    "TROUSERS": "Foto di cavallo e interno gamba. La W/L non sempre coincide coi centimetri.",
+    "Jersey": "Numero, patch e stagione sulle foto.",
+    "FEMALE STYLE": "La vestibilità è di rado unisex. Misura busto e lunghezza.",
+    "Electronics": "Spesso litio. Molte linee aeree rifiutano: controlla il sito ufficiale prima.",
+    "GLOVES": "La coppia sulla foto QC. Un guanto sullo scatto del catalogo non dice il secondo.",
+    "BAG": "Riempie quasi da sola una scatola. Conta il volume prima di aggiungere vestiti.",
+    "HAT": "Si schiaccia e ingombra. Chiedi imbottitura, o la tesa arriva piegata.",
+    "JEWELRY": "Piccoli e economici da spedire. Buoni per chiudere una scatola quasi piena.",
+    "UNDERWEAR": "Meno schede. Se non trovi nulla, cerca per marca, non per la parola.",
+    "BELT": "Piatta e leggera. Quasi non cambia la fascia di peso.",
+    "KNEEPAD": "In coppia sulla foto QC. Un ginocchiera sullo scatto non è un paio.",
+    "SOCKS": "Riempitivo leggero. Controlla il paio e la taglia stampata.",
+    "HEADGEAR": "Chiedi come viene imballato. Le tese si piegano in una scatola stretta.",
+    "EARMUFF": "Leggeri, ma l’archetto vuole spazio. Non schiacciarli sotto una felpa.",
+    "SCARF": "Chiedi piegatura piatta, o arriva come una palla di volume.",
+    "GLASSES": "Astuccio rigido sulla foto di magazzino prima di prenotare la linea.",
+    "WATCH": "Piccolo e economico da spedire. Conferma la chiusura sulla foto QC.",
+    "CHILD": "Le taglie kids asiatiche corrono più piccole. Misura, non indovinare dall’età.",
 }
 
 RANKED = (
@@ -714,15 +786,130 @@ def _shots(key: str):
     return fig_off, fig_sheet, fig_vol, fig_zoek
 
 
+def _sec_shots(key: str, fig) -> str:
+    p = PACKS[key]
+    loc, dest = p["loc"], p["dest_label"]
+    if loc == "de":
+        return f"""
+<section class="sec" id="shots">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Einen chinesischen Link einfügen, oder in der App suchen</h2>
+    <p class="lead">BBDBuy beginnt so: einen Link von Taobao, 1688 oder Weidian einfügen, oder den Namen tippen. Der chinesische Shop sieht BBDBuy; du siehst danach Lagerfotos und eine Linie nach Deutschland.</p>
+    <p>Liest die Suche den Link nicht, ist das manuelle Formular der nächste Schritt: Name, Größe, Farbe und Preis in Yuan. International zahlst du erst später, aus dem Lager.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Anleitung Schritt für Schritt</a>
+       <a class="btn btn--ghost" href="{escape(OFFICIAL)}" rel="noopener">Offizielle Site</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "it":
+        return f"""
+<section class="sec" id="shots">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Incolla un link cinese, o cerca nell’app</h2>
+    <p class="lead">BBDBuy parte così: incolli un link di Taobao, 1688 o Weidian, o digiti il nome. Il negozio cinese vede BBDBuy; tu poi vedi le foto di magazzino e una linea verso l’Italia.</p>
+    <p>Se la ricerca non legge il link, il passo successivo è il modulo manuale: nome, taglia, colore e prezzo in yuan. L’internazionale lo paghi dopo, dal magazzino.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Guida passo passo</a>
+       <a class="btn btn--ghost" href="{escape(OFFICIAL)}" rel="noopener">Sito ufficiale</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+    return f"""
+<section class="sec" id="shots">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Paste a Chinese link, or search in the app</h2>
+    <p class="lead">BBDBuy starts the same way: paste a Taobao, 1688 or Weidian link, or type the name. The Chinese shop sees BBDBuy; you later see warehouse photos and a line to {escape(dest)}.</p>
+    <p>If the search bar does not read the link, the next step is a manual form: name, size, colour and price in yuan. International freight is paid later, from the warehouse.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Step-by-step guide</a>
+       <a class="btn btn--ghost" href="{escape(OFFICIAL)}" rel="noopener">Official site</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+
+
+def _sec_states(key: str, fig) -> str:
+    p = PACKS[key]
+    loc, dest = p["loc"], p["dest_label"]
+    if loc == "de":
+        return f"""
+<section class="sec" id="states">
+  <div class="wrap"><div class="split"><div>
+    <h2>Neun Status, drei Bildschirme</h2>
+    <p class="lead">Zuerst zahlst du das Produkt plus den Inlandsweg in China bis zum Lager. International kommt später, wenn du eine Linie nach Deutschland wählst. «Warum steht es still?» heißt fast immer: du schaust auf den falschen Bildschirm.</p>
+    <p>Die ersten Schritte liegen unter Bestellungen, danach Lager, danach das Paket, das du absendest. Am {escape(DATE)} öffnete der öffentliche Schätzer ein Login: dieser Desk erfindet keine Lagerfrist.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Anleitung mit dem Verlauf</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "it":
+        return f"""
+<section class="sec" id="states">
+  <div class="wrap"><div class="split"><div>
+    <h2>Nove stati, tre schermate</h2>
+    <p class="lead">Prima paghi il prodotto più il trasporto interno in Cina fino al magazzino. L’internazionale arriva dopo, quando scegli una linea verso l’Italia. «Perché è fermo?» quasi sempre significa: stai guardando la schermata sbagliata.</p>
+    <p>I primi passi stanno sotto gli ordini, poi il magazzino, poi il pacco che invii. Il {escape(DATE)} il preventivo pubblico apriva un login: questa guida non inventa giorni di giacenza.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Guida con il percorso</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+    return f"""
+<section class="sec" id="states">
+  <div class="wrap"><div class="split"><div>
+    <h2>Nine statuses, three screens</h2>
+    <p class="lead">You first pay the product plus domestic China freight to the warehouse. International comes later, when you pick a line to {escape(dest)}. “Why is it stuck?” is almost always: you are looking at the wrong screen.</p>
+    <p>The first stretch lives under orders, then warehouse, then the parcel you submit. On {escape(DATE)} the public estimator opened a login wall: this desk does not invent a free-storage day count.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Guide with the path</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+
+
+def _sec_restricted(key: str, fig) -> str:
+    p = PACKS[key]
+    loc = p["loc"]
+    customs = p["customs"]
+    if loc == "de":
+        return f"""
+<section class="sec sec--tint" id="restricted">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Viele Produkte kannst du nicht kaufen, auch wenn sie da stehen</h2>
+    <p class="lead">Auf der offiziellen Site siehst du Karten ohne Preis, oder ein manuelles Formular statt einer Shopkarte. Das ist kein Fehler dieser Homepage: der Quellenlink ist über den Agenten nicht kaufbar, oder der Preis ließ sich nicht lesen.</p>
+    <p>Regel: ohne echten Preis und Varianten nicht bestellen. Tabak, Alkohol und Arzneimittel reisen nicht. Restricted ist eine Kaufsperre, kein Bescheid vom {escape(customs)}. BBDBuy verkauft keine eigene Ware.</p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "it":
+        return f"""
+<section class="sec sec--tint" id="restricted">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Molti prodotti non si possono comprare anche se compaiono</h2>
+    <p class="lead">Sul sito ufficiale vedi schede senza prezzo, o un modulo manuale al posto di una scheda negozio. Non è un bug di questa homepage: il link sorgente non è acquistabile tramite l’agente, o il prezzo non si è letto.</p>
+    <p>Regola: senza prezzo vero e varianti non ordinare. Tabacco, alcol e farmaci non viaggiano. Restricted è un blocco d’acquisto, non un avviso della {escape(customs)}. BBDBuy non vende merce propria.</p>
+  </div>{fig}</div></div>
+</section>
+"""
+    return f"""
+<section class="sec sec--tint" id="restricted">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Many products you cannot buy even if they appear</h2>
+    <p class="lead">On the official site you will see cards without a price, or a manual form instead of a shop card. That is not a bug of this homepage: the source link is not buyable through the agent, or the price could not be read.</p>
+    <p>Rule: without a real price and variants, do not order. Tobacco, alcohol and medicines do not travel. Restricted is a purchase block, not a {escape(customs)} seizure notice. BBDBuy does not sell its own stock.</p>
+  </div>{fig}</div></div>
+</section>
+"""
+
+
 def build_home(key: str) -> str:
     p = PACKS[key]
     desk = desk_for(key)
     sheet = _sheet(desk)
     wall = _wall(key)
     chips = _chips(key)
-    fig_off, fig_sheet, fig_vol, _fig_zoek = _shots(key)
+    fig_off, fig_sheet, fig_vol, fig_zoek = _shots(key)
     dest = p["dest_label"]
     loc = p["loc"]
+    shots = _sec_shots(key, fig_zoek)
+    states = _sec_states(key, fig_off)
+    restricted = _sec_restricted(key, fig_sheet)
     if loc == "de":
         body = f"""
 <section class="hero">
@@ -753,6 +940,7 @@ def build_home(key: str) -> str:
     <p><a class="btn" href="{escape(p["guide"])}">Anleitung Schritt für Schritt</a></p>
   </div>{fig_off}</div></div>
 </section>
+{shots}
 <section class="sec sec--tint" id="sheet-explain">
   <div class="wrap"><div class="split split--rev"><div>
     <span class="eyebrow" style="color:var(--acd)">Ein irreführender Name</span>
@@ -765,10 +953,11 @@ def build_home(key: str) -> str:
 <section class="sec" id="cat-wall">
   <div class="wrap">
     <h2>Dreiunddreißig Kategorien für den ersten Tag</h2>
-    <p class="lead">Jede Karte öffnet die Kategorie im Katalog. Fang mit einer an.</p>
+    <p class="lead">Jede Karte öffnet die Kategorie im Katalog. Fang mit einer an: fünf Kategorien in der ersten Haul sind der schnellste Weg zu einer teuren, unbequemen Box.</p>
     <div class="cat-grid">{wall}</div>
   </div>
 </section>
+{states}
 <section class="sec sec--tint" id="lab">
   <div class="wrap"><div class="split"><div>
     <h2>Deutschland hat Linien, aber nicht jede Linie ist offen</h2>
@@ -785,6 +974,7 @@ def build_home(key: str) -> str:
     <p>Beispiel: 40×40×3 cm sind 4800 cm³, geteilt durch 8000 sind 600 g Volumen bei 200 g Echtgewicht. Deine Maße trägst du im offiziellen Schätzer ein, Ziel Deutschland, sobald du eingeloggt bist.</p>
   </div>{fig_vol}</div></div>
 </section>
+{restricted}
 <section class="sec" id="faq">
   <div class="wrap">
     <h2>Hilfe, News und wo du fragst</h2>
@@ -826,6 +1016,7 @@ def build_home(key: str) -> str:
     <p><a class="btn" href="{escape(p["guide"])}">Guida passo passo</a></p>
   </div>{fig_off}</div></div>
 </section>
+{shots}
 <section class="sec sec--tint" id="sheet-explain">
   <div class="wrap"><div class="split split--rev"><div>
     <span class="eyebrow" style="color:var(--acd)">Un nome che inganna</span>
@@ -838,10 +1029,11 @@ def build_home(key: str) -> str:
 <section class="sec" id="cat-wall">
   <div class="wrap">
     <h2>Trentatré categorie per il primo giorno</h2>
-    <p class="lead">Ogni scheda apre quella categoria nel catalogo. Parti da una.</p>
+    <p class="lead">Ogni scheda apre quella categoria nel catalogo. Parti da una: cinque categorie nel primo haul sono la via più rapida verso una scatola cara e scomoda.</p>
     <div class="cat-grid">{wall}</div>
   </div>
 </section>
+{states}
 <section class="sec sec--tint" id="lab">
   <div class="wrap"><div class="split"><div>
     <h2>L’Italia ha linee, ma non ogni linea è aperta</h2>
@@ -858,6 +1050,7 @@ def build_home(key: str) -> str:
     <p>Esempio: 40×40×3 cm sono 4800 cm³, divisi per 8000 sono 600 g di volume a 200 g reali. Le tue misure le inserisci nel preventivo ufficiale, destinazione Italia, quando sei loggato.</p>
   </div>{fig_vol}</div></div>
 </section>
+{restricted}
 <section class="sec" id="faq">
   <div class="wrap">
     <h2>Aiuto, notizie e dove chiedere</h2>
@@ -899,6 +1092,7 @@ def build_home(key: str) -> str:
     <p><a class="btn" href="{escape(p["guide"])}">Step-by-step guide</a></p>
   </div>{fig_off}</div></div>
 </section>
+{shots}
 <section class="sec sec--tint" id="sheet-explain">
   <div class="wrap"><div class="split split--rev"><div>
     <span class="eyebrow" style="color:var(--acd)">A name that misleads</span>
@@ -911,10 +1105,11 @@ def build_home(key: str) -> str:
 <section class="sec" id="cat-wall">
   <div class="wrap">
     <h2>Thirty-three categories for the first day</h2>
-    <p class="lead">Each card opens that category in the catalogue. Start with one.</p>
+    <p class="lead">Each card opens that category in the catalogue. Start with one: five categories in the first haul is the fastest way to an expensive, awkward box.</p>
     <div class="cat-grid">{wall}</div>
   </div>
 </section>
+{states}
 <section class="sec sec--tint" id="lab">
   <div class="wrap"><div class="split"><div>
     <h2>{escape(dest[0].upper() + dest[1:])} has lines, but not every line is open</h2>
@@ -931,6 +1126,7 @@ def build_home(key: str) -> str:
     <p>Example: 40×40×3 cm is 4800 cm³, divided by 8000 is 600 g volume at 200 g real weight. You enter your measurements in the official estimator when you are logged in, destination {escape(p["dest_zh"].split("—")[0].strip())}.</p>
   </div>{fig_vol}</div></div>
 </section>
+{restricted}
 <section class="sec" id="faq">
   <div class="wrap">
     <h2>Help, news and where to ask</h2>
@@ -959,24 +1155,42 @@ def build_catalog(key: str) -> str:
     p = PACKS[key]
     desk = desk_for(key)
     loc = p["loc"]
-    notes = CAT_NOTES_EN if loc == "en" else None
+    notes = {"de": CAT_NOTES_DE, "it": CAT_NOTES_IT}.get(loc, CAT_NOTES_EN)
     wall = _wall(key, notes)
     _fig_off, fig_sheet, _fig_vol, fig_zoek = _shots(key)
+    dest = p["dest_label"]
     if loc == "de":
         topic = "was es ist und welche Kategorien du findest"
         body = f"""
 <section class="sec sec--first"><div class="wrap"><div class="split"><div>
 <span class="eyebrow" style="color:var(--acc)">Der Katalog</span>
 <h1>Was BBDBuy Spreadsheet ist, und was du darin findest</h1>
-<p class="lead">Ein Katalog aus Produktkarten, keine Excel-Datei. Dreiunddreißig Kategorien.</p>
+<p class="lead">Ein Katalog aus Produktkarten, keine Excel-Datei. Dreiunddreißig Kategorien, Filter, Foto, Marke und der Link für den Agenten.</p>
 </div>{fig_sheet}</div></div></section>
 <section class="sec sec--tint"><div class="wrap"><div class="split split--rev"><div>
 <h2>Warum ein eigener Katalog</h2>
-<p>Die Suche eines Agenten gibt den ganzen chinesischen Bestand. Ein Katalog hat schon gewählt, welche Karten sich lohnen.</p>
+<p>Die Suche eines Agenten gibt den ganzen chinesischen Bestand, riesig und oft auf Chinesisch. Ein Katalog hat die Hausaufgaben schon gemacht: jemand hat gewählt, welche Karten sich lohnen, sie in Kategorien gelegt und den Shop-Link bereitgelegt.</p>
+<p>In der Praxis: du findest die Karte auf w2clinks, kopierst den Quellenlink und fügst ihn in die Suche von BBDBuy oder ins manuelle Formular ein. Der Katalog kassiert nichts und verkauft nichts.</p>
 </div>{fig_zoek}</div></div></section>
 <section class="sec" id="categorias"><div class="wrap">
-<h2>Die dreiunddreißig Kategorien</h2>
+<h2>Die dreiunddreißig Kategorien, und was du in jeder prüfst</h2>
+<p class="lead">Der Satz unter jeder Karte ist kein Fülltext: es ist der Fehler, der in der Kategorie am häufigsten passiert, wenn du aus der Ferne kaufst.</p>
 <div class="cat-grid cat-grid--rich">{wall}</div>
+</div></section>
+<section class="sec sec--tint" id="first-category"><div class="wrap">
+<h2>Wie du die erste Kategorie wählst</h2>
+<p class="lead">Erste Bestellung: etwas Flaches und Leichtes — T-Shirts, Shorts, Schmuck. Die kommen früher an, kosten weniger Porto, und du prüfst den ganzen Kreislauf ohne viel Geld.</p>
+<p>Voluminöses für die zweite Order: Daunenjacken, Taschen, Mützen. Nicht weil sie schlechter sind, sondern weil ihr Porto vom Volumen abhängt — und das rechnest du erst gut, wenn du eine Runde gesehen hast.</p>
+<p>Drei Kategorien mit Extra-Bedingungen: Elektronik (oft Lithium), Brillen (zerbrechlich) und alles mit Akku oder Magnet. Nicht jede Linie nach Deutschland nimmt das. Schätzer prüfen, bevor sie im Lager liegen bleiben.</p>
+</div></section>
+<section class="sec"><div class="wrap">
+<h2>Unbequemes Faktum: der Katalog sucht auf Englisch</h2>
+<p>Wir haben es Wort für Wort am {escape(DATE)} nachgeprüft. Deutsche Schreibweisen wie Turnschuhe, Pullover oder Brille liefern oft null. Die englischen Keys sneakers, hoodie, jacket, trousers, bag, glasses oder watch liefern Seiten.</p>
+</div></section>
+<section class="sec sec--tint"><div class="wrap">
+<h2>Vom Katalog zur Bestellung, ohne den Link zu verlieren</h2>
+<p class="lead">Die Karte ist der Anfang, nicht die Kasse. Der Schritt, der am häufigsten schiefläuft: du kopierst die Katalog-URL statt des Shop-Links. BBDBuy braucht den Taobao-, 1688- oder Weidian-Link.</p>
+<p>Liest die Suche den Link nicht, bleibt das manuelle Formular. Karten ohne Preis überspringen — der Quellenlink ist in China oft schon tot.</p>
 </div></section>
 """
     elif loc == "it":
@@ -985,15 +1199,32 @@ def build_catalog(key: str) -> str:
 <section class="sec sec--first"><div class="wrap"><div class="split"><div>
 <span class="eyebrow" style="color:var(--acc)">Il catalogo</span>
 <h1>Che cos’è BBDBuy Spreadsheet, e cosa ci trovi</h1>
-<p class="lead">Un catalogo di schede prodotto, non un file Excel. Trentatré categorie.</p>
+<p class="lead">Un catalogo di schede prodotto, non un file Excel. Trentatré categorie, filtri, foto, marca e il link per l’agente.</p>
 </div>{fig_sheet}</div></div></section>
 <section class="sec sec--tint"><div class="wrap"><div class="split split--rev"><div>
 <h2>Perché un catalogo a parte</h2>
-<p>La ricerca dell’agente restituisce tutto lo stock cinese. Un catalogo ha già scelto quali schede valgono.</p>
+<p>La ricerca dell’agente restituisce tutto lo stock cinese, enorme e spesso in cinese. Un catalogo ha già fatto il lavoro: qualcuno ha scelto quali schede valgono, le ha messe in categoria e ha pronto il link del negozio.</p>
+<p>In pratica: trovi la scheda su w2clinks, copi il link sorgente e lo incolli nella ricerca di BBDBuy o nel modulo manuale. Il catalogo non incassa e non vende.</p>
 </div>{fig_zoek}</div></div></section>
 <section class="sec" id="categorias"><div class="wrap">
-<h2>Le trentatré categorie</h2>
+<h2>Le trentatré categorie, e cosa controlli in ciascuna</h2>
+<p class="lead">La frase sotto ogni scheda non è riempitivo: è l’errore che in quella categoria torna più spesso quando compri da lontano.</p>
 <div class="cat-grid cat-grid--rich">{wall}</div>
+</div></section>
+<section class="sec sec--tint" id="first-category"><div class="wrap">
+<h2>Come scegli la prima categoria</h2>
+<p class="lead">Primo ordine: qualcosa di piatto e leggero — t-shirt, shorts, gioielli. Arrivano prima, costano meno di nolo, e controlli tutto il circuito senza rischiare troppo.</p>
+<p>Il voluminoso per il secondo ordine: piumini, borse, cappelli. Non perché siano peggiori, ma perché il nolo dipende dal volume — e quello lo calcoli bene solo dopo un giro.</p>
+<p>Tre categorie con extra: elettronica (spesso litio), occhiali (fragili) e tutto con batteria o magnete. Non ogni linea verso l’Italia li accetta. Controlla il preventivo prima di lasciarli in magazzino.</p>
+</div></section>
+<section class="sec"><div class="wrap">
+<h2>Dato scomodo: il catalogo cerca in inglese</h2>
+<p>L’abbiamo verificato termine per termine il {escape(DATE)}. Grafie locali come scarpe, felpa o occhiali danno spesso zero. Le key inglesi sneakers, hoodie, jacket, trousers, bag, glasses o watch danno pagine.</p>
+</div></section>
+<section class="sec sec--tint"><div class="wrap">
+<h2>Dal catalogo all’ordine, senza perdere il link</h2>
+<p class="lead">La scheda è l’inizio, non la cassa. Il passo che fallisce più spesso: copi l’URL della scheda catalogo invece del link negozio. A BBDBuy serve il link Taobao, 1688 o Weidian.</p>
+<p>Se la ricerca non legge il link, resta il modulo manuale. Schede senza prezzo: saltale — il link sorgente in Cina è spesso già morto.</p>
 </div></section>
 """
     else:
@@ -1006,15 +1237,28 @@ def build_catalog(key: str) -> str:
 </div>{fig_sheet}</div></div></section>
 <section class="sec sec--tint"><div class="wrap"><div class="split split--rev"><div>
 <h2>Why a separate catalogue</h2>
-<p>An agent search bar returns the whole stock of Chinese shops. A catalogue does the homework: someone already picked which fiches are worth it.</p>
+<p>An agent search bar returns the whole stock of Chinese shops, huge and often in Chinese. A catalogue does the homework: someone already picked which fiches are worth it, put them in a category and left the shop link ready.</p>
+<p>In practice: you find the fiche on w2clinks, copy the source link and paste it into BBDBuy search or the manual form. The catalogue collects no money and sells nothing.</p>
 </div>{fig_zoek}</div></div></section>
 <section class="sec" id="categorias"><div class="wrap">
 <h2>The thirty-three categories, and what you check in each</h2>
+<p class="lead">The line under each card is not filler: it is the mistake that comes back most often in that category when you buy from a distance.</p>
 <div class="cat-grid cat-grid--rich">{wall}</div>
 </div></section>
 <section class="sec sec--tint" id="first-category"><div class="wrap">
 <h2>How you pick the first category</h2>
-<p class="lead">If it is your first order, pick something flat and light: T-shirts, shorts, jewelry. Leave bulky for the second order: down jackets, bags, hats.</p>
+<p class="lead">If it is your first order, pick something flat and light: T-shirts, shorts, jewelry. They arrive sooner, cost less to send, and let you check the whole circuit without risking much money.</p>
+<p>Leave bulky for the second order: down jackets, bags, hats. Not because they are worse, but because their freight depends on volume — and you only calculate that well after one round.</p>
+<p>Three categories with extra conditions: electronics (often lithium), glasses (fragile) and anything with a battery or a magnet. Not every line to {escape(dest)} accepts those. Check the official estimator before you leave them in the warehouse.</p>
+</div></section>
+<section class="sec"><div class="wrap">
+<h2>Uncomfortable fact: the catalogue searches in English</h2>
+<p>We checked it term by term on {escape(DATE)}. Local spellings often returned zero. The English keys sneakers, hoodie, jacket, trousers, bag, glasses or watch returned pages of fiches. That is why the homepage search bar still sends English keys to w2clinks.</p>
+</div></section>
+<section class="sec sec--tint"><div class="wrap">
+<h2>From catalogue to order, without losing the link</h2>
+<p class="lead">The fiche is the start, not checkout. The step that fails most often is copying the catalogue URL instead of the shop link. BBDBuy needs the Taobao, 1688 or Weidian link.</p>
+<p>If search does not read the link, the manual form remains. Skip cards without a price — that source link is often already dead in China.</p>
 </div></section>
 """
     return cms_shell(
@@ -1236,6 +1480,10 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Zahlung und Tickets bleiben auf {official}. Dieser Desk sieht dein Konto nicht.</p>
   <h2>3. Foto, dann bündeln, dann senden</h2>
   <p>Am {escape(DATE)} öffnete der öffentliche Schätzer ein Login, keinen Live-Preis. Keine erfundene Lagerfrist, keine erfundene Linie.</p>
+  <h2>Neun Status, drei Bildschirme</h2>
+  <p>Zuerst Produkt plus Inlandsweg bis zum Lager. International später. «Warum steht es still?» heißt fast immer: falscher Bildschirm — Bestellungen, dann Lager, dann Paket.</p>
+  <h2>Erste Haul: flach zuerst</h2>
+  <p>T-Shirts, Shorts, Schmuck für die erste Runde. Daune, Taschen, Mützen für die zweite. Elektronik oft Lithium: Linie auf der offiziellen Site prüfen.</p>
   <p><a class="btn" href="{guide}">Anleitung</a> <a class="btn btn--ghost" href="{ship}">Versandplan</a></p>
 </article>
 """
@@ -1253,6 +1501,8 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   {fig_vol}
   <h2>Bündeln ist kein Zolltrick auf dieser Seite</h2>
   <p>Mehrere Lagerpositionen in einem Karton können Gebühren sparen. Was du dem Zoll angibst, steht in der offiziellen Sendung, nicht auf dieser Seite.</p>
+  <h2>Restricted ist keine Zollnachricht</h2>
+  <p>Karten ohne Preis oder ein manuelles Formular heißen: der Quellenlink ist über den Agenten nicht kaufbar. Tabak, Alkohol und Arzneimittel reisen nicht.</p>
   <p><a class="btn" href="{est}">Offizielle BBDBuy-Site</a> <a class="btn btn--ghost" href="{help_h}">Hilfe</a></p>
 </article>
 """
@@ -1305,6 +1555,10 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Pagamenti e ticket restano su {official}. Questa guida non vede il tuo account.</p>
   <h2>3. Foto, poi consolida, poi spedisci</h2>
   <p>Il {escape(DATE)} il preventivo pubblico apriva un login, non un prezzo live. Nessuna giacenza inventata, nessuna linea inventata.</p>
+  <h2>Nove stati, tre schermate</h2>
+  <p>Prima il prodotto più il trasporto interno fino al magazzino. L’internazionale dopo. «Perché è fermo?» quasi sempre: schermata sbagliata — ordini, poi magazzino, poi pacco.</p>
+  <h2>Primo haul: piatto prima</h2>
+  <p>T-shirt, shorts, gioielli per il primo giro. Piumini, borse, cappelli per il secondo. Elettronica spesso litio: controlla la linea sul sito ufficiale.</p>
   <p><a class="btn" href="{guide}">Guida</a> <a class="btn btn--ghost" href="{ship}">Piano spedizione</a></p>
 </article>
 """
@@ -1322,6 +1576,8 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   {fig_vol}
   <h2>Consolidare non è una guida doganale</h2>
   <p>Più pezzi in un cartone possono ridurre le riga di nolo. Cosa dichiari in dogana sta sulla spedizione ufficiale, non in questa pagina.</p>
+  <h2>Restricted non è un avviso di dogana</h2>
+  <p>Schede senza prezzo o un modulo manuale significano: il link sorgente non è acquistabile tramite l’agente. Tabacco, alcol e farmaci non viaggiano.</p>
   <p><a class="btn" href="{est}">Sito ufficiale BBDBuy</a> <a class="btn btn--ghost" href="{help_h}">Aiuto</a></p>
 </article>
 """
@@ -1374,6 +1630,10 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p>Payment and tickets stay on {official}. This desk cannot see your account.</p>
   <h2>3. Photo, then consolidate, then ship</h2>
   <p>On {escape(DATE)} the public estimator opened a login wall, not a live rate. This desk does not invent a free-storage day count or a line.</p>
+  <h2>Nine statuses, three screens</h2>
+  <p>First the product plus domestic freight to the warehouse. International later. “Why is it stuck?” is almost always the wrong screen — orders, then warehouse, then the parcel.</p>
+  <h2>First haul: flat first</h2>
+  <p>T-shirts, shorts, jewelry for the first round. Down, bags, hats for the second. Electronics often mean lithium: check the line on the official site.</p>
   <p><a class="btn" href="{guide}">Guide</a> <a class="btn btn--ghost" href="{ship}">Shipping plan</a></p>
 </article>
 """
@@ -1391,6 +1651,8 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   {fig_vol}
   <h2>Consolidation is not a customs tutorial</h2>
   <p>Several warehouse items in one box can cut the number of international lines. What you declare to customs is on the official shipment, not on this page.</p>
+  <h2>Restricted is not a customs notice</h2>
+  <p>Cards without a price, or a manual form, mean the source link is not buyable through the agent. Tobacco, alcohol and medicines do not travel.</p>
   <p><a class="btn" href="{est}">Official BBDBuy site</a> <a class="btn btn--ghost" href="{help_h}">Help</a></p>
 </article>
 """
@@ -1468,9 +1730,6 @@ def _assert_ok(html: str, page: str, key: str) -> None:
         "missing #catalog",
         "missing catalogue API",
         f"missing FX_CCY {p['ccy']}",
-        "missing #states",
-        "missing #restricted",
-        "missing #shots",
         "faq count 0",
     }
     err = [e for e in validate_desk(html, _facts(key), page=page) if e not in skip]
@@ -1490,6 +1749,9 @@ def _assert_ok(html: str, page: str, key: str) -> None:
             err.append("ops dump")
         if 'class="fig"' not in html:
             err.append("photos")
+        for sid in ("shots", "states", "restricted"):
+            if f'id="{sid}"' not in html:
+                err.append(f"missing #{sid}")
         if p["loc"] != "en" and "Official bbdbuy.com, 6 Oct" in html:
             err.append("english fig caption")
         for alien in p["aliens"]:
@@ -2012,6 +2274,9 @@ def live_check(key: str | None = None) -> None:
                     print(" FAIL cats"); fail += 1
                 if html.count('class="sg-faq"') >= 8:
                     print(" FAIL faq dump"); fail += 1
+                for sid in ("shots", "states", "restricted"):
+                    if f'id="{sid}"' not in html:
+                        print(" FAIL missing #", sid, sep=""); fail += 1
                 if p["loc"] != "en" and "Official bbdbuy.com, 6 Oct" in html:
                     print(" FAIL english fig caption"); fail += 1
             if kind in ("guide", "ship"):
