@@ -4072,7 +4072,7 @@ def live_check(key: str | None = None) -> None:
                     print(" FAIL ranked orientdig leftover"); fail += 1
                 if re.search(r"58 l[ií]neas", html, re.I) or re.search(r"23[,.]81\s*USD", html, re.I):
                     print(" FAIL ranked 58-line / 23.81"); fail += 1
-                if desk.inner_marker not in html:
+                if "data-inner-chrome=" not in html or p["css_id"] not in html:
                     print(" WARN ranked inner not wrapped in dest chrome", href)
             elif code in (301, 302, 308):
                 loc_path = urlparse(loc).path if loc else ""
