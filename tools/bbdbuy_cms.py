@@ -51,7 +51,7 @@ ACC_DARK = "#C45A0A"
 MAIL = "cnfd85269032661@gmail.com"
 HUB = "bbdbuyeu.net"
 DEST_MIN = 22000
-CSS_V = "20261006b"
+CSS_V = "20261006c"
 INVITES = ("1QodRw", "BBD5OFF")
 
 EN_LABELS = {
@@ -244,7 +244,10 @@ WRAP_SKIP_PREFIXES = (
     "help/", "news/", "about/", "catalog/", "start/", "aiuto/", "catalogo/",
     "notizie/", "chi-siamo/", "hilfe/", "katalog/", "neuigkeiten/", "ueber-uns/",
     "api/", "assets/", "img/",
+    "bbdbuy-shipping/", "how-to-use-bbdbuy/", "is-bbdbuy-legit/",
+    "bbdbuy-coupons/", "bbdbuy-spreadsheet/", "ist-bbdbuy-serioes/",
 )
+WRAP_POISON = ("orientdig", "orient dig", "1qodrw", "bbd5off")
 
 EXTRA_CSS = """
 .hero .eyebrow{color:#ffd8b0}
@@ -1170,6 +1173,256 @@ def build_about(key: str) -> str:
     )
 
 
+def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
+    """href, topic, html-body for dest-local ranked inners (not OrientDig leftovers)."""
+    p = PACKS[key]
+    dest = p["dest_label"]
+    loc = p["loc"]
+    fig_off, fig_sheet, fig_vol, _fig_zoek = _shots()
+    est = escape(EST)
+    official = escape(OFFICIAL)
+    fp = escape(p["postal"])
+    dest_zh = escape(p["dest_zh"])
+    customs = escape(p["customs"])
+    customs_url = escape(p["customs_url"])
+    guide = escape(p["guide"])
+    ship = escape(p["ship"])
+    catalog = escape(p["catalog"])
+    help_h = escape(p["help"])
+    dest_e = escape(dest)
+
+    if loc == "de":
+        guide_topic = "wie du die erste Bestellung aus Deutschland aufgibst"
+        guide_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Anleitung</span>
+  <h1>Erste Bestellung bei BBDBuy, von Deutschland aus</h1>
+  <p class="lead">Link kopieren, in den Agenten einfügen, Lagerfoto prüfen, bündeln, Ziel {dest_zh} wählen. Die Lieferadresse ist eine {fp}.</p>
+  {fig_off}
+  <h2>1. Karte auf w2clinks öffnen</h2>
+  <p>Eine der dreiunddreißig Kategorien, Foto und Shop-Link. Das ist der Katalog, keine Excel-Datei.</p>
+  {fig_sheet}
+  <h2>2. Auf der offiziellen Site einfügen</h2>
+  <p>Zahlung und Tickets bleiben auf {official}. Dieser Desk sieht dein Konto nicht.</p>
+  <h2>3. Foto, dann bündeln, dann senden</h2>
+  <p>Am {escape(DATE)} öffnete der öffentliche Schätzer ein Login, keinen Live-Preis. Keine erfundene Lagerfrist, keine erfundene Linie.</p>
+  <p><a class="btn" href="{guide}">Anleitung</a> <a class="btn btn--ghost" href="{ship}">Versandplan</a></p>
+</article>
+"""
+        ship_topic = "Versand und Zoll aus Deutschland"
+        ship_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Versand</span>
+  <h1>Versand nach Deutschland: Schätzer, Volumen, Zoll</h1>
+  <p class="lead">Ziel {dest_zh}, nicht EU und nicht AT. Die Lieferadresse ist eine {fp}.</p>
+  {fig_off}
+  <h2>Der öffentliche Schätzer war hinter Login</h2>
+  <p>Am {escape(DATE)} öffnete {est} ein Login, keinen Live-Preis. Dieser Desk erfindet keine Linie, keine Transitzeit und keinen Eurobetrag. Quelle: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <h2>Waage gegen Volumen</h2>
+  <p>Viele Linien rechnen das Maximum aus Waage und L×B×H (cm) / 8000. Beispiel: 40×40×3 cm sind 4800 cm³, geteilt durch 8000 sind 600 g Volumen bei 200 g Echtgewicht. Kein SKU-Preis in diesem HTML.</p>
+  {fig_vol}
+  <h2>Bündeln ist kein Zolltrick auf dieser Seite</h2>
+  <p>Mehrere Lagerpositionen in einem Karton können Gebühren sparen. Was du dem Zoll angibst, steht in der offiziellen Sendung, nicht auf dieser Seite.</p>
+  <p><a class="btn" href="{est}">Offizielle BBDBuy-Site</a> <a class="btn btn--ghost" href="{help_h}">Hilfe</a></p>
+</article>
+"""
+        legit_topic = "ist BBDBuy ein echter Agent aus Deutschland"
+        legit_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Check</span>
+  <h1>Ist BBDBuy ein echter Einkaufsagent?</h1>
+  <p class="lead">bbdbuy.com und bbdbuyeu.com sind dasselbe offizielle Produkt. bbdbuyeu.net ist unser Hub, kein Zollgebiet. Dieser Desk ist nicht BBDBuy.</p>
+  {fig_off}
+  <p>Am {escape(DATE)} war der öffentliche Schätzer hinter Login. Wir erfinden deshalb keine Lagerfrist und keinen Tarif. Bestellungen nur über {official}.</p>
+  <p>Die Lieferadresse auf diesem Dest ist eine {fp}.</p>
+  <p><a class="btn" href="{guide}">Anleitung</a> <a class="btn btn--ghost" href="{help_h}">Hilfe</a></p>
+</article>
+"""
+        coup_topic = "Gutscheine stehen auf der offiziellen Site"
+        coup_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Codes</span>
+  <h1>Gutscheine: nicht im Titel dieses Dest</h1>
+  <p class="lead">Dieser Dest druckt keine Einladungscodes in Titel oder Homepage. Wenn BBDBuy einen Code veröffentlicht, steht er nach dem Login auf {official}.</p>
+  {fig_off}
+  <p>Die Lieferadresse bleibt eine {fp}. Ziel im Schätzer: {dest_zh}.</p>
+  <p><a class="btn" href="{official}">Offizielle Site</a> <a class="btn btn--ghost" href="{catalog}">Katalog</a></p>
+</article>
+"""
+        sheet_topic = "der Katalog und wie du ihn von Deutschland aus nutzt"
+        sheet_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Spreadsheet</span>
+  <h1>BBDBuy Spreadsheet ist ein Katalog, keine Tabelle</h1>
+  <p class="lead">Karten mit Foto, Marke und Shop-Link. Dreiunddreißig Kategorien wie auf w2clinks.</p>
+  {fig_sheet}
+  <p>Suche auf Englisch (sneakers, hoodie, jacket). Die Lieferadresse auf diesem Dest ist eine {fp}.</p>
+  <p><a class="btn" href="{catalog}">Katalog öffnen</a> <a class="btn btn--ghost" href="{guide}">Anleitung</a></p>
+</article>
+"""
+    elif loc == "it":
+        guide_topic = "come fai il primo ordine dall’Italia"
+        guide_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Guida</span>
+  <h1>Primo ordine BBDBuy, dall’Italia</h1>
+  <p class="lead">Copi il link, lo incolli nell’agente, controlli la foto di magazzino, consolidi, scegli destinazione {dest_zh}. L’indirizzo è una {fp}.</p>
+  {fig_off}
+  <h2>1. Apri una scheda su w2clinks</h2>
+  <p>Una delle trentatré categorie, foto e link del negozio. È un catalogo, non un file Excel.</p>
+  {fig_sheet}
+  <h2>2. Incolla sul sito ufficiale</h2>
+  <p>Pagamenti e ticket restano su {official}. Questa guida non vede il tuo account.</p>
+  <h2>3. Foto, poi consolida, poi spedisci</h2>
+  <p>Il {escape(DATE)} il preventivo pubblico apriva un login, non un prezzo live. Nessuna giacenza inventata, nessuna linea inventata.</p>
+  <p><a class="btn" href="{guide}">Guida</a> <a class="btn btn--ghost" href="{ship}">Piano spedizione</a></p>
+</article>
+"""
+        ship_topic = "spedizione e dogana dall’Italia"
+        ship_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Spedizione</span>
+  <h1>Spedire in Italia: preventivo, volume, dogana</h1>
+  <p class="lead">Destinazione {dest_zh}, non EU. L’indirizzo è una {fp}.</p>
+  {fig_off}
+  <h2>Il preventivo pubblico era dietro login</h2>
+  <p>Il {escape(DATE)} {est} apriva un login, non un prezzo live. Questa guida non inventa una linea, un transito né un importo. Fonte: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <h2>Bilancia contro volume</h2>
+  <p>Molte linee fatturano il massimo tra bilancia e L×W×H (cm) / 8000. Esempio: 40×40×3 cm sono 4800 cm³, divisi per 8000 sono 600 g di volume a 200 g reali. Nessun prezzo SKU in questo HTML.</p>
+  {fig_vol}
+  <h2>Consolidare non è una guida doganale</h2>
+  <p>Più pezzi in un cartone possono ridurre le riga di nolo. Cosa dichiari in dogana sta sulla spedizione ufficiale, non in questa pagina.</p>
+  <p><a class="btn" href="{est}">Sito ufficiale BBDBuy</a> <a class="btn btn--ghost" href="{help_h}">Aiuto</a></p>
+</article>
+"""
+        legit_topic = "BBDBuy è un agente vero dall’Italia"
+        legit_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Check</span>
+  <h1>BBDBuy è un agente d’acquisto vero?</h1>
+  <p class="lead">bbdbuy.com e bbdbuyeu.com sono lo stesso prodotto ufficiale. bbdbuyeu.net è il nostro hub, non un territorio doganale. Questo dest non è BBDBuy.</p>
+  {fig_off}
+  <p>Il {escape(DATE)} il preventivo pubblico era dietro login. Per questo non inventiamo giacenza né tariffa. Ordini solo su {official}.</p>
+  <p>L’indirizzo su questo dest è una {fp}.</p>
+  <p><a class="btn" href="{guide}">Guida</a> <a class="btn btn--ghost" href="{help_h}">Aiuto</a></p>
+</article>
+"""
+        coup_topic = "i coupon stanno sul sito ufficiale"
+        coup_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Codici</span>
+  <h1>Coupon: non nel titolo di questo dest</h1>
+  <p class="lead">Questo dest non stampa codici invito nel titolo o in homepage. Se BBDBuy pubblica un codice, sta dopo il login su {official}.</p>
+  {fig_off}
+  <p>L’indirizzo resta una {fp}. Destinazione nel preventivo: {dest_zh}.</p>
+  <p><a class="btn" href="{official}">Sito ufficiale</a> <a class="btn btn--ghost" href="{catalog}">Catalogo</a></p>
+</article>
+"""
+        sheet_topic = "il catalogo e come lo usi dall’Italia"
+        sheet_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Spreadsheet</span>
+  <h1>BBDBuy Spreadsheet è un catalogo, non una griglia</h1>
+  <p class="lead">Schede con foto, marca e link negozio. Trentatré categorie come su w2clinks.</p>
+  {fig_sheet}
+  <p>Cerca in inglese (sneakers, hoodie, jacket). L’indirizzo su questo dest è una {fp}.</p>
+  <p><a class="btn" href="{catalog}">Apri il catalogo</a> <a class="btn btn--ghost" href="{guide}">Guida</a></p>
+</article>
+"""
+    else:
+        guide_topic = f"how you place the first order from {dest}"
+        guide_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Guide</span>
+  <h1>First BBDBuy order, from {dest_e}</h1>
+  <p class="lead">Copy the shop link, paste it into the agent, check the warehouse photo, consolidate, then pick destination {dest_zh}. The delivery address uses a {fp}.</p>
+  {fig_off}
+  <h2>1. Open a card on w2clinks</h2>
+  <p>One of the thirty-three categories, a photo and the shop link. That is the catalogue, not an Excel file.</p>
+  {fig_sheet}
+  <h2>2. Paste it on the official site</h2>
+  <p>Payment and tickets stay on {official}. This desk cannot see your account.</p>
+  <h2>3. Photo, then consolidate, then ship</h2>
+  <p>On {escape(DATE)} the public estimator opened a login wall, not a live rate. This desk does not invent a free-storage day count or a line.</p>
+  <p><a class="btn" href="{guide}">Guide</a> <a class="btn btn--ghost" href="{ship}">Shipping plan</a></p>
+</article>
+"""
+        ship_topic = f"shipping and customs from {dest}"
+        ship_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Shipping</span>
+  <h1>Shipping to {dest_e}: estimator, volume, customs</h1>
+  <p class="lead">Pick destination {dest_zh} in the official estimator when you are logged in. The delivery address uses a {fp}.</p>
+  {fig_off}
+  <h2>The public estimator was behind a login wall</h2>
+  <p>On {escape(DATE)} {est} opened a login, not a live rate. This desk does not invent a line, a transit-day count or a money amount. Import: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <h2>Scale versus volume</h2>
+  <p>Many lines bill the greater of scale and L×W×H (cm) / 8000. Example: 40×40×3 cm is 4800 cm³, divided by 8000 is 600 g volume at 200 g real weight. No SKU price in this HTML.</p>
+  {fig_vol}
+  <h2>Consolidation is not a customs tutorial</h2>
+  <p>Several warehouse items in one box can cut the number of international lines. What you declare to customs is on the official shipment, not on this page.</p>
+  <p><a class="btn" href="{est}">Official BBDBuy site</a> <a class="btn btn--ghost" href="{help_h}">Help</a></p>
+</article>
+"""
+        legit_topic = f"is BBDBuy a real agent from {dest}"
+        legit_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Check</span>
+  <h1>Is BBDBuy a real purchasing agent?</h1>
+  <p class="lead">bbdbuy.com and bbdbuyeu.com are the same official product. bbdbuyeu.net is our hub, not a customs territory. This dest is not BBDBuy.</p>
+  {fig_off}
+  <p>On {escape(DATE)} the public estimator was behind login. That is why this desk publishes no invented storage window and no invented tariff. Orders only through {official}.</p>
+  <p>The delivery address on this dest uses a {fp}.</p>
+  <p><a class="btn" href="{guide}">Guide</a> <a class="btn btn--ghost" href="{help_h}">Help</a></p>
+</article>
+"""
+        coup_topic = "coupons live on the official site"
+        coup_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Codes</span>
+  <h1>Coupons: not in this dest title</h1>
+  <p class="lead">This dest does not print invite codes in the title or on the homepage. If BBDBuy publishes a code, it lives on {official} after you log in.</p>
+  {fig_off}
+  <p>The delivery address still uses a {fp}. Estimator destination: {dest_zh}.</p>
+  <p><a class="btn" href="{official}">Official site</a> <a class="btn btn--ghost" href="{catalog}">Catalogue</a></p>
+</article>
+"""
+        sheet_topic = f"the catalogue and how you use it from {dest}"
+        sheet_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Spreadsheet</span>
+  <h1>BBDBuy Spreadsheet is a catalogue, not a grid</h1>
+  <p class="lead">Cards with a photo, a brand and the shop link. Thirty-three categories, the same wall as w2clinks.</p>
+  {fig_sheet}
+  <p>Search in English (sneakers, hoodie, jacket). The delivery address on this dest uses a {fp}.</p>
+  <p><a class="btn" href="{catalog}">Open the catalogue</a> <a class="btn btn--ghost" href="{guide}">Guide</a></p>
+</article>
+"""
+    return {
+        "guide": (p["guide"], guide_topic, guide_body),
+        "ship": (p["ship"], ship_topic, ship_body),
+        "legit": ("/is-bbdbuy-legit/", legit_topic, legit_body),
+        "coupons": ("/bbdbuy-coupons/", coup_topic, coup_body),
+        "spreadsheet": ("/bbdbuy-spreadsheet/", sheet_topic, sheet_body),
+        **(
+            {"serioes": ("/ist-bbdbuy-serioes/", legit_topic, legit_body)}
+            if loc == "de"
+            else {}
+        ),
+    }
+
+
+def build_inner(key: str, name: str) -> str:
+    p = PACKS[key]
+    desk = desk_for(key)
+    href, topic, body = _inner_pages(key)[name]
+    return cms_shell(
+        desk, page_title(desk, topic),
+        f"Independent BBDBuy {name} for {p['dest_label']}.",
+        f"https://{p['host']}{href}", [], body, href,
+    )
+
+
 def _assert_ok(html: str, page: str, key: str) -> None:
     p = PACKS[key]
     desk = desk_for(key)
@@ -1215,6 +1468,17 @@ def _assert_ok(html: str, page: str, key: str) -> None:
                 err.append(f"invite {tok}")
     if page == "help" and p["fingerprint"] not in html:
         err.append("help fingerprint")
+    if page in ("guide", "ship", "legit", "coupons", "spreadsheet", "serioes"):
+        if "orientdig" in html.lower():
+            err.append("orientdig leftover")
+        for tok in INVITES:
+            if tok in html:
+                err.append(f"invite {tok}")
+        if page in ("guide", "ship") and p["fingerprint"] not in html:
+            err.append(f"{page} fingerprint")
+        for alien in p["aliens"]:
+            if alien in html:
+                err.append(f"alien {alien}")
     if err:
         raise SystemExit(f"{key}/{page}: {'; '.join(err)}")
 
@@ -1240,7 +1504,8 @@ def generate(key: str) -> dict[str, Path]:
     p = PACKS[key]
     dest = _overlay(key)
     dest.mkdir(parents=True, exist_ok=True)
-    for rel in ("start", p["help"].strip("/"), p["news"].strip("/"), p["about"].strip("/"), p["catalog"].strip("/")):
+    inner_rels = [href.strip("/") for href, _t, _b in _inner_pages(key).values()]
+    for rel in ("start", p["help"].strip("/"), p["news"].strip("/"), p["about"].strip("/"), p["catalog"].strip("/"), *inner_rels):
         (dest / rel).mkdir(exist_ok=True)
     _copy_assets(dest)
     css_path = dest / "assets" / "css" / p["desk_css"]
@@ -1262,6 +1527,8 @@ def generate(key: str) -> dict[str, Path]:
         "catalog": (dest / p["catalog"].strip("/").split("/")[0] / "index.html", build_catalog(key), "catalog"),
         "nf": (dest / "404.html", build_404(desk_for(key)), "nf"),
     }
+    for name, (href, _topic, _body) in _inner_pages(key).items():
+        pages[name] = (dest / href.strip("/").split("/")[0] / "index.html", build_inner(key, name), name)
     out: dict[str, Path] = {"css": css_path, "logo": dest / "assets" / "images" / "bbdbuy-logo.png"}
     for name, (path, html, page) in pages.items():
         _assert_ok(html, page, key)
@@ -1418,6 +1685,45 @@ def _origin_inners(client, root: str) -> list[str]:
     return rels
 
 
+def _retire_poison(key: str, href: str) -> str:
+    p = PACKS[key]
+    desk = desk_for(key)
+    fp = escape(p["postal"])
+    loc = p["loc"]
+    if loc == "de":
+        topic = "dieser Artikel wurde ersetzt"
+        body = f"""
+<article class="pw">
+  <h1>Dieser Artikel wurde ersetzt</h1>
+  <p class="lead">Die alte Fassung gehörte nicht zu BBDBuy. Die aktuelle Anleitung steht auf Start. Die Lieferadresse ist eine {fp}.</p>
+  <p><a class="btn" href="/start/">Start</a> <a class="btn btn--ghost" href="{escape(p['guide'])}">Anleitung</a></p>
+</article>
+"""
+    elif loc == "it":
+        topic = "questo articolo è stato sostituito"
+        body = f"""
+<article class="pw">
+  <h1>Questo articolo è stato sostituito</h1>
+  <p class="lead">La versione precedente non era di BBDBuy. La guida attuale sta su Start. L’indirizzo è una {fp}.</p>
+  <p><a class="btn" href="/start/">Start</a> <a class="btn btn--ghost" href="{escape(p['guide'])}">Guida</a></p>
+</article>
+"""
+    else:
+        topic = "this article was replaced"
+        body = f"""
+<article class="pw">
+  <h1>This article was replaced</h1>
+  <p class="lead">The previous version was not a BBDBuy dest page. The current guide is on Start. The delivery address uses a {fp}.</p>
+  <p><a class="btn" href="/start/">Start</a> <a class="btn btn--ghost" href="{escape(p['guide'])}">Guide</a></p>
+</article>
+"""
+    return cms_shell(
+        desk, page_title(desk, topic),
+        f"Replaced leftover article on {p['host']}.",
+        f"https://{p['host']}{href}", [], body, href,
+    )
+
+
 def _wrap_ranked(client, sftp, bak: str, root: str, key: str) -> None:
     desk = desk_for(key)
     skip = {"index.html", "404.html", "404/index.html"}
@@ -1445,16 +1751,21 @@ def _wrap_ranked(client, sftp, bak: str, root: str, key: str) -> None:
         href = "/" + str(Path(rel).parent).replace("\\", "/").rstrip("/") + "/"
         if href == "/./":
             href = "/"
-        out, why = cms_wrap_inner(desk, raw, href)
-        if out is None:
-            print("inner", rel, why)
-            continue
+        if any(tok in raw.lower() for tok in WRAP_POISON):
+            out = _retire_poison(key, href)
+            why = "retire-poison"
+            print("retire poison", rel)
+        else:
+            out, why = cms_wrap_inner(desk, raw, href)
+            if out is None:
+                print("inner", rel, why)
+                continue
         min_b = 4000
         for prefix, floor in mins.items():
             if rel.startswith(prefix.lstrip("/")):
                 min_b = floor
                 break
-        if len(out.encode("utf-8")) < min_b:
+        if why != "retire-poison" and len(out.encode("utf-8")) < min_b:
             print("WARN skip thin wrap", rel, len(out.encode("utf-8")))
             continue
         rel_dir = str(Path(rel).parent)
@@ -1477,9 +1788,20 @@ def put(key: str) -> None:
     bak = f"/www/backup/bbdbuy-{key}-cms-{stamp}"
     root = f"/www/wwwroot/{host}"
     overlay = _overlay(key)
+    inner_dirs = [href.strip("/") for href, _t, _b in _inner_pages(key).values()]
     slug_dirs = " ".join(
         f"'{root}/{rel}'"
-        for rel in ("start", p["help"].strip("/"), p["news"].strip("/"), p["about"].strip("/"), p["catalog"].strip("/"), "assets/css", "assets/images", "img/shots")
+        for rel in (
+            "start",
+            p["help"].strip("/"),
+            p["news"].strip("/"),
+            p["about"].strip("/"),
+            p["catalog"].strip("/"),
+            *inner_dirs,
+            "assets/css",
+            "assets/images",
+            "img/shots",
+        )
     )
     _run(client, f"mkdir -p '{bak}' {slug_dirs}")
     sftp = client.open_sftp()
@@ -1494,13 +1816,17 @@ def put(key: str) -> None:
         "catalog": f"{root}{p['catalog']}index.html",
         "nf": f"{root}/404.html",
     }
+    for name, (href, _t, _b) in _inner_pages(key).items():
+        mapping[name] = f"{root}{href}index.html"
     for name, remote in mapping.items():
         local = files[name]
         raw = local.read_text(encoding="utf-8")
-        if name in ("home", "start", "help") and p["fingerprint"] not in raw:
+        if name in ("home", "start", "help", "guide", "ship") and p["fingerprint"] not in raw:
             raise SystemExit(f"refusing {key} {name} without fingerprint")
+        if "orientdig" in raw.lower():
+            raise SystemExit(f"refusing {key} {name} with OrientDig leftover")
         for tok in INVITES:
-            if tok in raw and name in ("home", "start"):
+            if tok in raw:
                 raise SystemExit(f"refusing {key} {name} with invite {tok}")
         _run(client, f"mkdir -p '{Path(remote).parent}'")
         sftp.put(str(local), remote)
@@ -1558,11 +1884,13 @@ def live_check(key: str | None = None) -> None:
             (f"https://{host}{p['news']}", "news", False),
             (f"https://{host}{p['about']}", "about", False),
             (f"https://{host}{p['catalog']}", "catalog", False),
-            (f"https://{host}{p['guide']}", "ranked", False),
-            (f"https://{host}{p['ship']}", "ranked", False),
+            (f"https://{host}{p['guide']}", "guide", True),
+            (f"https://{host}{p['ship']}", "ship", True),
+            (f"https://{host}/is-bbdbuy-legit/", "legit", False),
+            (f"https://{host}/bbdbuy-coupons/", "coupons", False),
         ]
         for url, kind, need_fp in checks:
-            follow = kind in ("home", "start", "ranked")
+            follow = kind in ("home", "start", "guide", "ship", "legit", "coupons")
             code, final, loc, body = fetch(url, follow=follow)
             html = body.decode("utf-8", "replace")
             print(k, kind, code, "bytes", len(body), "loc", loc or final)
@@ -1572,10 +1900,13 @@ def live_check(key: str | None = None) -> None:
             sisters = [h for h in dest_hosts if h != host]
             if any(s in (final or "") or s in (loc or "") for s in sisters):
                 print(" FAIL 301 into sister dest"); fail += 1
-            if kind != "ranked" and code != 200:
+            if kind not in ("404",) and code != 200:
                 print(" FAIL status"); fail += 1
-            if kind == "ranked" and code != 200:
-                print(" FAIL ranked"); fail += 1
+            if "orientdig" in html.lower() or "warum sollte ich lieferungen" in html.lower():
+                print(" FAIL orientdig leftover"); fail += 1
+            for tok in INVITES:
+                if tok in html:
+                    print(" FAIL invite"); fail += 1
             if "bbdbuy-logo.png" not in html:
                 print(" FAIL logo"); fail += 1
             if f'lang="{p["lang"]}"' not in html:
@@ -1593,9 +1924,13 @@ def live_check(key: str | None = None) -> None:
                     print(" FAIL cats"); fail += 1
                 if html.count('class="sg-faq"') >= 8:
                     print(" FAIL faq dump"); fail += 1
-                for tok in INVITES:
-                    if tok in html:
-                        print(" FAIL invite"); fail += 1
+            if kind in ("guide", "ship"):
+                mark = {
+                    "de": ("Erste Bestellung bei BBDBuy" if kind == "guide" else "Versand nach Deutschland"),
+                    "it": ("Primo ordine BBDBuy" if kind == "guide" else "Spedire in Italia"),
+                }.get(p["loc"], ("First BBDBuy order" if kind == "guide" else "Shipping to"))
+                if mark not in html:
+                    print(" FAIL", kind, "copy"); fail += 1
             if kind == "catalog" and html.count('class="cat"') < 30:
                 print(" FAIL catalog wall"); fail += 1
             if kind == "news" and "ItemList" not in html:
