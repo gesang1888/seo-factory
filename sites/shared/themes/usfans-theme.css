@@ -1,8 +1,3 @@
-/* USFans country dest — matches official palette, Inter not serif. */
-:root {
-  --primary: #ff4800;
-  --primary-dark: #ff4800;
-  --primary-soft: #fff4ed;
-  --nav-dark: #202b40;
-}
+/* USFans country dest — official orange #ff4800 from usfans.com */
+:root { --primary: #ff4800; --primary-dark: #cc3a00; --primary-soft: #fff4ed; --nav-dark: #202b40; }
 body { background: var(--bg, #f7f8fa); }
