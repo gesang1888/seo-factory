@@ -4047,6 +4047,13 @@ def _wrap_targets(key: str) -> tuple[tuple[str, int], ...]:
     return tuple((href, floor) for href, floor in RANKED.get(key, ()) if href not in cms)
 
 
+def _ranked_floor(key: str, rel: str) -> int | None:
+    for href, floor in _wrap_targets(key):
+        if rel == href.lstrip("/") + "index.html":
+            return floor
+    return None
+
+
 _LOC_LINE = re.compile(
     r"location\s+(?P<mod>=|\^~)\s+(?P<path>\S+)\s*\{(?P<body>[^{}]*)\}"
 )
@@ -4056,9 +4063,9 @@ def _unstick_shadows(client, sftp, key: str) -> None:
     """Drop locations that steal CMS slugs or ranked wrap URLs.
 
     Drops CMS-slug 301s including `location =` and `location ^~` so generated
-    ship/guide/help are 200. Leftover `/orientdig-shipping/` 301s unstick because
-    `/orientdig-shipping/` is the CMS ship slug; ranked `/orientdig-shipping-guide/`
-    stays wrap. Trailing-slash canonicalization onto the same wrap href is kept.
+    ship/guide/help are 200. CMS ship is `/orientdig-freight/`; ranked
+    `/orientdig-shipping/` stays wrap. Trailing-slash canonicalization onto the
+    same wrap href is kept.
     """
     p = PACKS[key]
     host = p["host"]
