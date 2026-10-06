@@ -557,7 +557,7 @@ def wrap_inner(desk: CountryDesk, html: str, page_href: str) -> tuple[str | None
         return None, "thin-article"
     head = _head_inner(html)
     head = re.sub(
-        r"<link[^>]+(?:allchinabuy-theme|allchinabuy-ca-desk|allchinabuy-nl-desk|allchinabuy-uk-desk|acbuy-theme|acbuy-nl-desk|acbuy-ca-desk|bbdbuy-theme|bbdbuy-ca-desk|bbdbuy-uk-desk|bbdbuy-us-desk|bbdbuy-de-desk|bbdbuy-it-desk|cssbuy-theme|cssbuy-ca-desk|cssbuy-uk-desk|cssbuy-us-desk|cssbuy-de-desk)\.css[^>]*>\s*",
+        r"<link[^>]+(?:allchinabuy-theme|allchinabuy-ca-desk|allchinabuy-nl-desk|allchinabuy-uk-desk|acbuy-theme|acbuy-nl-desk|acbuy-ca-desk|bbdbuy-theme|bbdbuy-ca-desk|bbdbuy-uk-desk|bbdbuy-us-desk|bbdbuy-de-desk|bbdbuy-it-desk|cssbuy-theme|cssbuy-ca-desk|cssbuy-uk-desk|cssbuy-us-desk|cssbuy-de-desk|cssbuy-at-desk|cssbuy-es-desk|cssbuy-fr-desk|cssbuy-it-desk|cssbuy-nl-desk)\.css[^>]*>\s*",
         "",
         head,
         flags=re.I,

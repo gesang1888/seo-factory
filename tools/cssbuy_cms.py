@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""CSSBuy country dests: CA, UK, US, DE. PHP AT/ES/FR/IT/NL stay cssbuy-lite.
+"""CSSBuy country dests: CA, UK, US, DE, AT, ES, FR, IT, NL.
 
 Gold IA: hipobuy.es. Gold brand: cssbuy.com (official lime #00C853 / #009E44).
 Same-agent country hosts stay independent. Same-country twins 301 into the
 dest with $request_uri. Hub cssbuyspreadsheet.eu is not overwritten.
 
+AT/ES/FR/IT/NL used to share cssbuy-lite/public. Cut each vhost root over to
+/www/wwwroot/{host} and PUT an independent country CMS. Never PUT into
+cssbuy-lite/public/.
+
 Official estimator is https://www.cssbuy.com/?action=estimates&go=page.
-This desk does not invent a line, a transit-day count or a declared value.
 Invite 1Yi9 stays off titles and dest homepages. cssbuy.co.uk is unique off-origin — skip.
-Never PUT a 5KB country template over cssbuy-lite/public/.
 """
 from __future__ import annotations
 
@@ -52,7 +54,8 @@ ACC_DARK = "#009E44"
 MAIL = "cnfd85269032661@gmail.com"
 HUB = "cssbuyspreadsheet.eu"
 PHP_HOSTS = ("cssbuy.at", "cssbuy.es", "cssbuy.fr", "cssbuy.it", "cssbuy.nl")
-SKIP_PUT_HOSTS = {HUB, "cssbuy.co.uk", "cssbuyspreadsheet.de", *PHP_HOSTS}
+PHP_KEYS = ("at", "es", "fr", "it", "nl")
+SKIP_PUT_HOSTS = {HUB, "cssbuy.co.uk", "cssbuyspreadsheet.de"}
 PHP_OVERLAY = OUT / "cssbuy-shared" / "php" / "overlay"
 PHP_LIVE = {
     "at": {
@@ -82,7 +85,7 @@ PHP_LIVE = {
     },
 }
 DEST_MIN = 22000
-CSS_V = "20261006a"
+CSS_V = "20261006c"
 INVITES = ("1Yi9", "cssb.uy/1Yi9")
 
 EN_LABELS = {
@@ -185,6 +188,102 @@ IT_LABELS = {
     "GLASSES": "Occhiali",
     "WATCH": "Orologio",
     "CHILD": "Bambini",
+}
+
+ES_LABELS = {
+    **EN_LABELS,
+    "SNEAKERS": "Zapatillas",
+    "T-SHIRT": "Camiseta",
+    "SHIRT": "Camisa",
+    "VEST": "Chaleco",
+    "LONG SLEEVED": "Manga larga",
+    "SWEATER": "Jersey",
+    "SHAWL": "Chal",
+    "JACKET": "Chaqueta",
+    "SHELL JACKET": "Chaqueta shell",
+    "FLEECE JACKET": "Forro polar",
+    "DOWN JACKETS": "Plumífero",
+    "TROUSERS": "Pantalón",
+    "FEMALE STYLE": "Mujer",
+    "Electronics": "Electrónica",
+    "GLOVES": "Guantes",
+    "BAG": "Bolso",
+    "HAT": "Gorra",
+    "JEWELRY": "Joyería",
+    "UNDERWEAR": "Ropa interior",
+    "BELT": "Cinturón",
+    "KNEEPAD": "Rodillera",
+    "SOCKS": "Calcetines",
+    "HEADGEAR": "Sombrero",
+    "EARMUFF": "Orejeras",
+    "SCARF": "Bufanda",
+    "GLASSES": "Gafas",
+    "WATCH": "Reloj",
+    "CHILD": "Niños",
+}
+
+FR_LABELS = {
+    **EN_LABELS,
+    "SNEAKERS": "Baskets",
+    "T-SHIRT": "T-shirt",
+    "SHIRT": "Chemise",
+    "VEST": "Veste sans manches",
+    "LONG SLEEVED": "Manches longues",
+    "SWEATER": "Pull",
+    "SHAWL": "Châle",
+    "JACKET": "Veste",
+    "SHELL JACKET": "Veste shell",
+    "FLEECE JACKET": "Polaire",
+    "DOWN JACKETS": "Doudoune",
+    "TROUSERS": "Pantalon",
+    "FEMALE STYLE": "Femme",
+    "Electronics": "Électronique",
+    "GLOVES": "Gants",
+    "BAG": "Sac",
+    "HAT": "Casquette",
+    "JEWELRY": "Bijoux",
+    "UNDERWEAR": "Sous-vêtements",
+    "BELT": "Ceinture",
+    "KNEEPAD": "Genouillère",
+    "SOCKS": "Chaussettes",
+    "HEADGEAR": "Couvre-chef",
+    "EARMUFF": "Cache-oreilles",
+    "SCARF": "Écharpe",
+    "GLASSES": "Lunettes",
+    "WATCH": "Montre",
+    "CHILD": "Enfants",
+}
+
+NL_LABELS = {
+    **EN_LABELS,
+    "SNEAKERS": "Sneakers",
+    "T-SHIRT": "T-shirt",
+    "SHIRT": "Overhemd",
+    "VEST": "Bodywarmer",
+    "LONG SLEEVED": "Lange mouw",
+    "SWEATER": "Trui",
+    "SHAWL": "Omslagdoek",
+    "JACKET": "Jas",
+    "SHELL JACKET": "Shelljas",
+    "FLEECE JACKET": "Fleecejas",
+    "DOWN JACKETS": "Donsjas",
+    "TROUSERS": "Broek",
+    "FEMALE STYLE": "Dames",
+    "Electronics": "Elektronica",
+    "GLOVES": "Handschoenen",
+    "BAG": "Tas",
+    "HAT": "Pet",
+    "JEWELRY": "Sieraden",
+    "UNDERWEAR": "Ondergoed",
+    "BELT": "Riem",
+    "KNEEPAD": "Kniebeschermer",
+    "SOCKS": "Sokken",
+    "HEADGEAR": "Hoofddeksel",
+    "EARMUFF": "Oorwarmers",
+    "SCARF": "Sjaal",
+    "GLASSES": "Bril",
+    "WATCH": "Horloge",
+    "CHILD": "Kinderen",
 }
 
 CAT_NOTES_EN = {
@@ -295,6 +394,31 @@ CAT_NOTES_IT = {
     "CHILD": "Le taglie kids asiatiche corrono più piccole. Misura, non indovinare dall’età.",
 }
 
+CAT_NOTES_ES = {k: v for k, v in CAT_NOTES_EN.items()}
+CAT_NOTES_ES.update({
+    "SNEAKERS": "Suela y horma en las fotos QC antes de reservar el internacional.",
+    "T-SHIRT": "Los cortes asiáticos suelen ser más estrechos. Mide el pecho en centímetros.",
+    "HOODIE": "Pesada para su volumen. Una sudadera puede fijar la franja de peso de toda la caja.",
+    "Electronics": "A menudo litio. Muchas líneas aéreas las rechazan: mira el sitio oficial antes.",
+    "BAG": "Llena una caja casi sola. Cuenta el volumen antes de añadir ropa.",
+})
+CAT_NOTES_FR = {k: v for k, v in CAT_NOTES_EN.items()}
+CAT_NOTES_FR.update({
+    "SNEAKERS": "Semelle et forme sur les photos QC avant de réserver l’international.",
+    "T-SHIRT": "Les coupes asiatiques sont souvent plus étroites. Mesure le tour de poitrine.",
+    "HOODIE": "Lourd pour son volume. Un hoodie peut fixer la tranche de poids de toute la boîte.",
+    "Electronics": "Souvent du lithium. Beaucoup de lignes aériennes refusent : vérifier le site officiel.",
+    "BAG": "Remplit presque une boîte à elle seule. Compter le volume avant d’ajouter des vêtements.",
+})
+CAT_NOTES_NL = {k: v for k, v in CAT_NOTES_EN.items()}
+CAT_NOTES_NL.update({
+    "SNEAKERS": "Zool en leest op de QC-foto’s voor je internationaal boekt.",
+    "T-SHIRT": "Aziatische snits lopen vaak smaller. Meet de borst in centimeters.",
+    "HOODIE": "Zwaar voor het volume. Eén hoodie kan de gewichtsklasse van de hele doos zetten.",
+    "Electronics": "Vaak lithium. Veel luchtlijnen weigeren: check de officiële site eerst.",
+    "BAG": "Vult bijna in z’n eentje een doos. Tel het volume voor je kleding toevoegt.",
+})
+
 RANKED = (
     ("/is-cssbuy-legit/", 8000),
     ("/cssbuy-shipping/", 8000),
@@ -313,37 +437,101 @@ TWINS = {
 
 TWIN_EXTRA = {
     "cssbuyspreadsheet.es": [
-        ("/guides/customs", "/guide/customs"),
-        ("/guides/costs", "/guide/costs"),
-        ("/guides/payment", "/guide/payment"),
-        ("/guides/tracking", "/guide/tracking"),
-        ("/guides/coupon", "/guide/coupon"),
-        ("/guides/is-safe", "/guide/is-safe"),
-        ("/guides/first-order", "/guide/first-order"),
-        ("/guides/vs-pandabuy", "/guide/vs-pandabuy"),
-        ("/guides/shipping", "/guide/shipping"),
-        ("/spreadsheet", "/spreadsheet"),
-        ("/faq", "/#faq"),
+        ("/guides/customs", "/cssbuy-shipping/"),
+        ("/guides/costs", "/cssbuy-shipping/"),
+        ("/guides/payment", "/how-to-use-cssbuy/"),
+        ("/guides/tracking", "/cssbuy-shipping/"),
+        ("/guides/coupon", "/cssbuy-coupons/"),
+        ("/guides/is-safe", "/is-cssbuy-legit/"),
+        ("/guides/first-order", "/how-to-use-cssbuy/"),
+        ("/guides/vs-pandabuy", "/is-cssbuy-legit/"),
+        ("/guides/shipping", "/cssbuy-shipping/"),
+        ("/guide/shipping", "/cssbuy-shipping/"),
+        ("/guide/first-order", "/how-to-use-cssbuy/"),
+        ("/guide/customs", "/cssbuy-shipping/"),
+        ("/guide/coupon", "/cssbuy-coupons/"),
+        ("/guide/is-safe", "/is-cssbuy-legit/"),
+        ("/spreadsheet", "/catalogo/"),
+        ("/faq", "/ayuda/"),
+    ],
+    "cssbuyspreadsheet.fr": [
+        ("/guides/customs", "/cssbuy-shipping/"),
+        ("/guides/costs", "/cssbuy-shipping/"),
+        ("/guides/payment", "/how-to-use-cssbuy/"),
+        ("/guides/tracking", "/cssbuy-shipping/"),
+        ("/guides/coupon", "/cssbuy-coupons/"),
+        ("/guides/is-safe", "/is-cssbuy-legit/"),
+        ("/guides/first-order", "/how-to-use-cssbuy/"),
+        ("/guides/vs-pandabuy", "/is-cssbuy-legit/"),
+        ("/guides/shipping", "/cssbuy-shipping/"),
+        ("/guide/shipping", "/cssbuy-shipping/"),
+        ("/guide/first-order", "/how-to-use-cssbuy/"),
+        ("/guide/customs", "/cssbuy-shipping/"),
+        ("/guide/coupon", "/cssbuy-coupons/"),
+        ("/guide/is-safe", "/is-cssbuy-legit/"),
+        ("/spreadsheet", "/catalogue/"),
+        ("/faq", "/aide/"),
+    ],
+    "cssbuyspreadsheet.it": [
+        ("/guides/customs", "/cssbuy-shipping/"),
+        ("/guides/costs", "/cssbuy-shipping/"),
+        ("/guides/payment", "/how-to-use-cssbuy/"),
+        ("/guides/tracking", "/cssbuy-shipping/"),
+        ("/guides/coupon", "/cssbuy-coupons/"),
+        ("/guides/is-safe", "/is-cssbuy-legit/"),
+        ("/guides/first-order", "/how-to-use-cssbuy/"),
+        ("/guides/vs-pandabuy", "/is-cssbuy-legit/"),
+        ("/guides/shipping", "/cssbuy-shipping/"),
+        ("/guide/shipping", "/cssbuy-shipping/"),
+        ("/guide/first-order", "/how-to-use-cssbuy/"),
+        ("/guide/customs", "/cssbuy-shipping/"),
+        ("/guide/coupon", "/cssbuy-coupons/"),
+        ("/guide/is-safe", "/is-cssbuy-legit/"),
+        ("/spreadsheet", "/catalogo/"),
+        ("/faq", "/aiuto/"),
+    ],
+    "cssbuyspreadsheet.nl": [
+        ("/guides/customs", "/cssbuy-shipping/"),
+        ("/guides/costs", "/cssbuy-shipping/"),
+        ("/guides/payment", "/how-to-use-cssbuy/"),
+        ("/guides/tracking", "/cssbuy-shipping/"),
+        ("/guides/coupon", "/cssbuy-coupons/"),
+        ("/guides/is-safe", "/is-cssbuy-legit/"),
+        ("/guides/first-order", "/how-to-use-cssbuy/"),
+        ("/guides/vs-pandabuy", "/is-cssbuy-legit/"),
+        ("/guides/shipping", "/cssbuy-shipping/"),
+        ("/guide/shipping", "/cssbuy-shipping/"),
+        ("/guide/first-order", "/how-to-use-cssbuy/"),
+        ("/guide/customs", "/cssbuy-shipping/"),
+        ("/guide/coupon", "/cssbuy-coupons/"),
+        ("/guide/is-safe", "/is-cssbuy-legit/"),
+        ("/spreadsheet", "/catalogus/"),
+        ("/faq", "/hulp/"),
     ],
 }
-TWIN_EXTRA["cssbuyspreadsheet.fr"] = TWIN_EXTRA["cssbuyspreadsheet.es"]
-TWIN_EXTRA["cssbuyspreadsheet.it"] = TWIN_EXTRA["cssbuyspreadsheet.es"]
-TWIN_EXTRA["cssbuyspreadsheet.nl"] = TWIN_EXTRA["cssbuyspreadsheet.es"]
 
 CMS_PAGE_LOCS = (
     "about", "about/", "help", "help/", "news", "news/", "catalog", "catalog/",
     "start", "start/", "aiuto", "aiuto/", "catalogo", "catalogo/", "notizie", "notizie/",
     "chi-siamo", "chi-siamo/", "hilfe", "hilfe/", "katalog", "katalog/",
     "neuigkeiten", "neuigkeiten/", "ueber-uns", "ueber-uns/",
+    "ayuda", "ayuda/", "noticias", "noticias/", "sobre-nosotros", "sobre-nosotros/",
+    "aide", "aide/", "catalogue", "catalogue/", "actualites", "actualites/",
+    "a-propos", "a-propos/", "hulp", "hulp/", "catalogus", "catalogus/",
+    "nieuws", "nieuws/", "over-ons", "over-ons/",
 )
 
 WRAP_SKIP_PREFIXES = (
     "help/", "news/", "about/", "catalog/", "start/", "hilfe/", "katalog/",
     "neuigkeiten/", "ueber-uns/",
+    "aiuto/", "catalogo/", "notizie/", "chi-siamo/",
+    "ayuda/", "noticias/", "sobre-nosotros/",
+    "aide/", "catalogue/", "actualites/", "a-propos/",
+    "hulp/", "catalogus/", "nieuws/", "over-ons/",
     "api/", "assets/", "img/",
     "cssbuy-shipping/", "how-to-use-cssbuy/", "is-cssbuy-legit/",
     "cssbuy-coupons/", "cssbuy-spreadsheet/", "ist-cssbuy-serioes/",
-    "faq/",
+    "faq/", "guide/",
 )
 WRAP_POISON = ("orientdig", "orient dig", "1yi9", "cssb.uy", "1qodrw", "bbd5off")
 
@@ -480,6 +668,248 @@ PACKS = {
         "skip": "de",
         "desk_css": "cssbuy-de-desk.css",
         "css_id": "cssbuy-de",
+        "lab_not": "nicht EU und nicht AT",
+    },
+    "at": {
+        "host": "cssbuy.at",
+        "dest": "AT",
+        "dest_label": "Österreich",
+        "dest_zh": "Austria — 奥地利",
+        "lang": "de-AT",
+        "loc": "de",
+        "in_language": "auf Deutsch",
+        "ccy": "EUR",
+        "home_topic": "in China kaufen aus Österreich, sicher",
+        "hero_h1": "CSSBuy Spreadsheet: die Anleitung, um in China von Österreich aus zu kaufen",
+        "eyebrow": "Unabhängiger Leitfaden, auf Deutsch",
+        "lead": "Wie du einen Produktlink in den Agenten einfügst, wie der w2clinks-Katalog funktioniert, wie ein Paket nach Österreich reist und was du vor dem Zoll prüfst.",
+        "fingerprint": dest_local_pack("AT")["fingerprint"],
+        "customs": "BMF Zoll",
+        "customs_url": "https://www.bmf.gv.at/themen/zoll.html",
+        "postal": "österreichische PLZ (z. B. 1010 Wien)",
+        "catalog": "/katalog/",
+        "help": "/hilfe/",
+        "news": "/neuigkeiten/",
+        "about": "/ueber-uns/",
+        "guide": "/how-to-use-cssbuy/",
+        "ship": "/cssbuy-shipping/",
+        "nav": [
+            ("/start/", "Start"),
+            ("/how-to-use-cssbuy/", "Anleitung"),
+            ("/katalog/", "Katalog"),
+            ("/cssbuy-shipping/", "Versand"),
+            ("/hilfe/", "Hilfe"),
+            ("/neuigkeiten/", "News"),
+        ],
+        "footer_sections": [
+            ("/how-to-use-cssbuy/", "CSSBuy-Anleitung"),
+            ("/katalog/", "Spreadsheet und Kategorien"),
+            ("/cssbuy-shipping/", "Versand und Zoll"),
+            ("/hilfe/", "Hilfe und Fragen"),
+            ("/neuigkeiten/", "News"),
+            ("/ueber-uns/", "Über uns"),
+        ],
+        "aliens": ("Packstation", "Poste Italiane", "form A1A 1A1", "pas un code postal belge"),
+        "not_found_tab": "Seite nicht gefunden",
+        "login": "Bei CSSBuy anmelden",
+        "menu": "Menü öffnen",
+        "home_cta": "Zurück zur Startseite",
+        "skip": "de",
+        "desk_css": "cssbuy-at-desk.css",
+        "css_id": "cssbuy-at",
+        "lab_not": "nicht EU und nicht DE",
+    },
+    "es": {
+        "host": "cssbuy.es",
+        "dest": "ES",
+        "dest_label": "España",
+        "dest_zh": "Spain — 西班牙",
+        "lang": "es-ES",
+        "loc": "es",
+        "in_language": "en español",
+        "ccy": "EUR",
+        "home_topic": "comprar en China desde España, con seguridad",
+        "hero_h1": "CSSBuy Spreadsheet: la guía para comprar en China desde España",
+        "eyebrow": "Guía independiente, en español",
+        "lead": "Cómo pegas un enlace de producto en el agente, cómo funciona el catálogo de w2clinks, cómo viaja un paquete a España y qué miras antes de aduanas.",
+        "fingerprint": dest_local_pack("ES")["fingerprint"],
+        "customs": "Agencia Tributaria",
+        "customs_url": "https://sede.agenciatributaria.gob.es/",
+        "postal": "calle española y código postal de cinco dígitos. no copiamos un recuento de líneas",
+        "catalog": "/catalogo/",
+        "help": "/ayuda/",
+        "news": "/noticias/",
+        "about": "/sobre-nosotros/",
+        "guide": "/how-to-use-cssbuy/",
+        "ship": "/cssbuy-shipping/",
+        "nav": [
+            ("/start/", "Start"),
+            ("/how-to-use-cssbuy/", "Guía"),
+            ("/catalogo/", "Catálogo"),
+            ("/cssbuy-shipping/", "Envío"),
+            ("/ayuda/", "Ayuda"),
+            ("/noticias/", "Noticias"),
+        ],
+        "footer_sections": [
+            ("/how-to-use-cssbuy/", "Guía CSSBuy"),
+            ("/catalogo/", "Spreadsheet y categorías"),
+            ("/cssbuy-shipping/", "Envío y aduanas"),
+            ("/ayuda/", "Ayuda y preguntas"),
+            ("/noticias/", "Noticias"),
+            ("/sobre-nosotros/", "Sobre nosotros"),
+        ],
+        "aliens": ("Packstation", "1010 Wien", "pas un code postal belge", "Poste Italiane"),
+        "not_found_tab": "Página no encontrada",
+        "login": "Entrar en CSSBuy",
+        "menu": "Abrir menú",
+        "home_cta": "Volver al inicio",
+        "skip": "es",
+        "desk_css": "cssbuy-es-desk.css",
+        "css_id": "cssbuy-es",
+    },
+    "fr": {
+        "host": "cssbuy.fr",
+        "dest": "FR",
+        "dest_label": "la France",
+        "dest_zh": "France — 法国",
+        "lang": "fr-FR",
+        "loc": "fr",
+        "in_language": "en français",
+        "ccy": "EUR",
+        "home_topic": "acheter en Chine depuis la France, en sécurité",
+        "hero_h1": "CSSBuy Spreadsheet : le guide pour acheter en Chine depuis la France",
+        "eyebrow": "Guide indépendant, en français",
+        "lead": "Comment tu colles un lien produit dans l’agent, comment le catalogue w2clinks fonctionne, comment un colis voyage vers la France, et ce que tu vérifies avant la douane.",
+        "fingerprint": dest_local_pack("FR")["fingerprint"],
+        "customs": "douane.gouv.fr",
+        "customs_url": "https://www.douane.gouv.fr/",
+        "postal": "rue française, code postal à cinq chiffres, pas un code postal belge",
+        "catalog": "/catalogue/",
+        "help": "/aide/",
+        "news": "/actualites/",
+        "about": "/a-propos/",
+        "guide": "/how-to-use-cssbuy/",
+        "ship": "/cssbuy-shipping/",
+        "nav": [
+            ("/start/", "Start"),
+            ("/how-to-use-cssbuy/", "Guide"),
+            ("/catalogue/", "Catalogue"),
+            ("/cssbuy-shipping/", "Livraison"),
+            ("/aide/", "Aide"),
+            ("/actualites/", "Actus"),
+        ],
+        "footer_sections": [
+            ("/how-to-use-cssbuy/", "Guide CSSBuy"),
+            ("/catalogue/", "Spreadsheet et catégories"),
+            ("/cssbuy-shipping/", "Livraison et douane"),
+            ("/aide/", "Aide et questions"),
+            ("/actualites/", "Actus"),
+            ("/a-propos/", "À propos"),
+        ],
+        "aliens": ("Packstation", "1010 Wien", "Poste Italiane", "form A1A 1A1"),
+        "not_found_tab": "Page introuvable",
+        "login": "Se connecter à CSSBuy",
+        "menu": "Ouvrir le menu",
+        "home_cta": "Retour à l’accueil",
+        "skip": "fr",
+        "desk_css": "cssbuy-fr-desk.css",
+        "css_id": "cssbuy-fr",
+    },
+    "it": {
+        "host": "cssbuy.it",
+        "dest": "IT",
+        "dest_label": "Italia",
+        "dest_zh": "Italy — 意大利",
+        "lang": "it-IT",
+        "loc": "it",
+        "in_language": "in italiano",
+        "ccy": "EUR",
+        "home_topic": "comprare in Cina dall’Italia, in sicurezza",
+        "hero_h1": "CSSBuy Spreadsheet: la guida per comprare in Cina dall’Italia",
+        "eyebrow": "Guida indipendente, in italiano",
+        "lead": "Come incolli un link prodotto nell’agente, come funziona il catalogo w2clinks, come un pacco arriva in Italia e cosa controlli prima della dogana.",
+        "fingerprint": dest_local_pack("IT")["fingerprint"],
+        "customs": "ADM",
+        "customs_url": "https://www.adm.gov.it/portale/",
+        "postal": "via italiana e CAP a cinque cifre. Poste Italiane può aggiungere un fee",
+        "catalog": "/catalogo/",
+        "help": "/aiuto/",
+        "news": "/notizie/",
+        "about": "/chi-siamo/",
+        "guide": "/how-to-use-cssbuy/",
+        "ship": "/cssbuy-shipping/",
+        "nav": [
+            ("/start/", "Start"),
+            ("/how-to-use-cssbuy/", "Guida"),
+            ("/catalogo/", "Catalogo"),
+            ("/cssbuy-shipping/", "Spedizione"),
+            ("/aiuto/", "Aiuto"),
+            ("/notizie/", "Notizie"),
+        ],
+        "footer_sections": [
+            ("/how-to-use-cssbuy/", "Guida CSSBuy"),
+            ("/catalogo/", "Spreadsheet e categorie"),
+            ("/cssbuy-shipping/", "Spedizione e dogana"),
+            ("/aiuto/", "Aiuto e domande"),
+            ("/notizie/", "Notizie"),
+            ("/chi-siamo/", "Chi siamo"),
+        ],
+        "aliens": ("Packstation", "1010 Wien", "pas un code postal belge", "form A1A 1A1"),
+        "not_found_tab": "Pagina non trovata",
+        "login": "Accedi a CSSBuy",
+        "menu": "Apri menu",
+        "home_cta": "Torna alla homepage",
+        "skip": "it",
+        "desk_css": "cssbuy-it-desk.css",
+        "css_id": "cssbuy-it",
+    },
+    "nl": {
+        "host": "cssbuy.nl",
+        "dest": "NL",
+        "dest_label": "Nederland",
+        "dest_zh": "Netherlands — 荷兰",
+        "lang": "nl-NL",
+        "loc": "nl",
+        "in_language": "in het Nederlands",
+        "ccy": "EUR",
+        "home_topic": "kopen in China vanaf Nederland, veilig",
+        "hero_h1": "CSSBuy Spreadsheet: de gids om in China te kopen vanuit Nederland",
+        "eyebrow": "Onafhankelijke gids, in het Nederlands",
+        "lead": "Hoe je een productlink in de agent plakt, hoe de w2clinks-catalogus werkt, hoe een pakket naar Nederland reist en wat je checkt voor de Douane.",
+        "fingerprint": dest_local_pack("NL")["fingerprint"],
+        "customs": "Douane",
+        "customs_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/",
+        "postal": "Nederlandse postcode (vorm 1234 AB), geen Duits afhaalautomaat-nummer",
+        "catalog": "/catalogus/",
+        "help": "/hulp/",
+        "news": "/nieuws/",
+        "about": "/over-ons/",
+        "guide": "/how-to-use-cssbuy/",
+        "ship": "/cssbuy-shipping/",
+        "nav": [
+            ("/start/", "Start"),
+            ("/how-to-use-cssbuy/", "Handleiding"),
+            ("/catalogus/", "Catalogus"),
+            ("/cssbuy-shipping/", "Verzending"),
+            ("/hulp/", "Hulp"),
+            ("/nieuws/", "Nieuws"),
+        ],
+        "footer_sections": [
+            ("/how-to-use-cssbuy/", "CSSBuy-handleiding"),
+            ("/catalogus/", "Spreadsheet en categorieën"),
+            ("/cssbuy-shipping/", "Verzending en douane"),
+            ("/hulp/", "Hulp en vragen"),
+            ("/nieuws/", "Nieuws"),
+            ("/over-ons/", "Over ons"),
+        ],
+        "aliens": ("Packstation", "1010 Wien", "Poste Italiane", "form A1A 1A1"),
+        "not_found_tab": "Pagina niet gevonden",
+        "login": "Inloggen bij CSSBuy",
+        "menu": "Menu openen",
+        "home_cta": "Terug naar de homepage",
+        "skip": "nl",
+        "desk_css": "cssbuy-nl-desk.css",
+        "css_id": "cssbuy-nl",
     },
 }
 
@@ -497,7 +927,7 @@ def desk_for(key: str) -> CountryDesk:
     if loc == "de":
         intro = (
             "Unabhängiger deutschsprachiger Leitfaden zu CSSBuy und dazu, wie du den "
-            "Katalog von w2clinks nutzt, um von Deutschland aus in China zu kaufen."
+            f"Katalog von w2clinks nutzt, um von {p['dest_label']} aus in China zu kaufen."
         )
         independence = (
             "CSSBuy Spreadsheet ist eine unabhängige Informationsseite. Wir sind nicht "
@@ -533,6 +963,66 @@ def desk_for(key: str) -> CountryDesk:
             (_off(p["host"]), "CSSBuy (sito ufficiale)"),
             (_off(p["host"], "/register"), "Account CSSBuy"),
             (_off(p["host"], "/?action=estimates&go=page"), "Preventivo (login il 6 Oct 2026)"),
+        ]
+    elif loc == "es":
+        intro = (
+            "Guía independiente en español sobre CSSBuy y sobre cómo usas el catálogo "
+            f"w2clinks para comprar en China desde {p['dest_label']}."
+        )
+        independence = (
+            "CSSBuy Spreadsheet es un sitio informativo independiente. No somos CSSBuy, "
+            "no tramitamos pedidos, no cobramos el envío y no vemos tu cuenta. "
+            "Cada pedido, pago y reclamación pasa por el sitio oficial."
+        )
+        copyright = "&copy; 2026 CSSBuy Spreadsheet. Texto en español, releído antes de publicar."
+        sections_h, official_h, independence_h, nav_aria = (
+            "Secciones", "Enlaces oficiales", "Aviso de independencia.", "Menú principal",
+        )
+        nf_h1, nf_lead = "Esta página no existe", "El enlace quizá sea antiguo. Estas secciones sí existen:"
+        official_links = [
+            (_off(p["host"]), "CSSBuy (sitio oficial)"),
+            (_off(p["host"], "/register"), "Cuenta CSSBuy"),
+            (_off(p["host"], "/?action=estimates&go=page"), "Estimador (login el 6 Oct 2026)"),
+        ]
+    elif loc == "fr":
+        intro = (
+            "Guide indépendant en français sur CSSBuy et sur la façon d’utiliser le catalogue "
+            f"w2clinks pour acheter en Chine depuis {p['dest_label']}."
+        )
+        independence = (
+            "CSSBuy Spreadsheet est un site d’information indépendant. Nous ne sommes pas CSSBuy, "
+            "nous ne traitons pas les commandes, nous n’encaissons pas le port et nous ne voyons "
+            "pas ton compte. Chaque commande, paiement et réclamation passe par le site officiel."
+        )
+        copyright = "&copy; 2026 CSSBuy Spreadsheet. Texte français, relu avant publication."
+        sections_h, official_h, independence_h, nav_aria = (
+            "Rubriques", "Liens officiels", "Mention d’indépendance.", "Menu principal",
+        )
+        nf_h1, nf_lead = "Cette page n’existe pas", "Le lien est peut-être ancien. Voici les rubriques qui existent :"
+        official_links = [
+            (_off(p["host"]), "CSSBuy (site officiel)"),
+            (_off(p["host"], "/register"), "Compte CSSBuy"),
+            (_off(p["host"], "/?action=estimates&go=page"), "Estimateur (login le 6 Oct 2026)"),
+        ]
+    elif loc == "nl":
+        intro = (
+            "Onafhankelijke Nederlandstalige gids over CSSBuy en hoe je de w2clinks-catalogus "
+            f"gebruikt om vanuit {p['dest_label']} in China te kopen."
+        )
+        independence = (
+            "CSSBuy Spreadsheet is een onafhankelijke infosite. Wij zijn CSSBuy niet, "
+            "we verwerken geen bestellingen, we innen geen porto en we zien je account niet. "
+            "Elke bestelling, betaling en klacht loopt via de officiële site."
+        )
+        copyright = "&copy; 2026 CSSBuy Spreadsheet. Nederlandse tekst, nagelezen voor publicatie."
+        sections_h, official_h, independence_h, nav_aria = (
+            "Onderdelen", "Officiële links", "Onafhankelijkheidsnotitie.", "Hoofdmenu",
+        )
+        nf_h1, nf_lead = "Deze pagina bestaat niet", "De link is misschien oud. Dit zijn de onderdelen die wel bestaan:"
+        official_links = [
+            (_off(p["host"]), "CSSBuy (officiële site)"),
+            (_off(p["host"], "/register"), "CSSBuy-account"),
+            (_off(p["host"], "/?action=estimates&go=page"), "Schatter (login op 6 Oct 2026)"),
         ]
     else:
         intro = (
@@ -637,6 +1127,12 @@ def _faqs(key: str) -> list[tuple[str, str]]:
         extra = f"Die Lieferadresse ist eine {p['postal']}."
     elif p["loc"] == "it":
         extra = f"L’indirizzo di consegna è una {p['postal']}."
+    elif p["loc"] == "es":
+        extra = f"La dirección de entrega es una {p['postal']}."
+    elif p["loc"] == "fr":
+        extra = f"L’adresse de livraison est une {p['postal']}."
+    elif p["loc"] == "nl":
+        extra = f"Het afleveradres is een {p['postal']}."
     if pairs:
         q0, a0 = pairs[0]
         if p["fingerprint"] not in a0:
@@ -665,7 +1161,7 @@ def _faq_group_titles(key: str) -> list[str]:
         return [
             "Was CSSBuy ist und in welcher Sprache es läuft",
             "Was du zahlen wirst",
-            "Einfuhr nach Deutschland",
+            f"Einfuhr nach {dest}",
             "Lager, Fotos und was reisen darf",
             "Wenn etwas nicht stimmt",
         ]
@@ -676,6 +1172,30 @@ def _faq_group_titles(key: str) -> list[str]:
             "Importazione in Italia",
             "Magazzino, foto e cosa può viaggiare",
             "Se qualcosa non torna",
+        ]
+    if loc == "es":
+        return [
+            "Qué es CSSBuy y en qué idioma funciona",
+            "Qué vas a pagar",
+            f"Importación a {dest}",
+            "Almacén, fotos y qué puede viajar",
+            "Si algo no cuadra",
+        ]
+    if loc == "fr":
+        return [
+            "Ce qu’est CSSBuy et dans quelle langue ça tourne",
+            "Ce que tu vas payer",
+            f"Import vers {dest}",
+            "Entrepôt, photos et ce qui peut voyager",
+            "Si quelque chose cloche",
+        ]
+    if loc == "nl":
+        return [
+            "Wat CSSBuy is en in welke taal het draait",
+            "Wat je gaat betalen",
+            f"Invoer naar {dest}",
+            "Magazijn, foto’s en wat mag reizen",
+            "Als iets niet klopt",
         ]
     return [
         "What CSSBuy is, and which language it uses",
@@ -724,6 +1244,39 @@ def _keys_table(key: str) -> str:
             ("occhiali", "glasses"),
             ("orologio", "watch"),
         )
+    elif loc == "es":
+        head = ("Si piensas en", "Escribe")
+        rows = (
+            ("zapatillas", "sneakers"),
+            ("sudadera", "hoodie"),
+            ("chaqueta", "jacket"),
+            ("pantalón", "trousers"),
+            ("bolso", "bag"),
+            ("gafas", "glasses"),
+            ("reloj", "watch"),
+        )
+    elif loc == "fr":
+        head = ("Si tu penses à", "Tape")
+        rows = (
+            ("baskets", "sneakers"),
+            ("hoodie", "hoodie"),
+            ("veste", "jacket"),
+            ("pantalon", "trousers"),
+            ("sac", "bag"),
+            ("lunettes", "glasses"),
+            ("montre", "watch"),
+        )
+    elif loc == "nl":
+        head = ("Als je denkt aan", "Typ")
+        rows = (
+            ("sneakers", "sneakers"),
+            ("hoodie", "hoodie"),
+            ("jas", "jacket"),
+            ("broek", "trousers"),
+            ("tas", "bag"),
+            ("bril", "glasses"),
+            ("horloge", "watch"),
+        )
     elif key == "uk":
         head = ("If you think of", "Type")
         rows = (
@@ -759,6 +1312,12 @@ def _cats(key: str):
         return cats_for(DE_LABELS)
     if loc == "it":
         return cats_for(IT_LABELS)
+    if loc == "es":
+        return cats_for(ES_LABELS)
+    if loc == "fr":
+        return cats_for(FR_LABELS)
+    if loc == "nl":
+        return cats_for(NL_LABELS)
     return cats_for(EN_LABELS)
 
 
@@ -842,6 +1401,69 @@ def _shots(key: str):
             "Ricerca CSSBuy: Link or Keyword per incollare un link Taobao, 1688 o Weidian",
             "Barra pubblica su cssbuy.com. Custom Order /diy il 6 Oct 2026 apriva un login. Questa guida non inventa un modulo DIY compilato.",
         )
+    elif loc == "es":
+        off_alt, off_cap = (
+            "Portada oficial de CSSBuy: wordmark verde, búsqueda, forwarding y estimation en el menú",
+            f"Sitio oficial cssbuy.com, {DATE}. Estimation en el menú aquella mañana abría un login. Esta guía no inventa una línea ni un importe.",
+        )
+        sheet_alt, sheet_cap = (
+            "Catálogo CSSBuy en w2clinks: fichas con foto, marca y precio de referencia",
+            "Fichas, no celdas de Excel. Los precios en yuan cambian cada día. Captura 6 Oct 2026, categoría SNEAKERS.",
+        )
+        vol_alt, vol_cap = (
+            "Ejemplo de peso volumétrico: 40×40×3 cm y 200 g en báscula son 600 g de volumen",
+            "Un ejemplo calculado, no una foto de almacén. Muchas líneas facturan el máximo entre báscula y volumen, a menudo L×W×H (cm) / 8000.",
+        )
+        zoek_alt, zoek_cap = (
+            "Búsqueda de hoodie en el catálogo CSSBuy de w2clinks",
+            "Resultados con columna de filtros. Captura 6 Oct 2026.",
+        )
+        diy_alt, diy_cap = (
+            "Búsqueda CSSBuy: Link or Keyword para pegar un enlace Taobao, 1688 o Weidian",
+            "Barra pública en cssbuy.com. Custom Order /diy el 6 Oct 2026 abría un login. Esta guía no inventa un formulario DIY relleno.",
+        )
+    elif loc == "fr":
+        off_alt, off_cap = (
+            "Page d’accueil officielle CSSBuy : wordmark vert, recherche, forwarding et estimation dans le menu",
+            f"Site officiel cssbuy.com, {DATE}. Estimation dans le menu ouvrait un login ce matin-là. Ce guide n’invente ni ligne ni montant.",
+        )
+        sheet_alt, sheet_cap = (
+            "Catalogue CSSBuy sur w2clinks : fiches avec photo, marque et prix de référence",
+            "Des fiches, pas des cellules Excel. Les prix en yuan changent chaque jour. Capture 6 Oct 2026, catégorie SNEAKERS.",
+        )
+        vol_alt, vol_cap = (
+            "Exemple de poids volumétrique : 40×40×3 cm et 200 g à la balance deviennent 600 g de volume",
+            "Un exemple calculé, pas une photo d’entrepôt. Beaucoup de lignes facturent le max entre balance et volume, souvent L×W×H (cm) / 8000.",
+        )
+        zoek_alt, zoek_cap = (
+            "Recherche hoodie dans le catalogue CSSBuy sur w2clinks",
+            "Résultats avec colonne de filtres. Capture 6 Oct 2026.",
+        )
+        diy_alt, diy_cap = (
+            "Recherche CSSBuy : Link or Keyword pour coller un lien Taobao, 1688 ou Weidian",
+            "Barre publique sur cssbuy.com. Custom Order /diy le 6 Oct 2026 ouvrait un login. Ce guide n’invente pas un formulaire DIY rempli.",
+        )
+    elif loc == "nl":
+        off_alt, off_cap = (
+            "Officiële CSSBuy-homepage: groen wordmark, zoekbalk, forwarding en estimation in het menu",
+            f"Officiële cssbuy.com, {DATE}. Estimation in het menu opende die ochtend een login. Deze gids verzint geen lijn en geen bedrag.",
+        )
+        sheet_alt, sheet_cap = (
+            "CSSBuy-catalogus op w2clinks: kaarten met foto, merk en referentieprijs",
+            "Kaarten, geen Excel-cellen. Yuan-prijzen veranderen per dag. Opname 6 Oct 2026, categorie SNEAKERS.",
+        )
+        vol_alt, vol_cap = (
+            "Voorbeeld volumgewicht: 40×40×3 cm en 200 g op de weegschaal wordt 600 g volume",
+            "Een rekenvoorbeeld, geen magazijnfoto. Veel lijnen factureren het maximum van weegschaal en volume, vaak L×W×H (cm) / 8000.",
+        )
+        zoek_alt, zoek_cap = (
+            "Hoodie-zoekopdracht in de CSSBuy-catalogus op w2clinks",
+            "Resultaten met filterkolom. Opname 6 Oct 2026.",
+        )
+        diy_alt, diy_cap = (
+            "CSSBuy-zoekbalk: Link or Keyword om een Taobao-, 1688- of Weidian-link te plakken",
+            "Publieke plakbalk op cssbuy.com. Custom Order /diy opende op 6 Oct 2026 een login. Deze gids verzint geen ingevuld DIY-formulier.",
+        )
     else:
         off_alt, off_cap = (
             "Official CSSBuy homepage: green wordmark, search bar, forwarding and estimation in the nav",
@@ -879,7 +1501,7 @@ def _sec_shots(key: str, fig) -> str:
 <section class="sec" id="shots">
   <div class="wrap"><div class="split split--rev"><div>
     <h2>Einen chinesischen Link einfügen, oder in der App suchen</h2>
-    <p class="lead">CSSBuy beginnt so: einen Link von Taobao, 1688 oder Weidian einfügen, oder den Namen tippen. Der chinesische Shop sieht CSSBuy; du siehst danach Lagerfotos und eine Linie nach Deutschland.</p>
+    <p class="lead">CSSBuy beginnt so: einen Link von Taobao, 1688 oder Weidian einfügen, oder den Namen tippen. Der chinesische Shop sieht CSSBuy; du siehst danach Lagerfotos und eine Linie nach {escape(dest)}.</p>
     <p>Liest die Suche den Link nicht, ist das manuelle Formular der nächste Schritt: Name, Größe, Farbe und Preis in Yuan. International zahlst du erst später, aus dem Lager.</p>
     <p><a class="btn" href="{escape(p["guide"])}">Anleitung Schritt für Schritt</a>
        <a class="btn btn--ghost" href="{escape(OFFICIAL)}" rel="noopener">Offizielle Site</a></p>
@@ -895,6 +1517,42 @@ def _sec_shots(key: str, fig) -> str:
     <p>Se la ricerca non legge il link, il passo successivo è il modulo manuale: nome, taglia, colore e prezzo in yuan. L’internazionale lo paghi dopo, dal magazzino.</p>
     <p><a class="btn" href="{escape(p["guide"])}">Guida passo passo</a>
        <a class="btn btn--ghost" href="{escape(OFFICIAL)}" rel="noopener">Sito ufficiale</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "es":
+        return f"""
+<section class="sec" id="shots">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Pega un enlace chino, o busca en la app</h2>
+    <p class="lead">CSSBuy empieza así: pegas un enlace de Taobao, 1688 o Weidian, o escribes el nombre. La tienda china ve CSSBuy; tú luego ves fotos de almacén y una línea hacia {escape(dest)}.</p>
+    <p>Si la búsqueda no lee el enlace, el siguiente paso es el formulario manual: nombre, talla, color y precio en yuan. El internacional lo pagas después, desde el almacén.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Guía paso a paso</a>
+       <a class="btn btn--ghost" href="{escape(OFFICIAL)}" rel="noopener">Sitio oficial</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "fr":
+        return f"""
+<section class="sec" id="shots">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Colle un lien chinois, ou cherche dans l’app</h2>
+    <p class="lead">CSSBuy commence ainsi : tu colles un lien Taobao, 1688 ou Weidian, ou tu tapes le nom. La boutique chinoise voit CSSBuy ; toi, tu vois ensuite les photos d’entrepôt et une ligne vers {escape(dest)}.</p>
+    <p>Si la recherche ne lit pas le lien, l’étape suivante est le formulaire manuel : nom, taille, couleur et prix en yuan. L’international se paie plus tard, depuis l’entrepôt.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Guide pas à pas</a>
+       <a class="btn btn--ghost" href="{escape(OFFICIAL)}" rel="noopener">Site officiel</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "nl":
+        return f"""
+<section class="sec" id="shots">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Plak een Chinese link, of zoek in de app</h2>
+    <p class="lead">CSSBuy start zo: je plakt een Taobao-, 1688- of Weidian-link, of typt de naam. De Chinese shop ziet CSSBuy; jij ziet daarna magazijnfoto’s en een lijn naar {escape(dest)}.</p>
+    <p>Leest de zoekbalk de link niet, is het handmatige formulier de volgende stap: naam, maat, kleur en prijs in yuan. Internationaal betaal je later, vanuit het magazijn.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Handleiding stap voor stap</a>
+       <a class="btn btn--ghost" href="{escape(OFFICIAL)}" rel="noopener">Officiële site</a></p>
   </div>{fig}</div></div>
 </section>
 """
@@ -919,7 +1577,7 @@ def _sec_states(key: str, fig) -> str:
 <section class="sec" id="states">
   <div class="wrap"><div class="split"><div>
     <h2>Neun Status, drei Bildschirme</h2>
-    <p class="lead">Zuerst zahlst du das Produkt plus den Inlandsweg in China bis zum Lager. International kommt später, wenn du eine Linie nach Deutschland wählst. «Warum steht es still?» heißt fast immer: du schaust auf den falschen Bildschirm.</p>
+    <p class="lead">Zuerst zahlst du das Produkt plus den Inlandsweg in China bis zum Lager. International kommt später, wenn du eine Linie nach {escape(dest)} wählst. «Warum steht es still?» heißt fast immer: du schaust auf den falschen Bildschirm.</p>
     <p>Die ersten Schritte liegen unter Bestellungen, danach Lager, danach das Paket, das du absendest. Am {escape(DATE)} öffnete der öffentliche Schätzer ein Login: dieser Desk erfindet keine Lagerfrist.</p>
     <p><a class="btn" href="{escape(p["guide"])}">Anleitung mit dem Verlauf</a></p>
   </div>{fig}</div></div>
@@ -933,6 +1591,39 @@ def _sec_states(key: str, fig) -> str:
     <p class="lead">Prima paghi il prodotto più il trasporto interno in Cina fino al magazzino. L’internazionale arriva dopo, quando scegli una linea verso l’Italia. «Perché è fermo?» quasi sempre significa: stai guardando la schermata sbagliata.</p>
     <p>I primi passi stanno sotto gli ordini, poi il magazzino, poi il pacco che invii. Il {escape(DATE)} il preventivo pubblico apriva un login: questa guida non inventa giorni di giacenza.</p>
     <p><a class="btn" href="{escape(p["guide"])}">Guida con il percorso</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "es":
+        return f"""
+<section class="sec" id="states">
+  <div class="wrap"><div class="split"><div>
+    <h2>Nueve estados, tres pantallas</h2>
+    <p class="lead">Primero pagas el producto más el tramo interno en China hasta el almacén. El internacional llega después, cuando eliges una línea hacia {escape(dest)}. «¿Por qué está parado?» casi siempre significa: estás mirando la pantalla equivocada.</p>
+    <p>Los primeros pasos están bajo pedidos, luego almacén, luego el paquete que envías. El {escape(DATE)} el estimador público abría un login: esta guía no inventa días de almacén.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Guía con el recorrido</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "fr":
+        return f"""
+<section class="sec" id="states">
+  <div class="wrap"><div class="split"><div>
+    <h2>Neuf statuts, trois écrans</h2>
+    <p class="lead">Tu paies d’abord le produit plus le trajet intérieur en Chine jusqu’à l’entrepôt. L’international vient ensuite, quand tu choisis une ligne vers {escape(dest)}. « Pourquoi c’est bloqué ? » veut presque toujours dire : tu regardes le mauvais écran.</p>
+    <p>Les premiers pas sont sous les commandes, puis l’entrepôt, puis le colis que tu envoies. Le {escape(DATE)} l’estimateur public ouvrait un login : ce guide n’invente pas de jours de stockage.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Guide avec le parcours</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "nl":
+        return f"""
+<section class="sec" id="states">
+  <div class="wrap"><div class="split"><div>
+    <h2>Negen statussen, drie schermen</h2>
+    <p class="lead">Eerst betaal je het product plus het binnenlandse traject in China tot het magazijn. Internationaal komt later, als je een lijn naar {escape(dest)} kiest. «Waarom staat het stil?» betekent bijna altijd: je kijkt naar het verkeerde scherm.</p>
+    <p>De eerste stappen staan onder bestellingen, daarna magazijn, daarna het pakket dat je verzendt. Op {escape(DATE)} opende de publieke schatter een login: deze gids verzint geen opslagdagen.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Handleiding met het pad</a></p>
   </div>{fig}</div></div>
 </section>
 """
@@ -969,6 +1660,36 @@ def _sec_restricted(key: str, fig) -> str:
     <h2>Molti prodotti non si possono comprare anche se compaiono</h2>
     <p class="lead">Sul sito ufficiale vedi schede senza prezzo, o un modulo manuale al posto di una scheda negozio. Non è un bug di questa homepage: il link sorgente non è acquistabile tramite l’agente, o il prezzo non si è letto.</p>
     <p>Regola: senza prezzo vero e varianti non ordinare. Tabacco, alcol e farmaci non viaggiano. Restricted è un blocco d’acquisto, non un avviso della {escape(customs)}. CSSBuy non vende merce propria.</p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "es":
+        return f"""
+<section class="sec sec--tint" id="restricted">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Muchos productos no se pueden comprar aunque aparezcan</h2>
+    <p class="lead">En el sitio oficial ves fichas sin precio, o un formulario manual en lugar de una ficha de tienda. No es un fallo de esta portada: el enlace de origen no se puede comprar por el agente, o el precio no se leyó.</p>
+    <p>Regla: sin precio real y variantes, no pidas. Tabaco, alcohol y medicamentos no viajan. Restricted es un bloqueo de compra, no un aviso de {escape(customs)}. CSSBuy no vende mercancía propia.</p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "fr":
+        return f"""
+<section class="sec sec--tint" id="restricted">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Beaucoup de produits ne s’achètent pas même s’ils s’affichent</h2>
+    <p class="lead">Sur le site officiel tu vois des fiches sans prix, ou un formulaire manuel à la place d’une fiche boutique. Ce n’est pas un bug de cette page d’accueil : le lien source n’est pas achetable via l’agent, ou le prix n’a pas pu être lu.</p>
+    <p>Règle : sans vrai prix et variantes, n’ordonne pas. Tabac, alcool et médicaments ne voyagent pas. Restricted est un blocage d’achat, pas un avis de {escape(customs)}. CSSBuy ne vend pas de stock propre.</p>
+  </div>{fig}</div></div>
+</section>
+"""
+    if loc == "nl":
+        return f"""
+<section class="sec sec--tint" id="restricted">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Veel producten kun je niet kopen, ook al staan ze er</h2>
+    <p class="lead">Op de officiële site zie je kaarten zonder prijs, of een handmatig formulier in plaats van een shopkaart. Dat is geen bug van deze homepage: de bronlink is via de agent niet te koop, of de prijs liet zich niet lezen.</p>
+    <p>Regel: zonder echte prijs en varianten niet bestellen. Tabak, alcohol en geneesmiddelen reizen niet. Restricted is een koopblokkade, geen bericht van {escape(customs)}. CSSBuy verkoopt geen eigen voorraad.</p>
   </div>{fig}</div></div>
 </section>
 """
@@ -1020,7 +1741,7 @@ def build_home(key: str) -> str:
 <section class="sec sec--first" id="agent">
   <div class="wrap"><div class="split"><div>
     <h2>Ein Einkaufsagent ist ein Zwischenhändler, kein Shop</h2>
-    <p class="lead">CSSBuy verkauft keine eigene Ware. Er kauft für dich in chinesischen Shops, die nicht ins Ausland senden, nimmt das Paket im Lager an, fotografiert es, lagert es und schickt es nach Deutschland, wenn du das entscheidest.</p>
+    <p class="lead">CSSBuy verkauft keine eigene Ware. Er kauft für dich in chinesischen Shops, die nicht ins Ausland senden, nimmt das Paket im Lager an, fotografiert es, lagert es und schickt es nach {escape(dest)}, wenn du das entscheidest.</p>
     <p>Du zahlst zweimal (zuerst das Produkt, später international) und wartest zweimal. Dazwischen kannst du noch stornieren, bündeln oder die Linie wechseln. Zahlung und Tickets bleiben auf {escape(OFFICIAL)}.</p>
     <p><a class="btn" href="{escape(p["guide"])}">Anleitung Schritt für Schritt</a></p>
   </div>{fig_off}</div></div>
@@ -1045,8 +1766,8 @@ def build_home(key: str) -> str:
 {states}
 <section class="sec sec--tint" id="lab">
   <div class="wrap"><div class="split"><div>
-    <h2>Deutschland hat Linien, aber nicht jede Linie ist offen</h2>
-    <p class="lead">Im Schätzer Ziel <strong>{escape(p["dest_zh"])}</strong> wählen, nicht EU und nicht AT. Die Lieferadresse ist eine {escape(p["postal"])}.</p>
+    <h2>{escape(dest)} hat Linien, aber nicht jede Linie ist offen</h2>
+    <p class="lead">Im Schätzer Ziel <strong>{escape(p["dest_zh"])}</strong> wählen, {escape(p.get("lab_not", "nicht EU"))}. Die Lieferadresse ist eine {escape(p["postal"])}.</p>
     <p>Am {escape(DATE)} öffnete die öffentliche Estimator-URL ein Login, keinen Live-Preis. Dieser Desk erfindet keine Linie, keine Transitzeit und keinen Eurobetrag. Quelle: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
     <p><a class="btn" href="{escape(EST)}">Offizielle CSSBuy-Site</a>
        <a class="btn btn--ghost" href="{escape(p["ship"])}">Versandplan</a></p>
@@ -1056,7 +1777,7 @@ def build_home(key: str) -> str:
   <div class="wrap"><div class="split split--rev"><div>
     <h2>Das Gewicht, das du zahlst, ist fast nie nur die Waage</h2>
     <p class="lead">Viele Linien rechnen das Maximum aus Waage und Volumen. Ein üblicher Teiler ist L×B×H (cm) / 8000. Eine Daunenjacke ist leicht und voluminös: dort entscheidet das Volumen.</p>
-    <p>Beispiel: 40×40×3 cm sind 4800 cm³, geteilt durch 8000 sind 600 g Volumen bei 200 g Echtgewicht. Deine Maße trägst du im offiziellen Schätzer ein, Ziel Deutschland, sobald du eingeloggt bist.</p>
+    <p>Beispiel: 40×40×3 cm sind 4800 cm³, geteilt durch 8000 sind 600 g Volumen bei 200 g Echtgewicht. Deine Maße trägst du im offiziellen Schätzer ein, Ziel {escape(dest)}, sobald du eingeloggt bist.</p>
   </div>{fig_vol}</div></div>
 </section>
 {restricted}
@@ -1070,7 +1791,7 @@ def build_home(key: str) -> str:
   </div>
 </section>
 """
-        desc = "Unabhängiger Leitfaden auf Deutsch: wie du über CSSBuy in China kaufst, wie der w2clinks-Katalog funktioniert, wie ein Paket nach Deutschland reist."
+        desc = f"Unabhängiger Leitfaden auf Deutsch: wie du über CSSBuy in China kaufst, wie der w2clinks-Katalog funktioniert, wie ein Paket nach {dest} reist."
     elif loc == "it":
         body = f"""
 <section class="hero">
@@ -1147,6 +1868,234 @@ def build_home(key: str) -> str:
 </section>
 """
         desc = "Guida indipendente in italiano: come compri in Cina con CSSBuy, come funziona il catalogo w2clinks, come un pacco arriva in Italia."
+    elif loc == "es":
+        body = f"""
+<section class="hero">
+  <div class="hero__bg" role="img" aria-label="Portada oficial de CSSBuy"></div>
+  <div class="hero__scrim"></div>
+  <div class="wrap">
+    <span class="eyebrow">{escape(p["eyebrow"])}</span>
+    <h1>{escape(p["hero_h1"])}</h1>
+    <p class="lead">{escape(p["lead"])}</p>
+    <div class="sbox">
+      <form id="w2c-search" action="{escape(sheet)}" method="get" target="_blank" rel="nofollow noopener" role="search">
+        <label class="skip" for="q">Buscar productos en w2clinks</label>
+        <input id="q" name="q" type="search" autocomplete="off" placeholder="Busca zapatillas, hoodie, chaqueta…">
+        <input type="hidden" name="utm_source" value="{escape(p["host"])}">
+        <input type="hidden" name="utm_medium" value="referral">
+        <input type="hidden" name="utm_campaign" value="hero-buscador">
+        <button type="submit">Buscar</button>
+      </form>
+      <div class="chips">{chips}</div>
+    </div>
+  </div>
+</section>
+<section class="sec sec--first" id="agent">
+  <div class="wrap"><div class="split"><div>
+    <h2>Un agente de compras es un intermediario, no una tienda</h2>
+    <p class="lead">CSSBuy no vende mercancía propia. Compra por ti en tiendas chinas que no envían al extranjero, recibe el paquete en el almacén, lo fotografía, lo guarda y lo envía a {escape(dest)} cuando tú lo decides.</p>
+    <p>Pagas dos veces (primero el producto, luego el internacional) y esperas dos veces. En medio aún puedes cancelar, consolidar o cambiar de línea. Pagos y tickets siguen en {escape(OFFICIAL)}.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Guía paso a paso</a></p>
+  </div>{fig_off}</div></div>
+</section>
+{shots}
+<section class="sec sec--tint" id="sheet-explain">
+  <div class="wrap"><div class="split split--rev"><div>
+    <span class="eyebrow" style="color:var(--acd)">Un nombre que engaña</span>
+    <h2>Un spreadsheet no es un archivo Excel</h2>
+    <p class="lead">En español «spreadsheet» suena a filas y columnas. Aquí es un catálogo de fichas de producto con foto, marca, precio de referencia y el enlace que pegas en el agente.</p>
+    <p>En w2clinks ves fichas, no celdas.</p>
+    <p><a class="btn btn--ghost" href="{escape(p["catalog"])}">Cómo funciona el catálogo</a></p>
+  </div>{fig_sheet}</div></div>
+</section>
+<section class="sec" id="cat-wall">
+  <div class="wrap">
+    <h2>Treinta y tres categorías para el primer día</h2>
+    <p class="lead">Cada ficha abre esa categoría en el catálogo. Empieza con una: cinco categorías en el primer haul es el camino más rápido a una caja cara e incómoda.</p>
+    <div class="cat-grid">{wall}</div>
+  </div>
+</section>
+{states}
+<section class="sec sec--tint" id="lab">
+  <div class="wrap"><div class="split"><div>
+    <h2>{escape(dest)} tiene líneas, pero no todas están abiertas</h2>
+    <p class="lead">En el estimador elige destino <strong>{escape(p["dest_zh"])}</strong>, no EU. La dirección es una {escape(p["postal"])}.</p>
+    <p>El {escape(DATE)} la URL pública del estimador abría un login, no un precio en vivo. Esta guía no inventa una línea, un tránsito ni un importe. Fuente: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
+    <p><a class="btn" href="{escape(EST)}">Sitio oficial CSSBuy</a>
+       <a class="btn btn--ghost" href="{escape(p["ship"])}">Plan de envío</a></p>
+  </div>{fig_off}</div></div>
+</section>
+<section class="sec" id="volume">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>El peso que pagas casi nunca es solo la báscula</h2>
+    <p class="lead">Muchas líneas facturan el máximo entre báscula y volumen. Un divisor habitual es L×W×H (cm) / 8000. Un plumífero es ligero y voluminoso: ahí decide el volumen.</p>
+    <p>Ejemplo: 40×40×3 cm son 4800 cm³, divididos por 8000 son 600 g de volumen con 200 g reales. Tus medidas las metes en el estimador oficial, destino {escape(dest)}, cuando estás logueado.</p>
+  </div>{fig_vol}</div></div>
+</section>
+{restricted}
+<section class="sec" id="faq">
+  <div class="wrap">
+    <h2>Ayuda, noticias y dónde preguntar</h2>
+    <p class="lead">Las dudas de los primeros pedidos se repiten. Están en Ayuda — una URL propia, no un apéndice de esta portada.</p>
+    <p><a class="btn" href="{escape(p["help"])}">Todas las preguntas en Ayuda</a>
+       <a class="btn btn--ghost" href="{escape(p["news"])}">Checks con fecha en Noticias</a>
+       <a class="btn btn--ghost" href="{escape(p["about"])}">Sobre nosotros</a></p>
+  </div>
+</section>
+"""
+        desc = f"Guía independiente en español: cómo compras en China con CSSBuy, cómo funciona el catálogo w2clinks, cómo viaja un paquete a {dest}."
+    elif loc == "fr":
+        body = f"""
+<section class="hero">
+  <div class="hero__bg" role="img" aria-label="Page d’accueil officielle CSSBuy"></div>
+  <div class="hero__scrim"></div>
+  <div class="wrap">
+    <span class="eyebrow">{escape(p["eyebrow"])}</span>
+    <h1>{escape(p["hero_h1"])}</h1>
+    <p class="lead">{escape(p["lead"])}</p>
+    <div class="sbox">
+      <form id="w2c-search" action="{escape(sheet)}" method="get" target="_blank" rel="nofollow noopener" role="search">
+        <label class="skip" for="q">Chercher des produits sur w2clinks</label>
+        <input id="q" name="q" type="search" autocomplete="off" placeholder="Cherche baskets, hoodie, veste…">
+        <input type="hidden" name="utm_source" value="{escape(p["host"])}">
+        <input type="hidden" name="utm_medium" value="referral">
+        <input type="hidden" name="utm_campaign" value="hero-buscador">
+        <button type="submit">Chercher</button>
+      </form>
+      <div class="chips">{chips}</div>
+    </div>
+  </div>
+</section>
+<section class="sec sec--first" id="agent">
+  <div class="wrap"><div class="split"><div>
+    <h2>Un agent d’achat est un intermédiaire, pas une boutique</h2>
+    <p class="lead">CSSBuy ne vend pas de stock propre. Il achète pour toi dans des boutiques chinoises qui n’expédient pas à l’étranger, reçoit le colis en entrepôt, le photographie, le stocke et l’envoie vers {escape(dest)} quand tu le décides.</p>
+    <p>Tu paies deux fois (d’abord le produit, plus tard l’international) et tu attends deux fois. Entre les deux tu peux encore annuler, regrouper ou changer de ligne. Paiements et tickets restent sur {escape(OFFICIAL)}.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Guide pas à pas</a></p>
+  </div>{fig_off}</div></div>
+</section>
+{shots}
+<section class="sec sec--tint" id="sheet-explain">
+  <div class="wrap"><div class="split split--rev"><div>
+    <span class="eyebrow" style="color:var(--acd)">Un nom qui trompe</span>
+    <h2>Un spreadsheet n’est pas un fichier Excel</h2>
+    <p class="lead">En français, « spreadsheet » sonne encore comme une grille. Ici c’est un catalogue de fiches produit avec photo, marque, prix de référence et le lien à coller dans l’agent.</p>
+    <p>Sur w2clinks tu vois des fiches, pas des cellules.</p>
+    <p><a class="btn btn--ghost" href="{escape(p["catalog"])}">Comment marche le catalogue</a></p>
+  </div>{fig_sheet}</div></div>
+</section>
+<section class="sec" id="cat-wall">
+  <div class="wrap">
+    <h2>Trente-trois catégories pour le premier jour</h2>
+    <p class="lead">Chaque fiche ouvre cette catégorie dans le catalogue. Commence par une : cinq catégories dans le premier haul, c’est le plus court chemin vers une boîte chère et malcommode.</p>
+    <div class="cat-grid">{wall}</div>
+  </div>
+</section>
+{states}
+<section class="sec sec--tint" id="lab">
+  <div class="wrap"><div class="split"><div>
+    <h2>{escape(dest[0].upper() + dest[1:])} a des lignes, mais pas toutes sont ouvertes</h2>
+    <p class="lead">Dans l’estimateur, choisis destination <strong>{escape(p["dest_zh"])}</strong>, pas EU. L’adresse est une {escape(p["postal"])}.</p>
+    <p>Le {escape(DATE)} l’URL publique de l’estimateur ouvrait un login, pas un tarif live. Ce guide n’invente ni ligne, ni transit, ni montant. Source : <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
+    <p><a class="btn" href="{escape(EST)}">Site officiel CSSBuy</a>
+       <a class="btn btn--ghost" href="{escape(p["ship"])}">Plan de livraison</a></p>
+  </div>{fig_off}</div></div>
+</section>
+<section class="sec" id="volume">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Le poids que tu paies n’est presque jamais la balance seule</h2>
+    <p class="lead">Beaucoup de lignes facturent le maximum entre balance et volume. Un diviseur courant est L×W×H (cm) / 8000. Une doudoune est légère et volumineuse : c’est le volume qui décide.</p>
+    <p>Exemple : 40×40×3 cm font 4800 cm³, divisés par 8000 font 600 g de volume pour 200 g réels. Tes mesures, tu les saisis dans l’estimateur officiel, destination {escape(dest)}, une fois connecté.</p>
+  </div>{fig_vol}</div></div>
+</section>
+{restricted}
+<section class="sec" id="faq">
+  <div class="wrap">
+    <h2>Aide, actus et où demander</h2>
+    <p class="lead">Les doutes des premières commandes se répètent. Ils sont sur Aide — une URL à part, pas un appendice de cette page d’accueil.</p>
+    <p><a class="btn" href="{escape(p["help"])}">Toutes les questions sur Aide</a>
+       <a class="btn btn--ghost" href="{escape(p["news"])}">Checks datés sur Actus</a>
+       <a class="btn btn--ghost" href="{escape(p["about"])}">À propos</a></p>
+  </div>
+</section>
+"""
+        desc = f"Guide indépendant en français : comment tu achètes en Chine via CSSBuy, comment marche le catalogue w2clinks, comment un colis voyage vers {dest}."
+    elif loc == "nl":
+        body = f"""
+<section class="hero">
+  <div class="hero__bg" role="img" aria-label="Officiële CSSBuy-homepage"></div>
+  <div class="hero__scrim"></div>
+  <div class="wrap">
+    <span class="eyebrow">{escape(p["eyebrow"])}</span>
+    <h1>{escape(p["hero_h1"])}</h1>
+    <p class="lead">{escape(p["lead"])}</p>
+    <div class="sbox">
+      <form id="w2c-search" action="{escape(sheet)}" method="get" target="_blank" rel="nofollow noopener" role="search">
+        <label class="skip" for="q">Producten zoeken op w2clinks</label>
+        <input id="q" name="q" type="search" autocomplete="off" placeholder="Zoek sneakers, hoodie, jas…">
+        <input type="hidden" name="utm_source" value="{escape(p["host"])}">
+        <input type="hidden" name="utm_medium" value="referral">
+        <input type="hidden" name="utm_campaign" value="hero-buscador">
+        <button type="submit">Zoeken</button>
+      </form>
+      <div class="chips">{chips}</div>
+    </div>
+  </div>
+</section>
+<section class="sec sec--first" id="agent">
+  <div class="wrap"><div class="split"><div>
+    <h2>Een inkoopagent is een tussenpersoon, geen shop</h2>
+    <p class="lead">CSSBuy verkoopt geen eigen voorraad. Hij koopt voor jou in Chinese shops die niet naar het buitenland sturen, neemt het pakket in het magazijn aan, fotografeert het, slaat het op en stuurt het naar {escape(dest)} als jij dat besluit.</p>
+    <p>Je betaalt twee keer (eerst het product, later internationaal) en wacht twee keer. Daartussen kun je nog annuleren, bundelen of van lijn wisselen. Betaling en tickets blijven op {escape(OFFICIAL)}.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Handleiding stap voor stap</a></p>
+  </div>{fig_off}</div></div>
+</section>
+{shots}
+<section class="sec sec--tint" id="sheet-explain">
+  <div class="wrap"><div class="split split--rev"><div>
+    <span class="eyebrow" style="color:var(--acd)">Een naam die misleidt</span>
+    <h2>Een spreadsheet is geen Excel-bestand</h2>
+    <p class="lead">«Spreadsheet» klinkt naar rijen en kolommen. Hier is het een catalogus van productkaarten met foto, merk, referentieprijs en de link die je in de agent plakt.</p>
+    <p>Op w2clinks zie je kaarten, geen cellen.</p>
+    <p><a class="btn btn--ghost" href="{escape(p["catalog"])}">Zo werkt de catalogus</a></p>
+  </div>{fig_sheet}</div></div>
+</section>
+<section class="sec" id="cat-wall">
+  <div class="wrap">
+    <h2>Drieëndertig categorieën voor de eerste dag</h2>
+    <p class="lead">Elke kaart opent die categorie in de catalogus. Begin met één: vijf categorieën in de eerste haul is de snelste weg naar een dure, onhandige doos.</p>
+    <div class="cat-grid">{wall}</div>
+  </div>
+</section>
+{states}
+<section class="sec sec--tint" id="lab">
+  <div class="wrap"><div class="split"><div>
+    <h2>{escape(dest)} heeft lijnen, maar niet elke lijn is open</h2>
+    <p class="lead">Kies in de schatter bestemming <strong>{escape(p["dest_zh"])}</strong>, niet EU. Het afleveradres is een {escape(p["postal"])}.</p>
+    <p>Op {escape(DATE)} opende de publieke schatter-URL een login, geen live tarief. Deze gids verzint geen lijn, transittijd of bedrag. Bron: <a href="{escape(p["customs_url"])}" rel="noopener">{escape(p["customs"])}</a>.</p>
+    <p><a class="btn" href="{escape(EST)}">Officiële CSSBuy-site</a>
+       <a class="btn btn--ghost" href="{escape(p["ship"])}">Verzendplan</a></p>
+  </div>{fig_off}</div></div>
+</section>
+<section class="sec" id="volume">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Het gewicht dat je betaalt is bijna nooit alleen de weegschaal</h2>
+    <p class="lead">Veel lijnen factureren het maximum van weegschaal en volume. Een gebruikelijke deler is L×W×H (cm) / 8000. Een donsjas is licht en volumineus: daar beslist het volume.</p>
+    <p>Voorbeeld: 40×40×3 cm is 4800 cm³, gedeeld door 8000 is 600 g volume bij 200 g echt gewicht. Jouw maten vul je in de officiële schatter in, bestemming {escape(dest)}, zodra je ingelogd bent.</p>
+  </div>{fig_vol}</div></div>
+</section>
+{restricted}
+<section class="sec" id="faq">
+  <div class="wrap">
+    <h2>Hulp, nieuws en waar je vraagt</h2>
+    <p class="lead">De twijfels van de eerste bestelling herhalen zich. Ze staan op Hulp — een eigen URL, geen bijlage van deze homepage.</p>
+    <p><a class="btn" href="{escape(p["help"])}">Alle vragen op Hulp</a>
+       <a class="btn btn--ghost" href="{escape(p["news"])}">Gedateerde checks op Nieuws</a>
+       <a class="btn btn--ghost" href="{escape(p["about"])}">Over ons</a></p>
+  </div>
+</section>
+"""
+        desc = f"Onafhankelijke gids in het Nederlands: hoe je via CSSBuy in China koopt, hoe de w2clinks-catalogus werkt, hoe een pakket naar {dest} reist."
     else:
         body = f"""
 <section class="hero">
@@ -1240,7 +2189,7 @@ def build_catalog(key: str) -> str:
     p = PACKS[key]
     desk = desk_for(key)
     loc = p["loc"]
-    notes = {"de": CAT_NOTES_DE, "it": CAT_NOTES_IT}.get(loc, CAT_NOTES_EN)
+    notes = {"de": CAT_NOTES_DE, "it": CAT_NOTES_IT, "es": CAT_NOTES_ES, "fr": CAT_NOTES_FR, "nl": CAT_NOTES_NL}.get(loc, CAT_NOTES_EN)
     wall = _wall(key, notes)
     _fig_off, fig_sheet, _fig_vol, fig_zoek, fig_diy = _shots(key)
     dest = p["dest_label"]
@@ -1268,7 +2217,7 @@ def build_catalog(key: str) -> str:
 <h2>Wie du die erste Kategorie wählst</h2>
 <p class="lead">Erste Bestellung: etwas Flaches und Leichtes — T-Shirts, Shorts, Schmuck. Die kommen früher an, kosten weniger Porto, und du prüfst den ganzen Kreislauf ohne viel Geld.</p>
 <p>Voluminöses für die zweite Order: Daunenjacken, Taschen, Mützen. Nicht weil sie schlechter sind, sondern weil ihr Porto vom Volumen abhängt — und das rechnest du erst gut, wenn du eine Runde gesehen hast.</p>
-<p>Drei Kategorien mit Extra-Bedingungen: Elektronik (oft Lithium), Brillen (zerbrechlich) und alles mit Akku oder Magnet. Nicht jede Linie nach Deutschland nimmt das. Schätzer prüfen, bevor sie im Lager liegen bleiben.</p>
+<p>Drei Kategorien mit Extra-Bedingungen: Elektronik (oft Lithium), Brillen (zerbrechlich) und alles mit Akku oder Magnet. Nicht jede Linie nach {escape(dest)} nimmt das. Schätzer prüfen, bevor sie im Lager liegen bleiben.</p>
 </div></section>
 <section class="sec" id="keys"><div class="wrap">
 <h2>Unbequemes Faktum: der Katalog sucht auf Englisch</h2>
@@ -1322,6 +2271,123 @@ def build_catalog(key: str) -> str:
 <p>Se la ricerca non legge il link, resta Custom Order — il {escape(DATE)} /diy apriva un login. Schede senza prezzo: saltale — il link sorgente in Cina è spesso già morto.</p>
 <p><a class="btn" href="{escape(sheet)}">Apri il catalogo su w2clinks</a>
    <a class="btn btn--ghost" href="{escape(p["guide"])}">Guida passo passo</a></p>
+</div>{fig_diy}</div></div></section>
+"""
+    elif loc == "es":
+        topic = "qué es y qué categorías encuentras"
+        body = f"""
+<section class="sec sec--first"><div class="wrap"><div class="split"><div>
+<span class="eyebrow" style="color:var(--acc)">El catálogo</span>
+<h1>Qué es CSSBuy Spreadsheet, y qué encuentras dentro</h1>
+<p class="lead">Un catálogo de fichas de producto, no un archivo Excel. Treinta y tres categorías, filtros, foto, marca y el enlace para el agente.</p>
+</div>{fig_sheet}</div></div></section>
+<section class="sec sec--tint"><div class="wrap"><div class="split split--rev"><div>
+<h2>Por qué un catálogo aparte</h2>
+<p>La búsqueda del agente devuelve todo el stock chino, enorme y a menudo en chino. Un catálogo ya hizo el trabajo: alguien eligió qué fichas merecen, las puso en categoría y dejó listo el enlace de la tienda.</p>
+<p>En la práctica: encuentras la ficha en w2clinks, copias el enlace de origen y lo pegas en la búsqueda de CSSBuy o en el formulario manual. El catálogo no cobra y no vende.</p>
+</div>{fig_zoek}</div></div></section>
+<section class="sec" id="categorias"><div class="wrap">
+<h2>Las treinta y tres categorías, y qué miras en cada una</h2>
+<p class="lead">La frase bajo cada ficha no es relleno: es el error que más se repite en esa categoría cuando compras a distancia.</p>
+<div class="cat-grid cat-grid--rich">{wall}</div>
+</div></section>
+<section class="sec sec--tint" id="first-category"><div class="wrap">
+<h2>Cómo eliges la primera categoría</h2>
+<p class="lead">Primer pedido: algo plano y ligero — camisetas, shorts, joyería. Llegan antes, cuestan menos de envío, y compruebas todo el circuito sin arriesgar mucho.</p>
+<p>Lo voluminoso para el segundo pedido: plumíferos, bolsos, gorras. No porque sean peores, sino porque el porte depende del volumen — y eso lo calculas bien después de una ronda.</p>
+<p>Tres categorías con extra: electrónica (a menudo litio), gafas (frágiles) y todo con batería o imán. No todas las líneas hacia {escape(dest)} lo aceptan. Mira el estimador antes de dejarlos en el almacén.</p>
+</div></section>
+<section class="sec" id="keys"><div class="wrap">
+<h2>Dato incómodo: el catálogo busca en inglés</h2>
+<p class="lead">Lo comprobamos término a término el {escape(DATE)}. Conviene saberlo antes de escribir la primera búsqueda en español.</p>
+<p>Grafías locales como zapatillas, sudadera o gafas suelen dar cero. Las keys inglesas sneakers, hoodie, jacket, trousers, bag, glasses o watch dan páginas. Por eso la búsqueda de la portada manda keys inglesas a w2clinks.</p>
+{keys}
+</div></section>
+<section class="sec sec--tint"><div class="wrap"><div class="split"><div>
+<h2>Del catálogo al pedido, sin perder el enlace</h2>
+<p class="lead">La ficha es el principio, no la caja. El paso que más falla: copias la URL de la ficha del catálogo en vez del enlace de la tienda. CSSBuy necesita el enlace Taobao, 1688 o Weidian.</p>
+<p>Si pegas la URL de la ficha del catálogo, el agente no sabe qué comprar. Copia el enlace de la tienda, pégalo en «Link or Keyword», revisa precio y variante, y paga el internacional solo cuando las fotos de almacén cuadran.</p>
+<p>Si la búsqueda no lee el enlace, queda Custom Order — el {escape(DATE)} /diy abría un login. Fichas sin precio: sáltalas — el enlace de origen en China a menudo ya está muerto.</p>
+<p><a class="btn" href="{escape(sheet)}">Abrir el catálogo en w2clinks</a>
+   <a class="btn btn--ghost" href="{escape(p["guide"])}">Guía paso a paso</a></p>
+</div>{fig_diy}</div></div></section>
+"""
+    elif loc == "fr":
+        topic = "ce que c’est et quelles catégories tu trouves"
+        body = f"""
+<section class="sec sec--first"><div class="wrap"><div class="split"><div>
+<span class="eyebrow" style="color:var(--acc)">Le catalogue</span>
+<h1>Ce qu’est CSSBuy Spreadsheet, et ce que tu y trouves</h1>
+<p class="lead">Un catalogue de fiches produit, pas un fichier Excel. Trente-trois catégories, filtres, photo, marque et le lien pour l’agent.</p>
+</div>{fig_sheet}</div></div></section>
+<section class="sec sec--tint"><div class="wrap"><div class="split split--rev"><div>
+<h2>Pourquoi un catalogue à part</h2>
+<p>La recherche de l’agent renvoie tout le stock chinois, énorme et souvent en chinois. Un catalogue a déjà fait le travail : quelqu’un a choisi quelles fiches valent, les a mises en catégorie et a préparé le lien boutique.</p>
+<p>En pratique : tu trouves la fiche sur w2clinks, tu copies le lien source et tu le colles dans la recherche CSSBuy ou le formulaire manuel. Le catalogue n’encaisse rien et ne vend rien.</p>
+</div>{fig_zoek}</div></div></section>
+<section class="sec" id="categorias"><div class="wrap">
+<h2>Les trente-trois catégories, et ce que tu vérifies dans chacune</h2>
+<p class="lead">La phrase sous chaque fiche n’est pas du remplissage : c’est l’erreur qui revient le plus dans cette catégorie quand tu achètes de loin.</p>
+<div class="cat-grid cat-grid--rich">{wall}</div>
+</div></section>
+<section class="sec sec--tint" id="first-category"><div class="wrap">
+<h2>Comment tu choisis la première catégorie</h2>
+<p class="lead">Première commande : quelque chose de plat et léger — t-shirts, shorts, bijoux. Ça arrive plus tôt, ça coûte moins cher à envoyer, et tu vérifies tout le circuit sans trop risquer.</p>
+<p>Le volumineux pour la deuxième commande : doudounes, sacs, casquettes. Pas parce qu’ils sont moins bons, mais parce que le port dépend du volume — et ça, tu le calcules bien après un tour.</p>
+<p>Trois catégories avec extra : électronique (souvent du lithium), lunettes (fragiles) et tout avec batterie ou aimant. Toutes les lignes vers {escape(dest)} ne les acceptent pas. Vérifie l’estimateur avant de les laisser en entrepôt.</p>
+</div></section>
+<section class="sec" id="keys"><div class="wrap">
+<h2>Fait gênant : le catalogue cherche en anglais</h2>
+<p class="lead">On l’a vérifié mot pour mot le {escape(DATE)}. Tu veux le savoir avant de taper la première recherche en français.</p>
+<p>Les graphies locales comme baskets, pull ou lunettes donnent souvent zéro. Les keys anglaises sneakers, hoodie, jacket, trousers, bag, glasses ou watch donnent des pages. C’est pour ça que la recherche de la page d’accueil envoie des keys anglaises à w2clinks.</p>
+{keys}
+</div></section>
+<section class="sec sec--tint"><div class="wrap"><div class="split"><div>
+<h2>Du catalogue à la commande, sans perdre le lien</h2>
+<p class="lead">La fiche est le début, pas la caisse. L’étape qui rate le plus : tu copies l’URL de la fiche catalogue au lieu du lien boutique. CSSBuy a besoin du lien Taobao, 1688 ou Weidian.</p>
+<p>Si tu colles l’URL de la fiche catalogue, l’agent ne sait pas quoi acheter. Copie le lien boutique, colle-le dans « Link or Keyword », vérifie prix et variante, et paie l’international seulement quand les photos d’entrepôt collent.</p>
+<p>Si la recherche ne lit pas le lien, reste Custom Order — le {escape(DATE)} /diy ouvrait un login. Fiches sans prix : saute-les — le lien source en Chine est souvent déjà mort.</p>
+<p><a class="btn" href="{escape(sheet)}">Ouvrir le catalogue sur w2clinks</a>
+   <a class="btn btn--ghost" href="{escape(p["guide"])}">Guide pas à pas</a></p>
+</div>{fig_diy}</div></div></section>
+"""
+    elif loc == "nl":
+        topic = "wat het is en welke categorieën je vindt"
+        body = f"""
+<section class="sec sec--first"><div class="wrap"><div class="split"><div>
+<span class="eyebrow" style="color:var(--acc)">De catalogus</span>
+<h1>Wat CSSBuy Spreadsheet is, en wat je erin vindt</h1>
+<p class="lead">Een catalogus van productkaarten, geen Excel-bestand. Drieëndertig categorieën, filters, foto, merk en de link voor de agent.</p>
+</div>{fig_sheet}</div></div></section>
+<section class="sec sec--tint"><div class="wrap"><div class="split split--rev"><div>
+<h2>Waarom een aparte catalogus</h2>
+<p>De zoekbalk van een agent geeft de hele Chinese voorraad, enorm en vaak in het Chinees. Een catalogus heeft het huiswerk al gedaan: iemand koos welke kaarten de moeite waard zijn, zette ze in een categorie en legde de shoplink klaar.</p>
+<p>In de praktijk: je vindt de kaart op w2clinks, kopieert de bronlink en plakt die in de CSSBuy-zoekbalk of het handmatige formulier. De catalogus int niets en verkoopt niets.</p>
+</div>{fig_zoek}</div></div></section>
+<section class="sec" id="categorias"><div class="wrap">
+<h2>De drieëndertig categorieën, en wat je in elk checkt</h2>
+<p class="lead">De zin onder elke kaart is geen vulling: het is de fout die in die categorie het vaakst terugkomt als je van ver koopt.</p>
+<div class="cat-grid cat-grid--rich">{wall}</div>
+</div></section>
+<section class="sec sec--tint" id="first-category"><div class="wrap">
+<h2>Hoe je de eerste categorie kiest</h2>
+<p class="lead">Eerste bestelling: iets flats en lichts — T-shirts, shorts, sieraden. Die komen eerder aan, kosten minder porto, en je checkt de hele ronde zonder veel geld.</p>
+<p>Volumineus voor de tweede order: donsjassen, tassen, petten. Niet omdat ze slechter zijn, maar omdat hun porto van volume afhangt — en dat reken je pas goed als je één ronde hebt gezien.</p>
+<p>Drie categorieën met extra voorwaarden: elektronica (vaak lithium), brillen (breekbaar) en alles met accu of magneet. Niet elke lijn naar {escape(dest)} neemt dat. Check de schatter voordat ze in het magazijn blijven liggen.</p>
+</div></section>
+<section class="sec" id="keys"><div class="wrap">
+<h2>Ongemakkelijk feit: de catalogus zoekt in het Engels</h2>
+<p class="lead">We hebben het woord voor woord nagekeken op {escape(DATE)}. Dat wil je weten voordat je de eerste zoekopdracht in het Nederlands typt.</p>
+<p>Lokale spellingen zoals sneakers, trui of bril geven vaak nul. De Engelse keys sneakers, hoodie, jacket, trousers, bag, glasses of watch geven pagina’s. Daarom stuurt de homepage-zoekbalk Engelse keys naar w2clinks.</p>
+{keys}
+</div></section>
+<section class="sec sec--tint"><div class="wrap"><div class="split"><div>
+<h2>Van catalogus naar bestelling, zonder de link te verliezen</h2>
+<p class="lead">De kaart is het begin, niet de kassa. De stap die het vaakst misgaat: je kopieert de catalogus-URL in plaats van de shoplink. CSSBuy heeft de Taobao-, 1688- of Weidian-link nodig.</p>
+<p>Plak je de URL van de cataloguskaart zelf, dan weet de agent niet wat hij moet kopen. Kopieer de shoplink, plak hem in «Link or Keyword», check prijs en variant, en betaal internationaal pas als de magazijnfoto’s kloppen.</p>
+<p>Leest de zoekbalk de link niet, blijft Custom Order — op {escape(DATE)} opende /diy een login. Kaarten zonder prijs overslaan — de bronlink is in China vaak al dood.</p>
+<p><a class="btn" href="{escape(sheet)}">Catalogus op w2clinks openen</a>
+   <a class="btn btn--ghost" href="{escape(p["guide"])}">Handleiding stap voor stap</a></p>
 </div>{fig_diy}</div></div></section>
 """
     else:
@@ -1382,7 +2448,7 @@ def build_help(key: str) -> str:
         body = f"""
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Hilfe</span>
-  <h1>Hilfe und Fragen zu CSSBuy in Deutschland</h1>
+  <h1>Hilfe und Fragen zu CSSBuy in {escape(p["dest_label"])}</h1>
   <p class="lead">Fragen erster Bestellungen. Die Lieferadresse ist eine {escape(p["postal"])}.</p>
   {fig_off}{html_f}
   <p><a class="btn" href="{escape(EST)}">Offizielle CSSBuy-Site</a>
@@ -1399,6 +2465,42 @@ def build_help(key: str) -> str:
   {fig_off}{html_f}
   <p><a class="btn" href="{escape(EST)}">Sito ufficiale CSSBuy</a>
      <a class="btn btn--ghost" href="{escape(p["ship"])}">Piano spedizione</a></p>
+</article>
+"""
+    elif loc == "es":
+        topic = "ayuda y preguntas frecuentes"
+        body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Ayuda</span>
+  <h1>Ayuda y preguntas sobre CSSBuy en {escape(p["dest_label"])}</h1>
+  <p class="lead">Preguntas de los primeros pedidos. La dirección es una {escape(p["postal"])}.</p>
+  {fig_off}{html_f}
+  <p><a class="btn" href="{escape(EST)}">Sitio oficial CSSBuy</a>
+     <a class="btn btn--ghost" href="{escape(p["ship"])}">Plan de envío</a></p>
+</article>
+"""
+    elif loc == "fr":
+        topic = "aide et questions fréquentes"
+        body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Aide</span>
+  <h1>Aide et questions sur CSSBuy depuis {escape(p["dest_label"])}</h1>
+  <p class="lead">Questions des premières commandes. L’adresse est une {escape(p["postal"])}.</p>
+  {fig_off}{html_f}
+  <p><a class="btn" href="{escape(EST)}">Site officiel CSSBuy</a>
+     <a class="btn btn--ghost" href="{escape(p["ship"])}">Plan de livraison</a></p>
+</article>
+"""
+    elif loc == "nl":
+        topic = "hulp en veelgestelde vragen"
+        body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Hulp</span>
+  <h1>Hulp en vragen over CSSBuy in {escape(p["dest_label"])}</h1>
+  <p class="lead">Vragen van eerste bestellingen. Het afleveradres is een {escape(p["postal"])}.</p>
+  {fig_off}{html_f}
+  <p><a class="btn" href="{escape(EST)}">Officiële CSSBuy-site</a>
+     <a class="btn btn--ghost" href="{escape(p["ship"])}">Verzendplan</a></p>
 </article>
 """
     else:
@@ -1428,7 +2530,7 @@ def build_news(key: str) -> str:
         items = [
             ("Erste Runde: Estimator hinter Login",
              f"Am {DATE} öffnete https://www.cssbuy.com/estimation ein Login, keinen Live-Preis. Keine erfundene Linie.",
-             "Am Versandmorgen die offizielle Site öffnen, Ziel Germany — 德国, deutsche PLZ / Packstation."),
+             f"Am Versandmorgen die offizielle Site öffnen, Ziel {p['dest_zh']}. {p['postal']}."),
             ("w2clinks sucht auf Englisch",
              "sneakers, hoodie, jacket liefern Seiten; Turnschuhe oft null. Gemessen 6 Oct 2026.",
              "Englischen Key tippen oder einen Chip auf der Homepage antippen."),
@@ -1436,7 +2538,7 @@ def build_news(key: str) -> str:
              "Viele Linien nehmen das Maximum aus Waage und L×B×H/8000. Kein SKU-Preis in diesem HTML.",
              "Deine Box im offiziellen Schätzer rechnen, sobald du eingeloggt bist."),
             ("Schwester-Hosts bleiben getrennt",
-             "CA, UK, US, DE und IT sind eigene Dateien. Kein 301 untereinander, kein 301 auf cssbuyspreadsheet.eu.",
+             "CA, UK, US, DE, AT, ES, FR, IT und NL sind eigene Dateien. Kein 301 untereinander, kein 301 auf cssbuyspreadsheet.eu.",
              "Der Hub cssbuyspreadsheet.eu ist kein Zollgebiet."),
         ]
         h1, topic, brow = "Was wir auf der Plattform geprüft haben, mit Datum", "was wir auf der Plattform geprüft haben", "News"
@@ -1453,11 +2555,62 @@ def build_news(key: str) -> str:
              "Molte linee prendono il massimo tra bilancia e L×W×H/8000. Nessun prezzo SKU in questo HTML.",
              "Calcola la tua scatola nel preventivo ufficiale quando sei loggato."),
             ("Gli host sorella restano separati",
-             "CA, UK, US, DE e IT sono file distinti. Nessun 301 fra loro, nessun 301 verso cssbuyspreadsheet.eu.",
+             "CA, UK, US, DE, AT, ES, FR, IT e NL sono file distinti. Nessun 301 fra loro, nessun 301 verso cssbuyspreadsheet.eu.",
              "Il hub cssbuyspreadsheet.eu non è un territorio doganale."),
         ]
         h1, topic, brow = "Cosa abbiamo verificato sulla piattaforma, con data", "cosa abbiamo verificato sulla piattaforma", "Notizie"
         lead = "Non è una newsletter aziendale. Check nostri, con data."
+    elif loc == "es":
+        items = [
+            ("Primera ronda: estimador detrás de login",
+             f"El {DATE} https://www.cssbuy.com/estimation abría un login, no un precio en vivo. Ninguna línea inventada.",
+             f"La mañana del envío abre el sitio oficial, destino {p['dest_zh']}. {p['postal']}."),
+            ("w2clinks busca en inglés",
+             "sneakers, hoodie, jacket dan páginas; grafías locales a menudo cero. Medido 6 Oct 2026.",
+             "Escribe la key inglesa, o toca un chip en la portada."),
+            ("Peso volumétrico",
+             "Muchas líneas toman el máximo entre báscula y L×W×H/8000. Ningún precio SKU en este HTML.",
+             "Calcula tu caja en el estimador oficial cuando estés logueado."),
+            ("Los hosts hermanos siguen separados",
+             "CA, UK, US, DE, AT, ES, FR, IT y NL son archivos distintos. Ningún 301 entre ellos, ningún 301 hacia cssbuyspreadsheet.eu.",
+             "El hub cssbuyspreadsheet.eu no es un territorio aduanero."),
+        ]
+        h1, topic, brow = "Qué hemos comprobado en la plataforma, con fecha", "qué hemos comprobado en la plataforma", "Noticias"
+        lead = "No es un boletín de empresa. Checks nuestros, con fecha."
+    elif loc == "fr":
+        items = [
+            ("Premier tour : estimateur derrière login",
+             f"Le {DATE} https://www.cssbuy.com/estimation ouvrait un login, pas un tarif live. Aucune ligne inventée.",
+             f"Le matin de l’envoi, ouvre le site officiel, destination {p['dest_zh']}. {p['postal']}."),
+            ("w2clinks cherche en anglais",
+             "sneakers, hoodie, jacket donnent des pages ; les graphies locales souvent zéro. Mesuré 6 Oct 2026.",
+             "Tape la key anglaise, ou touche un chip sur la page d’accueil."),
+            ("Poids volumétrique",
+             "Beaucoup de lignes prennent le max entre balance et L×W×H/8000. Aucun prix SKU dans cet HTML.",
+             "Calcule ta boîte dans l’estimateur officiel une fois connecté."),
+            ("Les hôtes sœurs restent séparés",
+             "CA, UK, US, DE, AT, ES, FR, IT et NL sont des fichiers distincts. Aucun 301 entre eux, aucun 301 vers cssbuyspreadsheet.eu.",
+             "Le hub cssbuyspreadsheet.eu n’est pas un territoire douanier."),
+        ]
+        h1, topic, brow = "Ce que nous avons vérifié sur la plateforme, avec une date", "ce que nous avons vérifié sur la plateforme", "Actus"
+        lead = "Ce n’est pas une newsletter d’entreprise. Des checks à nous, avec une date."
+    elif loc == "nl":
+        items = [
+            ("Eerste ronde: schatter achter login",
+             f"Op {DATE} opende https://www.cssbuy.com/estimation een login, geen live tarief. Geen verzonnen lijn.",
+             f"Open de officiële site de ochtend dat je verzendt, bestemming {p['dest_zh']}. {p['postal']}."),
+            ("w2clinks zoekt in het Engels",
+             "sneakers, hoodie, jacket geven pagina’s; lokale spellingen vaak nul. Gemeten 6 Oct 2026.",
+             "Typ de Engelse key, of tik een chip op de homepage."),
+            ("Volumgewicht",
+             "Veel lijnen nemen het maximum van weegschaal en L×W×H/8000. Geen SKU-prijs in deze HTML.",
+             "Reken je doos in de officiële schatter zodra je ingelogd bent."),
+            ("Zusthosts blijven apart",
+             "CA, UK, US, DE, AT, ES, FR, IT en NL zijn eigen bestanden. Geen 301 onderling, geen 301 naar cssbuyspreadsheet.eu.",
+             "De hub cssbuyspreadsheet.eu is geen douanegebied."),
+        ]
+        h1, topic, brow = "Wat we op het platform hebben nagekeken, met datum", "wat we op het platform hebben nagekeken", "Nieuws"
+        lead = "Dit is geen bedrijfsnieuwsbrief. Eigen checks, met datum."
     else:
         items = [
             (f"First round: official estimator opened a login wall",
@@ -1470,7 +2623,7 @@ def build_news(key: str) -> str:
              "Many lines bill the greater of scale and L×W×H/8000. No SKU price in this HTML.",
              "Run your box on the official estimator when you are logged in."),
             ("Sister country hosts stay separate",
-             "Canada, UK, US, Germany and Italy on CSSBuy stay on their own hosts. None of them 301 into cssbuyspreadsheet.eu.",
+             "Canada, UK, US, Germany, Austria, Spain, France, Italy and the Netherlands on CSSBuy stay on their own hosts. None of them 301 into cssbuyspreadsheet.eu.",
              "The .net hub is not a customs territory."),
         ]
         h1, topic, brow = "What we checked on the platform, with a date", "what we checked on the platform", "News"
@@ -1528,6 +2681,42 @@ def build_about(key: str) -> str:
   <p>Ordini: sito ufficiale. Questa guida: <a href="mailto:{escape(MAIL)}">{escape(MAIL)}</a>.</p>
 </article>
 """
+    elif loc == "es":
+        topic = "quiénes somos y cómo contactarnos"
+        body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Sobre nosotros</span>
+  <h1>Un sitio independiente sobre CSSBuy, en español</h1>
+  <p class="lead">CSSBuy Spreadsheet no es CSSBuy. Es una guía editorial. cssbuy.com son el mismo producto oficial; cssbuyspreadsheet.eu es nuestro hub, no un territorio aduanero.</p>
+  {fig_off}
+  <h2>Contacto</h2>
+  <p>Pedidos: sitio oficial. Esta guía: <a href="mailto:{escape(MAIL)}">{escape(MAIL)}</a>.</p>
+</article>
+"""
+    elif loc == "fr":
+        topic = "qui nous sommes et comment nous joindre"
+        body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">À propos</span>
+  <h1>Un site indépendant sur CSSBuy, en français</h1>
+  <p class="lead">CSSBuy Spreadsheet n’est pas CSSBuy. C’est un guide éditorial. cssbuy.com sont le même produit officiel ; cssbuyspreadsheet.eu est notre hub, pas un territoire douanier.</p>
+  {fig_off}
+  <h2>Contact</h2>
+  <p>Commandes : site officiel. Ce guide : <a href="mailto:{escape(MAIL)}">{escape(MAIL)}</a>.</p>
+</article>
+"""
+    elif loc == "nl":
+        topic = "wie we zijn en hoe je ons bereikt"
+        body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Over ons</span>
+  <h1>Een onafhankelijke site over CSSBuy, in het Nederlands</h1>
+  <p class="lead">CSSBuy Spreadsheet is CSSBuy niet. Het is een redactionele gids. cssbuy.com zijn hetzelfde officiële product; cssbuyspreadsheet.eu is onze hub, geen douanegebied.</p>
+  {fig_off}
+  <h2>Contact</h2>
+  <p>Bestellingen: officiële site. Deze gids: <a href="mailto:{escape(MAIL)}">{escape(MAIL)}</a>.</p>
+</article>
+"""
     else:
         topic = "who we are and how to reach us"
         body = f"""
@@ -1566,13 +2755,19 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
     catalog = escape(p["catalog"])
     help_h = escape(p["help"])
     dest_e = escape(dest)
+    lab_not = escape(p.get("lab_not", "nicht EU" if loc == "de" else "not EU"))
 
     if loc == "de":
-        guide_topic = "wie du die erste Bestellung aus Deutschland aufgibst"
+        addr_note = (
+            "Packstation zählt, wenn die gewählte Linie sie akzeptiert — das steht auf der offiziellen Sendung, nicht hier."
+            if p["dest"] == "DE"
+            else "Eine österreichische PLZ (z. B. 1010 Wien) ist kein deutsches Abholautomaten-Muster."
+        )
+        guide_topic = f"wie du die erste Bestellung aus {dest} aufgibst"
         guide_body = f"""
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Anleitung</span>
-  <h1>Erste Bestellung bei CSSBuy, von Deutschland aus</h1>
+  <h1>Erste Bestellung bei CSSBuy, von {dest_e} aus</h1>
   <p class="lead">Link kopieren, in den Agenten einfügen, Lagerfoto prüfen, bündeln, Ziel {dest_zh} wählen. Die Lieferadresse ist eine {fp}.</p>
   {fig_off}
   <h2>1. Karte auf w2clinks öffnen</h2>
@@ -1590,12 +2785,12 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p><a class="btn" href="{guide}">Anleitung</a> <a class="btn btn--ghost" href="{ship}">Versandplan</a></p>
 </article>
 """
-        ship_topic = "Versand und Zoll aus Deutschland"
+        ship_topic = f"Versand und Zoll aus {dest}"
         ship_body = f"""
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Versand</span>
-  <h1>Versand nach Deutschland: Schätzer, Volumen, Zoll</h1>
-  <p class="lead">Ziel {dest_zh}, nicht EU und nicht AT. Die Lieferadresse ist eine {fp}.</p>
+  <h1>Versand nach {dest_e}: Schätzer, Volumen, Zoll</h1>
+  <p class="lead">Ziel {dest_zh}, {lab_not}. Die Lieferadresse ist eine {fp}.</p>
   {fig_off}
   <h2>Der öffentliche Schätzer war hinter Login</h2>
   <p>Am {escape(DATE)} öffnete {est} ein Login, keinen Live-Preis. Dieser Desk erfindet keine Linie, keine Transitzeit und keinen Eurobetrag. Quelle: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
@@ -1609,11 +2804,11 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <h2>Lagerfotos vor der Linie</h2>
   <p>QC-Fotos landen in der App, sobald das Stück im Lager ist. Extra-Winkel sind oft kostenpflichtig. Reklamieren ist einfacher, solange es noch im Lager liegt.</p>
   <h2>Die Adresse auf diesem Dest</h2>
-  <p>Die Lieferadresse ist eine {fp}. Packstation zählt, wenn die gewählte Linie sie akzeptiert — das steht auf der offiziellen Sendung, nicht hier.</p>
+  <p>Die Lieferadresse ist eine {fp}. {addr_note}</p>
   <p><a class="btn" href="{est}">Offizielle CSSBuy-Site</a> <a class="btn btn--ghost" href="{help_h}">Hilfe</a></p>
 </article>
 """
-        legit_topic = "ist CSSBuy ein echter Agent aus Deutschland"
+        legit_topic = f"ist CSSBuy ein echter Agent aus {dest}"
         legit_body = f"""
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Check</span>
@@ -1636,7 +2831,7 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   <p><a class="btn" href="{official}">Offizielle Site</a> <a class="btn btn--ghost" href="{catalog}">Katalog</a></p>
 </article>
 """
-        sheet_topic = "der Katalog und wie du ihn von Deutschland aus nutzt"
+        sheet_topic = f"der Katalog und wie du ihn von {dest} aus nutzt"
         sheet_body = f"""
 <article class="pw">
   <span class="eyebrow" style="color:var(--acd)">Spreadsheet</span>
@@ -1725,6 +2920,246 @@ def _inner_pages(key: str) -> dict[str, tuple[str, str, str]]:
   {fig_sheet}
   <p>Cerca in inglese (sneakers, hoodie, jacket). L’indirizzo su questo dest è una {fp}.</p>
   <p><a class="btn" href="{catalog}">Apri il catalogo</a> <a class="btn btn--ghost" href="{guide}">Guida</a></p>
+</article>
+"""
+    elif loc == "es":
+        guide_topic = f"cómo haces el primer pedido desde {dest}"
+        guide_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Guía</span>
+  <h1>Primer pedido CSSBuy, desde {dest_e}</h1>
+  <p class="lead">Copias el enlace, lo pegas en el agente, revisas la foto de almacén, consolidas, eliges destino {dest_zh}. La dirección es una {fp}.</p>
+  {fig_off}
+  <h2>1. Abre una ficha en w2clinks</h2>
+  <p>Una de las treinta y tres categorías, foto y enlace de tienda. Es un catálogo, no un archivo Excel.</p>
+  {fig_sheet}
+  <h2>2. Pégalo en el sitio oficial</h2>
+  <p>Pagos y tickets siguen en {official}. Esta guía no ve tu cuenta. La barra pública es «Link or Keyword». Custom Order /diy el {escape(DATE)} abría un login.</p>
+  {fig_diy}
+  <h2>3. Foto, luego consolida, luego envía</h2>
+  <p>El {escape(DATE)} el estimador público abría un login, no un precio en vivo. Ningún plazo de almacén inventado, ninguna línea inventada.</p>
+  <h2>Nueve estados, tres pantallas</h2>
+  <p>Primero el producto más el tramo interno hasta el almacén. El internacional después. «¿Por qué está parado?» casi siempre: pantalla equivocada — pedidos, luego almacén, luego paquete.</p>
+  <h2>Primer haul: plano primero</h2>
+  <p>Camisetas, shorts, joyería para la primera ronda. Plumíferos, bolsos, gorras para la segunda. Electrónica a menudo litio: mira la línea en el sitio oficial.</p>
+  <p><a class="btn" href="{guide}">Guía</a> <a class="btn btn--ghost" href="{ship}">Plan de envío</a></p>
+</article>
+"""
+        ship_topic = f"envío y aduanas desde {dest}"
+        ship_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Envío</span>
+  <h1>Enviar a {dest_e}: estimador, volumen, aduanas</h1>
+  <p class="lead">Destino {dest_zh}, no EU. La dirección es una {fp}.</p>
+  {fig_off}
+  <h2>El estimador público estaba detrás de login</h2>
+  <p>El {escape(DATE)} {est} abría un login, no un precio en vivo. Esta guía no inventa una línea, un tránsito ni un importe. Fuente: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <h2>Báscula contra volumen</h2>
+  <p>Muchas líneas facturan el máximo entre báscula y L×W×H (cm) / 8000. Ejemplo: 40×40×3 cm son 4800 cm³, divididos por 8000 son 600 g de volumen con 200 g reales. Ningún precio SKU en este HTML.</p>
+  {fig_vol}
+  <h2>Consolidar no es una guía de aduanas</h2>
+  <p>Varias piezas de almacén en un cartón pueden recortar líneas internacionales. Lo que declaras en aduanas está en el envío oficial, no en esta página.</p>
+  <h2>Restricted no es un aviso de aduanas</h2>
+  <p>Fichas sin precio o un formulario manual significan: el enlace de origen no se puede comprar por el agente. Tabaco, alcohol y medicamentos no viajan.</p>
+  <h2>Fotos de almacén antes de la línea</h2>
+  <p>Las fotos QC llegan a la app cuando la pieza está en almacén. Ángulos extra a menudo de pago. Reclamar es más fácil mientras sigue ahí.</p>
+  <h2>La dirección en este dest</h2>
+  <p>La dirección es una {fp}. Ese formato va en el envío oficial, no como truco en esta página.</p>
+  <p><a class="btn" href="{est}">Sitio oficial CSSBuy</a> <a class="btn btn--ghost" href="{help_h}">Ayuda</a></p>
+</article>
+"""
+        legit_topic = f"CSSBuy es un agente de verdad desde {dest}"
+        legit_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Check</span>
+  <h1>¿CSSBuy es un agente de compras de verdad?</h1>
+  <p class="lead">cssbuy.com son el mismo producto oficial. cssbuyspreadsheet.eu es nuestro hub, no un territorio aduanero. Este dest no es CSSBuy.</p>
+  {fig_off}
+  <p>El {escape(DATE)} el estimador público estaba detrás de login. Por eso no inventamos plazo de almacén ni tarifa. Pedidos solo en {official}.</p>
+  <p>La dirección en este dest es una {fp}.</p>
+  <p><a class="btn" href="{guide}">Guía</a> <a class="btn btn--ghost" href="{help_h}">Ayuda</a></p>
+</article>
+"""
+        coup_topic = "los cupones están en el sitio oficial"
+        coup_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Códigos</span>
+  <h1>Cupones: no en el título de este dest</h1>
+  <p class="lead">Este dest no imprime códigos de invitación en el título ni en la portada. Si CSSBuy publica un código, está después del login en {official}.</p>
+  {fig_off}
+  <p>La dirección sigue siendo una {fp}. Destino en el estimador: {dest_zh}.</p>
+  <p><a class="btn" href="{official}">Sitio oficial</a> <a class="btn btn--ghost" href="{catalog}">Catálogo</a></p>
+</article>
+"""
+        sheet_topic = f"el catálogo y cómo lo usas desde {dest}"
+        sheet_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Spreadsheet</span>
+  <h1>CSSBuy Spreadsheet es un catálogo, no una tabla</h1>
+  <p class="lead">Fichas con foto, marca y enlace de tienda. Treinta y tres categorías como en w2clinks.</p>
+  {fig_sheet}
+  <p>Busca en inglés (sneakers, hoodie, jacket). La dirección en este dest es una {fp}.</p>
+  <p><a class="btn" href="{catalog}">Abrir el catálogo</a> <a class="btn btn--ghost" href="{guide}">Guía</a></p>
+</article>
+"""
+    elif loc == "fr":
+        guide_topic = f"comment tu passes la première commande depuis {dest}"
+        guide_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Guide</span>
+  <h1>Première commande CSSBuy, depuis {dest_e}</h1>
+  <p class="lead">Tu copies le lien, tu le colles dans l’agent, tu vérifies la photo d’entrepôt, tu regroupes, tu choisis destination {dest_zh}. L’adresse est une {fp}.</p>
+  {fig_off}
+  <h2>1. Ouvre une fiche sur w2clinks</h2>
+  <p>Une des trente-trois catégories, photo et lien boutique. C’est un catalogue, pas un fichier Excel.</p>
+  {fig_sheet}
+  <h2>2. Colle-le sur le site officiel</h2>
+  <p>Paiements et tickets restent sur {official}. Ce guide ne voit pas ton compte. La barre publique est « Link or Keyword ». Custom Order /diy le {escape(DATE)} ouvrait un login.</p>
+  {fig_diy}
+  <h2>3. Photo, puis regrouper, puis envoyer</h2>
+  <p>Le {escape(DATE)} l’estimateur public ouvrait un login, pas un tarif live. Aucun délai de stockage inventé, aucune ligne inventée.</p>
+  <h2>Neuf statuts, trois écrans</h2>
+  <p>D’abord le produit plus le trajet intérieur jusqu’à l’entrepôt. L’international après. « Pourquoi c’est bloqué ? » presque toujours : mauvais écran — commandes, puis entrepôt, puis colis.</p>
+  <h2>Premier haul : plat d’abord</h2>
+  <p>T-shirts, shorts, bijoux pour le premier tour. Doudounes, sacs, casquettes pour le second. Électronique souvent lithium : vérifie la ligne sur le site officiel.</p>
+  <p><a class="btn" href="{guide}">Guide</a> <a class="btn btn--ghost" href="{ship}">Plan de livraison</a></p>
+</article>
+"""
+        ship_topic = f"livraison et douane depuis {dest}"
+        ship_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Livraison</span>
+  <h1>Expédier vers {dest_e} : estimateur, volume, douane</h1>
+  <p class="lead">Destination {dest_zh}, pas EU. L’adresse est une {fp}.</p>
+  {fig_off}
+  <h2>L’estimateur public était derrière un login</h2>
+  <p>Le {escape(DATE)} {est} ouvrait un login, pas un tarif live. Ce guide n’invente ni ligne, ni transit, ni montant. Source : <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <h2>Balance contre volume</h2>
+  <p>Beaucoup de lignes facturent le max entre balance et L×W×H (cm) / 8000. Exemple : 40×40×3 cm font 4800 cm³, divisés par 8000 font 600 g de volume pour 200 g réels. Aucun prix SKU dans cet HTML.</p>
+  {fig_vol}
+  <h2>Regrouper n’est pas un tutoriel douane</h2>
+  <p>Plusieurs pièces d’entrepôt dans un carton peuvent réduire les lignes internationales. Ce que tu déclares en douane est sur l’envoi officiel, pas sur cette page.</p>
+  <h2>Restricted n’est pas un avis de douane</h2>
+  <p>Fiches sans prix ou un formulaire manuel signifient : le lien source n’est pas achetable via l’agent. Tabac, alcool et médicaments ne voyagent pas.</p>
+  <h2>Photos d’entrepôt avant la ligne</h2>
+  <p>Les photos QC arrivent dans l’app quand la pièce est en entrepôt. Angles extra souvent payants. Réclamer est plus simple tant qu’elle y est encore.</p>
+  <h2>L’adresse sur ce dest</h2>
+  <p>L’adresse est une {fp}. Ce format va sur l’envoi officiel, pas comme astuce sur cette page.</p>
+  <p><a class="btn" href="{est}">Site officiel CSSBuy</a> <a class="btn btn--ghost" href="{help_h}">Aide</a></p>
+</article>
+"""
+        legit_topic = f"CSSBuy est un vrai agent depuis {dest}"
+        legit_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Check</span>
+  <h1>CSSBuy est-il un vrai agent d’achat ?</h1>
+  <p class="lead">cssbuy.com sont le même produit officiel. cssbuyspreadsheet.eu est notre hub, pas un territoire douanier. Ce dest n’est pas CSSBuy.</p>
+  {fig_off}
+  <p>Le {escape(DATE)} l’estimateur public était derrière login. C’est pour ça qu’on n’invente ni délai de stockage ni tarif. Commandes seulement sur {official}.</p>
+  <p>L’adresse sur ce dest est une {fp}.</p>
+  <p><a class="btn" href="{guide}">Guide</a> <a class="btn btn--ghost" href="{help_h}">Aide</a></p>
+</article>
+"""
+        coup_topic = "les codes sont sur le site officiel"
+        coup_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Codes</span>
+  <h1>Codes : pas dans le titre de ce dest</h1>
+  <p class="lead">Ce dest n’imprime pas de codes d’invitation dans le titre ni sur la page d’accueil. Si CSSBuy publie un code, il est après le login sur {official}.</p>
+  {fig_off}
+  <p>L’adresse reste une {fp}. Destination dans l’estimateur : {dest_zh}.</p>
+  <p><a class="btn" href="{official}">Site officiel</a> <a class="btn btn--ghost" href="{catalog}">Catalogue</a></p>
+</article>
+"""
+        sheet_topic = f"le catalogue et comment tu l’utilises depuis {dest}"
+        sheet_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Spreadsheet</span>
+  <h1>CSSBuy Spreadsheet est un catalogue, pas une grille</h1>
+  <p class="lead">Fiches avec photo, marque et lien boutique. Trente-trois catégories comme sur w2clinks.</p>
+  {fig_sheet}
+  <p>Cherche en anglais (sneakers, hoodie, jacket). L’adresse sur ce dest est une {fp}.</p>
+  <p><a class="btn" href="{catalog}">Ouvrir le catalogue</a> <a class="btn btn--ghost" href="{guide}">Guide</a></p>
+</article>
+"""
+    elif loc == "nl":
+        guide_topic = f"hoe je de eerste bestelling vanuit {dest} plaatst"
+        guide_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Handleiding</span>
+  <h1>Eerste CSSBuy-bestelling, vanuit {dest_e}</h1>
+  <p class="lead">Link kopiëren, in de agent plakken, magazijnfoto checken, bundelen, bestemming {dest_zh} kiezen. Het afleveradres is een {fp}.</p>
+  {fig_off}
+  <h2>1. Open een kaart op w2clinks</h2>
+  <p>Eén van de drieëndertig categorieën, foto en shoplink. Dat is de catalogus, geen Excel-bestand.</p>
+  {fig_sheet}
+  <h2>2. Plak op de officiële site</h2>
+  <p>Betaling en tickets blijven op {official}. Deze gids ziet je account niet. De publieke plakbalk heet «Link or Keyword». Custom Order /diy opende op {escape(DATE)} een login.</p>
+  {fig_diy}
+  <h2>3. Foto, dan bundelen, dan verzenden</h2>
+  <p>Op {escape(DATE)} opende de publieke schatter een login, geen live tarief. Geen verzonnen opslagdagen, geen verzonnen lijn.</p>
+  <h2>Negen statussen, drie schermen</h2>
+  <p>Eerst product plus binnenlands traject tot het magazijn. Internationaal later. «Waarom staat het stil?» bijna altijd: verkeerd scherm — bestellingen, dan magazijn, dan pakket.</p>
+  <h2>Eerste haul: plat eerst</h2>
+  <p>T-shirts, shorts, sieraden voor de eerste ronde. Dons, tassen, petten voor de tweede. Elektronica vaak lithium: check de lijn op de officiële site.</p>
+  <p><a class="btn" href="{guide}">Handleiding</a> <a class="btn btn--ghost" href="{ship}">Verzendplan</a></p>
+</article>
+"""
+        ship_topic = f"verzending en douane vanuit {dest}"
+        ship_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Verzending</span>
+  <h1>Verzenden naar {dest_e}: schatter, volume, douane</h1>
+  <p class="lead">Bestemming {dest_zh}, niet EU. Het afleveradres is een {fp}.</p>
+  {fig_off}
+  <h2>De publieke schatter zat achter login</h2>
+  <p>Op {escape(DATE)} opende {est} een login, geen live tarief. Deze gids verzint geen lijn, transittijd of bedrag. Bron: <a href="{customs_url}" rel="noopener">{customs}</a>.</p>
+  <h2>Weegschaal versus volume</h2>
+  <p>Veel lijnen factureren het maximum van weegschaal en L×W×H (cm) / 8000. Voorbeeld: 40×40×3 cm is 4800 cm³, gedeeld door 8000 is 600 g volume bij 200 g echt gewicht. Geen SKU-prijs in deze HTML.</p>
+  {fig_vol}
+  <h2>Bundelen is geen douane-tutorial</h2>
+  <p>Meerdere magazijnstukken in één doos kunnen internationale lijnen schelen. Wat je aan de douane opgeeft, staat op de officiële zending, niet op deze pagina.</p>
+  <h2>Restricted is geen douanebericht</h2>
+  <p>Kaarten zonder prijs of een handmatig formulier betekenen: de bronlink is via de agent niet te koop. Tabak, alcohol en geneesmiddelen reizen niet.</p>
+  <h2>Magazijnfoto’s vóór de lijn</h2>
+  <p>QC-foto’s landen in de app zodra het stuk in het magazijn is. Extra hoeken zijn vaak betaald. Reclame is makkelijker zolang het er nog ligt.</p>
+  <h2>Het adres op dit dest</h2>
+  <p>Het afleveradres is een {fp}. Dat formaat hoort op de officiële zending, niet als truc op deze pagina.</p>
+  <p><a class="btn" href="{est}">Officiële CSSBuy-site</a> <a class="btn btn--ghost" href="{help_h}">Hulp</a></p>
+</article>
+"""
+        legit_topic = f"is CSSBuy een echte agent vanuit {dest}"
+        legit_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Check</span>
+  <h1>Is CSSBuy een echte inkoopagent?</h1>
+  <p class="lead">cssbuy.com zijn hetzelfde officiële product. cssbuyspreadsheet.eu is onze hub, geen douanegebied. Dit dest is CSSBuy niet.</p>
+  {fig_off}
+  <p>Op {escape(DATE)} zat de publieke schatter achter login. Daarom verzinnen we geen opslagvenster en geen tarief. Bestellingen alleen via {official}.</p>
+  <p>Het afleveradres op dit dest is een {fp}.</p>
+  <p><a class="btn" href="{guide}">Handleiding</a> <a class="btn btn--ghost" href="{help_h}">Hulp</a></p>
+</article>
+"""
+        coup_topic = "kortingscodes staan op de officiële site"
+        coup_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Codes</span>
+  <h1>Kortingscodes: niet in de titel van dit dest</h1>
+  <p class="lead">Dit dest drukt geen uitnodigingscodes in de titel of op de homepage. Als CSSBuy een code publiceert, staat die na het inloggen op {official}.</p>
+  {fig_off}
+  <p>Het afleveradres blijft een {fp}. Bestemming in de schatter: {dest_zh}.</p>
+  <p><a class="btn" href="{official}">Officiële site</a> <a class="btn btn--ghost" href="{catalog}">Catalogus</a></p>
+</article>
+"""
+        sheet_topic = f"de catalogus en hoe je hem vanuit {dest} gebruikt"
+        sheet_body = f"""
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Spreadsheet</span>
+  <h1>CSSBuy Spreadsheet is een catalogus, geen raster</h1>
+  <p class="lead">Kaarten met foto, merk en shoplink. Drieëndertig categorieën zoals op w2clinks.</p>
+  {fig_sheet}
+  <p>Zoek in het Engels (sneakers, hoodie, jacket). Het afleveradres op dit dest is een {fp}.</p>
+  <p><a class="btn" href="{catalog}">Catalogus openen</a> <a class="btn btn--ghost" href="{guide}">Handleiding</a></p>
 </article>
 """
     else:
@@ -1858,7 +3293,7 @@ def _assert_ok(html: str, page: str, key: str) -> None:
             err.append("home title")
         if p["fingerprint"] not in html:
             err.append("fingerprint")
-        if "not an Excel file" not in html and "keine Excel-Datei" not in html and "non è un file Excel" not in html:
+        if "not an Excel file" not in html and "keine Excel-Datei" not in html and "non è un file Excel" not in html and "no es un archivo Excel" not in html and "n’est pas un fichier Excel" not in html and "geen Excel-bestand" not in html:
             err.append("sheet-explain")
         if "cat-30-shoes.png" not in html or "w2clinks.com/spreadsheet/cssbuy" not in html:
             err.append("W2C cats")
@@ -2108,6 +3543,8 @@ def _map_faq_to_help(client, sftp, key: str) -> None:
         "cssbuy-spreadsheet",
         "ist-cssbuy-serioes",
     }
+    if key in PHP_KEYS:
+        unstick.update({"guide", "spreadsheet"})
     faq_src = {
         "/faq", "/faq/",
         "/cssbuy-invite-code", "/cssbuy-invite-code/",
@@ -2208,6 +3645,125 @@ def _harden_catchall(client, sftp, key: str) -> None:
     _reload_nginx(client)
 
 
+def _php_legacy_maps(key: str) -> list[tuple[str, str]]:
+    p = PACKS[key]
+    cat, help_h, guide, ship = p["catalog"], p["help"], p["guide"], p["ship"]
+    legit, coup = "/is-cssbuy-legit/", "/cssbuy-coupons/"
+    return [
+        ("/guides/customs", ship),
+        ("/guides/costs", ship),
+        ("/guides/payment", guide),
+        ("/guides/tracking", ship),
+        ("/guides/coupon", coup),
+        ("/guides/is-safe", legit),
+        ("/guides/first-order", guide),
+        ("/guides/vs-pandabuy", legit),
+        ("/guides/shipping", ship),
+        ("/guide/shipping", ship),
+        ("/guide/first-order", guide),
+        ("/guide/customs", ship),
+        ("/guide/coupon", coup),
+        ("/guide/is-safe", legit),
+        ("/guide", guide),
+        ("/spreadsheet", cat),
+        ("/faq", help_h),
+    ]
+
+
+def _cutover_php_vhost(client, sftp, key: str) -> None:
+    """Move the five PHP ccTLDs off cssbuy-lite/public onto a static dest wwwroot."""
+    if key not in PHP_KEYS:
+        return
+    host = PACKS[key]["host"]
+    if host not in PHP_HOSTS:
+        raise SystemExit(f"cutover host mismatch {host}")
+    dest_root = f"/www/wwwroot/{host}"
+    vhost = f"/www/server/panel/vhost/nginx/{host}.conf"
+    rewrite = f"/www/server/panel/vhost/rewrite/{host}.conf"
+    with sftp.open(vhost, "r") as fh:
+        text = fh.read().decode()
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    _run(client, f"mkdir -p /www/backup '{dest_root}'; cp -a '{vhost}' '/www/backup/cssbuy-{key}-php-cutover-{stamp}.conf'")
+    _run(client, f"cp -a '{rewrite}' '/www/backup/cssbuy-{key}-php-rewrite-{stamp}.conf' 2>/dev/null || true")
+    text = text.replace("/www/wwwroot/cssbuy-lite/public", dest_root)
+    text = text.replace("index index.php;", "index index.html;")
+    text = re.sub(r"\n[ \t]*include enable-php-74\.conf;\s*", "\n", text)
+    if "/www/wwwroot/cssbuy-lite/public" in text or "cssbuy-lite/public" in text:
+        raise SystemExit(f"refusing {host} vhost still on lite/public")
+    if "enable-php-74.conf" in text:
+        raise SystemExit(f"refusing {host} still includes php74")
+    Path(f"/tmp/cssbuy-{key}-cutover.conf").write_text(text, encoding="utf-8")
+    sftp.put(f"/tmp/cssbuy-{key}-cutover.conf", vhost)
+    catch = (
+        "location / {\n"
+        "    try_files $uri $uri/ $uri/index.html =404;\n"
+        '    add_header Strict-Transport-Security "max-age=31536000" always;\n'
+        '    add_header Cache-Control "private, no-cache, must-revalidate" always;\n'
+        f'    add_header X-Desk "cssbuy-{key}-independent" always;\n'
+        "}\n"
+    )
+    Path(f"/tmp/cssbuy-{key}-rewrite.conf").write_text(catch, encoding="utf-8")
+    sftp.put(f"/tmp/cssbuy-{key}-rewrite.conf", rewrite)
+    _run(client, f"mkdir -p '{dest_root}'")
+    chk = _run(client, "nginx -t")
+    print(key, "php cutover nginx -t", chk)
+    if "successful" not in chk.lower() and "ok" not in chk.lower():
+        raise SystemExit(f"nginx -t failed after {host} cutover")
+    print(key, "cut over vhost root to", dest_root)
+    _reload_nginx(client)
+
+
+def _map_php_legacy(client, sftp, key: str) -> None:
+    """301 leftover PHP /guide /spreadsheet /faq onto dest slugs."""
+    if key not in PHP_KEYS:
+        return
+    p = PACKS[key]
+    host = p["host"]
+    root = f"/www/wwwroot/{host}"
+    wanted: dict[str, str] = {}
+    for src, dest in _php_legacy_maps(key):
+        wanted[src] = dest
+        if not src.endswith("/"):
+            wanted[src + "/"] = dest
+        _run(client, f"rm -rf '{root}{src}'")
+    gsc = f"/www/server/panel/vhost/nginx/extension/{host}/gsc-redirects.conf"
+    raw = _run(client, f"cat '{gsc}' 2>/dev/null || true")
+    raw = re.sub(r"\}(\s*)location\s+=", "}\nlocation =", raw or "")
+    if raw and not raw.endswith("\n"):
+        raw += "\n"
+    seen: set[str] = set()
+    out: list[str] = []
+    loc_re = re.compile(r"location\s+=\s+(\S+)\s*\{")
+    for ln in raw.splitlines(True):
+        m = loc_re.search(ln)
+        if m and m.group(1) in wanted:
+            path = m.group(1)
+            if path in seen:
+                continue
+            prefix = ln[: m.start()] if m.start() else ""
+            if prefix.strip() and not prefix.endswith("\n"):
+                out.append(prefix.rstrip() + "\n")
+            out.append(f"location = {path} {{ return 301 https://{host}{wanted[path]}; }}\n")
+            seen.add(path)
+            continue
+        out.append(ln)
+    for path, dest in wanted.items():
+        if path not in seen:
+            out.append(f"location = {path} {{ return 301 https://{host}{dest}; }}\n")
+            seen.add(path)
+    new = "".join(out)
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    _run(client, f"mkdir -p /www/backup '{Path(gsc).parent}'; touch '{gsc}'")
+    if new != (raw or ""):
+        _run(client, f"cp -a '{gsc}' '/www/backup/cssbuy-{key}-gsc-php-legacy-{stamp}.conf' 2>/dev/null || true")
+        Path(f"/tmp/cssbuy-{key}-gsc-php-legacy.conf").write_text(new, encoding="utf-8")
+        sftp.put(f"/tmp/cssbuy-{key}-gsc-php-legacy.conf", gsc)
+        print(key, "php leftover 301s", len(wanted))
+        _reload_nginx(client)
+    else:
+        print(key, "php leftover 301s already mapped")
+
+
 def _fix_twins(client, sftp) -> None:
     stamp = time.strftime("%Y%m%d-%H%M%S")
     for twin, target in TWINS.items():
@@ -2287,6 +3843,33 @@ def _retire_poison(key: str, href: str) -> str:
   <h1>Questo articolo è stato sostituito</h1>
   <p class="lead">La versione precedente non era di CSSBuy. La guida attuale sta su Start. L’indirizzo è una {fp}.</p>
   <p><a class="btn" href="/start/">Start</a> <a class="btn btn--ghost" href="{escape(p['guide'])}">Guida</a></p>
+</article>
+"""
+    elif loc == "es":
+        topic = "este artículo fue sustituido"
+        body = f"""
+<article class="pw">
+  <h1>Este artículo fue sustituido</h1>
+  <p class="lead">La versión anterior no era de CSSBuy. La guía actual está en Start. La dirección es una {fp}.</p>
+  <p><a class="btn" href="/start/">Start</a> <a class="btn btn--ghost" href="{escape(p['guide'])}">Guía</a></p>
+</article>
+"""
+    elif loc == "fr":
+        topic = "cet article a été remplacé"
+        body = f"""
+<article class="pw">
+  <h1>Cet article a été remplacé</h1>
+  <p class="lead">La version précédente n’était pas CSSBuy. Le guide actuel est sur Start. L’adresse est une {fp}.</p>
+  <p><a class="btn" href="/start/">Start</a> <a class="btn btn--ghost" href="{escape(p['guide'])}">Guide</a></p>
+</article>
+"""
+    elif loc == "nl":
+        topic = "dit artikel is vervangen"
+        body = f"""
+<article class="pw">
+  <h1>Dit artikel is vervangen</h1>
+  <p class="lead">De vorige versie hoorde niet bij CSSBuy. De huidige gids staat op Start. Het afleveradres is een {fp}.</p>
+  <p><a class="btn" href="/start/">Start</a> <a class="btn btn--ghost" href="{escape(p['guide'])}">Handleiding</a></p>
 </article>
 """
     else:
@@ -2370,6 +3953,8 @@ def put(key: str) -> None:
     bak = f"/www/backup/cssbuy-{key}-cms-{stamp}"
     root = f"/www/wwwroot/{host}"
     overlay = _overlay(key)
+    if "cssbuy-lite" in root or "cssbuy-lite" in str(overlay):
+        raise SystemExit(f"refusing lite/public PUT {root}")
     inner_dirs = [href.strip("/") for href, _t, _b in _inner_pages(key).values()]
     slug_dirs = " ".join(
         f"'{root}/{rel}'"
@@ -2387,10 +3972,14 @@ def put(key: str) -> None:
     )
     _run(client, f"mkdir -p '{bak}' {slug_dirs}")
     sftp = client.open_sftp()
+    if key in PHP_KEYS:
+        _cutover_php_vhost(client, sftp, key)
     _harden_catchall(client, sftp, key)
     _strip_cms_home_301s(client, sftp, key)
     _map_legacy_english_cms(client, sftp, key)
     _map_faq_to_help(client, sftp, key)
+    if key in PHP_KEYS:
+        _map_php_legacy(client, sftp, key)
     mapping = {
         "home": f"{root}/index.html",
         "start": f"{root}/start/index.html",
@@ -2509,7 +4098,7 @@ def live_check(key: str | None = None) -> None:
             return e.code, url, e.headers.get("Location") or "", e.read() if e.fp else b""
 
     fail = 0
-    dest_hosts = [PACKS[k]["host"] for k in PACKS] + list(PHP_HOSTS)
+    dest_hosts = [PACKS[k]["host"] for k in PACKS]
     for k in keys:
         p = PACKS[k]
         host = p["host"]
@@ -2566,10 +4155,15 @@ def live_check(key: str | None = None) -> None:
                         print(" FAIL missing #", sid, sep=""); fail += 1
                 if p["loc"] != "en" and "Official cssbuy.com, 6 Oct" in html:
                     print(" FAIL english fig caption"); fail += 1
+                if 'class="lite-hero"' in html:
+                    print(" FAIL leftover lite-hero"); fail += 1
             if kind in ("guide", "ship"):
                 mark = {
-                    "de": ("Erste Bestellung bei CSSBuy" if kind == "guide" else "Versand nach Deutschland"),
+                    "de": ("Erste Bestellung bei CSSBuy" if kind == "guide" else f"Versand nach {p['dest_label']}"),
                     "it": ("Primo ordine CSSBuy" if kind == "guide" else "Spedire in Italia"),
+                    "es": ("Primer pedido CSSBuy" if kind == "guide" else f"Enviar a {p['dest_label']}"),
+                    "fr": ("Première commande CSSBuy" if kind == "guide" else f"Expédier vers {p['dest_label']}"),
+                    "nl": ("Eerste CSSBuy-bestelling" if kind == "guide" else f"Verzenden naar {p['dest_label']}"),
                 }.get(p["loc"], ("First CSSBuy order" if kind == "guide" else "Shipping to"))
                 if mark not in html:
                     print(" FAIL", kind, "copy"); fail += 1
@@ -2581,6 +4175,9 @@ def live_check(key: str | None = None) -> None:
                 mark = {
                     "de": "Eine unabhängige Site über CSSBuy",
                     "it": "Un sito indipendente su CSSBuy",
+                    "es": "Un sitio independiente sobre CSSBuy",
+                    "fr": "Un site indépendant sur CSSBuy",
+                    "nl": "Een onafhankelijke site over CSSBuy",
                 }.get(p["loc"], "An independent site about CSSBuy")
                 if mark not in html:
                     print(" FAIL about copy"); fail += 1
@@ -2612,38 +4209,12 @@ def live_check(key: str | None = None) -> None:
             print(" FAIL 404"); fail += 1
         if f"{p['not_found_tab']} | CSSBuy Spreadsheet" not in nhtml:
             print(" FAIL 404 title"); fail += 1
+        if k in PHP_KEYS:
+            code_g, _, loc_g, _ = fetch(f"https://{host}/guide/shipping", follow=False)
+            print(k, "legacy guide/shipping", code_g, loc_g)
+            if code_g not in (301, 302, 308) or "/cssbuy-shipping" not in (loc_g or ""):
+                print(" FAIL leftover /guide/shipping"); fail += 1
     if key is None:
-        for pk, spec in PHP_LIVE.items():
-            host = spec["host"]
-            code, final, loc, body = fetch(f"https://{host}/", follow=True)
-            html = body.decode("utf-8", "replace")
-            print("php", pk, code, "bytes", len(body), "loc", loc or final)
-            if code != 200:
-                print(" FAIL php status"); fail += 1
-            if len(body) < 8000:
-                print(" FAIL php gold collapsed", len(body)); fail += 1
-            if 'class="lite-hero"' not in html:
-                print(" FAIL php chrome gone"); fail += 1
-            if spec["fp"] not in html:
-                print(" FAIL php fingerprint"); fail += 1
-            if spec["title"] not in html:
-                print(" FAIL php title"); fail += 1
-            if f'lang="{spec["lang"]}"' not in html:
-                print(" FAIL php lang"); fail += 1
-            for tok in INVITES:
-                if tok in html:
-                    print(" FAIL php invite"); fail += 1
-            for alien in spec["aliens"]:
-                inner_m = re.search(r'id="local".*?</section>', html, flags=re.S)
-                inner = inner_m.group(0) if inner_m else html
-                if alien in inner:
-                    print(" FAIL php sister leak", alien); fail += 1
-            sisters = [h for h in dest_hosts if h != host]
-            if any(s in (final or "") or s in (loc or "") for s in sisters + [HUB]):
-                print(" FAIL php 301 into sister/hub"); fail += 1
-            code_nf, _, _, _ = fetch(f"https://{host}/", follow=False)
-            if code_nf in (301, 302, 308):
-                print(" FAIL php homepage redirect"); fail += 1
         for a, b in (
             ("https://cssbuy.fr/", "cssbuy.es"),
             ("https://cssbuy.at/", "cssbuy.nl"),
@@ -2664,7 +4235,7 @@ def live_check(key: str | None = None) -> None:
         print(" twin deep", code2, loc2)
         if code2 not in (301, 302, 308) or target not in (loc2 or ""):
             print(" FAIL twin deep"); fail += 1
-        elif "/guide/shipping" not in (loc2 or "") and loc2.rstrip("/") == f"https://{target}":
+        elif "/cssbuy-shipping" not in (loc2 or "") and loc2.rstrip("/") == f"https://{target}":
             print(" FAIL twin deep collapsed to home"); fail += 1
     code, _, loc, _ = fetch(f"https://{HUB}/", follow=False)
     print("hub", code, loc or HUB)
@@ -2736,11 +4307,10 @@ if __name__ == "__main__":
     elif cmd == "all":
         for k in rest:
             put(k)
-        put_php()
         client = _connect()
         _fix_twins(client, client.open_sftp())
         client.close()
-        _cf_bust([PACKS[k]["host"] for k in rest] + list(PHP_HOSTS) + list(TWINS))
+        _cf_bust([PACKS[k]["host"] for k in rest] + list(TWINS))
         live_check()
     else:
         for k in rest:
