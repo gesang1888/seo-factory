@@ -3735,10 +3735,13 @@ def live_check(key: str | None = None) -> None:
             (f"https://{host}/kakobuy-coupons/", "coupons", False),
         ]
         for url, kind, need_fp in checks:
-            follow = kind in ("home", "start", "guide", "ship", "legit", "coupons")
+            follow = kind in ("home", "start", "guide", "ship", "legit")
             code, final, loc, body = fetch(url, follow=follow)
             html = body.decode("utf-8", "replace")
             print(k, kind, code, "bytes", len(body), "loc", loc or final)
+            if kind == "coupons" and code in (301, 302, 308) and "/kakobuy-coupon" in (loc or ""):
+                print(k, "coupons kept ranked article")
+                continue
             if any(h in (final or "") or h in (loc or "") for h in SKIP_PUT_HOSTS):
                 print(" FAIL 301 into hub"); fail += 1
             sisters = [h for h in dest_hosts if h != host]
