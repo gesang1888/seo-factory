@@ -1627,38 +1627,56 @@ def _strip_cms_home_301s(client, sftp, key: str) -> None:
 
 
 def _map_legacy_english_cms(client, sftp, key: str) -> None:
-    """DE/IT keep leftover /about/ (OrientDig). 301 English CMS slugs to dest slugs and drop the files."""
+    """DE/IT: 301 leftover English CMS slugs to dest slugs; drop OrientDig /about/ files."""
     p = PACKS[key]
     host = p["host"]
     root = f"/www/wwwroot/{host}"
-    pairs = (
+    wanted: dict[str, str] = {}
+    dropped: list[str] = []
+    for old, dest in (
         ("about", p["about"]),
         ("help", p["help"]),
         ("news", p["news"]),
         ("catalog", p["catalog"]),
-    )
-    gsc = f"/www/server/panel/vhost/nginx/extension/{host}/gsc-redirects.conf"
-    raw = _run(client, f"cat '{gsc}' 2>/dev/null || true")
-    add = []
-    dropped = []
-    for old, dest in pairs:
+    ):
         if dest.strip("/") == old:
             continue
-        for variant in (f"/{old}", f"/{old}/"):
-            line = f"location = {variant} {{ return 301 https://{host}{dest}; }}"
-            if line not in raw and line not in "".join(add):
-                add.append(line + "\n")
+        wanted[f"/{old}"] = dest
+        wanted[f"/{old}/"] = dest
         dropped.append(old)
         _run(client, f"rm -rf '{root}/{old}'")
-    if not add and not dropped:
+    if not wanted:
         return
-    if add:
-        stamp = time.strftime("%Y%m%d-%H%M%S")
-        _run(client, f"mkdir -p /www/backup; cp -a '{gsc}' '/www/backup/bbdbuy-{key}-gsc-legacy-{stamp}.conf' 2>/dev/null || true")
-        Path(f"/tmp/bbdbuy-{key}-gsc-legacy.conf").write_text((raw or "") + "\n" + "".join(add), encoding="utf-8")
-        sftp.put(f"/tmp/bbdbuy-{key}-gsc-legacy.conf", gsc)
-        print(key, "legacy CMS 301s", " ".join(x.strip() for x in add))
-        _reload_nginx(client)
+    gsc = f"/www/server/panel/vhost/nginx/extension/{host}/gsc-redirects.conf"
+    raw = _run(client, f"cat '{gsc}' 2>/dev/null || true")
+    seen: set[str] = set()
+    out: list[str] = []
+    loc_re = re.compile(r"^\s*location\s+=\s+(\S+)\s*\{")
+    for ln in (raw or "").splitlines(True):
+        m = loc_re.match(ln)
+        if m and m.group(1) in wanted:
+            path = m.group(1)
+            if path in seen:
+                continue
+            out.append(f"location = {path} {{ return 301 https://{host}{wanted[path]}; }}\n")
+            seen.add(path)
+            continue
+        out.append(ln)
+    for path, dest in wanted.items():
+        if path not in seen:
+            out.append(f"location = {path} {{ return 301 https://{host}{dest}; }}\n")
+            seen.add(path)
+    new = "".join(out)
+    if new == (raw or ""):
+        if dropped:
+            print(key, "dropped leftover English CMS dirs", dropped)
+        return
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    _run(client, f"mkdir -p /www/backup; cp -a '{gsc}' '/www/backup/bbdbuy-{key}-gsc-legacy-{stamp}.conf' 2>/dev/null || true")
+    Path(f"/tmp/bbdbuy-{key}-gsc-legacy.conf").write_text(new, encoding="utf-8")
+    sftp.put(f"/tmp/bbdbuy-{key}-gsc-legacy.conf", gsc)
+    print(key, "legacy CMS 301s", " ".join(f"{a}->{b}" for a, b in wanted.items()))
+    _reload_nginx(client)
     if dropped:
         print(key, "dropped leftover English CMS dirs", dropped)
 
