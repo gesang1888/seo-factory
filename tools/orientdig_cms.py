@@ -3851,17 +3851,28 @@ def _fix_twins(client, sftp) -> None:
         else:
             print("WARN twin catch-all needle missing", twin)
         ext_inc = f"    include /www/server/panel/vhost/nginx/extension/{twin}/*.conf;\n"
-        if f"extension/{twin}/" not in raw:
-            _run(client, f"mkdir -p /www/server/panel/vhost/nginx/extension/{twin}")
+        # US already included extension/*.conf. Other twins listed exact maps in
+        # the vhost; including gsc-redirects duplicates location = /about.
+        if twin != "orientdigspreadsheet.us" and ext_inc in raw:
+            raw = raw.replace(ext_inc, "")
+            Path(f"/tmp/orientdig-twin-{twin}.conf").write_text(raw, encoding="utf-8")
+            sftp.put(f"/tmp/orientdig-twin-{twin}.conf", vhost)
+            print("twin dropped duplicate extension include", twin)
+        if "location = /guides/shipping " not in raw:
+            ship_lines = (
+                f"    location = /guides/shipping {{ return 301 https://{target}/orientdig-shipping/; }}\n"
+                f"    location = /guides/shipping/ {{ return 301 https://{target}/orientdig-shipping/; }}\n"
+                f"    location = /guide/shipping {{ return 301 https://{target}/orientdig-shipping/; }}\n"
+                f"    location = /guide/shipping/ {{ return 301 https://{target}/orientdig-shipping/; }}\n"
+            )
             needle = "    location / {"
             if needle in raw:
-                _run(client, f"cp -a '{vhost}' '/www/backup/orientdig-twin-inc-{twin}-{stamp}.conf'")
-                raw = raw.replace(needle, ext_inc + needle, 1)
+                raw = raw.replace(needle, ship_lines + needle, 1)
                 Path(f"/tmp/orientdig-twin-{twin}.conf").write_text(raw, encoding="utf-8")
                 sftp.put(f"/tmp/orientdig-twin-{twin}.conf", vhost)
-                print("twin vhost now includes extension", twin)
+                print("twin vhost shipping maps", twin)
             else:
-                print("WARN twin missing location / for extension include", twin)
+                print("WARN twin missing location / for shipping maps", twin)
         extra = TWIN_EXTRA.get(twin) or []
         pdest = next(p for p in PACKS.values() if p["host"] == target)
         wanted: dict[str, str] = {}
@@ -3938,6 +3949,7 @@ def _fix_twins(client, sftp) -> None:
             sftp.put(f"/tmp/orientdig-twin-gsc-{twin}.conf", gsc)
             print("rewrote twin path maps", twin, len(wanted))
     _reload_nginx(client)
+    _cf_bust(list(TWINS) + [PACKS[k]["host"] for k in PACKS])
 
 
 def _origin_inners(client, root: str) -> list[str]:
