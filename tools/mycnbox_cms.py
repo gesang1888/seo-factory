@@ -71,7 +71,7 @@ HUBS = ("mycnbox.eu", "mycnboxhaul.com")
 SKIP_PUT_HOSTS = {"mycnbox.eu", "mycnboxhaul.com", "mycnboxhual.com"}
 OFF_ORIGIN = ()  # none on Origin
 DEST_MIN = 22000
-CSS_V = "20261006q"
+CSS_V = "20261006r"
 INVITES = ("AABZKT",)
 LOGO = "mycnbox-logo.png"
 THEME_CSS = "mycnbox-theme.css"
@@ -3068,6 +3068,8 @@ def _copy_asset(src: Path, dst: Path) -> bool:
 
 
 def _copy_hero(dst: Path) -> None:
+    # Official www.mycnbox.com homepage. Never the w2clinks spreadsheet —
+    # that sheet bleeds through the dest H1.
     jpg, webp = ASSETS / "hero.jpg", ASSETS / "hero.webp"
     if jpg.is_file():
         _copy_asset(jpg, dst)
