@@ -1,8 +1,2 @@
-/* Superbuy country dest — matches official palette, Inter not serif. */
-:root {
-  --primary: #ff1733;
-  --primary-dark: #ff1733;
-  --primary-soft: #fff6f7;
-  --nav-dark: #1b1b1b;
-}
-body { background: var(--bg, #f7f8fa); }
+/* Superbuy country dest — official red #ff1733 from www.superbuy.com */
+:root { --primary: #ff1733; --primary-dark: #cc1229; --primary-soft: #fff6f7; --nav-dark: #1b1b1b; }
