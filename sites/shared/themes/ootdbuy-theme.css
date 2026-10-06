@@ -1,8 +1,2 @@
-/* OOTDBuy country dest — matches official palette, Inter not serif. */
-:root {
-  --primary: #111111;
-  --primary-dark: #111111;
-  --primary-soft: #f5f5f4;
-  --nav-dark: #0a0a0a;
-}
-body { background: var(--bg, #f7f8fa); }
+/* OOTDBuy country dest — official orange #ff6600 from ootdbuy.com */
+:root { --primary: #ff6600; --primary-dark: #d15300; --primary-soft: #ffece0; --nav-dark: #111111; }
