@@ -71,7 +71,7 @@ HUBS = ("mycnbox.eu", "mycnboxhaul.com")
 SKIP_PUT_HOSTS = {"mycnbox.eu", "mycnboxhaul.com", "mycnboxhual.com"}
 OFF_ORIGIN = ()  # none on Origin
 DEST_MIN = 22000
-CSS_V = "20261006r"
+CSS_V = "20261006s"
 INVITES = ("AABZKT",)
 LOGO = "mycnbox-logo.png"
 THEME_CSS = "mycnbox-theme.css"
@@ -1684,10 +1684,10 @@ def build_home(key: str) -> str:
     p = PACKS[key]
     desk = desk_for(key)
     wall = _wall(key)
-    fig_off, fig_sheet, fig_vol, fig_zoek, _fig_diy = _shots(key)
+    fig_off, fig_sheet, fig_vol, _fig_zoek, fig_diy = _shots(key)
     dest = p["dest_label"]
     loc = p["loc"]
-    shots = _sec_shots(key, fig_zoek)
+    shots = _sec_shots(key, fig_diy)
     states = _sec_states(key, fig_off)
     restricted = _sec_restricted(key, fig_sheet)
     if loc == "de":
