@@ -2081,49 +2081,91 @@ def _map_legacy_english_cms(client, sftp, key: str) -> None:
 
 
 def _map_faq_to_help(client, sftp, key: str) -> None:
-    """FAQ lives on Help. Collapse leftover /faq/ onto the dest help slug."""
+    """Rewrite leftover /faq (and invite-code→faq) 301s in every extension conf.
+
+    Exact `location =` in 00-gsc-exact-redirects.conf beats try_files, so appending
+    a second /faq into gsc-redirects.conf duplicates the location and breaks nginx -t.
+    Also drop 301s that would shadow new CMS slugs (cssbuy-coupons, start, …).
+    """
     p = PACKS[key]
     host = p["host"]
     help_href = p["help"]
     root = f"/www/wwwroot/{host}"
     _run(client, f"rm -rf '{root}/faq'")
-    gsc = f"/www/server/panel/vhost/nginx/extension/{host}/gsc-redirects.conf"
-    raw = _run(client, f"cat '{gsc}' 2>/dev/null || true")
-    wanted = {f"/faq": help_href, f"/faq/": help_href}
-    raw = re.sub(r"\}(\s*)location\s+=", "}\nlocation =", raw or "")
-    if raw and not raw.endswith("\n"):
-        raw += "\n"
-    seen: set[str] = set()
-    out: list[str] = []
+    ext = f"/www/server/panel/vhost/nginx/extension/{host}"
+    listing = _run(client, f"find '{ext}' -maxdepth 1 -name '*.conf' -print")
+    files = [ln.strip() for ln in listing.splitlines() if ln.strip().endswith(".conf")]
+    unstick = {
+        "start", "help", "news", "about", "catalog",
+        "hilfe", "neuigkeiten", "ueber-uns", "katalog",
+        "how-to-use-cssbuy", "cssbuy-shipping", "is-cssbuy-legit",
+        "cssbuy-coupons", "cssbuy-spreadsheet", "ist-cssbuy-serioes",
+    }
+    faq_src = {
+        "/faq", "/faq/",
+        "/cssbuy-invite-code", "/cssbuy-invite-code/",
+        "/cssbuy-gutschein", "/cssbuy-gutschein/",
+    }
     loc_re = re.compile(r"location\s+=\s+(\S+)\s*\{")
-    for ln in raw.splitlines(True):
-        m = loc_re.search(ln)
-        if m and m.group(1) in wanted:
-            path = m.group(1)
-            if path in seen:
-                continue
-            prefix = ln[: m.start()] if m.start() else ""
-            if prefix.strip() and not prefix.endswith("\n"):
-                out.append(prefix.rstrip() + "\n")
-            out.append(f"location = {path} {{ return 301 https://{host}{wanted[path]}; }}\n")
-            seen.add(path)
-            continue
-        out.append(ln)
-    for path, dest in wanted.items():
-        if path not in seen:
-            out.append(f"location = {path} {{ return 301 https://{host}{dest}; }}\n")
-            seen.add(path)
-    new = "".join(out)
+    seen_faq: set[str] = set()
+    changed = 0
     stamp = time.strftime("%Y%m%d-%H%M%S")
-    _run(client, f"mkdir -p /www/backup; mkdir -p '{Path(gsc).parent}'; touch '{gsc}'")
-    if new != (raw or ""):
-        _run(client, f"cp -a '{gsc}' '/www/backup/cssbuy-{key}-gsc-faq-{stamp}.conf' 2>/dev/null || true")
-        Path(f"/tmp/cssbuy-{key}-gsc-faq.conf").write_text(new, encoding="utf-8")
+    for remote in files:
+        raw = _run(client, f"cat '{remote}' 2>/dev/null || true")
+        if not raw:
+            continue
+        out: list[str] = []
+        file_changed = False
+        for ln in raw.splitlines(True):
+            m = loc_re.search(ln)
+            if not m:
+                out.append(ln)
+                continue
+            path = m.group(1)
+            slug = path.strip("/")
+            if path in faq_src:
+                want = f"location = {path} {{ return 301 https://{host}{help_href}; }}\n"
+                prefix = ln[: m.start()] if m.start() else ""
+                if prefix.strip() and not prefix.endswith("\n"):
+                    out.append(prefix.rstrip() + "\n")
+                elif prefix and prefix.endswith("\n"):
+                    out.append(prefix)
+                out.append(want)
+                seen_faq.add(path)
+                if ln.strip() != want.strip():
+                    file_changed = True
+                continue
+            if slug in unstick:
+                file_changed = True
+                continue
+            out.append(ln)
+        if file_changed:
+            _run(client, f"cp -a '{remote}' '/www/backup/cssbuy-{key}-{Path(remote).name}-{stamp}.conf'")
+            tmp = Path(f"/tmp/cssbuy-{key}-{Path(remote).name}")
+            tmp.write_text("".join(out), encoding="utf-8")
+            sftp.put(str(tmp), remote)
+            changed += 1
+            print(key, "rewrote redirects", remote)
+    missing = [path for path in ("/faq", "/faq/") if path not in seen_faq]
+    if missing:
+        gsc = f"{ext}/gsc-redirects.conf"
+        raw = _run(client, f"cat '{gsc}' 2>/dev/null || true")
+        add = "".join(
+            f"location = {path} {{ return 301 https://{host}{help_href}; }}\n"
+            for path in missing
+        )
+        _run(client, f"mkdir -p '{ext}'; touch '{gsc}'")
+        body = raw or ""
+        if body and not body.endswith("\n"):
+            body += "\n"
+        Path(f"/tmp/cssbuy-{key}-gsc-faq.conf").write_text(body + add, encoding="utf-8")
         sftp.put(f"/tmp/cssbuy-{key}-gsc-faq.conf", gsc)
-        print(key, "mapped /faq/ ->", help_href)
+        changed += 1
+        print(key, "appended", " ".join(missing), "->", help_href)
+    if changed:
         _reload_nginx(client)
     else:
-        print(key, "/faq/ already mapped")
+        print(key, "faq/CMS redirects already mapped")
 
 
 def _harden_catchall(client, sftp, key: str) -> None:
