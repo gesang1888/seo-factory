@@ -3,8 +3,9 @@
 
 Gold IA: hipobuy.es. Gold brand: www.mycnbox.com (official orange #ff5501 / #e04c00).
 Same-agent country hosts stay independent (no 301 between them). No Origin twins.
-Hubs mycnbox.eu / mycnboxhaul.com / mycnboxhual.com are not overwritten: they keep
-their own CMS and say "not a customs territory". Never PUT those hubs. Never put
+Hubs mycnbox.eu / mycnboxhaul.com are not overwritten: they keep their own CMS
+and say "not a customs territory". Empty typo wwwroot mycnboxhual.com is skip-only.
+Never PUT those hubs. Never put
 dest hostnames like mycnbox.es in SKIP_PUT (substring trap on wwwroot path).
 
 Official estimator is https://www.mycnbox.com/estimation/.
@@ -63,9 +64,10 @@ ACC_DARK = "#e04c00"
 SOFT = "#fff4ed"
 LOGIN_FG = "#fff"
 MAIL = "cnfd85269032661@gmail.com"
-HUBS = ("mycnbox.eu", "mycnboxhaul.com", "mycnboxhual.com")
+HUBS = ("mycnbox.eu", "mycnboxhaul.com")
 # Exact hub hostnames only. Never put dest TLDs like mycnbox.es in SKIP_PUT:
 # that substring would skip a dest wwwroot path.
+# mycnboxhual.com is an empty typo wwwroot (no nginx/DNS) — skip PUT, do not live-check.
 SKIP_PUT_HOSTS = {"mycnbox.eu", "mycnboxhaul.com", "mycnboxhual.com"}
 OFF_ORIGIN = ()  # none on Origin
 DEST_MIN = 22000
