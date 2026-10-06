@@ -3858,7 +3858,8 @@ def _fix_twins(client, sftp) -> None:
             Path(f"/tmp/orientdig-twin-{twin}.conf").write_text(raw, encoding="utf-8")
             sftp.put(f"/tmp/orientdig-twin-{twin}.conf", vhost)
             print("twin dropped duplicate extension include", twin)
-        if "location = /guides/shipping " not in raw:
+        has_ext = f"extension/{twin}/" in raw
+        if (not has_ext) and "location = /guides/shipping " not in raw:
             ship_lines = (
                 f"    location = /guides/shipping {{ return 301 https://{target}/orientdig-shipping/; }}\n"
                 f"    location = /guides/shipping/ {{ return 301 https://{target}/orientdig-shipping/; }}\n"
