@@ -2572,7 +2572,7 @@ def _unstick_shadows(client, sftp, key: str) -> None:
     p = PACKS[key]
     host = p["host"]
     cms = {h.strip("/") for h in _cms_hrefs(key)}
-    ranked = {href.rstrip("/") for href, _ in _wrap_targets(key)}
+    ranked = {href.strip("/") for href, _ in _wrap_targets(key)}
     ext = f"/www/server/panel/vhost/nginx/extension/{host}"
     listing = _run(client, f"find '{ext}' -maxdepth 1 -name '*.conf' -print 2>/dev/null || true")
     files = [ln.strip() for ln in listing.splitlines() if ln.strip().endswith(".conf")]
@@ -2592,7 +2592,7 @@ def _unstick_shadows(client, sftp, key: str) -> None:
             path = m.group("path")
             slug = path.strip("/")
             body = m.group("body")
-            tm = re.search(r"return\s+30[1278]\s+https?://[^/\s]+(\S*)", body)
+            tm = re.search(r"return\s+30[1278]\s+https?://[^/\s]+(\S*?);", body)
             tgt = (tm.group(1) or "/") if tm else None
             if slug in cms:
                 print(key, "unstick cms", path, "->", tgt, Path(remote).name)
