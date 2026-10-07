@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
-"""Deepen basetaospreadsheet.com hub without touching ranked inner HTML.
+"""Deepen basetaospreadsheet.com as a spreadsheet hub, not a country dest.
 
-This .com host is a hub (not a customs territory). GSC money query is
-“basetao spreadsheet” on /. Do not PUT a 5KB template over ranked inners.
-Do not dump /api/products/ on the homepage (the endpoint 404s).
-
-Cut: homepage title/H1/description, nav labels, 33-icon category wall,
-/start/, /help/ (≥12 details.sg-faq). Ranked referral / shipping /
-calculator / review bodies stay.
+GSC money query is “basetao spreadsheet” on /. SERP gold is w2clinks /
+MaisonLooks / buysspreadsheet — live finds, QC, not Excel — not a dest
+#local customs briefing. Do not PUT over ranked inners. Do not dump a
+products API (404s). Do not 301 this hub to a dest.
 """
 from __future__ import annotations
 
@@ -25,22 +22,15 @@ if str(_TOOLS) not in sys.path:
     sys.path.insert(0, str(_TOOLS))
 from desk_template import (
     SKIP_CSS,
-    _check_local_section,
     assert_dest_packs_unique,
     breadcrumb_ld,
-    dest_local_pack,
     faq_ld,
     independence_copy,
     inject_jsonld,
     itemlist_ld,
-    lab_copy,
-    local_cta,
-    local_guide_html,
-    long_faqs,
     organization_ld,
     skip_label,
     skip_link,
-    validate_desk,
     webpage_ld,
 )
 
@@ -61,9 +51,9 @@ STORAGE = (
 TITLE = "BaseTao Spreadsheet: Weidian, Taobao and 1688 finds"
 H1 = "BaseTao Spreadsheet — Weidian, Taobao and 1688 finds"
 DESC = (
-    "BaseTao spreadsheet on basetaospreadsheet.com: live Weidian, Taobao and "
-    "1688 finds via w2clinks, QC notes, freight estimate. Not Excel, not checkout. "
-    "Pay on basetao.com. This .com hub is not a customs territory."
+    "BaseTao spreadsheet: live Weidian, Taobao and 1688 finds, QC notes, "
+    "shipping calculator and review. Not Excel, not a downloadable CSV. "
+    "Pay on basetao.com."
 )
 ALIENS = ("1010 Wien", "Packstation", "form A1A 1A1", "Poste Italiane", "00-001 Warszawa")
 
@@ -151,6 +141,9 @@ EXTRA_CSS = SKIP_CSS + """
 .w2c-cat-icon-card:hover{border-color:var(--primary,#d2753f)}
 .sg-faq{border:1px solid var(--border,#e5e7eb);border-radius:10px;padding:10px 14px;margin:8px 0;background:#fff}
 .sg-faq summary{cursor:pointer;font-weight:700}
+.sg-table{width:100%;border-collapse:collapse;font-size:14px}
+.sg-table th,.sg-table td{border:1px solid var(--border,#eadfd4);padding:10px 12px;text-align:left;vertical-align:top}
+.sg-table th{background:var(--primary-soft,#f7f3ef)}
 """
 
 HUBS = {
@@ -220,14 +213,13 @@ def _wall() -> str:
 
 def _header(page: str) -> str:
     cat = "#catalog" if page == "home" else "/#catalog"
-    loc = "#local" if page in ("home", "start", "help") else "/#local"
     nav = [
         (cat, "Catalogue"),
         ("/basetao-shipping-calculator/", "Shipping"),
         ("/help/", "Help"),
         ("/about/", "About"),
         ("/basetao-review/", "Review"),
-        (loc, "Local checks"),
+        ("/start/", "Start"),
     ]
     links = "".join(
         f'<a href="{escape(href)}"{ " class=\"active\"" if href.endswith(f"/{page}/") or (page=="help" and href=="/help/") or (page=="about" and href=="/about/") else ""}>{escape(lab)}</a>'
@@ -279,8 +271,8 @@ def _chrome_head(*, title: str, desc: str, canonical: str, crumbs: list[tuple[st
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/desk-cms.css?v=20261007-basetao-brand">
-<link rel="stylesheet" href="/assets/css/basetao-theme.css?v=20261007-basetao-brand">
+<link rel="stylesheet" href="/assets/css/desk-cms.css?v=20261007-hub">
+<link rel="stylesheet" href="/assets/css/basetao-theme.css?v=20261007-hub">
 <style>{EXTRA_CSS}</style>
 </head>
 <body>
@@ -300,54 +292,109 @@ def _chrome_head(*, title: str, desc: str, canonical: str, crumbs: list[tuple[st
     return html
 
 
-def _local_plus() -> str:
-    facts = _facts()
-    html = local_guide_html(facts).strip()
-    extra = (
-        f'<p class="local-src">{escape(dest_local_pack(None)["fingerprint"])}. '
-        "This .com hub is not a customs territory. Pick US, CA, FR, ES, AT… in "
-        f'<a href="{escape(EST)}">{escape(EST)}</a> — this HTML is not checkout.</p>'
-    )
-    if not html.endswith("</section>"):
-        raise RuntimeError("missing #local section")
-    return html[: -len("</section>")] + extra + "\n</section>"
-
-
 def _spreadsheet_faqs() -> list[tuple[str, str]]:
-    facts = _facts()
-    extra = [
+    return [
         (
             "What is a BaseTao spreadsheet?",
-            "A BaseTao spreadsheet is a finds index: Weidian, Taobao and 1688 links you "
+            "A BaseTao spreadsheet is a finds index: Weidian, Taobao and 1688 URLs you "
             "research before pasting into the agent. On this host the live catalog is "
-            f"{W2C} (w2clinks). It is not a Google Sheet, not Excel, and not the BaseTao "
-            f"fee table. Checkout stays on {OFFICIAL}. This hub does not dump a products API.",
+            f"{W2C} (w2clinks). It is not a Google Sheet, not Excel, and not BaseTao’s "
+            f"fee table. Payment stays on {OFFICIAL}. This hub does not dump a products API.",
         ),
         (
             "Is this Excel or a downloadable CSV?",
-            "No. Files freeze; listings move. This desk points at the live w2clinks "
-            "BaseTao sheet and at ranked guides already on this host. We do not host a "
-            "basetao_spreadsheet_2026.csv download.",
+            "No. A frozen file goes stale when sellers change URLs or hide shops. This "
+            "desk points at the live w2clinks BaseTao sheet and at guides that already "
+            "rank on this host. We do not host a basetao_spreadsheet_2026.csv download.",
         ),
         (
-            "BaseTao spreadsheet vs BaseTao review — which URL?",
-            "Google queries for “basetao spreadsheet” should land on this homepage. "
-            "Trust / legit / QC verdict stays on /basetao-review/. Freight lines stay on "
-            "/basetao-shipping-calculator/. Referral stacking stays on /basetao-referral-code/.",
+            "BaseTao spreadsheet vs review vs shipping calculator — which URL?",
+            "Queries for “basetao spreadsheet” should land on this homepage. Trust / "
+            "legit / QC verdict stays on /basetao-review/. Line comparison stays on "
+            "/basetao-shipping-calculator/. Item-plus-fee math stays on /basetao-calculator/. "
+            "Referral stacking stays on /basetao-referral-code/.",
         ),
         (
             "How do I buy from this BaseTao spreadsheet?",
-            f"Open a category or {W2C}, copy the listing URL, paste it into {OFFICIAL}, "
-            "pay there, check warehouse QC photos, then run the official freight estimate "
-            "with a real country — not this hostname and not “EU” as one country.",
+            f"Open a category hub or {W2C}, copy the listing URL, paste it into "
+            f"{OFFICIAL}, pay there, then wait for warehouse photos. Do not book "
+            "international freight until you accept QC in the official app.",
+        ),
+        (
+            "Where is the live product grid?",
+            "Live cards, filters and agent-ready buy links sit on the w2clinks BaseTao "
+            f"sheet ({W2C}). This hostname keeps the spreadsheet desk, category hubs "
+            "already on this host, and the ranked calculators. We do not fake a catalog "
+            "from a dead products endpoint.",
+        ),
+        (
+            "How do I read warehouse QC photos?",
+            "BaseTao photographs the piece after it arrives in China. Check color, "
+            "visible damage, stains, tags, and that the model matches the listing. "
+            "Electronics are usually appearance-only — the official inspection standards "
+            "say function is not tested. Extra angles are often a paid add-on. Reject "
+            "while it is still in the warehouse.",
+        ),
+        (
+            "Weidian vs Taobao vs 1688 on this sheet?",
+            "Weidian is often the W2C boutique link. Taobao is the larger marketplace "
+            "index. 1688 is wholesale-style sourcing. The spreadsheet is the research "
+            "layer; BaseTao still buys the live URL you paste. If the source page 404s, "
+            "the card is dead — do not plan a haul around a vanished listing.",
+        ),
+        (
+            "Why is a card restricted or priced 0?",
+            "The source is not available for agent purchase, or the price could not be "
+            "read. Restricted is a platform purchase block, not a seizure notice. Open "
+            "the live BaseTao product page the same day. Transborder shops are often "
+            "out of scope.",
+        ),
+        (
+            "Do I pay on basetaospreadsheet.com?",
+            f"No. {HOST} never takes a card and cannot see your order ID. Register, "
+            f"pay, QC and claims stay on {OFFICIAL}. Confirm that hostname in the "
+            "address bar. Support tickets do not belong in this desk’s inbox.",
+        ),
+        (
+            "How long can goods sit in the warehouse?",
+            f"{STORAGE}. Split cartons each need their own freight estimate after QC. "
+            "This HTML is not a live storage clock.",
+        ),
+        (
+            "Spreadsheet vs w2clinks vs MaisonLooks?",
+            "w2clinks is the live BaseTao finds catalog this desk names. MaisonLooks "
+            "and similar browsers are other discovery grids. This hostname is the "
+            "independent spreadsheet desk plus ranked shipping / haul / referral / "
+            "review articles. Use the live grid for cards; use this host for the "
+            "guides Google already splits onto separate URLs.",
+        ),
+        (
+            "What is volumetric weight?",
+            "Most air lines bill max(actual kg, L×W×H / divisor). A puffy jacket is "
+            "light on the scale and expensive in volume. Geometry only — live money is "
+            f"the official estimator ({EST}) and the ranked /basetao-shipping-calculator/ "
+            "on this host. Habit numbers on a lab widget are not your carton.",
+        ),
+        (
+            "Is BaseTao only for FBA or dropship?",
+            "FBA and dropship are extra workflows on the official site. This spreadsheet "
+            "is for ordinary W2C hauls: find a link, paste into BaseTao, QC, then book "
+            "a line. Use /basetao-review/ if you need the agent story; this homepage "
+            "stays the finds index.",
+        ),
+        (
+            "When two pieces must match?",
+            "A coordinated set is two SKUs, not one row. Check that both listings "
+            "speak the same season and color language before you paste either URL. "
+            "Warehouse photos still win if the two pieces arrive as different dye lots. "
+            "Do not book international freight until both photos are accepted.",
+        ),
+        (
+            "Where do I claim if something is wrong?",
+            f"Only on {OFFICIAL}. {HOST} cannot look up an order. Keep the in-app "
+            "number. Chat and insurance live on the official Help Center, not here.",
         ),
     ]
-    pairs = extra + long_faqs(facts)
-    cleaned: list[tuple[str, str]] = []
-    for q, a in pairs:
-        a = a.replace("/api/products/", "the live w2clinks BaseTao sheet")
-        cleaned.append((q, a))
-    return cleaned
 
 
 def build_home() -> str:
@@ -355,7 +402,6 @@ def build_home() -> str:
     title = TITLE
     canonical = f"https://{HOST}/"
     crumbs = [("Home", canonical)]
-    lab = lab_copy(facts)
     html = _chrome_head(title=title, desc=DESC, canonical=canonical, crumbs=crumbs)
     faq_pairs = _spreadsheet_faqs()[:8]
     html = inject_jsonld(
@@ -369,50 +415,82 @@ def build_home() -> str:
     )
     html += skip_link(skip_label("en"))
     html += _header("home")
+    keep = "".join(f'<a href="{escape(h)}">{escape(l)}</a>' for h, l in KEEP)
     html += f"""<main id="main" class="container">
 <section class="sg-hero">
   <h1>{escape(H1)}</h1>
-  <p class="hsub">Live finds via <a href="{escape(W2C)}" rel="noopener">w2clinks</a> — not Excel, not checkout. Pay and warehouse QC stay on {escape(OFFICIAL)}. This .com hub is not a customs territory; pick a real country in the estimator.</p>
-  <p class="eu-badge">Hub · USD display · not a customs territory</p>
+  <p class="hsub">Live Weidian, Taobao and 1688 finds via <a href="{escape(W2C)}" rel="noopener">w2clinks</a> — not Excel, not a CSV, not checkout. Pay and warehouse QC stay on {escape(OFFICIAL)}.</p>
+  <p class="eu-badge">Spreadsheet hub · not Excel · not checkout</p>
   <div class="sg-ctas">
     <a class="btn btn-primary" href="#catalog">Catalogue</a>
-    <a class="btn btn-outline" href="{escape(W2C)}" rel="noopener">Open w2clinks sheet</a>
-    <a class="btn btn-outline" href="{escape(EST)}">Freight estimate</a>
+    <a class="btn btn-outline" href="{escape(W2C)}" rel="noopener">Open live finds</a>
+    <a class="btn btn-outline" href="/start/">How to start</a>
   </div>
 </section>
-{_local_plus()}
-<section class="sg-sec" id="agent"><h2>BaseTao</h2>
-<p>BaseTao is a purchasing agent, not a shop. {escape(HOST)} is a hub, not a customs territory.</p>
-<p>Orders, payment and warehouse photos stay on {escape(OFFICIAL)}. This hostname never takes a card.</p></section>
-<section class="sg-sec" id="sheet-explain"><h2>Spreadsheet</h2>
-<p>The spreadsheet on {escape(HOST)} is an index, not Excel and not checkout. The live catalog this desk names is <strong>w2clinks</strong> at <a href="{escape(W2C)}" rel="noopener">{escape(W2C)}</a>.</p>
-<p>Category icons match {escape(W2C_CATS)}. Lab {escape(DATE)}.</p></section>
-<section class="sg-sec" id="restricted"><h2>Restricted</h2>
-<p>Restricted is a platform purchase block, not a customs seizure notice for this hostname.</p>
-<p>Dead Weidian or Taobao links are not a checkout you can force toward a country in the estimator.</p></section>
+<section class="sg-sec" id="what">
+  <h2>What this BaseTao spreadsheet is for</h2>
+  <p>Google’s “basetao spreadsheet” query is a finds job: current Weidian / Taobao / 1688 URLs, then paste into the agent. This hostname is the independent desk for that job. Live cards and filters live on <strong>w2clinks</strong>. Ranked shipping, haul-fee, referral and review articles already sit on this host — we do not collapse them onto one URL.</p>
+  <p>BaseTao is a purchasing agent, not a shop. {escape(HOST)} never takes a card and cannot see your order ID. Lab {escape(DATE)}.</p>
+</section>
+<section class="sg-sec" id="how">
+  <h2>A sane rhythm</h2>
+  <ol class="local-steps">
+    <li><strong>Discover</strong><span>Use the 33-icon wall, a category hub already on this host, or the live sheet at <a href="{escape(W2C)}" rel="noopener">{escape(W2C)}</a>. Image search if you have a photo; keyword search if you know the name.</span></li>
+    <li><strong>Paste on BaseTao</strong><span>Copy the listing URL into <a href="{escape(OFFICIAL)}">{escape(OFFICIAL)}</a>. Confirm that hostname. This desk is not a look-alike checkout.</span></li>
+    <li><strong>Read QC</strong><span>Photos land in the official app after the piece reaches China. Extra angles are often paid. Do not book international freight until you accept the photos.</span></li>
+    <li><strong>Quote the line</strong><span>Use <a href="/basetao-shipping-calculator/">/basetao-shipping-calculator/</a> and the official estimator. Packed kg and volume beat a Weidian gram on a stale row.</span></li>
+  </ol>
+</section>
+<section class="sg-sec" id="vs">
+  <h2>Live catalog vs a frozen spreadsheet</h2>
+  <p class="ssub">SERP peers (w2clinks, MaisonLooks / buysspreadsheet) already treat “spreadsheet” as a browser, not a .xlsx. This desk agrees — and keeps the guides those grids do not host.</p>
+  <table class="sg-table">
+    <thead><tr><th>Job</th><th>Frozen Excel / shared sheet</th><th>This hub</th></tr></thead>
+    <tbody>
+      <tr><td>Fresh finds</td><td>Whoever last edited the file</td><td>Live w2clinks BaseTao sheet + category hubs on this host</td></tr>
+      <tr><td>Search</td><td>Ctrl+F in a tab</td><td>Category icons, on-host hubs, live filters on w2clinks</td></tr>
+      <tr><td>Broken links</td><td>Common when shops go private</td><td>Dead cards are not a checkout — open the live listing the same day</td></tr>
+      <tr><td>Freight / fees / trust</td><td>Mixed into one tab</td><td>Split onto ranked URLs Google already uses</td></tr>
+      <tr><td>Checkout</td><td>Still BaseTao</td><td>Still {escape(OFFICIAL)} only</td></tr>
+    </tbody>
+  </table>
+</section>
 {_wall()}
 <section class="sg-mw" id="catalog">
   <h2>Live BaseTao finds</h2>
-  <p class="ssub">The homepage does not dump a products API (that endpoint 404s here). Browse the live sheet, or open a category hub already on this host.</p>
+  <p class="ssub">The homepage does not dump a products API. Open the live sheet, or a category hub already ranking here.</p>
   <p><a class="btn btn-primary" href="{escape(W2C)}" rel="noopener">Open the w2clinks BaseTao spreadsheet</a>
   <a class="btn btn-outline" href="/shoes381/">Sneakers hub</a>
   <a class="btn btn-outline" href="/jersey/">Jersey hub</a>
   <a class="btn btn-outline" href="/hoodies-sweaters/">Hoodies hub</a></p>
 </section>
-<section class="sg-sec" id="states"><h2>a country in the estimator</h2>
-<p class="ssub">This hostname is not a customs territory. Open the official estimator with a real country code — not this TLD, not “EU” as one country.</p>
-<p>{escape(independence_copy(facts))}</p></section>
-<section class="sg-sec" id="shots"><h2>Official app</h2>
-<p class="ssub">Screenshots and live money stay on the official BaseTao site, dated {escape(DATE)}.</p>
-<p><a class="btn btn-outline" href="{escape(OFFICIAL)}" rel="noopener">Open BaseTao</a>
-<a class="btn btn-primary" href="{escape(EST)}" rel="noopener">Freight estimate</a></p></section>
-<section class="sg-sec" id="lab"><h2>{escape(lab["h2"])}</h2>
-<p class="ssub">{lab["ssub"]}</p>
-<p><a class="btn btn-primary" href="{escape(EST)}">{escape(lab["cta"])}</a></p></section>
+<section class="sg-sec" id="qc">
+  <h2>How to read QC on a BaseTao order</h2>
+  <p>Official inspection covers appearance: color, visible damage, stains, size tags, model, version. Color-on-screen vs in-hand and true fit are often out of scope. Electronics are typically photographed, not powered on. If a photo is blurry, buy another angle in-app before the piece leaves China.</p>
+  <p>Claims stay on {escape(OFFICIAL)}. This desk cannot open a ticket.</p>
+</section>
+<section class="sg-sec" id="sources">
+  <h2>Weidian, Taobao and 1688</h2>
+  <p>The spreadsheet is research, not stock BaseTao owns. Weidian rows are often W2C boutique links. Taobao is the broader marketplace. 1688 is wholesale-style. Yupoo-style albums are mood boards until you have a pasteable product URL. If the source 404s, skip it — do not force a dead row into the agent.</p>
+</section>
+<section class="sg-sec" id="mistakes">
+  <h2>Easy mistakes</h2>
+  <ol class="local-steps">
+    <li><strong>Paying on a look-alike</strong><span>Checkout is {escape(OFFICIAL)} only. This hostname has no saved card.</span></li>
+    <li><strong>Booking freight before QC</strong><span>Warehouse photos sit between the two payments. Accept or reject first.</span></li>
+    <li><strong>Mixing intents on one URL</strong><span>Spreadsheet finds stay here. Line quotes stay on the shipping calculator. Legit questions stay on the review.</span></li>
+    <li><strong>Planning a haul on a zero</strong><span>Restricted / price-0 cards are not buyable. Open the live product page.</span></li>
+  </ol>
+</section>
+<section class="sg-sec" id="timeline">
+  <h2>Order → door (rough)</h2>
+  <p>Paste link → warehouse inbound → QC photos → you accept or return → you submit a parcel → line tracking. Free storage on this agent: {escape(STORAGE)}. Re-run the estimator after photos; packed kg will differ from the listing.</p>
+</section>
 <section class="sg-sec" id="kept"><h2>Already ranking on this host</h2>
-<div class="keep">{"".join(f'<a href="{escape(h)}">{escape(l)}</a>' for h, l in KEEP)}</div></section>
+<p class="ssub">These URLs already earn Search impressions. This deepen does not overwrite their HTML.</p>
+<div class="keep">{keep}</div></section>
 <section class="sg-sec" id="faq"><h2>FAQ</h2>
-<p class="ssub">Visible FAQs live on Help. This homepage keeps FAQPage JSON-LD only.</p>
+<p class="ssub">Visible FAQs live on Help. This homepage keeps FAQPage JSON-LD only — same pattern as a catalog SERP peer that splits long answers off the grid.</p>
 <p><a class="btn btn-outline" href="/help/">Open Help</a></p></section>
 </main>
 {_footer()}
@@ -440,21 +518,20 @@ def build_start() -> str:
     html += f"""<main id="main" class="container">
 <section class="sg-hero">
   <h1>Start | BaseTao Spreadsheet</h1>
-  <p class="hsub">Four steps from a finds link to a warehouse photo. This desk is not Excel and not checkout.</p>
+  <p class="hsub">Four steps from a finds link to a warehouse photo. Not Excel, not checkout.</p>
   <div class="sg-ctas">
     <a class="btn btn-primary" href="/#catalog">Catalogue</a>
-    <a class="btn btn-outline" href="{escape(W2C)}" rel="noopener">Open w2clinks sheet</a>
+    <a class="btn btn-outline" href="{escape(W2C)}" rel="noopener">Open live finds</a>
     <a class="btn btn-outline" href="/help/">Help</a>
   </div>
 </section>
-{_local_plus()}
-<section class="sg-sec" id="steps">
+<section class="sg-sec" id="how">
   <h2>How to start</h2>
   <ol class="local-steps">
     <li><strong>Open the spreadsheet</strong><span>Use the 33-icon wall on the homepage or the live BaseTao sheet at <a href="{escape(W2C)}" rel="noopener">{escape(W2C)}</a>. The sheet is named <strong>w2clinks</strong>, not Excel.</span></li>
     <li><strong>Paste into BaseTao</strong><span>Copy the Weidian, Taobao or 1688 URL and paste it on <a href="{escape(OFFICIAL)}">{escape(OFFICIAL)}</a>. Payment never happens on {escape(HOST)}.</span></li>
     <li><strong>Read warehouse QC</strong><span>Photos land in the official app. Extra angles are often paid. Do not book international freight until you accept the photos.</span></li>
-    <li><strong>Estimate a real country</strong><span>This .com hub is not a customs territory. Open <a href="{escape(EST)}">{escape(EST)}</a> with US, CA, FR, ES, AT… not this hostname and not “EU” as one country.</span></li>
+    <li><strong>Quote the parcel</strong><span>Open <a href="/basetao-shipping-calculator/">the shipping calculator</a> and <a href="{escape(EST)}">{escape(EST)}</a> with the country you actually ship to. Packed kg after QC beats a stale row.</span></li>
   </ol>
 </section>
 <section class="sg-sec" id="kept"><h2>Already ranking on this host</h2>
@@ -494,9 +571,8 @@ def build_help() -> str:
     html += f"""<main id="main" class="container">
 <section class="sg-hero">
   <h1>Help | BaseTao Spreadsheet</h1>
-  <p class="hsub">Fifteen long answers. Visible <code>details.sg-faq</code> live only here — not on the homepage.</p>
+  <p class="hsub">Long answers about the finds sheet, QC, and which URL to open. Visible <code>details.sg-faq</code> live only here — not on the homepage.</p>
 </section>
-{_local_plus()}
 <section class="sg-sec" id="faq"><h2>FAQ</h2>{"".join(items)}</section>
 </main>
 {_footer()}
@@ -510,7 +586,7 @@ def build_about() -> str:
     title = "About | BaseTao Spreadsheet"
     desc = (
         "basetaospreadsheet.com is an independent BaseTao spreadsheet desk, not "
-        "basetao.com. Not a customs territory. Contact and independence."
+        "basetao.com. Not Excel, not checkout. Contact and independence."
     )
     canonical = f"https://{HOST}/about/"
     html = _chrome_head(
@@ -526,10 +602,10 @@ def build_about() -> str:
   <h1>About | BaseTao Spreadsheet</h1>
   <p class="hsub">Independent information desk. We do not run orders or take payment.</p>
 </section>
-{_local_plus()}
 <section class="sg-sec" id="about">
   <h2>Independence</h2>
   <p>{escape(independence_copy(facts))}</p>
+  <p>This hostname is a BaseTao spreadsheet hub: finds index, ranked calculators and review. Live cards stay on w2clinks. Checkout stays on basetao.com.</p>
   <p>Email: <a href="mailto:{escape(MAIL)}">{escape(MAIL)}</a></p>
   <p>Live finds: <a href="{escape(W2C)}" rel="noopener">{escape(W2C)}</a></p>
   <p>Official agent: <a href="{escape(OFFICIAL)}">{escape(OFFICIAL)}</a></p>
@@ -591,58 +667,62 @@ def build_sitemap() -> str:
     )
 
 
-def _assert_home(html: str) -> None:
-    err: list[str] = []
-    facts = _facts()
-    if TITLE not in html or H1 not in html:
-        err.append("missing spreadsheet title/h1")
-    if 'id="local"' not in html or "not a customs territory" not in html:
-        err.append("missing hub #local")
-    if html.count("<details class=\"sg-faq\"") != 0:
-        err.append("visible sg-faq leaked onto homepage")
+def _hub_gates(html: str, err: list[str]) -> None:
     if "/api/products/" in html:
-        err.append("homepage dumps /api/products/")
-    if "/basetao-shipping-calculator/\">Shipping</a>" not in html:
-        err.append("nav Shipping not wired to calculator")
-    if "/basetao-referral-code/\">Shipping</a>" in html:
-        err.append("nav still mislabels referral as Shipping")
-    if "/shoes381/" not in html or W2C not in html:
-        err.append("category wall missing local hub or w2clinks")
-    if MAIL not in html:
-        err.append("missing contact email")
+        err.append("dumps /api/products/")
     if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", html, flags=re.I):
         err.append("invite in html")
     if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
         err.append("coaching")
     if "Georgia" in html or "#00C853" in html:
         err.append("HipoBuy/Georgia leak")
-    _check_local_section(html, facts, err)
+    if MAIL not in html:
+        err.append("missing contact email")
     for alien in ALIENS:
-        inner = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
-        if inner and alien in inner.group(0):
+        if alien in html:
             err.append(f"sister dest {alien}")
+
+
+def _assert_home(html: str) -> None:
+    err: list[str] = []
+    if TITLE not in html or H1 not in html:
+        err.append("missing spreadsheet title/h1")
+    if "not Excel" not in html or W2C not in html:
+        err.append("missing spreadsheet fingerprint")
+    if 'id="how"' not in html or 'id="qc"' not in html or 'id="vs"' not in html:
+        err.append("missing hub editorial blocks")
+    if 'id="local"' in html:
+        err.append("dest #local leaked onto hub home")
+    if html.count('<details class="sg-faq"') != 0:
+        err.append("visible sg-faq leaked onto homepage")
+    if "/basetao-shipping-calculator/\">Shipping</a>" not in html:
+        err.append("nav Shipping not wired to calculator")
+    if "/basetao-referral-code/\">Shipping</a>" in html:
+        err.append("nav still mislabels referral as Shipping")
+    if "/shoes381/" not in html:
+        err.append("category wall missing local hub")
+    if "Local checks" in html:
+        err.append("dest Local checks nav on hub")
+    _hub_gates(html, err)
     if err:
         raise SystemExit("home: " + "; ".join(err))
 
 
 def _assert_start(html: str) -> None:
     err: list[str] = []
-    facts = _facts()
     if "Start | BaseTao Spreadsheet" not in html:
         err.append("missing start title")
     if TITLE in html and H1 in html and 'id="cat-wall"' in html:
         err.append("start cloned homepage")
-    if 'id="local"' not in html or "not a customs territory" not in html:
-        err.append("missing hub #local")
+    if 'id="how"' not in html or "not Excel" not in html:
+        err.append("missing start how-to")
+    if 'id="local"' in html:
+        err.append("dest #local leaked onto start")
     if html.count('<details class="sg-faq"') != 0:
         err.append("visible sg-faq leaked onto start")
-    if "/api/products/" in html:
-        err.append("start dumps /api/products/")
     if "/basetao-shipping-calculator/\">Shipping</a>" not in html:
         err.append("nav Shipping not wired to calculator")
-    if MAIL not in html:
-        err.append("missing contact email")
-    _check_local_section(html, facts, err)
+    _hub_gates(html, err)
     if err:
         raise SystemExit("start: " + "; ".join(err))
 
@@ -658,15 +738,25 @@ def generate() -> dict[str, Path]:
     nf = build_404()
     _assert_home(home)
     _assert_start(start)
-    help_err = validate_desk(help_html, _facts(), page="help")
-    if help_err:
-        raise SystemExit("help: " + "; ".join(help_err))
-    about_err = validate_desk(about, _facts(), page="about")
-    if about_err:
-        raise SystemExit("about: " + "; ".join(about_err))
     n_faq = help_html.count('<details class="sg-faq"')
     if n_faq < 12:
         raise SystemExit(f"help faq {n_faq}")
+    if "FAQPage" not in help_html:
+        raise SystemExit("help missing FAQPage JSON-LD")
+    if 'id="local"' in help_html:
+        raise SystemExit("dest #local leaked onto help")
+    help_err: list[str] = []
+    _hub_gates(help_html, help_err)
+    if help_err:
+        raise SystemExit("help: " + "; ".join(help_err))
+    if "About | BaseTao Spreadsheet" not in about or "ContactPoint" not in about:
+        raise SystemExit("about missing title or ContactPoint")
+    if TITLE in about and H1 in about and 'id="cat-wall"' in about:
+        raise SystemExit("about cloned home")
+    about_err: list[str] = []
+    _hub_gates(about, about_err)
+    if about_err:
+        raise SystemExit("about: " + "; ".join(about_err))
     (overlay / "index.html").write_text(home, encoding="utf-8")
     start_dir = overlay / "start"
     start_dir.mkdir(parents=True, exist_ok=True)
@@ -817,8 +907,10 @@ def put() -> None:
         _run(client, f"if [ -f '{remote}' ]; then cp -a '{remote}' '{bak}/{name}.html'; fi")
         local = files[name]
         raw = local.read_text(encoding="utf-8")
-        if name in ("home", "start", "help") and "not a customs territory" not in raw:
-            raise SystemExit(f"refusing {name} without hub fingerprint")
+        if name in ("home", "start", "help") and "not Excel" not in raw:
+            raise SystemExit(f"refusing {name} without spreadsheet fingerprint")
+        if name in ("home", "start", "help") and 'id="local"' in raw:
+            raise SystemExit(f"refusing {name} with dest #local")
         if name == "home" and "/api/products/" in raw:
             raise SystemExit("refusing homepage /api/products/ dump")
         sftp.put(str(local), remote)
@@ -883,8 +975,14 @@ def live_check() -> None:
     if code != 200 or TITLE not in html or H1 not in html:
         print(" FAIL home title")
         fail += 1
-    if "not a customs territory" not in html or 'id="local"' not in html:
-        print(" FAIL hub local")
+    if "not Excel" not in html or W2C not in html:
+        print(" FAIL spreadsheet fingerprint")
+        fail += 1
+    if 'id="local"' in html:
+        print(" FAIL dest #local on hub")
+        fail += 1
+    if 'id="how"' not in html or 'id="qc"' not in html:
+        print(" FAIL hub editorial")
         fail += 1
     if html.count('<details class="sg-faq"') != 0:
         print(" FAIL home visible faq")
