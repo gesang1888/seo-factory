@@ -1,8 +1,3 @@
-/* OOPBuy country dest — matches official palette, Inter not serif. */
-:root {
-  --primary: #2563eb;
-  --primary-dark: #2563eb;
-  --primary-soft: #eff6ff;
-  --nav-dark: #1e3a8a;
-}
+/* OOPBuy country dest — official hot pink #ff2d78 from oopbuy.com */
+:root { --primary: #ff2d78; --primary-dark: #ff2d78; --primary-soft: #fff0f6; --nav-dark: #c2185b; }
 body { background: var(--bg, #f7f8fa); }
