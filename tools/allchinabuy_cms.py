@@ -499,6 +499,110 @@ def _fig(src: str, alt: str, cap: str, w: int = 1200, h: int = 750) -> str:
     return cms_fig(src, alt, cap, w, h)
 
 
+
+def _status_ul(key: str) -> str:
+    loc = PACKS[key]["loc"]
+    rows = {
+        "de": [
+            ("Order Submitted", "Bestellung gesendet, Produkt in China bezahlt."),
+            ("Order Placed", "AllChinaBuy kauft im chinesischen Shop auf deinen Namen."),
+            ("Seller Shipped", "Der chinesische Verkäufer hat versandt."),
+            ("Arrived at Warehouse", "Im Lager angekommen."),
+            ("Inspection & Storage", "Prüfung, Fotos und Lager. Live-Labels stehen in der App."),
+            ("Shipping Requested", "Du bündelst und buchst die internationale Linie."),
+            ("Parcel Packed", "Die Box wird gepackt."),
+            ("Shipped", "Abfahrt aus China."),
+            ("Delivered", "Zugestellt; Empfang in der App bestätigen."),
+        ],
+        "it": [
+            ("Order Submitted", "Ordine inviato, prodotto pagato in Cina."),
+            ("Order Placed", "AllChinaBuy compra nel negozio cinese a tuo nome."),
+            ("Seller Shipped", "Il venditore cinese ha spedito."),
+            ("Arrived at Warehouse", "Arrivato in magazzino."),
+            ("Inspection & Storage", "Controllo, foto e stoccaggio. Le etichette live stanno in app."),
+            ("Shipping Requested", "Tu consolidi e prenoti la linea internazionale."),
+            ("Parcel Packed", "La scatola viene imballata."),
+            ("Shipped", "Partenza dalla Cina."),
+            ("Delivered", "Consegnato; conferma in app."),
+        ],
+        "es": [
+            ("Order Submitted", "Pedido enviado, producto pagado en China."),
+            ("Order Placed", "AllChinaBuy compra en la tienda china a tu nombre."),
+            ("Seller Shipped", "El vendedor chino ha enviado."),
+            ("Arrived at Warehouse", "Llegó al almacén."),
+            ("Inspection & Storage", "Control, fotos y almacenamiento. Las etiquetas en vivo están en la app."),
+            ("Shipping Requested", "Tú consolidas y reservas la línea internacional."),
+            ("Parcel Packed", "La caja se empaca."),
+            ("Shipped", "Salida de China."),
+            ("Delivered", "Entregado; confirma en la app."),
+        ],
+        "fr": [
+            ("Order Submitted", "Commande envoyée, produit payé en Chine."),
+            ("Order Placed", "AllChinaBuy achète dans la boutique chinoise à ton nom."),
+            ("Seller Shipped", "Le vendeur chinois a expédié."),
+            ("Arrived at Warehouse", "Arrivé à l’entrepôt."),
+            ("Inspection & Storage", "Contrôle, photos et stockage. Les libellés live sont dans l’app."),
+            ("Shipping Requested", "Tu regroupes et réserves la ligne internationale."),
+            ("Parcel Packed", "La boîte est emballée."),
+            ("Shipped", "Départ de Chine."),
+            ("Delivered", "Livré ; confirme dans l’app."),
+        ],
+        "nl": [
+            ("Order Submitted", "Bestelling verstuurd, product in China betaald."),
+            ("Order Placed", "AllChinaBuy koopt in de Chinese shop op jouw naam."),
+            ("Seller Shipped", "De Chinese verkoper heeft verzonden."),
+            ("Arrived at Warehouse", "Aangekomen in het magazijn."),
+            ("Inspection & Storage", "Controle, foto’s en opslag. Live labels staan in de app."),
+            ("Shipping Requested", "Jij bundelt en boekt de internationale lijn."),
+            ("Parcel Packed", "De doos wordt ingepakt."),
+            ("Shipped", "Vertrek uit China."),
+            ("Delivered", "Bezorgd; ontvangst bevestigen in de app."),
+        ],
+        "en": [
+            ("Order Submitted", "Order sent, product paid in China."),
+            ("Order Placed", "AllChinaBuy buys in the Chinese shop in your name."),
+            ("Seller Shipped", "The Chinese seller has shipped."),
+            ("Arrived at Warehouse", "Arrived at the warehouse."),
+            ("Inspection & Storage", "Check, photos and storage. Live labels sit in the app."),
+            ("Shipping Requested", "You consolidate and book the international line."),
+            ("Parcel Packed", "The box is packed."),
+            ("Shipped", "Departure from China."),
+            ("Delivered", "Delivered; confirm receipt in the app."),
+        ],
+    }[loc if loc in ("de", "it", "es", "fr", "nl") else "en"]
+    return '<ul class="tl">' + "".join(
+        f"<li><b>{escape(a)}</b><span>{escape(b)}</span></li>" for a, b in rows
+    ) + "</ul>"
+
+
+def _sec_states(key: str, fig) -> str:
+    p = PACKS[key]
+    loc, dest = p["loc"], p["dest_label"]
+    if loc == "nl":
+        return f"""
+<section class="sec" id="states">
+  <div class="wrap"><div class="split"><div>
+    <h2>Negen statussen, drie schermen</h2>
+    <p class="lead">Eerst betaal je het product plus het binnenlandse traject in China tot het magazijn. Internationaal komt later, als je een lijn naar {escape(dest)} kiest. «Waarom staat het stil?» betekent bijna altijd: je kijkt naar het verkeerde scherm.</p>
+    {_status_ul(key)}
+    <p>De eerste stappen staan onder bestellingen, daarna magazijn, daarna het pakket dat je verzendt. Op {escape(DATE)} toonde allchinabuy.com onderhoud: deze gids verzint geen gratis-opslagdagen.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Handleiding met het pad</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+    return f"""
+<section class="sec" id="states">
+  <div class="wrap"><div class="split"><div>
+    <h2>Nine statuses, three screens</h2>
+    <p class="lead">You first pay the product plus domestic China freight to the warehouse. International comes later, when you pick a line to {escape(dest)}. “Why is it stuck?” is almost always: you are looking at the wrong screen.</p>
+    {_status_ul(key)}
+    <p>The first stretch lives under orders, then warehouse, then the parcel you submit. On {escape(DATE)} the official site showed maintenance: this desk does not invent a free-storage day count.</p>
+    <p><a class="btn" href="{escape(p["guide"])}">Guide with the path</a></p>
+  </div>{fig}</div></div>
+</section>
+"""
+
+
 def build_home(key: str) -> str:
     p = PACKS[key]
     desk = desk_for(key)
@@ -537,6 +641,7 @@ def build_home(key: str) -> str:
         640,
     )
     dest = p["dest_label"]
+    states = _sec_states(key, fig_off)
     if key == "nl":
         body = f"""
 <section class="hero">
@@ -619,6 +724,7 @@ def build_home(key: str) -> str:
     </div>
   </div>
 </section>
+{states}
 <section class="sec" id="faq">
   <div class="wrap">
     <h2>Hulp, nieuws en waar je vraagt</h2>
@@ -712,6 +818,7 @@ def build_home(key: str) -> str:
     </div>
   </div>
 </section>
+{states}
 <section class="sec" id="faq">
   <div class="wrap">
     <h2>Help, news and where to ask</h2>
@@ -1025,8 +1132,7 @@ def _assert_ok(html: str, page: str, key: str) -> None:
         "missing #catalog",
         "missing catalogue API",
         f"missing FX_CCY {p['ccy']}",
-        "missing #states",
-        "missing #restricted",
+                "missing #restricted",
         "missing #shots",
         "faq count 0",
     }
@@ -1054,6 +1160,8 @@ def _assert_ok(html: str, page: str, key: str) -> None:
             err.append("faq dump")
         if 'class="fig"' not in html:
             err.append("photos")
+        if 'class="tl"' not in html:
+            err.append("status timeline")
         for alien in p["aliens"]:
             if alien in html:
                 err.append(f"alien {alien}")
@@ -1481,6 +1589,8 @@ def live_check(key: str | None = None) -> None:
                     print(" FAIL cats"); fail += 1
                 if html.count('class="sg-faq"') >= 8:
                     print(" FAIL faq dump"); fail += 1
+                if 'class="tl"' not in html:
+                    print(" FAIL status timeline"); fail += 1
             if kind == "catalog" and html.count('class="cat"') < 30:
                 print(" FAIL catalog wall"); fail += 1
             if kind == "news" and "ItemList" not in html:
