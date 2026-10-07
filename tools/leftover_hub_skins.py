@@ -4,6 +4,7 @@
 Does not overwrite unique PHP/CMS (wemimi.net, hubbuy.net, hipobuyspreadsheet.net,
 fashionrepsspreadsheet.com, CSSBuy PHP AT/ES/FR/IT/NL, HipoBuy gold dests).
 Does not skin twins that already 301 into a dest or unique hub.
+Does not regenerate basetaospreadsheet.com after tools/basetao_desks.py deepened it.
 Ranked inner HTML is wrapped, not replaced with a 5KB overlay.
 """
 from __future__ import annotations
@@ -323,8 +324,8 @@ LEFTOVER = {
     "basetaospreadsheet.com": H(
         agent="BaseTao", dest=None, loc="en", lang="en", ccy="USD",
         dest_label="a country in the estimator",
-        title="BaseTao .com hub — not a customs territory",
-        h1="This .com hostname is not a customs territory — pick a real country",
+        title="BaseTao Spreadsheet: Weidian, Taobao and 1688 finds",
+        h1="BaseTao Spreadsheet — Weidian, Taobao and 1688 finds",
         keep=[("/basetao-referral-code/", "Referral"), ("/basetao-shipping-calculator/", "Shipping calculator"), ("/basetao-calculator/", "Haul calculator"), ("/basetao-review/", "Review")],
     ),
     "boonspreadsheet.com": H(
@@ -486,6 +487,11 @@ LOGO_SRC = {
 }
 
 
+# Hub homes deepened by a dedicated generator. leftover PUT would restore
+# the Georgia /api/products/ skin and wipe /start/ /help/.
+SKIP_DEEPENED = frozenset({"basetaospreadsheet.com"})
+
+
 def register() -> None:
     AGENTS.update(EXTRA_AGENTS)
     HOSTS.update(LEFTOVER)
@@ -496,6 +502,9 @@ def generate() -> None:
     if not CMS_CSS.is_file():
         raise SystemExit("missing desk-cms.css")
     for host, d in LEFTOVER.items():
+        if host in SKIP_DEEPENED:
+            print("SKIP leftover", host, "deepened by basetao_desks.py")
+            continue
         html = build_home(host)
         if "Georgia" in html:
             raise SystemExit(f"{host}: Georgia leak")
@@ -562,6 +571,9 @@ def put_homes() -> None:
     print(skin._run(client, f"mkdir -p '{bak}'"))
     sftp = client.open_sftp()
     for host, d in LEFTOVER.items():
+        if host in SKIP_DEEPENED:
+            print("SKIP leftover PUT", host)
+            continue
         remote_root = f"/www/wwwroot/{host}"
         ag = AGENTS[d["agent"]]
         logo_rel = ag["logo"].lstrip("/")
@@ -616,6 +628,9 @@ def put_inners() -> None:
     print(skin._run(client, f"mkdir -p '{bak}'"))
     rows = []
     for host in LEFTOVER:
+        if host in SKIP_DEEPENED:
+            print("SKIP leftover inners", host)
+            continue
         row = inventory_host(client, host)
         rows.append(row)
         print("INV", host, row["count"])
