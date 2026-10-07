@@ -1,8 +1,2 @@
-/* Kakobuy country dest — matches official palette, Inter not serif. */
-:root {
-  --primary: #0284c7;
-  --primary-dark: #0284c7;
-  --primary-soft: #e0f2fe;
-  --nav-dark: #0c4a6e;
-}
-body { background: var(--bg, #f7f8fa); }
+/* Kakobuy country dest — official coral from kakobuy.com */
+:root { --primary: #F04A4F; --primary-dark: #D13A3F; --primary-soft: #FEE2E2; --nav-dark: #0f172a; }
