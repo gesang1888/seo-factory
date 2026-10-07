@@ -66,6 +66,11 @@ KEEP = [
 
 # w2clinks.com/categories/ icon wall (same 33 as NL-complete dests).
 # Prefer same-host ranked category hubs when they exist.
+# ERD is a clothing brand on the global icon wall, not a BaseTao sheet
+# category — ?category=ENFANTS RICHES DEPRIMES returns 0 hits.
+BRAND_SHEET = {
+    "ENFANTS RICHES DEPRIMES": "Enfants Riches Deprimes",
+}
 CAT_WALL = [
     ("ENFANTS RICHES DEPRIMES", "cat-21-enfants-riches-deprimes.png", None),
     ("SNEAKERS", "cat-30-shoes.png", "/shoes381/"),
@@ -187,6 +192,9 @@ def _facts() -> dict:
 def _cat_href(name: str, local: str | None) -> str:
     if local:
         return local
+    brand = BRAND_SHEET.get(name)
+    if brand:
+        return f"{W2C}?brand={quote(brand)}&page=1&sort=newest"
     return f"{W2C}?category={quote(name)}&page=1&sort=newest"
 
 
@@ -410,7 +418,7 @@ def build_home() -> str:
         itemlist_ld(
             url=canonical,
             name="BaseTao spreadsheet categories",
-            items=[(name, local or W2C) for name, _img, local in CAT_WALL],
+            items=[(name, _cat_href(name, local)) for name, _img, local in CAT_WALL],
         ),
     )
     html += skip_link(skip_label("en"))
@@ -701,6 +709,10 @@ def _assert_home(html: str) -> None:
         err.append("nav still mislabels referral as Shipping")
     if "/shoes381/" not in html:
         err.append("category wall missing local hub")
+    if "category=ENFANTS" in html or "category=ENFANTS%20RICHES" in html:
+        err.append("ERD tile still uses empty category= filter")
+    if "brand=Enfants" not in html and "brand=Enfants%20Riches" not in html:
+        err.append("ERD tile missing brand= href")
     if "Local checks" in html:
         err.append("dest Local checks nav on hub")
     _hub_gates(html, err)
@@ -995,6 +1007,12 @@ def live_check() -> None:
         fail += 1
     if "/shoes381/" not in html:
         print(" FAIL local cat")
+        fail += 1
+    if "category=ENFANTS" in html:
+        print(" FAIL ERD still category=")
+        fail += 1
+    if "brand=Enfants" not in html and "brand=Enfants%20Riches" not in html:
+        print(" FAIL ERD missing brand=")
         fail += 1
     if "/assets/images/basetao-logo.svg" not in html and "/assets/images/basetao-logo.png" not in html:
         print(" FAIL logo markup")
