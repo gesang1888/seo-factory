@@ -1,14 +1,40 @@
 {
-  "built": "2026-10-07T02:51:54Z",
-  "remaining_n": 994,
+  "built": "2026-10-07T12:51:28Z",
+  "remaining_n": 1036,
   "by_band": {
-    "desk": 276,
-    "keep": 155,
-    "other": 408,
+    "home": 1,
+    "start": 1,
+    "desk": 282,
+    "keep": 159,
+    "other": 436,
     "blog": 45,
-    "legal": 110
+    "legal": 112
   },
   "remaining": [
+    {
+      "url": "https://joyagoospreadsheets.de/",
+      "host": "joyagoospreadsheets.de",
+      "band": "home",
+      "band_i": 0,
+      "sub": 0,
+      "path": "/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/start/",
+      "host": "joyagoospreadsheets.de",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/katalog/",
+      "host": "joyagoospreadsheets.de",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/katalog/"
+    },
     {
       "url": "https://acbuyspreadsheets.ca/how-to-use-acbuy/",
       "host": "acbuyspreadsheets.ca",
@@ -144,6 +170,14 @@
       "band_i": 2,
       "sub": 1,
       "path": "/how-to-use-hipobuy/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/how-to-use-joyagoo/",
+      "host": "joyagoospreadsheets.de",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/how-to-use-joyagoo/"
     },
     {
       "url": "https://kakobuy.fi/how-to-use-kakobuy/",
@@ -336,6 +370,14 @@
       "band_i": 2,
       "sub": 1,
       "path": "/how-to-use-usfans/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/guides/shipping/",
+      "host": "joyagoospreadsheets.de",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/guides/shipping/"
     },
     {
       "url": "https://kakospreadsheet.es/envio-kakobuy-espana/",
@@ -576,6 +618,14 @@
       "band_i": 2,
       "sub": 3,
       "path": "/help/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/hilfe/",
+      "host": "joyagoospreadsheets.de",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 3,
+      "path": "/hilfe/"
     },
     {
       "url": "https://kakospreadsheet.ca/help/",
@@ -1226,6 +1276,14 @@
       "path": "/news/"
     },
     {
+      "url": "https://joyagoospreadsheets.de/neuigkeiten/",
+      "host": "joyagoospreadsheets.de",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 4,
+      "path": "/neuigkeiten/"
+    },
+    {
       "url": "https://kakospreadsheet.ca/news/",
       "host": "kakospreadsheet.ca",
       "band": "desk",
@@ -1768,6 +1826,14 @@
       "band_i": 2,
       "sub": 5,
       "path": "/over-ons/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/ueber-uns/",
+      "host": "joyagoospreadsheets.de",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 5,
+      "path": "/ueber-uns/"
     },
     {
       "url": "https://kakobuy.fi/about/",
@@ -2672,6 +2738,38 @@
       "band_i": 3,
       "sub": 0,
       "path": "/is-hipobuy-legit/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/guides/coupons/",
+      "host": "joyagoospreadsheets.de",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/guides/coupons/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/guides/is-joyagoo-legit/",
+      "host": "joyagoospreadsheets.de",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/guides/is-joyagoo-legit/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/guides/qc/",
+      "host": "joyagoospreadsheets.de",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/guides/qc/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/spreadsheet/",
+      "host": "joyagoospreadsheets.de",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/spreadsheet/"
     },
     {
       "url": "https://kakobuy.fi/kakobuy-coupon/",
@@ -3832,6 +3930,230 @@
       "band_i": 4,
       "sub": 0,
       "path": "/who-we-are/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/adidas/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/adidas/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/balenciaga/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/balenciaga/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/gucci/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/gucci/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/jordan/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/jordan/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/louis-vuitton/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/louis-vuitton/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/moncler/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/moncler/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/new-balance/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/new-balance/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/nike/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/nike/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/off-white/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/off-white/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/prada/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/prada/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/supreme/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/supreme/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/brand/yeezy/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/yeezy/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/enfants-riches-deprimes/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/enfants-riches-deprimes/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/hoodie/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/hoodie/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/long-sleeved/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/long-sleeved/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/polo/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/polo/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/shawl/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/shawl/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/shirt/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/shirt/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/shorts/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/shorts/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/slippers/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/slippers/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/sneakers/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/sneakers/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/sweater/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/sweater/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/t-shirt/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/t-shirt/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/category/vest/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/vest/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/guides/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/guides/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/guides/how-to-use/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/guides/how-to-use/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/joyagoo-freight/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/joyagoo-freight/"
     },
     {
       "url": "https://kakobuy.fi/faq/",
@@ -7146,6 +7468,22 @@
       "path": "/terms/"
     },
     {
+      "url": "https://joyagoospreadsheets.de/privacy-policy/",
+      "host": "joyagoospreadsheets.de",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://joyagoospreadsheets.de/terms/",
+      "host": "joyagoospreadsheets.de",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
       "url": "https://kakobuy.fi/affiliate-disclosure/",
       "host": "kakobuy.fi",
       "band": "legal",
@@ -7961,6 +8299,5 @@
       "sub": 0,
       "path": "/terms/"
     }
-  ],
-  "updated": "2026-10-07T07:16:34Z"
+  ]
 }

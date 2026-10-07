@@ -3,7 +3,7 @@
 
 Order: unpinged homepages, /start/, desk IA (catalog → guide → shipping →
 help → news → about), ranked keep, other, blog, legal.
-Skips already-ok URLs, joyagoospreadsheets.de (no GSC SA), hubs, .cheap.
+Skips already-ok URLs, hubs, .cheap.
 Stops at ~200 publishes or first 429. Does not PUT pages.
 """
 from __future__ import annotations
@@ -24,7 +24,6 @@ QUEUE = ROOT / "data" / "dest-url-daily-queue.json"
 LOG = ROOT / "data" / "dest-url-daily-log.json"
 DAILY_LIMIT = int(os.environ.get("DEST_URL_DAILY_LIMIT", "200"))
 SKIP_HOSTS = {
-    "joyagoospreadsheets.de",  # SA not siteOwner
     "repsicon.com",
     "sugargoo.ca",
     "sugargoo.es",

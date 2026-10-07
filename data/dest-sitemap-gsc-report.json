@@ -1,11 +1,9 @@
 {
   "put_ok_n": 84,
   "put_fail": [],
-  "gsc_ok_n": 83,
+  "gsc_ok_n": 84,
   "gsc_fail": [],
-  "gsc_missing": [
-    "joyagoospreadsheets.de"
-  ],
+  "gsc_missing": [],
   "skip": [],
   "hosts": [
     {
