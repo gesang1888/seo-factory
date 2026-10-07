@@ -4,8 +4,8 @@
 Chrome / IA / wrap live in tools/country_cms.py (gold IA: hipobuy.es, gold
 brand: acbuy.com). This file is the first filled pack: Dutch copy, NL facts,
 W2C category notes. Next dest: copy this file, swap DESK + copy builders.
-Does not PUT 5KB overlays over ranked unique inners. CA AllChinaBuy dest is
-the next agent when asked. Twin allchinabuyspreadsheet.nl stays 301 into this host.
+Does not PUT 5KB overlays over ranked unique inners. AllChinaBuy NL
+(allchinabuyspreadsheet.nl) is a different agent dest and stays independent.
 """
 from __future__ import annotations
 
@@ -1258,10 +1258,13 @@ def live_check() -> None:
         print(" FAIL 404 robots"); fail += 1
     if 'href="/start/"' not in nf or 'href="/">Start' in nf:
         print(" FAIL 404 Start still points at /"); fail += 1
+    # AllChinaBuy NL is a different agent dest — never 301 into ACBuy NL.
     code, _, loc, _ = fetch("https://allchinabuyspreadsheet.nl/", follow=False)
-    print("twin allchinabuyspreadsheet.nl", code, loc)
-    if code not in (301, 302, 308) or HOST not in (loc or ""):
-        print(" FAIL twin"); fail += 1
+    print("allchinabuy nl dest", code, loc)
+    if code in (301, 302, 308) and HOST in (loc or ""):
+        print(" FAIL AllChinaBuy NL collapsed into ACBuy NL"); fail += 1
+    if code != 200:
+        print(" FAIL AllChinaBuy NL dest"); fail += 1
     code, _, loc, _ = fetch("https://acbuyspreadsheets.ca/", follow=False)
     print("ca dest independent", code, loc)
     if code in (301, 302, 308) and HOST in (loc or ""):
