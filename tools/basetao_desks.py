@@ -727,6 +727,72 @@ def _run(client, cmd: str, timeout: int = 90) -> str:
     return (stdout.read() + stderr.read()).decode(errors="replace").strip()
 
 
+def _cf_purge() -> None:
+    token = os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
+    if not token:
+        print("cf_purge skipped (no token)")
+        return
+    import urllib.request
+
+    req = urllib.request.Request(
+        f"https://api.cloudflare.com/client/v4/zones?name={HOST}",
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            zones = json.loads(resp.read().decode())
+        zid = (zones.get("result") or [{}])[0].get("id")
+        if not zid:
+            print("cf_purge skipped (no zone)")
+            return
+        preq = urllib.request.Request(
+            f"https://api.cloudflare.com/client/v4/zones/{zid}/purge_cache",
+            data=json.dumps({"purge_everything": True}).encode(),
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+            },
+            method="POST",
+        )
+        with urllib.request.urlopen(preq, timeout=20) as resp:
+            print("cf_purge", resp.status, resp.read()[:120])
+    except Exception as e:
+        print("cf_purge skipped", e)
+
+
+def _drop_about_home_301(client) -> None:
+    """Old GSC map sent /about/ to /. Real about/index.html must win."""
+    path = (
+        "/www/server/panel/vhost/nginx/extension/"
+        f"{HOST}/gsc-redirects.conf"
+    )
+    raw = _run(client, f"cat '{path}'")
+    nxt = re.sub(
+        r"^location = /about/? \{ return 301 https://basetaospreadsheet\.com/; \}\n?",
+        "",
+        raw,
+        flags=re.M,
+    )
+    if nxt == raw:
+        print("nginx about→home 301 already absent")
+        return
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    bak = f"/www/backup/basetao-gsc-redirects-{stamp}.conf"
+    _run(client, f"cp -a '{path}' '{bak}'")
+    tmp = Path("/tmp/basetao-gsc-redirects.conf")
+    tmp.write_text(nxt, encoding="utf-8")
+    sftp = client.open_sftp()
+    sftp.put(str(tmp), path)
+    sftp.close()
+    test = _run(client, "nginx -t")
+    print(test)
+    if "successful" not in test.lower() and "ok" not in test.lower():
+        _run(client, f"cp -a '{bak}' '{path}'")
+        raise SystemExit("nginx -t failed; restored gsc-redirects")
+    print(_run(client, "nginx -s reload"))
+    print("removed about→home 301", bak)
+
+
 def put() -> None:
     files = generate()
     client = _connect()
@@ -768,32 +834,8 @@ def put() -> None:
         f"'{root}/about' '{root}/404.html' '{root}/sitemap.xml' '{root}/assets/css'",
     )
     sftp.close()
-    token = os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
-    if token:
-        import urllib.request
-
-        req = urllib.request.Request(
-            "https://api.cloudflare.com/client/v4/zones?name=basetaospreadsheet.com",
-            headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
-        )
-        try:
-            with urllib.request.urlopen(req, timeout=20) as resp:
-                zones = json.loads(resp.read().decode())
-            zid = (zones.get("result") or [{}])[0].get("id")
-            if zid:
-                preq = urllib.request.Request(
-                    f"https://api.cloudflare.com/client/v4/zones/{zid}/purge_cache",
-                    data=json.dumps({"purge_everything": True}).encode(),
-                    headers={
-                        "Authorization": f"Bearer {token}",
-                        "Content-Type": "application/json",
-                    },
-                    method="POST",
-                )
-                with urllib.request.urlopen(preq, timeout=20) as resp:
-                    print("cf_purge", resp.status, resp.read()[:120])
-        except Exception as e:
-            print("cf_purge skipped", e)
+    _drop_about_home_301(client)
+    _cf_purge()
     print("backup", bak)
     print("ranked inners not overwritten")
     client.close()
@@ -855,6 +897,13 @@ def live_check() -> None:
         if url.endswith("/about/") and TITLE in h and H1 in h and 'id="cat-wall"' in h:
             print(" FAIL about cloned home")
             fail += 1
+        if url.endswith("/about/") and "About | BaseTao Spreadsheet" not in h:
+            print(" FAIL about title")
+            fail += 1
+    c_about, _, loc_about, _ = fetch(f"https://{HOST}/about/", follow=False)
+    if c_about in (301, 302, 308):
+        print("FAIL about 301", loc_about)
+        fail += 1
     for url in (
         f"https://{HOST}/basetao-referral-code/",
         f"https://{HOST}/basetao-shipping-calculator/",
