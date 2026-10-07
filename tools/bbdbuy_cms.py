@@ -935,6 +935,81 @@ def _sec_shots(key: str, fig) -> str:
 """
 
 
+
+def _status_ul(key: str) -> str:
+    loc = PACKS[key]["loc"]
+    rows = {
+        "de": [
+            ("Order Submitted", "Bestellung gesendet, Produkt in China bezahlt."),
+            ("Order Placed", "BBDBuy kauft im chinesischen Shop auf deinen Namen."),
+            ("Seller Shipped", "Der chinesische Verkäufer hat versandt."),
+            ("Arrived at Warehouse", "Im Lager angekommen."),
+            ("Inspection & Storage", "Prüfung, Fotos und Lager. Live-Labels stehen in der App."),
+            ("Shipping Requested", "Du bündelst und buchst die internationale Linie."),
+            ("Parcel Packed", "Die Box wird gepackt."),
+            ("Shipped", "Abfahrt aus China."),
+            ("Delivered", "Zugestellt; Empfang in der App bestätigen."),
+        ],
+        "it": [
+            ("Order Submitted", "Ordine inviato, prodotto pagato in Cina."),
+            ("Order Placed", "BBDBuy compra nel negozio cinese a tuo nome."),
+            ("Seller Shipped", "Il venditore cinese ha spedito."),
+            ("Arrived at Warehouse", "Arrivato in magazzino."),
+            ("Inspection & Storage", "Controllo, foto e stoccaggio. Le etichette live stanno in app."),
+            ("Shipping Requested", "Tu consolidi e prenoti la linea internazionale."),
+            ("Parcel Packed", "La scatola viene imballata."),
+            ("Shipped", "Partenza dalla Cina."),
+            ("Delivered", "Consegnato; conferma in app."),
+        ],
+        "es": [
+            ("Order Submitted", "Pedido enviado, producto pagado en China."),
+            ("Order Placed", "BBDBuy compra en la tienda china a tu nombre."),
+            ("Seller Shipped", "El vendedor chino ha enviado."),
+            ("Arrived at Warehouse", "Llegó al almacén."),
+            ("Inspection & Storage", "Control, fotos y almacenamiento. Las etiquetas en vivo están en la app."),
+            ("Shipping Requested", "Tú consolidas y reservas la línea internacional."),
+            ("Parcel Packed", "La caja se empaca."),
+            ("Shipped", "Salida de China."),
+            ("Delivered", "Entregado; confirma en la app."),
+        ],
+        "fr": [
+            ("Order Submitted", "Commande envoyée, produit payé en Chine."),
+            ("Order Placed", "BBDBuy achète dans la boutique chinoise à ton nom."),
+            ("Seller Shipped", "Le vendeur chinois a expédié."),
+            ("Arrived at Warehouse", "Arrivé à l’entrepôt."),
+            ("Inspection & Storage", "Contrôle, photos et stockage. Les libellés live sont dans l’app."),
+            ("Shipping Requested", "Tu regroupes et réserves la ligne internationale."),
+            ("Parcel Packed", "La boîte est emballée."),
+            ("Shipped", "Départ de Chine."),
+            ("Delivered", "Livré ; confirme dans l’app."),
+        ],
+        "nl": [
+            ("Order Submitted", "Bestelling verstuurd, product in China betaald."),
+            ("Order Placed", "BBDBuy koopt in de Chinese shop op jouw naam."),
+            ("Seller Shipped", "De Chinese verkoper heeft verzonden."),
+            ("Arrived at Warehouse", "Aangekomen in het magazijn."),
+            ("Inspection & Storage", "Controle, foto’s en opslag. Live labels staan in de app."),
+            ("Shipping Requested", "Jij bundelt en boekt de internationale lijn."),
+            ("Parcel Packed", "De doos wordt ingepakt."),
+            ("Shipped", "Vertrek uit China."),
+            ("Delivered", "Bezorgd; ontvangst bevestigen in de app."),
+        ],
+        "en": [
+            ("Order Submitted", "Order sent, product paid in China."),
+            ("Order Placed", "BBDBuy buys in the Chinese shop in your name."),
+            ("Seller Shipped", "The Chinese seller has shipped."),
+            ("Arrived at Warehouse", "Arrived at the warehouse."),
+            ("Inspection & Storage", "Check, photos and storage. Live labels sit in the app."),
+            ("Shipping Requested", "You consolidate and book the international line."),
+            ("Parcel Packed", "The box is packed."),
+            ("Shipped", "Departure from China."),
+            ("Delivered", "Delivered; confirm receipt in the app."),
+        ],
+    }[loc if loc in ("de", "it", "es", "fr", "nl") else "en"]
+    return '<ul class="tl">' + "".join(
+        f"<li><b>{escape(a)}</b><span>{escape(b)}</span></li>" for a, b in rows
+    ) + "</ul>"
+
 def _sec_states(key: str, fig) -> str:
     p = PACKS[key]
     loc, dest = p["loc"], p["dest_label"]
@@ -944,6 +1019,7 @@ def _sec_states(key: str, fig) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>Neun Status, drei Bildschirme</h2>
     <p class="lead">Zuerst zahlst du das Produkt plus den Inlandsweg in China bis zum Lager. International kommt später, wenn du eine Linie nach Deutschland wählst. «Warum steht es still?» heißt fast immer: du schaust auf den falschen Bildschirm.</p>
+    {_status_ul(key)}
     <p>Die ersten Schritte liegen unter Bestellungen, danach Lager, danach das Paket, das du absendest. Am {escape(DATE)} öffnete der öffentliche Schätzer ein Login: dieser Desk erfindet keine Lagerfrist.</p>
     <p><a class="btn" href="{escape(p["guide"])}">Anleitung mit dem Verlauf</a></p>
   </div>{fig}</div></div>
@@ -955,6 +1031,7 @@ def _sec_states(key: str, fig) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>Nove stati, tre schermate</h2>
     <p class="lead">Prima paghi il prodotto più il trasporto interno in Cina fino al magazzino. L’internazionale arriva dopo, quando scegli una linea verso l’Italia. «Perché è fermo?» quasi sempre significa: stai guardando la schermata sbagliata.</p>
+    {_status_ul(key)}
     <p>I primi passi stanno sotto gli ordini, poi il magazzino, poi il pacco che invii. Il {escape(DATE)} il preventivo pubblico apriva un login: questa guida non inventa giorni di giacenza.</p>
     <p><a class="btn" href="{escape(p["guide"])}">Guida con il percorso</a></p>
   </div>{fig}</div></div>
@@ -965,6 +1042,7 @@ def _sec_states(key: str, fig) -> str:
   <div class="wrap"><div class="split"><div>
     <h2>Nine statuses, three screens</h2>
     <p class="lead">You first pay the product plus domestic China freight to the warehouse. International comes later, when you pick a line to {escape(dest)}. “Why is it stuck?” is almost always: you are looking at the wrong screen.</p>
+    {_status_ul(key)}
     <p>The first stretch lives under orders, then warehouse, then the parcel you submit. On {escape(DATE)} the public estimator opened a login wall: this desk does not invent a free-storage day count.</p>
     <p><a class="btn" href="{escape(p["guide"])}">Guide with the path</a></p>
   </div>{fig}</div></div>
@@ -1893,6 +1971,8 @@ def _assert_ok(html: str, page: str, key: str) -> None:
         for sid in ("shots", "states", "restricted"):
             if f'id="{sid}"' not in html:
                 err.append(f"missing #{sid}")
+        if 'class="tl"' not in html:
+            err.append("status timeline")
         if p["loc"] != "en" and "Official bbdbuy.com, 6 Oct" in html:
             err.append("english fig caption")
         for alien in p["aliens"]:
@@ -2436,6 +2516,8 @@ def live_check(key: str | None = None) -> None:
                 for sid in ("shots", "states", "restricted"):
                     if f'id="{sid}"' not in html:
                         print(" FAIL missing #", sid, sep=""); fail += 1
+                if 'class="tl"' not in html:
+                    print(" FAIL status timeline"); fail += 1
                 if p["loc"] != "en" and "Official bbdbuy.com, 6 Oct" in html:
                     print(" FAIL english fig caption"); fail += 1
             if kind in ("guide", "ship"):
