@@ -61,9 +61,9 @@ AGENTS = {
         "official": "https://www.acbuy.com/",
         "estimator": "https://www.acbuy.com/estimation/",
         "register": "https://www.acbuy.com/",
-        "storage": "Official ACBuy Help: 90 free warehouse days; confirm that article the morning you ship",
+        "storage": "Official ACBuy Help is a live SPA; confirm that copy the morning you ship. This desk does not invent a free-day count.",
         "codes": ["5F2RRA", "EwjrSk", "ACBUY5"],
-        "css": ["/assets/css/desk-cms.css", "/assets/css/allchinabuy-theme.css"],
+        "css": ["/assets/css/desk-cms.css", "/assets/css/acbuy-theme.css"],
     },
     "BBDBuy": {
         "primary": "#2563eb",
