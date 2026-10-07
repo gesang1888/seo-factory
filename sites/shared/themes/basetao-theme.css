@@ -1,35 +1,8 @@
-/* BaseTao unique CMS chrome: terracotta + navy (ranked inners), not dest-rose. */
+/* BaseTao country dest — matches official palette, Inter not serif. */
 :root {
-  --primary: #d2753f;
-  --primary-dark: #b86230;
-  --primary-soft: #f7f3ef;
-  --nav-dark: #0b1136;
-  --text: #141827;
-  --muted: #4b5563;
-  --border: #eadfd4;
-  --bg: #ffffff;
-  --card: #ffffff;
+  --primary: #e11d48;
+  --primary-dark: #e11d48;
+  --primary-soft: #fff1f2;
+  --nav-dark: #1f2937;
 }
-body { background: #fff; color: #141827; }
-.site-header {
-  background: #f7f3ef;
-  border-bottom: 1px solid #eadfd4;
-}
-.brand-logo { height: 40px; width: auto; display: block; }
-.header-nav a { color: #0b1136; }
-.header-nav a:hover,
-.header-nav a.active { color: #d2753f; }
-.btn { border-radius: 6px; font-weight: 800; }
-.btn-primary { background: #d2753f; color: #fff; }
-.btn-outline { border: 1px solid #eadfd4; background: #fff; color: #0b1136; }
-.sg-hero h1 { color: #0b1136; }
-.eu-badge { background: #f7f3ef; color: #b86230; }
-.sg-sec,
-.local-steps li,
-.w2c-cat-icon-card,
-.keep a { border-color: #eadfd4; }
-.w2c-cat-icon-card:hover { border-color: #d2753f; }
-.sg-card .pr,
-.header-nav a.active { color: #d2753f; }
-.site-footer { background: #0b1136; color: #e2e8f0; }
-.site-footer a { color: #fff; }
+body { background: var(--bg, #f7f8fa); }
