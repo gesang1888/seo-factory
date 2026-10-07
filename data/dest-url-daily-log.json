@@ -1,0 +1,28 @@
+{
+  "days": [
+    {
+      "day": "2026-10-07",
+      "index_ok_n": 0,
+      "index_fail_n": 1,
+      "quota_stopped": true,
+      "by_band": {},
+      "index_ok": [],
+      "index_fail": [
+        {
+          "url": "https://acbuyspreadsheets.ca/",
+          "error": "<HttpError 429 when requesting https://indexing.googleapis.com/v3/urlNotifications:publish?alt=json returned \"Quota exceeded for quota metric 'Publish requests' and limit 'Publish requests per day' of service 'indexing.googleapis.com' for c"
+        }
+      ],
+      "remaining_n": 1194,
+      "remaining_by_band": {
+        "home": 35,
+        "start": 83,
+        "desk": 358,
+        "keep": 155,
+        "other": 408,
+        "blog": 45,
+        "legal": 110
+      }
+    }
+  ]
+}
