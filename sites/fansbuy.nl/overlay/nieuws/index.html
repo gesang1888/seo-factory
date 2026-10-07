@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FansBuy Spreadsheet in het Nederlands: wat we op het platform hebben nagekeken</title>
+<meta name="description" content="Dated checks on FansBuy.">
+<link rel="canonical" href="https://fansbuy.nl/nieuws/">
+<link rel="icon" href="/favicon1.ico">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="stylesheet" href="/assets/css/fansbuy-theme.css?v=20261007f">
+<link rel="stylesheet" href="/assets/css/fansbuy-nl-desk.css?v=20261007f">
+<style>
+:root{
+  --acc:#ff3344;--acd:#c12233;--link:#c12233;--login-fg:#fff;
+  --ink:#303133;--ink2:#495068;--mute:#8492b2;--dark:#181818;
+  --panel:#f5f6f7;--line:#eaecf0;--soft:#f5f6f7;
+  --r:18px;--rs:12px;--maxw:1120px;--medida:34em;
+  --f:"Microsoft Yahei","PingFang SC",Avenir,"Segoe UI","Hiragino Sans GB",sans-serif;--m:ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light;scroll-behavior:smooth}
+body{margin:0;font-family:var(--f);font-size:17px;line-height:1.72;color:var(--ink);background:#fff}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--link)}
+a:hover{color:var(--acd)}
+#main,[id]{scroll-margin-top:76px}
+h1,h2,h3{color:var(--dark);line-height:1.25;letter-spacing:-.01em;margin:0 0 .5em}
+h1{font-size:clamp(30px,4.4vw,45px);font-weight:800}
+h2{font-size:clamp(24px,3vw,32px);font-weight:800}
+h3{font-size:20px;font-weight:700}
+p{margin:0 0 1.05em}
+main p,main li,.sg-faq p{max-width:var(--medida)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:8px 18px;border-radius:var(--rs)}
+.top{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:var(--dark);text-decoration:none;font-size:15px;white-space:nowrap}
+.brand img{height:32px;width:auto}
+.brand span{color:#8492b2;font-weight:600}
+.nav{margin-left:auto;display:flex;gap:2px;flex-wrap:nowrap}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:#333;text-decoration:none;font-size:15px;white-space:nowrap}
+.nav a:hover,.nav a[aria-current]{color:var(--acc);background:transparent;font-weight:700}
+.hdr-login{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:var(--acc);color:var(--login-fg,#fff);font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+.hdr-login:hover{background:var(--acd);color:var(--login-fg,#fff)}
+.burger{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}
+.hero{position:relative;background:#181818;overflow:hidden}
+.hero__bg{position:absolute;inset:0;background:url(/img/hero.jpg?v=20261007f) center/cover no-repeat}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.58) 0%,color-mix(in srgb, var(--acc) 22%, transparent) 100%)}
+.hero .wrap{position:relative;padding:74px 22px 78px}
+.eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--acc);margin-bottom:14px}
+.hero .eyebrow{color:#fff3c4}
+.hero h1{color:#fff;max-width:15.5em}
+.hero p.lead{color:#f4f4f4;font-size:19px;max-width:34em}
+.sbox{margin-top:26px;max-width:660px}
+.sbox form{display:flex;gap:9px;background:#fff;border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 14px 40px rgba(24,24,24,.22)}
+.sbox input{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 8px}
+.sbox button{min-height:44px;padding:0 24px;border:0;border-radius:999px;background:var(--acc);color:var(--login-fg,#fff);font:inherit;font-weight:700;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips a{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);color:#fff8f0;text-decoration:none;font-size:14px}
+.sec{padding:62px 0;border-top:1px solid var(--line)}
+.sec--tint{background:linear-gradient(var(--soft) 0%,#fff 100%);border-top:0}
+.sec--first{border-top:0}
+.split{display:grid;grid-template-columns:1.04fr .96fr;gap:46px;align-items:center}
+.split--rev .fig{order:-1}
+.fig{margin:0}
+.fig img{border-radius:var(--r);border:1px solid var(--line);background:#fff}
+.fig figcaption{margin-top:11px;font-size:13.5px;line-height:1.55;color:var(--mute)}
+.lead{font-size:18px;color:var(--ink2);max-width:var(--medida)}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none}
+.btn:hover{background:var(--acd);color:#fff}
+.btn--ghost{background:#fff;color:var(--acd);border:1px solid var(--line)}
+.tl{list-style:none;margin:0;padding:0 0 0 30px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 18px 8px}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:-39px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px #fff}
+.tl b{display:block;color:var(--dark);font-size:17px}
+.tl span{color:var(--mute);font-size:14px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px;margin-top:8px}
+.cat{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 10px 14px;text-decoration:none;color:inherit}
+.cat:hover{transform:translateY(-3px);box-shadow:0 12px 28px color-mix(in srgb, var(--acc) 22%, transparent);border-color:color-mix(in srgb, var(--acc) 45%, #fff)}
+.cat img{width:72px;height:72px;object-fit:contain;padding:0;background:#fff}
+.cat__b{padding:10px 0 0}
+.cat em{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}
+.cat-grid--rich{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.cat-grid--rich .cat{align-items:flex-start;text-align:left;padding:14px}
+.eq{width:100%;border-collapse:collapse;max-width:36em;font-size:15px}
+.eq th,.eq td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+.eq th{color:#8492b2;font-weight:600}
+.cat__b strong{display:block;color:var(--dark);font-size:14.5px}
+.cat__b span{font-size:12px;color:var(--mute);letter-spacing:.04em}
+.states{margin:0;padding:0;list-style:none}
+.states li{padding:10px 0;border-bottom:1px solid var(--line);max-width:40em}
+.states code{font-family:var(--m);font-size:13px}
+.sg-faq{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff;max-width:40em}
+.sg-faq summary{cursor:pointer;font-weight:700}
+.ncard{border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 8px;margin-bottom:18px;max-width:40em}
+.ncard h2{font-size:22px}
+.list{margin:0 0 1.4em;padding:0 0 0 1.15em;max-width:var(--medida)}
+.list li{margin:0 0 .45em}
+.site-ft{background:#111;color:#ccc;padding:52px 0 30px;margin-top:24px;font-size:15.5px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px}
+.site-ft h3{color:#fff;font-size:15.5px;margin:0 0 12px;letter-spacing:.02em;font-weight:700}
+.site-ft p{margin:0 0 12px;max-width:36em}
+.site-ft a{color:#c2c2c2;text-decoration:none}
+.site-ft a:hover{color:#fff;text-decoration:underline}
+.site-ft ul{list-style:none;margin:0;padding:0}
+.site-ft li{margin-bottom:8px}
+.site-ft .legal{grid-column:1/-1;border-top:1px solid #2D2D2D;padding-top:20px;font-size:13.5px;color:#8a8a8a}
+.site-ft .legal p{margin:0 0 8px;max-width:none}
+.pw{max-width:40em;margin:0 auto;padding:40px 22px 64px}
+.inner-article{max-width:860px;margin:0 auto;padding:28px 24px 48px}
+#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}
+@media(max-width:1000px){
+  .split{grid-template-columns:1fr;gap:30px}
+  .split--rev .fig{order:0}
+  .ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:860px){
+  .burger{display:inline-flex;align-items:center;justify-content:center}
+  .nav{display:none;position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 12px}
+  .nav.open{display:flex}
+  .hdr-login{display:none}
+  .ft-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .sbox form{flex-direction:column}
+  .sbox button{width:100%}
+}
+
+:root{--primary-soft:#fff1f2;--login-fg:#fff}
+.hero .eyebrow{color:#fb7185}
+header.top .hdr-login,.hdr-login{background:#ff3344;color:#fff}
+header.top .hdr-login:hover,.hdr-login:hover{background:#c12233;color:#fff}
+.sbox button{color:#fff}
+
+:root{--acc:#ff3344!important;--acd:#c12233!important;--link:#c12233!important;--primary:#ff3344!important;--primary-dark:#c12233!important;--primary-soft:#e8f7f2!important}#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}header.top .nav a{color:#333!important}header.top .nav a[aria-current],header.top .nav a:hover{color:#ff3344!important;background:transparent!important}header.top .hdr-login{background:#ff3344!important;color:#fff!important}header.top .hdr-login:hover{background:#c12233!important;color:#fff!important}</style>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://fansbuy.nl/nieuws/", "url": "https://fansbuy.nl/nieuws/", "name": "FansBuy Spreadsheet in het Nederlands: wat we op het platform hebben nagekeken", "description": "Dated checks on FansBuy.", "inLanguage": "nl-NL", "isPartOf": {"@type": "WebSite", "name": "FansBuy desk", "url": "https://fansbuy.nl/"}, "publisher": {"@type": "Organization", "name": "FansBuy independent desk", "url": "https://fansbuy.nl/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "fansbuy.nl independent desk", "url": "https://fansbuy.nl/", "email": "cnfd85269032661@gmail.com", "inLanguage": "nl-NL", "description": "Dated checks on FansBuy.", "contactPoint": {"@type": "ContactPoint", "email": "cnfd85269032661@gmail.com", "contactType": "customer support", "url": "https://fansbuy.nl/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "FansBuy dest checks", "url": "https://fansbuy.nl/nieuws/", "numberOfItems": 4, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eerste ronde: officiële schatter", "description": "Op 6 Oct 2026 levert https://fansbuy.com/estimates live cijfers. Geen verzonnen lijn. Open de officiële site de ochtend dat je verzendt, bestemming Netherlands — 荷兰. Nederlandse postcode, geen Belgische."}, {"@type": "ListItem", "position": 2, "name": "w2clinks zoekt in het Engels", "description": "sneakers, hoodie, jacket geven pagina’s; lokale spellingen vaak nul. Gemeten 6 Oct 2026. Typ de Engelse key, of tik een chip op de homepage."}, {"@type": "ListItem", "position": 3, "name": "Volumgewicht", "description": "Veel lijnen nemen het maximum van weegschaal en L×W×H/8000. Geen SKU-prijs in deze HTML. Reken je doos in de publieke schatter, zonder login."}, {"@type": "ListItem", "position": 4, "name": "Zusthosts blijven apart", "description": "UK, US, DE, AT, ES, FR, IT en NL zijn eigen bestanden. Geen 301 onderling. Er is geen FansBuy-hub en geen douanegebied dat deze hosts samenvoegt."}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Naar de inhoud</a>
+<header class="top" role="banner">
+  <div class="wrap">
+    <a href="/start/" class="brand">
+      <img src="/assets/images/fansbuy-wordmark.png?v=20261007f" alt="FansBuy" width="118" height="39">
+      <span>Spreadsheet</span>
+    </a>
+    <button class="burger" type="button" aria-expanded="false" aria-label="Menu openen">&#9776;</button>
+    <nav class="nav" aria-label="Hoofdmenu"><a href="/start/">Start</a><a href="/how-to-use-fansbuy/">Handleiding</a><a href="/catalogus/">Catalogus</a><a href="/fansbuy-freight/">Verzending</a><a href="/hulp/">Hulp</a><a href="/nieuws/" aria-current="page">Nieuws</a></nav>
+    <a class="hdr-login" href="https://fansbuy.com/login?utm_source=fansbuy.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Inloggen bij FansBuy</a>
+  </div>
+</header>
+
+<main id="main">
+
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Nieuws</span>
+  <h1>Wat we op het platform hebben nagekeken, met datum</h1>
+  <p class="lead">Dit is geen bedrijfsnieuwsbrief. Eigen checks, met datum.</p>
+  <p>6 Oct 2026.</p>
+  <article class="ncard"><h2>Eerste ronde: officiële schatter</h2><p>Op 6 Oct 2026 levert https://fansbuy.com/estimates live cijfers. Geen verzonnen lijn.</p><p>Open de officiële site de ochtend dat je verzendt, bestemming Netherlands — 荷兰. Nederlandse postcode, geen Belgische.</p></article><article class="ncard"><h2>w2clinks zoekt in het Engels</h2><p>sneakers, hoodie, jacket geven pagina’s; lokale spellingen vaak nul. Gemeten 6 Oct 2026.</p><p>Typ de Engelse key, of tik een chip op de homepage.</p></article><article class="ncard"><h2>Volumgewicht</h2><p>Veel lijnen nemen het maximum van weegschaal en L×W×H/8000. Geen SKU-prijs in deze HTML.</p><p>Reken je doos in de publieke schatter, zonder login.</p></article><article class="ncard"><h2>Zusthosts blijven apart</h2><p>UK, US, DE, AT, ES, FR, IT en NL zijn eigen bestanden. Geen 301 onderling.</p><p>Er is geen FansBuy-hub en geen douanegebied dat deze hosts samenvoegt.</p></article>
+</article>
+
+</main>
+<footer class="site-ft">
+  <div class="wrap ft-grid">
+    <div>
+      <h3>FansBuy Spreadsheet</h3>
+      <p>Onafhankelijke Nederlandstalige gids over FansBuy en hoe je de w2clinks-catalogus gebruikt om vanuit Nederland in China te kopen.</p>
+      <p><a href="mailto:cnfd85269032661@gmail.com">cnfd85269032661@gmail.com</a></p>
+    </div>
+    <div>
+      <h3>Onderdelen</h3>
+      <ul><li><a href="/how-to-use-fansbuy/">FansBuy-handleiding</a></li><li><a href="/catalogus/">Spreadsheet en categorieën</a></li><li><a href="/fansbuy-freight/">Verzending en douane</a></li><li><a href="/hulp/">Hulp en vragen</a></li><li><a href="/nieuws/">Nieuws</a></li><li><a href="/over-ons/">Over ons</a></li></ul>
+    </div>
+    <div>
+      <h3>Officiële links</h3>
+      <ul><li><a href="https://fansbuy.com?utm_source=fansbuy.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">FansBuy (officiële site)</a></li><li><a href="https://fansbuy.com/login?utm_source=fansbuy.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">FansBuy-account</a></li><li><a href="https://fansbuy.com/estimates?utm_source=fansbuy.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Officiële schatter (6 Oct 2026)</a></li></ul>
+    </div>
+    <div class="legal">
+      <p><strong>Onafhankelijkheidsnotitie.</strong> FansBuy Spreadsheet is een onafhankelijke infosite. Wij zijn FansBuy niet, we verwerken geen bestellingen, we innen geen porto en we zien je account niet. Elke bestelling, betaling en klacht loopt via de officiële site.</p>
+      <p>&copy; 2026 FansBuy Spreadsheet. Nederlandse tekst, nagelezen voor publicatie.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var b=document.querySelector('.burger'), n=document.querySelector('nav.nav');
+  if(!b||!n) return;
+  b.addEventListener('click', function(){
+    var on=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', on?'false':'true');
+    n.classList.toggle('open', !on);
+  });
+})();
+</script>
+
+</body>
+</html>
