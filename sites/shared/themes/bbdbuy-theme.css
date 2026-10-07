@@ -1,8 +1,2 @@
-/* BBDBuy country dest — matches official palette, Inter not serif. */
-:root {
-  --primary: #2563eb;
-  --primary-dark: #2563eb;
-  --primary-soft: #eff6ff;
-  --nav-dark: #0f172a;
-}
-body { background: var(--bg, #f7f8fa); }
+/* BBDBuy country dest — official orange from bbdbuy.com wordmark */
+:root { --primary: #F0700C; --primary-dark: #C45A0A; --primary-soft: #fff1e6; --nav-dark: #111111; }
