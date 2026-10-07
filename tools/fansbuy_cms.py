@@ -104,7 +104,7 @@ OFF_ORIGIN = (
 PHP_HOSTS = ()
 PHP_KEYS = ()
 DEST_MIN = 40000
-CSS_V = "20261006f"
+CSS_V = "20261007f"
 INVITES = ("Fans-pys5Zt48",)
 LOGO = "fansbuy-wordmark.png"
 THEME_CSS = "fansbuy-theme.css"
@@ -1286,6 +1286,8 @@ def _sheet(desk: CountryDesk) -> str:
 
 
 def _fig(src: str, alt: str, cap: str, w: int = 1200, h: int = 750) -> str:
+    if src.startswith("/img/") and "?v=" not in src:
+        src = f"{src}?v={CSS_V}"
     return cms_fig(src, alt, cap, w, h)
 
 
