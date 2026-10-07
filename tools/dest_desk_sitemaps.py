@@ -65,10 +65,11 @@ DESK_HINTS = (
     "/guia",
 )
 SKIP_PATH_RE = re.compile(
-    r"^/(assets|img|images|css|js|static|api|favicon|xmlrpc)(/|$)|"
+    r"^/(assets|img|images|css|js|static|api|favicon|xmlrpc|cdn-cgi)(/|$)|"
     r"\.(png|jpe?g|gif|webp|svg|ico|css|js|woff2?|map|txt|pdf)$",
     re.I,
 )
+INNERS = Path("/tmp/dest-inners.json")
 
 
 def hosts() -> list[str]:
@@ -191,6 +192,26 @@ def collect_one(host: str) -> dict:
         old, dropped = existing_locs(host, sm_xml)
         row["dropped_foreign"] = dropped
         paths.update(old)
+    inners_file = INNERS
+    if inners_file.exists():
+        inventory = json.loads(inners_file.read_text())
+        files = []
+        if isinstance(inventory, list):
+            for item in inventory:
+                if item.get("host") == host:
+                    files = item.get("files") or []
+                    break
+        elif isinstance(inventory, dict) and host in inventory:
+            files = inventory[host] or []
+        for item in files:
+            rel = (item.get("rel") if isinstance(item, dict) else str(item)).lstrip("/")
+            if rel.endswith("index.html"):
+                rel = rel[: -len("index.html")]
+            elif rel == "index.html":
+                rel = ""
+            path = _norm_path("/" + rel)
+            if not SKIP_PATH_RE.search(path):
+                paths.add(path)
     start_code, _, _ = _get(f"https://{host}/start/")
     if start_code != 200:
         paths.discard("/start/")
