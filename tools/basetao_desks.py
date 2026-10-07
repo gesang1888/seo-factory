@@ -148,7 +148,7 @@ EXTRA_CSS = SKIP_CSS + """
 .w2c-cat-grid-icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
 .w2c-cat-icon-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 6px;border:1px solid var(--border,#e5e7eb);border-radius:12px;text-align:center;text-decoration:none;color:inherit;background:#fff;font-size:11px;font-weight:600;line-height:1.25}
 .w2c-cat-icon-card img{width:56px;height:56px;object-fit:contain}
-.w2c-cat-icon-card:hover{border-color:var(--primary,#e11d48)}
+.w2c-cat-icon-card:hover{border-color:var(--primary,#d2753f)}
 .sg-faq{border:1px solid var(--border,#e5e7eb);border-radius:10px;padding:10px 14px;margin:8px 0;background:#fff}
 .sg-faq summary{cursor:pointer;font-weight:700}
 """
@@ -235,7 +235,7 @@ def _header(page: str) -> str:
     )
     return f"""<header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/start/"><img class="brand-logo" src="/assets/images/basetao-logo.png" alt="BaseTao"></a>
+    <a class="brand" href="/start/"><img class="brand-logo" src="/assets/images/basetao-logo.svg" alt="BaseTao"></a>
     <nav class="header-nav">{links}</nav>
     <div class="header-actions">
       <a class="btn btn-outline" href="{escape(W2C)}" rel="noopener">Spreadsheet</a>
@@ -279,8 +279,8 @@ def _chrome_head(*, title: str, desc: str, canonical: str, crumbs: list[tuple[st
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/desk-cms.css?v=20261007-basetao">
-<link rel="stylesheet" href="/assets/css/basetao-theme.css?v=20261007-basetao">
+<link rel="stylesheet" href="/assets/css/desk-cms.css?v=20261007-basetao-brand">
+<link rel="stylesheet" href="/assets/css/basetao-theme.css?v=20261007-basetao-brand">
 <style>{EXTRA_CSS}</style>
 </head>
 <body>
@@ -801,7 +801,8 @@ def put() -> None:
     root = f"/www/wwwroot/{HOST}"
     _run(
         client,
-        f"mkdir -p '{bak}' '{root}/start' '{root}/help' '{root}/about' '{root}/assets/css'",
+        f"mkdir -p '{bak}' '{root}/start' '{root}/help' '{root}/about' "
+        f"'{root}/assets/css' '{root}/assets/images'",
     )
     sftp = client.open_sftp()
     mapping = {
@@ -824,14 +825,31 @@ def put() -> None:
         print("PUT", remote, local.stat().st_size)
     cms = ROOT / "sites" / "shared" / "desk-cms.css"
     theme = ROOT / "sites" / "shared" / "themes" / "basetao-theme.css"
+    logo_svg = ROOT / "sites" / "shared" / "themes" / "basetao-logo.svg"
+    logo_png = Path("/tmp/basetao-logo.png")
     if cms.is_file():
         sftp.put(str(cms), f"{root}/assets/css/desk-cms.css")
     if theme.is_file():
         sftp.put(str(theme), f"{root}/assets/css/basetao-theme.css")
+    if not logo_svg.is_file() or logo_svg.stat().st_size < 1000:
+        raise SystemExit("missing official BaseTao wordmark SVG")
+    sftp.put(str(logo_svg), f"{root}/assets/images/basetao-logo.svg")
+    print("PUT logo svg", logo_svg.stat().st_size)
+    try:
+        import cairosvg
+
+        cairosvg.svg2png(url=str(logo_svg), write_to=str(logo_png), output_height=80)
+    except Exception as e:
+        print("png convert skipped", e)
+        logo_png = ROOT / "sites" / "shared" / "themes" / "basetao-logo.png"
+    if logo_png.is_file() and logo_png.stat().st_size > 3000:
+        sftp.put(str(logo_png), f"{root}/assets/images/basetao-logo.png")
+        print("PUT logo png", logo_png.stat().st_size)
     _run(
         client,
         f"chown -R www:www '{root}/index.html' '{root}/start' '{root}/help' "
-        f"'{root}/about' '{root}/404.html' '{root}/sitemap.xml' '{root}/assets/css'",
+        f"'{root}/about' '{root}/404.html' '{root}/sitemap.xml' "
+        f"'{root}/assets/css' '{root}/assets/images'",
     )
     sftp.close()
     _drop_about_home_301(client)
@@ -879,6 +897,20 @@ def live_check() -> None:
         fail += 1
     if "/shoes381/" not in html:
         print(" FAIL local cat")
+        fail += 1
+    if "/assets/images/basetao-logo.svg" not in html and "/assets/images/basetao-logo.png" not in html:
+        print(" FAIL logo markup")
+        fail += 1
+    lc, _, _, lb = fetch(f"https://{HOST}/assets/images/basetao-logo.svg")
+    print("logo", lc, len(lb))
+    if lc != 200 or len(lb) < 3000:
+        print(" FAIL logo asset")
+        fail += 1
+    tc, _, _, tb = fetch(f"https://{HOST}/assets/css/basetao-theme.css")
+    theme = tb.decode("utf-8", "replace")
+    print("theme", tc, len(tb), "terracotta", "#d2753f" in theme)
+    if tc != 200 or "#d2753f" not in theme:
+        print(" FAIL original CMS palette")
         fail += 1
     for url in (
         f"https://{HOST}/start/",

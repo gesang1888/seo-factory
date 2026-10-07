@@ -40,9 +40,9 @@ def H(**kw):
 
 EXTRA_AGENTS = {
     "BaseTao": A(
-        primary="#e11d48",
-        soft="#fff1f2",
-        nav="#1f2937",
+        primary="#d2753f",
+        soft="#f7f3ef",
+        nav="#0b1136",
         logo="/assets/images/basetao-logo.png",
         official="https://www.basetao.com/",
         estimator="https://www.basetao.com/best-taobao-agent-service/how_make/cost.html",
