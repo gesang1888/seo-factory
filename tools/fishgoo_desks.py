@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""FishGoo hub desk: dest-unique #local on the .net hub, keep ranked html inners.
+"""FishGoo .net hub: unique CMS homepage. Ranked inners stay 200.
 
 Gates:
-1. Hub #local has the HUB fingerprint, no dest-country fingerprints.
-2. Estimator country ≠ TLD; .net must say it is not a customs territory.
-3. Titles have no invite code; body has no customs coaching / 58-line snapshot.
-4. Single host — no same-agent country 301. www already 301s to apex with $request_uri.
-5. No same-country twins to convert.
-6. Georgia home gets #local; ranked 12–20KB html inners stay. Do not PUT a 5KB
-   country template over them. Official Help is an SPA — do not invent storage days.
+1. Homepage is unique CMS (money title FishGoo Spreadsheet). Not leftover dest
+   #local / “not a customs territory” H1 / products-API dump.
+2. Titles have no invite token. Body has no customs coaching / 58-line.
+3. Single host — no 301 of the homepage. Do not leftover-PUT (SKIP_UNIQUE).
+4. Ranked unique inners must 200. Do not 301 /fishgoo-spreadsheet.html,
+   /fishgoo-rimowa-spreadsheet/, or the 5KB slash rows into / this round.
+5. Official storage is 100 days on fishgoo.com — confirm Help the morning you ship.
 """
 from __future__ import annotations
 
@@ -16,222 +16,122 @@ import os
 import re
 import sys
 import time
-from html import escape
 from pathlib import Path
-
-_TOOLS = Path(__file__).resolve().parent
-if str(_TOOLS) not in sys.path:
-    sys.path.insert(0, str(_TOOLS))
-from desk_template import (
-    SKIP_CSS,
-    _check_local_section,
-    assert_dest_packs_unique,
-    dest_local_pack,
-    local_cta,
-    local_guide_html,
-    skip_label,
-    skip_link,
-)
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "sites"
 EST = "https://www.fishgoo.com/estimation"
 OFFICIAL = "https://www.fishgoo.com/"
-HELP = "https://www.fishgoo.com/"
-DATE = "2 Oct 2026"
-# Official SPA has inviteUsers, but no published desk invite token. Never
-# match the empty string (it is a substring of every title).
-INVITE = "___no_fishgoo_invite_token___"
-STORAGE = (
-    "Official FishGoo warehouse notice in the live app "
-    f"({HELP}); confirm that live copy the morning you ship. "
-    "Ranked hub note: /fishgoo-warehouse-storage/"
+DATE = "8 Oct 2026"
+EMAIL = "cnfd85269032661@gmail.com"
+MONEY_TITLE = "FishGoo Spreadsheet 2026"
+HOST = "fishgoospreadsheet.net"
+
+RANKED_CMS = (
+    ("/fishgoo-spreadsheet.html", 8000),
+    ("/shipping-guide.html", 8000),
+    ("/comparisons.html", 8000),
+    ("/finds.html", 8000),
+    ("/fishgoo-user-reports-2026.html", 8000),
+    ("/category-jersey.html", 8000),
+    ("/coupons.html", 4000),
+    ("/beginner-guide.html", 4000),
+    ("/fishgoo-rimowa-spreadsheet/", 4000),
+    ("/fishgoo-warehouse-storage/", 4000),
 )
 
-HUBS = {
-    "net": {
-        "host": "fishgoospreadsheet.net",
-        "lang": "en",
-        "loc": "en",
-        "dest": None,
-        "dest_label": "a country in the estimator",
-        "ccy": "USD",
-        "title": "FishGoo .net hub — not a customs territory",
-        "h1": "This .net hostname is not a customs territory — pick a real country",
-        "keep": [
-            ("/fishgoo-spreadsheet.html", "Spreadsheet (ranked)"),
-            ("/fishgoo-rimowa-spreadsheet/", "Rimowa (ranked)"),
-            ("/category-jersey.html", "Jersey category"),
-            ("/comparisons.html", "Comparisons"),
-            ("/shipping-guide.html", "Shipping guide"),
-            ("/fishgoo-warehouse-storage/", "Warehouse note"),
-        ],
-    },
+# Pre-existing thin slash rows already 301 (not this PUT). Keep them redirected.
+CANON_301 = {
+    "/fishgoo-spreadsheet-2026/": "https://fishgoospreadsheet.net/",
+    "/official-fishgoo-spreadsheet/": "https://fishgoospreadsheet.net/fishgoo-spreadsheet.html",
 }
 
-EST_NOTE = {
-    "net": "This .net hub is not a customs territory. Pick the real ship-to country in the estimator, not this hostname, not “EU” as one country.",
+INNER_TITLES = {
+    "/fishgoo-spreadsheet.html": "Fishgoo Spreadsheet",
+    "/fishgoo-rimowa-spreadsheet/": "Fishgoo Rimowa Spreadsheet",
+    "/shipping-guide.html": "Fishgoo Shipping Guide",
+    "/comparisons.html": "Fishgoo vs Superbuy",
+    "/coupons.html": "FishGoo Coupons 2026",
 }
 
-STORE_NOTE = {
-    "en": "Warehouse: official FishGoo app storage notice (SPA); confirm that live copy the morning you ship. Do not invent a free-day count on this hub.",
-}
 
-TRAIL = {
-    "en": ("Live money is in", "this HTML is not checkout."),
-}
-
-DEST_LOCAL_CSS = (
-    ".sg-sec#local{margin:1.25rem 0 0}"
-    ".sg-sec#local h2{margin-top:0}"
-    ".ssub{color:var(--muted,#57534e);font-size:.95rem;margin:0 0 12px}"
-)
-
-
-def _facts(spec: dict) -> dict:
-    return {
-        "agent": "FishGoo",
-        "host": spec["host"],
-        "lang": spec["lang"],
-        "loc": spec["loc"],
-        "dest": spec.get("dest"),
-        "dest_label": spec.get("dest_label") or "a country in the estimator",
-        "ccy": spec["ccy"],
-        "storage": STORAGE,
-        "estimator": EST,
-        "official": OFFICIAL,
-        "date": DATE,
-        "keep": spec.get("keep") or [],
-        "codes_off_title": [],
-        "strict_html_codes": False,
-    }
-
-
-def _local_block(key: str, spec: dict) -> str:
-    facts = _facts(spec)
-    loc = spec["loc"]
-    fp = dest_local_pack(facts.get("dest"))["fingerprint"]
-    store = STORE_NOTE.get(loc) or STORE_NOTE["en"]
-    live, not_co = TRAIL.get(loc) or TRAIL["en"]
-    extra = (
-        f'<p class="local-src">{escape(fp)}. {escape(EST_NOTE[key])} {escape(store)} '
-        f"{escape(live)} <a href=\"{escape(facts['estimator'])}\">{escape(facts['estimator'])}</a> "
-        f"— {escape(not_co)}</p>"
-    )
-    html = local_guide_html(facts).strip()
-    if not html.endswith("</section>"):
-        raise RuntimeError(f"{key}: missing section")
-    html = html[: -len("</section>")] + extra + "\n</section>"
+def _unique_home_errors(html: str) -> list[str]:
     err: list[str] = []
-    _check_local_section(html, facts, err)
-    if err:
-        raise RuntimeError(f"{key} #local: {'; '.join(err)}")
-    return html
-
-
-def _strip_invite_title(html: str, new_title: str | None = None) -> str:
-    def scrub(s: str) -> str:
-        s = re.sub(r"\s*[—\-–:,]*\s*(invite|ref|code|coupon)\s*[A-Z0-9]{5,}", "", s, flags=re.I)
-        s = re.sub(r"\s{2,}", " ", s).strip(" —–-,;")
-        return s
-
-    def title_sub(m):
-        if new_title:
-            return f"<title>{escape(new_title)}</title>"
-        return f"<title>{scrub(m.group(1))}</title>"
-
-    html = re.sub(r"<title>(.*?)</title>", title_sub, html, count=1, flags=re.S)
-    html = re.sub(
-        r'(<meta property="og:title" content=")([^"]+)(")',
-        lambda m: m.group(1) + (new_title or scrub(m.group(2))) + m.group(3),
-        html,
-        count=1,
-    )
-    return html
-
-
-def patch_static(html: str, key: str, spec: dict) -> str:
-    facts = _facts(spec)
-    block = _local_block(key, spec)
-    loc = spec["loc"]
-    html = _strip_invite_title(html, spec.get("title"))
-    if spec.get("h1"):
-        html = re.sub(r"<h1>.*?</h1>", f"<h1>{escape(spec['h1'])}</h1>", html, count=1, flags=re.S)
-    html = re.sub(r"impressions on a template", "impressions on this dest desk", html, flags=re.I)
-    if 'class="skip"' not in html:
-        html = re.sub(
-            r"(<body[^>]*>)",
-            r"\1\n" + skip_link(skip_label(loc)).rstrip(),
-            html,
-            count=1,
-        )
-    if 'id="main"' not in html:
-        html = re.sub(r"<main>", '<main id="main">', html, count=1)
-    if 'href="#local"' not in html and "</nav>" in html:
-        html = html.replace(
-            "</nav>",
-            f'    <a href="#local">{escape(local_cta(facts))}</a>\n  </nav>',
-            1,
-        )
-    if "#local{scroll-margin-top" not in html:
-        if "</style>" in html:
-            html = html.replace("</style>", SKIP_CSS + DEST_LOCAL_CSS + "\n</style>", 1)
-        else:
-            html = html.replace("</head>", "<style>" + SKIP_CSS + DEST_LOCAL_CSS + "</style>\n</head>", 1)
-    if 'id="local"' in html:
-        html = re.sub(
-            r'<section class="sg-sec" id="local".*?</section>',
-            block,
-            html,
-            count=1,
-            flags=re.S,
-        )
-    else:
-        html = re.sub(r"(<h1>.*?</h1>)", r"\1\n" + block, html, count=1, flags=re.S)
-    err: list[str] = []
-    _check_local_section(html, facts, err)
     title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
-    title = title_m.group(1) if title_m else ""
+    title = re.sub(r"<[^>]+>", "", title_m.group(1) if title_m else "")
+    h1_m = re.search(r"<h1[^>]*>(.*?)</h1>", html, flags=re.S)
+    h1 = re.sub(r"<[^>]+>", "", h1_m.group(1) if h1_m else "")
+    if MONEY_TITLE not in title.replace("&amp;", "&"):
+        err.append(f"title missing money words: {title!r}")
+    if MONEY_TITLE not in h1.replace("&amp;", "&"):
+        err.append(f"h1 missing money words: {h1!r}")
     if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
         err.append("invite in title")
+    if 'id="local"' in html or "not a customs territory" in html.lower():
+        err.append("leftover dest hub skin")
+    if "/api/products/" in html:
+        err.append("products API dump")
+    if "not Excel" not in html or "Google Sheet" not in html:
+        err.append("missing not-excel copy")
+    if EMAIL not in html:
+        err.append("missing contact email")
+    if "wa.me/8615396628356" not in html:
+        err.append("missing WhatsApp +8615396628356")
+    if "447856544534" in html or "+44 7856" in html:
+        err.append("old UK WhatsApp still on homepage")
+    if "w2clinks.com/spreadsheet/fishgoo/" not in html:
+        err.append("missing w2clinks FishGoo sheet")
+    if "100-day" not in html and "100 days" not in html:
+        err.append("missing official 100-day storage")
+    if "/assets/images/official-logo.png" not in html:
+        err.append("missing official FISHGOO trademark")
+    if "$500" not in html or "official-promo" not in html:
+        err.append("missing official $500 promo strip")
+    if "/assets/official/official-card-500.jpg" not in html:
+        err.append("missing official $500 screenshot")
+    if "Shop China. Ship Worldwide" not in html:
+        err.append("missing official hero kicker")
+    if "official-hero-bg.jpg" not in html:
+        err.append("missing cleaned official hero background")
+    if "url('/assets/official/official-hero-iso.jpg')" in html:
+        err.append("iso screenshot used as CSS background")
+    if "Please enter the product link" not in html:
+        err.append("missing official search chrome")
     if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
         err.append("spain snapshot / coaching")
-    if err:
-        raise RuntimeError(f"{key}: {'; '.join(err)}")
-    return html
+    if len(html) < 20000:
+        err.append(f"home too small {len(html)}")
+    return err
 
 
 def generate() -> None:
-    assert_dest_packs_unique()
-    blobs = {}
-    specs = {**HUBS}
-    for key, spec in specs.items():
-        src = OUT / spec["host"] / "live-base" / "index.html"
-        html = patch_static(src.read_text(encoding="utf-8"), key, spec)
-        dest = OUT / spec["host"] / "overlay" / "index.html"
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(html, encoding="utf-8")
-        inner = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
-        blobs[key] = inner.group(0) if inner else ""
-        print("hub", key, spec["host"], "bytes", len(html))
-    fps = {k: dest_local_pack(specs[k].get("dest"))["fingerprint"] for k in blobs}
-    for key, inner in blobs.items():
-        fp = fps[key]
-        if fp not in inner:
-            raise SystemExit(f"{key} missing fingerprint {fp!r}")
-        for other, ofp in fps.items():
-            if other == key or ofp == fp:
-                continue
-            if ofp in inner:
-                raise SystemExit(f"{key} leaked {other} {ofp!r}")
-        for alien in ("1010 Wien", "Packstation", "form A1A 1A1", "Poste Italiane", "00-001 Warszawa"):
-            if alien in inner:
-                raise SystemExit(f"{key} leaked dest {alien!r}")
-        if EST.split("://", 1)[-1].rstrip("/") not in inner and EST not in inner:
-            raise SystemExit(f"{key} missing estimator")
-        if specs[key].get("dest") is None and "not a customs territory" not in inner:
-            raise SystemExit(f"{key} hub missing customs-territory line")
-    print("generate ok", len(blobs), "desks")
+    dest = OUT / HOST / "overlay" / "index.html"
+    html = dest.read_text(encoding="utf-8")
+    err = _unique_home_errors(html)
+    if err:
+        raise SystemExit("unique overlay: " + "; ".join(err))
+    leftover = ROOT / "tools" / "leftover_hub_skins.py"
+    skip = leftover.read_text(encoding="utf-8")
+    if f'"{HOST}"' not in skip or "SKIP_UNIQUE" not in skip:
+        raise SystemExit("leftover_hub_skins.py must SKIP_UNIQUE fishgoospreadsheet.net")
+    coupons = OUT / HOST / "overlay" / "coupons.html"
+    ch = coupons.read_text(encoding="utf-8")
+    cerr = []
+    if "FishGoo Coupons 2026" not in ch:
+        cerr.append("coupons title")
+    if "$500" not in ch or "¥100" not in ch:
+        cerr.append("coupons missing official amounts")
+    if "/assets/official/official-card-500.jpg" not in ch or "/assets/official/official-app-100.jpg" not in ch:
+        cerr.append("coupons missing screenshots")
+    if "/assets/images/official-logo.png" not in ch:
+        cerr.append("coupons missing official logo")
+    title_m = re.search(r"<title>(.*?)</title>", ch, flags=re.S)
+    title = re.sub(r"<[^>]+>", "", title_m.group(1) if title_m else "")
+    if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
+        cerr.append("invite in coupons title")
+    if cerr:
+        raise SystemExit("coupons overlay: " + "; ".join(cerr))
+    print("unique overlay ok", dest, "bytes", len(html), "coupons", len(ch))
 
 
 def _connect():
@@ -257,48 +157,100 @@ def _run(client, cmd: str, timeout: int = 90) -> str:
     return (stdout.read() + stderr.read()).decode(errors="replace").strip()
 
 
+def _cf_purge(host: str) -> None:
+    import json
+    import urllib.error
+    import urllib.parse
+    import urllib.request
+
+    token = os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
+    if not token:
+        print("skip CF purge: no token")
+        return
+    req = urllib.request.Request(
+        "https://api.cloudflare.com/client/v4/zones?" + urllib.parse.urlencode({"name": host}),
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode())
+    except urllib.error.URLError as e:
+        print("CF zone lookup failed", e)
+        return
+    zid = (data.get("result") or [{}])[0].get("id")
+    if not zid:
+        print("CF zone not found", host, data.get("errors"))
+        return
+    preq = urllib.request.Request(
+        f"https://api.cloudflare.com/client/v4/zones/{zid}/purge_cache",
+        data=json.dumps({"purge_everything": True}).encode(),
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(preq, timeout=20) as resp:
+        out = json.loads(resp.read().decode())
+    print("CF purge", host, out.get("success"), out.get("errors") or "")
+
+
 def put() -> None:
     generate()
     client = _connect()
     stamp = time.strftime("%Y%m%d-%H%M%S")
-    bak = f"/www/backup/fishgoo-desks-{stamp}"
+    bak = f"/www/backup/fishgoo-hub-deepen-{stamp}"
     _run(client, f"mkdir -p '{bak}'")
     sftp = client.open_sftp()
-    for spec in HUBS.values():
-        local = OUT / spec["host"] / "overlay" / "index.html"
-        remote = f"/www/wwwroot/{spec['host']}/index.html"
-        raw = local.read_text(encoding="utf-8")
-        if 'id="local"' not in raw:
-            raise SystemExit(f"refusing to PUT {spec['host']} without #local")
-        if "not a customs territory" not in raw:
-            raise SystemExit(f"refusing to PUT {spec['host']} without hub fingerprint")
-        _run(client, f"cp -a '{remote}' '{bak}/{spec['host']}.index.html'")
-        sftp.put(str(local), remote)
-        print("PUT", remote, "bytes", local.stat().st_size)
+
+    local = OUT / HOST / "overlay" / "index.html"
+    remote = f"/www/wwwroot/{HOST}/index.html"
+    raw = local.read_text(encoding="utf-8")
+    err = _unique_home_errors(raw)
+    if err:
+        raise SystemExit("refusing PUT: " + "; ".join(err))
+    _run(client, f"cp -a '{remote}' '{bak}/{HOST}.index.html'")
+    sftp.put(str(local), remote)
+    print("PUT", remote, "bytes", local.stat().st_size)
+
+    coup_l = OUT / HOST / "overlay" / "coupons.html"
+    coup_r = f"/www/wwwroot/{HOST}/coupons.html"
+    _run(client, f"cp -a '{coup_r}' '{bak}/{HOST}.coupons.html'")
+    sftp.put(str(coup_l), coup_r)
+    print("PUT", coup_r, "bytes", coup_l.stat().st_size)
+
+    _run(
+        client,
+        f"mkdir -p '/www/wwwroot/{HOST}/assets/images' '/www/wwwroot/{HOST}/assets/official' "
+        f"'{bak}/assets'",
+    )
+    logo_l = OUT / HOST / "overlay" / "assets" / "images" / "official-logo.png"
+    sftp.put(str(logo_l), f"/www/wwwroot/{HOST}/assets/images/official-logo.png")
+    print("PUT official-logo.png", logo_l.stat().st_size)
+    off_dir = OUT / HOST / "overlay" / "assets" / "official"
+    for img in sorted(off_dir.glob("*")):
+        sftp.put(str(img), f"/www/wwwroot/{HOST}/assets/official/{img.name}")
+        print("PUT official", img.name, img.stat().st_size)
+
+    nginx_t = _run(client, "nginx -t 2>&1")
+    print(nginx_t)
+    if "successful" not in nginx_t.lower() and "ok" not in nginx_t.lower():
+        raise SystemExit("nginx -t failed; not reloading")
+    print(_run(client, "nginx -s reload 2>&1"))
     sftp.close()
     print("backup", bak)
-    print("no dests and no same-country twins; .net hub stays independent")
+    print("did not PUT ranked inners")
     client.close()
+    _cf_purge(HOST)
 
 
 def live_check() -> None:
+    import urllib.error
     import urllib.request
-
-    pairs = [
-        (
-            "net",
-            "https://fishgoospreadsheet.net/",
-            "not a customs territory",
-            ("1010 Wien", "Packstation", "form A1A 1A1", "Poste Italiane", "00-001 Warszawa"),
-        ),
-    ]
 
     class NR(urllib.request.HTTPRedirectHandler):
         def redirect_request(self, req, fp, code, msg, headers, newurl):
             return None
 
     def fetch(url, follow=True):
-        req = urllib.request.Request(url, headers={"User-Agent": "fishgoo-desk-check/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "fishgoo-hub-check/1.0"})
         opener = urllib.request.build_opener() if follow else urllib.request.build_opener(NR)
         try:
             with opener.open(req, timeout=25) as resp:
@@ -307,75 +259,69 @@ def live_check() -> None:
             return e.code, url, e.headers.get("Location") or "", e.read() if e.fp else b""
 
     fail = 0
-    for key, url, fp, aliens in pairs:
-        code, _, loc, body = fetch(url, follow=True)
-        html = body.decode("utf-8", "replace")
-        title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
-        title = title_m.group(1) if title_m else ""
-        inner_m = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
-        inner = inner_m.group(0) if inner_m else ""
-        print(f"{key:3} {code} bytes={len(body)} local={bool(inner)} fp={fp in html}")
-        if code != 200 or not inner or fp not in inner:
-            print("  FAIL status/local/fp")
-            fail += 1
-            continue
-        for alien in aliens:
-            if alien in inner:
-                print("  FAIL sister", alien)
-                fail += 1
-        if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
-            print("  FAIL invite in title")
-            fail += 1
-        if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
-            print("  FAIL snapshot/coaching")
-            fail += 1
-        if EST not in inner:
-            print("  FAIL estimator url missing")
-            fail += 1
-        if "not a customs territory" not in inner:
-            print("  FAIL hub customs line")
+    code, _, loc, body = fetch(f"https://{HOST}/", follow=True)
+    html = body.decode("utf-8", "replace")
+    print(f"home {code} bytes={len(body)} loc={loc!r}")
+    if code != 200:
+        print("  FAIL home status")
+        fail += 1
+    else:
+        for e in _unique_home_errors(html):
+            print("  FAIL", e)
             fail += 1
 
-    # Ranked catalog/CMS-sized inners must stay (not 5KB overwrite).
-    large_inners = [
-        "https://fishgoospreadsheet.net/fishgoo-spreadsheet.html",
-        "https://fishgoospreadsheet.net/category-jersey.html",
-        "https://fishgoospreadsheet.net/comparisons.html",
-        "https://fishgoospreadsheet.net/shipping-guide.html",
-        "https://fishgoospreadsheet.net/finds.html",
-        "https://fishgoospreadsheet.net/fishgoo-user-reports-2026.html",
-    ]
-    for url in large_inners:
+    code, _, loc, _ = fetch(f"https://www.{HOST}/", follow=False)
+    if code not in (301, 302, 303, 307, 308) or HOST not in (loc or "") or "www." in (loc or "").split("://", 1)[-1][:40]:
+        if f"www.{HOST}" in (loc or ""):
+            print("FAIL www still on www", code, loc)
+            fail += 1
+        elif code not in (301, 302, 303, 307, 308):
+            print("FAIL www not 301", code, loc)
+            fail += 1
+        else:
+            print("www", code, loc)
+    else:
+        print("www", code, loc)
+
+    code, _, loc, _ = fetch(f"https://{HOST}/", follow=False)
+    if code in (301, 302, 303, 307, 308):
+        print("FAIL 301 home", loc)
+        fail += 1
+    else:
+        print("indep home", code)
+
+    for path, dest in CANON_301.items():
+        url = f"https://{HOST}{path}"
+        code, _, loc, _ = fetch(url, follow=False)
+        if code not in (301, 302, 303, 307, 308) or dest.rstrip("/") not in (loc or ""):
+            print("FAIL expected 301", url, code, loc)
+            fail += 1
+        else:
+            print("canon 301", path, "->", loc)
+
+    for path, min_bytes in RANKED_CMS:
+        url = f"https://{HOST}{path}"
+        code, _, loc, _ = fetch(url, follow=False)
+        if code in (301, 302, 303, 307, 308) and loc:
+            print("FAIL 301 inner", url, "->", loc)
+            fail += 1
+            continue
         code, final, _, body = fetch(url, follow=True)
-        if code == 404 or len(body) < 8000:
-            print("FAIL inner", url, code, len(body))
+        if code == 404 or len(body) < min_bytes:
+            print("FAIL inner", url, code, len(body), final)
             fail += 1
         else:
             print("inner", code, len(body), final)
-
-    # Thin-but-ranked brand rows: must 200, not 404. Do not size-fail a 5KB row we kept.
-    thin_ranked = [
-        "https://fishgoospreadsheet.net/fishgoo-rimowa-spreadsheet/",
-        "https://fishgoospreadsheet.net/coupons.html",
-        "https://fishgoospreadsheet.net/beginner-guide.html",
-        "https://fishgoospreadsheet.net/fishgoo-warehouse-storage/",
-    ]
-    for url in thin_ranked:
-        code, final, _, body = fetch(url, follow=True)
-        if code == 404 or len(body) < 2000:
-            print("FAIL thin-ranked", url, code, len(body))
-            fail += 1
-        else:
-            print("thin-ranked", code, len(body), final)
-
-    dest_urls = [f"https://{spec['host']}/" for spec in HUBS.values()]
-    for a in dest_urls:
-        code, _, loc, _ = fetch(a, follow=False)
-        if code in (301, 302, 303, 307, 308) and loc:
-            print("FAIL 301", a, "->", loc)
-            fail += 1
-        else:
-            print("indep", a, code)
+            html = body.decode("utf-8", "replace")
+            title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
+            title = title_m.group(1) if title_m else ""
+            need = INNER_TITLES.get(path)
+            if need and need not in title.replace("&amp;", "&"):
+                print("FAIL inner title drifted", path, title)
+                fail += 1
+            if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
+                print("FAIL invite in inner title", path, title)
+                fail += 1
 
     if fail:
         raise SystemExit(f"live_check failures: {fail}")
