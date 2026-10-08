@@ -1,20 +1,18 @@
 #!/usr/bin/env python3
-"""BoonBuy desks: dest-unique #local on the .com hub; restore ranked CMS inners.
+"""BoonBuy .com hub: unique CMS homepage + ranked coupon/legit/shipping inners.
 
 Gates:
-1. Hub #local has the HUB fingerprint, no dest-country fingerprints.
-2. Estimator country ≠ TLD; .com must say it is not a customs territory.
-3. Titles have no invite token G8ZWVJI95; body has no customs coaching / 58-line snapshot.
+1. Homepage is the unique CMS (money title BoonBuy Spreadsheet). Not leftover
+   dest #local / “not a customs territory” / products-API dump.
+2. Titles have no invite token G8ZWVJI95; body has no customs coaching / 58-line.
    Coupon stacking stays on /boonbuy-coupons/ (not the homepage title).
-4. Single public dest host — no same-agent country 301. www already 301s to apex.
-5. No same-country extra hosts on origin. Ranked unique inners must 200 (not 301
-   onto thin /coupons/ /shipping/ /start/). Deep paths must not 404.
-6. Georgia home gets #local; do not PUT a 5KB country template over 24–45KB CMS.
+3. Single public hub — no 301 to a country dest. www already 301s to apex.
+4. Ranked unique inners /boonbuy-coupons/ /is-boonbuy-legit/
+   /boonbuy-shipping-guide/ must 200. Spreadsheet inners and /coupons/ 301 into
+   the canonical money/coupon URLs.
+5. Do not leftover-PUT this host (SKIP_UNIQUE in leftover_hub_skins.py).
    Official Help is an SPA — do not invent a free-day count.
 
-ia-collapse.conf was 301ing GSC winners (coupons 169 clk / 45KB, legit 27 clk / 41KB,
-shipping 22 clk / 45KB) onto 4–5KB Georgia skins. Disable that collapse.
-gsc-redirects 2026→spreadsheet is backwards (12 clk unique into 2 clk) — drop it.
 boonbuyspreadsheet.com is AWS, not origin — do not 301 it.
 """
 from __future__ import annotations
@@ -45,12 +43,12 @@ OUT = ROOT / "sites"
 EST = "https://boonbuy.com/shipping-estimate"
 OFFICIAL = "https://boonbuy.com/"
 HELP = "https://boonbuy.com/help"
-DATE = "2 Oct 2026"
+DATE = "8 Oct 2026"
 INVITE = "G8ZWVJI95"
 STORAGE = (
-    "Official BoonBuy Help is an SPA "
-    f"({HELP}); confirm that live copy the morning you ship. "
-    "This desk does not invent a free-day count."
+    "Official BoonBuy notice measured 8 Oct 2026: 90 days free storage from inbound, "
+    "warehouse hold up to 120 days, overdue fees from day 91. "
+    f"Re-read Help ({HELP}) the morning you ship."
 )
 
 HUBS = {
@@ -61,14 +59,13 @@ HUBS = {
         "dest": None,
         "dest_label": "a country in the estimator",
         "ccy": "USD",
-        "title": "BoonBuy .com hub — not a customs territory",
-        "h1": "This .com hostname is not a customs territory — pick a real country",
+        "title": "BoonBuy Spreadsheet 2026 — QC Finds & Shipping",
+        "h1": "The Complete BoonBuy Spreadsheet 2026",
         "keep": [
             ("/boonbuy-coupons/", "Coupons (ranked)"),
             ("/is-boonbuy-legit/", "Legit (ranked)"),
             ("/boonbuy-shipping-guide/", "Shipping guide"),
             ("/boonbuy-invite-code/", "Invite stacking"),
-            ("/boonbuy-spreadsheet-2026/", "Spreadsheet 2026"),
         ],
     },
 }
@@ -78,7 +75,7 @@ EST_NOTE = {
 }
 
 STORE_NOTE = {
-    "en": "Warehouse: official BoonBuy Help (SPA); confirm that live copy the morning you ship. Do not invent a free-day count on this hub.",
+    "en": "Warehouse: official notice 8 Oct 2026 — 90 days free, 120-day hold, overdue from day 91. Re-read Help the morning you ship.",
 }
 
 TRAIL = {
@@ -104,10 +101,36 @@ RANKED_CMS = (
     ("/is-boonbuy-legit/", 20000),
     ("/boonbuy-shipping-guide/", 20000),
     ("/boonbuy-invite-code/", 8000),
-    ("/boonbuy-spreadsheet-2026/", 8000),
     ("/boonbuy-refund-guide/", 8000),
-    ("/boonbuy-spreadsheet/", 8000),
 )
+
+SHEET_CANNIBALS = (
+    "/boonbuy-spreadsheet",
+    "/boonbuy-spreadsheet/",
+    "/boonbuy-spreadsheet-2026",
+    "/boonbuy-spreadsheet-2026/",
+)
+
+COUPON_CANNIBALS = (
+    "/coupons",
+    "/coupons/",
+    "/boonbuy-coupons",
+)
+
+GSC_REDIRECTS = """# 2026-10-08 hub deepen: money query lives on /. Spreadsheet inners cannibalised
+# "boonbuy spreadsheet"; coupon duplicates cannibalised "code promo boonbuy".
+# Keep ranked CMS at /boonbuy-coupons/ /is-boonbuy-legit/ /boonbuy-shipping-guide/.
+location = /boonbuy-spreadsheet { return 301 https://boonspreadsheet.com/; }
+location = /boonbuy-spreadsheet/ { return 301 https://boonspreadsheet.com/; }
+location = /boonbuy-spreadsheet-2026 { return 301 https://boonspreadsheet.com/; }
+location = /boonbuy-spreadsheet-2026/ { return 301 https://boonspreadsheet.com/; }
+location = /coupons { return 301 https://boonspreadsheet.com/boonbuy-coupons/; }
+location = /coupons/ { return 301 https://boonspreadsheet.com/boonbuy-coupons/; }
+location = /boonbuy-coupons { return 301 https://boonspreadsheet.com/boonbuy-coupons/; }
+"""
+
+EMAIL = "cnfd85269032661@gmail.com"
+MONEY_TITLE = "BoonBuy Spreadsheet"
 
 
 def _facts(spec: dict) -> dict:
@@ -244,39 +267,97 @@ def patch_static(html: str, key: str, spec: dict) -> str:
     return html
 
 
+def _unique_home_errors(html: str) -> list[str]:
+    err: list[str] = []
+    title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
+    title = re.sub(r"<[^>]+>", "", title_m.group(1) if title_m else "")
+    h1_m = re.search(r"<h1[^>]*>(.*?)</h1>", html, flags=re.S)
+    h1 = re.sub(r"<[^>]+>", "", h1_m.group(1) if h1_m else "")
+    if MONEY_TITLE not in title.replace("&amp;", "&"):
+        err.append(f"title missing money words: {title!r}")
+    if MONEY_TITLE not in h1.replace("&amp;", "&"):
+        err.append(f"h1 missing money words: {h1!r}")
+    if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I) or INVITE in title:
+        err.append("invite in title")
+    if INVITE in html:
+        err.append("frozen invite token on homepage")
+    if 'id="local"' in html or "not a customs territory" in html.lower():
+        err.append("leftover dest hub skin")
+    if "/api/products/" in html:
+        err.append("products API dump")
+    if "not Excel" not in html or "Google Sheet" not in html:
+        err.append("missing not-excel copy")
+    if EMAIL not in html:
+        err.append("missing contact email")
+    if "wa.me/8615396628356" not in html:
+        err.append("missing WhatsApp +8615396628356")
+    if "447856544534" in html or "+44 7856" in html:
+        err.append("old UK WhatsApp still on homepage")
+    if 'id="official-promo"' not in html:
+        err.append("missing official promo strip")
+    if "40% OFF" not in html:
+        err.append("missing official 40% OFF copy")
+    if "/assets/official/official-new-user-gift.jpg" not in html:
+        err.append("missing official gift screenshot")
+    if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
+        err.append("spain snapshot / coaching")
+    if len(html) < 20000:
+        err.append(f"home too small {len(html)}")
+    return err
+
+
+def _coupon_overlay_errors(html: str) -> list[str]:
+    err: list[str] = []
+    title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
+    title = title_m.group(1) if title_m else ""
+    desc_m = re.search(r'<meta name="description" content="([^"]*)"', html)
+    desc = desc_m.group(1) if desc_m else ""
+    if "BoonBuy Coupons 2026 Code Promo" not in title:
+        err.append(f"coupon money title: {title!r}")
+    if INVITE in title or re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
+        err.append("invite in coupon title")
+    if INVITE in desc:
+        err.append("invite in coupon description")
+    if 'id="official-promo"' not in html:
+        err.append("coupon missing official-promo")
+    if "40% OFF" not in html:
+        err.append("coupon missing 40% OFF")
+    if "30%" in html:
+        err.append("stale 30% still on coupon overlay")
+    if "/assets/official/official-new-user-gift.jpg" not in html:
+        err.append("coupon missing gift screenshot")
+    if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
+        err.append("spain snapshot / coaching on coupon")
+    return err
+
+
 def generate() -> None:
-    assert_dest_packs_unique()
-    blobs = {}
-    specs = {**HUBS}
-    for key, spec in specs.items():
-        src = OUT / spec["host"] / "live-base" / "index.html"
-        html = patch_static(src.read_text(encoding="utf-8"), key, spec)
-        dest = OUT / spec["host"] / "overlay" / "index.html"
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(html, encoding="utf-8")
-        inner = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
-        blobs[key] = inner.group(0) if inner else ""
-        print("hub", key, spec["host"], "bytes", len(html))
-    fps = {k: dest_local_pack(specs[k].get("dest"))["fingerprint"] for k in blobs}
-    for key, inner in blobs.items():
-        fp = fps[key]
-        if fp not in inner:
-            raise SystemExit(f"{key} missing fingerprint {fp!r}")
-        for other, ofp in fps.items():
-            if other == key or ofp == fp:
-                continue
-            if ofp in inner:
-                raise SystemExit(f"{key} leaked {other} {ofp!r}")
-        for alien in ALIENS:
-            if alien in inner:
-                raise SystemExit(f"{key} leaked dest {alien!r}")
-        if EST.split("://", 1)[-1].rstrip("/") not in inner and EST not in inner:
-            raise SystemExit(f"{key} missing estimator")
-        if specs[key].get("dest") is None and "not a customs territory" not in inner:
-            raise SystemExit(f"{key} hub missing customs-territory line")
-        if INVITE in inner:
-            raise SystemExit(f"{key} #local still has invite token")
-    print("generate ok", len(blobs), "desks")
+    dest = OUT / "boonspreadsheet.com" / "overlay" / "index.html"
+    html = dest.read_text(encoding="utf-8")
+    err = _unique_home_errors(html)
+    if err:
+        raise SystemExit("unique overlay: " + "; ".join(err))
+    coupon = OUT / "boonspreadsheet.com" / "overlay" / "boonbuy-coupons" / "index.html"
+    cerr = _coupon_overlay_errors(coupon.read_text(encoding="utf-8"))
+    if cerr:
+        raise SystemExit("coupon overlay: " + "; ".join(cerr))
+    shots = OUT / "boonspreadsheet.com" / "overlay" / "assets" / "official"
+    need = (
+        "official-new-user-gift.jpg",
+        "official-register-40off.jpg",
+        "official-how-shipping-coupons.jpg",
+        "official-check-coupons.jpg",
+        "official-storage-90-120.jpg",
+        "official-service-fees.jpg",
+    )
+    missing = [n for n in need if not (shots / n).is_file()]
+    if missing:
+        raise SystemExit("missing official shots: " + ", ".join(missing))
+    redir = OUT / "boonspreadsheet.com" / "overlay" / "gsc-redirects.conf"
+    if "location = /boonbuy-spreadsheet/" not in redir.read_text(encoding="utf-8"):
+        raise SystemExit("missing spreadsheet 301 in overlay gsc-redirects.conf")
+    print("unique overlay ok", dest, "bytes", len(html))
+    print("coupon overlay ok", coupon, "bytes", coupon.stat().st_size)
 
 
 def _connect():
@@ -332,69 +413,135 @@ def _scrub_title_token(html: str) -> str:
     return html
 
 
+def _scrub_coupon_desc(html: str) -> str:
+    html = html.replace(
+        "Working BoonBuy coupon codes for 2026 plus invite G8ZWVJI95. Code promo for Europe. Register at boonbuy.com.",
+        "Working BoonBuy coupon codes for 2026. Code promo for Europe. Register at boonbuy.com.",
+    )
+    html = html.replace(
+        "All working BoonBuy coupon codes for 2026, updated weekly. Use G8ZWVJI95 — ¥1,000 new-user coupons · up to 30% shipping off.",
+        "All working BoonBuy coupon codes for 2026, updated 8 Oct 2026. Official new-user gift is 40% OFF shipping (min freight > $0) plus USD freight coupons — confirm in the official drawer.",
+    )
+    html = html.replace(
+        "All working BoonBuy coupon codes for 2026, updated weekly. New-user coupons and up to 30% shipping off — confirm in the official drawer.",
+        "All working BoonBuy coupon codes for 2026, updated 8 Oct 2026. Official new-user gift is 40% OFF shipping (min freight > $0) plus USD freight coupons — confirm in the official drawer.",
+    )
+    return html
+
+
+def _cf_purge(host: str) -> None:
+    import json
+    import urllib.error
+    import urllib.parse
+    import urllib.request
+
+    token = os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
+    if not token:
+        print("skip CF purge: no token")
+        return
+    req = urllib.request.Request(
+        "https://api.cloudflare.com/client/v4/zones?" + urllib.parse.urlencode({"name": host}),
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode())
+    except urllib.error.URLError as e:
+        print("CF zone lookup failed", e)
+        return
+    zid = (data.get("result") or [{}])[0].get("id")
+    if not zid:
+        print("CF zone not found", host, data.get("errors"))
+        return
+    preq = urllib.request.Request(
+        f"https://api.cloudflare.com/client/v4/zones/{zid}/purge_cache",
+        data=json.dumps({"purge_everything": True}).encode(),
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(preq, timeout=20) as resp:
+        out = json.loads(resp.read().decode())
+    print("CF purge", host, out.get("success"), out.get("errors") or "")
+
+
 def put() -> None:
     generate()
     client = _connect()
     stamp = time.strftime("%Y%m%d-%H%M%S")
-    bak = f"/www/backup/boonbuy-desks-{stamp}"
+    bak = f"/www/backup/boonbuy-hub-deepen-{stamp}"
     _run(client, f"mkdir -p '{bak}'")
     sftp = client.open_sftp()
-    for spec in HUBS.values():
-        local = OUT / spec["host"] / "overlay" / "index.html"
-        remote = f"/www/wwwroot/{spec['host']}/index.html"
-        raw = local.read_text(encoding="utf-8")
-        if 'id="local"' not in raw:
-            raise SystemExit(f"refusing to PUT {spec['host']} without #local")
-        if "not a customs territory" not in raw:
-            raise SystemExit(f"refusing to PUT {spec['host']} without hub fingerprint")
-        if INVITE in raw:
-            raise SystemExit(f"refusing to PUT {spec['host']} with frozen invite token")
-        _run(client, f"cp -a '{remote}' '{bak}/{spec['host']}.index.html'")
-        sftp.put(str(local), remote)
-        print("PUT", remote, "bytes", local.stat().st_size)
+    spec = HUBS["com"]
+    host = spec["host"]
+    local = OUT / host / "overlay" / "index.html"
+    remote = f"/www/wwwroot/{host}/index.html"
+    raw = local.read_text(encoding="utf-8")
+    err = _unique_home_errors(raw)
+    if err:
+        raise SystemExit("refusing PUT: " + "; ".join(err))
+    _run(client, f"cp -a '{remote}' '{bak}/{host}.index.html'")
+    sftp.put(str(local), remote)
+    print("PUT", remote, "bytes", local.stat().st_size)
 
-        ext = f"/www/server/panel/vhost/nginx/extension/{spec['host']}"
-        _run(client, f"mkdir -p '{bak}/nginx'")
-        _run(client, f"cp -a '{ext}/.' '{bak}/nginx/'")
-        collapse = (
-            "# disabled 2026-10-02 desks: unique ranked CMS must serve at GSC URLs.\n"
-            "# Thin /coupons/ /shipping/ /start/ remain as extra paths, not destinations.\n"
-        )
-        with sftp.file(f"{ext}/ia-collapse.conf", "w") as fh:
-            fh.write(collapse)
-        print("disabled", f"{ext}/ia-collapse.conf")
-        gsc = (
-            "# GSC path aliases disabled 2026-10-02: /boonbuy-spreadsheet-2026/ "
-            "outranks /boonbuy-spreadsheet/; both unique HTML stay.\n"
-        )
-        with sftp.file(f"{ext}/gsc-redirects.conf", "w") as fh:
-            fh.write(gsc)
-        print("cleared", f"{ext}/gsc-redirects.conf")
+    ext = f"/www/server/panel/vhost/nginx/extension/{host}"
+    _run(client, f"mkdir -p '{bak}/nginx' && cp -a '{ext}/.' '{bak}/nginx/'")
+    collapse = (
+        "# disabled 2026-10-02 desks: unique ranked CMS must serve at GSC URLs.\n"
+        "# Thin /shipping/ /start/ remain as extra paths, not destinations.\n"
+        "# /coupons/ now 301s into /boonbuy-coupons/ (gsc-redirects.conf).\n"
+    )
+    with sftp.file(f"{ext}/ia-collapse.conf", "w") as fh:
+        fh.write(collapse)
+    print("disabled", f"{ext}/ia-collapse.conf")
+    with sftp.file(f"{ext}/gsc-redirects.conf", "w") as fh:
+        fh.write(GSC_REDIRECTS)
+    print("wrote", f"{ext}/gsc-redirects.conf")
 
-        root = f"/www/wwwroot/{spec['host']}"
-        for rel in TITLE_SCRUB_REL:
-            remote_inner = f"{root}/{rel}"
-            try:
-                with sftp.open(remote_inner) as fh:
-                    inner_html = fh.read().decode("utf-8")
-            except FileNotFoundError:
-                print("skip missing", remote_inner)
-                continue
-            if INVITE not in inner_html and "G8ZWVJI95" not in inner_html:
-                print("title already clean", rel)
-                continue
-            before = len(inner_html)
-            _run(client, f"cp -a '{remote_inner}' '{bak}/{rel.replace('/', '_')}'")
-            scrubbed = _scrub_title_token(inner_html)
-            title_m = re.search(r"<title>(.*?)</title>", scrubbed, flags=re.S)
-            title = title_m.group(1) if title_m else ""
-            if INVITE in title or re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
-                raise SystemExit(f"title still has invite after scrub: {rel} {title!r}")
-            if abs(len(scrubbed) - before) > 400:
-                raise SystemExit(f"title scrub changed {rel} too much ({before}->{len(scrubbed)})")
-            with sftp.file(remote_inner, "w") as fh:
-                fh.write(scrubbed)
-            print("scrub title", rel, "bytes", len(scrubbed))
+    root = f"/www/wwwroot/{host}"
+    coupon_local = OUT / host / "overlay" / "boonbuy-coupons" / "index.html"
+    coupon = f"{root}/boonbuy-coupons/index.html"
+    coupon_html = _scrub_coupon_desc(_scrub_title_token(coupon_local.read_text(encoding="utf-8")))
+    cerr = _coupon_overlay_errors(coupon_html)
+    if cerr:
+        raise SystemExit("refusing coupon PUT: " + "; ".join(cerr))
+    _run(client, f"mkdir -p '{root}/boonbuy-coupons' '{root}/assets/official'")
+    _run(client, f"cp -a '{coupon}' '{bak}/boonbuy-coupons_index.html' 2>/dev/null || true")
+    with sftp.file(coupon, "w") as fh:
+        fh.write(coupon_html)
+    print("PUT", coupon, "bytes", len(coupon_html))
+    shots = OUT / host / "overlay" / "assets" / "official"
+    for jpg in sorted(shots.glob("*.jpg")):
+        remote_jpg = f"{root}/assets/official/{jpg.name}"
+        sftp.put(str(jpg), remote_jpg)
+        print("PUT", remote_jpg, "bytes", jpg.stat().st_size)
+
+    for rel in TITLE_SCRUB_REL:
+        if rel.startswith("boonbuy-coupons"):
+            continue
+        remote_inner = f"{root}/{rel}"
+        try:
+            with sftp.open(remote_inner) as fh:
+                inner_html = fh.read().decode("utf-8")
+        except FileNotFoundError:
+            print("skip missing", remote_inner)
+            continue
+        title_m = re.search(r"<title>(.*?)</title>", inner_html, flags=re.S)
+        title = title_m.group(1) if title_m else ""
+        if INVITE not in title:
+            print("title already clean", rel)
+            continue
+        before = len(inner_html)
+        _run(client, f"cp -a '{remote_inner}' '{bak}/{rel.replace('/', '_')}'")
+        scrubbed = _scrub_title_token(inner_html)
+        title_m = re.search(r"<title>(.*?)</title>", scrubbed, flags=re.S)
+        title = title_m.group(1) if title_m else ""
+        if INVITE in title or re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
+            raise SystemExit(f"title still has invite after scrub: {rel} {title!r}")
+        if abs(len(scrubbed) - before) > 400:
+            raise SystemExit(f"title scrub changed {rel} too much ({before}->{len(scrubbed)})")
+        with sftp.file(remote_inner, "w") as fh:
+            fh.write(scrubbed)
+        print("scrub title", rel, "bytes", len(scrubbed))
 
     nginx_t = _run(client, "nginx -t 2>&1")
     print(nginx_t)
@@ -403,28 +550,20 @@ def put() -> None:
     print(_run(client, "nginx -s reload 2>&1"))
     sftp.close()
     print("backup", bak)
-    print("ranked CMS restored; .com hub not overwritten as a dest skin; AWS extra host skipped")
     client.close()
+    _cf_purge(host)
 
 
 def live_check() -> None:
+    import urllib.error
     import urllib.request
-
-    pairs = [
-        (
-            "com",
-            "https://boonspreadsheet.com/",
-            "not a customs territory",
-            ALIENS,
-        ),
-    ]
 
     class NR(urllib.request.HTTPRedirectHandler):
         def redirect_request(self, req, fp, code, msg, headers, newurl):
             return None
 
     def fetch(url, follow=True):
-        req = urllib.request.Request(url, headers={"User-Agent": "boonbuy-desk-check/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "boonbuy-hub-check/1.0"})
         opener = urllib.request.build_opener() if follow else urllib.request.build_opener(NR)
         try:
             with opener.open(req, timeout=25) as resp:
@@ -433,37 +572,48 @@ def live_check() -> None:
             return e.code, url, e.headers.get("Location") or "", e.read() if e.fp else b""
 
     fail = 0
-    for key, url, fp, aliens in pairs:
-        code, _, loc, body = fetch(url, follow=True)
-        html = body.decode("utf-8", "replace")
-        title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
-        title = title_m.group(1) if title_m else ""
-        inner_m = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
-        inner = inner_m.group(0) if inner_m else ""
-        print(f"{key:3} {code} bytes={len(body)} local={bool(inner)} fp={fp in html}")
-        if code != 200 or not inner or fp not in inner:
-            print("  FAIL status/local/fp")
+    code, _, loc, body = fetch("https://boonspreadsheet.com/", follow=True)
+    html = body.decode("utf-8", "replace")
+    print(f"home {code} bytes={len(body)} loc={loc!r}")
+    if code != 200:
+        print("  FAIL home status")
+        fail += 1
+    else:
+        for e in _unique_home_errors(html):
+            print("  FAIL", e)
             fail += 1
-            continue
-        for alien in aliens:
-            if alien in inner:
-                print("  FAIL sister", alien)
-                fail += 1
-        if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I) or INVITE in title:
-            print("  FAIL invite in title")
+
+    code, _, loc, _ = fetch("https://www.boonspreadsheet.com/", follow=False)
+    if code not in (301, 302, 303, 307, 308) or "boonspreadsheet.com" not in (loc or "") or "www." in (loc or "").split("://", 1)[-1][:40]:
+        # www must 301 to apex
+        if "www.boonspreadsheet.com" in (loc or ""):
+            print("FAIL www still on www", code, loc)
             fail += 1
-        if INVITE in html:
-            print("  FAIL frozen invite on homepage")
+        elif code not in (301, 302, 303, 307, 308):
+            print("FAIL www not 301", code, loc)
             fail += 1
-        if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
-            print("  FAIL snapshot/coaching")
+        else:
+            print("www", code, loc)
+    else:
+        print("www", code, loc)
+
+    for path in SHEET_CANNIBALS:
+        url = f"https://boonspreadsheet.com{path}"
+        code, _, loc, _ = fetch(url, follow=False)
+        if code not in (301, 302, 303, 307, 308) or not loc or not loc.rstrip("/").endswith("boonspreadsheet.com"):
+            print("FAIL 301 spreadsheet", url, code, loc)
             fail += 1
-        if EST not in inner:
-            print("  FAIL estimator url missing")
+        else:
+            print("301 sheet", path, "->", loc)
+
+    for path in COUPON_CANNIBALS:
+        url = f"https://boonspreadsheet.com{path}"
+        code, _, loc, _ = fetch(url, follow=False)
+        if code not in (301, 302, 303, 307, 308) or "/boonbuy-coupons/" not in (loc or ""):
+            print("FAIL 301 coupon", url, code, loc)
             fail += 1
-        if "not a customs territory" not in inner:
-            print("  FAIL hub customs line")
-            fail += 1
+        else:
+            print("301 coupon", path, "->", loc)
 
     for path, min_bytes in RANKED_CMS:
         url = f"https://boonspreadsheet.com{path}"
@@ -486,15 +636,31 @@ def live_check() -> None:
             ):
                 print("FAIL invite in inner title", path, title)
                 fail += 1
+            if path == "/boonbuy-coupons/":
+                desc_m = re.search(r'<meta name="description" content="([^"]*)"', html)
+                desc = desc_m.group(1) if desc_m else ""
+                if INVITE in desc:
+                    print("FAIL invite in coupon description")
+                    fail += 1
+                if "BoonBuy Coupons 2026 Code Promo" not in title:
+                    print("FAIL coupon money title", title)
+                    fail += 1
+                if "40% OFF" not in html or 'id="official-promo"' not in html:
+                    print("FAIL coupon missing official 40% 图文")
+                    fail += 1
+                if "30%" in html:
+                    print("FAIL coupon still has stale 30%")
+                    fail += 1
+                if "/assets/official/official-new-user-gift.jpg" not in html:
+                    print("FAIL coupon missing gift screenshot")
+                    fail += 1
 
-    dest_urls = ["https://boonspreadsheet.com/"]
-    for a in dest_urls:
-        code, _, loc, _ = fetch(a, follow=False)
-        if code in (301, 302, 303, 307, 308) and loc:
-            print("FAIL 301", a, "->", loc)
-            fail += 1
-        else:
-            print("indep", a, code)
+    code, _, loc, _ = fetch("https://boonspreadsheet.com/", follow=False)
+    if code in (301, 302, 303, 307, 308) and loc:
+        print("FAIL 301 home", loc)
+        fail += 1
+    else:
+        print("indep home", code)
 
     if fail:
         raise SystemExit(f"live_check failures: {fail}")
