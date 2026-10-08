@@ -17,7 +17,7 @@
   {"@type":"Organization","name":"EastMallBuy Spreadsheet","url":"https://eastmallspreadsheet.com/","email":"cnfd85269032661@gmail.com","description":"Independent EastMallBuy spreadsheet desk. Not the official EastMallBuy app.","sameAs":["https://www.eastmallbuy.com/web/#/home"]},
   {"@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"What is an EastMallBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"An EastMallBuy spreadsheet is a live finds index of Weidian, Taobao and 1688 links with QC notes. It is not Excel, not a Google Sheet download, and not checkout. Browse here, then buy on eastmallbuy.com."}},
-    {"@type":"Question","name":"Is this the same as EastMallBuy.com?","acceptedAnswer":{"@type":"Answer","text":"No. eastmallspreadsheet.com is an independent information desk. Orders, payment and warehouse photos stay on eastmallbuy.com. This host does not take a card. eastmall.com has no DNS from this lab."}},
+    {"@type":"Question","name":"Is this the same as EastMallBuy.com?","acceptedAnswer":{"@type":"Answer","text":"No. eastmallspreadsheet.com is an independent information desk. Orders, payment and warehouse photos stay on eastmallbuy.com. This host does not take a card. eastmall.com does not resolve."}},
     {"@type":"Question","name":"How long is warehouse storage free?","acceptedAnswer":{"@type":"Answer","text":"Official EastMallBuy Help measured 8 Oct 2026: 90 days free storage from the already-in-warehouse status for normal parcels, 60 days for abnormal parcels, with an email reminder around day 80. Confirm the clock in-account the morning you ship."}},
     {"@type":"Question","name":"What promotions are live on EastMallBuy?","acceptedAnswer":{"@type":"Answer","text":"Official homepage the same day: new users can grab exclusive $200 coupons, a monthly free-shipping lucky draw with a 3KG prize, register 200 points, and published SLAs of order processing within 24 hours, quality check within 8 hours, packing within 24 hours."}},
     {"@type":"Question","name":"Is this the same host as eastmallbuyspreadsheet.com?","acceptedAnswer":{"@type":"Answer","text":"No. That hostname is a separate competitor sheet. Both stay independent — there is no 301 between them."}}
@@ -77,6 +77,7 @@ img{max-width:100%;display:block}
 .search{display:flex;max-width:520px;margin:0 auto;border:1px solid #fecdd3;border-radius:12px;overflow:hidden;background:#fff}
 .search input{flex:1;min-width:0;border:0;padding:12px 14px;font:inherit;outline:none}
 .search button{flex-shrink:0;border:0;background:var(--acc);color:#fff;padding:0 16px;font:inherit;font-weight:700;cursor:pointer}
+#official-promo,#not-excel{scroll-margin-top:72px}
 #official-promo{background:#fff;border-top:1px solid #fecdd3;border-bottom:1px solid #fecdd3}
 .opromo{max-width:1100px;margin:0 auto;padding:36px 24px}
 .opromo h2{font-size:22px;letter-spacing:-.4px;margin-bottom:8px}
@@ -123,7 +124,7 @@ img{max-width:100%;display:block}
 .wafb:hover{transform:scale(1.08);text-decoration:none}
 .wafb svg{width:26px;height:26px;color:#fff}
 @media(max-width:900px){
-  .nl,.ncart,.waf{display:none}
+  .nl,.ncart,.waf,.nlo span{display:none}
   .nav{padding:0 12px;gap:8px}
   .search{max-width:100%}
   .oshots,.opfacts,.cg,.ggrid,.fti{grid-template-columns:1fr}
@@ -177,7 +178,7 @@ img{max-width:100%;display:block}
 <section id="official-promo">
   <div class="opromo">
     <h2>Official EastMallBuy copy — 8 Oct 2026</h2>
-    <p class="ssub">Public English homepage on <a href="https://www.eastmallbuy.com/web/#/home" rel="noopener">eastmallbuy.com</a> (eastmall.com has no DNS from this lab). Top banner the same day: <strong>new users can grab exclusive $200 coupons</strong> and Discord weekly giveaways. Announcement: <strong>Monthly Free Shipping Lucky Draw – 3KG Prize!</strong> Published SLAs: order processing within <strong>24 hours</strong>, quality check within <strong>8 hours</strong>, parcel packing within <strong>24 hours</strong>. Help Center storage: <strong>90 days</strong> from already-in-warehouse for normal parcels, <strong>60 days</strong> for abnormal parcels. Register bonus: <strong>200 points</strong>. This homepage does not print a register code and does not invent a typed-in code named SHIP. Coupon stacking stays on <a href="/eastmallbuy-coupons/">/eastmallbuy-coupons/</a> and <a href="/coupons.html">/coupons.html</a>. Confirm the storage clock in-account the morning you ship.</p>
+    <p class="ssub">Public English homepage on <a href="https://www.eastmallbuy.com/web/#/home" rel="noopener">eastmallbuy.com</a> (eastmall.com does not resolve). Top banner the same day: <strong>new users can grab exclusive $200 coupons</strong> and Discord weekly giveaways. Announcement: <strong>Monthly Free Shipping Lucky Draw – 3KG Prize!</strong> Published SLAs: order processing within <strong>24 hours</strong>, quality check within <strong>8 hours</strong>, parcel packing within <strong>24 hours</strong>. Help Center storage: <strong>90 days</strong> from already-in-warehouse for normal parcels, <strong>60 days</strong> for abnormal parcels. Register bonus: <strong>200 points</strong>. This homepage does not print a register code and does not invent a typed-in code named SHIP. Coupon stacking stays on <a href="/eastmallbuy-coupons/">/eastmallbuy-coupons/</a> and <a href="/coupons.html">/coupons.html</a>. Confirm the storage clock in-account the morning you ship.</p>
     <div class="oshots">
       <figure>
         <a href="https://www.eastmallbuy.com/web/#/home" rel="noopener"><img src="/assets/images/official-logo.png" width="314" height="50" alt="Official EastMallBuy trademark from eastmallbuy.com"></a>
