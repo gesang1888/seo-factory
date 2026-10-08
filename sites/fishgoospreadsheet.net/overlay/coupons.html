@@ -51,24 +51,25 @@ img{max-width:100%;display:block}
 /* NAV */
 .nav{position:sticky;top:0;z-index:100;background:var(--nav);border-bottom:0;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .nlo{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;letter-spacing:-.3px;color:#fff}
-.nlo img{height:36px;width:auto;max-width:168px;border-radius:0;object-fit:contain;background:transparent}
+.nlo img{height:40px;width:auto;max-width:180px;border-radius:0;object-fit:contain;background:transparent}
 .nlo .brand-mark{font-weight:800;letter-spacing:-.4px}.nlo .brand-mark b{color:#fff;font-weight:800}
 .nfb{width:28px;height:28px;background:var(--acc);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700}
 .nl{display:flex;align-items:center;gap:2px;list-style:none}
 .nl a{font-size:13px;padding:8px 12px;border-radius:8px;color:#D6DEEA;transition:background .15s,color .15s}
 .nl a:hover{background:#2A3548;color:#fff;text-decoration:none}
-.nl a.on{background:#fff;color:var(--nav);font-weight:600}
+.nl a.on{background:#3B82F6;color:#fff;font-weight:600;border-radius:10px 10px 0 0;padding:10px 18px}
 .nacts{display:flex;align-items:center;gap:8px}
-.nsign{padding:8px 14px;border:1px solid #3A465C;border-radius:8px;color:#fff;font-size:13px;font-weight:500}
+.nsign{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid #3A465C;border-radius:8px;color:#fff;font-size:13px;font-weight:500}
 .nsign:hover{background:#2A3548;text-decoration:none}
-.ncart{padding:8px 14px;background:var(--acc);border-radius:8px;color:#fff;font-size:13px;font-weight:600}
+.ncart{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--acc);border-radius:8px;color:#fff;font-size:13px;font-weight:600}
 .ncart:hover{background:var(--acd);text-decoration:none}
-.subnav{background:var(--nav2);padding:0 24px;height:48px;display:flex;align-items:center;justify-content:center;gap:4px}
+.subnav{background:var(--nav);padding:0 24px;height:46px;display:flex;align-items:center;justify-content:center;gap:4px;border-top:1px solid #2A3548}
 /* Announce */
-.promo-bar{background:linear-gradient(90deg,#FF8A3D,#FF5A5A 55%,#FFB703);color:#fff;text-align:center;padding:10px 16px;font-size:14px;font-weight:700;letter-spacing:.2px}
-.promo-bar a{color:#fff;text-decoration:none;background:#FACC15;color:#1B2432;padding:4px 10px;border-radius:999px;margin-left:10px;font-size:12px}
-.ann{background:#F4F7FB;color:#334155;text-align:center;padding:8px 16px;font-size:13px;font-weight:500;border-bottom:1px solid #E2E8F0}
+.promo-bar{background:linear-gradient(90deg,#FFB14A,#FF7A45 42%,#FFC14A);color:#fff;text-align:center;padding:10px 120px 10px 16px;font-size:14px;font-weight:700;letter-spacing:.2px;position:relative}
+.promo-bar a{position:absolute;right:18px;top:50%;transform:translateY(-50%);color:#1B2432;text-decoration:none;background:#FACC15;padding:5px 12px;border-radius:999px;font-size:12px;font-weight:800}
+.ann{background:#F4F7FB;color:#334155;padding:8px 24px;font-size:13px;font-weight:500;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .ann a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
+.ann .blc{border-color:#E2E8F0;background:#fff}
 /* WA button */
 .bwa{display:flex;align-items:center;gap:7px;padding:7px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500;white-space:nowrap;transition:opacity .15s}
 .bwa:hover{opacity:.88;text-decoration:none}
@@ -167,22 +168,24 @@ img{max-width:100%;display:block}
 </style>
 </head>
 <body>
-<div class="promo-bar">$500 Shipping Coupons For New Users · measured on fishgoo.com 8 Oct 2026 <a href="https://www.fishgoo.com/#/login/login" rel="noopener">DOWNLOAD NOW</a></div>
-<div class="ann">Announcement: FISHGOO APP Official Launch | New User Benefits Upgraded! Independent spreadsheet desk — pay on <a href="https://www.fishgoo.com/" rel="noopener">fishgoo.com</a>.</div>
+<div class="promo-bar">✦ $500 Shipping Coupons For New Users <a href="https://www.fishgoo.com/#/login/login" rel="noopener">DOWNLOAD NOW</a></div>
+<div class="ann">
+  <span>Announcement: FISHGOO APP Official Launch | New User Benefits Upgraded! Independent spreadsheet desk — pay on <a href="https://www.fishgoo.com/" rel="noopener">fishgoo.com</a>.</span>
+  <button class="blc" id="lang-btn" onclick="toggleLM()" aria-label="Language and currency">
+    <span id="lc-flag">&#127482;&#127480;</span>
+    <span id="lc-lang">EN</span>
+    <span id="lc-curr">&middot; USD</span>
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+</div>
 <nav class="nav">
   <a href="/" class="nlo">
     <img src="/assets/images/official-logo.png" alt="FISHGOO" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <span class="nfb" style="display:none">F</span>
   </a>
   <div class="nacts">
-    <button class="blc" id="lang-btn" onclick="toggleLM()" aria-label="Language and currency">
-      <span id="lc-flag">&#127482;&#127480;</span>
-      <span id="lc-lang">EN</span>
-      <span id="lc-curr">&middot; USD</span>
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <a class="nsign" href="https://www.fishgoo.com/#/login/login" rel="noopener">Sign In</a>
-    <a class="ncart" href="https://www.fishgoo.com/" rel="noopener">Cart</a>
+    <a class="nsign" href="https://www.fishgoo.com/#/login/login" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg> Sign In</a>
+    <a class="ncart" href="https://www.fishgoo.com/" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg> Cart</a>
   </div>
 </nav>
 <div class="subnav">
@@ -213,7 +216,7 @@ img{max-width:100%;display:block}
 </div>
 
 <style>
-.hero-wrap{background:url('/assets/official/official-hero-iso.jpg') center top/cover no-repeat;color:var(--bk);padding:28px 0 12px}
+.hero-wrap{background:#E8F3FF;color:var(--bk);padding:28px 0 12px}
 #official-promo{background:#fff;border-top:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0}
 .opromo{max-width:1100px;margin:0 auto;padding:36px 24px}
 .oshots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 8px}

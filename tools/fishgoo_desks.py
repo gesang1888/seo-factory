@@ -89,6 +89,14 @@ def _unique_home_errors(html: str) -> list[str]:
         err.append("missing official $500 promo strip")
     if "/assets/official/official-card-500.jpg" not in html:
         err.append("missing official $500 screenshot")
+    if "Shop China. Ship Worldwide" not in html:
+        err.append("missing official hero kicker")
+    if "official-hero-bg.jpg" not in html:
+        err.append("missing cleaned official hero background")
+    if "url('/assets/official/official-hero-iso.jpg')" in html:
+        err.append("iso screenshot used as CSS background")
+    if "Please enter the product link" not in html:
+        err.append("missing official search chrome")
     if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
         err.append("spain snapshot / coaching")
     if len(html) < 20000:
