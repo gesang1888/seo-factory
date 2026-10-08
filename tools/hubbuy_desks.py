@@ -43,6 +43,26 @@ SISTER_INNERS = (
 )
 
 
+def _decode_cf_email(hexstr: str) -> str:
+    try:
+        raw = bytes.fromhex(hexstr)
+    except ValueError:
+        return ""
+    if not raw:
+        return ""
+    key = raw[0]
+    return "".join(chr(b ^ key) for b in raw[1:])
+
+
+def _has_contact_email(html: str) -> bool:
+    if EMAIL in html:
+        return True
+    for hx in re.findall(r"data-cfemail=\"([0-9a-fA-F]+)\"", html):
+        if _decode_cf_email(hx) == EMAIL:
+            return True
+    return False
+
+
 def _unique_home_errors(html: str) -> list[str]:
     err: list[str] = []
     title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
@@ -63,7 +83,7 @@ def _unique_home_errors(html: str) -> list[str]:
         err.append("products API dump")
     if "not Excel" not in html or "Google Sheet" not in html:
         err.append("missing not-excel copy")
-    if EMAIL not in html:
+    if not _has_contact_email(html):
         err.append("missing contact email")
     if "wa.me/8615396628356" not in html:
         err.append("missing WhatsApp +8615396628356")
