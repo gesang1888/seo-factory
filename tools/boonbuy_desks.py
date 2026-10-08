@@ -43,12 +43,12 @@ OUT = ROOT / "sites"
 EST = "https://boonbuy.com/shipping-estimate"
 OFFICIAL = "https://boonbuy.com/"
 HELP = "https://boonbuy.com/help"
-DATE = "2 Oct 2026"
+DATE = "8 Oct 2026"
 INVITE = "G8ZWVJI95"
 STORAGE = (
-    "Official BoonBuy Help is an SPA "
-    f"({HELP}); confirm that live copy the morning you ship. "
-    "This desk does not invent a free-day count."
+    "Official BoonBuy notice measured 8 Oct 2026: 90 days free storage from inbound, "
+    "warehouse hold up to 120 days, overdue fees from day 91. "
+    f"Re-read Help ({HELP}) the morning you ship."
 )
 
 HUBS = {
@@ -75,7 +75,7 @@ EST_NOTE = {
 }
 
 STORE_NOTE = {
-    "en": "Warehouse: official BoonBuy Help (SPA); confirm that live copy the morning you ship. Do not invent a free-day count on this hub.",
+    "en": "Warehouse: official notice 8 Oct 2026 — 90 days free, 120-day hold, overdue from day 91. Re-read Help the morning you ship.",
 }
 
 TRAIL = {
@@ -293,10 +293,41 @@ def _unique_home_errors(html: str) -> list[str]:
         err.append("missing WhatsApp +8615396628356")
     if "447856544534" in html or "+44 7856" in html:
         err.append("old UK WhatsApp still on homepage")
+    if 'id="official-promo"' not in html:
+        err.append("missing official promo strip")
+    if "40% OFF" not in html:
+        err.append("missing official 40% OFF copy")
+    if "/assets/official/official-new-user-gift.jpg" not in html:
+        err.append("missing official gift screenshot")
     if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
         err.append("spain snapshot / coaching")
     if len(html) < 20000:
         err.append(f"home too small {len(html)}")
+    return err
+
+
+def _coupon_overlay_errors(html: str) -> list[str]:
+    err: list[str] = []
+    title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
+    title = title_m.group(1) if title_m else ""
+    desc_m = re.search(r'<meta name="description" content="([^"]*)"', html)
+    desc = desc_m.group(1) if desc_m else ""
+    if "BoonBuy Coupons 2026 Code Promo" not in title:
+        err.append(f"coupon money title: {title!r}")
+    if INVITE in title or re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
+        err.append("invite in coupon title")
+    if INVITE in desc:
+        err.append("invite in coupon description")
+    if 'id="official-promo"' not in html:
+        err.append("coupon missing official-promo")
+    if "40% OFF" not in html:
+        err.append("coupon missing 40% OFF")
+    if "30%" in html:
+        err.append("stale 30% still on coupon overlay")
+    if "/assets/official/official-new-user-gift.jpg" not in html:
+        err.append("coupon missing gift screenshot")
+    if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
+        err.append("spain snapshot / coaching on coupon")
     return err
 
 
@@ -306,10 +337,27 @@ def generate() -> None:
     err = _unique_home_errors(html)
     if err:
         raise SystemExit("unique overlay: " + "; ".join(err))
+    coupon = OUT / "boonspreadsheet.com" / "overlay" / "boonbuy-coupons" / "index.html"
+    cerr = _coupon_overlay_errors(coupon.read_text(encoding="utf-8"))
+    if cerr:
+        raise SystemExit("coupon overlay: " + "; ".join(cerr))
+    shots = OUT / "boonspreadsheet.com" / "overlay" / "assets" / "official"
+    need = (
+        "official-new-user-gift.jpg",
+        "official-register-40off.jpg",
+        "official-how-shipping-coupons.jpg",
+        "official-check-coupons.jpg",
+        "official-storage-90-120.jpg",
+        "official-service-fees.jpg",
+    )
+    missing = [n for n in need if not (shots / n).is_file()]
+    if missing:
+        raise SystemExit("missing official shots: " + ", ".join(missing))
     redir = OUT / "boonspreadsheet.com" / "overlay" / "gsc-redirects.conf"
     if "location = /boonbuy-spreadsheet/" not in redir.read_text(encoding="utf-8"):
         raise SystemExit("missing spreadsheet 301 in overlay gsc-redirects.conf")
     print("unique overlay ok", dest, "bytes", len(html))
+    print("coupon overlay ok", coupon, "bytes", coupon.stat().st_size)
 
 
 def _connect():
@@ -372,7 +420,11 @@ def _scrub_coupon_desc(html: str) -> str:
     )
     html = html.replace(
         "All working BoonBuy coupon codes for 2026, updated weekly. Use G8ZWVJI95 — ¥1,000 new-user coupons · up to 30% shipping off.",
+        "All working BoonBuy coupon codes for 2026, updated 8 Oct 2026. Official new-user gift is 40% OFF shipping (min freight > $0) plus USD freight coupons — confirm in the official drawer.",
+    )
+    html = html.replace(
         "All working BoonBuy coupon codes for 2026, updated weekly. New-user coupons and up to 30% shipping off — confirm in the official drawer.",
+        "All working BoonBuy coupon codes for 2026, updated 8 Oct 2026. Official new-user gift is 40% OFF shipping (min freight > $0) plus USD freight coupons — confirm in the official drawer.",
     )
     return html
 
@@ -446,29 +498,22 @@ def put() -> None:
     print("wrote", f"{ext}/gsc-redirects.conf")
 
     root = f"/www/wwwroot/{host}"
+    coupon_local = OUT / host / "overlay" / "boonbuy-coupons" / "index.html"
     coupon = f"{root}/boonbuy-coupons/index.html"
-    try:
-        with sftp.open(coupon) as fh:
-            coupon_html = fh.read().decode("utf-8")
-    except FileNotFoundError:
-        coupon_html = ""
-        print("skip missing coupon")
-    if coupon_html:
-        _run(client, f"cp -a '{coupon}' '{bak}/boonbuy-coupons_index.html'")
-        scrubbed = _scrub_coupon_desc(_scrub_title_token(coupon_html))
-        title_m = re.search(r"<title>(.*?)</title>", scrubbed, flags=re.S)
-        title = title_m.group(1) if title_m else ""
-        if INVITE in title or re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
-            raise SystemExit(f"coupon title still has invite: {title!r}")
-        desc_m = re.search(r'<meta name="description" content="([^"]*)"', scrubbed)
-        desc = desc_m.group(1) if desc_m else ""
-        if INVITE in desc:
-            raise SystemExit(f"coupon description still has invite: {desc!r}")
-        if "BoonBuy Coupons 2026 Code Promo" not in title:
-            raise SystemExit(f"refusing to change coupon money title: {title!r}")
-        with sftp.file(coupon, "w") as fh:
-            fh.write(scrubbed)
-        print("scrub coupon meta", "bytes", len(scrubbed))
+    coupon_html = _scrub_coupon_desc(_scrub_title_token(coupon_local.read_text(encoding="utf-8")))
+    cerr = _coupon_overlay_errors(coupon_html)
+    if cerr:
+        raise SystemExit("refusing coupon PUT: " + "; ".join(cerr))
+    _run(client, f"mkdir -p '{root}/boonbuy-coupons' '{root}/assets/official'")
+    _run(client, f"cp -a '{coupon}' '{bak}/boonbuy-coupons_index.html' 2>/dev/null || true")
+    with sftp.file(coupon, "w") as fh:
+        fh.write(coupon_html)
+    print("PUT", coupon, "bytes", len(coupon_html))
+    shots = OUT / host / "overlay" / "assets" / "official"
+    for jpg in sorted(shots.glob("*.jpg")):
+        remote_jpg = f"{root}/assets/official/{jpg.name}"
+        sftp.put(str(jpg), remote_jpg)
+        print("PUT", remote_jpg, "bytes", jpg.stat().st_size)
 
     for rel in TITLE_SCRUB_REL:
         if rel.startswith("boonbuy-coupons"):
@@ -599,6 +644,15 @@ def live_check() -> None:
                     fail += 1
                 if "BoonBuy Coupons 2026 Code Promo" not in title:
                     print("FAIL coupon money title", title)
+                    fail += 1
+                if "40% OFF" not in html or 'id="official-promo"' not in html:
+                    print("FAIL coupon missing official 40% 图文")
+                    fail += 1
+                if "30%" in html:
+                    print("FAIL coupon still has stale 30%")
+                    fail += 1
+                if "/assets/official/official-new-user-gift.jpg" not in html:
+                    print("FAIL coupon missing gift screenshot")
                     fail += 1
 
     code, _, loc, _ = fetch("https://boonspreadsheet.com/", follow=False)
