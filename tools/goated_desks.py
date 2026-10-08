@@ -365,9 +365,9 @@ def live_check() -> None:
     else:
         print("coupons.html", code, len(body), final)
 
+    # Official SPA 301s / → /client/; that is their app, not a desk 301.
     dest_urls = [
         f"https://{HOST}/",
-        OFFICIAL,
     ]
     for a in dest_urls:
         code, _, loc, _ = fetch(a, follow=False)
@@ -376,6 +376,14 @@ def live_check() -> None:
             fail += 1
         else:
             print("indep", a, code)
+    o_code, _, o_loc, _ = fetch(OFFICIAL, follow=False)
+    if o_code in (301, 302, 303, 307, 308) and "/client" in (o_loc or ""):
+        print("official SPA", o_code, o_loc)
+    elif o_code == 200:
+        print("official", o_code)
+    else:
+        print("FAIL official unexpected", o_code, o_loc)
+        fail += 1
 
     if fail:
         raise SystemExit(f"live_check failures: {fail}")
