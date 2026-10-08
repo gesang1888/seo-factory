@@ -51,7 +51,7 @@ INNER_TITLES = {
     "/fishgoo-rimowa-spreadsheet/": "Fishgoo Rimowa Spreadsheet",
     "/shipping-guide.html": "Fishgoo Shipping Guide",
     "/comparisons.html": "Fishgoo vs Superbuy",
-    "/coupons.html": "FishGoo coupons",
+    "/coupons.html": "FishGoo Coupons 2026",
 }
 
 
@@ -83,6 +83,12 @@ def _unique_home_errors(html: str) -> list[str]:
         err.append("missing w2clinks FishGoo sheet")
     if "100-day" not in html and "100 days" not in html:
         err.append("missing official 100-day storage")
+    if "/assets/images/official-logo.png" not in html:
+        err.append("missing official FISHGOO trademark")
+    if "$500" not in html or "official-promo" not in html:
+        err.append("missing official $500 promo strip")
+    if "/assets/official/official-card-500.jpg" not in html:
+        err.append("missing official $500 screenshot")
     if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
         err.append("spain snapshot / coaching")
     if len(html) < 20000:
@@ -100,7 +106,24 @@ def generate() -> None:
     skip = leftover.read_text(encoding="utf-8")
     if f'"{HOST}"' not in skip or "SKIP_UNIQUE" not in skip:
         raise SystemExit("leftover_hub_skins.py must SKIP_UNIQUE fishgoospreadsheet.net")
-    print("unique overlay ok", dest, "bytes", len(html))
+    coupons = OUT / HOST / "overlay" / "coupons.html"
+    ch = coupons.read_text(encoding="utf-8")
+    cerr = []
+    if "FishGoo Coupons 2026" not in ch:
+        cerr.append("coupons title")
+    if "$500" not in ch or "¥100" not in ch:
+        cerr.append("coupons missing official amounts")
+    if "/assets/official/official-card-500.jpg" not in ch or "/assets/official/official-app-100.jpg" not in ch:
+        cerr.append("coupons missing screenshots")
+    if "/assets/images/official-logo.png" not in ch:
+        cerr.append("coupons missing official logo")
+    title_m = re.search(r"<title>(.*?)</title>", ch, flags=re.S)
+    title = re.sub(r"<[^>]+>", "", title_m.group(1) if title_m else "")
+    if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I):
+        cerr.append("invite in coupons title")
+    if cerr:
+        raise SystemExit("coupons overlay: " + "; ".join(cerr))
+    print("unique overlay ok", dest, "bytes", len(html), "coupons", len(ch))
 
 
 def _connect():
@@ -178,6 +201,25 @@ def put() -> None:
     _run(client, f"cp -a '{remote}' '{bak}/{HOST}.index.html'")
     sftp.put(str(local), remote)
     print("PUT", remote, "bytes", local.stat().st_size)
+
+    coup_l = OUT / HOST / "overlay" / "coupons.html"
+    coup_r = f"/www/wwwroot/{HOST}/coupons.html"
+    _run(client, f"cp -a '{coup_r}' '{bak}/{HOST}.coupons.html'")
+    sftp.put(str(coup_l), coup_r)
+    print("PUT", coup_r, "bytes", coup_l.stat().st_size)
+
+    _run(
+        client,
+        f"mkdir -p '/www/wwwroot/{HOST}/assets/images' '/www/wwwroot/{HOST}/assets/official' "
+        f"'{bak}/assets'",
+    )
+    logo_l = OUT / HOST / "overlay" / "assets" / "images" / "official-logo.png"
+    sftp.put(str(logo_l), f"/www/wwwroot/{HOST}/assets/images/official-logo.png")
+    print("PUT official-logo.png", logo_l.stat().st_size)
+    off_dir = OUT / HOST / "overlay" / "assets" / "official"
+    for img in sorted(off_dir.glob("*")):
+        sftp.put(str(img), f"/www/wwwroot/{HOST}/assets/official/{img.name}")
+        print("PUT official", img.name, img.stat().st_size)
 
     nginx_t = _run(client, "nginx -t 2>&1")
     print(nginx_t)
