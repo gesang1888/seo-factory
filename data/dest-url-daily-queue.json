@@ -1,14 +1,14 @@
 {
   "built": "2026-10-07T12:51:28Z",
-  "remaining_n": 1036,
+  "remaining_n": 836,
   "by_band": {
     "home": 1,
     "start": 1,
-    "desk": 282,
+    "desk": 82,
     "keep": 159,
     "other": 436,
-    "blog": 45,
-    "legal": 112
+    "legal": 112,
+    "blog": 45
   },
   "remaining": [
     {
@@ -36,340 +36,12 @@
       "path": "/katalog/"
     },
     {
-      "url": "https://acbuyspreadsheets.ca/how-to-use-acbuy/",
-      "host": "acbuyspreadsheets.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-acbuy/"
-    },
-    {
-      "url": "https://allchinabuyspreadsheet.nl/how-to-use-allchinabuy/",
-      "host": "allchinabuyspreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-allchinabuy/"
-    },
-    {
-      "url": "https://cssbuy.at/how-to-use-cssbuy/",
-      "host": "cssbuy.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-cssbuy/"
-    },
-    {
-      "url": "https://cssbuy.es/how-to-use-cssbuy/",
-      "host": "cssbuy.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-cssbuy/"
-    },
-    {
-      "url": "https://cssbuy.fr/how-to-use-cssbuy/",
-      "host": "cssbuy.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-cssbuy/"
-    },
-    {
-      "url": "https://cssbuy.it/how-to-use-cssbuy/",
-      "host": "cssbuy.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-cssbuy/"
-    },
-    {
-      "url": "https://cssbuy.nl/how-to-use-cssbuy/",
-      "host": "cssbuy.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-cssbuy/"
-    },
-    {
-      "url": "https://cssbuyspreadsheet.ca/how-to-use-cssbuy/",
-      "host": "cssbuyspreadsheet.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-cssbuy/"
-    },
-    {
-      "url": "https://cssbuyspreadsheet.uk/how-to-use-cssbuy/",
-      "host": "cssbuyspreadsheet.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-cssbuy/"
-    },
-    {
-      "url": "https://cssbuyspreadsheets.de/how-to-use-cssbuy/",
-      "host": "cssbuyspreadsheets.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-cssbuy/"
-    },
-    {
-      "url": "https://cssbuyspreadsheets.us/how-to-use-cssbuy/",
-      "host": "cssbuyspreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-cssbuy/"
-    },
-    {
-      "url": "https://fansbuy.eu/how-to-use-fansbuy/",
-      "host": "fansbuy.eu",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-fansbuy/"
-    },
-    {
-      "url": "https://hipobuy.at/how-to-use-hipobuy/",
-      "host": "hipobuy.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-hipobuy/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.co.uk/how-to-use-hipobuy/",
-      "host": "hipobuyspreadsheet.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-hipobuy/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.eu/how-to-use-hipobuy/",
-      "host": "hipobuyspreadsheet.eu",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-hipobuy/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.nl/how-to-use-hipobuy/",
-      "host": "hipobuyspreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-hipobuy/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.us/how-to-use-hipobuy/",
-      "host": "hipobuyspreadsheet.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-hipobuy/"
-    },
-    {
       "url": "https://joyagoospreadsheets.de/how-to-use-joyagoo/",
       "host": "joyagoospreadsheets.de",
       "band": "desk",
       "band_i": 2,
       "sub": 1,
       "path": "/how-to-use-joyagoo/"
-    },
-    {
-      "url": "https://kakobuy.fi/how-to-use-kakobuy/",
-      "host": "kakobuy.fi",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-kakobuy/"
-    },
-    {
-      "url": "https://kakospreadsheet.ca/how-to-use-kakobuy/",
-      "host": "kakospreadsheet.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-kakobuy/"
-    },
-    {
-      "url": "https://kakospreadsheet.es/how-to-use-kakobuy/",
-      "host": "kakospreadsheet.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-kakobuy/"
-    },
-    {
-      "url": "https://kakospreadsheet.fr/how-to-use-kakobuy/",
-      "host": "kakospreadsheet.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-kakobuy/"
-    },
-    {
-      "url": "https://kakospreadsheet.nl/how-to-use-kakobuy/",
-      "host": "kakospreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-kakobuy/"
-    },
-    {
-      "url": "https://litbuy.at/how-to-use-litbuy/",
-      "host": "litbuy.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-litbuy/"
-    },
-    {
-      "url": "https://litbuyspreadsheet.it/how-to-use-litbuy/",
-      "host": "litbuyspreadsheet.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-litbuy/"
-    },
-    {
-      "url": "https://litbuyspreadsheet.me.uk/how-to-use-litbuy/",
-      "host": "litbuyspreadsheet.me.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-litbuy/"
-    },
-    {
-      "url": "https://litbuyspreadsheets.ca/how-to-use-litbuy/",
-      "host": "litbuyspreadsheets.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-litbuy/"
-    },
-    {
-      "url": "https://litbuyspreadsheets.es/how-to-use-litbuy/",
-      "host": "litbuyspreadsheets.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-litbuy/"
-    },
-    {
-      "url": "https://litbuyspreadsheets.nl/how-to-use-litbuy/",
-      "host": "litbuyspreadsheets.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-litbuy/"
-    },
-    {
-      "url": "https://litbuyspreadsheets.us/how-to-use-litbuy/",
-      "host": "litbuyspreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-litbuy/"
-    },
-    {
-      "url": "https://litspreadsheet.fr/how-to-use-litbuy/",
-      "host": "litspreadsheet.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-litbuy/"
-    },
-    {
-      "url": "https://sugargoo.at/how-to-use-sugargoo/",
-      "host": "sugargoo.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-sugargoo/"
-    },
-    {
-      "url": "https://sugargoospreadsheet.au/how-to-use-sugargoo/",
-      "host": "sugargoospreadsheet.au",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-sugargoo/"
-    },
-    {
-      "url": "https://sugargoospreadsheet.es/how-to-use-sugargoo/",
-      "host": "sugargoospreadsheet.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-sugargoo/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.de/how-to-use-sugargoo/",
-      "host": "sugargoospreadsheets.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-sugargoo/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.fr/how-to-use-sugargoo/",
-      "host": "sugargoospreadsheets.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-sugargoo/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.nl/how-to-use-sugargoo/",
-      "host": "sugargoospreadsheets.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-sugargoo/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.uk/how-to-use-sugargoo/",
-      "host": "sugargoospreadsheets.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-sugargoo/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.us/how-to-use-sugargoo/",
-      "host": "sugargoospreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-sugargoo/"
-    },
-    {
-      "url": "https://sugargoospreadsheets2026.ca/how-to-use-sugargoo/",
-      "host": "sugargoospreadsheets2026.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-sugargoo/"
-    },
-    {
-      "url": "https://usfansspreadsheet.co.uk/how-to-use-usfans/",
-      "host": "usfansspreadsheet.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-usfans/"
-    },
-    {
-      "url": "https://usfansspreadsheet.nl/how-to-use-usfans/",
-      "host": "usfansspreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 1,
-      "path": "/how-to-use-usfans/"
     },
     {
       "url": "https://joyagoospreadsheets.de/guides/shipping/",
@@ -380,900 +52,12 @@
       "path": "/guides/shipping/"
     },
     {
-      "url": "https://kakospreadsheet.es/envio-kakobuy-espana/",
-      "host": "kakospreadsheet.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 2,
-      "path": "/envio-kakobuy-espana/"
-    },
-    {
-      "url": "https://superbuyspreadsheets.it/spedizione-superbuy/",
-      "host": "superbuyspreadsheets.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 2,
-      "path": "/spedizione-superbuy/"
-    },
-    {
-      "url": "https://acbuyspreadsheets.ca/help/",
-      "host": "acbuyspreadsheets.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://acbuyspreadsheets.nl/hulp/",
-      "host": "acbuyspreadsheets.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://allchinabuyspreadsheet.ca/help/",
-      "host": "allchinabuyspreadsheet.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://allchinabuyspreadsheet.nl/hulp/",
-      "host": "allchinabuyspreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://allchinabuyspreadsheets.co.uk/help/",
-      "host": "allchinabuyspreadsheets.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://bbdbuy.ca/help/",
-      "host": "bbdbuy.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://bbdbuy.it/aiuto/",
-      "host": "bbdbuy.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aiuto/"
-    },
-    {
-      "url": "https://bbdbuy.uk/help/",
-      "host": "bbdbuy.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://bbdbuy.us/help/",
-      "host": "bbdbuy.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://bbdbuyspreadsheet.de/hilfe/",
-      "host": "bbdbuyspreadsheet.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://cssbuy.at/hilfe/",
-      "host": "cssbuy.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://cssbuy.es/ayuda/",
-      "host": "cssbuy.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/ayuda/"
-    },
-    {
-      "url": "https://cssbuy.fr/aide/",
-      "host": "cssbuy.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aide/"
-    },
-    {
-      "url": "https://cssbuy.it/aiuto/",
-      "host": "cssbuy.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aiuto/"
-    },
-    {
-      "url": "https://cssbuy.nl/hulp/",
-      "host": "cssbuy.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://cssbuyspreadsheet.ca/help/",
-      "host": "cssbuyspreadsheet.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://cssbuyspreadsheet.uk/help/",
-      "host": "cssbuyspreadsheet.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://cssbuyspreadsheets.de/hilfe/",
-      "host": "cssbuyspreadsheets.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://cssbuyspreadsheets.us/help/",
-      "host": "cssbuyspreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://fansbuy.co.uk/help/",
-      "host": "fansbuy.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://fansbuy.eu/help/",
-      "host": "fansbuy.eu",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://fansbuy.nl/hulp/",
-      "host": "fansbuy.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://fansbuyspreadsheet.de/hilfe/",
-      "host": "fansbuyspreadsheet.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://hipobuy.at/hilfe/",
-      "host": "hipobuy.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.co.uk/help/",
-      "host": "hipobuyspreadsheet.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.eu/help/",
-      "host": "hipobuyspreadsheet.eu",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.nl/hulp/",
-      "host": "hipobuyspreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.us/help/",
-      "host": "hipobuyspreadsheet.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
       "url": "https://joyagoospreadsheets.de/hilfe/",
       "host": "joyagoospreadsheets.de",
       "band": "desk",
       "band_i": 2,
       "sub": 3,
       "path": "/hilfe/"
-    },
-    {
-      "url": "https://kakospreadsheet.ca/help/",
-      "host": "kakospreadsheet.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://kakospreadsheet.es/ayuda/",
-      "host": "kakospreadsheet.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/ayuda/"
-    },
-    {
-      "url": "https://kakospreadsheet.fr/aide/",
-      "host": "kakospreadsheet.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aide/"
-    },
-    {
-      "url": "https://kakospreadsheet.nl/hulp/",
-      "host": "kakospreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://litbuy.at/hilfe/",
-      "host": "litbuy.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://litbuyspreadsheet.it/aiuto/",
-      "host": "litbuyspreadsheet.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aiuto/"
-    },
-    {
-      "url": "https://litbuyspreadsheet.me.uk/help/",
-      "host": "litbuyspreadsheet.me.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://litbuyspreadsheets.ca/help/",
-      "host": "litbuyspreadsheets.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://litbuyspreadsheets.es/ayuda/",
-      "host": "litbuyspreadsheets.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/ayuda/"
-    },
-    {
-      "url": "https://litbuyspreadsheets.nl/hulp/",
-      "host": "litbuyspreadsheets.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://litbuyspreadsheets.us/help/",
-      "host": "litbuyspreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://litspreadsheet.fr/aide/",
-      "host": "litspreadsheet.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aide/"
-    },
-    {
-      "url": "https://lovegobuy.it/aiuto/",
-      "host": "lovegobuy.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aiuto/"
-    },
-    {
-      "url": "https://lovegobuy.nl/hulp/",
-      "host": "lovegobuy.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://lovegobuyspreadsheet.ca/help/",
-      "host": "lovegobuyspreadsheet.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://lovegobuyspreadsheet.es/ayuda/",
-      "host": "lovegobuyspreadsheet.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/ayuda/"
-    },
-    {
-      "url": "https://mulebuy.fr/aide/",
-      "host": "mulebuy.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aide/"
-    },
-    {
-      "url": "https://mulebuyspreadsheets.co.uk/help/",
-      "host": "mulebuyspreadsheets.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://mulebuyspreadsheets.es/ayuda/",
-      "host": "mulebuyspreadsheets.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/ayuda/"
-    },
-    {
-      "url": "https://mulebuyspreadsheets.us/help/",
-      "host": "mulebuyspreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://mycnbox.co.uk/help/",
-      "host": "mycnbox.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://mycnbox.de/hilfe/",
-      "host": "mycnbox.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://mycnbox.es/ayuda/",
-      "host": "mycnbox.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/ayuda/"
-    },
-    {
-      "url": "https://mycnbox.fr/aide/",
-      "host": "mycnbox.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aide/"
-    },
-    {
-      "url": "https://mycnbox.nl/hulp/",
-      "host": "mycnbox.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://oopbuyspreadsheets.it/aiuto/",
-      "host": "oopbuyspreadsheets.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aiuto/"
-    },
-    {
-      "url": "https://ootdbuy.nl/hulp/",
-      "host": "ootdbuy.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://ootdbuyspreadsheet.ca/help/",
-      "host": "ootdbuyspreadsheet.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://ootdbuyspreadsheet.co.uk/help/",
-      "host": "ootdbuyspreadsheet.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://ootdbuyspreadsheet.de/hilfe/",
-      "host": "ootdbuyspreadsheet.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://ootdbuyspreadsheet.us/help/",
-      "host": "ootdbuyspreadsheet.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://orientdig.at/hilfe/",
-      "host": "orientdig.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://orientdig.es/ayuda/",
-      "host": "orientdig.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/ayuda/"
-    },
-    {
-      "url": "https://orientdig.fr/aide/",
-      "host": "orientdig.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aide/"
-    },
-    {
-      "url": "https://orientdig.us/help/",
-      "host": "orientdig.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://orientdigspreadsheet.de/hilfe/",
-      "host": "orientdigspreadsheet.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://orientdigspreadsheet.it/aiuto/",
-      "host": "orientdigspreadsheet.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aiuto/"
-    },
-    {
-      "url": "https://orientdigspreadsheet.nl/hulp/",
-      "host": "orientdigspreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://orientdigspreadsheet.uk/help/",
-      "host": "orientdigspreadsheet.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://sugargoo.at/hilfe/",
-      "host": "sugargoo.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://sugargoospreadsheet.au/help/",
-      "host": "sugargoospreadsheet.au",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://sugargoospreadsheet.es/ayuda/",
-      "host": "sugargoospreadsheet.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/ayuda/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.de/hilfe/",
-      "host": "sugargoospreadsheets.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hilfe/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.fr/aide/",
-      "host": "sugargoospreadsheets.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aide/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.nl/hulp/",
-      "host": "sugargoospreadsheets.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.uk/help/",
-      "host": "sugargoospreadsheets.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.us/help/",
-      "host": "sugargoospreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://sugargoospreadsheets2026.ca/help/",
-      "host": "sugargoospreadsheets2026.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://superbuyspreadsheets.ca/help/",
-      "host": "superbuyspreadsheets.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://superbuyspreadsheets.it/aiuto/",
-      "host": "superbuyspreadsheets.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/aiuto/"
-    },
-    {
-      "url": "https://superbuyspreadsheets.us/help/",
-      "host": "superbuyspreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://usfansspreadsheet.co.uk/help/",
-      "host": "usfansspreadsheet.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/help/"
-    },
-    {
-      "url": "https://usfansspreadsheet.nl/hulp/",
-      "host": "usfansspreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 3,
-      "path": "/hulp/"
-    },
-    {
-      "url": "https://acbuyspreadsheets.ca/news/",
-      "host": "acbuyspreadsheets.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://acbuyspreadsheets.nl/nieuws/",
-      "host": "acbuyspreadsheets.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
-    },
-    {
-      "url": "https://allchinabuyspreadsheet.ca/news/",
-      "host": "allchinabuyspreadsheet.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://allchinabuyspreadsheet.nl/nieuws/",
-      "host": "allchinabuyspreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
-    },
-    {
-      "url": "https://allchinabuyspreadsheets.co.uk/news/",
-      "host": "allchinabuyspreadsheets.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://bbdbuy.ca/news/",
-      "host": "bbdbuy.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://bbdbuy.it/notizie/",
-      "host": "bbdbuy.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/notizie/"
-    },
-    {
-      "url": "https://bbdbuy.uk/news/",
-      "host": "bbdbuy.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://bbdbuy.us/news/",
-      "host": "bbdbuy.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://bbdbuyspreadsheet.de/neuigkeiten/",
-      "host": "bbdbuyspreadsheet.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/neuigkeiten/"
-    },
-    {
-      "url": "https://cssbuy.at/neuigkeiten/",
-      "host": "cssbuy.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/neuigkeiten/"
-    },
-    {
-      "url": "https://cssbuy.es/noticias/",
-      "host": "cssbuy.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/noticias/"
-    },
-    {
-      "url": "https://cssbuy.fr/actualites/",
-      "host": "cssbuy.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/actualites/"
-    },
-    {
-      "url": "https://cssbuy.it/notizie/",
-      "host": "cssbuy.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/notizie/"
-    },
-    {
-      "url": "https://cssbuy.nl/nieuws/",
-      "host": "cssbuy.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
-    },
-    {
-      "url": "https://cssbuyspreadsheet.ca/news/",
-      "host": "cssbuyspreadsheet.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://cssbuyspreadsheet.uk/news/",
-      "host": "cssbuyspreadsheet.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://cssbuyspreadsheets.de/neuigkeiten/",
-      "host": "cssbuyspreadsheets.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/neuigkeiten/"
-    },
-    {
-      "url": "https://cssbuyspreadsheets.us/news/",
-      "host": "cssbuyspreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://fansbuy.co.uk/news/",
-      "host": "fansbuy.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://fansbuy.eu/news/",
-      "host": "fansbuy.eu",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://fansbuy.nl/nieuws/",
-      "host": "fansbuy.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
-    },
-    {
-      "url": "https://fansbuyspreadsheet.de/neuigkeiten/",
-      "host": "fansbuyspreadsheet.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/neuigkeiten/"
-    },
-    {
-      "url": "https://hipobuy.at/neuigkeiten/",
-      "host": "hipobuy.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/neuigkeiten/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.co.uk/news/",
-      "host": "hipobuyspreadsheet.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.eu/news/",
-      "host": "hipobuyspreadsheet.eu",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.nl/nieuws/",
-      "host": "hipobuyspreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
-    },
-    {
-      "url": "https://hipobuyspreadsheet.us/news/",
-      "host": "hipobuyspreadsheet.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
     },
     {
       "url": "https://joyagoospreadsheets.de/neuigkeiten/",
@@ -1284,388 +68,284 @@
       "path": "/neuigkeiten/"
     },
     {
-      "url": "https://kakospreadsheet.ca/news/",
-      "host": "kakospreadsheet.ca",
+      "url": "https://joyagoospreadsheets.de/ueber-uns/",
+      "host": "joyagoospreadsheets.de",
       "band": "desk",
       "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "sub": 5,
+      "path": "/ueber-uns/"
     },
     {
-      "url": "https://kakospreadsheet.fr/actualites/",
-      "host": "kakospreadsheet.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/actualites/"
+      "url": "https://joyagoospreadsheets.de/guides/coupons/",
+      "host": "joyagoospreadsheets.de",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/guides/coupons/"
     },
     {
-      "url": "https://kakospreadsheet.nl/nieuws/",
-      "host": "kakospreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
+      "url": "https://joyagoospreadsheets.de/guides/is-joyagoo-legit/",
+      "host": "joyagoospreadsheets.de",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/guides/is-joyagoo-legit/"
     },
     {
-      "url": "https://litbuy.at/neuigkeiten/",
-      "host": "litbuy.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/neuigkeiten/"
+      "url": "https://joyagoospreadsheets.de/guides/qc/",
+      "host": "joyagoospreadsheets.de",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/guides/qc/"
     },
     {
-      "url": "https://litbuyspreadsheet.me.uk/news/",
-      "host": "litbuyspreadsheet.me.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/spreadsheet/",
+      "host": "joyagoospreadsheets.de",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/spreadsheet/"
     },
     {
-      "url": "https://litbuyspreadsheets.ca/news/",
-      "host": "litbuyspreadsheets.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/brand/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/"
     },
     {
-      "url": "https://litbuyspreadsheets.nl/nieuws/",
-      "host": "litbuyspreadsheets.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
+      "url": "https://joyagoospreadsheets.de/brand/adidas/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/adidas/"
     },
     {
-      "url": "https://litbuyspreadsheets.us/news/",
-      "host": "litbuyspreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/brand/balenciaga/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/balenciaga/"
     },
     {
-      "url": "https://litspreadsheet.fr/actualites/",
-      "host": "litspreadsheet.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/actualites/"
+      "url": "https://joyagoospreadsheets.de/brand/gucci/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/gucci/"
     },
     {
-      "url": "https://lovegobuy.nl/nieuws/",
-      "host": "lovegobuy.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
+      "url": "https://joyagoospreadsheets.de/brand/jordan/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/jordan/"
     },
     {
-      "url": "https://lovegobuyspreadsheet.ca/news/",
-      "host": "lovegobuyspreadsheet.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/brand/louis-vuitton/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/louis-vuitton/"
     },
     {
-      "url": "https://mulebuy.fr/actualites/",
-      "host": "mulebuy.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/actualites/"
+      "url": "https://joyagoospreadsheets.de/brand/moncler/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/moncler/"
     },
     {
-      "url": "https://mulebuyspreadsheets.co.uk/news/",
-      "host": "mulebuyspreadsheets.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/brand/new-balance/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/new-balance/"
     },
     {
-      "url": "https://mulebuyspreadsheets.us/news/",
-      "host": "mulebuyspreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/brand/nike/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/nike/"
     },
     {
-      "url": "https://mycnbox.co.uk/news/",
-      "host": "mycnbox.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/brand/off-white/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/off-white/"
     },
     {
-      "url": "https://mycnbox.de/aktuelles/",
-      "host": "mycnbox.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/aktuelles/"
+      "url": "https://joyagoospreadsheets.de/brand/prada/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/prada/"
     },
     {
-      "url": "https://mycnbox.fr/actualites/",
-      "host": "mycnbox.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/actualites/"
+      "url": "https://joyagoospreadsheets.de/brand/supreme/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/supreme/"
     },
     {
-      "url": "https://mycnbox.nl/nieuws/",
-      "host": "mycnbox.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
+      "url": "https://joyagoospreadsheets.de/brand/yeezy/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/brand/yeezy/"
     },
     {
-      "url": "https://oopbuyspreadsheets.it/notizie/",
-      "host": "oopbuyspreadsheets.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/notizie/"
+      "url": "https://joyagoospreadsheets.de/category/enfants-riches-deprimes/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/enfants-riches-deprimes/"
     },
     {
-      "url": "https://ootdbuy.nl/nieuws/",
-      "host": "ootdbuy.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
+      "url": "https://joyagoospreadsheets.de/category/hoodie/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/hoodie/"
     },
     {
-      "url": "https://ootdbuyspreadsheet.ca/news/",
-      "host": "ootdbuyspreadsheet.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/category/long-sleeved/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/long-sleeved/"
     },
     {
-      "url": "https://ootdbuyspreadsheet.co.uk/news/",
-      "host": "ootdbuyspreadsheet.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/category/polo/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/polo/"
     },
     {
-      "url": "https://ootdbuyspreadsheet.de/aktuelles/",
-      "host": "ootdbuyspreadsheet.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/aktuelles/"
+      "url": "https://joyagoospreadsheets.de/category/shawl/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/shawl/"
     },
     {
-      "url": "https://ootdbuyspreadsheet.us/news/",
-      "host": "ootdbuyspreadsheet.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/category/shirt/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/shirt/"
     },
     {
-      "url": "https://orientdig.at/aktuelles/",
-      "host": "orientdig.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/aktuelles/"
+      "url": "https://joyagoospreadsheets.de/category/shorts/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/shorts/"
     },
     {
-      "url": "https://orientdig.es/noticias/",
-      "host": "orientdig.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/noticias/"
+      "url": "https://joyagoospreadsheets.de/category/slippers/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/slippers/"
     },
     {
-      "url": "https://orientdig.fr/actualites/",
-      "host": "orientdig.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/actualites/"
+      "url": "https://joyagoospreadsheets.de/category/sneakers/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/sneakers/"
     },
     {
-      "url": "https://orientdig.us/news/",
-      "host": "orientdig.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/category/sweater/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/sweater/"
     },
     {
-      "url": "https://orientdigspreadsheet.de/aktuelles/",
-      "host": "orientdigspreadsheet.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/aktuelles/"
+      "url": "https://joyagoospreadsheets.de/category/t-shirt/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/t-shirt/"
     },
     {
-      "url": "https://orientdigspreadsheet.it/notizie/",
-      "host": "orientdigspreadsheet.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/notizie/"
+      "url": "https://joyagoospreadsheets.de/category/vest/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/category/vest/"
     },
     {
-      "url": "https://orientdigspreadsheet.nl/nieuws/",
-      "host": "orientdigspreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
+      "url": "https://joyagoospreadsheets.de/guides/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/guides/"
     },
     {
-      "url": "https://orientdigspreadsheet.uk/news/",
-      "host": "orientdigspreadsheet.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
+      "url": "https://joyagoospreadsheets.de/guides/how-to-use/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/guides/how-to-use/"
     },
     {
-      "url": "https://sugargoo.at/aktuelles/",
-      "host": "sugargoo.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/aktuelles/"
+      "url": "https://joyagoospreadsheets.de/joyagoo-freight/",
+      "host": "joyagoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/joyagoo-freight/"
     },
     {
-      "url": "https://sugargoo.at/neuigkeiten/",
-      "host": "sugargoo.at",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/neuigkeiten/"
+      "url": "https://joyagoospreadsheets.de/privacy-policy/",
+      "host": "joyagoospreadsheets.de",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
     },
     {
-      "url": "https://sugargoospreadsheet.au/news/",
-      "host": "sugargoospreadsheet.au",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://sugargoospreadsheet.es/noticias/",
-      "host": "sugargoospreadsheet.es",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/noticias/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.de/aktuelles/",
-      "host": "sugargoospreadsheets.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/aktuelles/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.de/neuigkeiten/",
-      "host": "sugargoospreadsheets.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/neuigkeiten/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.fr/actualites/",
-      "host": "sugargoospreadsheets.fr",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/actualites/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.nl/nieuws/",
-      "host": "sugargoospreadsheets.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.uk/news/",
-      "host": "sugargoospreadsheets.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://sugargoospreadsheets.us/news/",
-      "host": "sugargoospreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://sugargoospreadsheets2026.ca/news/",
-      "host": "sugargoospreadsheets2026.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://superbuyspreadsheets.ca/news/",
-      "host": "superbuyspreadsheets.ca",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://superbuyspreadsheets.it/notizie/",
-      "host": "superbuyspreadsheets.it",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/notizie/"
-    },
-    {
-      "url": "https://superbuyspreadsheets.us/news/",
-      "host": "superbuyspreadsheets.us",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://usfansspreadsheet.co.uk/news/",
-      "host": "usfansspreadsheet.co.uk",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/news/"
-    },
-    {
-      "url": "https://usfansspreadsheet.nl/nieuws/",
-      "host": "usfansspreadsheet.nl",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 4,
-      "path": "/nieuws/"
+      "url": "https://joyagoospreadsheets.de/terms/",
+      "host": "joyagoospreadsheets.de",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
     },
     {
       "url": "https://acbuyspreadsheets.ca/about/",
@@ -1826,14 +506,6 @@
       "band_i": 2,
       "sub": 5,
       "path": "/over-ons/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/ueber-uns/",
-      "host": "joyagoospreadsheets.de",
-      "band": "desk",
-      "band_i": 2,
-      "sub": 5,
-      "path": "/ueber-uns/"
     },
     {
       "url": "https://kakobuy.fi/about/",
@@ -2738,38 +1410,6 @@
       "band_i": 3,
       "sub": 0,
       "path": "/is-hipobuy-legit/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/guides/coupons/",
-      "host": "joyagoospreadsheets.de",
-      "band": "keep",
-      "band_i": 3,
-      "sub": 0,
-      "path": "/guides/coupons/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/guides/is-joyagoo-legit/",
-      "host": "joyagoospreadsheets.de",
-      "band": "keep",
-      "band_i": 3,
-      "sub": 0,
-      "path": "/guides/is-joyagoo-legit/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/guides/qc/",
-      "host": "joyagoospreadsheets.de",
-      "band": "keep",
-      "band_i": 3,
-      "sub": 0,
-      "path": "/guides/qc/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/spreadsheet/",
-      "host": "joyagoospreadsheets.de",
-      "band": "keep",
-      "band_i": 3,
-      "sub": 0,
-      "path": "/spreadsheet/"
     },
     {
       "url": "https://kakobuy.fi/kakobuy-coupon/",
@@ -3930,230 +2570,6 @@
       "band_i": 4,
       "sub": 0,
       "path": "/who-we-are/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/adidas/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/adidas/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/balenciaga/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/balenciaga/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/gucci/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/gucci/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/jordan/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/jordan/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/louis-vuitton/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/louis-vuitton/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/moncler/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/moncler/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/new-balance/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/new-balance/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/nike/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/nike/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/off-white/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/off-white/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/prada/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/prada/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/supreme/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/supreme/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/brand/yeezy/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/brand/yeezy/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/enfants-riches-deprimes/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/enfants-riches-deprimes/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/hoodie/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/hoodie/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/long-sleeved/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/long-sleeved/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/polo/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/polo/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/shawl/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/shawl/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/shirt/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/shirt/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/shorts/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/shorts/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/slippers/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/slippers/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/sneakers/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/sneakers/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/sweater/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/sweater/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/t-shirt/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/t-shirt/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/category/vest/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/category/vest/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/guides/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/guides/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/guides/how-to-use/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/guides/how-to-use/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/joyagoo-freight/",
-      "host": "joyagoospreadsheets.de",
-      "band": "other",
-      "band_i": 4,
-      "sub": 0,
-      "path": "/joyagoo-freight/"
     },
     {
       "url": "https://kakobuy.fi/faq/",
@@ -7468,22 +5884,6 @@
       "path": "/terms/"
     },
     {
-      "url": "https://joyagoospreadsheets.de/privacy-policy/",
-      "host": "joyagoospreadsheets.de",
-      "band": "legal",
-      "band_i": 6,
-      "sub": 0,
-      "path": "/privacy-policy/"
-    },
-    {
-      "url": "https://joyagoospreadsheets.de/terms/",
-      "host": "joyagoospreadsheets.de",
-      "band": "legal",
-      "band_i": 6,
-      "sub": 0,
-      "path": "/terms/"
-    },
-    {
       "url": "https://kakobuy.fi/affiliate-disclosure/",
       "host": "kakobuy.fi",
       "band": "legal",
@@ -8299,5 +6699,6 @@
       "sub": 0,
       "path": "/terms/"
     }
-  ]
+  ],
+  "updated": "2026-10-08T07:17:04Z"
 }
