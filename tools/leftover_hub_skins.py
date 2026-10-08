@@ -2,7 +2,8 @@
 """Skin leftover Georgia / #local hub shells with the same CMS chrome as the 48 dests.
 
 Does not overwrite unique PHP/CMS (wemimi.net, hubbuy.net, hipobuyspreadsheet.net,
-fashionrepsspreadsheet.com, CSSBuy PHP AT/ES/FR/IT/NL, HipoBuy gold dests).
+fashionrepsspreadsheet.com, CSSBuy PHP AT/ES/FR/IT/NL, HipoBuy gold dests,
+basetaospreadsheet.com unique CMS home).
 Does not skin twins that already 301 into a dest or unique hub.
 Ranked inner HTML is wrapped, not replaced with a 5KB overlay.
 """
@@ -462,6 +463,9 @@ LEFTOVER = {
     ),
 }
 
+# Unique CMS homepage restored; leftover PUT would smash the ranked .com hub.
+SKIP_UNIQUE = frozenset({"basetaospreadsheet.com"})
+
 # Origin path that already has a usable logo file, copied onto leftover hosts.
 LOGO_SRC = {
     "MyCNBox": ("mycnbox.de", "assets/images/mycnbox-logo.png"),
@@ -496,6 +500,9 @@ def generate() -> None:
     if not CMS_CSS.is_file():
         raise SystemExit("missing desk-cms.css")
     for host, d in LEFTOVER.items():
+        if host in SKIP_UNIQUE:
+            print("SKIP unique CMS", host)
+            continue
         html = build_home(host)
         if "Georgia" in html:
             raise SystemExit(f"{host}: Georgia leak")
@@ -562,6 +569,9 @@ def put_homes() -> None:
     print(skin._run(client, f"mkdir -p '{bak}'"))
     sftp = client.open_sftp()
     for host, d in LEFTOVER.items():
+        if host in SKIP_UNIQUE:
+            print("SKIP leftover PUT", host)
+            continue
         remote_root = f"/www/wwwroot/{host}"
         ag = AGENTS[d["agent"]]
         logo_rel = ag["logo"].lstrip("/")
@@ -616,6 +626,9 @@ def put_inners() -> None:
     print(skin._run(client, f"mkdir -p '{bak}'"))
     rows = []
     for host in LEFTOVER:
+        if host in SKIP_UNIQUE:
+            print("SKIP leftover inners", host)
+            continue
         row = inventory_host(client, host)
         rows.append(row)
         print("INV", host, row["count"])
