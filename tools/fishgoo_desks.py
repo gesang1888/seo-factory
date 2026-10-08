@@ -37,17 +37,20 @@ RANKED_CMS = (
     ("/coupons.html", 4000),
     ("/beginner-guide.html", 4000),
     ("/fishgoo-rimowa-spreadsheet/", 4000),
-    ("/fishgoo-spreadsheet-2026/", 4000),
-    ("/official-fishgoo-spreadsheet/", 4000),
     ("/fishgoo-warehouse-storage/", 4000),
 )
+
+# Pre-existing thin slash rows already 301 (not this PUT). Keep them redirected.
+CANON_301 = {
+    "/fishgoo-spreadsheet-2026/": "https://fishgoospreadsheet.net/",
+    "/official-fishgoo-spreadsheet/": "https://fishgoospreadsheet.net/fishgoo-spreadsheet.html",
+}
 
 INNER_TITLES = {
     "/fishgoo-spreadsheet.html": "Fishgoo Spreadsheet",
     "/fishgoo-rimowa-spreadsheet/": "Fishgoo Rimowa Spreadsheet",
     "/shipping-guide.html": "Fishgoo Shipping Guide",
     "/comparisons.html": "Fishgoo vs Superbuy",
-    "/fishgoo-spreadsheet-2026/": "Fishgoo Spreadsheet 2026",
     "/coupons.html": "FishGoo coupons",
 }
 
@@ -236,6 +239,15 @@ def live_check() -> None:
         fail += 1
     else:
         print("indep home", code)
+
+    for path, dest in CANON_301.items():
+        url = f"https://{HOST}{path}"
+        code, _, loc, _ = fetch(url, follow=False)
+        if code not in (301, 302, 303, 307, 308) or dest.rstrip("/") not in (loc or ""):
+            print("FAIL expected 301", url, code, loc)
+            fail += 1
+        else:
+            print("canon 301", path, "->", loc)
 
     for path, min_bytes in RANKED_CMS:
         url = f"https://{HOST}{path}"
