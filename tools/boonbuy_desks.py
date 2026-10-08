@@ -289,6 +289,10 @@ def _unique_home_errors(html: str) -> list[str]:
         err.append("missing not-excel copy")
     if EMAIL not in html:
         err.append("missing contact email")
+    if "wa.me/8615396628356" not in html:
+        err.append("missing WhatsApp +8615396628356")
+    if "447856544534" in html or "+44 7856" in html:
+        err.append("old UK WhatsApp still on homepage")
     if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
         err.append("spain snapshot / coaching")
     if len(html) < 20000:
