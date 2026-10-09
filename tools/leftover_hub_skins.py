@@ -489,9 +489,9 @@ LOGO_SRC = {
 # Unique Spreadsheet 2026 CMS already live on origin. leftover generate/PUT
 # would clone the dest-country skin onto them (Google Aug 2026 duplicate-site).
 # Same-agent sisters that are still dest skins stay in LEFTOVER (not here):
-# cnshopperspreadsheet.net, wemimispreadsheet.com, hubbuyspreadsheet.net,
-# bestlolobuyspreadsheet.com (QC hub — unique separately, never 301 onto
-# lolospreadsheet.com).
+# cnshopperspreadsheet.net, wemimispreadsheet.com, hubbuyspreadsheet.net.
+# bestlolobuyspreadsheet.com is the QC hub — unique, never 301 onto
+# lolospreadsheet.com (SOP).
 SKIP_UNIQUE = frozenset({
     "basetaospreadsheet.com",
     "boonspreadsheet.com",
@@ -501,6 +501,7 @@ SKIP_UNIQUE = frozenset({
     "goatedspreadsheet.com",
     "pikospreadsheets.net",
     "lolospreadsheet.com",
+    "bestlolobuyspreadsheet.com",
     "eastmallspreadsheet.com",
     "fsbuyspreadsheets.com",
     "gtspreadsheet.com",
