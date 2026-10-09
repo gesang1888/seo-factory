@@ -1,9 +1,16 @@
 {
-  "built": "2026-10-09T09:27:49Z",
-  "note": "unique leftover apex homes only; not a sitemap dump",
-  "remaining_n": 26,
+  "built": "2026-10-09T09:39:37Z",
+  "note": "unique leftover sitemap locs; homes before 2026-10-14, inners from 2026-10-15",
+  "inner_start": "2026-10-15",
+  "remaining_n": 598,
   "by_band": {
-    "home": 26
+    "home": 26,
+    "start": 13,
+    "desk": 55,
+    "keep": 272,
+    "other": 193,
+    "blog": 26,
+    "legal": 13
   },
   "remaining": [
     {
@@ -12,7 +19,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 0
     },
     {
       "url": "https://fansbuy.eu/",
@@ -20,7 +28,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 1
     },
     {
       "url": "https://kakobuydocs.com/",
@@ -28,7 +37,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 2
     },
     {
       "url": "https://lovegobuyspreadsheet.eu/",
@@ -36,7 +46,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 3
     },
     {
       "url": "https://lovegobuyguide.com/",
@@ -44,7 +55,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 4
     },
     {
       "url": "https://ootdbuyspreadsheet.net/",
@@ -52,7 +64,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 5
     },
     {
       "url": "https://mycnboxhaul.com/",
@@ -60,7 +73,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 6
     },
     {
       "url": "https://hipobuyreview.com/",
@@ -68,7 +82,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 7
     },
     {
       "url": "https://fansbuysheets.net/",
@@ -76,7 +91,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 8
     },
     {
       "url": "https://mycnbox.eu/",
@@ -84,7 +100,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 9
     },
     {
       "url": "https://bestlolobuyspreadsheet.com/",
@@ -92,7 +109,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 10
     },
     {
       "url": "https://ossbuyspreadsheets.org/",
@@ -100,7 +118,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 11
     },
     {
       "url": "https://hipobuyspreadsheet.net/",
@@ -108,7 +127,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 12
     },
     {
       "url": "https://basetaospreadsheet.com/",
@@ -116,7 +136,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 13
     },
     {
       "url": "https://boonspreadsheet.com/",
@@ -124,7 +145,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 14
     },
     {
       "url": "https://cnshopper.net/",
@@ -132,7 +154,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 15
     },
     {
       "url": "https://fishgoospreadsheet.net/",
@@ -140,7 +163,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 16
     },
     {
       "url": "https://goatedspreadsheet.com/",
@@ -148,7 +172,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 17
     },
     {
       "url": "https://pikospreadsheets.net/",
@@ -156,7 +181,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 18
     },
     {
       "url": "https://lolospreadsheet.com/",
@@ -164,7 +190,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 19
     },
     {
       "url": "https://eastmallspreadsheet.com/",
@@ -172,7 +199,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 20
     },
     {
       "url": "https://fsbuyspreadsheets.com/",
@@ -180,7 +208,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 21
     },
     {
       "url": "https://gtspreadsheet.com/",
@@ -188,7 +217,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 22
     },
     {
       "url": "https://itaobuyspreadsheet.net/",
@@ -196,7 +226,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 23
     },
     {
       "url": "https://pingubuyspreadsheet.net/",
@@ -204,7 +235,8 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 24
     },
     {
       "url": "https://spanbuyspreadsheets.com/",
@@ -212,7 +244,5156 @@
       "band": "home",
       "band_i": 0,
       "sub": 0,
-      "path": "/"
+      "path": "/",
+      "host_i": 25
+    },
+    {
+      "url": "https://fansbuy.eu/start/",
+      "host": "fansbuy.eu",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 1
+    },
+    {
+      "url": "https://bestlolobuyspreadsheet.com/start/",
+      "host": "bestlolobuyspreadsheet.com",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 10
+    },
+    {
+      "url": "https://ossbuyspreadsheets.org/start/",
+      "host": "ossbuyspreadsheets.org",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 11
+    },
+    {
+      "url": "https://boonspreadsheet.com/start/",
+      "host": "boonspreadsheet.com",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 14
+    },
+    {
+      "url": "https://goatedspreadsheet.com/start/",
+      "host": "goatedspreadsheet.com",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 17
+    },
+    {
+      "url": "https://pikospreadsheets.net/start/",
+      "host": "pikospreadsheets.net",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 18
+    },
+    {
+      "url": "https://lolospreadsheet.com/start/",
+      "host": "lolospreadsheet.com",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 19
+    },
+    {
+      "url": "https://eastmallspreadsheet.com/start/",
+      "host": "eastmallspreadsheet.com",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 20
+    },
+    {
+      "url": "https://fsbuyspreadsheets.com/start/",
+      "host": "fsbuyspreadsheets.com",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 21
+    },
+    {
+      "url": "https://gtspreadsheet.com/start/",
+      "host": "gtspreadsheet.com",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 22
+    },
+    {
+      "url": "https://itaobuyspreadsheet.net/start/",
+      "host": "itaobuyspreadsheet.net",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 23
+    },
+    {
+      "url": "https://pingubuyspreadsheet.net/start/",
+      "host": "pingubuyspreadsheet.net",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 24
+    },
+    {
+      "url": "https://spanbuyspreadsheets.com/start/",
+      "host": "spanbuyspreadsheets.com",
+      "band": "start",
+      "band_i": 1,
+      "sub": 0,
+      "path": "/start/",
+      "host_i": 25
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/accessories/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/accessories/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/bags/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/bags/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/electronics/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/electronics/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/headwear/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/headwear/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/hoodies/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/hoodies/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/jackets/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/jackets/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/jerseys/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/jerseys/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/other/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/other/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/pants/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/pants/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/sneakers/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/sneakers/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/t-shirts/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/t-shirts/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/category/women/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/category/women/",
+      "host_i": 0
+    },
+    {
+      "url": "https://fansbuy.eu/catalog/",
+      "host": "fansbuy.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/catalog/",
+      "host_i": 1
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/categories/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 0,
+      "path": "/categories/",
+      "host_i": 5
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/guides/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/guides/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/guides/dead-links/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/guides/dead-links/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/guides/how-to-buy/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/guides/how-to-buy/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/guides/qc-photos/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/guides/qc-photos/",
+      "host_i": 0
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/guides/shipping/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/guides/shipping/",
+      "host_i": 0
+    },
+    {
+      "url": "https://fansbuy.eu/how-to-use-fansbuy/",
+      "host": "fansbuy.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/how-to-use-fansbuy/",
+      "host_i": 1
+    },
+    {
+      "url": "https://kakobuydocs.com/how-to-use-kakobuy/",
+      "host": "kakobuydocs.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/how-to-use-kakobuy/",
+      "host_i": 2
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/how-to-use-lovegobuy/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/how-to-use-lovegobuy/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyguide.com/how-to-use-lovegobuy/",
+      "host": "lovegobuyguide.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/how-to-use-lovegobuy/",
+      "host_i": 4
+    },
+    {
+      "url": "https://mycnboxhaul.com/guides/",
+      "host": "mycnboxhaul.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/guides/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/guides/qc-photos/",
+      "host": "mycnboxhaul.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/guides/qc-photos/",
+      "host_i": 6
+    },
+    {
+      "url": "https://hipobuyreview.com/how-to-use-hipobuy/",
+      "host": "hipobuyreview.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/how-to-use-hipobuy/",
+      "host_i": 7
+    },
+    {
+      "url": "https://fansbuysheets.net/how-to-use-fansbuy/",
+      "host": "fansbuysheets.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/how-to-use-fansbuy/",
+      "host_i": 8
+    },
+    {
+      "url": "https://mycnbox.eu/how-to-use-mycnbox/",
+      "host": "mycnbox.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/how-to-use-mycnbox/",
+      "host_i": 9
+    },
+    {
+      "url": "https://lolospreadsheet.com/guides/coupons/",
+      "host": "lolospreadsheet.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/guides/coupons/",
+      "host_i": 19
+    },
+    {
+      "url": "https://lolospreadsheet.com/guides/shipping/",
+      "host": "lolospreadsheet.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 1,
+      "path": "/guides/shipping/",
+      "host_i": 19
+    },
+    {
+      "url": "https://mycnboxhaul.com/shipping-calculator/",
+      "host": "mycnboxhaul.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping-calculator/",
+      "host_i": 6
+    },
+    {
+      "url": "https://bestlolobuyspreadsheet.com/shipping/",
+      "host": "bestlolobuyspreadsheet.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping/",
+      "host_i": 10
+    },
+    {
+      "url": "https://ossbuyspreadsheets.org/shipping/",
+      "host": "ossbuyspreadsheets.org",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping/",
+      "host_i": 11
+    },
+    {
+      "url": "https://boonspreadsheet.com/shipping/",
+      "host": "boonspreadsheet.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping/",
+      "host_i": 14
+    },
+    {
+      "url": "https://goatedspreadsheet.com/shipping/",
+      "host": "goatedspreadsheet.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping/",
+      "host_i": 17
+    },
+    {
+      "url": "https://pikospreadsheets.net/shipping/",
+      "host": "pikospreadsheets.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping/",
+      "host_i": 18
+    },
+    {
+      "url": "https://eastmallspreadsheet.com/shipping/",
+      "host": "eastmallspreadsheet.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping/",
+      "host_i": 20
+    },
+    {
+      "url": "https://fsbuyspreadsheets.com/shipping/",
+      "host": "fsbuyspreadsheets.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping/",
+      "host_i": 21
+    },
+    {
+      "url": "https://gtspreadsheet.com/shipping/",
+      "host": "gtspreadsheet.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping/",
+      "host_i": 22
+    },
+    {
+      "url": "https://itaobuyspreadsheet.net/shipping/",
+      "host": "itaobuyspreadsheet.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping/",
+      "host_i": 23
+    },
+    {
+      "url": "https://pingubuyspreadsheet.net/shipping/",
+      "host": "pingubuyspreadsheet.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping/",
+      "host_i": 24
+    },
+    {
+      "url": "https://spanbuyspreadsheets.com/shipping/",
+      "host": "spanbuyspreadsheets.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 2,
+      "path": "/shipping/",
+      "host_i": 25
+    },
+    {
+      "url": "https://fansbuy.eu/help/",
+      "host": "fansbuy.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 3,
+      "path": "/help/",
+      "host_i": 1
+    },
+    {
+      "url": "https://mycnboxhaul.com/help/",
+      "host": "mycnboxhaul.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 3,
+      "path": "/help/",
+      "host_i": 6
+    },
+    {
+      "url": "https://fansbuy.eu/news/",
+      "host": "fansbuy.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 4,
+      "path": "/news/",
+      "host_i": 1
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/news/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 4,
+      "path": "/news/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/news/best-hipobuy-spreadsheet-sites-compared-2026-11661.html",
+      "host": "hipobuyspreadsheet.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 4,
+      "path": "/news/best-hipobuy-spreadsheet-sites-compared-2026-11661.html",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/news/how-to-bypass-the-quot-non-purchasable-item-quot-warning-on-chinese-agents-11657.html",
+      "host": "hipobuyspreadsheet.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 4,
+      "path": "/news/how-to-bypass-the-quot-non-purchasable-item-quot-warning-on-chinese-agents-11657.html",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/news/is-hipobuy-safe-2026-honest-review-amp-comparison-with-cnfans-superbuy-11656.html",
+      "host": "hipobuyspreadsheet.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 4,
+      "path": "/news/is-hipobuy-safe-2026-honest-review-amp-comparison-with-cnfans-superbuy-11656.html",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/news/the-2026-hipobuy-master-guide-maximize-your-158-coupon-amp-slash-shipping-costs-11660.html",
+      "host": "hipobuyspreadsheet.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 4,
+      "path": "/news/the-2026-hipobuy-master-guide-maximize-your-158-coupon-amp-slash-shipping-costs-11660.html",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/news/the-ultimate-shipping-hack-how-to-save-30-on-your-china-haul-11658.html",
+      "host": "hipobuyspreadsheet.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 4,
+      "path": "/news/the-ultimate-shipping-hack-how-to-save-30-on-your-china-haul-11658.html",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/news/top-10-budget-friendly-designer-finds-2026-spring-edition-11659.html",
+      "host": "hipobuyspreadsheet.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 4,
+      "path": "/news/top-10-budget-friendly-designer-finds-2026-spring-edition-11659.html",
+      "host_i": 12
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/about/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 5,
+      "path": "/about/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyguide.com/about/",
+      "host": "lovegobuyguide.com",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 5,
+      "path": "/about/",
+      "host_i": 4
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/about/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "desk",
+      "band_i": 2,
+      "sub": 5,
+      "path": "/about/",
+      "host_i": 12
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/spreadsheet/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/spreadsheet/",
+      "host_i": 0
+    },
+    {
+      "url": "https://fansbuy.eu/fansbuy-coupons/",
+      "host": "fansbuy.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/fansbuy-coupons/",
+      "host_i": 1
+    },
+    {
+      "url": "https://fansbuy.eu/fansbuy-invite-code/",
+      "host": "fansbuy.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/fansbuy-invite-code/",
+      "host_i": 1
+    },
+    {
+      "url": "https://fansbuy.eu/fansbuy-refund-guide/",
+      "host": "fansbuy.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/fansbuy-refund-guide/",
+      "host_i": 1
+    },
+    {
+      "url": "https://fansbuy.eu/fansbuy-shoes-spreadsheet/",
+      "host": "fansbuy.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/fansbuy-shoes-spreadsheet/",
+      "host_i": 1
+    },
+    {
+      "url": "https://fansbuy.eu/fansbuy-spreadsheet/",
+      "host": "fansbuy.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/fansbuy-spreadsheet/",
+      "host_i": 1
+    },
+    {
+      "url": "https://fansbuy.eu/is-fansbuy-legit/",
+      "host": "fansbuy.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/is-fansbuy-legit/",
+      "host_i": 1
+    },
+    {
+      "url": "https://kakobuydocs.com/is-kakobuy-legit/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/is-kakobuy-legit/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-community/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-community/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-coupons/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-coupons/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-invite-code/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-invite-code/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-refund-guide/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-refund-guide/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-shoes-spreadsheet/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-shoes-spreadsheet/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-spreadsheet/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-spreadsheet/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-spreadsheet/accessories/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-spreadsheet/accessories/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-spreadsheet/bags/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-spreadsheet/bags/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-spreadsheet/electronics/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-spreadsheet/electronics/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-spreadsheet/hoodies/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-spreadsheet/hoodies/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-spreadsheet/jackets/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-spreadsheet/jackets/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-spreadsheet/jerseys/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-spreadsheet/jerseys/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-spreadsheet/shoes/",
+      "host": "kakobuydocs.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/kakobuy-spreadsheet/shoes/",
+      "host_i": 2
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/is-lovegobuy-legit/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/is-lovegobuy-legit/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/lovegobuy-coupon/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/lovegobuy-coupon/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/lovegobuy-spreadsheet/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/lovegobuy-spreadsheet/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyguide.com/is-lovegobuy-legit/",
+      "host": "lovegobuyguide.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/is-lovegobuy-legit/",
+      "host_i": 4
+    },
+    {
+      "url": "https://lovegobuyguide.com/lovegobuy-coupon/",
+      "host": "lovegobuyguide.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/lovegobuy-coupon/",
+      "host_i": 4
+    },
+    {
+      "url": "https://lovegobuyguide.com/lovegobuy-spreadsheet/",
+      "host": "lovegobuyguide.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/lovegobuy-spreadsheet/",
+      "host_i": 4
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/best-ootdbuy-spreadsheet-2026.html",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/best-ootdbuy-spreadsheet-2026.html",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-1017-alyx-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-1017-alyx-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-accessories-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-accessories-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-acne-studios-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-acne-studios-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-adidas-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-adidas-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-af1-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-af1-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-agent-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-agent-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-aime-leon-dore-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-aime-leon-dore-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-air-max-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-air-max-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-aj1-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-aj1-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-aj11-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-aj11-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-aj12-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-aj12-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-aj13-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-aj13-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-aj3-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-aj3-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-aj4-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-aj4-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-aj5-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-aj5-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-aj6-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-aj6-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-alexander-mcqueen-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-alexander-mcqueen-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-alexander-wang-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-alexander-wang-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-ambush-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-ambush-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-amiri-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-amiri-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-and-wander-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-and-wander-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-arcteryx-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-arcteryx-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-asics-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-asics-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-bags-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-bags-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-balenciaga-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-balenciaga-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-balmain-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-balmain-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-bape-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-bape-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-bearbrick-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-bearbrick-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-belt-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-belt-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-birkenstock-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-birkenstock-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-bode-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-bode-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-bottega-veneta-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-bottega-veneta-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-broken-planet-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-broken-planet-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-bulgari-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-bulgari-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-burberry-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-burberry-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-campus-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-campus-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-canada-goose-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-canada-goose-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-cargo-pants-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-cargo-pants-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-carhartt-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-carhartt-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-cartier-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-cartier-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-cav-empt-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-cav-empt-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-celine-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-celine-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-champion-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-champion-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-chanel-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-chanel-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-chrome-hearts-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-chrome-hearts-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-coach-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-coach-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-columbia-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-columbia-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-common-projects-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-common-projects-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-converse-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-converse-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-corteiz-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-corteiz-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-coupon-2026.html",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-coupon-2026.html",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-cp-company-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-cp-company-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-cpfm-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-cpfm-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-crocs-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-crocs-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-denim-tears-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-denim-tears-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-diesel-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-diesel-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-dior-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-dior-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-dr-martens-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-dr-martens-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-dunk-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-dunk-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-electronics-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-electronics-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-erd-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-erd-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-eric-emanuel-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-eric-emanuel-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-essentials-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-essentials-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-evisu-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-evisu-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-fear-of-god-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-fear-of-god-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-fendi-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-fendi-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-ferragamo-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-ferragamo-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-foamposite-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-foamposite-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-football-boots-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-football-boots-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-fragment-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-fragment-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-gallery-dept-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-gallery-dept-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-gazelle-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-gazelle-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-givenchy-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-givenchy-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-golden-goose-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-golden-goose-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-goyard-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-goyard-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-gucci-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-gucci-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-headwear-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-headwear-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-hellstar-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-hellstar-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-hermes-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-hermes-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-hoka-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-hoka-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-hoodies-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-hoodies-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-human-made-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-human-made-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-issey-miyake-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-issey-miyake-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-jackets-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-jackets-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-jacquemus-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-jacquemus-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-jersey-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-jersey-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-jjjjound-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-jjjjound-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-jordan-1-mocha-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-jordan-1-mocha-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-jordan-3-retro-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-jordan-3-retro-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-jordan-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-jordan-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-kapital-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-kapital-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-kaws-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-kaws-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-kith-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-kith-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-kobe-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-kobe-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-lacoste-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-lacoste-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-lanvin-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-lanvin-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-lebron-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-lebron-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-levis-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-levis-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-ljr-batch-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-ljr-batch-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-loewe-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-loewe-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-longchamp-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-longchamp-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-louis-vuitton-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-louis-vuitton-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-lululemon-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-lululemon-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-luxury-reps-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-luxury-reps-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-maison-kitsune-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-maison-kitsune-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-maison-margiela-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-maison-margiela-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-marni-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-marni-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-martine-rose-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-martine-rose-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-mastermind-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-mastermind-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-mcm-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-mcm-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-mihara-yasuhiro-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-mihara-yasuhiro-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-mitchell-ness-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-mitchell-ness-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-miu-miu-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-miu-miu-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-moncler-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-moncler-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-nanamica-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-nanamica-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-nb-2002r-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-nb-2002r-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-nb-550-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-nb-550-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-nba-jersey-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-nba-jersey-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-neighborhood-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-neighborhood-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-new-balance-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-new-balance-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-nfl-jersey-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-nfl-jersey-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-nike-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-nike-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-no-faith-studios-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-no-faith-studios-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-nocta-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-nocta-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-north-face-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-north-face-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-oakley-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-oakley-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-off-white-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-off-white-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-onitsuka-tiger-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-onitsuka-tiger-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-our-legacy-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-our-legacy-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-palace-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-palace-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-palm-angels-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-palm-angels-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-panda-dunk-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-panda-dunk-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-pants-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-pants-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-patagonia-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-patagonia-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-pk-batch-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-pk-batch-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-polene-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-polene-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-polo-ralph-lauren-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-polo-ralph-lauren-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-prada-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-prada-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-puma-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-puma-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-ray-ban-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-ray-ban-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-reddit-community/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-reddit-community/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-reebok-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-reebok-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-rep-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-rep-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-represent-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-represent-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-rhude-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-rhude-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-rick-owens-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-rick-owens-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-rimowa-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-rimowa-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-sacai-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-sacai-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-saint-laurent-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-saint-laurent-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-salomon-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-salomon-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-samba-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-samba-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-sneakers-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-sneakers-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-snow-peak-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-snow-peak-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-soccer-jersey-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-soccer-jersey-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-sp5der-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-sp5der-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-batch-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-batch-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-beginners/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-beginners/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-discord/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-discord/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-download/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-download/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-excel/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-excel/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-for-usa/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-for-usa/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-mobile/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-mobile/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-pdf/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-pdf/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-qc/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-qc/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-reddit/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-reddit/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-taobao/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-taobao/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-update-2026/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-update-2026/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-spreadsheet-weidian/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-spreadsheet-weidian/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-stone-island-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-stone-island-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-streetwear-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-streetwear-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-stussy-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-stussy-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-sunglasses-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-sunglasses-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-supreme-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-supreme-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-syna-world-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-syna-world-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-telfar-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-telfar-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-thom-browne-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-thom-browne-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-tiffany-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-tiffany-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-timberland-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-timberland-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-tory-burch-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-tory-burch-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-toteme-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-toteme-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-trapstar-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-trapstar-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-travis-scott-jordan-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-travis-scott-jordan-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-travis-scott-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-travis-scott-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-true-religion-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-true-religion-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-tshirts-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-tshirts-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-ugg-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-ugg-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-undercover-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-undercover-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-valentino-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-valentino-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-van-cleef-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-van-cleef-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vans-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-vans-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vetements-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-vetements-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vintage-tee-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-vintage-tee-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-visvim-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-visvim-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vlone-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-vlone-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-w2c-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-w2c-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-watch-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-watch-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-white-mountaineering-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-white-mountaineering-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-womens-fashion-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-womens-fashion-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-wtaps-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-wtaps-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-y3-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-y3-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-yeezy-350-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-yeezy-350-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-yeezy-slide-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-yeezy-slide-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-yeezy-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-yeezy-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-zegna-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-zegna-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-zoom-vomero-spreadsheet/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuy-zoom-vomero-spreadsheet/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuyspreadsheet-org/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/ootdbuyspreadsheet-org/",
+      "host_i": 5
+    },
+    {
+      "url": "https://mycnboxhaul.com/spreadsheet-finds/",
+      "host": "mycnboxhaul.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/spreadsheet-finds/",
+      "host_i": 6
+    },
+    {
+      "url": "https://hipobuyreview.com/hipobuy-community/",
+      "host": "hipobuyreview.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/hipobuy-community/",
+      "host_i": 7
+    },
+    {
+      "url": "https://hipobuyreview.com/hipobuy-coupons/",
+      "host": "hipobuyreview.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/hipobuy-coupons/",
+      "host_i": 7
+    },
+    {
+      "url": "https://hipobuyreview.com/hipobuy-invite-code/",
+      "host": "hipobuyreview.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/hipobuy-invite-code/",
+      "host_i": 7
+    },
+    {
+      "url": "https://hipobuyreview.com/hipobuy-refund-guide/",
+      "host": "hipobuyreview.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/hipobuy-refund-guide/",
+      "host_i": 7
+    },
+    {
+      "url": "https://hipobuyreview.com/hipobuy-shoes-spreadsheet/",
+      "host": "hipobuyreview.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/hipobuy-shoes-spreadsheet/",
+      "host_i": 7
+    },
+    {
+      "url": "https://hipobuyreview.com/hipobuy-spreadsheet/",
+      "host": "hipobuyreview.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/hipobuy-spreadsheet/",
+      "host_i": 7
+    },
+    {
+      "url": "https://hipobuyreview.com/is-hipobuy-legit/",
+      "host": "hipobuyreview.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/is-hipobuy-legit/",
+      "host_i": 7
+    },
+    {
+      "url": "https://fansbuysheets.net/fansbuy-community/",
+      "host": "fansbuysheets.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/fansbuy-community/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/fansbuy-coupons/",
+      "host": "fansbuysheets.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/fansbuy-coupons/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/fansbuy-invite-code/",
+      "host": "fansbuysheets.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/fansbuy-invite-code/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/fansbuy-refund-guide/",
+      "host": "fansbuysheets.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/fansbuy-refund-guide/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/fansbuy-shoes-spreadsheet/",
+      "host": "fansbuysheets.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/fansbuy-shoes-spreadsheet/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/fansbuy-spreadsheet/",
+      "host": "fansbuysheets.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/fansbuy-spreadsheet/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/is-fansbuy-legit/",
+      "host": "fansbuysheets.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/is-fansbuy-legit/",
+      "host_i": 8
+    },
+    {
+      "url": "https://mycnbox.eu/is-mycnbox-legit/",
+      "host": "mycnbox.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/is-mycnbox-legit/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/mycnbox-community/",
+      "host": "mycnbox.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/mycnbox-community/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/mycnbox-coupons/",
+      "host": "mycnbox.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/mycnbox-coupons/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/mycnbox-invite-code/",
+      "host": "mycnbox.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/mycnbox-invite-code/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/mycnbox-refund-guide/",
+      "host": "mycnbox.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/mycnbox-refund-guide/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/mycnbox-shoes-spreadsheet/",
+      "host": "mycnbox.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/mycnbox-shoes-spreadsheet/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/mycnbox-spreadsheet/",
+      "host": "mycnbox.eu",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/mycnbox-spreadsheet/",
+      "host_i": 9
+    },
+    {
+      "url": "https://bestlolobuyspreadsheet.com/coupons/",
+      "host": "bestlolobuyspreadsheet.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons/",
+      "host_i": 10
+    },
+    {
+      "url": "https://ossbuyspreadsheets.org/coupons/",
+      "host": "ossbuyspreadsheets.org",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons/",
+      "host_i": 11
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-coupon-tracker-2026.html",
+      "host": "basetaospreadsheet.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/basetao-coupon-tracker-2026.html",
+      "host_i": 13
+    },
+    {
+      "url": "https://boonspreadsheet.com/coupons/",
+      "host": "boonspreadsheet.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons/",
+      "host_i": 14
+    },
+    {
+      "url": "https://cnshopper.net/cnshopper-coupon-tracker-2026.html",
+      "host": "cnshopper.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/cnshopper-coupon-tracker-2026.html",
+      "host_i": 15
+    },
+    {
+      "url": "https://cnshopper.net/cnshopper-spreadsheet-2026.html",
+      "host": "cnshopper.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/cnshopper-spreadsheet-2026.html",
+      "host_i": 15
+    },
+    {
+      "url": "https://cnshopper.net/is-cnshopper-legit.html",
+      "host": "cnshopper.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/is-cnshopper-legit.html",
+      "host_i": 15
+    },
+    {
+      "url": "https://fishgoospreadsheet.net/coupons.html",
+      "host": "fishgoospreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons.html",
+      "host_i": 16
+    },
+    {
+      "url": "https://goatedspreadsheet.com/coupons/",
+      "host": "goatedspreadsheet.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons/",
+      "host_i": 17
+    },
+    {
+      "url": "https://pikospreadsheets.net/coupons/",
+      "host": "pikospreadsheets.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons/",
+      "host_i": 18
+    },
+    {
+      "url": "https://eastmallspreadsheet.com/coupons/",
+      "host": "eastmallspreadsheet.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons/",
+      "host_i": 20
+    },
+    {
+      "url": "https://fsbuyspreadsheets.com/coupons/",
+      "host": "fsbuyspreadsheets.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons/",
+      "host_i": 21
+    },
+    {
+      "url": "https://gtspreadsheet.com/coupons/",
+      "host": "gtspreadsheet.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons/",
+      "host_i": 22
+    },
+    {
+      "url": "https://itaobuyspreadsheet.net/coupons/",
+      "host": "itaobuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons/",
+      "host_i": 23
+    },
+    {
+      "url": "https://pingubuyspreadsheet.net/coupons/",
+      "host": "pingubuyspreadsheet.net",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons/",
+      "host_i": 24
+    },
+    {
+      "url": "https://spanbuyspreadsheets.com/coupons/",
+      "host": "spanbuyspreadsheets.com",
+      "band": "keep",
+      "band_i": 3,
+      "sub": 0,
+      "path": "/coupons/",
+      "host_i": 25
+    },
+    {
+      "url": "https://cssbuyspreadsheet.eu/faq/",
+      "host": "cssbuyspreadsheet.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/faq/",
+      "host_i": 0
+    },
+    {
+      "url": "https://fansbuy.eu/fansbuy-freight/",
+      "host": "fansbuy.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fansbuy-freight/",
+      "host_i": 1
+    },
+    {
+      "url": "https://fansbuy.eu/fansbuy-qc-guide/",
+      "host": "fansbuy.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fansbuy-qc-guide/",
+      "host_i": 1
+    },
+    {
+      "url": "https://fansbuy.eu/fansbuy-shipping-guide/",
+      "host": "fansbuy.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fansbuy-shipping-guide/",
+      "host_i": 1
+    },
+    {
+      "url": "https://fansbuy.eu/who-we-are/",
+      "host": "fansbuy.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/who-we-are/",
+      "host_i": 1
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-qc-guide/",
+      "host": "kakobuydocs.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/kakobuy-qc-guide/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-shipping-guide/",
+      "host": "kakobuydocs.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/kakobuy-shipping-guide/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-vs-agents/",
+      "host": "kakobuydocs.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/kakobuy-vs-agents/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/kakobuy-vs-cnfans/",
+      "host": "kakobuydocs.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/kakobuy-vs-cnfans/",
+      "host_i": 2
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/is-lovegobuy-safe/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/is-lovegobuy-safe/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/lovegobuy-discord/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/lovegobuy-discord/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/lovegobuy-europe/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/lovegobuy-europe/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/lovegobuy-qc/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/lovegobuy-qc/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/lovegobuy-review/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/lovegobuy-review/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/lovegobuy-shipping-eu/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/lovegobuy-shipping-eu/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/lovegobuy-shipping/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/lovegobuy-shipping/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyguide.com/is-lovegobuy-safe/",
+      "host": "lovegobuyguide.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/is-lovegobuy-safe/",
+      "host_i": 4
+    },
+    {
+      "url": "https://lovegobuyguide.com/lovegobuy-discord/",
+      "host": "lovegobuyguide.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/lovegobuy-discord/",
+      "host_i": 4
+    },
+    {
+      "url": "https://lovegobuyguide.com/lovegobuy-qc/",
+      "host": "lovegobuyguide.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/lovegobuy-qc/",
+      "host_i": 4
+    },
+    {
+      "url": "https://lovegobuyguide.com/lovegobuy-review/",
+      "host": "lovegobuyguide.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/lovegobuy-review/",
+      "host_i": 4
+    },
+    {
+      "url": "https://lovegobuyguide.com/lovegobuy-shipping/",
+      "host": "lovegobuyguide.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/lovegobuy-shipping/",
+      "host_i": 4
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/how-to-buy-from-china-2026.html",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/how-to-buy-from-china-2026.html",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/is-ootdbuy-safe-2026.html",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/is-ootdbuy-safe-2026.html",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-1688-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-1688-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-best-batches-2026/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-best-batches-2026/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-black-cat-batch/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-black-cat-batch/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-budget-finds/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-budget-finds/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-chinareptools-alternative/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-chinareptools-alternative/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-consolidated-shipping/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-consolidated-shipping/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-customs-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-customs-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-ddp-vs-ddu/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-ddp-vs-ddu/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-dead-link-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-dead-link-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-declaration-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-declaration-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-extra-qc-photos/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-extra-qc-photos/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-fashionreps/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-fashionreps/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-first-order-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-first-order-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-google-sheets-alternative/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-google-sheets-alternative/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-haul-weight-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-haul-weight-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-insurance-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-insurance-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-maisonlooks-alternative/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-maisonlooks-alternative/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-nike-tech-fleece/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-nike-tech-fleece/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-payment-methods/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-payment-methods/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-qc-photos/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-qc-photos/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-rehearsal-packaging/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-rehearsal-packaging/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-remove-shoe-box/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-remove-shoe-box/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-repsneakers/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-repsneakers/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-return-exchange/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-return-exchange/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-argentina/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-argentina/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-australia/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-australia/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-austria/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-austria/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-belgium/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-belgium/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-brazil/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-brazil/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-canada/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-canada/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-chile/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-chile/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-colombia/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-colombia/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-croatia/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-croatia/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-czech-republic/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-czech-republic/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-denmark/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-denmark/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-ecuador/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-ecuador/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-egypt/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-egypt/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-eu/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-eu/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-finland/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-finland/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-france/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-france/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-germany/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-germany/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-greece/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-greece/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-hong-kong/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-hong-kong/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-hungary/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-hungary/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-india/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-india/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-indonesia/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-indonesia/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-ireland/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-ireland/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-israel/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-israel/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-italy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-italy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-japan/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-japan/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-lines-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-lines-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-malaysia/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-malaysia/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-mexico/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-mexico/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-morocco/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-morocco/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-netherlands/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-netherlands/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-new-zealand/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-new-zealand/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-nigeria/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-nigeria/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-norway/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-norway/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-pakistan/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-pakistan/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-peru/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-peru/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-philippines/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-philippines/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-poland/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-poland/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-portugal/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-portugal/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-qatar/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-qatar/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-romania/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-romania/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-saudi-arabia/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-saudi-arabia/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-singapore/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-singapore/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-south-africa/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-south-africa/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-south-korea/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-south-korea/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-spain/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-spain/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-sweden/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-sweden/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-switzerland/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-switzerland/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-taiwan/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-taiwan/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-turkey/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-turkey/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-uae/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-uae/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-uk/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-uk/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-ukraine/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-ukraine/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-usa/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-usa/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-shipping-vietnam/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping-vietnam/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-sizing-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-sizing-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-taobao-weidian-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-taobao-weidian-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-tracking-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-tracking-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-trusted-sellers/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-trusted-sellers/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vacuum-seal/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vacuum-seal/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-acbuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-acbuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-allchinabuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-allchinabuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-basetao/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-basetao/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-cnfans/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-cnfans/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-cssbuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-cssbuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-eastmallbuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-eastmallbuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-hagobuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-hagobuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-hoobuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-hoobuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-jadeship/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-jadeship/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-kakobuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-kakobuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-litbuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-litbuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-lovegobuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-lovegobuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-mulebuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-mulebuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-oopbuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-oopbuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-pandabuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-pandabuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-ponybuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-ponybuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-sugargoo/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-sugargoo/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-vs-superbuy/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-vs-superbuy/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-warehouse-storage/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-warehouse-storage/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/ootdbuy-yupoo-guide/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-yupoo-guide/",
+      "host_i": 5
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.net/search/",
+      "host": "ootdbuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/search/",
+      "host_i": 5
+    },
+    {
+      "url": "https://mycnboxhaul.com/accessories/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/accessories/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/bags/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/bags/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/china-shopping-agent/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/china-shopping-agent/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/compare/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/compare/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/compare/kakobuy-alternative/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/compare/kakobuy-alternative/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/electronics/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/electronics/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/headwear/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/headwear/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/hoodies-sweaters/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/hoodies-sweaters/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/jackets-coats/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/jackets-coats/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/other-goods/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/other-goods/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/pants-shorts/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/pants-shorts/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/reviews/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/reviews/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/sneakers-shoes/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sneakers-shoes/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/sports-jerseys/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sports-jerseys/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/t-shirts/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/t-shirts/",
+      "host_i": 6
+    },
+    {
+      "url": "https://mycnboxhaul.com/womens-fashion/",
+      "host": "mycnboxhaul.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/womens-fashion/",
+      "host_i": 6
+    },
+    {
+      "url": "https://hipobuyreview.com/hipobuy-qc-guide/",
+      "host": "hipobuyreview.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/hipobuy-qc-guide/",
+      "host_i": 7
+    },
+    {
+      "url": "https://hipobuyreview.com/hipobuy-shipping-guide/",
+      "host": "hipobuyreview.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/hipobuy-shipping-guide/",
+      "host_i": 7
+    },
+    {
+      "url": "https://fansbuysheets.net/fansbuy-qc-guide/",
+      "host": "fansbuysheets.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fansbuy-qc-guide/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/fansbuy-shipping-guide/",
+      "host": "fansbuysheets.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fansbuy-shipping-guide/",
+      "host_i": 8
+    },
+    {
+      "url": "https://mycnbox.eu/mycnbox-qc-guide/",
+      "host": "mycnbox.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/mycnbox-qc-guide/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/mycnbox-shipping-guide/",
+      "host": "mycnbox.eu",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/mycnbox-shipping-guide/",
+      "host_i": 9
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/accessories/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/accessories/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/bags/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/bags/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/electronics/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/electronics/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/headwear/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/headwear/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/hoodies-sweaters/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/hoodies-sweaters/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/jackets839/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/jackets839/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/jersey/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/jersey/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/other-stuff/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/other-stuff/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/pants-shorts/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/pants-shorts/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/shoes/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/shoes/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/t-shirts/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/t-shirts/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/women/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/women/",
+      "host_i": 12
+    },
+    {
+      "url": "https://basetaospreadsheet.com/accessories/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/accessories/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/bags/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/bags/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-agent/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-agent/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-avis/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-avis/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-calculator/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-calculator/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-discord/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-discord/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-real-shipping-bills-2026.html",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-real-shipping-bills-2026.html",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-reddit/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-reddit/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-referral-code/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-referral-code/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-review/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-review/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-shipping-calculator/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-shipping-calculator/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-shipping-lines-2026.html",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-shipping-lines-2026.html",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-user-reports-2026.html",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-user-reports-2026.html",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/basetao-vs-superbuy/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/basetao-vs-superbuy/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/electronics/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/electronics/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/headwear/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/headwear/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/hoodies-sweaters/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/hoodies-sweaters/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/jackets839/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/jackets839/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/jersey/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/jersey/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/other-stuff/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/other-stuff/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/pants-shorts/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/pants-shorts/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/shoes381/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/shoes381/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/t-shirts/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/t-shirts/",
+      "host_i": 13
+    },
+    {
+      "url": "https://basetaospreadsheet.com/women/",
+      "host": "basetaospreadsheet.com",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/women/",
+      "host_i": 13
+    },
+    {
+      "url": "https://cnshopper.net/cnshopper-faq.html",
+      "host": "cnshopper.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/cnshopper-faq.html",
+      "host_i": 15
+    },
+    {
+      "url": "https://cnshopper.net/cnshopper-real-shipping-bills-2026.html",
+      "host": "cnshopper.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/cnshopper-real-shipping-bills-2026.html",
+      "host_i": 15
+    },
+    {
+      "url": "https://cnshopper.net/cnshopper-shipping-lines-2026.html",
+      "host": "cnshopper.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/cnshopper-shipping-lines-2026.html",
+      "host_i": 15
+    },
+    {
+      "url": "https://cnshopper.net/cnshopper-user-reports-2026.html",
+      "host": "cnshopper.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/cnshopper-user-reports-2026.html",
+      "host_i": 15
+    },
+    {
+      "url": "https://cnshopper.net/fr/avis-cnshopper.html",
+      "host": "cnshopper.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fr/avis-cnshopper.html",
+      "host_i": 15
+    },
+    {
+      "url": "https://fishgoospreadsheet.net/beginner-guide.html",
+      "host": "fishgoospreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/beginner-guide.html",
+      "host_i": 16
+    },
+    {
+      "url": "https://fishgoospreadsheet.net/fishgoo-shipping-lines-2026.html",
+      "host": "fishgoospreadsheet.net",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fishgoo-shipping-lines-2026.html",
+      "host_i": 16
+    },
+    {
+      "url": "https://fansbuy.eu/blog/",
+      "host": "fansbuy.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/",
+      "host_i": 1
+    },
+    {
+      "url": "https://fansbuy.eu/blog/posts/fansbuy-spreadsheet-guide/",
+      "host": "fansbuy.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/fansbuy-spreadsheet-guide/",
+      "host_i": 1
+    },
+    {
+      "url": "https://fansbuy.eu/blog/posts/rep-spreadsheet-fansbuy/",
+      "host": "fansbuy.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/rep-spreadsheet-fansbuy/",
+      "host_i": 1
+    },
+    {
+      "url": "https://kakobuydocs.com/blog/",
+      "host": "kakobuydocs.com",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/blog/posts/best-kakobuy-shoes-2026/",
+      "host": "kakobuydocs.com",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/best-kakobuy-shoes-2026/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/blog/posts/kakobuy-customs-guide/",
+      "host": "kakobuydocs.com",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/kakobuy-customs-guide/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/blog/posts/kakobuy-qc-rejection-guide/",
+      "host": "kakobuydocs.com",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/kakobuy-qc-rejection-guide/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/blog/posts/kakobuy-sizing-guide/",
+      "host": "kakobuydocs.com",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/kakobuy-sizing-guide/",
+      "host_i": 2
+    },
+    {
+      "url": "https://kakobuydocs.com/blog/posts/why-kakobuy-package-delayed/",
+      "host": "kakobuydocs.com",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/why-kakobuy-package-delayed/",
+      "host_i": 2
+    },
+    {
+      "url": "https://hipobuyreview.com/blog/",
+      "host": "hipobuyreview.com",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/",
+      "host_i": 7
+    },
+    {
+      "url": "https://fansbuysheets.net/blog/",
+      "host": "fansbuysheets.net",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/blog/posts/fansbuy-agent-comparison/",
+      "host": "fansbuysheets.net",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/fansbuy-agent-comparison/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/blog/posts/fansbuy-customs-guide/",
+      "host": "fansbuysheets.net",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/fansbuy-customs-guide/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/blog/posts/fansbuy-fashionreps-guide/",
+      "host": "fansbuysheets.net",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/fansbuy-fashionreps-guide/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/blog/posts/fansbuy-reviews-2026/",
+      "host": "fansbuysheets.net",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/fansbuy-reviews-2026/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/blog/posts/fansbuy-shipping-fees/",
+      "host": "fansbuysheets.net",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/fansbuy-shipping-fees/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/blog/posts/fansbuy-spreadsheet-guide/",
+      "host": "fansbuysheets.net",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/fansbuy-spreadsheet-guide/",
+      "host_i": 8
+    },
+    {
+      "url": "https://fansbuysheets.net/blog/posts/rep-spreadsheet-fansbuy/",
+      "host": "fansbuysheets.net",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/rep-spreadsheet-fansbuy/",
+      "host_i": 8
+    },
+    {
+      "url": "https://mycnbox.eu/blog/",
+      "host": "mycnbox.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/blog/posts/best-mycnbox-shoes-2026/",
+      "host": "mycnbox.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/best-mycnbox-shoes-2026/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/blog/posts/mycnbox-customs-guide/",
+      "host": "mycnbox.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/mycnbox-customs-guide/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/blog/posts/mycnbox-qc-rejection-guide/",
+      "host": "mycnbox.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/mycnbox-qc-rejection-guide/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/blog/posts/mycnbox-reddit-rewards/",
+      "host": "mycnbox.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/mycnbox-reddit-rewards/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/blog/posts/mycnbox-sizing-guide/",
+      "host": "mycnbox.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/mycnbox-sizing-guide/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/blog/posts/mycnbox-spreadsheet-guide/",
+      "host": "mycnbox.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/mycnbox-spreadsheet-guide/",
+      "host_i": 9
+    },
+    {
+      "url": "https://mycnbox.eu/blog/posts/why-mycnbox-package-delayed/",
+      "host": "mycnbox.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/why-mycnbox-package-delayed/",
+      "host_i": 9
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/affiliate-disclosure/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/contact/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/partner-disclosure/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/partner-disclosure/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/privacy-policy/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.eu/terms/",
+      "host": "lovegobuyspreadsheet.eu",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/",
+      "host_i": 3
+    },
+    {
+      "url": "https://lovegobuyguide.com/affiliate-disclosure/",
+      "host": "lovegobuyguide.com",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/",
+      "host_i": 4
+    },
+    {
+      "url": "https://lovegobuyguide.com/contact/",
+      "host": "lovegobuyguide.com",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/",
+      "host_i": 4
+    },
+    {
+      "url": "https://lovegobuyguide.com/partner-disclosure/",
+      "host": "lovegobuyguide.com",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/partner-disclosure/",
+      "host_i": 4
+    },
+    {
+      "url": "https://lovegobuyguide.com/privacy-policy/",
+      "host": "lovegobuyguide.com",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/",
+      "host_i": 4
+    },
+    {
+      "url": "https://lovegobuyguide.com/terms/",
+      "host": "lovegobuyguide.com",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/",
+      "host_i": 4
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/contact/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/privacy/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy/",
+      "host_i": 12
+    },
+    {
+      "url": "https://hipobuyspreadsheet.net/terms/",
+      "host": "hipobuyspreadsheet.net",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/",
+      "host_i": 12
     }
   ]
 }
