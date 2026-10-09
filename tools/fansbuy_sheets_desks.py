@@ -283,9 +283,14 @@ def put() -> None:
         f"'{bak}/assets'",
     )
     img_dir = OUT / HOST / "overlay" / "assets" / "images"
-    for img in sorted(img_dir.glob("*")):
-        sftp.put(str(img), f"/www/wwwroot/{HOST}/assets/images/{img.name}")
-        print("PUT image", img.name, img.stat().st_size)
+    for img in sorted(img_dir.rglob("*")):
+        if not img.is_file():
+            continue
+        rel = img.relative_to(img_dir).as_posix()
+        remote_img = f"/www/wwwroot/{HOST}/assets/images/{rel}"
+        _run(client, f"mkdir -p '{Path(remote_img).parent}'")
+        sftp.put(str(img), remote_img)
+        print("PUT image", rel, img.stat().st_size)
     off_dir = OUT / HOST / "overlay" / "assets" / "official"
     for img in sorted(off_dir.glob("*")):
         sftp.put(str(img), f"/www/wwwroot/{HOST}/assets/official/{img.name}")
