@@ -43,7 +43,6 @@ CHROME = (
 
 RANKED_CMS = (
     ("/mycnbox-spreadsheet/", 20000),
-    ("/mycnbox-spreadsheet-2026/", 20000),
     ("/mycnbox-shipping-guide/", 20000),
     ("/mycnbox-refund-guide/", 15000),
     ("/how-to-use-mycnbox/", 15000),
@@ -56,11 +55,11 @@ KEEP_REDIRECTS = (
     ("/mycnbox-shipping-guide", "/mycnbox-shipping-guide/"),
     ("/mycnbox-refund-guide", "/mycnbox-refund-guide/"),
     ("/how-to-use-mycnbox", "/how-to-use-mycnbox/"),
+    ("/mycnbox-spreadsheet-2026/", "/mycnbox-spreadsheet/"),
 )
 
 INNER_TITLES = {
     "/mycnbox-spreadsheet/": "MyCNBox Spreadsheet 2026",
-    "/mycnbox-spreadsheet-2026/": "MyCNBox Spreadsheet 2026",
 }
 
 THIN_404 = ("/coupons/", "/shipping/", "/start/")
