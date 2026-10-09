@@ -336,11 +336,17 @@ def patch_static(html: str, key: str, spec: dict) -> str:
     return html
 
 
+SKIP_UNIQUE_CMS = frozenset({"bestlolobuyspreadsheet.com", "lolospreadsheet.com"})
+
+
 def generate() -> None:
     assert_dest_packs_unique()
     blobs = {}
     specs = {**HUBS}
     for key, spec in specs.items():
+        if spec["host"] in SKIP_UNIQUE_CMS:
+            print("SKIP unique CMS", spec["host"])
+            continue
         src = OUT / spec["host"] / "live-base" / "index.html"
         html = patch_static(src.read_text(encoding="utf-8"), key, spec)
         dest = OUT / spec["host"] / "overlay" / "index.html"
@@ -349,6 +355,9 @@ def generate() -> None:
         inner = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
         blobs[key] = inner.group(0) if inner else ""
         print("hub", key, spec["host"], "bytes", len(html.encode("utf-8")))
+    if not blobs:
+        print("generate skipped all unique CMS hubs")
+        return
     fps = {k: dest_local_pack(specs[k].get("dest"))["fingerprint"] for k in blobs}
     for key, inner in blobs.items():
         fp = fps[key]
@@ -432,6 +441,9 @@ def put() -> None:
         "# gsc-redirects slash aliases kept; /spreadsheet/ must 200 the unique file.\n"
     )
     for spec in HUBS.values():
+        if spec["host"] in SKIP_UNIQUE_CMS:
+            print("SKIP unique PUT", spec["host"])
+            continue
         local = OUT / spec["host"] / "overlay" / "index.html"
         remote = f"/www/wwwroot/{spec['host']}/index.html"
         raw = local.read_text(encoding="utf-8")
