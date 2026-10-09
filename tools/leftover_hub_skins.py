@@ -508,6 +508,7 @@ SKIP_UNIQUE = frozenset({
     "itaobuyspreadsheet.net",
     "pingubuyspreadsheet.net",
     "spanbuyspreadsheets.com",
+    "mycnbox.eu",
 })
 
 
