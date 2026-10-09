@@ -31,6 +31,8 @@
 :root{--acc:#FF6F10;--acd:#d95c0c;--acl:#fff7ed;--ink:#0f172a;--muted:#475569;--f:'Poppins',system-ui,sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--f);background:#f8fafc;color:var(--ink);font-size:15px;line-height:1.7}
+.skip{position:absolute;left:-999px;width:1px;height:1px;overflow:hidden}
+.skip:focus{left:16px;top:16px;width:auto;height:auto;padding:8px 12px;background:#fff;z-index:200}
 a{color:var(--acc);text-decoration:none}
 a:hover{text-decoration:underline;text-underline-offset:3px}
 img{max-width:100%;display:block}
