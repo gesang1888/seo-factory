@@ -4,6 +4,7 @@
 Does not overwrite unique PHP/CMS (wemimi.net, hubbuy.net, hipobuyspreadsheet.net,
 fashionrepsspreadsheet.com, CSSBuy PHP AT/ES/FR/IT/NL, HipoBuy gold dests).
 Does not skin twins that already 301 into a dest or unique hub.
+Does not leftover-PUT SKIP_UNIQUE Spreadsheet 2026 CMS (Aug 2026 duplicate-site).
 Ranked inner HTML is wrapped, not replaced with a 5KB overlay.
 """
 from __future__ import annotations
@@ -462,6 +463,31 @@ LEFTOVER = {
     ),
 }
 
+# Unique Spreadsheet 2026 CMS already live on these leftover hosts.
+# leftover generate/put would clone the dest-country skin onto them
+# (Google Aug 2026 duplicate-site). Same-agent sisters that are still dest
+# skins stay in LEFTOVER (not here): fansbuy.eu, mycnboxhaul.com, …
+SKIP_UNIQUE = frozenset({
+    "basetaospreadsheet.com",
+    "boonspreadsheet.com",
+    "cnshopper.net",
+    "fishgoospreadsheet.net",
+    "ossbuyspreadsheets.org",
+    "goatedspreadsheet.com",
+    "pikospreadsheets.net",
+    "lolospreadsheet.com",
+    "bestlolobuyspreadsheet.com",
+    "eastmallspreadsheet.com",
+    "fsbuyspreadsheets.com",
+    "gtspreadsheet.com",
+    "itaobuyspreadsheet.net",
+    "pingubuyspreadsheet.net",
+    "spanbuyspreadsheets.com",
+    "mycnbox.eu",
+    "fansbuysheets.net",
+})
+
+
 # Origin path that already has a usable logo file, copied onto leftover hosts.
 LOGO_SRC = {
     "MyCNBox": ("mycnbox.de", "assets/images/mycnbox-logo.png"),
@@ -496,6 +522,9 @@ def generate() -> None:
     if not CMS_CSS.is_file():
         raise SystemExit("missing desk-cms.css")
     for host, d in LEFTOVER.items():
+        if host in SKIP_UNIQUE:
+            print("SKIP unique CMS", host)
+            continue
         html = build_home(host)
         if "Georgia" in html:
             raise SystemExit(f"{host}: Georgia leak")
@@ -562,6 +591,9 @@ def put_homes() -> None:
     print(skin._run(client, f"mkdir -p '{bak}'"))
     sftp = client.open_sftp()
     for host, d in LEFTOVER.items():
+        if host in SKIP_UNIQUE:
+            print("SKIP unique PUT", host)
+            continue
         remote_root = f"/www/wwwroot/{host}"
         ag = AGENTS[d["agent"]]
         logo_rel = ag["logo"].lstrip("/")
@@ -616,13 +648,16 @@ def put_inners() -> None:
     print(skin._run(client, f"mkdir -p '{bak}'"))
     rows = []
     for host in LEFTOVER:
+        if host in SKIP_UNIQUE:
+            print("SKIP unique inventory", host)
+            continue
         row = inventory_host(client, host)
         rows.append(row)
         print("INV", host, row["count"])
     inv_path = Path("/tmp/leftover-inners.json")
     inv_path.write_text(json.dumps(rows, indent=2), encoding="utf-8")
     snips = inner.build_snips()
-    leftover_snips = {h: snips[h] for h in LEFTOVER if h in snips}
+    leftover_snips = {h: snips[h] for h in LEFTOVER if h in snips and h not in SKIP_UNIQUE}
     snip_path = Path("/tmp/leftover-inner-chrome-snips.json")
     snip_path.write_text(json.dumps(leftover_snips), encoding="utf-8")
     sftp = client.open_sftp()
