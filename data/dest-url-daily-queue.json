@@ -1,0 +1,3588 @@
+{
+  "built": "2026-10-07T12:51:28Z",
+  "remaining_n": 447,
+  "by_band": {
+    "other": 292,
+    "blog": 45,
+    "legal": 110
+  },
+  "remaining": [
+    {
+      "url": "https://litbuyspreadsheet.me.uk/litbuy-finds/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-finds/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/litbuy-haul/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-haul/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/litbuy-reddit-2026.html",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-reddit-2026.html"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/litbuy-review/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-review/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/litbuy-shipping-uk/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-shipping-uk/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/litbuy-shipping/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-shipping/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/royal-mail-customs-uk/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/royal-mail-customs-uk/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/uk-buyer-guides/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/uk-buyer-guides/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/vat-on-imports-uk-2026/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/vat-on-imports-uk-2026/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/who-we-are/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/who-we-are/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/ca-buyer-guides/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ca-buyer-guides/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/canada-post-customs/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/canada-post-customs/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/cbsa-import-canada/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/cbsa-import-canada/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/gst-hst-import-canada/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/gst-hst-import-canada/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/litbuy-finds/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-finds/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/litbuy-haul/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-haul/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/litbuy-reddit-2026.html",
+      "host": "litbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-reddit-2026.html"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/litbuy-review/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-review/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/litbuy-shipping-canada/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-shipping-canada/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/litbuy-shipping/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-shipping/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/who-we-are/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/who-we-are/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/aduana-correos-espana/",
+      "host": "litbuyspreadsheets.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/aduana-correos-espana/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/guias-espana/",
+      "host": "litbuyspreadsheets.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/guias-espana/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/iva-importacion-espana/",
+      "host": "litbuyspreadsheets.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/iva-importacion-espana/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/litbuy-finds/",
+      "host": "litbuyspreadsheets.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-finds/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/litbuy-haul/",
+      "host": "litbuyspreadsheets.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-haul/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/litbuy-reddit-2026.html",
+      "host": "litbuyspreadsheets.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-reddit-2026.html"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/litbuy-review/",
+      "host": "litbuyspreadsheets.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-review/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/litbuy-shipping/",
+      "host": "litbuyspreadsheets.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-shipping/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/novedades/",
+      "host": "litbuyspreadsheets.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/novedades/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/btw-import-nederland/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/btw-import-nederland/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/de/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/de/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/douane-nederland-dhl/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/douane-nederland-dhl/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/en/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/en/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/es/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/es/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/fr/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fr/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/gidsen-nederland/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/gidsen-nederland/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/ideal-betalen-litbuy/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ideal-betalen-litbuy/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/it/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/it/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/litbuy-finds/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-finds/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/litbuy-haul/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-haul/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/litbuy-reddit-2026.html",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-reddit-2026.html"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/litbuy-review/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-review/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/litbuy-shipping/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-shipping/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/litbuy-verzendkosten-nederland/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-verzendkosten-nederland/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/nl/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/nl/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.nl/pt/",
+      "host": "litbuyspreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/pt/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/de-minimis-us-litbuy/",
+      "host": "litbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/de-minimis-us-litbuy/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/duties-taxes-usps-fedex/",
+      "host": "litbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/duties-taxes-usps-fedex/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/litbuy-finds/",
+      "host": "litbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-finds/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/litbuy-haul/",
+      "host": "litbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-haul/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/litbuy-reddit-2026.html",
+      "host": "litbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-reddit-2026.html"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/litbuy-review/",
+      "host": "litbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-review/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/litbuy-shipping-times-us/",
+      "host": "litbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-shipping-times-us/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/litbuy-shipping/",
+      "host": "litbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-shipping/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/us-buyer-guides/",
+      "host": "litbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/us-buyer-guides/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/us-customs-declaration-guide/",
+      "host": "litbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/us-customs-declaration-guide/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/who-we-are/",
+      "host": "litbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/who-we-are/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/colissimo-douane-france/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/colissimo-douane-france/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/commander-avec-litbuy/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/commander-avec-litbuy/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/declaration-douane-litbuy/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/declaration-douane-litbuy/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/guides-france/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/guides-france/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/litbuy-finds/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-finds/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/litbuy-haul/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-haul/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/litbuy-reddit-2026.html",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-reddit-2026.html"
+    },
+    {
+      "url": "https://litspreadsheet.fr/litbuy-review/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-review/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/litbuy-saisie-douane/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-saisie-douane/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/litbuy-shipping/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/litbuy-shipping/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/livraison-litbuy-france/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/livraison-litbuy-france/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/mentions-legales-conformite-fr/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/mentions-legales-conformite-fr/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/tva-import-france/",
+      "host": "litspreadsheet.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/tva-import-france/"
+    },
+    {
+      "url": "https://lovegobuy.it/lovegobuy-shipping/",
+      "host": "lovegobuy.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/lovegobuy-shipping/"
+    },
+    {
+      "url": "https://lovegobuy.it/novita/",
+      "host": "lovegobuy.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/novita/"
+    },
+    {
+      "url": "https://lovegobuyspreadsheet.es/novedades/",
+      "host": "lovegobuyspreadsheet.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/novedades/"
+    },
+    {
+      "url": "https://mulebuyspreadsheets.es/novedades/",
+      "host": "mulebuyspreadsheets.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/novedades/"
+    },
+    {
+      "url": "https://mycnbox.co.uk/mycnbox-shipping/",
+      "host": "mycnbox.co.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/mycnbox-shipping/"
+    },
+    {
+      "url": "https://mycnbox.de/mycnbox-shipping/",
+      "host": "mycnbox.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/mycnbox-shipping/"
+    },
+    {
+      "url": "https://mycnbox.es/mycnbox-shipping/",
+      "host": "mycnbox.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/mycnbox-shipping/"
+    },
+    {
+      "url": "https://mycnbox.es/novedades/",
+      "host": "mycnbox.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/novedades/"
+    },
+    {
+      "url": "https://mycnbox.fr/mycnbox-shipping/",
+      "host": "mycnbox.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/mycnbox-shipping/"
+    },
+    {
+      "url": "https://mycnbox.nl/mycnbox-shipping/",
+      "host": "mycnbox.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/mycnbox-shipping/"
+    },
+    {
+      "url": "https://mycnbox.pl/aktualnosci/",
+      "host": "mycnbox.pl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/aktualnosci/"
+    },
+    {
+      "url": "https://mycnbox.pl/mycnbox-shipping/",
+      "host": "mycnbox.pl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/mycnbox-shipping/"
+    },
+    {
+      "url": "https://mycnbox.pl/o-nas/",
+      "host": "mycnbox.pl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/o-nas/"
+    },
+    {
+      "url": "https://mycnbox.pl/pomoc/",
+      "host": "mycnbox.pl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/pomoc/"
+    },
+    {
+      "url": "https://oopbuyspreadsheets.it/oopbuy-freight/",
+      "host": "oopbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/oopbuy-freight/"
+    },
+    {
+      "url": "https://ootdbuy.nl/ootdbuy-shipping/",
+      "host": "ootdbuy.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping/"
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.ca/ootdbuy-shipping/",
+      "host": "ootdbuyspreadsheet.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping/"
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.co.uk/ootdbuy-shipping/",
+      "host": "ootdbuyspreadsheet.co.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping/"
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.de/ootdbuy-shipping/",
+      "host": "ootdbuyspreadsheet.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping/"
+    },
+    {
+      "url": "https://ootdbuyspreadsheet.us/ootdbuy-shipping/",
+      "host": "ootdbuyspreadsheet.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ootdbuy-shipping/"
+    },
+    {
+      "url": "https://orientdig.at/orientdig-freight/",
+      "host": "orientdig.at",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-freight/"
+    },
+    {
+      "url": "https://orientdig.es/orientdig-freight/",
+      "host": "orientdig.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-freight/"
+    },
+    {
+      "url": "https://orientdig.fr/orientdig-freight/",
+      "host": "orientdig.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-freight/"
+    },
+    {
+      "url": "https://orientdig.us/orientdig-freight/",
+      "host": "orientdig.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-freight/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.de/orientdig-freight/",
+      "host": "orientdigspreadsheet.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-freight/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.it/is-orientdig-safe/",
+      "host": "orientdigspreadsheet.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/is-orientdig-safe/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.it/orientdig-finds/",
+      "host": "orientdigspreadsheet.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-finds/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.it/orientdig-freight/",
+      "host": "orientdigspreadsheet.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-freight/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.it/orientdig-qc/",
+      "host": "orientdigspreadsheet.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-qc/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.it/orientdig-reddit/",
+      "host": "orientdigspreadsheet.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-reddit/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.it/orientdig-review/",
+      "host": "orientdigspreadsheet.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-review/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/cnfans-to-orientdig/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/cnfans-to-orientdig/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/is-orientdig-safe/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/is-orientdig-safe/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/orientdig-finds/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-finds/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/orientdig-freight/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-freight/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/orientdig-qc/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-qc/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/orientdig-review/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-review/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/orientdig-trustpilot/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-trustpilot/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/how-long-does-orientdig-take-to-ship/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/how-long-does-orientdig-take-to-ship/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/is-orientdig-safe/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/is-orientdig-safe/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/orientdig-finds/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-finds/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/orientdig-freight/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-freight/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/orientdig-qc/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-qc/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/orientdig-review/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/orientdig-review/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/what-is-orientdig/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/what-is-orientdig/"
+    },
+    {
+      "url": "https://sugargoo.at/kaeuferguides-at/",
+      "host": "sugargoo.at",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/kaeuferguides-at/"
+    },
+    {
+      "url": "https://sugargoo.at/sugargoo-finds/",
+      "host": "sugargoo.at",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-finds/"
+    },
+    {
+      "url": "https://sugargoo.at/sugargoo-freight/",
+      "host": "sugargoo.at",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-freight/"
+    },
+    {
+      "url": "https://sugargoo.at/sugargoo-haul/",
+      "host": "sugargoo.at",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-haul/"
+    },
+    {
+      "url": "https://sugargoo.at/sugargoo-review/",
+      "host": "sugargoo.at",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-review/"
+    },
+    {
+      "url": "https://sugargoo.at/zoll-einfuhr-oesterreich/",
+      "host": "sugargoo.at",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/zoll-einfuhr-oesterreich/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.au/au-buyer-guides/",
+      "host": "sugargoospreadsheet.au",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/au-buyer-guides/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.au/gst-import-australia/",
+      "host": "sugargoospreadsheet.au",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/gst-import-australia/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.au/sugargoo-finds/",
+      "host": "sugargoospreadsheet.au",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-finds/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.au/sugargoo-freight/",
+      "host": "sugargoospreadsheet.au",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-freight/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.au/sugargoo-haul/",
+      "host": "sugargoospreadsheet.au",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-haul/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.au/sugargoo-review/",
+      "host": "sugargoospreadsheet.au",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-review/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.au/sugargoo-shipping-australia/",
+      "host": "sugargoospreadsheet.au",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-shipping-australia/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.au/who-we-are/",
+      "host": "sugargoospreadsheet.au",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/who-we-are/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.es/aduana-iva-espana/",
+      "host": "sugargoospreadsheet.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/aduana-iva-espana/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.es/guias-comprador-es/",
+      "host": "sugargoospreadsheet.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/guias-comprador-es/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.es/novedades/",
+      "host": "sugargoospreadsheet.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/novedades/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.es/sugargoo-finds/",
+      "host": "sugargoospreadsheet.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-finds/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.es/sugargoo-freight/",
+      "host": "sugargoospreadsheet.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-freight/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.es/sugargoo-haul/",
+      "host": "sugargoospreadsheet.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-haul/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.es/sugargoo-review/",
+      "host": "sugargoospreadsheet.es",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-review/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/de/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/de/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/ecommerce-vat-reform-eu/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ecommerce-vat-reform-eu/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/en/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/en/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/es/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/es/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/eu-buyer-guides/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/eu-buyer-guides/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/fr/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fr/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/ioss-import-vat-eu/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ioss-import-vat-eu/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/it/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/it/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/nl/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/nl/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/pt/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/pt/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/sugargoo-finds/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-finds/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/sugargoo-freight/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-freight/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/sugargoo-haul/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-haul/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/sugargoo-review/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-review/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/sugargoo-shipping-eu/",
+      "host": "sugargoospreadsheets.de",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-shipping-eu/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/douane-tva-belgique/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/douane-tva-belgique/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/fr/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fr/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/fr/sugargoo-finds/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fr/sugargoo-finds/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/fr/sugargoo-haul/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fr/sugargoo-haul/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/fr/sugargoo-review/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fr/sugargoo-review/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/gids-btw-import-belgie/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/gids-btw-import-belgie/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/gids-ontvangen-bpost-belgie/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/gids-ontvangen-bpost-belgie/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/gidsen-belgie/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/gidsen-belgie/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/accessories/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/accessories/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/bags/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/bags/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/electronics/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/electronics/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/headwear/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/headwear/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/home/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/home/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/hoodies-sweaters/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/hoodies-sweaters/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/jackets/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/jackets/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/jersey/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/jersey/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/other-goods/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/other-goods/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/pants-shorts/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/pants-shorts/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/search/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/search/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/shoes/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/shoes/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/t-shirts/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/t-shirts/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/go/women/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/go/women/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/guides-acheteur-be/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/guides-acheteur-be/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/sugargoo-finds/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-finds/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/sugargoo-freight/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-freight/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/sugargoo-haul/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-haul/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/sugargoo-news/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-news/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/sugargoo-review/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-review/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/btw-import-nederland/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/btw-import-nederland/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/de/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/de/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/en/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/en/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/es/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/es/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/fr/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/fr/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/it/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/it/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/nl-kopersgidsen/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/nl-kopersgidsen/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/nl/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/nl/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/pt/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/pt/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/sugargoo-finds/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-finds/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/sugargoo-freight/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-freight/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/sugargoo-haul/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-haul/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.nl/sugargoo-review/",
+      "host": "sugargoospreadsheets.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-review/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/royal-mail-customs-uk/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/royal-mail-customs-uk/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/sugargoo-finds/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-finds/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/sugargoo-freight/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-freight/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/sugargoo-haul/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-haul/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/sugargoo-review/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-review/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/sugargoo-shipping-uk/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-shipping-uk/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/uk-buyer-guides/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/uk-buyer-guides/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/vat-on-imports-uk-2026/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/vat-on-imports-uk-2026/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/who-we-are/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/who-we-are/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/cbp-declared-value-us/",
+      "host": "sugargoospreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/cbp-declared-value-us/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/de-minimis-us-sugargoo/",
+      "host": "sugargoospreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/de-minimis-us-sugargoo/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/sugargoo-finds/",
+      "host": "sugargoospreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-finds/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/sugargoo-freight/",
+      "host": "sugargoospreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-freight/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/sugargoo-haul/",
+      "host": "sugargoospreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-haul/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/sugargoo-review/",
+      "host": "sugargoospreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-review/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/sugargoo-shipping-times-us/",
+      "host": "sugargoospreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-shipping-times-us/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/us-buyer-guides/",
+      "host": "sugargoospreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/us-buyer-guides/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/who-we-are/",
+      "host": "sugargoospreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/who-we-are/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/ca-buyer-guides/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/ca-buyer-guides/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/cbsa-import-canada/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/cbsa-import-canada/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/gst-landed-cost-canada/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/gst-landed-cost-canada/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/sugargoo-finds/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-finds/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/sugargoo-freight/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-freight/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/sugargoo-haul/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-haul/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/sugargoo-review/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-review/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/sugargoo-shipping-canada/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/sugargoo-shipping-canada/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/who-we-are/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/who-we-are/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/is-superbuy-safe/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/is-superbuy-safe/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-announcement-ems-preferential-lines-service-suspension-notice/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-ems-preferential-lines-service-suspension-notice/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-announcement-eu-ends-150-parcel-tariff-exemption-from-1-july-2026/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-eu-ends-150-parcel-tariff-exemption-from-1-july-2026/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-announcement-eu-usa-duty-free-economy-air-mail-price-adjust/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-eu-usa-duty-free-economy-air-mail-price-adjust/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-announcement-hk-warehouse-dhl-shipping-rate-adjustment/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-hk-warehouse-dhl-shipping-rate-adjustment/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-announcement-mid-year-mega-sale-preview-10-off-international-shipping/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-mid-year-mega-sale-preview-10-off-international-shipping/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-announcement-new-top-up-credit-card-google-pay-apple-pay/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-new-top-up-credit-card-google-pay-apple-pay/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-announcement-sf-small-packet-us-routes-service-suspended/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-sf-small-packet-us-routes-service-suspended/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-announcement-superbuy-affiliate-program-4-strategies-to-earn-higher-b/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-superbuy-affiliate-program-4-strategies-to-earn-higher-b/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-announcement-warning-websites-similar-to-superbuy-com-official-site/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-warning-websites-similar-to-superbuy-com-official-site/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-announcement-yunexpress-eu-us-duty-free-air-lines-rate-adjustment/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-yunexpress-eu-us-duty-free-air-lines-rate-adjustment/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-announcements/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcements/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-canada/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-canada/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-discord/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-discord/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-finds/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-finds/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-freight/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-freight/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-qc/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-qc/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-review/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-review/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-shipping-calculator/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-shipping-calculator/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-shipping-to-canada/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-shipping-to-canada/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-shipping/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-shipping/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-tracking/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-tracking/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/superbuy-warehouse/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-warehouse/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/is-superbuy-safe/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/is-superbuy-safe/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-announcement-ems-preferential-lines-service-suspension-notice/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-ems-preferential-lines-service-suspension-notice/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-announcement-eu-ends-150-parcel-tariff-exemption-from-1-july-2026/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-eu-ends-150-parcel-tariff-exemption-from-1-july-2026/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-announcement-eu-usa-duty-free-economy-air-mail-price-adjust/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-eu-usa-duty-free-economy-air-mail-price-adjust/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-announcement-hk-warehouse-dhl-shipping-rate-adjustment/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-hk-warehouse-dhl-shipping-rate-adjustment/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-announcement-mid-year-mega-sale-preview-10-off-international-shipping/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-mid-year-mega-sale-preview-10-off-international-shipping/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-announcement-new-top-up-credit-card-google-pay-apple-pay/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-new-top-up-credit-card-google-pay-apple-pay/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-announcement-sf-small-packet-us-routes-service-suspended/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-sf-small-packet-us-routes-service-suspended/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-announcement-superbuy-affiliate-program-4-strategies-to-earn-higher-b/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-superbuy-affiliate-program-4-strategies-to-earn-higher-b/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-announcement-warning-websites-similar-to-superbuy-com-official-site/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-warning-websites-similar-to-superbuy-com-official-site/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-announcement-yunexpress-eu-us-duty-free-air-lines-rate-adjustment/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-yunexpress-eu-us-duty-free-air-lines-rate-adjustment/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-announcements/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcements/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-discord/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-discord/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-finds/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-finds/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-freight/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-freight/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-italia/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-italia/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-qc/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-qc/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-recensioni/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-recensioni/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-review/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-review/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/superbuy-shipping/",
+      "host": "superbuyspreadsheets.it",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-shipping/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/is-superbuy-safe/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/is-superbuy-safe/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-announcement-ems-preferential-lines-service-suspension-notice/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-ems-preferential-lines-service-suspension-notice/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-announcement-eu-ends-150-parcel-tariff-exemption-from-1-july-2026/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-eu-ends-150-parcel-tariff-exemption-from-1-july-2026/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-announcement-eu-usa-duty-free-economy-air-mail-price-adjust/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-eu-usa-duty-free-economy-air-mail-price-adjust/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-announcement-hk-warehouse-dhl-shipping-rate-adjustment/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-hk-warehouse-dhl-shipping-rate-adjustment/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-announcement-mid-year-mega-sale-preview-10-off-international-shipping/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-mid-year-mega-sale-preview-10-off-international-shipping/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-announcement-new-top-up-credit-card-google-pay-apple-pay/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-new-top-up-credit-card-google-pay-apple-pay/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-announcement-sf-small-packet-us-routes-service-suspended/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-sf-small-packet-us-routes-service-suspended/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-announcement-superbuy-affiliate-program-4-strategies-to-earn-higher-b/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-superbuy-affiliate-program-4-strategies-to-earn-higher-b/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-announcement-warning-websites-similar-to-superbuy-com-official-site/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-warning-websites-similar-to-superbuy-com-official-site/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-announcement-yunexpress-eu-us-duty-free-air-lines-rate-adjustment/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcement-yunexpress-eu-us-duty-free-air-lines-rate-adjustment/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-announcements/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-announcements/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-discord/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-discord/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-finds/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-finds/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-freight/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-freight/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-qc/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-qc/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-review/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-review/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-shipping-calculator/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-shipping-calculator/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-shipping-us/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-shipping-us/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-shipping/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-shipping/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-tracking/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-tracking/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/superbuy-usa/",
+      "host": "superbuyspreadsheets.us",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/superbuy-usa/"
+    },
+    {
+      "url": "https://usfansspreadsheet.co.uk/usfans-freight/",
+      "host": "usfansspreadsheet.co.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/usfans-freight/"
+    },
+    {
+      "url": "https://usfansspreadsheet.co.uk/usfans-qc-guide/",
+      "host": "usfansspreadsheet.co.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/usfans-qc-guide/"
+    },
+    {
+      "url": "https://usfansspreadsheet.co.uk/usfans-shipping-guide/",
+      "host": "usfansspreadsheet.co.uk",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/usfans-shipping-guide/"
+    },
+    {
+      "url": "https://usfansspreadsheet.nl/usfans-freight/",
+      "host": "usfansspreadsheet.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/usfans-freight/"
+    },
+    {
+      "url": "https://usfansspreadsheet.nl/usfans-qc-guide/",
+      "host": "usfansspreadsheet.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/usfans-qc-guide/"
+    },
+    {
+      "url": "https://usfansspreadsheet.nl/usfans-shipping-guide/",
+      "host": "usfansspreadsheet.nl",
+      "band": "other",
+      "band_i": 4,
+      "sub": 0,
+      "path": "/usfans-shipping-guide/"
+    },
+    {
+      "url": "https://acbuyspreadsheets.ca/blog/",
+      "host": "acbuyspreadsheets.ca",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/"
+    },
+    {
+      "url": "https://acbuyspreadsheets.ca/blog/posts/acbuy-customs-guide/",
+      "host": "acbuyspreadsheets.ca",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/acbuy-customs-guide/"
+    },
+    {
+      "url": "https://acbuyspreadsheets.ca/blog/posts/acbuy-points-coupons/",
+      "host": "acbuyspreadsheets.ca",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/acbuy-points-coupons/"
+    },
+    {
+      "url": "https://acbuyspreadsheets.ca/blog/posts/acbuy-reviews-2026/",
+      "host": "acbuyspreadsheets.ca",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/acbuy-reviews-2026/"
+    },
+    {
+      "url": "https://acbuyspreadsheets.ca/blog/posts/acbuy-shipping-tracking/",
+      "host": "acbuyspreadsheets.ca",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/acbuy-shipping-tracking/"
+    },
+    {
+      "url": "https://acbuyspreadsheets.ca/blog/posts/acbuy-spreadsheet-guide/",
+      "host": "acbuyspreadsheets.ca",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/acbuy-spreadsheet-guide/"
+    },
+    {
+      "url": "https://acbuyspreadsheets.ca/blog/posts/acbuy-vs-allchinabuy/",
+      "host": "acbuyspreadsheets.ca",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/acbuy-vs-allchinabuy/"
+    },
+    {
+      "url": "https://acbuyspreadsheets.ca/blog/posts/best-acbuy-spreadsheet/",
+      "host": "acbuyspreadsheets.ca",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/best-acbuy-spreadsheet/"
+    },
+    {
+      "url": "https://allchinabuyspreadsheet.nl/blog/",
+      "host": "allchinabuyspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/"
+    },
+    {
+      "url": "https://allchinabuyspreadsheet.nl/blog/posts/allchinabuy-customs-guide/",
+      "host": "allchinabuyspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/allchinabuy-customs-guide/"
+    },
+    {
+      "url": "https://allchinabuyspreadsheet.nl/blog/posts/allchinabuy-reviews-2026/",
+      "host": "allchinabuyspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/allchinabuy-reviews-2026/"
+    },
+    {
+      "url": "https://allchinabuyspreadsheet.nl/blog/posts/allchinabuy-spreadsheet-guide/",
+      "host": "allchinabuyspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/allchinabuy-spreadsheet-guide/"
+    },
+    {
+      "url": "https://allchinabuyspreadsheet.nl/blog/posts/allchinabuy-vs-ootdbuy/",
+      "host": "allchinabuyspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/allchinabuy-vs-ootdbuy/"
+    },
+    {
+      "url": "https://allchinabuyspreadsheet.nl/blog/posts/nl-haul-consolidation-tips/",
+      "host": "allchinabuyspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/nl-haul-consolidation-tips/"
+    },
+    {
+      "url": "https://allchinabuyspreadsheet.nl/blog/posts/postnl-btw-import-nl/",
+      "host": "allchinabuyspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/postnl-btw-import-nl/"
+    },
+    {
+      "url": "https://allchinabuyspreadsheet.nl/blog/posts/taobao-spreadsheet-allchinabuy/",
+      "host": "allchinabuyspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/taobao-spreadsheet-allchinabuy/"
+    },
+    {
+      "url": "https://fansbuy.eu/blog/",
+      "host": "fansbuy.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/"
+    },
+    {
+      "url": "https://fansbuy.eu/blog/posts/fansbuy-spreadsheet-guide/",
+      "host": "fansbuy.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/fansbuy-spreadsheet-guide/"
+    },
+    {
+      "url": "https://fansbuy.eu/blog/posts/rep-spreadsheet-fansbuy/",
+      "host": "fansbuy.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/rep-spreadsheet-fansbuy/"
+    },
+    {
+      "url": "https://hipobuy.at/blog/",
+      "host": "hipobuy.at",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/"
+    },
+    {
+      "url": "https://hipobuy.at/blog/posts/best-hipobuy-shoes-2026/",
+      "host": "hipobuy.at",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/best-hipobuy-shoes-2026/"
+    },
+    {
+      "url": "https://hipobuy.at/blog/posts/hipobuy-customs-guide/",
+      "host": "hipobuy.at",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/hipobuy-customs-guide/"
+    },
+    {
+      "url": "https://hipobuy.at/blog/posts/hipobuy-qc-rejection-guide/",
+      "host": "hipobuy.at",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/hipobuy-qc-rejection-guide/"
+    },
+    {
+      "url": "https://hipobuy.at/blog/posts/hipobuy-sizing-guide/",
+      "host": "hipobuy.at",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/hipobuy-sizing-guide/"
+    },
+    {
+      "url": "https://hipobuy.at/blog/posts/why-hipobuy-package-delayed/",
+      "host": "hipobuy.at",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/why-hipobuy-package-delayed/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.co.uk/blog/",
+      "host": "hipobuyspreadsheet.co.uk",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.eu/blog/",
+      "host": "hipobuyspreadsheet.eu",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.nl/blog/",
+      "host": "hipobuyspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.us/blog/",
+      "host": "hipobuyspreadsheet.us",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/"
+    },
+    {
+      "url": "https://usfansspreadsheet.co.uk/blog/posts/best-usfans-spreadsheet/",
+      "host": "usfansspreadsheet.co.uk",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/best-usfans-spreadsheet/"
+    },
+    {
+      "url": "https://usfansspreadsheet.co.uk/blog/posts/is-usfans-legit/",
+      "host": "usfansspreadsheet.co.uk",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/is-usfans-legit/"
+    },
+    {
+      "url": "https://usfansspreadsheet.co.uk/blog/posts/usfans-customs-guide/",
+      "host": "usfansspreadsheet.co.uk",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-customs-guide/"
+    },
+    {
+      "url": "https://usfansspreadsheet.co.uk/blog/posts/usfans-reddit-community/",
+      "host": "usfansspreadsheet.co.uk",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-reddit-community/"
+    },
+    {
+      "url": "https://usfansspreadsheet.co.uk/blog/posts/usfans-reviews-2026/",
+      "host": "usfansspreadsheet.co.uk",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-reviews-2026/"
+    },
+    {
+      "url": "https://usfansspreadsheet.co.uk/blog/posts/usfans-shipping-cheaper/",
+      "host": "usfansspreadsheet.co.uk",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-shipping-cheaper/"
+    },
+    {
+      "url": "https://usfansspreadsheet.co.uk/blog/posts/usfans-spreadsheet-guide/",
+      "host": "usfansspreadsheet.co.uk",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-spreadsheet-guide/"
+    },
+    {
+      "url": "https://usfansspreadsheet.co.uk/blog/posts/usfans-vs-cnfans/",
+      "host": "usfansspreadsheet.co.uk",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-vs-cnfans/"
+    },
+    {
+      "url": "https://usfansspreadsheet.nl/blog/posts/best-usfans-spreadsheet/",
+      "host": "usfansspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/best-usfans-spreadsheet/"
+    },
+    {
+      "url": "https://usfansspreadsheet.nl/blog/posts/is-usfans-legit/",
+      "host": "usfansspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/is-usfans-legit/"
+    },
+    {
+      "url": "https://usfansspreadsheet.nl/blog/posts/usfans-customs-guide/",
+      "host": "usfansspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-customs-guide/"
+    },
+    {
+      "url": "https://usfansspreadsheet.nl/blog/posts/usfans-reddit-community/",
+      "host": "usfansspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-reddit-community/"
+    },
+    {
+      "url": "https://usfansspreadsheet.nl/blog/posts/usfans-reviews-2026/",
+      "host": "usfansspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-reviews-2026/"
+    },
+    {
+      "url": "https://usfansspreadsheet.nl/blog/posts/usfans-shipping-cheaper/",
+      "host": "usfansspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-shipping-cheaper/"
+    },
+    {
+      "url": "https://usfansspreadsheet.nl/blog/posts/usfans-spreadsheet-guide/",
+      "host": "usfansspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-spreadsheet-guide/"
+    },
+    {
+      "url": "https://usfansspreadsheet.nl/blog/posts/usfans-vs-cnfans/",
+      "host": "usfansspreadsheet.nl",
+      "band": "blog",
+      "band_i": 5,
+      "sub": 0,
+      "path": "/blog/posts/usfans-vs-cnfans/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.co.uk/privacy-policy/",
+      "host": "hipobuyspreadsheet.co.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.co.uk/terms/",
+      "host": "hipobuyspreadsheet.co.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.eu/privacy-policy/",
+      "host": "hipobuyspreadsheet.eu",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.eu/terms/",
+      "host": "hipobuyspreadsheet.eu",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.nl/privacy-policy/",
+      "host": "hipobuyspreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.nl/terms/",
+      "host": "hipobuyspreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.us/privacy-policy/",
+      "host": "hipobuyspreadsheet.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://hipobuyspreadsheet.us/terms/",
+      "host": "hipobuyspreadsheet.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://kakobuy.fi/affiliate-disclosure/",
+      "host": "kakobuy.fi",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/"
+    },
+    {
+      "url": "https://kakobuy.fi/contact/",
+      "host": "kakobuy.fi",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/"
+    },
+    {
+      "url": "https://kakobuy.fi/privacy-policy/",
+      "host": "kakobuy.fi",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://kakospreadsheet.ca/affiliate-disclosure/",
+      "host": "kakospreadsheet.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/"
+    },
+    {
+      "url": "https://kakospreadsheet.ca/contact/",
+      "host": "kakospreadsheet.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/"
+    },
+    {
+      "url": "https://kakospreadsheet.ca/privacy-policy/",
+      "host": "kakospreadsheet.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://kakospreadsheet.ca/terms/",
+      "host": "kakospreadsheet.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://kakospreadsheet.es/affiliate-disclosure/",
+      "host": "kakospreadsheet.es",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/"
+    },
+    {
+      "url": "https://kakospreadsheet.es/contact/",
+      "host": "kakospreadsheet.es",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/"
+    },
+    {
+      "url": "https://kakospreadsheet.es/partner-disclosure/",
+      "host": "kakospreadsheet.es",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/partner-disclosure/"
+    },
+    {
+      "url": "https://kakospreadsheet.es/privacy-policy/",
+      "host": "kakospreadsheet.es",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://kakospreadsheet.es/terms/",
+      "host": "kakospreadsheet.es",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://kakospreadsheet.fr/affiliate-disclosure/",
+      "host": "kakospreadsheet.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/"
+    },
+    {
+      "url": "https://kakospreadsheet.fr/contact/",
+      "host": "kakospreadsheet.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/"
+    },
+    {
+      "url": "https://kakospreadsheet.fr/partner-disclosure/",
+      "host": "kakospreadsheet.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/partner-disclosure/"
+    },
+    {
+      "url": "https://kakospreadsheet.fr/privacy-policy/",
+      "host": "kakospreadsheet.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://kakospreadsheet.fr/terms/",
+      "host": "kakospreadsheet.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://kakospreadsheet.nl/affiliate-disclosure/",
+      "host": "kakospreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/"
+    },
+    {
+      "url": "https://kakospreadsheet.nl/contact/",
+      "host": "kakospreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/"
+    },
+    {
+      "url": "https://kakospreadsheet.nl/partner-disclosure/",
+      "host": "kakospreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/partner-disclosure/"
+    },
+    {
+      "url": "https://kakospreadsheet.nl/privacy-policy/",
+      "host": "kakospreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://kakospreadsheet.nl/terms/",
+      "host": "kakospreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://litbuy.at/cookie-policy/",
+      "host": "litbuy.at",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://litbuy.at/dsgvo-litbuy-oesterreich/",
+      "host": "litbuy.at",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/dsgvo-litbuy-oesterreich/"
+    },
+    {
+      "url": "https://litbuy.at/privacy-policy/",
+      "host": "litbuy.at",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://litbuy.at/terms/",
+      "host": "litbuy.at",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.it/cookie-policy/",
+      "host": "litbuyspreadsheet.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.it/privacy-policy/",
+      "host": "litbuyspreadsheet.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.it/terms/",
+      "host": "litbuyspreadsheet.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/cookie-policy/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/privacy-policy/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://litbuyspreadsheet.me.uk/terms/",
+      "host": "litbuyspreadsheet.me.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/cookie-policy/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/privacy-policy/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.ca/terms/",
+      "host": "litbuyspreadsheets.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/cookie-policy/",
+      "host": "litbuyspreadsheets.es",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/privacy-policy/",
+      "host": "litbuyspreadsheets.es",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.es/terms/",
+      "host": "litbuyspreadsheets.es",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/cookie-policy/",
+      "host": "litbuyspreadsheets.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/privacy-policy/",
+      "host": "litbuyspreadsheets.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://litbuyspreadsheets.us/terms/",
+      "host": "litbuyspreadsheets.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/cookie-policy/",
+      "host": "litspreadsheet.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/privacy-policy/",
+      "host": "litspreadsheet.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://litspreadsheet.fr/terms/",
+      "host": "litspreadsheet.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.de/terms/",
+      "host": "orientdigspreadsheet.de",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.it/affiliate-disclosure/",
+      "host": "orientdigspreadsheet.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.it/contact/",
+      "host": "orientdigspreadsheet.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.it/partner-disclosure/",
+      "host": "orientdigspreadsheet.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/partner-disclosure/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.it/privacy-policy/",
+      "host": "orientdigspreadsheet.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.it/terms/",
+      "host": "orientdigspreadsheet.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/affiliate-disclosure/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/contact/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/partner-disclosure/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/partner-disclosure/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/privacy-policy/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.nl/terms/",
+      "host": "orientdigspreadsheet.nl",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/affiliate-disclosure/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/contact/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/partner-disclosure/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/partner-disclosure/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/privacy-policy/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://orientdigspreadsheet.uk/terms/",
+      "host": "orientdigspreadsheet.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://sugargoo.at/cookie-policy/",
+      "host": "sugargoo.at",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://sugargoo.at/privacy-policy/",
+      "host": "sugargoo.at",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://sugargoo.at/terms/",
+      "host": "sugargoo.at",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.au/cookie-policy/",
+      "host": "sugargoospreadsheet.au",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.au/privacy-policy/",
+      "host": "sugargoospreadsheet.au",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.au/terms/",
+      "host": "sugargoospreadsheet.au",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.es/cookie-policy/",
+      "host": "sugargoospreadsheet.es",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.es/privacy-policy/",
+      "host": "sugargoospreadsheet.es",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheet.es/terms/",
+      "host": "sugargoospreadsheet.es",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/cookie-policy/",
+      "host": "sugargoospreadsheets.de",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/privacy-policy/",
+      "host": "sugargoospreadsheets.de",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.de/terms/",
+      "host": "sugargoospreadsheets.de",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/cookie-policy/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/fr/cookie-policy/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/fr/cookie-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/fr/privacy-policy/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/fr/privacy-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/fr/terms/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/fr/terms/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/privacy-policy/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.fr/terms/",
+      "host": "sugargoospreadsheets.fr",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/cookie-policy/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/privacy-policy/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.uk/terms/",
+      "host": "sugargoospreadsheets.uk",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/cookie-policy/",
+      "host": "sugargoospreadsheets.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/privacy-policy/",
+      "host": "sugargoospreadsheets.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets.us/terms/",
+      "host": "sugargoospreadsheets.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/cookie-policy/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/cookie-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/privacy-policy/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://sugargoospreadsheets2026.ca/terms/",
+      "host": "sugargoospreadsheets2026.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/affiliate-disclosure/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/contact/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/partner-disclosure/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/partner-disclosure/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/privacy-policy/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.ca/terms/",
+      "host": "superbuyspreadsheets.ca",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/affiliate-disclosure/",
+      "host": "superbuyspreadsheets.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/contact/",
+      "host": "superbuyspreadsheets.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/partner-disclosure/",
+      "host": "superbuyspreadsheets.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/partner-disclosure/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/privacy-policy/",
+      "host": "superbuyspreadsheets.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.it/terms/",
+      "host": "superbuyspreadsheets.it",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/affiliate-disclosure/",
+      "host": "superbuyspreadsheets.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/affiliate-disclosure/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/contact/",
+      "host": "superbuyspreadsheets.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/contact/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/partner-disclosure/",
+      "host": "superbuyspreadsheets.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/partner-disclosure/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/privacy-policy/",
+      "host": "superbuyspreadsheets.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/privacy-policy/"
+    },
+    {
+      "url": "https://superbuyspreadsheets.us/terms/",
+      "host": "superbuyspreadsheets.us",
+      "band": "legal",
+      "band_i": 6,
+      "sub": 0,
+      "path": "/terms/"
+    }
+  ],
+  "updated": "2026-10-10T07:16:21Z"
+}
