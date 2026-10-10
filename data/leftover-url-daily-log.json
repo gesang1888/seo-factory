@@ -1,3 +1,53 @@
 {
-  "days": []
+  "days": [
+    {
+      "day": "2026-10-10",
+      "index_ok_n": 26,
+      "index_fail_n": 0,
+      "quota_stopped": false,
+      "by_band": {
+        "home": 26
+      },
+      "index_ok": [
+        "https://cssbuyspreadsheet.eu/",
+        "https://fansbuy.eu/",
+        "https://kakobuydocs.com/",
+        "https://lovegobuyspreadsheet.eu/",
+        "https://lovegobuyguide.com/",
+        "https://ootdbuyspreadsheet.net/",
+        "https://mycnboxhaul.com/",
+        "https://hipobuyreview.com/",
+        "https://fansbuysheets.net/",
+        "https://mycnbox.eu/",
+        "https://bestlolobuyspreadsheet.com/",
+        "https://ossbuyspreadsheets.org/",
+        "https://hipobuyspreadsheet.net/",
+        "https://basetaospreadsheet.com/",
+        "https://boonspreadsheet.com/",
+        "https://cnshopper.net/",
+        "https://fishgoospreadsheet.net/",
+        "https://goatedspreadsheet.com/",
+        "https://pikospreadsheets.net/",
+        "https://lolospreadsheet.com/",
+        "https://eastmallspreadsheet.com/",
+        "https://fsbuyspreadsheets.com/",
+        "https://gtspreadsheet.com/",
+        "https://itaobuyspreadsheet.net/",
+        "https://pingubuyspreadsheet.net/",
+        "https://spanbuyspreadsheets.com/"
+      ],
+      "index_fail": [],
+      "remaining_n": 572,
+      "remaining_by_band": {
+        "start": 13,
+        "desk": 55,
+        "keep": 272,
+        "other": 193,
+        "blog": 26,
+        "legal": 13
+      },
+      "waiting": false,
+      "inner_start": "2026-10-15"
+    }
+  ]
 }
