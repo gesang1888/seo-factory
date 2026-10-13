@@ -1,0 +1,514 @@
+{
+  "put_ok_n": 84,
+  "put_fail": [],
+  "gsc_ok_n": 84,
+  "gsc_fail": [],
+  "gsc_missing": [],
+  "skip": [],
+  "hosts": [
+    {
+      "host": "acbuyspreadsheets.ca",
+      "n": 25,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "acbuyspreadsheets.nl",
+      "n": 26,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "allchinabuyspreadsheet.ca",
+      "n": 27,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "allchinabuyspreadsheet.nl",
+      "n": 25,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "allchinabuyspreadsheets.co.uk",
+      "n": 27,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "bbdbuy.ca",
+      "n": 26,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "bbdbuy.it",
+      "n": 27,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "bbdbuy.uk",
+      "n": 27,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "bbdbuy.us",
+      "n": 30,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "bbdbuyspreadsheet.de",
+      "n": 28,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "cssbuy.at",
+      "n": 8,
+      "desk": 6,
+      "sitemap_was": 404
+    },
+    {
+      "host": "cssbuy.es",
+      "n": 8,
+      "desk": 7,
+      "sitemap_was": 404
+    },
+    {
+      "host": "cssbuy.fr",
+      "n": 8,
+      "desk": 7,
+      "sitemap_was": 404
+    },
+    {
+      "host": "cssbuy.it",
+      "n": 8,
+      "desk": 6,
+      "sitemap_was": 404
+    },
+    {
+      "host": "cssbuy.nl",
+      "n": 8,
+      "desk": 7,
+      "sitemap_was": 404
+    },
+    {
+      "host": "cssbuyspreadsheet.ca",
+      "n": 27,
+      "desk": 12,
+      "sitemap_was": 200
+    },
+    {
+      "host": "cssbuyspreadsheet.uk",
+      "n": 27,
+      "desk": 12,
+      "sitemap_was": 200
+    },
+    {
+      "host": "cssbuyspreadsheets.de",
+      "n": 34,
+      "desk": 11,
+      "sitemap_was": 200
+    },
+    {
+      "host": "cssbuyspreadsheets.us",
+      "n": 27,
+      "desk": 12,
+      "sitemap_was": 200
+    },
+    {
+      "host": "fansbuy.co.uk",
+      "n": 27,
+      "desk": 6,
+      "sitemap_was": 200
+    },
+    {
+      "host": "fansbuy.eu",
+      "n": 19,
+      "desk": 6,
+      "sitemap_was": 200
+    },
+    {
+      "host": "fansbuy.nl",
+      "n": 27,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "fansbuyspreadsheet.de",
+      "n": 27,
+      "desk": 6,
+      "sitemap_was": 200
+    },
+    {
+      "host": "hipobuy.at",
+      "n": 23,
+      "desk": 6,
+      "sitemap_was": 200
+    },
+    {
+      "host": "hipobuyspreadsheet.co.uk",
+      "n": 22,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "hipobuyspreadsheet.eu",
+      "n": 22,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "hipobuyspreadsheet.nl",
+      "n": 22,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "hipobuyspreadsheet.us",
+      "n": 22,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "joyagoospreadsheets.de",
+      "n": 42,
+      "desk": 12,
+      "sitemap_was": 200
+    },
+    {
+      "host": "kakobuy.fi",
+      "n": 21,
+      "desk": 5,
+      "sitemap_was": 200
+    },
+    {
+      "host": "kakospreadsheet.ca",
+      "n": 24,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "kakospreadsheet.es",
+      "n": 27,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "kakospreadsheet.fr",
+      "n": 27,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "kakospreadsheet.nl",
+      "n": 25,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "litbuy.at",
+      "n": 22,
+      "desk": 6,
+      "sitemap_was": 200
+    },
+    {
+      "host": "litbuyspreadsheet.it",
+      "n": 21,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "litbuyspreadsheet.me.uk",
+      "n": 24,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "litbuyspreadsheets.ca",
+      "n": 24,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "litbuyspreadsheets.es",
+      "n": 21,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "litbuyspreadsheets.nl",
+      "n": 26,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "litbuyspreadsheets.us",
+      "n": 24,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "litspreadsheet.fr",
+      "n": 26,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "lovegobuy.it",
+      "n": 20,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "lovegobuy.nl",
+      "n": 19,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "lovegobuyspreadsheet.ca",
+      "n": 29,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "lovegobuyspreadsheet.es",
+      "n": 29,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "mulebuy.fr",
+      "n": 30,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "mulebuyspreadsheets.co.uk",
+      "n": 29,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "mulebuyspreadsheets.es",
+      "n": 30,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "mulebuyspreadsheets.us",
+      "n": 31,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "mycnbox.co.uk",
+      "n": 26,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "mycnbox.de",
+      "n": 26,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "mycnbox.es",
+      "n": 26,
+      "desk": 6,
+      "sitemap_was": 200
+    },
+    {
+      "host": "mycnbox.fr",
+      "n": 26,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "mycnbox.nl",
+      "n": 26,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "mycnbox.pl",
+      "n": 26,
+      "desk": 4,
+      "sitemap_was": 200
+    },
+    {
+      "host": "oopbuyspreadsheets.it",
+      "n": 27,
+      "desk": 6,
+      "sitemap_was": 200
+    },
+    {
+      "host": "ootdbuy.nl",
+      "n": 33,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "ootdbuyspreadsheet.ca",
+      "n": 33,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "ootdbuyspreadsheet.co.uk",
+      "n": 33,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "ootdbuyspreadsheet.de",
+      "n": 33,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "ootdbuyspreadsheet.us",
+      "n": 33,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "orientdig.at",
+      "n": 25,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "orientdig.es",
+      "n": 25,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "orientdig.fr",
+      "n": 26,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "orientdig.us",
+      "n": 25,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "orientdigspreadsheet.de",
+      "n": 26,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "orientdigspreadsheet.it",
+      "n": 25,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "orientdigspreadsheet.nl",
+      "n": 25,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "orientdigspreadsheet.uk",
+      "n": 24,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "sugargoo.at",
+      "n": 20,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "sugargoospreadsheet.au",
+      "n": 21,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "sugargoospreadsheet.es",
+      "n": 20,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "sugargoospreadsheets.de",
+      "n": 29,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "sugargoospreadsheets.fr",
+      "n": 48,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "sugargoospreadsheets.nl",
+      "n": 22,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "sugargoospreadsheets.uk",
+      "n": 22,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "sugargoospreadsheets.us",
+      "n": 22,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "sugargoospreadsheets2026.ca",
+      "n": 22,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "superbuyspreadsheets.ca",
+      "n": 41,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "superbuyspreadsheets.it",
+      "n": 40,
+      "desk": 8,
+      "sitemap_was": 200
+    },
+    {
+      "host": "superbuyspreadsheets.us",
+      "n": 40,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "usfansspreadsheet.co.uk",
+      "n": 27,
+      "desk": 7,
+      "sitemap_was": 200
+    },
+    {
+      "host": "usfansspreadsheet.nl",
+      "n": 27,
+      "desk": 7,
+      "sitemap_was": 200
+    }
+  ]
+}
