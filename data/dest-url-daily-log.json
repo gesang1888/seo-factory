@@ -1338,6 +1338,67 @@
       "remaining_by_band": {
         "legal": 47
       }
+    },
+    {
+      "day": "2026-10-13",
+      "index_ok_n": 47,
+      "index_fail_n": 0,
+      "quota_stopped": false,
+      "by_band": {
+        "legal": 47
+      },
+      "index_ok": [
+        "https://orientdigspreadsheet.uk/affiliate-disclosure/",
+        "https://orientdigspreadsheet.uk/contact/",
+        "https://orientdigspreadsheet.uk/partner-disclosure/",
+        "https://orientdigspreadsheet.uk/privacy-policy/",
+        "https://orientdigspreadsheet.uk/terms/",
+        "https://sugargoo.at/cookie-policy/",
+        "https://sugargoo.at/privacy-policy/",
+        "https://sugargoo.at/terms/",
+        "https://sugargoospreadsheet.au/cookie-policy/",
+        "https://sugargoospreadsheet.au/privacy-policy/",
+        "https://sugargoospreadsheet.au/terms/",
+        "https://sugargoospreadsheet.es/cookie-policy/",
+        "https://sugargoospreadsheet.es/privacy-policy/",
+        "https://sugargoospreadsheet.es/terms/",
+        "https://sugargoospreadsheets.de/cookie-policy/",
+        "https://sugargoospreadsheets.de/privacy-policy/",
+        "https://sugargoospreadsheets.de/terms/",
+        "https://sugargoospreadsheets.fr/cookie-policy/",
+        "https://sugargoospreadsheets.fr/fr/cookie-policy/",
+        "https://sugargoospreadsheets.fr/fr/privacy-policy/",
+        "https://sugargoospreadsheets.fr/fr/terms/",
+        "https://sugargoospreadsheets.fr/privacy-policy/",
+        "https://sugargoospreadsheets.fr/terms/",
+        "https://sugargoospreadsheets.uk/cookie-policy/",
+        "https://sugargoospreadsheets.uk/privacy-policy/",
+        "https://sugargoospreadsheets.uk/terms/",
+        "https://sugargoospreadsheets.us/cookie-policy/",
+        "https://sugargoospreadsheets.us/privacy-policy/",
+        "https://sugargoospreadsheets.us/terms/",
+        "https://sugargoospreadsheets2026.ca/cookie-policy/",
+        "https://sugargoospreadsheets2026.ca/privacy-policy/",
+        "https://sugargoospreadsheets2026.ca/terms/",
+        "https://superbuyspreadsheets.ca/affiliate-disclosure/",
+        "https://superbuyspreadsheets.ca/contact/",
+        "https://superbuyspreadsheets.ca/partner-disclosure/",
+        "https://superbuyspreadsheets.ca/privacy-policy/",
+        "https://superbuyspreadsheets.ca/terms/",
+        "https://superbuyspreadsheets.it/affiliate-disclosure/",
+        "https://superbuyspreadsheets.it/contact/",
+        "https://superbuyspreadsheets.it/partner-disclosure/",
+        "https://superbuyspreadsheets.it/privacy-policy/",
+        "https://superbuyspreadsheets.it/terms/",
+        "https://superbuyspreadsheets.us/affiliate-disclosure/",
+        "https://superbuyspreadsheets.us/contact/",
+        "https://superbuyspreadsheets.us/partner-disclosure/",
+        "https://superbuyspreadsheets.us/privacy-policy/",
+        "https://superbuyspreadsheets.us/terms/"
+      ],
+      "index_fail": [],
+      "remaining_n": 0,
+      "remaining_by_band": {}
     }
   ]
 }
