@@ -88,6 +88,26 @@
         "blog": 26,
         "legal": 13
       }
+    },
+    {
+      "day": "2026-10-13",
+      "waiting": true,
+      "inner_start": "2026-10-15",
+      "index_ok_n": 0,
+      "index_fail_n": 0,
+      "quota_stopped": false,
+      "by_band": {},
+      "index_ok": [],
+      "index_fail": [],
+      "remaining_n": 572,
+      "remaining_by_band": {
+        "start": 13,
+        "desk": 55,
+        "keep": 272,
+        "other": 193,
+        "blog": 26,
+        "legal": 13
+      }
     }
   ]
 }
