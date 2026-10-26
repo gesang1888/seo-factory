@@ -1,11 +1,22 @@
 # AllChinaBuy / ACBuy Spreadsheet — llms.txt
-# Updated: 2026-10-26
+# Updated: 2026-10-26 · platform_opt=allchinabuy-platform-20261026
 Site: https://allchina-buy.com
-Description: Independent AllChinaBuy (ACBuy) spreadsheet with 10,000+ live product links, coupons, legit notes and QC guidance. Not the checkout app.
+Description: Independent AllChinaBuy (ACBuy) Independent Index · 11,300+ live product links, coupons-truth, finds-dataset. Not the checkout app.
 ## Key pages
 - https://allchina-buy.com/
 - https://allchina-buy.com/allchinabuy-spreadsheet/
 - https://allchina-buy.com/allchinabuy-coupons/
+- https://allchina-buy.com/finds-dataset/
+- https://allchina-buy.com/data/finds-dataset.json
+- https://allchina-buy.com/data/coupons-truth.json
 - https://allchina-buy.com/is-allchinabuy-legit/
 - https://allchina-buy.com/allchinabuy-qc-guide/
 - https://allchina-buy.com/acbuy-vs-allchinabuy/
+## Keep desks
+- https://acbuyspreadsheets.nl/ (NL Douane)
+- https://allchinabuyspreadsheets.co.uk/ (UK HMRC)
+## Redirect-target only (do not sunset)
+- https://acbuyspreadsheets.ca/
+## Twins already 301 (do not revive)
+- allchinabuyspreadsheet.nl → acbuyspreadsheets.nl
+- allchinabuyspreadsheet.ca → acbuyspreadsheets.ca

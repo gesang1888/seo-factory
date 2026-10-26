@@ -1,0 +1,77 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "AllChinaBuy / ACBuy",
+  "host": "allchina-buy.com",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T17:49:31Z",
+  "row_count": 11365,
+  "row_count_display": "11,300+",
+  "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Brand spreadsheet SERP owns the homepage Independent Index.",
+  "platform_opt": "allchinabuy-platform-20261026",
+  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-26",
+  "endpoints": {
+    "html": "https://allchina-buy.com/finds-dataset/",
+    "json": "https://allchina-buy.com/data/finds-dataset.json",
+    "coupons_truth": "https://allchina-buy.com/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/allchinabuy/",
+    "ranked_spreadsheet": "https://allchina-buy.com/allchinabuy-spreadsheet/"
+  },
+  "keep_desks": [
+    "acbuyspreadsheets.nl",
+    "allchinabuyspreadsheets.co.uk"
+  ],
+  "redirect_target_protect": [
+    "acbuyspreadsheets.ca"
+  ],
+  "twins_301": {
+    "allchinabuyspreadsheet.nl": "acbuyspreadsheets.nl",
+    "allchinabuyspreadsheet.ca": "acbuyspreadsheets.ca"
+  },
+  "sample_skus": [
+    {
+      "sku": "wd_7869511728",
+      "title": "Essential ballet-pink soft luggage (sample hit)",
+      "category": "HOODIE",
+      "price_cny": "668",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "allchinabuy-spreadsheet",
+      "title": "Ranked hub W2C spreadsheet catalog",
+      "category": "catalog",
+      "hub_path": "/allchinabuy-spreadsheet/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "allchinabuy-coupons",
+      "title": "ACBUY5 coupon tracker",
+      "category": "coupons",
+      "hub_path": "/allchinabuy-coupons/",
+      "last_verified": "2026-10-26"
+    }
+  ],
+  "category_proofs": [
+    {
+      "category": "sneakers / shoes",
+      "proof": "Typesense + /allchinabuy-spreadsheet-shoes/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "category": "hoodie",
+      "proof": "w2clinks catalog wall + sample SKU",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "category": "coupons",
+      "proof": "/allchinabuy-coupons/ + coupons-truth.json",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
