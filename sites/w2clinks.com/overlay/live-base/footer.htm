@@ -1,0 +1,46 @@
+<footer class="site-footer">
+    <div class="w2c-container footer-inner">
+        <div class="footer-brand">
+            <a class="logo logo-drop" href="/" aria-label="w2clinks">
+              <img class="logo-drop-icon" src="/public/static/w2c/brand/w2clinks-mark.svg?v=20" width="28" height="28" alt="">
+              <span class="logo-drop-wordmark">w2c<span>links</span></span>
+            </a>
+            <p data-i18n="footer_tagline">Curated agent spreadsheet for smarter W2C finds.</p>
+        </div>
+        <div class="footer-links">
+            <a href="/spreadsheet/" data-i18n="explore_spreadsheet">Spreadsheet</a>
+            <a href="/categories/" data-i18n="nav_categories">Categories</a>
+            <a href="/agents/" data-i18n="explore_agents">Agents</a>
+            <a href="/compare/">Compare</a>
+            <a href="/track/" data-i18n="explore_track">Track</a>
+            <a href="/shipping-calculator/" data-i18n="explore_shipping">Shipping</a>
+            <a href="/brands/" data-i18n="explore_brands">Brands</a>
+            <a href="/news/" data-i18n="explore_blog">Blog</a>
+            <a href="/guide/" data-i18n="explore_guide">Guide</a>
+            <a href="/privacy/" data-i18n="footer_privacy">Privacy</a>
+            <a href="/terms/" data-i18n="footer_terms">Terms</a>
+        </div>
+    </div>
+</footer>
+<nav class="w2c-tabbar" aria-label="Mobile">
+  <a href="/"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></a>
+  <a href="/spreadsheet/"><i class="fas fa-th-large" aria-hidden="true"></i><span>Sheet</span></a>
+  <a href="/categories/"><i class="fas fa-layer-group" aria-hidden="true"></i><span>Shop</span></a>
+  <a href="/agents/"><i class="fas fa-store" aria-hidden="true"></i><span>Agents</span></a>
+  <a href="/track/"><i class="fas fa-box" aria-hidden="true"></i><span>Track</span></a>
+</nav>
+{eyou:include file="float-dock.htm" /}
+<script>
+(function () {
+  var path = location.pathname || "/";
+  document.querySelectorAll(".w2c-tabbar a").forEach(function (a) {
+    var href = a.getAttribute("href") || "";
+    if (href === "/" && (path === "/" || path === "")) a.classList.add("is-active");
+    else if (href !== "/" && path.indexOf(href) === 0) a.classList.add("is-active");
+  });
+})();
+</script>
+<script src="/template/pc/w2c-i18n.js?v=47"></script>
+<script src="/template/pc/w2c-images.js?v=3"></script>
+<script src="/template/pc/w2c-agents.js?v=32"></script>
+<script src="/template/pc/w2c.js?v=51"></script>

@@ -1,0 +1,57 @@
+{
+  "brand": "W2C Links",
+  "host": "w2clinks.com",
+  "role": "directory_qc_hub",
+  "last_verified": "2026-10-26",
+  "verify_on": "Agent checkout preview on the agent you book (this hub never redeems)",
+  "update_cadence": "Re-verify agent fees/codes before each paid order; JSON stamped at least weekly",
+  "platform_opt": "w2c-platform-20261026",
+  "serp_note": "GSC money is navigational w2clinks on homepage + /spreadsheet/ + /categories/. This host is the Independent Index directory \u2014 not an agent coupon redeemer.",
+  "offers": [
+    {
+      "id": "w2c-no-hub-coupon",
+      "type": "directory_note",
+      "label": "No frozen invite/coupon on w2clinks.com",
+      "code": null,
+      "value_claim": "W2C Links is a product-link aggregator. Coupons and invite credits live on the agent you select in the header switcher \u2014 confirm live on that agent dashboard.",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Agent promotions move daily; never trust a screenshot on this TLD",
+      "applies_to": "Informational only",
+      "exclusions": [
+        "Never redeem on w2clinks.com",
+        "This hub does not take payment"
+      ],
+      "source": "platform_opt directory policy",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "w2c-agent-compare",
+      "type": "agent_routing",
+      "label": "Compare agent fees / deep links",
+      "code": null,
+      "value_claim": "Use /agents/ and /compare/ on this host, then open /spreadsheet/{agent}/ for the same Independent Index filtered to that agent.",
+      "status": "confirm_live",
+      "expires_on": null,
+      "applies_to": "Directory navigation",
+      "exclusions": [
+        "Fee tables on agents change; re-check before parcel"
+      ],
+      "source": "/agents/ /compare/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "w2c-usfans-deeplink",
+      "type": "agent_routing",
+      "label": "USFans category deep-link lander",
+      "code": null,
+      "value_claim": "USFans category pages often deep-link into this directory (/spreadsheet/usfans/). Keep Independent Index proofs here; do not invent a separate USFans sheet on this TLD.",
+      "status": "confirm_live",
+      "expires_on": null,
+      "applies_to": "Cross-brand directory traffic",
+      "exclusions": [],
+      "source": "portfolio USFans \u2192 W2C deep-link pattern",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

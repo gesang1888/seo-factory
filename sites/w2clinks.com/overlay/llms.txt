@@ -1,0 +1,33 @@
+# W2C Links — Independent Index · 11,300+ (Directory & QC Hub)
+> Multi-agent product-link aggregator with category rails, QC context, and citable dataset proofs. Not a Google Sheet clone. Not an agent checkout.
+
+## Primary URLs
+- Home: https://w2clinks.com/
+- Directory / spreadsheet: https://w2clinks.com/spreadsheet/
+- Categories: https://w2clinks.com/categories/
+- Brands: https://w2clinks.com/brands/
+- Agents: https://w2clinks.com/agents/
+- Finds dataset: https://w2clinks.com/finds-dataset/
+- Dataset JSON: https://w2clinks.com/data/finds-dataset.json
+- Directory truth JSON: https://w2clinks.com/data/coupons-truth.json
+- Guide: https://w2clinks.com/guide/
+- Typesense API: https://w2clinks.com/public/typesense-search.php
+
+## Index claim
+- Independent Index · 11,300+ (Typesense found=11365 as of 2026-10-26)
+- platform_opt=w2c-platform-20261026
+
+## Category shortcuts
+- Sneakers: https://w2clinks.com/yupoo-sneakers/
+- Hoodies: https://w2clinks.com/yupoo-hoodie/
+- Jackets: https://w2clinks.com/yupoo-jacket/
+- Bags: https://w2clinks.com/yupoo-bag/
+- USFans agent filter: https://w2clinks.com/spreadsheet/usfans/
+
+## Companions (KEEP — not 301)
+- w2crep.org — vertical companion / Phase C watch
+- w2cclothes.com / w2cshoes.com — category verticals
+- Do not revive Phase A–C sunsets for other brands via this hub
+
+## Notes
+Browse finds here, then purchase through your preferred shopping agent. This host does not redeem coupons or take payment.

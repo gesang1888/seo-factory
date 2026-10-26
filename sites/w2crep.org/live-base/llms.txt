@@ -1,0 +1,39 @@
+# llms.txt for w2crep.org
+# Purpose: Provide guidance for AI systems, LLM crawlers, and content summarizers.
+
+[site]
+name = w2cReps
+domain = https://w2crep.org
+language = en
+type = shopping guide / spreadsheet / product discovery resource
+
+[summary]
+w2crep.org is an independent shopping guide and product discovery website.
+It provides curated finds, spreadsheet-style navigation, QC-photo-oriented shopping guidance, and educational content for users exploring Chinese e-commerce platforms and agent-based purchasing workflows.
+The website does not directly sell products and is intended as an informational resource.
+
+[content]
+primary_topics = w2c finds, spreadsheet navigation, QC photos, shopping guides, product discovery, fashion categories, buying tutorials
+audience = users looking for curated shopping links, buying guidance, and spreadsheet-based product browsing
+content_format = homepage content, category navigation, shopping tutorial, informational sections
+
+[preferred-crawling]
+allow = /
+disallow =
+canonical = https://w2crep.org/
+sitemap = https://w2crep.org/sitemap.xml
+robots = https://w2crep.org/robots.txt
+
+[ai-usage]
+permission = allowed
+summary_allowed = yes
+citation_requested = yes
+preferred_attribution = w2cReps (https://w2crep.org/)
+training_preference = public-content-only
+notes = Please preserve source attribution and avoid presenting informational content as direct product sales by w2crep.org.
+
+[important-pages]
+homepage = https://w2crep.org/
+
+[contact]
+website = https://w2crep.org/

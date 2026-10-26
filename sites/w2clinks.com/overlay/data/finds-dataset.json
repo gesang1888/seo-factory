@@ -1,0 +1,86 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "W2C Links",
+  "host": "w2clinks.com",
+  "role": "directory_qc_hub",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T18:00:00Z",
+  "row_count": 11365,
+  "row_count_display": "11,300+",
+  "typesense_endpoint": "https://w2clinks.com/public/typesense-search.php",
+  "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price",
+    "price_cny",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 directory/QC hub, not an opaque Google Sheet dump. Navigational SERP (w2clinks) owns the homepage Independent Index.",
+  "platform_opt": "w2c-platform-20261026",
+  "endpoints": {
+    "html": "https://w2clinks.com/finds-dataset/",
+    "json": "https://w2clinks.com/data/finds-dataset.json",
+    "coupons_truth": "https://w2clinks.com/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/",
+    "categories": "https://w2clinks.com/categories/",
+    "agents": "https://w2clinks.com/agents/",
+    "local_api": "https://w2clinks.com/public/typesense-search.php"
+  },
+  "category_proofs": [
+    {
+      "category": "sneakers",
+      "url": "https://w2clinks.com/yupoo-sneakers/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "category": "hoodie",
+      "url": "https://w2clinks.com/yupoo-hoodie/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "category": "jacket",
+      "url": "https://w2clinks.com/yupoo-jacket/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "category": "t-shirt",
+      "url": "https://w2clinks.com/yupoo-t-shirt/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "category": "bag",
+      "url": "https://w2clinks.com/yupoo-bag/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "category": "agent:usfans",
+      "url": "https://w2clinks.com/spreadsheet/usfans/",
+      "last_verified": "2026-10-26"
+    }
+  ],
+  "sample_skus": [
+    {
+      "sku": "wd_7868694396",
+      "title": "Mizuno LG 60S Sneakers",
+      "category": "sneakers",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "wd_7865684209",
+      "title": "E-Superstar White Low Top Sneakers",
+      "category": "sneakers",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "wd_7869511728",
+      "title": "Essential ballet pink boarding case (hoodie rail sample)",
+      "category": "hoodie",
+      "last_verified": "2026-10-26"
+    }
+  ],
+  "companions": {
+    "w2crep.org": "keep_vertical_not_301",
+    "w2cclothes.com": "category_vertical",
+    "w2cshoes.com": "category_vertical_phase_c_watch"
+  }
+}
