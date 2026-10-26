@@ -1,0 +1,28 @@
+{
+  "brand": "LoveGoBuy",
+  "host": "lovegobuyguide.com",
+  "last_verified": "2026-10-26",
+  "platform_opt": "lovegobuy-platform-20261026",
+  "verify_on": "lovegobuy.com / in-app wallet \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
+  "serp_note": "Country desk lovegobuy.nl carries brand clicks (lovegobuy 26/28d); brand spreadsheet queries should consolidate on lovegobuyguide.com Independent Index.",
+  "offers": [
+    {
+      "id": "lovegobuy-invite-w5rjx3",
+      "type": "affiliate_invite",
+      "label": "Invitation / register invite W5RJX3",
+      "code": "W5RJX3",
+      "value_claim": "Register attribution via lovegobuy.com/?invite_code=W5RJX3; hub also cites $137 new-user pack confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed expiry on desk \u2014 re-confirm in-app the morning you pay",
+      "applies_to": "New-account invite attribution on LoveGoBuy",
+      "exclusions": [
+        "This guide host is not checkout",
+        "Stacking rules official-only"
+      ],
+      "source": "https://lovegobuyguide.com/lovegobuy-coupon/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

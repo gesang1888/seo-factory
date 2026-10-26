@@ -1,0 +1,75 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "LoveGoBuy",
+  "host": "lovegobuyguide.com",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T18:22:00Z",
+  "row_count": 11365,
+  "row_count_display": "11,300+",
+  "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Brand spreadsheet SERP owns the homepage Independent Index.",
+  "platform_opt": "lovegobuy-platform-20261026",
+  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-26",
+  "endpoints": {
+    "html": "https://lovegobuyguide.com/finds-dataset/",
+    "json": "https://lovegobuyguide.com/data/finds-dataset.json",
+    "coupons_truth": "https://lovegobuyguide.com/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/lovegobuy/",
+    "ranked_spreadsheet": "https://lovegobuyguide.com/lovegobuy-spreadsheet/"
+  },
+  "keep_desks": [
+    "lovegobuy.nl",
+    "lovegobuy.it"
+  ],
+  "twins_301": {
+    "lovegobuyspreadsheet.eu": "lovegobuyguide.com",
+    "lovegobuyspreadsheet.ca": "lovegobuyguide.com",
+    "lovegobuyspreadsheet.es": "lovegobuyguide.com",
+    "lovegobuyspreadsheet.nl": "lovegobuy.nl",
+    "lovegobuyspreadsheet.it": "lovegobuy.it"
+  },
+  "sample_skus": [
+    {
+      "sku": "wd_7869511728",
+      "title": "Essential ballet-pink soft luggage (sample hit)",
+      "category": "HOODIE",
+      "price_cny": "668",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "lovegobuy-spreadsheet-wall",
+      "title": "Ranked spreadsheet category wall",
+      "category": "sneakers",
+      "price_cny": null,
+      "last_verified": "2026-10-26"
+    }
+  ],
+  "category_proofs": [
+    {
+      "key": "sneakers",
+      "path": "/lovegobuy-spreadsheet/",
+      "note": "Ranked finds wall"
+    },
+    {
+      "key": "coupons",
+      "path": "/lovegobuy-coupon/",
+      "note": "W5RJX3 truth"
+    },
+    {
+      "key": "how-to",
+      "path": "/how-to-use-lovegobuy/",
+      "note": "Workflow money URL"
+    },
+    {
+      "key": "legit",
+      "path": "/is-lovegobuy-legit/",
+      "note": "Trust money URL"
+    }
+  ]
+}
