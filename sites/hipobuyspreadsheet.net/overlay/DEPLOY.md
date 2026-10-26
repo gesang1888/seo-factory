@@ -21,3 +21,7 @@ scp "$LOCAL/sitemap.xml" root@$HOST:$ROOT/sitemap.xml
 ```
 
 GSC: submit `https://hipobuyspreadsheet.net/sitemap.xml` after deploy.
+
+## A-hub QC moat (Step 5.1)
+
+Also see `DEPLOY-MOAT.md`. Deploys `/finds-dataset/`, `/data/*.json`, and refreshes coupons/QC with truth-table stamps.

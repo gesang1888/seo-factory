@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FansBuy Finds Dataset — Row Counts, Sample SKUs &amp; last_verified</title>
+<meta name="description" content="Provable FansBuy spreadsheet dataset: 12,000+ rows, weekly freshness stamp, sample SKUs with QC flags. Anti–Google-Sheet substitute on fansbuysheets.net.">
+<link rel="canonical" href="https://fansbuysheets.net/finds-dataset/">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="FansBuy Finds Dataset — provable QC / price freshness">
+<meta property="og:description" content="12,000+ indexed finds with last_verified=2026-10-26. Public JSON + sample SKUs.">
+<meta property="og:url" content="https://fansbuysheets.net/finds-dataset/">
+<meta property="og:type" content="article">
+<meta property="article:modified_time" content="2026-10-26">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "FansBuy spreadsheet finds dataset", "description": "Public row counts, update frequency and sample SKUs for the independent FansBuy spreadsheet hub.", "url": "https://fansbuysheets.net/finds-dataset/", "creator": {"@type": "Organization", "name": "FansBuy Spreadsheet"}, "dateModified": "2026-10-26", "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://fansbuysheets.net/data/finds-dataset.json"}, {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://fansbuysheets.net/data/coupons-truth.json"}], "variableMeasured": ["sku", "title", "price", "qc_photo", "last_verified"]}</script>
+<style>
+:root{--acc:#FF3444;--ink:#0f172a;--mute:#475569;--line:#e2e8f0;--bg:#f8fafc;--ok:#166534;--okbg:#f0fdf4}
+*{box-sizing:border-box}body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#fff;line-height:1.7}
+.top{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:5}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.top .wrap{display:flex;gap:16px;align-items:center;min-height:56px;flex-wrap:wrap}
+.brand{font-weight:700;text-decoration:none;color:var(--ink);font-family:system-ui,sans-serif;font-size:15px}
+.nav a{margin-left:12px;text-decoration:none;color:var(--mute);font-family:system-ui,sans-serif;font-size:14px}
+.nav a:hover,.nav a.on{color:var(--acc)}
+.hero{padding:40px 0 16px;background:linear-gradient(180deg,#ecfdf5 0%,#fff 72%)}
+.eyebrow{font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);font-weight:700}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.2;margin:10px 0}
+.lead{font-size:18px;color:var(--mute);max-width:42em}
+.stamp{display:inline-flex;align-items:center;gap:8px;font-family:system-ui,sans-serif;font-size:13px;background:var(--okbg);color:var(--ok);border:1px solid #bbf7d0;border-radius:999px;padding:6px 12px;margin-top:12px}
+.stamp time{font-weight:700}
+article{padding:8px 0 56px}
+article h2{font-size:24px;margin:1.6em 0 .5em}
+article h3{font-size:18px;margin:1.3em 0 .4em}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:1.2em 0}
+.stat{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-family:system-ui,sans-serif;font-size:22px;letter-spacing:-.02em}
+.stat span{font-family:system-ui,sans-serif;font-size:12px;color:var(--mute)}
+.box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:1.2em 0}
+table{width:100%;border-collapse:collapse;font-family:system-ui,sans-serif;font-size:13.5px;margin:1em 0}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute)}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+pre{background:#0f172a;color:#e2e8f0;padding:14px;border-radius:10px;overflow:auto}
+.btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:12px 18px;border-radius:10px;font-family:system-ui,sans-serif;font-weight:700;margin:4px 8px 4px 0}
+.btn.ghost{background:#fff;color:var(--acc);border:1px solid var(--acc)}
+.faq details{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:.6em 0;background:#fff}
+.faq summary{cursor:pointer;font-weight:700;font-family:system-ui,sans-serif}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-size:14px;font-family:system-ui,sans-serif}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/">FansBuy Spreadsheet</a>
+  <nav class="nav"><a href="/">Home</a><a href="/fansbuy-spreadsheet/">Spreadsheet</a><a href="/fansbuy-coupons/">Coupons</a><a href="/finds-dataset/" class=on>Dataset</a><a href="/fansbuy-community/">Community</a></nav>
+</div></header>
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">FansBuy Spreadsheet · provable dataset</div>
+  <h1>FansBuy finds dataset</h1>
+  <p class="lead">Public row counts, update frequency and dated sample SKUs — so this hub is not “just another Sheet clone.”</p>
+  <div class="stamp">last_verified <time datetime="2026-10-26">2026-10-26</time> · 12,000+ rows</div>
+</div></section>
+<article class="wrap">
+<div class="stats">
+  <div class="stat"><b>12,000+</b><span>Indexed finds</span></div>
+  <div class="stat"><b>weekly</b><span>Target stamp cadence</span></div>
+  <div class="stat"><b>QC</b><span>Sample rows flag qc_photo</span></div>
+  <div class="stat"><b>JSON</b><span>Machine-readable truth</span></div>
+</div>
+
+<div class="box">
+  <h2 style="margin-top:0;font-size:20px">Why this page exists</h2>
+  <p>Searchers bouncing between Reddit, Discord (.gg) and giant Sheets need a <strong>falsifiable</strong> catalog claim: how many rows, when prices/QC samples were last checked, and which SKUs prove the count is not vapor.</p>
+  <p><a class="btn" href="/data/finds-dataset.json">Download finds-dataset.json</a>
+     <a class="btn ghost" href="/data/coupons-truth.json">Coupons truth JSON</a>
+     <a class="btn ghost" href="/fansbuy-spreadsheet/">Open catalog</a></p>
+</div>
+
+<h2>Freshness pipeline</h2>
+<ul>
+  <li><code>last_verified</code> on this page, in JSON, and on coupon truth rows.</li>
+  <li>Sitemap <code>lastmod</code> for <code>/finds-dataset/</code> (and linked money URLs) tracks the dataset stamp.</li>
+  <li>Sample SKUs below are pulled from the live hub surface — not invented filler.</li>
+</ul>
+<p>Spreadsheet marketing claims daily refresh; public dataset stamp reviewed at least weekly on this hub.</p>
+
+<h2>Sample SKUs (public proof)</h2>
+<table>
+  <thead><tr><th>SKU</th><th>Title</th><th>Price</th><th>QC</th><th>Verified</th><th>Link</th></tr></thead>
+  <tbody>
+  <tr><td><code>wd_7789216254</code></td><td>White Wireless Earbuds with Charging Case</td><td>—</td><td>yes</td><td><time datetime="2026-10-26">2026-10-26</time></td><td><a href="https://w2clinks.com/yupoo-bag/wd_7789216254.html">open</a></td></tr><tr><td><code>wd_7789676422</code></td><td>Pink! Black Hoodie and Sweatpants Set</td><td>—</td><td>yes</td><td><time datetime="2026-10-26">2026-10-26</time></td><td><a href="https://w2clinks.com/yupoo-electronics/wd_7789676422.html">open</a></td></tr><tr><td><code>wd_7789691090</code></td><td>Calvin Klein White, Black, and Blue Cotton Underwear Set</td><td>—</td><td>yes</td><td><time datetime="2026-10-26">2026-10-26</time></td><td><a href="https://w2clinks.com/yupoo-hoodie/wd_7789691090.html">open</a></td></tr><tr><td><code>wd_7789235890</code></td><td>Prada White Crewneck Sweatshirt</td><td>—</td><td>yes</td><td><time datetime="2026-10-26">2026-10-26</time></td><td><a href="https://w2clinks.com/yupoo-underwear/wd_7789235890.html">open</a></td></tr><tr><td><code>wd_7789141558</code></td><td>Balenciaga Black Hoodie and Sweatshirt Collection</td><td>—</td><td>yes</td><td><time datetime="2026-10-26">2026-10-26</time></td><td><a href="https://w2clinks.com/yupoo-hoodie/wd_7789141558.html">open</a></td></tr><tr><td><code>wd_7789737606</code></td><td>Yves Saint Laurent Black Card Holder, Louis Vuitton Monogram Card Case, Dior Emb</td><td>—</td><td>yes</td><td><time datetime="2026-10-26">2026-10-26</time></td><td><a href="https://w2clinks.com/yupoo-hoodie/wd_7789737606.html">open</a></td></tr><tr><td><code>wd_7786175033</code></td><td>Hugo Boss Black Hoodie and Sweaters Collection</td><td>—</td><td>yes</td><td><time datetime="2026-10-26">2026-10-26</time></td><td><a href="https://w2clinks.com/yupoo-bag/wd_7786175033.html">open</a></td></tr><tr><td><code>wd_7786708073</code></td><td>Goyard Black Travel Duffle Bag</td><td>—</td><td>yes</td><td><time datetime="2026-10-26">2026-10-26</time></td><td><a href="https://w2clinks.com/yupoo-hoodie/wd_7786708073.html">open</a></td></tr>
+  </tbody>
+</table>
+<p>Full machine-readable payload: <a href="/data/finds-dataset.json"><code>/data/finds-dataset.json</code></a>.</p>
+
+<h2>Coupon truth table</h2>
+<p>Structured offers with expiry notes live at <a href="/data/coupons-truth.json"><code>/data/coupons-truth.json</code></a>. Human checklist: <a href="/fansbuy-coupons/">/fansbuy-coupons/</a>. Always confirm on the official agent — this hostname is not checkout.</p>
+
+<section class="faq" id="discord">
+  <h2>Community coexistence (Discord / .gg / Reddit)</h2>
+  <details open>
+    <summary>Do we compete with Discord invite links?</summary>
+    <p>No. Discord/.gg rooms are where haul chatter lives. This hub’s job is the <strong>dated catalog + coupon truth</strong> those rooms can cite. Prefer linking the dataset/coupons URLs instead of hard-fighting #1 Reddit threads.</p>
+  </details>
+  <details>
+    <summary>What should a Discord mod link?</summary>
+    <p>Prefer <a href="/finds-dataset/">/finds-dataset/</a> (row count + last_verified) and <a href="/fansbuy-coupons/">/fansbuy-coupons/</a> over a brittle Sheet URL. Community desk: <a href="/fansbuy-community/">/fansbuy-community/</a>.</p>
+  </details>
+  <details>
+    <summary>Where is warehouse QC authoritative?</summary>
+    <p>Listing/QC thumbnails on this hub help research. Warehouse QC inside the official agent is authoritative for the SKU you paid for. See also <a href="/fansbuy-qc-guide/">/fansbuy-qc-guide/</a>.</p>
+  </details>
+</section>
+
+<p><a class="btn" href="https://fansbuy.com/" rel="noopener sponsored" target="_blank">Open official FansBuy signup</a></p>
+</article>
+<footer><div class="wrap"><p>© 2026 FansBuy Spreadsheet. Independent information desk on fansbuysheets.net. Orders and payment stay on the official agent site.</p></div></footer>
+</body>
+</html>

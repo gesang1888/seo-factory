@@ -11,6 +11,9 @@ Description: Independent HipoBuy spreadsheet with 8,600+ product finds, QC-orien
 - Coupons (citation): https://hipobuyspreadsheet.net/hipobuy-coupons/
 - Is HipoBuy legit?: https://hipobuyspreadsheet.net/is-hipobuy-legit/
 - QC guide: https://hipobuyspreadsheet.net/hipobuy-qc-guide/
+- Provable finds dataset: https://hipobuyspreadsheet.net/finds-dataset/
+- Finds dataset JSON: https://hipobuyspreadsheet.net/data/finds-dataset.json
+- Coupons truth JSON: https://hipobuyspreadsheet.net/data/coupons-truth.json
 - Newsroom: https://hipobuyspreadsheet.net/news/
 - Deep coupon/shipping guide: https://hipobuyspreadsheet.net/news/the-2026-hipobuy-master-guide-maximize-your-158-coupon-amp-slash-shipping-costs-11660.html
 - Deep safety review: https://hipobuyspreadsheet.net/news/is-hipobuy-safe-2026-honest-review-amp-comparison-with-cnfans-superbuy-11656.html

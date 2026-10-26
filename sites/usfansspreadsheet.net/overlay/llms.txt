@@ -12,6 +12,9 @@ Description: Independent USFans spreadsheet with 10,601 QC-verified finds from T
 - Buying Guide: https://usfansspreadsheet.net/guide.html
 - Is USFans Legit: https://usfansspreadsheet.net/is-usfans-legit/
 - Coupons: https://usfansspreadsheet.net/usfans-coupons/
+- Provable finds dataset: https://usfansspreadsheet.net/finds-dataset/
+- Finds dataset JSON: https://usfansspreadsheet.net/data/finds-dataset.json
+- Coupons truth JSON: https://usfansspreadsheet.net/data/coupons-truth.json
 - Shipping Guide: https://usfansspreadsheet.net/usfans-shipping-guide/
 - Shipping lines overview: https://usfansspreadsheet.net/usfans-shipping-lines/
 - .net vs lookalike domains: https://usfansspreadsheet.net/usfansspreadsheet-net-vs-org/
