@@ -3,7 +3,7 @@
   "brand": "USFans",
   "host": "usfansspreadsheet.net",
   "last_verified": "2026-10-26",
-  "generated_at": "2026-10-26T15:00:00Z",
+  "generated_at": "2026-10-26T16:11:38Z",
   "row_count": 10601,
   "row_count_display": "10,601",
   "update_frequency": "Homepage + searchable catalog share the same index; public dataset stamp reviewed when row count or sample prices change (target: weekly).",
@@ -13,7 +13,7 @@
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated sample SKUs — not another opaque Google Sheet dump.",
+  "anti_sheet_note": "Public, citable row counts + dated sample SKUs \u2014 not another opaque Google Sheet dump.",
   "endpoints": {
     "html": "https://usfansspreadsheet.net/finds-dataset/",
     "json": "https://usfansspreadsheet.net/data/finds-dataset.json",
@@ -26,7 +26,7 @@
       "title": "Louis Vuitton Monogram Canvas Tote Bag",
       "price_cny": 360.0,
       "price_usd_approx": 50.04,
-      "price_display": "¥360≈ $50.04",
+      "price_display": "\u00a5360\u2248 $50.04",
       "source_url": "https://w2clinks.com/yupoo-bag/wd_7858090678.html",
       "qc_photo": true,
       "last_verified": "2026-10-26"
@@ -36,7 +36,7 @@
       "title": "Spain Red Short Sleeve Jersey",
       "price_cny": 128.0,
       "price_usd_approx": 17.79,
-      "price_display": "¥128≈ $17.79",
+      "price_display": "\u00a5128\u2248 $17.79",
       "source_url": "https://w2clinks.com/yupoo-jersey/wd_7854871141.html",
       "qc_photo": true,
       "last_verified": "2026-10-26"
@@ -46,7 +46,7 @@
       "title": "Brazil Blue Short Sleeve Soccer Jersey",
       "price_cny": 105.0,
       "price_usd_approx": 14.6,
-      "price_display": "¥105≈ $14.60",
+      "price_display": "\u00a5105\u2248 $14.60",
       "source_url": "https://w2clinks.com/yupoo-jersey/wd_7858118158.html",
       "qc_photo": true,
       "last_verified": "2026-10-26"
@@ -56,7 +56,7 @@
       "title": "Chrome Hearts Silver Spike Pendant Bracelet",
       "price_cny": 99.0,
       "price_usd_approx": 13.76,
-      "price_display": "¥99≈ $13.76",
+      "price_display": "\u00a599\u2248 $13.76",
       "source_url": "https://w2clinks.com/yupoo-jewelry/wd_7855114033.html",
       "qc_photo": true,
       "last_verified": "2026-10-26"
@@ -66,7 +66,7 @@
       "title": "Dior Black Travel Duffle Bag",
       "price_cny": 348.5,
       "price_usd_approx": 48.44,
-      "price_display": "¥348.5≈ $48.44",
+      "price_display": "\u00a5348.5\u2248 $48.44",
       "source_url": "https://w2clinks.com/yupoo-bag/wd_7855014929.html",
       "qc_photo": true,
       "last_verified": "2026-10-26"
@@ -76,7 +76,7 @@
       "title": "Supreme Red and Black Rolling Suitcases",
       "price_cny": 702.0,
       "price_usd_approx": 97.58,
-      "price_display": "¥702≈ $97.58",
+      "price_display": "\u00a5702\u2248 $97.58",
       "source_url": "https://w2clinks.com/yupoo-bag/wd_7855125863.html",
       "qc_photo": true,
       "last_verified": "2026-10-26"
@@ -86,7 +86,7 @@
       "title": "Audemars Piguet Rose Gold Automatic Watch",
       "price_cny": 701.0,
       "price_usd_approx": 97.44,
-      "price_display": "¥701≈ $97.44",
+      "price_display": "\u00a5701\u2248 $97.44",
       "source_url": "https://w2clinks.com/yupoo-jewelry/wd_7854801519.html",
       "qc_photo": true,
       "last_verified": "2026-10-26"
@@ -96,7 +96,7 @@
       "title": "Nike Red and White Checkered Croatia Jersey",
       "price_cny": 116.0,
       "price_usd_approx": 16.12,
-      "price_display": "¥116≈ $16.12",
+      "price_display": "\u00a5116\u2248 $16.12",
       "source_url": "https://w2clinks.com/yupoo-jersey/wd_7855084441.html",
       "qc_photo": true,
       "last_verified": "2026-10-26"
@@ -106,7 +106,7 @@
       "title": "Gold and Black Gradient Pilot Sunglasses with Case",
       "price_cny": 108.0,
       "price_usd_approx": 15.01,
-      "price_display": "¥108≈ $15.01",
+      "price_display": "\u00a5108\u2248 $15.01",
       "source_url": "https://w2clinks.com/yupoo-electronics/wd_7855094313.html",
       "qc_photo": true,
       "last_verified": "2026-10-26"
@@ -116,11 +116,13 @@
       "title": "Brazil Blue Short Sleeve Soccer Jersey",
       "price_cny": 128.0,
       "price_usd_approx": 17.79,
-      "price_display": "¥128≈ $17.79",
+      "price_display": "\u00a5128\u2248 $17.79",
       "source_url": "https://w2clinks.com/yupoo-jersey/wd_7858043442.html",
       "qc_photo": true,
       "last_verified": "2026-10-26"
     }
   ],
-  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes."
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
+  "platform_opt": "usfans-platform-20261026",
+  "stamp": "platform_opt"
 }
