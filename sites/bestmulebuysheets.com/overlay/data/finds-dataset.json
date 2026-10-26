@@ -1,0 +1,66 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "MuleBuy",
+  "host": "bestmulebuysheets.com",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T18:40:00Z",
+  "row_count": 8000,
+  "row_count_display": "8,000+",
+  "update_frequency": "w2clinks catalog refresh continuous; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Brand spreadsheet SERP owns the homepage Independent Index.",
+  "platform_opt": "mulebuy-platform-20261026",
+  "measurement": "Hub-published Independent Index claim 8,000+ across 33 categories on bestmulebuysheets.com / w2clinks.com/spreadsheet/mulebuy/ (2026-10-26). Typesense unfiltered found=11365 is NOT claimed as MuleBuy-only.",
+  "endpoints": {
+    "html": "https://bestmulebuysheets.com/finds-dataset/",
+    "json": "https://bestmulebuysheets.com/data/finds-dataset.json",
+    "coupons_truth": "https://bestmulebuysheets.com/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/mulebuy/",
+    "ranked_spreadsheet": "https://bestmulebuysheets.com/mulebuy-spreadsheet.html"
+  },
+  "keep_desks": [
+    "mulebuy.fr"
+  ],
+  "twins_301": {
+    "mulebuyspreadsheets.co.uk": "bestmulebuysheets.com",
+    "mulebuyspreadsheets.es": "bestmulebuysheets.com",
+    "mulebuyspreadsheets.us": "bestmulebuysheets.com"
+  },
+  "sample_skus": [
+    {
+      "sku": "cat_sneakers",
+      "title": "Sneakers category wall",
+      "category": "SNEAKERS",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_hoodie",
+      "title": "Hoodie category entry",
+      "category": "HOODIE",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_jacket",
+      "title": "Jacket category entry",
+      "category": "JACKET",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_tshirt",
+      "title": "T-Shirt category entry",
+      "category": "T-SHIRT",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_bag",
+      "title": "Bag category entry",
+      "category": "BAG",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
