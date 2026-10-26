@@ -1,0 +1,28 @@
+{
+  "brand": "OrientDig",
+  "host": "orientdig.es",
+  "last_verified": "2026-10-26",
+  "platform_opt": "orientdig-platform-20261026",
+  "verify_on": "orientdig.com / in-app wallet \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
+  "serp_note": "orientdig.es is brand hub (no separate primary hub) AND ES country desk. Brand spreadsheet + coupon citation consolidate here. Keep FR/US for local KPI. Do not revive Phase B/C twins.",
+  "offers": [
+    {
+      "id": "orientdig-partner-100246065",
+      "type": "invite_ref",
+      "label": "Partner signup 100246065",
+      "code": "100246065",
+      "value_claim": "Partner / invite path \u2014 wallet gifts vary; confirm_live after register",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed expiry promised by this desk \u2014 re-confirm in-app the morning you pay",
+      "applies_to": "OrientDig register / referral field",
+      "exclusions": [
+        "This hub is not checkout",
+        "Stacking rules official-only"
+      ],
+      "source": "https://orientdig.es/orientdig-coupons/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
