@@ -1,0 +1,24 @@
+# VigorBuy Spreadsheet (vigorspreadsheet.com)
+
+> Independent Index · 12,400+ finds. Brand hub only — no country spreadsheet desks.
+
+- Hub: https://vigorspreadsheet.com/
+- Spreadsheet: https://vigorspreadsheet.com/vigorbuy-spreadsheet/
+- Coupons (money): https://vigorspreadsheet.com/vigorbuy-coupons/
+- Coupons truth JSON: https://vigorspreadsheet.com/data/coupons-truth.json
+- Finds dataset: https://vigorspreadsheet.com/finds-dataset/
+- Dataset JSON: https://vigorspreadsheet.com/data/finds-dataset.json
+- Shipping: https://vigorspreadsheet.com/vigorbuy-shipping-guide/
+- Legit: https://vigorspreadsheet.com/is-vigorbuy-legit/
+- QC: https://vigorspreadsheet.com/vigorbuy-qc-guide/
+
+## Hub / sunset rules
+- Brand hub only. No keep country spreadsheet desks. Do not invent new country TLDs.
+- Lookalike hosts (vigor-buy.com / vigorbuy-spreadsheet.com / vigorbuyspreadsheets.net) are competitor catalogs — not keep desks; do not revive Phase C sunsets.
+- Thin /coupons/ and /coupons.html → /vigorbuy-coupons/
+
+## Official
+- https://vigorbuy.com/ (checkout / Wallet; $210 GIFT + 30% SHIP confirm_live)
+
+platform_opt=vigorbuy-platform-20261026
+last_verified=2026-10-26

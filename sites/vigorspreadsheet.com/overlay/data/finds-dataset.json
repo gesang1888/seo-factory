@@ -1,0 +1,71 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "VigorBuy",
+  "host": "vigorspreadsheet.com",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T19:30:00Z",
+  "row_count": 12400,
+  "row_count_display": "12,400+",
+  "update_frequency": "Catalog cards refresh continuously; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Coupon intent still lives on /vigorbuy-coupons/.",
+  "platform_opt": "vigorbuy-platform-20261026",
+  "hub_role": "brand_hub_only_no_country_desks",
+  "twin_note": "No Phase A hub twin in portfolio. Lookalike hosts (vigor-buy.com / vigorbuy-spreadsheet.com / vigorbuyspreadsheets.net) are competitor catalogs \u2014 not keep desks; do not revive Phase C sunsets.",
+  "endpoints": {
+    "html": "https://vigorspreadsheet.com/finds-dataset/",
+    "json": "https://vigorspreadsheet.com/data/finds-dataset.json",
+    "coupons_truth": "https://vigorspreadsheet.com/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/vigorbuy/",
+    "hub": "https://vigorspreadsheet.com/",
+    "ranked_spreadsheet": "https://vigorspreadsheet.com/vigorbuy-spreadsheet/"
+  },
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/, /vigorbuy-coupons/ and money URLs bumps when this stamp changes.",
+  "sample_skus": [
+    {
+      "sku": "cat_sneakers",
+      "title": "Sneakers & Shoes category proof (live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "SNEAKERS",
+      "source_url": "https://w2clinks.com/spreadsheet/vigorbuy/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_women",
+      "title": "Women's Fashion (GSC money query on this hub)",
+      "price_cny": null,
+      "price_display": "see catalog / homepage cards",
+      "category_hint": "FEMALE STYLE",
+      "source_url": "https://w2clinks.com/spreadsheet/vigorbuy/?category=FEMALE%20STYLE",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_jacket",
+      "title": "Jackets & Coats category proof (live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "JACKET",
+      "source_url": "https://w2clinks.com/spreadsheet/vigorbuy/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "page_shoes_sheet",
+      "title": "Shoes spreadsheet ranked article on this hub",
+      "price_cny": null,
+      "price_display": "see /vigorbuy-shoes-spreadsheet/",
+      "category_hint": "SHOES",
+      "source_url": "https://vigorspreadsheet.com/vigorbuy-shoes-spreadsheet/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
