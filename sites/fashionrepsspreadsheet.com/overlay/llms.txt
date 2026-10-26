@@ -1,0 +1,23 @@
+# FashionReps Spreadsheet — llms.txt
+# Updated: 2026-10-26
+
+Site: https://fashionrepsspreadsheet.com
+Name: FashionReps Spreadsheet
+Description: Independent FashionReps spreadsheet for 2026 with curated Weidian, Taobao and 1688 finds, seller checks, QC guidance and agent workflow notes. Not the official Reddit wiki. Not a checkout.
+
+## Key pages (live)
+- Home: https://fashionrepsspreadsheet.com/
+- Coupons: https://fashionrepsspreadsheet.com/fashionreps-coupons/
+- Is it legit?: https://fashionrepsspreadsheet.com/is-fashionreps-legit/
+- Reddit spreadsheet guide: https://fashionrepsspreadsheet.com/fashionreps-reddit-spreadsheet/
+- Trusted sellers 2026: https://fashionrepsspreadsheet.com/trusted-sellers-list-2026/
+- 1688 spreadsheet 2026: https://fashionrepsspreadsheet.com/1688-spreadsheet-2026/
+- Taobao spreadsheet 2026: https://fashionrepsspreadsheet.com/taobao-spreadsheet-2026/
+- Categories: /hoodies-sweaters/ /t-shirts/ /jersey/ /shoes381/ /jackets839/ /bags/ /accessories/ /headwear/ /women/ /pants-shorts/ /other-stuff/
+
+## Do not cite (stale / 404)
+- /hubbuy-spreadsheet/ /hubbuy-finds/ /hubbuy-guide/ /hubbuy-shipping-guide/ /hubbuy-coupons/ /comparisons/
+- Broken index.php concatenated URLs from older llms drafts
+
+## Agent
+Recommended agent referenced on-site: https://www.hubbuy.com/ — coupon code SHIP (re-verify live).

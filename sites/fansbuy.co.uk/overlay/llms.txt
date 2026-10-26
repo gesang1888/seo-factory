@@ -1,0 +1,8 @@
+# FansBuy Spreadsheet UK — llms.txt
+# Updated: 2026-10-26
+Site: https://fansbuy.co.uk
+Description: Independent country desk for local buying intent (shipping, coupons, legit). Not the global brand-spreadsheet hub.
+## Key pages
+- https://fansbuy.co.uk/
+- https://fansbuy.co.uk/fansbuy-coupons/
+- https://fansbuy.co.uk/is-fansbuy-legit/

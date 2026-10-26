@@ -1,0 +1,8 @@
+# MyCNBox Spreadsheet NL — llms.txt
+# Updated: 2026-10-26
+Site: https://mycnbox.nl
+Description: Independent country desk for local buying intent (shipping, coupons, legit). Not the global brand-spreadsheet hub.
+## Key pages
+- https://mycnbox.nl/
+- https://mycnbox.nl/mycnbox-coupons/
+- https://mycnbox.nl/is-mycnbox-legit/

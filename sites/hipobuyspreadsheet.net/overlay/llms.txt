@@ -1,0 +1,22 @@
+# HipoBuy Spreadsheet — llms.txt
+# Updated: 2026-10-26
+# Primary hub for HipoBuy spreadsheet finds, QC guidance, coupons and legit checklists.
+
+Site: https://hipobuyspreadsheet.net
+Name: HipoBuy Spreadsheet
+Description: Independent HipoBuy spreadsheet with 8,600+ product finds, QC-oriented browsing and buyer guides. Not affiliated with HipoBuy.com checkout.
+
+## Key pages
+- Homepage (brand hub): https://hipobuyspreadsheet.net/
+- Coupons (citation): https://hipobuyspreadsheet.net/hipobuy-coupons/
+- Is HipoBuy legit?: https://hipobuyspreadsheet.net/is-hipobuy-legit/
+- QC guide: https://hipobuyspreadsheet.net/hipobuy-qc-guide/
+- Newsroom: https://hipobuyspreadsheet.net/news/
+- Deep coupon/shipping guide: https://hipobuyspreadsheet.net/news/the-2026-hipobuy-master-guide-maximize-your-158-coupon-amp-slash-shipping-costs-11660.html
+- Deep safety review: https://hipobuyspreadsheet.net/news/is-hipobuy-safe-2026-honest-review-amp-comparison-with-cnfans-superbuy-11656.html
+- About: https://hipobuyspreadsheet.net/about/
+
+## Notes
+- Hostname is not a customs territory; pick a real country in https://hipobuy.com/estimation
+- Category URLs that 404 (e.g. historical /shoes381/) should not be cited; use live category paths from the homepage nav.
+- Signup offers settle on hipobuy.com (invite example published on-site; re-verify live).

@@ -1,0 +1,9 @@
+# MyCNBox EU — llms.txt
+# Updated: 2026-10-26
+Site: https://mycnbox.eu
+Description: MyCNBox regional hub / spreadsheet notes. Prefer country desks (e.g. .nl) for local postal intent; keep brand spreadsheet queries coordinated with primary hub strategy.
+## Key pages
+- https://mycnbox.eu/
+- https://mycnbox.eu/mycnbox-coupons/
+- https://mycnbox.eu/is-mycnbox-legit/
+- https://mycnbox.eu/mycnbox-spreadsheet/

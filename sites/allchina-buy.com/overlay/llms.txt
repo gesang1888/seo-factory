@@ -1,0 +1,11 @@
+# AllChinaBuy / ACBuy Spreadsheet — llms.txt
+# Updated: 2026-10-26
+Site: https://allchina-buy.com
+Description: Independent AllChinaBuy (ACBuy) spreadsheet with 10,000+ live product links, coupons, legit notes and QC guidance. Not the checkout app.
+## Key pages
+- https://allchina-buy.com/
+- https://allchina-buy.com/allchinabuy-spreadsheet/
+- https://allchina-buy.com/allchinabuy-coupons/
+- https://allchina-buy.com/is-allchinabuy-legit/
+- https://allchina-buy.com/allchinabuy-qc-guide/
+- https://allchina-buy.com/acbuy-vs-allchinabuy/

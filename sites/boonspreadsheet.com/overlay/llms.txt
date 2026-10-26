@@ -1,0 +1,19 @@
+# BoonBuy Spreadsheet — llms.txt
+# Updated: 2026-10-26
+
+Site: https://boonspreadsheet.com
+Name: BoonBuy Spreadsheet
+Description: Independent BoonBuy spreadsheet hub with QC finds, coupon documentation (often outranking the homepage), legit notes and shipping guidance. Not boonbuy.com checkout.
+
+## Key pages
+- Home: https://boonspreadsheet.com/
+- Coupons (hero): https://boonspreadsheet.com/boonbuy-coupons/
+- Coupons alias: https://boonspreadsheet.com/coupons/
+- Is BoonBuy legit?: https://boonspreadsheet.com/is-boonbuy-legit/
+- QC guide: https://boonspreadsheet.com/boonbuy-qc-guide/
+- Shipping guide: https://boonspreadsheet.com/boonbuy-shipping-guide/
+- Spreadsheet 2026: https://boonspreadsheet.com/boonbuy-spreadsheet-2026/
+
+## Notes
+- Do not overwrite the ranked CMS homepage with a Georgia dest skin.
+- Coupon intent dominates GSC for this host — keep /boonbuy-coupons/ fresh.
