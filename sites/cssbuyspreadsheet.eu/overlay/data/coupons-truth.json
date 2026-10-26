@@ -1,0 +1,44 @@
+{
+  "brand": "CSSBuy",
+  "host": "cssbuyspreadsheet.eu",
+  "last_verified": "2026-10-26",
+  "platform_opt": "cssbuy-platform-20261026",
+  "verify_on": "cssbuy.com / in-app wallet \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
+  "serp_note": "Country desks (ES/NL) carry local brand queries; push brand spreadsheet to .eu hub. Coupons.html is a thin alias \u2192 /cssbuy-coupons/.",
+  "offers": [
+    {
+      "id": "cssbuy-invite-1yi9",
+      "type": "affiliate_invite",
+      "label": "Invitation / affiliate claim 1Yi9",
+      "code": "1Yi9",
+      "value_claim": "Invite attribution at cssbuy.com signup (hub claim) \u2014 confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed expiry listed on this desk \u2014 re-confirm in-app",
+      "applies_to": "First-order / invite attribution on CSSBuy",
+      "exclusions": [
+        "This .eu host is not checkout",
+        "Stacking rules official-only"
+      ],
+      "source": "https://cssbuyspreadsheet.eu/cssbuy-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "cssbuy-warehouse-90",
+      "type": "warehouse_storage",
+      "label": "90 free warehouse days",
+      "code": null,
+      "value_claim": "90 free days from In Warehouse, then \u00a515/order/month \u2014 official FAQ confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Policy can change; confirm Help the morning you ship",
+      "applies_to": "Warehouse storage clock after In Warehouse",
+      "exclusions": [
+        "Not redeemed on this sheets host"
+      ],
+      "source": "https://cssbuyspreadsheet.eu/cssbuy-coupons/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
