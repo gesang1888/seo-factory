@@ -13,7 +13,7 @@
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated sample SKUs — not another opaque Google Sheet dump.",
+  "anti_sheet_note": "Public, citable row counts + dated sample SKUs \u2014 not another opaque Google Sheet dump.",
   "endpoints": {
     "html": "https://fansbuysheets.net/finds-dataset/",
     "json": "https://fansbuysheets.net/data/finds-dataset.json",
@@ -92,5 +92,6 @@
       "qc_photo": true
     }
   ],
-  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes."
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
+  "platform_opt": "fansbuy-platform-20261026"
 }
