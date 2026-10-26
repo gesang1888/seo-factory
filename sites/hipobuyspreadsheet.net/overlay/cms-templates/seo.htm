@@ -1,0 +1,186 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#3B5F8F">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="stylesheet" href="/template/pc/skin/style/hipobuyspreadsheet.css?v=3.0.4">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin>
+<script src="/template/pc/skin/js/intersection-observer.js" defer></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/common.js" defer></script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZQ8QKB899"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HZQ8QKB899');
+</script>
+
+{eyou:notempty name="$eyou.field.keywords"}
+<!-- ================= SEARCH PAGE ================= -->
+<title>Search "{$eyou.field.keywords}" - Hipobuy Spreadsheet | hipobuyspreadsheet.net</title>
+<meta name="description" content="Search results for {$eyou.field.keywords} across the Hipobuy spreadsheet product directory.">
+<meta name="keywords" content="{$eyou.field.keywords},Hipobuy Spreadsheet,Hipobuy finds,QC photos">
+<meta name="robots" content="noindex,follow" />
+<meta name="googlebot" content="noindex,follow" />
+
+{eyou:else /}
+{eyou:if condition="$eyou.field.channel == 2 && $eyou.field.seo_keep neq 1"}
+<meta name="robots" content="noindex,follow" />
+<meta name="googlebot" content="noindex,follow" />
+{eyou:else /}
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="googlebot" content="index,follow,max-image-preview:large" />
+{/eyou:if}
+
+{eyou:empty name="$eyou.field.typeid"}
+<!-- ================= HOMEPAGE ================= -->
+<!-- platform-opt 2026-10-26: brand SERP differentiation vs Sheets/Reddit clones -->
+<title>HipoBuy Spreadsheet — 8,600+ QC Finds | Independent Index (2026)</title>
+<meta name="description" content="{eyou:global name='web_description' /}">
+<meta name="keywords" content="{eyou:global name='web_keywords' /}">
+<link rel="canonical" href="{eyou:global name='web_basehost' /}/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{eyou:global name='web_name' /}">
+<meta property="og:title" content="HipoBuy Spreadsheet — 8,600+ QC Finds | Independent Index (2026)">
+<meta property="og:description" content="{eyou:global name='web_description' /}">
+<meta property="og:url" content="{eyou:global name='web_basehost' /}/">
+<meta property="og:image" content="{eyou:global name='web_basehost' /}/hipobuy%20Logo.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:updated_time" content="2026-10-26">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HipoBuy Spreadsheet — 8,600+ QC Finds | Independent Index (2026)">
+<meta name="twitter:description" content="Independent HipoBuy spreadsheet on hipobuyspreadsheet.net — 8,600+ finds with QC photos, coupon checklist and dataset stamp. Not a Google Sheet dump; not hipobuy.com checkout.">
+<meta name="twitter:image" content="{eyou:global name='web_basehost' /}/hipobuy%20Logo.png">
+
+<!-- Schema.org: WebSite + Organization + SearchAction -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{eyou:global name='web_basehost' /}/#website",
+      "url": "{eyou:global name='web_basehost' /}/",
+      "name": "HipoBuy Spreadsheet",
+      "alternateName": ["hipobuyspreadsheet.net", "Hipo Buy Spreadsheet", "Hippo Buy Spreadsheet"],
+      "description": "Independent HipoBuy spreadsheet directory with 8,600+ product finds, QC photos, coupons checklist and dated dataset — not hipobuy.com and not a Google Sheet",
+      "dateModified": "2026-10-26",
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{eyou:global name='web_basehost' /}/search?keywords={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "{eyou:global name='web_basehost' /}/#organization",
+      "name": "HipoBuy Spreadsheet (independent index)",
+      "url": "{eyou:global name='web_basehost' /}/",
+      "logo": "{eyou:global name='web_basehost' /}/hipobuy%20Logo.png",
+      "sameAs": [
+        "https://discord.gg/sportshoesvip",
+        "https://t.me/SPORTSHOESVIP",
+        "https://wa.me/8615396628356"
+      ]
+    }
+  ]
+}
+</script>
+
+{eyou:else /}
+{eyou:notempty name="$eyou.field.aid"}
+<!-- ================= ARTICLE / PRODUCT DETAIL ================= -->
+<title>{$eyou.field.seo_title|default=$eyou.field.title} - Hipobuy Spreadsheet | hipobuyspreadsheet.net</title>
+<meta name="description" content="{eyou:empty name='$eyou.field.seo_description' /}{$eyou.field.title} - View on Hipobuy Spreadsheet. QC photos, Reddit reviews, Discord community.{eyou:else /}{$eyou.field.seo_description}{/eyou:empty}">
+<meta name="keywords" content="{eyou:empty name='$eyou.field.seo_keywords' /}{$eyou.field.title},Hipobuy Spreadsheet,Hipobuy finds,QC photos,Reddit,Discord{eyou:else /}{$eyou.field.seo_keywords}{/eyou:empty}">
+<link rel="canonical" href="{$eyou.field.arcurl}">
+
+<!-- Open Graph -->
+<meta property="og:type" content="{eyou:if condition='$eyou.field.channel == 1'}article{eyou:else /}product{/eyou:if}">
+<meta property="og:site_name" content="{eyou:global name='web_name' /}">
+<meta property="og:title" content="{$eyou.field.title}">
+<meta property="og:description" content="{eyou:empty name='$eyou.field.seo_description' /}{$eyou.field.title} - Hipobuy Spreadsheet finds with QC photos.{eyou:else /}{$eyou.field.seo_description}{/eyou:empty}">
+<meta property="og:url" content="{$eyou.field.arcurl}">
+{eyou:notempty name='$eyou.field.litpic'}
+<meta property="og:image" content="{$eyou.field.litpic}">
+{/eyou:notempty}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{$eyou.field.title}">
+<meta name="twitter:description" content="{eyou:empty name='$eyou.field.seo_description' /}{$eyou.field.title} - Hipobuy Spreadsheet finds.{eyou:else /}{$eyou.field.seo_description}{/eyou:empty}">
+{eyou:notempty name='$eyou.field.litpic'}
+<meta name="twitter:image" content="{$eyou.field.litpic}">
+{/eyou:notempty}
+
+{eyou:if condition="$eyou.field.channel == 1"}
+<!-- ARTICLE schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{$eyou.field.title}",
+  "image": "{$eyou.field.litpic}",
+  "datePublished": "{$eyou.field.add_time|MyDate='Y-m-d',###}",
+  "dateModified": "{$eyou.field.update_time|MyDate='Y-m-d',###}",
+  "author": {"@type": "Organization", "name": "{eyou:global name='web_name' /}"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "{eyou:global name='web_name' /}",
+    "logo": {"@type": "ImageObject", "url": "{eyou:global name='web_basehost' /}/hipobuy%20Logo.png"}
+  },
+  "mainEntityOfPage": "{$eyou.field.arcurl}"
+}
+</script>
+{eyou:else /}
+<!-- PRODUCT schema -->
+
+{/eyou:if}
+
+{eyou:else /}
+<!-- ================= CATEGORY / LIST PAGE ================= -->
+<title>Hipobuy {$eyou.field.typename} Spreadsheet: Finds &amp; QC Guide</title>
+<meta name="description" content="Browse current Hipobuy {$eyou.field.typename} spreadsheet finds, compare prices, open source listings and review QC details before ordering.">
+<meta name="keywords" content="{$eyou.field.seo_keywords|default=$eyou.field.typename},Hipobuy {$eyou.field.typename},Hipobuy Spreadsheet,Hipobuy finds,QC photos,Reddit,Discord">
+<link rel="canonical" href="{eyou:global name='web_basehost' /}{$eyou.field.typeurl}">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{eyou:global name='web_name' /}">
+<meta property="og:title" content="Hipobuy {$eyou.field.typename} Spreadsheet">
+<meta property="og:description" content="Browse current {$eyou.field.typename} finds and review listing and QC details before ordering.">
+<meta property="og:url" content="{eyou:global name='web_basehost' /}{$eyou.field.typeurl}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hipobuy {$eyou.field.typename} Spreadsheet">
+<meta name="twitter:description" content="Browse current {$eyou.field.typename} finds and QC guidance.">
+
+<!-- BreadcrumbList schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{eyou:global name='web_basehost' /}/"},
+    {"@type": "ListItem", "position": 2, "name": "{$eyou.field.typename}", "item": "{eyou:global name='web_basehost' /}{$eyou.field.typeurl}"}
+  ]
+}
+</script>
+{/eyou:notempty}
+{/eyou:empty}
+{/eyou:notempty}
