@@ -1,0 +1,62 @@
+{
+  "brand": "BoonBuy",
+  "host": "boonspreadsheet.com",
+  "last_verified": "2026-10-26",
+  "verify_on": "boonbuy.com wallet / Create Parcel drawer (this hub never redeems)",
+  "update_cadence": "Re-verify on every freight payment morning; JSON stamped at least weekly",
+  "platform_opt": "boonbuy-platform-20261026",
+  "serp_note": "GSC is coupon-intent dominated (code promo boonbuy / boonbuy coupon). Keep /boonbuy-coupons/ as citation hero; home owns Independent Index spreadsheet framing.",
+  "offers": [
+    {
+      "id": "boon-invite-g8zwvji95",
+      "type": "invite_code",
+      "label": "Published invite code (hub chrome)",
+      "code": "G8ZWVJI95",
+      "value_claim": "New-user rewards unlock when registering with inviteCode on boonbuy.com",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Hub copy: no fixed public expiry for invite attribution \u2014 confirm live form",
+      "applies_to": "Signup / invite attribution on boonbuy.com",
+      "exclusions": [
+        "Never redeem on boonspreadsheet.com",
+        "Invite is not a shipping coupon by itself"
+      ],
+      "source": "hub coupons article + registration link",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "boon-new-user-40-shipping",
+      "type": "new_user_shipping_percent",
+      "label": "New-user 40% OFF shipping (min freight > $0)",
+      "code": null,
+      "value_claim": "Official drawer often shows 40% OFF shipping for new users when min freight > $0, plus a USD freight coupon ladder",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Per-ticket expiry only in Wallet \u2192 Coupon; re-check before Create Parcel",
+      "applies_to": "International freight at Create Parcel (when eligible)",
+      "exclusions": [
+        "One shipping coupon per package (official Help)",
+        "Line / volumetric exclusions vary"
+      ],
+      "source": "boonbuy.com homepage modal / drawer; hub measured copy",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "boon-usd-freight-ladder",
+      "type": "shipping_coupon_drawer",
+      "label": "USD freight coupon ladder (wallet)",
+      "code": null,
+      "value_claim": "Rotating USD amount coupons in the shipping drawer \u2014 confirm live tiers before booking a line",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Amounts move; screenshot Wallet the morning you ship",
+      "applies_to": "Freight payment on Create Parcel",
+      "exclusions": [
+        "Do not invent a second stack on top of the percent ticket",
+        "Never redeem on this spreadsheet TLD"
+      ],
+      "source": "official agent UX; hub documents, does not invent codes",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

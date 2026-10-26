@@ -1,0 +1,78 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "BoonBuy",
+  "host": "boonspreadsheet.com",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T16:30:00Z",
+  "row_count": 12400,
+  "row_count_display": "12,400+",
+  "update_frequency": "Catalog cards refresh continuously; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Coupon intent still lives on /boonbuy-coupons/.",
+  "platform_opt": "boonbuy-platform-20261026",
+  "endpoints": {
+    "html": "https://boonspreadsheet.com/finds-dataset/",
+    "json": "https://boonspreadsheet.com/data/finds-dataset.json",
+    "coupons_truth": "https://boonspreadsheet.com/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/boonbuy/",
+    "hub": "https://boonspreadsheet.com/"
+  },
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/, /boonbuy-coupons/ and money URLs bumps when this stamp changes.",
+  "sample_skus": [
+    {
+      "sku": "cat_sneakers",
+      "title": "Sneakers & Shoes category proof (3,800+ items on live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "SNEAKERS",
+      "source_url": "https://w2clinks.com/spreadsheet/?category=SNEAKERS",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_tshirt",
+      "title": "T-Shirts category proof (2,100+ items on live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "T-SHIRT",
+      "source_url": "https://w2clinks.com/spreadsheet/?category=T-SHIRT",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_jacket",
+      "title": "Jackets & Coats category proof (1,200+ items on live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "JACKET",
+      "source_url": "https://w2clinks.com/spreadsheet/?category=JACKET",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_hoodie",
+      "title": "Hoodie category entry on BoonBuy catalog",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "HOODIE",
+      "source_url": "https://w2clinks.com/spreadsheet/?category=HOODIE",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_bag",
+      "title": "Bag category entry on BoonBuy catalog",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "BAG",
+      "source_url": "https://w2clinks.com/spreadsheet/?category=BAG",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
