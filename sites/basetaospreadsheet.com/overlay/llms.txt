@@ -1,10 +1,23 @@
 # BaseTao Spreadsheet — llms.txt
 # Updated: 2026-10-26
+# platform_opt: basetao-platform-20261026
 Site: https://basetaospreadsheet.com
-Description: Independent BaseTao spreadsheet — QC finds, coupon tracker, shipping calculator notes. Not basetao.com checkout.
+Description: Independent BaseTao spreadsheet hub — Independent Index · 11,300+ QC finds. Not basetao.com checkout. Brand SERP recovery after spam-era drop. No country spreadsheet desks in keep list; do not revive sunsets / .shop without cert.
+
 ## Key pages
-- https://basetaospreadsheet.com/
-- https://basetaospreadsheet.com/basetao-coupon-tracker-2026.html
+- https://basetaospreadsheet.com/ — Independent Index homepage (brand query: basetao spreadsheet)
+- https://basetaospreadsheet.com/finds-dataset/ — public row-count + category proofs
+- https://basetaospreadsheet.com/data/finds-dataset.json
+- https://basetaospreadsheet.com/basetao-coupon-tracker-2026.html — BASE10 / BSHIP20 tracker
+- https://basetaospreadsheet.com/data/coupons-truth.json
+- https://basetaospreadsheet.com/basetao-referral-code/ — referral stacking (no frozen invite)
+- https://basetaospreadsheet.com/basetao-shipping-calculator/
+- https://basetaospreadsheet.com/basetao-calculator/
 - https://basetaospreadsheet.com/is-basetao-legit/
 - https://basetaospreadsheet.com/basetao-qc-guide/
-- https://basetaospreadsheet.com/basetao-shipping-calculator/
+- https://basetaospreadsheet.com/basetao-review/
+- https://basetaospreadsheet.com/basetao-vs-superbuy/
+
+## Notes
+- Country desks: none in keep/meaningful list for BaseTao — do not register new ccTLD spreadsheet domains.
+- Twin/shop: basetaospreadsheet.shop has no usable vhost/cert — do not 301 invent.
