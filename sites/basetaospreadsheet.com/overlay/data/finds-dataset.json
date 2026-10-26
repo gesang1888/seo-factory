@@ -1,0 +1,84 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "BaseTao",
+  "host": "basetaospreadsheet.com",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T17:00:00Z",
+  "row_count": 11365,
+  "row_count_display": "11,300+",
+  "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Brand SERP recovery owns the homepage Independent Index.",
+  "platform_opt": "basetao-platform-20261026",
+  "endpoints": {
+    "html": "https://basetaospreadsheet.com/finds-dataset/",
+    "json": "https://basetaospreadsheet.com/data/finds-dataset.json",
+    "coupons_truth": "https://basetaospreadsheet.com/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/basetao/",
+    "local_api": "https://basetaospreadsheet.com/api/products/"
+  },
+  "sample_skus": [
+    {
+      "sku": "mizuno-lg-60s",
+      "title": "Mizuno LG 60S Sneakers",
+      "category": "sneakers",
+      "price_cny": "150",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "e-superstar-white",
+      "title": "E-Superstar White Low Top Sneakers",
+      "category": "sneakers",
+      "price_cny": "208",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "danner-trail-2650",
+      "title": "Danner Trail 2650 Hiking Shoes",
+      "category": "shoes",
+      "price_cny": "310",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "lv-baseball-caps",
+      "title": "Louis Vuitton Baseball Caps",
+      "category": "HAT",
+      "price_cny": "58",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "lv-coeur-battant",
+      "title": "Louis Vuitton C\u0153ur Battant Eau de Parfum 100ml",
+      "category": "fragrance",
+      "price_cny": "140",
+      "last_verified": "2026-10-26"
+    }
+  ],
+  "category_proofs": [
+    {
+      "key": "sneakers",
+      "path": "/shoes381/",
+      "note": "Category wall on hub"
+    },
+    {
+      "key": "jackets",
+      "path": "/jackets839/",
+      "note": "Category wall on hub"
+    },
+    {
+      "key": "hoodies",
+      "path": "/hoodies-sweaters/",
+      "note": "Category wall on hub"
+    },
+    {
+      "key": "jersey",
+      "path": "/jersey/",
+      "note": "Category wall on hub"
+    }
+  ]
+}
