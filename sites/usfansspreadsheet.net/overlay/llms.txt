@@ -46,3 +46,4 @@ Description: Independent USFans spreadsheet with 10,601 QC-verified finds from T
 - Maintained hub: https://usfansspreadsheet.net/
 - Lookalike TLDs (.org / .io / etc.) are separate sites; see https://usfansspreadsheet.net/usfansspreadsheet-net-vs-org/
 - Contact: Telegram https://t.me/usfansspreadsheetnet
+- Platform opt 2026-10-26: hero CTAs → coupons / finds-dataset / legit; UK+NL money URLs + #local; wd-img already healthy.

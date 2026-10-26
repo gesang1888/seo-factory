@@ -10,7 +10,7 @@
       "type": "new_user_bundle",
       "label": "New-user coupon bundle (referral signup)",
       "code": null,
-      "value_claim": "Often marketed near $800 face value as a stack of constrained coupons — not cash",
+      "value_claim": "Often marketed near $800 face value as a stack of constrained coupons \u2014 not cash",
       "status": "confirm_live",
       "expires_on": null,
       "expires_note": "Each wallet coupon has its own expiry; screenshot before freight",
@@ -27,7 +27,7 @@
       "type": "shipping_percent_off",
       "label": "Shipping percentage off (new-user context)",
       "code": null,
-      "value_claim": "Commonly ~15% shipping off in marketing copy — confirm live drawer",
+      "value_claim": "Commonly ~15% shipping off in marketing copy \u2014 confirm live drawer",
       "status": "confirm_live",
       "expires_on": null,
       "expires_note": "Expiry only in wallet",
@@ -44,7 +44,7 @@
       "type": "referral_link",
       "label": "Referral signup path used on this hub",
       "code": "7BJBAJ",
-      "value_claim": "Referral parameter for register URL — coupons attach after account creation",
+      "value_claim": "Referral parameter for register URL \u2014 coupons attach after account creation",
       "status": "active_path",
       "expires_on": null,
       "expires_note": "Path itself has no public expiry; coupon stack still rotates",
@@ -55,5 +55,7 @@
       "source": "hub CTA",
       "last_verified": "2026-10-26"
     }
-  ]
+  ],
+  "platform_opt": "usfans-platform-20261026",
+  "stamp": "platform_opt"
 }
