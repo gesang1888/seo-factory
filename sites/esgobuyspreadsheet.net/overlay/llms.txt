@@ -1,0 +1,25 @@
+# EsgoBuy Spreadsheet (esgobuyspreadsheet.net)
+
+> Independent Index · 12,400+ finds. Brand hub only — no country spreadsheet desks.
+
+- Hub: https://esgobuyspreadsheet.net/
+- Spreadsheet: https://esgobuyspreadsheet.net/esgobuy-spreadsheet/
+- Coupons (money): https://esgobuyspreadsheet.net/esgobuy-coupons/
+- Coupons truth JSON: https://esgobuyspreadsheet.net/data/coupons-truth.json
+- Finds dataset: https://esgobuyspreadsheet.net/finds-dataset/
+- Dataset JSON: https://esgobuyspreadsheet.net/data/finds-dataset.json
+- Shipping: https://esgobuyspreadsheet.net/esgobuy-shipping-guide/
+- Legit: https://esgobuyspreadsheet.net/is-esgobuy-legit/
+- QC: https://esgobuyspreadsheet.net/esgobuy-qc-guide/
+- Shoes sheet: https://esgobuyspreadsheet.net/esgobuy-shoes-spreadsheet/
+
+## Hub / sunset rules
+- Brand hub only. No keep country spreadsheet desks. Do not invent new country TLDs.
+- Lookalike hosts (e.g. esgobuy.org) are independent — not keep desks; do not revive Phase C sunsets.
+- Thin /coupons/ and /coupons.html → /esgobuy-coupons/
+
+## Official
+- https://www.esgobuy.com/ (checkout; ¥4500 welcome + V0HXH6F40B invite confirm_live)
+
+platform_opt=esgobuy-platform-20261026
+last_verified=2026-10-26

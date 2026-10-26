@@ -1,0 +1,61 @@
+{
+  "brand": "EsgoBuy",
+  "host": "esgobuyspreadsheet.net",
+  "last_verified": "2026-10-26",
+  "platform_opt": "esgobuy-platform-20261026",
+  "verify_on": "esgobuy.com Wallet / register / coupon dialog \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when invite/shipping offers change (target weekly)",
+  "serp_note": "28d clicks split across / \u00b7 /esgobuy-coupons/ \u00b7 /is-esgobuy-legit/ \u00b7 /esgobuy-shipping-guide/. Homepage needs Independent Index \u00b7 12,400+ SERP signal. Brand hub only \u2014 no country desks.",
+  "offers": [
+    {
+      "id": "esgobuy-invite-v0hxh6f40b",
+      "type": "invite_code",
+      "label": "V0HXH6F40B invite / new-user pack",
+      "code": "V0HXH6F40B",
+      "value_claim": "Official invite / affcode unlocks new-user shipping coupon pack (~\u00a51080 line on ranked coupons article) \u2014 confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed expiry promised by this desk \u2014 re-confirm in-app the morning you pay",
+      "applies_to": "EsgoBuy register / invite flow",
+      "exclusions": [
+        "This hub is not checkout",
+        "Stacking rules official-only"
+      ],
+      "source": "https://esgobuyspreadsheet.net/esgobuy-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "esgobuy-email-1080",
+      "type": "shipping_promo",
+      "label": "EMAIL1080 verify-email shipping pack",
+      "code": "EMAIL1080",
+      "value_claim": "Verify-email CNY \u00a51080 shipping coupon pack listed on ranked coupons article \u2014 confirm_live / may be historical vs \u00a54500 welcome",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://esgobuyspreadsheet.net/esgobuy-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "esgobuy-aff-5pct",
+      "type": "promoter_reward",
+      "label": "AFF5PCT promoter rewards",
+      "code": "AFF5PCT",
+      "value_claim": "Promoter rewards Bronze 5% / Silver 6% \u2014 confirm_live on official promoter rules",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://esgobuyspreadsheet.net/esgobuy-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "esgobuy-welcome-4500",
+      "type": "new_user_gift",
+      "label": "\u00a54500 Welcome shipping discounts",
+      "code": null,
+      "value_claim": "Official homepage / register chrome 9 Oct 2026: Sign Up & Grab \u00a54500 Shipping Discounts \u2014 confirm_live; not a printable coupon code on this desk",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://www.esgobuy.com/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

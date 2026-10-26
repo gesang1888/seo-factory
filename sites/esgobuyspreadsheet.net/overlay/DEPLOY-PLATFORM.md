@@ -1,0 +1,50 @@
+# Deploy — EsgoBuy platform opt (2026-10-26)
+
+Origin: Baota host used by portfolio desks.  
+Root: `/www/wwwroot/esgobuyspreadsheet.net`
+
+## GUARDS
+
+- **Do not** rsync leftover Georgia dest `overlay/index.html` over the ranked CMS homepage — publish only `index.html.platform-patched`.
+- **Do not** revive Phase C sunsets; do not invent country spreadsheet domains.
+- Hub must **not** treat lookalike hosts (e.g. esgobuy.org) as keep desks.
+- Nginx vhost already `include .../extension/esgobuyspreadsheet.net/*.conf` (keep it).
+
+## Files to push
+
+```bash
+HUB=/www/wwwroot/esgobuyspreadsheet.net
+LOCAL=sites/esgobuyspreadsheet.net/overlay
+BAK=/www/backup/esgobuy-platform-$(date +%Y%m%d-%H%M%S)
+NGX=/www/server/panel/vhost/nginx/esgobuyspreadsheet.net.conf
+
+mkdir -p "$BAK"
+cp -a "$HUB/index.html" "$HUB/sitemap.xml" "$HUB/coupons.html" "$BAK/" 2>/dev/null || true
+cp -a "$HUB/esgobuy-coupons" "$BAK/esgobuy-coupons" 2>/dev/null || true
+cp -a "$NGX" "$BAK/esgobuyspreadsheet.net.conf.bak"
+
+cp "$LOCAL/index.html.platform-patched" "$HUB/index.html"
+mkdir -p "$HUB/esgobuy-coupons"
+cp "$LOCAL/esgobuy-coupons/index.html" "$HUB/esgobuy-coupons/index.html"
+rsync -av "$LOCAL/finds-dataset/" "$HUB/finds-dataset/"
+mkdir -p "$HUB/data"
+cp "$LOCAL/data/coupons-truth.json" "$LOCAL/data/finds-dataset.json" "$HUB/data/"
+cp "$LOCAL/llms.txt" "$LOCAL/sitemap.xml" "$HUB/"
+
+mkdir -p /www/server/panel/vhost/nginx/extension/esgobuyspreadsheet.net
+cp "$LOCAL/_deploy/thin-page-redirects.conf" \
+  /www/server/panel/vhost/nginx/extension/esgobuyspreadsheet.net/thin-page-redirects.conf
+nginx -t && nginx -s reload
+```
+
+## GSC
+
+Submit `https://esgobuyspreadsheet.net/sitemap.xml` after deploy.
+
+## Verify
+
+- `/` title contains Independent Index · 12,400+
+- Hero CTAs Spreadsheet / Coupons / Dataset / Register; `#local` money URLs ≤6
+- `/esgobuy-coupons/` has truth callout + 26 Oct 2026 + FAQ-LD
+- `/data/*.json` + `/finds-dataset/` + `/llms.txt` → 200
+- `/coupons/` · `/coupons.html` → 301 `/esgobuy-coupons/`
