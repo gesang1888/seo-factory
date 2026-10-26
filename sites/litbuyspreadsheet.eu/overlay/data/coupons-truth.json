@@ -1,0 +1,28 @@
+{
+  "brand": "LitBuy",
+  "host": "litbuyspreadsheet.eu",
+  "last_verified": "2026-10-26",
+  "platform_opt": "litbuy-platform-20261026",
+  "verify_on": "litbuy.com / in-app wallet \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
+  "serp_note": "Country desk litbuy.at carries local Zoll clicks; brand spreadsheet queries should consolidate on litbuyspreadsheet.eu Independent Index.",
+  "offers": [
+    {
+      "id": "litbuy-invite-o4k87nhkr",
+      "type": "affiliate_invite",
+      "label": "Invitation / register invite O4K87NHKR",
+      "code": "O4K87NHKR",
+      "value_claim": "Register attribution via litbuy.com/register?inviteCode=O4K87NHKR \u2014 confirm_live in-app",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed expiry on desk \u2014 re-confirm in-app the morning you pay",
+      "applies_to": "New-account invite attribution on LitBuy",
+      "exclusions": [
+        "This .eu host is not checkout",
+        "Stacking rules official-only"
+      ],
+      "source": "https://litbuyspreadsheet.eu/litbuy-coupons/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
