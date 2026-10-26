@@ -1,0 +1,27 @@
+# FishGoo Spreadsheet (fishgoospreadsheet.net)
+
+> Independent Index · 11,300+ finds. Brand hub only — no country spreadsheet desks.
+
+- Hub: https://fishgoospreadsheet.net/
+- Spreadsheet article: https://fishgoospreadsheet.net/fishgoo-spreadsheet.html
+- Live catalog: https://w2clinks.com/spreadsheet/fishgoo/
+- Coupons (money): https://fishgoospreadsheet.net/fishgoo-coupons/
+- Coupons truth JSON: https://fishgoospreadsheet.net/data/coupons-truth.json
+- Finds dataset: https://fishgoospreadsheet.net/finds-dataset/
+- Dataset JSON: https://fishgoospreadsheet.net/data/finds-dataset.json
+- Shipping guide: https://fishgoospreadsheet.net/shipping-guide.html
+- Beginner / QC: https://fishgoospreadsheet.net/beginner-guide.html
+- API: https://fishgoospreadsheet.net/api/products/
+
+## Hub / sunset rules
+- Brand hub only. No keep country spreadsheet desks. Do not invent new country TLDs.
+- Do not revive Phase C sunsets. Do not drop leftover Georgia dest overlay over the ranked homepage.
+- Thin /coupons/ and /coupons.html → /fishgoo-coupons/
+- Official offers are account-based ($500 new-user / ¥100 app) — no typed-in FISHGOO10.
+
+## Official
+- https://www.fishgoo.com/ (checkout; confirm_live coupon centre)
+- https://www.fishgoo.com/estimation (freight estimator — pick a real country, not this hostname)
+
+platform_opt=fishgoo-platform-20261026
+last_verified=2026-10-26

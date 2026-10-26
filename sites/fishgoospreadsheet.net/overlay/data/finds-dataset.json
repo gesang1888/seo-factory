@@ -1,0 +1,72 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "FishGoo",
+  "host": "fishgoospreadsheet.net",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T22:30:00Z",
+  "row_count": 11365,
+  "row_count_display": "11,300+",
+  "update_frequency": "Catalog cards refresh via /api/products/; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Coupon intent still lives on /fishgoo-coupons/.",
+  "platform_opt": "fishgoo-platform-20261026",
+  "hub_role": "brand_hub_only_no_country_desks",
+  "twin_note": "GSC lists only fishgoospreadsheet.net. No keep country spreadsheet desks. Do not invent new country TLDs. Do not revive Phase C sunsets.",
+  "endpoints": {
+    "html": "https://fishgoospreadsheet.net/finds-dataset/",
+    "json": "https://fishgoospreadsheet.net/data/finds-dataset.json",
+    "coupons_truth": "https://fishgoospreadsheet.net/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/fishgoo/",
+    "api": "https://fishgoospreadsheet.net/api/products/",
+    "hub": "https://fishgoospreadsheet.net/",
+    "ranked_spreadsheet": "https://fishgoospreadsheet.net/fishgoo-spreadsheet.html"
+  },
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/, /fishgoo-coupons/ and money URLs bumps when this stamp changes.",
+  "sample_skus": [
+    {
+      "sku": "cat_shoes",
+      "title": "Shoes category proof (host HTML)",
+      "price_cny": null,
+      "price_display": "see /category-shoes.html",
+      "category_hint": "SHOES",
+      "source_url": "https://fishgoospreadsheet.net/category-shoes.html",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_jersey",
+      "title": "Jersey category proof (host HTML)",
+      "price_cny": null,
+      "price_display": "see /category-jersey.html",
+      "category_hint": "JERSEY",
+      "source_url": "https://fishgoospreadsheet.net/category-jersey.html",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "page_rimowa",
+      "title": "Rimowa spreadsheet ranked article",
+      "price_cny": null,
+      "price_display": "see /fishgoo-rimowa-spreadsheet/",
+      "category_hint": "RIMOWA",
+      "source_url": "https://fishgoospreadsheet.net/fishgoo-rimowa-spreadsheet/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "api_total",
+      "title": "/api/products/ total=11365",
+      "price_cny": null,
+      "price_display": "11,300+",
+      "category_hint": "INDEX",
+      "source_url": "https://fishgoospreadsheet.net/api/products/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

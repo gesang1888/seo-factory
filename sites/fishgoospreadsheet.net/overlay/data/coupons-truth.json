@@ -1,0 +1,51 @@
+{
+  "brand": "FishGoo",
+  "host": "fishgoospreadsheet.net",
+  "last_verified": "2026-10-26",
+  "platform_opt": "fishgoo-platform-20261026",
+  "verify_on": "fishgoo.com coupon centre / register / app login \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when official offers change (target weekly)",
+  "serp_note": "28d clicks exclusive on /. Head terms fish go / fishgo spreadsheet. Spam cliff recovery: deepen Independent Index + coupons money URL + dataset.",
+  "offers": [
+    {
+      "id": "fishgoo-new-user-500",
+      "type": "new_user_gift",
+      "label": "Up to $500 new-user shipping coupons",
+      "code": null,
+      "value_claim": "Official homepage 8 Oct 2026: $500 Shipping Coupons For New Users \u2014 account coupon centre credit after register; confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed expiry promised by this desk \u2014 re-confirm in-app the morning you pay",
+      "applies_to": "FishGoo register / new-user coupon centre",
+      "exclusions": [
+        "This hub is not checkout",
+        "Not a typed-in promo code",
+        "Third-party FISHGOO10 lists are not official"
+      ],
+      "source": "https://fishgoospreadsheet.net/fishgoo-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "fishgoo-app-100",
+      "type": "app_exclusive",
+      "label": "\u00a5100 app-exclusive voucher",
+      "code": null,
+      "value_claim": "Official login/home artwork \u00a5100 app exclusive; blog lists \u00a550\u00d72 no-minimum shipping after app download \u2014 confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://fishgoospreadsheet.net/fishgoo-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "fishgoo-zero-service-fee",
+      "type": "fee_policy",
+      "label": "0% purchasing fee",
+      "code": null,
+      "value_claim": "Evergreen official: service fee 0%. You still pay item + international freight \u2014 confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://www.fishgoo.com/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

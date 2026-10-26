@@ -1,0 +1,6 @@
+# Replace these two lines inside gsc-redirects.conf:
+# location = /coupons { return 301 https://fishgoospreadsheet.net/coupons.html; }
+# location = /coupons/ { return 301 https://fishgoospreadsheet.net/coupons.html; }
+# with:
+location = /coupons { return 301 https://fishgoospreadsheet.net/fishgoo-coupons/; }
+location = /coupons/ { return 301 https://fishgoospreadsheet.net/fishgoo-coupons/; }
