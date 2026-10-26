@@ -1,0 +1,105 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "FashionReps",
+  "host": "fashionrepsspreadsheet.com",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T16:40:00Z",
+  "platform_opt": "fashionreps-platform-20261026",
+  "row_count": 10024,
+  "row_count_display": "10,000+",
+  "update_frequency": "Catalog cards refresh continuously; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated sample SKUs \u2014 not another opaque Google Sheet dump. Rare spam-era gainer on brand spreadsheet intent.",
+  "endpoints": {
+    "html": "https://fashionrepsspreadsheet.com/finds-dataset/",
+    "json": "https://fashionrepsspreadsheet.com/data/finds-dataset.json",
+    "coupons_truth": "https://fashionrepsspreadsheet.com/data/coupons-truth.json",
+    "catalog": "https://fashionrepsspreadsheet.com/"
+  },
+  "sample_skus": [
+    {
+      "sku": "wd_7848310125",
+      "title": "Dior White Crewneck Sweatshirt",
+      "category_hint": "yupoo-hoodie",
+      "source_url": "https://fashionrepsspreadsheet.com/yupoo-hoodie/wd_7848310125.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26",
+      "price_display": "see card"
+    },
+    {
+      "sku": "wd_7846222378",
+      "title": "J1 Mid Kids Sneakers in Various Colors, Size 24-35",
+      "category_hint": "yupoo-sneakers",
+      "source_url": "https://fashionrepsspreadsheet.com/yupoo-sneakers/wd_7846222378.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26",
+      "price_display": "see card"
+    },
+    {
+      "sku": "wd_7843335791",
+      "title": "Supreme Red Rolling Luggage Suitcase",
+      "category_hint": "yupoo-bag",
+      "source_url": "https://fashionrepsspreadsheet.com/yupoo-bag/wd_7843335791.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26",
+      "price_display": "see card"
+    },
+    {
+      "sku": "wd_7851259082",
+      "title": "Prada Black Puffer Jacket",
+      "category_hint": "yupoo-jacket",
+      "source_url": "https://fashionrepsspreadsheet.com/yupoo-jacket/wd_7851259082.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26",
+      "price_display": "see card"
+    },
+    {
+      "sku": "wd_7846544537",
+      "title": "Givenchy Black and White Oversized T-Shirts",
+      "category_hint": "yupoo-t-shirt",
+      "source_url": "https://fashionrepsspreadsheet.com/yupoo-t-shirt/wd_7846544537.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26",
+      "price_display": "see card"
+    },
+    {
+      "sku": "wd_7846039083",
+      "title": "Various Football Jersey Designs with Player Names and Numbers",
+      "category_hint": "yupoo-jersey",
+      "source_url": "https://fashionrepsspreadsheet.com/yupoo-jersey/wd_7846039083.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26",
+      "price_display": "see card"
+    },
+    {
+      "sku": "wd_7849975180",
+      "title": "Loewe Black Hoodie with Front Pocket",
+      "category_hint": "yupoo-hoodie",
+      "source_url": "https://fashionrepsspreadsheet.com/yupoo-hoodie/wd_7849975180.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26",
+      "price_display": "see card"
+    },
+    {
+      "sku": "wd_7846129711",
+      "title": "Stone Island Round Neck Sweatshirt",
+      "category_hint": "yupoo-hoodie",
+      "source_url": "https://fashionrepsspreadsheet.com/yupoo-hoodie/wd_7846129711.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26",
+      "price_display": "see card"
+    }
+  ],
+  "categories_live": [
+    "/yupoo-sneakers/",
+    "/yupoo-hoodie/",
+    "/yupoo-bag/",
+    "/yupoo-jacket/",
+    "/yupoo-t-shirt/",
+    "/yupoo-jersey/"
+  ],
+  "twin_note": "fashionrepsfind.com remains whole-site 301 \u2192 this hub; do not revive."
+}

@@ -1,23 +1,30 @@
 # FashionReps Spreadsheet — llms.txt
-# Updated: 2026-10-26
+# Updated: 2026-10-26 (platform opt)
 
 Site: https://fashionrepsspreadsheet.com
 Name: FashionReps Spreadsheet
-Description: Independent FashionReps spreadsheet for 2026 with curated Weidian, Taobao and 1688 finds, seller checks, QC guidance and agent workflow notes. Not the official Reddit wiki. Not a checkout.
+Description: Independent FashionReps Independent Index (10,000+ Weidian / Taobao / 1688 finds). Not the official Reddit wiki. Not a Google Sheet dump. Not checkout.
 
 ## Key pages (live)
 - Home: https://fashionrepsspreadsheet.com/
 - Coupons: https://fashionrepsspreadsheet.com/fashionreps-coupons/
+- Coupons truth JSON: https://fashionrepsspreadsheet.com/data/coupons-truth.json
+- Finds dataset: https://fashionrepsspreadsheet.com/finds-dataset/
+- Finds dataset JSON: https://fashionrepsspreadsheet.com/data/finds-dataset.json
 - Is it legit?: https://fashionrepsspreadsheet.com/is-fashionreps-legit/
 - Reddit spreadsheet guide: https://fashionrepsspreadsheet.com/fashionreps-reddit-spreadsheet/
 - Trusted sellers 2026: https://fashionrepsspreadsheet.com/trusted-sellers-list-2026/
 - 1688 spreadsheet 2026: https://fashionrepsspreadsheet.com/1688-spreadsheet-2026/
 - Taobao spreadsheet 2026: https://fashionrepsspreadsheet.com/taobao-spreadsheet-2026/
-- Categories: /hoodies-sweaters/ /t-shirts/ /jersey/ /shoes381/ /jackets839/ /bags/ /accessories/ /headwear/ /women/ /pants-shorts/ /other-stuff/
+- Live categories: /yupoo-sneakers/ /yupoo-hoodie/ /yupoo-bag/ /yupoo-jacket/ /yupoo-t-shirt/ /yupoo-jersey/
+
+## Twin
+- fashionrepsfind.com → 301 to this hub (leave redirects; do not revive).
 
 ## Do not cite (stale / 404)
 - /hubbuy-spreadsheet/ /hubbuy-finds/ /hubbuy-guide/ /hubbuy-shipping-guide/ /hubbuy-coupons/ /comparisons/
 - Broken index.php concatenated URLs from older llms drafts
+- Legacy pretty dirs /shoes381/ /bags/ /hoodies-sweaters/ (301 → yupoo-* ; cite yupoo paths)
 
 ## Agent
-Recommended agent referenced on-site: https://www.hubbuy.com/ — coupon code SHIP (re-verify live).
+Recommended agent referenced on-site: https://www.hubbuy.com/ — coupon code SHIP (re-verify live drawer).
