@@ -1,0 +1,28 @@
+{
+  "brand": "AllChinaBuy / ACBuy",
+  "host": "allchina-buy.com",
+  "last_verified": "2026-10-26",
+  "platform_opt": "allchinabuy-platform-20261026",
+  "verify_on": "acbuy.com / allchinabuy.com checkout \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when offer changes (target weekly)",
+  "serp_note": "Hub owns brand spreadsheet SERP (allchinabuy spreadsheet 2026). Keep NL/UK for local KPI; CA is redirect-target only. Twins already 301.",
+  "offers": [
+    {
+      "id": "acbuy5",
+      "type": "percent_off",
+      "label": "ACBUY5 \u2014 5% off",
+      "code": "ACBUY5",
+      "value_claim": "5% off eligible orders when applied at official checkout",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Hub historically lists no fixed expiry for first orders \u2014 re-confirm in-app",
+      "applies_to": "Eligible AllChinaBuy / ACBuy cart lines",
+      "exclusions": [
+        "This sheets host is not checkout",
+        "Stacking rules official-only"
+      ],
+      "source": "https://allchina-buy.com/allchinabuy-coupons/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
