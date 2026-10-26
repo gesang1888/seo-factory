@@ -1,0 +1,81 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "MyCNBox",
+  "host": "mycnbox.eu",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T17:12:52Z",
+  "row_count": 11365,
+  "row_count_display": "11,300+",
+  "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Brand spreadsheet SERP owns the homepage Independent Index.",
+  "platform_opt": "mycnbox-platform-20261026",
+  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-26",
+  "endpoints": {
+    "html": "https://mycnbox.eu/finds-dataset/",
+    "json": "https://mycnbox.eu/data/finds-dataset.json",
+    "coupons_truth": "https://mycnbox.eu/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/mycnbox/",
+    "ranked_spreadsheet": "https://mycnbox.eu/mycnbox-spreadsheet/"
+  },
+  "keep_desks": [
+    "mycnbox.nl",
+    "mycnbox.co.uk",
+    "mycnbox.pl"
+  ],
+  "sunset_watch": [
+    "mycnbox.es",
+    "mycnbox.de",
+    "mycnbox.fr"
+  ],
+  "twins_301": {
+    "mycnboxhaul.com": "mycnbox.eu"
+  },
+  "sample_skus": [
+    {
+      "sku": "wd_7869511728",
+      "title": "Essential ballet-pink soft luggage (sample hit)",
+      "category": "HOODIE",
+      "price_cny": "668",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "mycnbox-shoes-sheet",
+      "title": "Ranked shoes spreadsheet rows",
+      "category": "sneakers",
+      "hub_path": "/mycnbox-shoes-spreadsheet/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "mycnbox-spreadsheet",
+      "title": "Ranked EU W2C spreadsheet catalog",
+      "category": "catalog",
+      "hub_path": "/mycnbox-spreadsheet/",
+      "last_verified": "2026-10-26"
+    }
+  ],
+  "category_proofs": [
+    {
+      "key": "sneakers",
+      "hub_path": "/mycnbox-shoes-spreadsheet/"
+    },
+    {
+      "key": "catalog",
+      "hub_path": "/mycnbox-spreadsheet/"
+    },
+    {
+      "key": "shipping",
+      "hub_path": "/mycnbox-shipping-guide/"
+    },
+    {
+      "key": "coupons",
+      "hub_path": "/mycnbox-coupons/"
+    }
+  ],
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes."
+}

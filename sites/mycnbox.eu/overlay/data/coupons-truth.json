@@ -1,0 +1,60 @@
+{
+  "brand": "MyCNBox",
+  "host": "mycnbox.eu",
+  "last_verified": "2026-10-26",
+  "platform_opt": "mycnbox-platform-20261026",
+  "verify_on": "mycnbox.com / in-app wallet \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
+  "serp_note": "Hub money mixes spreadsheet + shipping + coupons; NL/UK desks carry strong local brand queries \u2014 push brand spreadsheet to .eu hub.",
+  "offers": [
+    {
+      "id": "mycnbox-invite-aabzkt",
+      "type": "affiliate_invite",
+      "label": "Invitation / shipping claim AABZKT",
+      "code": "AABZKT",
+      "value_claim": "30%+ shipping off first order when used at mycnbox.com signup (hub claim)",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Hub historically lists no fixed expiry \u2014 re-confirm in-app",
+      "applies_to": "First-order / invite attribution on MyCNBox",
+      "exclusions": [
+        "This .eu host is not checkout",
+        "Stacking rules official-only"
+      ],
+      "source": "https://mycnbox.eu/mycnbox-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "mycnbox-ship30",
+      "type": "shipping_percent",
+      "label": "SHIP30 shipping claim",
+      "code": "SHIP30",
+      "value_claim": "Save 30%+ on eligible international shipping lines \u2014 confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Synced from mycnbox.com marketing; drawer wins",
+      "applies_to": "International shipping invoice",
+      "exclusions": [
+        "Not redeemed on this sheets host"
+      ],
+      "source": "https://mycnbox.eu/mycnbox-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "mycnbox-horse2026",
+      "type": "promo_code",
+      "label": "HORSE2026 seasonal promo",
+      "code": "HORSE2026",
+      "value_claim": "Seasonal / community promo listed on hub coupon tracker \u2014 confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Event windows move; re-check before pay",
+      "applies_to": "Eligible MyCNBox cart / shipping lines",
+      "exclusions": [
+        "Not redeemed on this sheets host"
+      ],
+      "source": "https://mycnbox.eu/mycnbox-coupons/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
