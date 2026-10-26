@@ -1,0 +1,77 @@
+{
+  "brand": "RizzitGo",
+  "host": "rizzitgospreadsheets.net",
+  "last_verified": "2026-10-26",
+  "platform_opt": "rizzitgo-platform-20261026",
+  "verify_on": "rizzitgo.com wallet / register / Discord offers — confirm before pay",
+  "update_cadence": "Coupons page + JSON stamped when invite/offer copy changes (target weekly)",
+  "serp_note": "Hub is coupon-leaning (GSC: /rizzitgo-coupons/ > /). Brand spreadsheet + Independent Index stay on this .net hub. No country spreadsheet desks in inventory. Do not invent country TLDs.",
+  "offers": [
+    {
+      "id": "rizzitgo-invite-d5afc9",
+      "type": "invite_code",
+      "label": "Published invite (hub coupons)",
+      "code": "D5AFC9",
+      "value_claim": "$400 shipping coupon pack on register ($150 instant commonly cited in hub copy)",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed public expiry on hub — confirm live register form",
+      "applies_to": "Signup / invite attribution on rizzitgo.com",
+      "exclusions": [
+        "Never redeem on rizzitgospreadsheets.net",
+        "Invite is not a second shipping stack by itself"
+      ],
+      "source": "hub /rizzitgo-coupons/ + register link ?rno=",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "rizzitgo-35-off-shipping-routes",
+      "type": "shipping_percent_route",
+      "label": "35% OFF shipping routes (official homepage measure)",
+      "code": null,
+      "value_claim": "Official homepage copy measured 9 Oct 2026: 35% OFF on shipping routes",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Promo windows move — re-open rizzitgo.com the morning you ship",
+      "applies_to": "Eligible international freight lines",
+      "exclusions": [
+        "Line / volumetric exclusions vary",
+        "One shipping coupon per package typical"
+      ],
+      "source": "rizzitgo.com homepage measure 9 Oct 2026; hub restamp 26 Oct 2026",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "rizzitgo-8-welcome",
+      "type": "welcome_percent",
+      "label": "8% welcome / extension",
+      "code": null,
+      "value_claim": "Official copy measured 9 Oct 2026 cites 8% welcome / extension",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Confirm live drawer; do not invent a second stack",
+      "applies_to": "Eligible new-user / extension windows on rizzitgo.com",
+      "exclusions": [
+        "Never redeem on this spreadsheet TLD"
+      ],
+      "source": "rizzitgo.com homepage measure 9 Oct 2026",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "rizzitgo-discord-400",
+      "type": "community_shipping_coupon",
+      "label": "$400 Discord shipping coupons",
+      "code": null,
+      "value_claim": "Official homepage names Discord $400 shipping coupons — hub does not invent an invite URL",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Join official Discord channels named on rizzitgo.com; confirm live drop",
+      "applies_to": "Community drops referenced by official site",
+      "exclusions": [
+        "This hub does not mint Discord invites"
+      ],
+      "source": "rizzitgo.com homepage measure 9 Oct 2026",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

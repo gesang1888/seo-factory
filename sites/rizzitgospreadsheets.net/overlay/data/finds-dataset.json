@@ -1,0 +1,69 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "RizzitGo",
+  "host": "rizzitgospreadsheets.net",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T18:55:00Z",
+  "row_count": 12400,
+  "row_count_display": "12,400+",
+  "update_frequency": "Catalog cards refresh continuously; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs — not another opaque Google Sheet dump. Coupon intent still lives on /rizzitgo-coupons/.",
+  "platform_opt": "rizzitgo-platform-20261026",
+  "hub_role": "brand_hub_only_no_country_desks",
+  "endpoints": {
+    "html": "https://rizzitgospreadsheets.net/finds-dataset/",
+    "json": "https://rizzitgospreadsheets.net/data/finds-dataset.json",
+    "coupons_truth": "https://rizzitgospreadsheets.net/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/rizzitgo/",
+    "hub": "https://rizzitgospreadsheets.net/"
+  },
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/, /rizzitgo-coupons/ and money URLs bumps when this stamp changes.",
+  "sample_skus": [
+    {
+      "sku": "cat_sneakers",
+      "title": "Sneakers & Shoes category proof (live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "SNEAKERS",
+      "source_url": "https://w2clinks.com/spreadsheet/rizzitgo/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_jacket",
+      "title": "Jackets & Coats category proof (live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "JACKET",
+      "source_url": "https://w2clinks.com/spreadsheet/rizzitgo/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_tshirt",
+      "title": "T-Shirts category proof (live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "T-SHIRT",
+      "source_url": "https://w2clinks.com/spreadsheet/rizzitgo/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_pants",
+      "title": "Pants / Shorts category proof (live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "PANTS",
+      "source_url": "https://w2clinks.com/spreadsheet/rizzitgo/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
