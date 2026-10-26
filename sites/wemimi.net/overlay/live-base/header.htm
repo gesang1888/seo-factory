@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wemimi Style Navigation</title>
+    
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* 从 wemimi.net 网站提取的主要色彩 */
+            --primary: #00C19E; /* 青绿色品牌主色 */
+            --primary-hover: #00A887; /* 青绿色悬停状态 */
+            
+            /* 功能性颜色 */
+            --success: #52C41A; /* 成功 - 绿色 */
+            --warning: #FAAD14; /* 警告 - 琥珀色 */
+            --error: #F5222D; /* 错误 - 红色 */
+            
+            /* 背景色 */
+            --bg-page: #F5F5F5; /* 页面底色 - 极浅灰 */
+            --bg-card: #FFFFFF; /* 内容卡片背景 - 纯白 */
+            --bg-hover: #f0f9f7; /* 悬停背景 - 淡青绿色 */
+            
+            /* 文字颜色 - 从 wemimi.net 提取的深色文本 */
+            --text-primary: #262626; /* 主要文字 - 深灰色，非纯黑 */
+            --text-secondary: #8C8C8C; /* 辅助文字 - 浅灰色 */
+            --text-white: #FFFFFF; /* 白色文字 */
+            --text-black: #000000; /* 纯黑文字 */
+            
+            /* 边框/分割线 */
+            --border-color: #D9D9D9; /* 边框颜色 */
+            
+            /* 阴影 */
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 20px rgba(0,0,0,0.15);
+            
+            /* 字体 - 从 wemimi.net 继承的字体族 */
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Helvetica Neue", "Helvetica", "Microsoft YaHei", "PingFang SC", "Source Han Sans";
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            color: var(--text-primary);
+            background-color: var(--bg-page);
+        }
+
+        /* 红色活动横幅样式 */
+        .top-banner {
+            background-color: var(--error);
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-white);
+            font-weight: 500;
+        }
+        .top-banner a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* 导航栏样式 - 使用白色背景，与wemimi.net一致 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            background: var(--bg-card); /* 白色导航背景，与wemimi.net一致 */
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Logo 样式 - 保持青绿色品牌色 */
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary); /* 青绿色Logo文字 */
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        /* 导航菜单样式 - 黑色文字 */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-black); /* 黑色文字在白色背景上 */
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: var(--primary); /* 悬停时变为青绿色 */
+        }
+
+        /* 下拉菜单 - 与wemimi.net风格一致 */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-card); /* 白色背景 */
+            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+            min-width: 200px;
+            display: none;
+            padding: 10px 0;
+            z-index: 100;
+            border: 1px solid var(--border-color);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--text-primary); /* 深灰色文字 */
+            display: block;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background: var(--bg-hover); /* 淡青绿色悬停背景 */
+            color: var(--primary); /* 青绿色文字 */
+        }
+
+        /* 社交链接样式 - 与wemimi.net一致 */
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--bg-card); /* 白色背景 */
+            color: var(--text-black); /* 黑色图标 */
+            font-size: 16px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            border: 1px solid var(--border-color); /* 添加边框与wemimi.net一致 */
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: var(--text-white);
+            border-color: var(--primary); /* 悬停时边框也变色 */
+            transform: scale(1.1);
+        }
+
+        /* 搜索表单样式 - 与wemimi.net一致 */
+        .search-form {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .search-input {
+            padding: 12px 20px;
+            border-radius: 50px 0 0 50px;
+            border: 1px solid var(--border-color);
+            border-right: none;
+            font-size: 14px;
+            outline: none;
+            width: 200px;
+            transition: all 0.3s;
+            background-color: var(--bg-card); /* 白色背景 */
+            color: var(--text-primary); /* 深灰色文字 */
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary); /* 浅灰色占位符文字 */
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 193, 158, 0.2);
+        }
+
+        .search-btn {
+            background-color: var(--primary);
+            color: var(--text-white);
+            border: none;
+            border-radius: 0 50px 50px 0;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .search-btn i {
+            font-size: 14px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                padding: 10px 0;
+            }
+            
+            .logo {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            
+            nav {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .search-form {
+                margin: 10px 0;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .search-input {
+                width: 80%;
+            }
+            
+            .social-links {
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/typesense-search.js"></script>
+</head>
+<body>
+    <!-- 红色活动横幅 -->
+    <div class="top-banner">
+        <a href="https://www.wemimi.com/" target="_blank">
+            🔥1000CNY Gift For New Member" at wemimi - Code: <span style="text-decoration: underline;">ship</span>
+        </a>
+    </div>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="header-container">
+            <!-- Logo 区域 -->
+            <a href="/" class="logo">
+                <img src="/wemimi Logo.png" alt="wemimilogo.png">
+                Spreadsheet 2026
+            </a>
+
+            <!-- 导航菜单区域 -->
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/" class="nav-item active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="nav-item">All Products <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Electronics</a>
+                            <a href="#" class="dropdown-item">Fashion</a>
+                            <a href="#" class="dropdown-item">Home & Garden</a>
+                            <a href="#" class="dropdown-item">Sports</a>
+                            <a href="#" class="dropdown-item">Beauty</a>
+                        </div>
+                    </li>
+                    <!-- 搜索表单 -->
+                    <li>
+                        <form action="#" method="get" class="search-form">
+                            <input type="text" 
+                                name="q" 
+                                class="search-input" 
+                                placeholder="Search products..." 
+                                required 
+                                title="Please enter search keywords"
+                                oninvalid="this.setCustomValidity('Please enter search keywords')"
+                                oninput="this.setCustomValidity('')">
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- 社交链接区域 -->
+            <div class="social-links">
+                <a href="https://wa.me/8615396628356" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/@SPORTSHOESVIP" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // 表单验证和提交处理
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchForms = document.querySelectorAll('.search-form');
+            
+            searchForms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    const keywordsInput = form.querySelector('input[name="q"]');
+                    const keywords = keywordsInput.value.trim();
+                    
+                    if (!keywords) {
+                        e.preventDefault();
+                        alert('Please enter search keywords');
+                        return false;
+                    }
+                    
+                    // 可以在这里添加额外的验证或处理逻辑
+                    console.log('Searching for:', keywords);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
