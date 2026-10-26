@@ -1,0 +1,61 @@
+{
+  "brand": "VigorBuy",
+  "host": "vigorspreadsheet.com",
+  "last_verified": "2026-10-26",
+  "platform_opt": "vigorbuy-platform-20261026",
+  "verify_on": "vigorbuy.com Wallet / coupon dialog \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when gift/shipping offers change (target weekly)",
+  "serp_note": "/vigorbuy-coupons/ carries nearly all clicks; homepage needs Independent Index \u00b7 12,400+ SERP signal. Brand hub only \u2014 no country desks.",
+  "offers": [
+    {
+      "id": "vigorbuy-gift-210",
+      "type": "new_user_gift",
+      "label": "$210 GIFT new-user pack",
+      "code": "$210 GIFT",
+      "value_claim": "Official new-user gift pack (~$210 coupons) \u2014 confirm_live in Wallet / Nuxt coupon dialog",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed expiry promised by this desk \u2014 re-confirm in-app the morning you pay",
+      "applies_to": "VigorBuy new-user Wallet / register gift",
+      "exclusions": [
+        "This hub is not checkout",
+        "Stacking rules official-only"
+      ],
+      "source": "https://vigorspreadsheet.com/vigorbuy-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "vigorbuy-ship-30",
+      "type": "shipping_promo",
+      "label": "30% SHIP shipping off",
+      "code": "30% SHIP",
+      "value_claim": "Official 30% shipping discount tied to new-user gift line \u2014 confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://vigorspreadsheet.com/vigorbuy-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "vigorbuy-pack-15-archive",
+      "type": "order_promo",
+      "label": "PACK 15% archive",
+      "code": "PACK 15%",
+      "value_claim": "Listed on ranked coupons article \u2014 treat as confirm_live / may be historical",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://vigorspreadsheet.com/vigorbuy-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "vigorbuy-back-to-school-archive",
+      "type": "community_promo",
+      "label": "Back-to-School Reddit event archive",
+      "code": null,
+      "value_claim": "One-week Reddit community event \u2014 historical unless still visible in Wallet",
+      "status": "historical",
+      "expires_on": null,
+      "source": "https://vigorspreadsheet.com/vigorbuy-coupons/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

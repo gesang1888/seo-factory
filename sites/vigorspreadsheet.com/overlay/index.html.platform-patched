@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>VigorBuy Spreadsheet 2026 — Independent Index · 12,400+</title>
+<meta name="description" content="VigorBuy Independent Index · 12,400+ on vigorspreadsheet.com. Not Excel, not a Google Sheet, not checkout. Coupons on /vigorbuy-coupons/; dataset on /finds-dataset/. Brand hub only — no country spreadsheet desks. Pay on vigorbuy.com.">
+<meta property="og:title" content="VigorBuy Spreadsheet 2026 — Independent Index · 12,400+">
+<meta property="og:description" content="VigorBuy Independent Index · 12,400+. Coupons + finds dataset on this hub. Brand hub only (no country desks). Lookalike hosts are not keep desks.">
+<meta property="og:url" content="https://vigorspreadsheet.com/">
+<meta property="og:image" content="https://vigorspreadsheet.com/assets/images/official-logo.png">
+<link rel="canonical" href="https://vigorspreadsheet.com/">
+<link rel="icon" type="image/png" href="/assets/images/official-favicon.png">
+<link rel="apple-touch-icon" href="/assets/images/official-apple-touch.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"WebSite","name":"VigorBuy Spreadsheet","alternateName":["VigorBuy Independent Index","VigorBuy Spreadsheet 2026","vigorspreadsheet.com"],"dateModified":"2026-10-26","url":"https://vigorspreadsheet.com/","description":"VigorBuy Independent Index · 12,400+ finds. Coupons on /vigorbuy-coupons/; dataset on /finds-dataset/. Not Excel, not a Google Sheet.","inLanguage":"en"},
+  {"@type":"WebPage","name":"VigorBuy Spreadsheet 2026 — Independent Index · 12,400+","url":"https://vigorspreadsheet.com/","description":"Brand hub only. No country spreadsheet desks. Coupons + dataset cited on this host.","inLanguage":"en","isPartOf":{"@type":"WebSite","url":"https://vigorspreadsheet.com/"}},
+  {"@type":"Organization","name":"VigorBuy Spreadsheet","url":"https://vigorspreadsheet.com/","email":"cnfd85269032661@gmail.com","logo":"https://vigorspreadsheet.com/assets/images/official-logo.png","description":"Independent VigorBuy spreadsheet hub · Independent Index · 12,400+. Brand hub only — no country desks. Lookalike hosts are not keep desks in this portfolio.","sameAs":["https://vigorbuy.com/","https://discord.gg/dgd7j48e9U"]},
+  {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is a VigorBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"A VigorBuy spreadsheet is a live finds index of Weidian, Taobao, 1688 and Yupoo links. It is not Excel, not a Google Sheet download, and not checkout. Browse ranked articles on this host, then buy on vigorbuy.com."}},
+    {"@type":"Question","name":"Is this the same as vigorbuy.com?","acceptedAnswer":{"@type":"Answer","text":"No. vigorspreadsheet.com is an independent information desk. Orders, payment and warehouse photos stay on vigorbuy.com. This host does not take a card. Official Help and estimation sit behind Cloudflare Turnstile on vigorbuy.com."}},
+    {"@type":"Question","name":"What promotions are live on VigorBuy?","acceptedAnswer":{"@type":"Answer","text":"Official new-user gift measured 9 Oct 2026: a $210 coupon package plus 30% shipping off, cited from r/VigorBuy_Official and still prefetched as Nuxt coupon-dialog assets on vigorbuy.com. A one-week Back-to-School Reddit event is not treated as a live long-term homepage code. Confirm Wallet the morning you pay."}},
+    {"@type":"Question","name":"How long is warehouse storage free?","acceptedAnswer":{"@type":"Answer","text":"Official Help and estimation were behind a Cloudflare Turnstile challenge on 9 Oct 2026. This desk does not invent a free-day count. Confirm the live Help copy and in-account timer the morning you ship."}},
+    {"@type":"Question","name":"Is vigorspreadsheet.com a country desk?","acceptedAnswer":{"@type":"Answer","text":"No. vigorspreadsheet.com is the brand hub only. Mixed USA/SVN/IRL impressions do not authorize a dest-country skin. There are no keep country spreadsheet desks for VigorBuy. Lookalike hosts are competitor catalogs — not Phase C sunsets to revive, and not keep desks."}}
+  ]}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --acc:#FF0039;--acd:#C7002C;--acl:#FFF0F3;--acs:#F0C8C2;
+  --bk:#0A0A0A;--g1:#1A1A1A;--g2:#2D2D2D;--g3:#555;--g4:#888;--g5:#E5E5E5;--g6:#F6F6F6;--wh:#fff;
+  --bg:#FFF5F6;--gn:#16A34A;--gnl:#F0FDF4;--bl:#2563EB;--bll:#EFF6FF;
+  --am:#D97706;--aml:#FFFBEB;--rd:#DC2626;--rdl:#FEF2F2;--pu:#7C3AED;--pul:#F5F3FF;
+  --f:'Montserrat','DM Sans',sans-serif;--r:10px;--rl:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--bk);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%;display:block}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
+.skip:focus{left:12px}
+.ann{background:var(--acc);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:500}
+.ann a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.nav{position:sticky;top:0;z-index:100;background:var(--wh);border-bottom:1px solid var(--acs);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nlo{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;letter-spacing:-.3px;color:var(--bk)}
+.nlo img{height:32px;width:auto;max-width:120px;object-fit:contain;border-radius:6px}
+.nl{display:flex;align-items:center;gap:4px;list-style:none}
+.nl a{font-size:13px;padding:6px 10px;border-radius:6px;color:var(--g4)}
+.nl a:hover{background:var(--acl);color:var(--bk);text-decoration:none}
+.nl a.on{color:var(--bk);font-weight:600}
+.bwa{display:flex;align-items:center;gap:7px;padding:7px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500;white-space:nowrap}
+.bwa:hover{opacity:.88;text-decoration:none}
+.ncart{display:inline-flex;padding:8px 16px;background:var(--acc);border-radius:8px;color:#fff;font-size:13px;font-weight:600}
+.ncart:hover{background:var(--acd);text-decoration:none}
+.nacts{display:flex;align-items:center;gap:8px}
+.hero-wrap{background:var(--bg)}
+.hero{max-width:860px;margin:0 auto;padding:56px 24px 40px;text-align:center}
+.hero.fade-in{animation:fadeUp .4s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.hbg{display:inline-flex;align-items:center;gap:6px;background:var(--acl);color:var(--acd);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:18px;border:1px solid color-mix(in srgb,var(--acc) 22%,transparent)}
+.hbg::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--acc);display:inline-block}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1.8px;line-height:1.1;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hsub{font-size:16px;color:var(--g3);max-width:640px;margin:0 auto 28px;line-height:1.75}
+.hctas{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.cp{padding:13px 28px;background:var(--acc);color:#fff;border-radius:10px;font-size:15px;font-weight:600}
+.cp:hover{background:var(--acd);text-decoration:none}
+.cs{padding:12px 24px;border:1.5px solid var(--g5);color:var(--bk);border-radius:10px;font-size:15px;font-weight:500;background:#fff}
+.cs:hover{border-color:var(--acc);color:var(--acc);text-decoration:none}
+.hst{display:flex;justify-content:center;gap:0;border:1px solid var(--acs);border-radius:var(--rl);overflow:hidden;max-width:640px;margin:0 auto;background:#fff}
+.hs{flex:1;padding:16px 10px;text-align:center;border-right:1px solid var(--acs)}
+.hs:last-child{border-right:none}
+.hsn{font-size:20px;font-weight:700;letter-spacing:-.5px}
+.hsl{font-size:11px;color:var(--g4);margin-top:3px;text-transform:uppercase;letter-spacing:.4px}
+.trust{background:color-mix(in srgb,var(--bg) 70%,#fff);border-top:1px solid var(--acs);border-bottom:1px solid var(--acs);padding:24px}
+.ti{max-width:1100px;margin:0 auto;display:flex;gap:28px;justify-content:center;flex-wrap:wrap;align-items:center}
+.tit{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--g3)}
+.tit svg{width:17px;height:17px;color:var(--acc);flex-shrink:0}
+#official-promo,#not-excel{scroll-margin-top:72px}
+#official-promo{background:#fff;border-bottom:1px solid var(--acs)}
+.opromo{max-width:1100px;margin:0 auto;padding:36px 24px}
+.opromo h2{font-size:22px;letter-spacing:-.4px;margin-bottom:8px}
+.ssub{color:var(--g3);font-size:14.5px;margin:0 0 16px;line-height:1.7}
+.oshots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.oshots figure{background:var(--acl);border-radius:14px;overflow:hidden;border:1px solid var(--acs)}
+.oshots img{width:100%;height:190px;object-fit:contain;background:#fff}
+.oshots figcaption{padding:12px 14px;font-size:13px;color:var(--g2);line-height:1.55}
+.opfacts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.opfact{background:var(--acl);border:1px solid var(--acs);border-radius:12px;padding:14px}
+.opfact b{display:block;font-size:14px;margin-bottom:4px}
+.opfact span{font-size:13px;color:var(--g3);line-height:1.55}
+.sec{max-width:1100px;margin:0 auto;padding:40px 24px}
+.ph{font-size:21px;font-weight:600;letter-spacing:-.4px;margin:8px 0 12px}
+.pp{font-size:15px;color:var(--g2);line-height:1.82;margin-bottom:14px}
+.stit{font-size:26px;font-weight:600;letter-spacing:-.5px;margin-bottom:6px}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px}
+.ccard{border:1px solid var(--acs);border-radius:var(--rl);padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--wh);color:inherit}
+.ccard:hover{border-color:var(--acc);transform:translateY(-2px);text-decoration:none}
+.cico{font-size:22px}
+.cname{font-size:13px;font-weight:600;color:var(--bk)}
+.ccnt{font-size:12px;color:var(--g4)}
+.guides{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.gc{border:1px solid var(--g5);border-radius:var(--rl);padding:18px;display:flex;flex-direction:column;gap:8px;background:#fff;color:inherit}
+.gc:hover{border-color:var(--acc);transform:translateY(-2px);text-decoration:none}
+.gtg{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:4px;display:inline-block}
+.gtit{font-size:14px;font-weight:600;color:var(--bk);line-height:1.3}
+.gdesc{font-size:12.5px;color:var(--g4);line-height:1.55;flex:1}
+.glink{font-size:12px;font-weight:600;color:var(--acc)}
+.waband{background:var(--bk);padding:40px 24px;text-align:center}
+.wabi{max-width:560px;margin:0 auto}
+.waband h2{font-size:26px;font-weight:600;color:#fff;letter-spacing:-.5px;margin-bottom:10px}
+.waband p{font-size:15px;color:var(--g4);margin-bottom:22px}
+.wabb{display:inline-flex;align-items:center;gap:10px;padding:13px 28px;background:#25D366;color:#fff;border-radius:10px;font-size:15px;font-weight:600}
+.wabb:hover{opacity:.88;text-decoration:none}
+.ft{background:#1A1A1A;color:#ccc;padding:40px 24px}
+.fti{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.flo{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;color:#fff;margin-bottom:12px}
+.flo img{height:28px;width:auto;border-radius:6px;background:#fff}
+.ftg{font-size:13px;color:#888;line-height:1.65;margin-bottom:16px}
+.fwa{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500}
+.fc h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#888;margin-bottom:12px}
+.fc ul{list-style:none}
+.fc ul li{margin-bottom:9px}
+.fc ul li a{font-size:13px;color:#888}
+.fc ul li a:hover{color:#fff;text-decoration:none}
+.waf{position:fixed;bottom:24px;right:24px;z-index:999}
+.wafb{width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35)}
+.wafb:hover{transform:scale(1.08);text-decoration:none}
+.wafb svg{width:26px;height:26px;color:#fff}
+@media(max-width:860px){
+  .nl{display:none}
+  .oshots,.opfacts,.fti{grid-template-columns:1fr}
+  .hst{flex-wrap:wrap}
+  .hs{min-width:40%}
+}
+
+.sg-sec#local{max-width:1100px;margin:8px auto 28px;padding:0 24px;text-align:left}
+.sg-sec#local h2{font-size:20px;margin:0 0 6px}
+.sg-sec#local .ssub{margin-bottom:12px;color:var(--g3,#555)}
+.local-steps{margin:0;padding-left:18px}
+.local-steps li{margin:0 0 10px;color:var(--g3,#555)}
+.local-steps li strong{display:block;color:var(--bk,#0A0A0A);font-size:14px}
+.local-steps li span{display:block;font-size:13.5px}
+.local-src{font-size:13px;color:#888;margin-top:10px}
+#local{scroll-margin-top:80px}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ann">30% shipping off · $210 new-user gift · <a href="https://vigorbuy.com/" target="_blank" rel="noopener">Register on VigorBuy →</a> Independent desk — not a dest-country skin.</div>
+<nav class="nav">
+  <a href="/" class="nlo">
+    <img src="/assets/images/official-logo.png" width="192" height="192" alt="VigorBuy">
+    VigorBuy Spreadsheet
+  </a>
+  <ul class="nl">
+    <li><a href="#local">Hub</a></li>
+    <li><a href="/vigorbuy-spreadsheet/">Spreadsheet</a></li>
+    <li><a href="/vigorbuy-coupons/">Coupons</a></li>
+    <li><a href="/finds-dataset/">Dataset</a></li>
+    <li><a href="/vigorbuy-shipping-guide/">Shipping</a></li>
+    <li><a href="/is-vigorbuy-legit/">Legit?</a></li>
+    <li><a href="/blog/">Blog</a></li>
+  </ul>
+  <div class="nacts">
+    <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="bwa">WhatsApp</a>
+    <a href="https://vigorbuy.com/" target="_blank" rel="noopener" class="ncart">Open VigorBuy</a>
+  </div>
+</nav>
+<section class="hero-wrap"><section class="hero fade-in" id="main">
+  <div class="hbg">Independent Index · 12,400+ · not Excel · not a dest-country skin</div>
+  <h1>VigorBuy Spreadsheet <em>2026</em> — Independent Index · 12,400+</h1>
+  <p class="hsub">Independent Index · 12,400+ — live Weidian, Taobao, 1688 and Yupoo finds. Not Excel, not a Google Sheet, not checkout. Brand hub on this .com host (no country spreadsheet desks). Coupons + dataset cited below; pay on vigorbuy.com. Official new-user gift: <strong>$210</strong> pack + <strong>30%</strong> shipping off — confirm Wallet the morning you pay.</p>
+  <div class="hctas">
+    <a href="/vigorbuy-spreadsheet/" class="cp">Spreadsheet</a>
+    <a href="/vigorbuy-coupons/" class="cs">Coupons</a>
+    <a href="/finds-dataset/" class="cs">Dataset</a>
+    <a href="https://vigorbuy.com/" class="cs" target="_blank" rel="noopener">Register</a>
+  </div>
+  <div class="hst">
+    <div class="hs"><div class="hsn">12,400+</div><div class="hsl">Index rows</div></div>
+    <div class="hs"><div class="hsn">$210</div><div class="hsl">New-user gift</div></div>
+    <div class="hs"><div class="hsn">30%</div><div class="hsl">Shipping off</div></div>
+    <div class="hs"><div class="hsn">Hub-only</div><div class="hsl">No country desk</div></div>
+  </div>
+</section>
+
+<section class="sg-sec" id="local">
+  <h2>Brand hub · Independent Index · no country desk</h2>
+  <p class="ssub">vigorspreadsheet.com · not a customs territory · money URLs ≤6</p>
+  <ol class="local-steps">
+    <li><strong>Brand spreadsheet → this hub</strong><span>Independent Index · 12,400+. Coupons + dataset live here. Mixed USA/SVN/IRL impressions do not make .com a dest-country desk.</span></li>
+    <li><strong>No keep country desks</strong><span>Portfolio inventory lists zero VigorBuy country spreadsheet TLDs. Do not invent new ones. Do not revive Phase C sunsets.</span></li>
+    <li><strong>Lookalikes ≠ keep desks</strong><span>vigor-buy.com / vigorbuy-spreadsheet.com / vigorbuyspreadsheets.net are competitor catalogs — not Phase C sunsets to revive, and not keep desks on this portfolio.</span></li>
+    <li><strong>Money URLs stay ≤6</strong><span>Home · Spreadsheet · Coupons · Dataset · Shipping · Legit. Ranked inners stay 200 — not overwritten.</span></li>
+  </ol>
+  <p class="local-src">Money URLs (≤6): <a href="/">Home</a> · <a href="/vigorbuy-spreadsheet/">Spreadsheet</a> · <a href="/vigorbuy-coupons/">Coupons</a> · <a href="/finds-dataset/">Dataset</a> · <a href="/vigorbuy-shipping-guide/">Shipping</a> · <a href="/is-vigorbuy-legit/">Legit</a></p>
+  <p class="local-src">Lab 26 Oct 2026. Phase C sunsets not revived. Orders stay on vigorbuy.com.</p>
+</section>
+</section>
+<div class="trust">
+  <div class="ti">
+    <div class="tit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Escrow stays on vigorbuy.com</div>
+    <div class="tit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/></svg>QC photos in-account</div>
+    <div class="tit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Freight form is not this hostname</div>
+    <div class="tit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Not a dest-country skin</div>
+  </div>
+</div>
+
+<section id="official-promo">
+  <div class="opromo">
+    <h2>Official VigorBuy copy — 9 Oct 2026</h2>
+    <p class="ssub">Public vigorbuy.com is a Nuxt app. The same day Help, estimation and coupon UI sat behind a Cloudflare Turnstile at /cloudflare-verify. New-user gift is still the measured public line: <strong>$210</strong> coupon package plus <strong>30%</strong> shipping off, cited from official Reddit r/VigorBuy_Official (“Registration gift of a 30% shipping discount + $210 coupon package”) and still prefetched as Nuxt coupon-dialog webps. Official OG: <strong>All of china, All Your Vigor</strong>. Chrome is the red shopping-bag + white V at <strong>#FF0039</strong>. Discord: <a href="https://discord.gg/dgd7j48e9U" rel="noopener">discord.gg/dgd7j48e9U</a>. Estimator URL: <a href="https://vigorbuy.com/estimation" rel="noopener">vigorbuy.com/estimation</a>. Help: <a href="https://vigorbuy.com/help" rel="noopener">vigorbuy.com/help</a> — confirm that live copy; this desk does not invent a free-day count. A one-week Back-to-School Reddit event is not treated as a live long-term homepage code. Thin <code>/vigorbuy-coupons/</code> · <code>/coupons/</code> 301 → <a href="/vigorbuy-coupons/">/vigorbuy-coupons/</a>.</p>
+    <div class="oshots">
+      <figure>
+        <a href="https://vigorbuy.com/" rel="noopener"><img src="/assets/official/official-og.jpg" width="1400" height="660" alt="Official VigorBuy OG 9 Oct 2026: Vigorbuy All of china, All Your Vigor with red mascot"></a>
+        <figcaption>Official OG the same day: <strong>All of china, All Your Vigor</strong>. Red bag-V chrome at #FF0039. This desk keeps that red, not a leftover dest skin.</figcaption>
+      </figure>
+      <figure>
+        <a href="/vigorbuy-coupons/"><img src="/assets/official/official-promo.jpg" width="411" height="319" alt="Official VigorBuy Nuxt coupon dialog gift box still prefetched 9 Oct 2026"></a>
+        <figcaption>Nuxt coupon-dialog gift still prefetched on vigorbuy.com. Public line: <strong>$210 new-user gift</strong> plus <strong>30% shipping off</strong>. Confirm Wallet — this page is not checkout.</figcaption>
+      </figure>
+      <figure>
+        <a href="https://vigorbuy.com/help" rel="noopener"><img src="/assets/official/official-cf.jpg" width="1400" height="900" alt="Official vigorbuy.com Help behind Cloudflare Turnstile 9 Oct 2026"></a>
+        <figcaption>Official Help / estimation behind <strong>Cloudflare Turnstile</strong> 9 Oct 2026. No published free-storage day count reached this desk. Do not invent one.</figcaption>
+      </figure>
+    </div>
+    <div class="opfacts">
+      <div class="opfact"><b>$210 + 30%</b><span>Official Reddit + Nuxt coupon dialogs 9 Oct 2026: registration gift of a 30% shipping discount plus a $210 coupon package. Confirm Wallet the morning you pay freight.</span></div>
+      <div class="opfact"><b>Storage: live Help</b><span>Help was behind Turnstile the same day. This homepage does not invent a free-day count and does not copy another agent's storage clock.</span></div>
+      <div class="opfact"><b>Discord</b><span>Official schema Discord is <strong>discord.gg/dgd7j48e9U</strong>. Company inbox on schema is <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="077472777768757347716e60687565727e2964686a">[email&#160;protected]</a>. This desk uses <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dcbfb2bab8e4e9eeeae5ecefeeeaeaed9cbbb1bdb5b0f2bfb3b1">[email&#160;protected]</a>.</span></div>
+      <div class="opfact"><b>Brand hub only</b><span>Independent Index · 12,400+. No country spreadsheet desks. Lookalike hosts are competitor catalogs — not keep desks. Mixed USA/SVN GSC does not make .com a dest-country skin.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="not-excel">
+  <h2 class="ph">This VigorBuy spreadsheet is not Excel</h2>
+  <p class="ssub">“Spreadsheet” here means a live finds index — Weidian, Taobao, 1688 and Yupoo rows — not a .xlsx you download and freeze, and not the community Google Sheet that Reddit threads keep recycling. Photos and CNY prices for this agent stay on ranked articles on this host and on vigorbuy.com search. A separate catalog lives at <a href="https://w2clinks.com/spreadsheet/vigorbuy/" target="_blank" rel="noopener">w2clinks.com/spreadsheet/vigorbuy/</a> — that is not this host and is not a Google Sheet either. This host does not dump a products API. Category keys still match <a href="https://w2clinks.com/categories/" target="_blank" rel="noopener">w2clinks.com/categories/</a> as English labels, then you open VigorBuy to buy. Women’s Fashion stays on this homepage because that query already clicks. This .com hub is not a dest-country skin.</p>
+</section>
+
+<section class="sec" id="cats">
+  <h2 class="stit">Browse by Category</h2>
+  <p class="ssub">English category keys from w2clinks.com/categories/. This homepage does not dump a products API. Women’s Fashion stays — it already takes GSC clicks.</p>
+  <div class="cg">
+    <a href="/vigorbuy-spreadsheet/" class="ccard"><div class="cico">📋</div><p class="cname">VigorBuy spreadsheet</p><p class="ccnt">Ranked 2026 article</p></a>
+    <a href="https://w2clinks.com/spreadsheet/vigorbuy/?category=SNEAKERS" class="ccard" target="_blank" rel="noopener"><div class="cico">👟</div><p class="cname">Sneakers &amp; Shoes</p><p class="ccnt">w2clinks VigorBuy sheet</p></a>
+    <a href="https://w2clinks.com/spreadsheet/vigorbuy/?category=JACKET" class="ccard" target="_blank" rel="noopener"><div class="cico">🧥</div><p class="cname">Jackets &amp; Coats</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/vigorbuy/?category=T-SHIRT" class="ccard" target="_blank" rel="noopener"><div class="cico">👕</div><p class="cname">T-Shirts</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/vigorbuy/?category=TROUSERS" class="ccard" target="_blank" rel="noopener"><div class="cico">👖</div><p class="cname">Pants / Shorts</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/vigorbuy/?category=HOODIE" class="ccard" target="_blank" rel="noopener"><div class="cico">🧤</div><p class="cname">Hoodies/Sweaters</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/vigorbuy/?category=BAG" class="ccard" target="_blank" rel="noopener"><div class="cico">👜</div><p class="cname">Bags</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/vigorbuy/?category=FEMALE%20STYLE" class="ccard" target="_blank" rel="noopener"><div class="cico">👗</div><p class="cname">Women's Fashion</p><p class="ccnt">GSC money query</p></a>
+    <a href="https://w2clinks.com/spreadsheet/vigorbuy/?category=HAT" class="ccard" target="_blank" rel="noopener"><div class="cico">🧢</div><p class="cname">Headwear</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/vigorbuy/?category=JEWELRY" class="ccard" target="_blank" rel="noopener"><div class="cico">⌚</div><p class="cname">Accessories</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/vigorbuy/?category=Jersey" class="ccard" target="_blank" rel="noopener"><div class="cico">🏀</div><p class="cname">Sports Jerseys</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/vigorbuy/?category=Electronics" class="ccard" target="_blank" rel="noopener"><div class="cico">🎧</div><p class="cname">Electronics</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SHORTS" class="ccard" target="_blank" rel="noopener"><div class="cico">🩳</div><p class="cname">Shorts</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=POLO" class="ccard" target="_blank" rel="noopener"><div class="cico">👔</div><p class="cname">Polos</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SWEATER" class="ccard" target="_blank" rel="noopener"><div class="cico">🧶</div><p class="cname">Sweaters</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=DOWN%20JACKETS" class="ccard" target="_blank" rel="noopener"><div class="cico">🧥</div><p class="cname">Down jackets</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=GLASSES%20WATCH" class="ccard" target="_blank" rel="noopener"><div class="cico">🕶️</div><p class="cname">Glasses / watches</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SOCKS" class="ccard" target="_blank" rel="noopener"><div class="cico">🧦</div><p class="cname">Socks</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=BELT" class="ccard" target="_blank" rel="noopener"><div class="cico">🔗</div><p class="cname">Belts</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=GLOVES" class="ccard" target="_blank" rel="noopener"><div class="cico">🧤</div><p class="cname">Gloves</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SCARF" class="ccard" target="_blank" rel="noopener"><div class="cico">🧣</div><p class="cname">Scarves</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=UNDERWEAR" class="ccard" target="_blank" rel="noopener"><div class="cico">🩲</div><p class="cname">Underwear</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SLIPPERS" class="ccard" target="_blank" rel="noopener"><div class="cico">🩴</div><p class="cname">Slippers</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=VEST" class="ccard" target="_blank" rel="noopener"><div class="cico">🦺</div><p class="cname">Vests</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SHIRT" class="ccard" target="_blank" rel="noopener"><div class="cico">👔</div><p class="cname">Shirts</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=FLEECE%20JACKET" class="ccard" target="_blank" rel="noopener"><div class="cico">🧸</div><p class="cname">Fleece jackets</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SHELL%20JACKET" class="ccard" target="_blank" rel="noopener"><div class="cico">🌧️</div><p class="cname">Shell jackets</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=LONG%20SLEEVED" class="ccard" target="_blank" rel="noopener"><div class="cico">👕</div><p class="cname">Long sleeve</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SHAWL" class="ccard" target="_blank" rel="noopener"><div class="cico">🧣</div><p class="cname">Shawls</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=HEADGEAR" class="ccard" target="_blank" rel="noopener"><div class="cico">⛑️</div><p class="cname">Headgear</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=EARMUFF" class="ccard" target="_blank" rel="noopener"><div class="cico">🎧</div><p class="cname">Earmuffs</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=KNEEPAD" class="ccard" target="_blank" rel="noopener"><div class="cico">🦵</div><p class="cname">Kneepads</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/categories/" class="ccard" target="_blank" rel="noopener"><div class="cico">📦</div><p class="cname">All categories</p><p class="ccnt">w2clinks.com/categories/</p></a>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <h2 class="stit">Guides already on this host</h2>
+  <p class="ssub">These unique URLs stay 200. This homepage does not 301 onto them. Ranked HTML that still takes impressions stays too — this desk does not mass-overwrite 24–45KB coupon/shipping/spreadsheet pages.</p>
+  <div class="guides">
+    <a href="/vigorbuy-spreadsheet/" class="gc"><span class="gtg" style="background:var(--acl);color:var(--acd)">Spreadsheet</span><p class="gtit">VigorBuy Spreadsheet 2026</p><p class="gdesc">Ranked unique article already on this host. The money title for the spreadsheet query now also lives on /.</p><span class="glink">Open →</span></a>
+    <a href="/is-vigorbuy-legit/" class="gc"><span class="gtg" style="background:var(--gnl);color:var(--gn)">Trust Review</span><p class="gtit">Is VigorBuy Legit?</p><p class="gdesc">Independent desk — payment stays on vigorbuy.com. Unique HTML stays 200.</p><span class="glink">Read review →</span></a>
+    <a href="/vigorbuy-shipping-guide/" class="gc"><span class="gtg" style="background:var(--bll);color:var(--bl)">Shipping</span><p class="gtit">Shipping Guide</p><p class="gdesc">Unique line article already on this host. Official freight form is vigorbuy.com/estimation (Turnstile). Older body copy is not overwritten here.</p><span class="glink">Open →</span></a>
+    <a href="/vigorbuy-coupons/" class="gc"><span class="gtg" style="background:#FEF3C7;color:#92400E">Coupons</span><p class="gtit">Ranked coupon article</p><p class="gdesc">Unique ~45KB money URL stays 200. Thin /vigorbuy-coupons/ · /coupons/ 301 → /vigorbuy-coupons/. Dataset on /finds-dataset/.</p><span class="glink">Get codes →</span></a>
+    <a href="/vigorbuy-qc-guide/" class="gc"><span class="gtg" style="background:var(--pul);color:var(--pu)">QC Guide</span><p class="gtit">How to Review QC Photos</p><p class="gdesc">Unique HTML already on this host. Leave the file 200.</p><span class="glink">Learn QC →</span></a>
+    <a href="/blog/" class="gc"><span class="gtg" style="background:var(--g6);color:var(--g4)">Blog</span><p class="gtit">VigorBuy Spreadsheet Blog</p><p class="gdesc">Unique HTML already on this host. Leave the file 200.</p><span class="glink">Read blog →</span></a>
+    <a href="/finds-dataset/" class="gc"><span class="gtg" style="background:var(--rdl);color:var(--rd)">Moat</span><p class="gtit">Finds dataset</p><p class="gdesc">Public row counts + category proofs. Brand hub only — no country desks.</p><span class="glink">Open dataset →</span></a>
+    <a href="/how-to-use-vigorbuy/" class="gc"><span class="gtg" style="background:var(--bll);color:#1E40AF">How to</span><p class="gtit">How to use VigorBuy</p><p class="gdesc">Paste a Weidian/Taobao/1688/Yupoo link into vigorbuy.com, wait for warehouse photos, then book freight in /estimation.</p><span class="glink">Open →</span></a>
+    <a href="/vigorbuy-shoes-spreadsheet/" class="gc"><span class="gtg" style="background:var(--acl);color:var(--acd)">Shoes</span><p class="gtit">Shoes spreadsheet</p><p class="gdesc">Ranked unique inner stays 200. Homepage is not 301 onto it.</p><span class="glink">Open →</span></a>
+  </div>
+</section>
+
+<section class="sec">
+  <h2 class="ph">How a VigorBuy order actually runs</h2>
+  <p class="pp">VigorBuy is a purchasing agent, not a shop. You paste a product link from Taobao, 1688, Weidian or Yupoo, they buy, photograph, store, then you book an international line. vigorspreadsheet.com never takes a card. Official checkout is <a href="https://vigorbuy.com/" rel="noopener">vigorbuy.com</a>. Freight estimate: <a href="https://vigorbuy.com/estimation" rel="noopener">vigorbuy.com/estimation</a>. Help lives at <a href="https://vigorbuy.com/help" rel="noopener">vigorbuy.com/help</a>. Both Help and estimation sat behind Cloudflare Turnstile on 9 Oct 2026 — confirm the live copy the morning you ship. Official Discord is discord.gg/dgd7j48e9U. This desk uses <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c3a0ada5a7fbf6f1f5faf3f0f1f5f5f283a4aea2aaafeda0acae">[email&#160;protected]</a> and WhatsApp +8615396628356 and is not the company inbox.</p>
+  <p class="pp">Warehouse storage is whatever official Help publishes. That URL was challenged the morning this desk shipped, so this homepage does not invent a free-day count and does not copy another agent's storage clock. Confirm the timer in-account the morning you ship. Ranked shipping HTML stays at /vigorbuy-shipping-guide/; this homepage does not overwrite it. This desk does not reprint Help customs articles and does not coach declared values.</p>
+  <p class="pp">Official promotions the same day are the $210 new-user gift plus 30% shipping off (Reddit r/VigorBuy_Official + Nuxt coupon-dialog assets), not a register query on this desk. A one-week Back-to-School Reddit event is not treated as a live long-term homepage code. Ranked /vigorbuy-invite-code/ stays 200; do not copy a token onto /. Confirm Wallet the morning you pay freight.</p>
+  <p class="pp">This .com host is the VigorBuy brand hub (Independent Index · 12,400+). No keep country spreadsheet desks — do not invent new country TLDs. Lookalike hosts are competitor catalogs, not Phase C sunsets to revive. Mixed USA/SVN leftover GSC does not make this hostname a dest-country skin. Pick the real ship-to country inside vigorbuy.com. This desk does not coach customs values.</p>
+  <p class="pp">Ranked unique HTML on this host stays 200: /vigorbuy-spreadsheet/, /vigorbuy-coupons/, /vigorbuy-shipping-guide/, /is-vigorbuy-legit/, /how-to-use-vigorbuy/, /blog/, /vigorbuy-invite-code/, /vigorbuy-qc-guide/, /vigorbuy-refund-guide/, /vigorbuy-shoes-spreadsheet/, /vigorbuy-community/, /vigorbuy-spreadsheet-2026/. This homepage does not 301 onto the ranked spreadsheet. Thin /coupons/ · /vigorbuy-coupons/ 301 → /vigorbuy-coupons/. /shipping/ stays absent (no thin 200 shell). Email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e2818c8486dad7d0d4dbd2d1d0d4d4d3a2858f838b8ecc818d8f">[email&#160;protected]</a>. WhatsApp +8615396628356.</p>
+</section>
+
+<div class="waband">
+  <div class="wabi">
+    <h2>Need help with a VigorBuy order?</h2>
+    <p>WhatsApp +8615396628356 — product links, sizing, shipping quotes, QC notes. Email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="11727f7775292423272821222327272051767c70787d3f727e7c">[email&#160;protected]</a>.</p>
+    <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="wabb">Chat — +8615396628356</a>
+  </div>
+</div>
+<footer class="ft">
+  <div class="fti">
+    <div>
+      <div class="flo"><img src="/assets/images/official-logo.png" alt="VigorBuy" width="192" height="192"> VigorBuy Spreadsheet</div>
+      <p class="ftg">Independent Index · 12,400+ on vigorspreadsheet.com. Brand hub only — no country desks. Not the official app, not checkout. Email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f89b969e9cc0cdcacec1c8cbcacecec9b89f95999194d69b9795">[email&#160;protected]</a>. Orders stay on vigorbuy.com.</p>
+      <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="fwa">+8615396628356</a>
+    </div>
+    <div class="fc"><h4>Spreadsheets</h4><ul>
+      <li><a href="/vigorbuy-spreadsheet/">Ranked spreadsheet</a></li>
+      <li><a href="/vigorbuy-shoes-spreadsheet/">Shoes</a></li>
+      <li><a href="#not-excel">Not Excel</a></li>
+      <li><a href="https://w2clinks.com/categories/" target="_blank" rel="noopener">Categories</a></li>
+    </ul></div>
+    <div class="fc"><h4>Guides</h4><ul>
+      <li><a href="/how-to-use-vigorbuy/">How to Use VigorBuy</a></li>
+      <li><a href="/is-vigorbuy-legit/">Is VigorBuy Legit?</a></li>
+      <li><a href="/vigorbuy-shipping-guide/">Shipping Guide</a></li>
+      <li><a href="/vigorbuy-coupons/">Coupon Codes</a></li>
+      <li><a href="/finds-dataset/">Dataset</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul></div>
+  </div>
+  <p class="ftg" style="max-width:1100px;margin:28px auto 0;padding-top:20px;border-top:1px solid #2D2D2D">Independence: vigorspreadsheet.com does not take payment or see your VigorBuy account. Official $210 / 30% new-user gift, Discord discord.gg/dgd7j48e9U, and Help behind Turnstile are on vigorbuy.com — confirm Help and Wallet the morning you ship. Ranked URLs stay 200 — no 301 of the homepage onto /vigorbuy-spreadsheet/. Brand hub only — no country desks. Lookalike hosts are not keep desks. Copy reviewed 26 Oct 2026. Contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="781b161e1c404d4a4e41484b4a4e4e49381f15191114561b1715">[email&#160;protected]</a>.</p>
+</footer>
+<div class="waf">
+  <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="wafb" aria-label="WhatsApp +8615396628356"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
