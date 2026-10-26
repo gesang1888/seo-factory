@@ -2,7 +2,7 @@
   "brand": "HipoBuy",
   "host": "hipobuyspreadsheet.net",
   "last_verified": "2026-10-26",
-  "verify_on": "hipobuy.com (official drawer / wallet — this hub never redeems)",
+  "verify_on": "hipobuy.com (official drawer / wallet \u2014 this hub never redeems)",
   "update_cadence": "Re-verify on every freight payment morning; JSON stamped at least weekly",
   "offers": [
     {
@@ -13,7 +13,7 @@
       "value_claim": "Community / hub copy often cites a ~$158 shipping-oriented new-user bundle in invite contexts",
       "status": "confirm_live",
       "expires_on": null,
-      "expires_note": "No fixed public expiry on this desk — treat as unknown until the live drawer shows a date",
+      "expires_note": "No fixed public expiry on this desk \u2014 treat as unknown until the live drawer shows a date",
       "applies_to": "Signup / invite attribution on hipobuy.com",
       "exclusions": [
         "Volumetric / private lines often outside shipping coupons",
@@ -39,5 +39,6 @@
       "source": "official agent UX; not invent codes here",
       "last_verified": "2026-10-26"
     }
-  ]
+  ],
+  "platform_opt": "hipobuy-e2e-2026-10-26"
 }

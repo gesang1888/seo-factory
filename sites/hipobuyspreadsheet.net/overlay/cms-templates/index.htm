@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{eyou:include file="seo.htm" /}
+
+<!-- FAQ Schema for homepage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Hipobuy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hipobuy.com is a Chinese shopping agent (taobao agent) that helps international buyers purchase products from Weidian, Taobao, 1688 and other Chinese marketplaces, with QC photos, consolidated shipping and competitive pricing in USD."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Hipobuy Spreadsheet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Hipobuy Spreadsheet is a curated collection of 8,600+ current product finds with QC photos and prices in USD, organized by category (shoes, t-shirts, jackets, hoodies, headwear, accessories) so you can easily build a Hipobuy haul."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I buy from Hipobuy using this spreadsheet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browse our verified finds, click any item to open its product page, copy the Weidian / Taobao / 1688 link into Hipobuy (or CNFans, Kakobuy, Mulebuy, Sugargoo, AllChinaBuy), check QC photos in your warehouse, choose a shipping line and ship to your country."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are Hipobuy finds safe and verified?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Listings are refreshed from the source directory. Availability, price and seller details can change, so open the source listing and review your own warehouse QC photos before ordering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why use hipobuyspreadsheet.net instead of slow Google Sheets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "hipobuyspreadsheet.net provides category browsing, a product search shortcut and practical QC guidance in a mobile-friendly format. It is an independent directory and is not operated by Hipobuy."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+/* ====== Homepage-specific styles (header/footer styles live in their own templates) ====== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { line-height: 1.6; }
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* Hero */
+.hero { background: linear-gradient(135deg, var(--primary, #3B5F8F) 0%, var(--primary-hover, #2E4B73) 100%); color: #fff; padding: 80px 0; text-align: center; margin-bottom: 60px; }
+.hero-content { max-width: 900px; margin: 0 auto; }
+.hero-tag { background: rgba(255,255,255,0.2); color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; display: inline-block; margin-bottom: 20px; }
+.hero h1 { font-size: 44px; font-weight: 800; margin-bottom: 18px; line-height: 1.2; }
+.hero p.hero-lead { font-size: 18px; margin-bottom: 28px; opacity: 0.92; }
+.btn-group { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+.btn { padding: 14px 30px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all .3s; display: inline-flex; align-items: center; gap: 8px; font-size: 16px; border: none; cursor: pointer; }
+.btn-primary { background: #fff; color: var(--primary, #3B5F8F); box-shadow: 0 8px 20px rgba(0,0,0,.15); }
+.btn-primary:hover { background: var(--primary, #3B5F8F); color: #fff; transform: translateY(-3px); }
+.btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.4); }
+.btn-outline:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
+.hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 24px; color: #fff; }
+.hero-stat { text-align: center; }
+.hero-stat strong { display: block; font-size: 28px; font-weight: 800; }
+.hero-stat span { font-size: 13px; opacity: .85; }
+
+
+.hero-search { max-width: 680px; margin: 0 auto 22px; display: flex; background: #fff; border-radius: 12px; padding: 6px; }
+.hero-search input { flex: 1; min-width: 0; border: 0; padding: 12px 14px; font-size: 16px; outline: 0; border-radius: 9px; }
+.hero-search button { border: 0; border-radius: 9px; background: var(--primary-hover,#2E4B73); color: #fff; padding: 0 20px; font-weight: 700; cursor: pointer; }
+.method-section { padding: 54px 0; background: #F8FAFC; }
+.method-box { max-width: 900px; margin: 0 auto; border: 1px solid #dbe3ec; border-radius: 12px; padding: 24px; background: #fff; }
+.method-box h2 { margin: 0 0 12px; }
+.method-box p, .method-box li { color: #4b5563; line-height: 1.75; }
+.method-box ul { margin: 12px 0 0 20px; }
+.product-stats { gap: 10px; }
+.product-stats span:last-child { color: #6b7280; font-size: 12px; }
+
+
+/* hide-header-search-on-home */
+.site-header .search-form, header .search-box, .navbar .search-form { display: none !important; }
+/* Section headers */
+.section-header { text-align: center; margin-bottom: 40px; }
+.section-header h2 { font-size: 32px; font-weight: 700; color: #333; margin-bottom: 12px; }
+.section-header p { color: #6c757d; font-size: 16px; max-width: 720px; margin: 0 auto; }
+
+/* Category grid */
+.category-section { padding: 60px 0; }
+.cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 18px; }
+.cat-item { background: #fff; padding: 25px 15px; border-radius: 12px; text-align: center; text-decoration: none; color: #333; border: 1px solid #dee2e6; transition: all .3s; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.cat-item:hover { border-color: var(--primary, #3B5F8F); transform: translateY(-4px); box-shadow: 0 8px 20px rgba(59,95,143,.12); }
+.cat-icon { font-size: 28px; color: var(--primary, #3B5F8F); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: #F5F7FA; border-radius: 50%; }
+.cat-icon i { line-height: 1; }
+.cat-item h3 { font-size: 15px; margin: 0; font-weight: 600; }
+
+/* Steps */
+.steps-section { background: #F8FAFC; padding: 70px 0; margin: 60px 0; }
+.steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+.step-card { background: #fff; padding: 40px 30px; border-radius: 16px; text-align: center; position: relative; box-shadow: 0 4px 12px rgba(59,95,143,.08); border: 1px solid #eef0f3; }
+.step-num { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 42px; height: 42px; background: var(--primary, #3B5F8F); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; }
+.step-card i { font-size: 42px; color: var(--primary, #3B5F8F); margin-bottom: 18px; display: block; }
+.step-card h3 { font-size: 19px; margin-bottom: 12px; }
+.step-card p { color: #6c757d; font-size: 14px; line-height: 1.65; }
+
+/* About / What is Hipobuy */
+.about-section { padding: 70px 0; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+.about-grid h2 { font-size: 32px; font-weight: 700; margin-bottom: 18px; color: #333; }
+.about-grid h3 { font-size: 18px; font-weight: 700; margin: 24px 0 10px; color: #333; }
+.about-grid p { color: #555; font-size: 15px; line-height: 1.75; margin-bottom: 14px; }
+.feature-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+.feature-table th, .feature-table td { border: 1px solid #eef0f3; padding: 12px 14px; text-align: left; }
+.feature-table th { background: #F8FAFC; font-weight: 700; }
+.bullet-list { list-style: none; padding: 0; }
+.bullet-list li { padding: 8px 0 8px 28px; position: relative; color: #444; font-size: 14px; }
+.bullet-list li::before { content: '✓'; position: absolute; left: 0; top: 8px; color: var(--success, #28a745); font-weight: 800; }
+
+/* Platform tags */
+.platform-section { background: #F8FAFC; padding: 60px 0; }
+.platform-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 1100px; margin: 0 auto; }
+.platform-tag { background: #fff; border: 1px solid #dee2e6; padding: 10px 18px; border-radius: 50px; color: #333; text-decoration: none; font-size: 14px; font-weight: 600; transition: all .2s; }
+.platform-tag:hover { border-color: var(--primary, #3B5F8F); color: var(--primary, #3B5F8F); transform: translateY(-2px); }
+
+/* News / Updates */
+.news-section { padding: 70px 0; }
+.news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.news-card { background: #fff; border: 1px solid #eef0f3; border-radius: 12px; padding: 22px; text-decoration: none; color: #333; transition: all .25s; display: block; }
+.news-card:hover { border-color: var(--primary, #3B5F8F); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(59,95,143,.1); }
+.news-date { color: #999; font-size: 12px; margin-bottom: 8px; }
+.news-card h3 { font-size: 16px; font-weight: 700; line-height: 1.45; margin-bottom: 8px; color: #333; }
+.news-card p { color: #777; font-size: 13px; line-height: 1.6; }
+
+/* Why choose */
+.why-section { padding: 70px 0; }
+.why-section .content p { color: #555; font-size: 15.5px; line-height: 1.85; margin-bottom: 16px; }
+.why-section .content strong { color: var(--primary, #3B5F8F); }
+
+/* FAQ */
+.faq-section { background: #F8FAFC; padding: 70px 0; }
+.faq-item { background: #fff; border: 1px solid #eef0f3; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+.faq-question { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; cursor: pointer; }
+.faq-question h3 { font-size: 16px; font-weight: 600; margin: 0; color: #333; }
+.faq-answer { padding: 0 22px 18px; color: #555; font-size: 14.5px; line-height: 1.7; display: none; }
+.faq-item.active .faq-answer { display: block; }
+.faq-item.active .toggle-icon { transform: rotate(180deg); }
+.toggle-icon { transition: transform .25s; color: var(--primary, #3B5F8F); }
+
+@media (max-width: 768px) {
+    .container { padding: 0 14px; }
+    .hero { padding: 44px 0; margin-bottom: 28px; }
+    .hero h1 { font-size: 30px; }
+    .hero p.hero-lead { font-size: 15px; line-height: 1.65; }
+    .btn { width: 100%; justify-content: center; padding: 13px 18px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .category-section,
+    .about-section,
+    .steps-section,
+    .platform-section,
+    .news-section,
+    .why-section,
+    .faq-section { padding: 42px 0; margin: 0; }
+    .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .cat-item { padding: 18px 10px; border-radius: 8px; }
+    .cat-icon { width: 48px; height: 48px; font-size: 22px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .feature-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .platform-logos { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; }
+    .platform-tag { white-space: nowrap; }
+    .section-header h2 { font-size: 26px; }
+    .hero-stats { gap: 24px; }
+}
+@media (max-width: 420px) {
+    .hero { padding: 34px 0; }
+    .hero h1 { font-size: 26px; line-height: 1.25; }
+    .hero-tag { font-size: 12px; padding: 7px 14px; }
+    .section-header { margin-bottom: 24px; }
+    .section-header h2 { font-size: 22px; }
+    .section-header p { font-size: 14px; }
+    .steps-grid,
+    .news-grid { grid-template-columns: 1fr; gap: 16px; }
+    .step-card { padding: 34px 18px 22px; }
+    .faq-question { padding: 15px 16px; gap: 12px; }
+    .faq-question h3 { font-size: 14px; line-height: 1.45; }
+    .faq-answer { padding: 0 16px 16px; }
+}
+</style>
+</head>
+<body>
+{eyou:include file="header.htm" /}
+
+<main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="hero-tag">hipobuyspreadsheet.net · Independent index · 26 Oct 2026</span>
+            <h1>HipoBuy Spreadsheet: Browse 8,600+ Product Finds</h1>
+            <p class="hero-lead">Updated 26 October 2026. Independent QC-indexed directory — not a Google Sheet dump and not hipobuy.com checkout. Search categories, open Weidian / Taobao / 1688 listings, then paste the link into HipoBuy.</p>
+
+            <form class="hero-search" action="https://w2clinks.com/spreadsheet/hipobuy/" method="get" target="_blank" rel="noopener">
+                <input type="search" name="q" placeholder="Search products, brands or models" aria-label="Search Hipobuy spreadsheet finds" required>
+                <input type="hidden" name="utm_source" value="hipobuyspreadsheet">
+                <input type="hidden" name="utm_medium" value="aggregator">
+                <input type="hidden" name="utm_campaign" value="hipobuy">
+                <input type="hidden" name="utm_content" value="hero-search">
+                <button type="submit"><i class="fas fa-search"></i> Search</button>
+            </form>
+            <div class="btn-group">
+                <a href="#categories" class="btn btn-primary"><i class="fas fa-table"></i> Browse Spreadsheet</a>
+                <a href="/hipobuy-coupons/" class="btn btn-outline"><i class="fas fa-ticket-alt"></i> Coupons</a>
+                <a href="/hipobuy-qc-guide/" class="btn btn-outline"><i class="fas fa-camera"></i> QC guide</a>
+                <a href="/is-hipobuy-legit/" class="btn btn-outline"><i class="fas fa-shield-alt"></i> Legit?</a>
+                <a href="/finds-dataset/" class="btn btn-outline"><i class="fas fa-database"></i> Dataset</a>
+                <a href="https://www.hipobuy.com/?inviteCode=SC3Y5G66Q" target="_blank" rel="nofollow noopener" class="btn btn-outline"><i class="fas fa-user-plus"></i> Sign up to Hipobuy</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><strong>8,600+</strong><span>Directory listings</span></div>
+                <div class="hero-stat"><strong>12</strong><span>Browse categories</span></div>
+                <div class="hero-stat"><strong>Current</strong><span>Catalog snapshot</span></div>
+                <div class="hero-stat"><strong>QC</strong><span>Photos</span></div>
+            </div>
+        </div>
+    </section>
+
+    <style>.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
+.skip:focus{left:12px}
+.legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
+.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
+.local-src a{color:inherit}
+#local{scroll-margin-top:96px}
+</style>
+<section class="sg-sec" id="local">
+  <h2>This hostname is not a customs territory</h2>
+  <p class="ssub">a country in the estimator · hipobuyspreadsheet.net · not a location-name swap.</p>
+  <ol class="local-steps"><li><strong>Open the estimator with a country</strong><span>The official freight form needs US, CA, FR, ES, AT… not this hostname and not “Europe” as one country.</span></li><li><strong>Do not paste another dest’s lab</strong><span>Spain-only line counts and another desk’s postal operator stay off this hub.</span></li><li><strong>Hub pages already ranking stay</strong><span>Coupon / spreadsheet / IOSS html or articles on this host are not overwritten by a fake destination.</span></li><li><strong>Orders stay on the official app</strong><span>This hub does not take payment or see your account.</span></li></ol>
+  <p class="local-src">Lab 1 Oct 2026. Open the official estimator with a real country code. This HTML is not checkout.</p>
+  <p class="local-src">Already on this host (kept): <a href="/shoes/">Shoes</a> · <a href="/hoodies-sweaters/">Hoodies</a> · <a href="/news/">News</a> · <a href="/about/">About</a></p>
+</section>
+
+    <!-- ============ CATEGORIES ============ -->
+    <section class="category-section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Browse Hipobuy Finds by Category</h2>
+                <p>Hipobuy spreadsheet finds across every major category - sneakers, streetwear, accessories, jerseys and more.</p>
+            </div>
+            <div class="cat-grid">
+                <a href="/shoes381/" class="cat-item" aria-label="Browse Hipobuy Shoes finds">
+                    <div class="cat-icon"><i class="fas fa-shoe-prints"></i></div>
+                    <h3>Shoes</h3>
+                </a>
+                <a href="/t-shirts/" class="cat-item" aria-label="Browse Hipobuy T-Shirts finds">
+                    <div class="cat-icon"><i class="fas fa-shirt"></i></div>
+                    <h3>T-Shirts</h3>
+                </a>
+                <a href="/hoodies-sweaters/" class="cat-item" aria-label="Browse Hipobuy Hoodies finds">
+                    <div class="cat-icon"><i class="fas fa-vest"></i></div>
+                    <h3>Hoodies</h3>
+                </a>
+                <a href="/jackets839/" class="cat-item" aria-label="Browse Hipobuy Jackets finds">
+                    <div class="cat-icon"><i class="fas fa-tshirt"></i></div>
+                    <h3>Jackets</h3>
+                </a>
+                <a href="/pants-shorts/" class="cat-item" aria-label="Browse Hipobuy Pants &amp; Shorts finds">
+                    <div class="cat-icon"><i class="fas fa-walking"></i></div>
+                    <h3>Pants &amp; Shorts</h3>
+                </a>
+                <a href="/bags/" class="cat-item" aria-label="Browse Hipobuy Bags finds">
+                    <div class="cat-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <h3>Bags</h3>
+                </a>
+                <a href="/accessories/" class="cat-item" aria-label="Browse Hipobuy Accessories finds">
+                    <div class="cat-icon"><i class="fas fa-glasses"></i></div>
+                    <h3>Accessories</h3>
+                </a>
+                <a href="/accessories/" class="cat-item" aria-label="Browse Hipobuy Watches finds">
+                    <div class="cat-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Watches</h3>
+                </a>
+                <a href="/women/" class="cat-item" aria-label="Browse Hipobuy Women finds">
+                    <div class="cat-icon"><i class="fas fa-female"></i></div>
+                    <h3>Women</h3>
+                </a>
+                <a href="/jersey/" class="cat-item" aria-label="Browse Hipobuy Jerseys finds">
+                    <div class="cat-icon"><i class="fas fa-futbol"></i></div>
+                    <h3>Jerseys</h3>
+                </a>
+                <a href="/electronics/" class="cat-item" aria-label="Browse Hipobuy Electronics finds">
+                    <div class="cat-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Electronics</h3>
+                </a>
+                <a href="/headwear/" class="cat-item" aria-label="Browse Hipobuy Headwear finds">
+                    <div class="cat-icon"><i class="fas fa-hat-cowboy"></i></div>
+                    <h3>Headwear</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- ============ LATEST PRODUCTS (server-rendered snapshot) ============ -->
+    <section class="products-section" id="latest-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Hipobuy Spreadsheet Finds</h2>
+                <p>Current listings from the linked product directory. Check source availability, seller details and warehouse QC before buying.</p>
+            </div>
+            <div class="products-grid">
+
+                <a href="https://w2clinks.com/yupoo-hoodie/wd_7869511728.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/open1864228117-1234478995-61aa000001a0f85c0dc50a8133b0_845_845.jpg?imageView2/2/w/400" alt="日默家Essential芭蕾粉柔光登机箱 — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">日默家Essential芭蕾粉柔光登机箱</h3>
+                        <div class="product-stats"><span class="price">¥668</span><span>HOODIE</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/other-stuff/wd_7868694396.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/pcitem1452238943-26c5000001a0e163dd740a20e284_800_800.jpg?imageView2/2/w/400" alt="Mizuno LG 60S Sneakers — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Mizuno LG 60S Sneakers</h3>
+                        <div class="product-stats"><span class="price">¥150</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/other-stuff/wd_7865684209.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/pcitem1452238943-7a34000001a0e1250be40a81347d_800_800.jpg?imageView2/2/w/400" alt="E-Superstar White Low Top Sneakers — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">E-Superstar White Low Top Sneakers</h3>
+                        <div class="product-stats"><span class="price">¥208</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/other-stuff/wd_7868725620.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/pcitem1452238943-4369000001a0afe215270a21146b_800_800.jpg?imageView2/2/w/400" alt="Danner Trail 2650 Hiking Shoes — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Danner Trail 2650 Hiking Shoes</h3>
+                        <div class="product-stats"><span class="price">¥310</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/other-stuff/wd_7865474747.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/pcitem1452238943-3e65000001a085f57a5c0a2301b4_800_800.jpg?imageView2/2/w/400" alt="Huntington Tong Suede Low Top Sneakers — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Huntington Tong Suede Low Top Sneakers</h3>
+                        <div class="product-stats"><span class="price">¥410</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/other-stuff/wd_7868680536.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/pcitem1452238943-0d73000001a09b3a86e60a20e273_800_800.jpg?imageView2/2/w/400" alt="PAI PAI Boom Sneakers White/Yellow/Gold — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">PAI PAI Boom Sneakers White/Yellow/Gold</h3>
+                        <div class="product-stats"><span class="price">¥200</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/yupoo-hat/wd_7865660451.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/pcitem901875755989-3ca4000001958a1465560a2396f4-unadjust_1600_1600.gif?imageView2/2/w/400" alt="Louis Vuitton Baseball Caps — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Louis Vuitton Baseball Caps</h3>
+                        <div class="product-stats"><span class="price">¥58</span><span>HAT</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/accessories/wd_7855051203.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/pcitem1956906894-5f9e0000019a032b0d410a2301b4_1080_1080.jpg?imageView2/2/w/400" alt="Louis Vuitton Cœur Battant Eau de Parfum 100ml — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Louis Vuitton Cœur Battant Eau de Parfum 100ml</h3>
+                        <div class="product-stats"><span class="price">¥140</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/other-stuff/wd_7868646724.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/pcitem1452238943-0f73000001a093b201670a23041a_800_800.jpg?imageView2/2/w/400" alt="Supernova Rise Running Shoes — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Supernova Rise Running Shoes</h3>
+                        <div class="product-stats"><span class="price">¥199</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/yupoo-t-shirt/wd_7868611396.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/weidian901875755989-7692000001a0d88ccc330a2102c5_2000_1334.jpg?imageView2/2/w/400" alt="Ralph Lauren Grey Hoodie Sweatshirt — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Ralph Lauren Grey Hoodie Sweatshirt</h3>
+                        <div class="product-stats"><span class="price">¥178</span><span>T-SHIRT</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/accessories/wd_7854893077.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/open1698740557-1838589072-4549000001971614e83c0a23b491_800_800.jpg?imageView2/2/w/400" alt="City of Stars Perfume Bottle Set — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">City of Stars Perfume Bottle Set</h3>
+                        <div class="product-stats"><span class="price">¥130</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/accessories/wd_7855125873.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/open1639670525-1234478995-3db000000197fef719640a8115c2_800_800.jpg?imageView2/2/w/400" alt="Blue de Beautiful Girl Perfume Bottle — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Blue de Beautiful Girl Perfume Bottle</h3>
+                        <div class="product-stats"><span class="price">¥130</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/other-stuff/wd_7857739673.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/open1726540989-1234478995-49c90000019cbd23a9690a231226_800_800.jpg?imageView2/2/w/400" alt="Shili Merchants High Quality Perfume Collection — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Shili Merchants High Quality Perfume Collection</h3>
+                        <div class="product-stats"><span class="price">¥130</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/other-stuff/wd_7868648680.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/pcitem1452238943-3d66000001a09b67c5fc0a2315ef_800_800.jpg?imageView2/2/w/400" alt="E Batch Bape Link 2 Low Top Sneakers — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">E Batch Bape Link 2 Low Top Sneakers</h3>
+                        <div class="product-stats"><span class="price">¥169</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/other-stuff/wd_7858614486.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/open1698740557-1838589072-4dce00000197161715930a22d249_800_800.jpg?imageView2/2/w/400" alt="Emporio Armani Stronger With You Absolutely 100ml Spray — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Emporio Armani Stronger With You Absolutely 100ml Spray</h3>
+                        <div class="product-stats"><span class="price">¥130</span><span>Find</span></div>
+                    </div>
+                </a>
+
+                <a href="https://w2clinks.com/other-stuff/wd_7865608919.html?utm_source=hipobuyspreadsheet&amp;utm_medium=aggregator&amp;utm_campaign=hipobuy&amp;utm_content=product-snapshot" class="product-card card-hover" target="_blank" rel="nofollow noopener">
+                    <div class="product-image">
+                        <img src="/wd-img/si.geilicdn.com/pcitem1452238943-62ed000001a0f0d8e5fe0a2301b4_800_800.jpg?imageView2/2/w/400" alt="KAHAN@8 Multicolor Trail Running Shoes — Hipobuy spreadsheet find" loading="lazy"
+                             onerror="this.onerror=null;this.src='/public/static/common/images/not_upload_pic.png';">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">KAHAN@8 Multicolor Trail Running Shoes</h3>
+                        <div class="product-stats"><span class="price">¥190</span><span>Find</span></div>
+                    </div>
+                </a>
+            </div>
+            <div style="text-align:center;margin-top:28px;">
+                <a href="https://w2clinks.com/spreadsheet/?utm_source=hipobuyspreadsheet&utm_medium=aggregator&utm_campaign=hipobuy&amp;utm_content=all-products" class="btn btn-primary" target="_blank" rel="nofollow noopener" style="background:var(--primary,#3B5F8F);color:#fff;">Browse all product finds <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHAT IS HIPOBUY ============ -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <h2>What is Hipobuy?</h2>
+                    <p><strong>Hipobuy.com</strong> is a Chinese shopping agent (taobao agent / freight forwarder) that helps international buyers purchase products from <strong>Weidian, Taobao, 1688</strong> and other Chinese marketplaces. It's especially popular for clothing, sneakers and streetwear, offering competitive USD pricing, QC (Quality Control) photos and consolidated international shipping.</p>
+                    <p>Hipobuy is one of several Chinese shopping agents used to purchase from domestic marketplaces. This site is an independent browsing guide and does not represent Hipobuy, sellers or marketplaces.</p>
+
+                    <h3>What Makes Hipobuy Stand Out?</h3>
+                    <table class="feature-table">
+                        <tr><th>Feature</th><th>What You Get</th></tr>
+                        <tr><td><strong>Massive Catalog</strong></td><td>From designer-inspired streetwear to niche Chinese brands at competitive prices.</td></tr>
+                        <tr><td><strong>Warehouse QC</strong></td><td>Buyers can review warehouse photos before choosing international shipping.</td></tr>
+                        <tr><td><strong>Price Context</strong></td><td>Directory prices are estimates; confirm the source listing and final agent quote.</td></tr>
+                        <tr><td><strong>Shipping Choice</strong></td><td>Available lines, delivery times and tracking depend on destination and parcel details.</td></tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h2>How do I buy from Hipobuy?</h2>
+                    <p>If you're new to Hipobuy, here's the short version of the workflow our community uses. For the full step-by-step, see our <a href="/news/">News & Guides</a>.</p>
+                    <h3>1. Find the items</h3>
+                    <p>Browse this Hipobuy spreadsheet by category or use the search box. Open the source listing and confirm that its photos, variants, price and availability still match.</p>
+                    <h3>2. Use product links</h3>
+                    <p>Copy the product link into Hipobuy (or your preferred agent: CNFans, Kakobuy, Mulebuy, Sugargoo, AllChinaBuy, Loongbuy). The agent fetches the listing and lets you choose size, color, version and batch.</p>
+                    <h3>3. View QC photos & ship</h3>
+                    <p>Once the item arrives at the warehouse you'll receive QC photos. Approve them, pick a shipping line (faster lines cost more), and your parcel ships internationally with tracking.</p>
+                    <h3>Why use hipobuyspreadsheet.net?</h3>
+                    <ul class="bullet-list">
+                        <li>Mobile-friendly, fast search - no slow Google Sheets</li>
+                        <li>8,600+ current directory listings across 12 browse categories</li>
+                        <li>Compatible with every major shopping agent</li>
+                        <li>Independent guidance for listing checks, QC and landed-cost planning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ STEPS ============ -->
+<!-- ============ COMPATIBLE AGENTS ============ -->
+    <section class="platform-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Compatible with Top Shopping Agents</h2>
+                <p>Every Hipobuy spreadsheet link works with the major Chinese shopping agents.</p>
+            </div>
+            <div class="platform-logos">
+                <a href="https://www.hipobuy.com/?inviteCode=SC3Y5G66Q" target="_blank" rel="nofollow noopener" class="platform-tag">Hipobuy</a>
+                <a href="https://www.cnfans.com/" target="_blank" rel="nofollow noopener" class="platform-tag">CNFans</a>
+                <a href="https://www.kakobuy.com/" target="_blank" rel="nofollow noopener" class="platform-tag">Kakobuy</a>
+                <a href="https://www.mulebuy.com/" target="_blank" rel="nofollow noopener" class="platform-tag">Mulebuy</a>
+                <a href="https://www.sugargoo.com/" target="_blank" rel="nofollow noopener" class="platform-tag">Sugargoo</a>
+                <a href="https://www.allchinabuy.com/" target="_blank" rel="nofollow noopener" class="platform-tag">AllChinaBuy</a>
+                <a href="https://www.superbuy.com/" target="_blank" rel="nofollow noopener" class="platform-tag">Superbuy</a>
+                <a href="https://www.loongbuy.com/" target="_blank" rel="nofollow noopener" class="platform-tag">Loongbuy</a>
+                <a href="https://www.lovegobuy.com/" target="_blank" rel="nofollow noopener" class="platform-tag">Lovegobuy</a>
+                <a href="https://www.ootdbuy.com/" target="_blank" rel="nofollow noopener" class="platform-tag">OOTDBuy</a>
+                <a href="https://www.oopbuy.com/" target="_blank" rel="nofollow noopener" class="platform-tag">Oopbuy</a>
+                <a href="https://www.orientdig.com/" target="_blank" rel="nofollow noopener" class="platform-tag">Orientdig</a>
+                <a href="https://www.ponybuy.com/" target="_blank" rel="nofollow noopener" class="platform-tag">Ponybuy</a>
+                <a href="https://www.joyabuy.com/" target="_blank" rel="nofollow noopener" class="platform-tag">Joyabuy</a>
+                <a href="https://www.hubbuy.com/" target="_blank" rel="nofollow noopener" class="platform-tag">Hubbuy</a>
+            </div>
+        </div>
+    </section>
+<!-- ============ LATEST NEWS / GUIDES (dynamic) ============ -->
+    <section class="news-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Hipobuy News & Guides</h2>
+                <p>Practical updates about product discovery, QC checks, shipping and buyer safety.</p>
+            </div>
+            <div class="news-grid">
+                {eyou:arclist channelid='1' row='6' orderby='add_time' order='desc'}
+                <a href="{$field.typeurl}{$field.aid}.html" class="news-card">
+                    <div class="news-date">{$field.add_time|MyDate='M d, Y',###}</div>
+                    <h3>{$field.title}</h3>
+                    {eyou:notempty name='$field.seo_description'}
+                    <p>{$field.seo_description|msubstr=0,90,'utf-8',true}</p>
+                    {/eyou:notempty}
+                </a>
+                {/eyou:arclist}
+            </div>
+            <div style="text-align:center;margin-top:30px;">
+                <a href="/news/" class="btn btn-primary" style="background:var(--primary,#3B5F8F);color:#fff;">View All News & Guides <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE ============ -->
+    <section class="why-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose hipobuyspreadsheet.net as Your Hipobuy Spreadsheet?</h2>
+            </div>
+            <div class="content" style="max-width:900px;margin:0 auto;">
+                <p><strong>hipobuyspreadsheet.net</strong> is an independent product-discovery directory for international buyers. It organizes <strong>shoes, t-shirts, jackets, hoodies, headwear, accessories, jerseys and electronics</strong> into browseable category hubs.</p>
+                <p>The directory points to marketplace listings that can be submitted to Hipobuy and other compatible agents. A listing is a discovery lead, not an endorsement: compare photos, measurements, price and estimated shipping weight before ordering.</p>
+                <p>Catalog snapshots are refreshed from the linked directory. Because sellers can change listings without notice, buyers should confirm the source page and review their own warehouse QC photos before approving international shipping.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="method-section">
+        <div class="container">
+            <div class="method-box">
+                <h2>How this Hipobuy spreadsheet is maintained</h2>
+                <p>The product cards above are a server-rendered snapshot of the linked directory, refreshed on 2026-10-26. We show the listing title, image, category and current displayed price so search engines and users can understand what the page actually provides.</p>
+                <ul>
+                    <li>We do not claim that every seller or product has been independently tested.</li>
+                    <li>Availability and price must be confirmed on the source listing.</li>
+                    <li>Warehouse QC photos should be reviewed before international shipping.</li>
+                    <li>This site is independent and is not operated by Hipobuy.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions about Hipobuy Spreadsheet</h2>
+                <p>Everything you need to know about buying from Hipobuy with our spreadsheet.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question"><h3>Is Hipobuy legit and worth it in 2026?</h3><i class="fas fa-chevron-down toggle-icon"></i></div>
+                <div class="faq-answer"><p>Hipobuy operates a shopping-agent website that can purchase from Chinese marketplaces and provide warehouse QC photos. Before paying, verify the official domain, current fees, supported payment methods and recent independent user reports. This directory is not affiliated with Hipobuy.</p></div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question"><h3>What is the best Hipobuy spreadsheet to use?</h3><i class="fas fa-chevron-down toggle-icon"></i></div>
+                <div class="faq-answer"><p><strong>hipobuyspreadsheet.net</strong> provides fast category browsing and search across current directory listings, plus QC and shipping guidance. It is independent and does not sell products or process orders.</p></div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question"><h3>How do I check Hipobuy QC photos?</h3><i class="fas fa-chevron-down toggle-icon"></i></div>
+                <div class="faq-answer"><p>After your order arrives at the Hipobuy warehouse, QC photos are uploaded to your account so you can inspect the item from multiple angles before approving shipment. You can also paste any product link into tools like qc.photos to view community-shared QC photos before you order.</p></div>
+            </div>
+        </section>
+</main>
+
+{eyou:include file="footer.htm" /}
+
+<script>
+// Simple FAQ toggle
+document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => q.parentElement.classList.toggle('active'));
+});
+
+const categoryIconMap = [
+    { match: ['shoe', 'sneaker'], icon: 'fa-shoe-prints' },
+    { match: ['t-shirt', 'tshirt', 'shirt'], icon: 'fa-shirt' },
+    { match: ['jersey'], icon: 'fa-medal' },
+    { match: ['hoodie', 'sweater'], icon: 'fa-shirt' },
+    { match: ['pant', 'short'], icon: 'fa-person-walking' },
+    { match: ['women'], icon: 'fa-venus' },
+    { match: ['bag'], icon: 'fa-bag-shopping' },
+    { match: ['jacket'], icon: 'fa-user-tie' },
+    { match: ['accessor'], icon: 'fa-gem' },
+    { match: ['electronic'], icon: 'fa-microchip' },
+    { match: ['news', 'guide'], icon: 'fa-book-open' }
+];
+
+document.querySelectorAll('.cat-item').forEach(item => {
+    const name = (item.dataset.category || item.textContent || '').toLowerCase();
+    const icon = item.querySelector('.cat-icon i');
+    const config = categoryIconMap.find(entry => entry.match.some(keyword => name.includes(keyword)));
+    if (icon && config) {
+        icon.className = `fas ${config.icon}`;
+    }
+});
+</script>
+</body>
+</html>

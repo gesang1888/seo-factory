@@ -1,0 +1,83 @@
+<style>
+footer.site-footer { background: #fff; border-top: 1px solid #f0f0f0; padding: 60px 5% 30px; color: #5a5a5a; font-size: 14px; line-height: 1.7; }
+.footer-container { max-width: 1200px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-col h4 { color: #333; font-size: 16px; font-weight: 700; margin: 0 0 14px; }
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { margin: 0 0 8px; }
+.footer-col a { color: #555; text-decoration: none; transition: color .2s; }
+.footer-col a:hover { color: var(--primary, #3B5F8F); }
+.footer-about { color: #5a5a5a; font-size: 13px; line-height: 1.7; }
+.footer-about strong { color: #333; }
+.footer-bottom { padding-top: 24px; border-top: 1px solid #efefef; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: #999; font-size: 12px; }
+.footer-bottom a { color: var(--primary, #3B5F8F); text-decoration: none; margin: 0 6px; }
+.footer-disclaimer { max-width: 1200px; margin: 0 auto; font-size: 12px; color: #999; padding-top: 18px; border-top: 1px dashed #eee; line-height: 1.6; }
+@media (max-width: 768px) {
+    footer.site-footer { padding: 40px 18px 24px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .footer-bottom { flex-direction: column; }
+}
+@media (max-width: 480px) {
+    footer.site-footer { padding: 34px 14px 22px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 22px; }
+    .footer-col h4 { margin-bottom: 8px; }
+    .footer-disclaimer { font-size: 11px; }
+}
+</style>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>{eyou:global name='web_name' /}</h4>
+                <p class="footer-about">
+                    <strong>{eyou:global name='web_name' /}</strong> is an independent product-discovery directory with category browsing, current catalog snapshots and practical QC guidance. It is not operated by Hipobuy and does not sell products or process orders.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    {eyou:channel type="top" id="field" row="10"}
+                    <li><a href="{$field.typeurl}">{$field.typename}</a></li>
+                    {/eyou:channel}
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Shopping Agents</h4>
+                <ul>
+                    <li><a href="https://www.hipobuy.com/?inviteCode=SC3Y5G66Q" target="_blank" rel="nofollow noopener">Hipobuy</a></li>
+                    <li><a href="https://www.cnfans.com/" target="_blank" rel="nofollow noopener">CNFans</a></li>
+                    <li><a href="https://www.kakobuy.com/" target="_blank" rel="nofollow noopener">Kakobuy</a></li>
+                    <li><a href="https://www.mulebuy.com/" target="_blank" rel="nofollow noopener">Mulebuy</a></li>
+                    <li><a href="https://www.sugargoo.com/" target="_blank" rel="nofollow noopener">Sugargoo</a></li>
+                    <li><a href="https://www.allchinabuy.com/" target="_blank" rel="nofollow noopener">AllChinaBuy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Community & Help</h4>
+                <ul>
+                    <li><a href="https://discord.gg/sportshoesvip" target="_blank" rel="nofollow noopener"><i class="fab fa-discord"></i> Discord Community</a></li>
+                    <li><a href="https://t.me/SPORTSHOESVIP" target="_blank" rel="nofollow noopener"><i class="fab fa-telegram"></i> Telegram</a></li>
+                    <li><a href="https://wa.me/8615396628356" target="_blank" rel="nofollow noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    <li><a href="/news/">News & Guides</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-disclaimer">
+            <strong>Disclaimer:</strong> {eyou:global name='web_name' /} operates solely as an informational platform and refrains from conducting any commercial transactions. It maintains an independent status and has no formal association with Hipobuy.com, Weidian.com, Taobao.com, 1688.com, Tmall.com or any other e-commerce platform or procurement agent. External website content is beyond our control and we hold no responsibility for it. Affiliate Disclaimer: this website contains affiliate links and we may earn a small commission from sign-up links; this contributes to the ongoing maintenance of the site without imposing any additional cost to you.
+        </div>
+
+        <div class="footer-bottom">
+            <div>&copy; 2024-2026 {eyou:global name='web_name' /} - All Rights Reserved.</div>
+            <div class="footer-links">
+                <a href="/privacy/">Privacy Policy</a> |
+                <a href="/terms/">Terms of Service</a> |
+                <a href="/contact/">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- 引入原有的 JS -->
+<script src="/template/pc/skin/js/cnbuysheet.js?v=1.6.9"></script>
