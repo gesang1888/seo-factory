@@ -1,0 +1,96 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "FansBuy",
+  "host": "fansbuysheets.net",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T15:00:00Z",
+  "row_count": 12000,
+  "row_count_display": "12,000+",
+  "update_frequency": "Spreadsheet marketing claims daily refresh; public dataset stamp reviewed at least weekly on this hub.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated sample SKUs — not another opaque Google Sheet dump.",
+  "endpoints": {
+    "html": "https://fansbuysheets.net/finds-dataset/",
+    "json": "https://fansbuysheets.net/data/finds-dataset.json",
+    "coupons_truth": "https://fansbuysheets.net/data/coupons-truth.json",
+    "catalog": "https://fansbuysheets.net/fansbuy-spreadsheet/"
+  },
+  "sample_skus": [
+    {
+      "sku": "wd_7789216254",
+      "source_url": "https://w2clinks.com/yupoo-bag/wd_7789216254.html",
+      "title": "White Wireless Earbuds with Charging Case",
+      "last_verified": "2026-10-26",
+      "qc_photo": true
+    },
+    {
+      "sku": "wd_7789676422",
+      "source_url": "https://w2clinks.com/yupoo-electronics/wd_7789676422.html",
+      "title": "Pink! Black Hoodie and Sweatpants Set",
+      "last_verified": "2026-10-26",
+      "qc_photo": true
+    },
+    {
+      "sku": "wd_7789691090",
+      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7789691090.html",
+      "title": "Calvin Klein White, Black, and Blue Cotton Underwear Set",
+      "last_verified": "2026-10-26",
+      "qc_photo": true
+    },
+    {
+      "sku": "wd_7789235890",
+      "source_url": "https://w2clinks.com/yupoo-underwear/wd_7789235890.html",
+      "title": "Prada White Crewneck Sweatshirt",
+      "last_verified": "2026-10-26",
+      "qc_photo": true
+    },
+    {
+      "sku": "wd_7789141558",
+      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7789141558.html",
+      "title": "Balenciaga Black Hoodie and Sweatshirt Collection",
+      "last_verified": "2026-10-26",
+      "qc_photo": true
+    },
+    {
+      "sku": "wd_7789737606",
+      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7789737606.html",
+      "title": "Yves Saint Laurent Black Card Holder, Louis Vuitton Monogram Card Case, Dior Emb",
+      "last_verified": "2026-10-26",
+      "qc_photo": true
+    },
+    {
+      "sku": "wd_7786175033",
+      "source_url": "https://w2clinks.com/yupoo-bag/wd_7786175033.html",
+      "title": "Hugo Boss Black Hoodie and Sweaters Collection",
+      "last_verified": "2026-10-26",
+      "qc_photo": true
+    },
+    {
+      "sku": "wd_7786708073",
+      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7786708073.html",
+      "title": "Goyard Black Travel Duffle Bag",
+      "last_verified": "2026-10-26",
+      "qc_photo": true
+    },
+    {
+      "sku": "wd_7786723907",
+      "source_url": "https://w2clinks.com/yupoo-bag/wd_7786723907.html",
+      "title": "Ray-Ban Black/Silver Sunglasses",
+      "last_verified": "2026-10-26",
+      "qc_photo": true
+    },
+    {
+      "sku": "wd_7786681107",
+      "source_url": "https://w2clinks.com/yupoo-glasses/wd_7786681107.html",
+      "title": "LJF88 [rewrite only this part]  \\n**LJF88 Trendy Casual T-Shirt**",
+      "last_verified": "2026-10-26",
+      "qc_photo": true
+    }
+  ],
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes."
+}
