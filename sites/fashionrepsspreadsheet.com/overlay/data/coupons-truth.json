@@ -1,0 +1,45 @@
+{
+  "brand": "FashionReps",
+  "host": "fashionrepsspreadsheet.com",
+  "last_verified": "2026-10-26",
+  "platform_opt": "fashionreps-platform-20261026",
+  "verify_on": "hubbuy.com (official drawer / wallet \u2014 this hub never redeems)",
+  "update_cadence": "Re-verify on every freight payment morning; JSON stamped at least weekly",
+  "offers": [
+    {
+      "id": "hubbuy-ship",
+      "type": "shipping_coupon_code",
+      "label": "Published HubBuy shipping code (hub chrome)",
+      "code": "SHIP",
+      "value_claim": "Shipping discount on HubBuy.com when the live drawer still shows SHIP",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed public expiry on this desk \u2014 treat as unknown until the live drawer shows a date",
+      "applies_to": "International freight at Create Parcel on HubBuy (when eligible)",
+      "exclusions": [
+        "Volumetric / private lines often outside shipping coupons",
+        "Never redeem on fashionrepsspreadsheet.com",
+        "Not a FashionReps.com / Reddit wiki code"
+      ],
+      "source": "hub coupons citation + live llms historical SHIP note",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "hubbuy-shipping-drawer",
+      "type": "shipping_coupon_drawer",
+      "label": "Official shipping discount drawer",
+      "code": null,
+      "value_claim": "Rotating shipping % / amount coupons shown in-app after signup",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Per-coupon expiry only visible in HubBuy wallet",
+      "applies_to": "International freight at Create Parcel (when eligible)",
+      "exclusions": [
+        "One shipping coupon per parcel typical",
+        "Line exclusions vary"
+      ],
+      "source": "official agent UX; do not invent extra codes here",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
