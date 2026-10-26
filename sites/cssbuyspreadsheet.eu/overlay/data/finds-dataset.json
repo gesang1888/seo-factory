@@ -1,0 +1,74 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "CSSBuy",
+  "host": "cssbuyspreadsheet.eu",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T17:39:39Z",
+  "row_count": 11365,
+  "row_count_display": "11,300+",
+  "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump.",
+  "platform_opt": "cssbuy-platform-20261026",
+  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-26",
+  "endpoints": {
+    "html": "https://cssbuyspreadsheet.eu/finds-dataset/",
+    "json": "https://cssbuyspreadsheet.eu/data/finds-dataset.json",
+    "coupons_truth": "https://cssbuyspreadsheet.eu/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/cssbuy/",
+    "ranked_spreadsheet": "https://cssbuyspreadsheet.eu/spreadsheet/"
+  },
+  "keep_desks": [
+    "cssbuy.es",
+    "cssbuy.nl",
+    "cssbuy.it",
+    "cssbuy.fr"
+  ],
+  "sunset_watch": [],
+  "twins_301": {
+    "cssbuyspreadsheet.es": "cssbuy.es",
+    "cssbuyspreadsheet.nl": "cssbuy.nl",
+    "cssbuyspreadsheet.it": "cssbuy.it",
+    "cssbuyspreadsheet.fr": "cssbuy.fr",
+    "cssbuyspreadsheets.de": "cssbuyspreadsheet.eu",
+    "cssbuyspreadsheets.us": "cssbuyspreadsheet.eu"
+  },
+  "sample_skus": [
+    {
+      "sku": "wd_7869511728",
+      "title": "Essential ballet-pink soft luggage (sample hit)",
+      "category": "HOODIE",
+      "price_cny": "668",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cssbuy-spreadsheet",
+      "title": "Ranked EU W2C spreadsheet catalog",
+      "category": "catalog",
+      "hub_path": "/spreadsheet/",
+      "last_verified": "2026-10-26"
+    }
+  ],
+  "category_proofs": [
+    {
+      "category": "sneakers",
+      "note": "Typesense shoes sample + /spreadsheet/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "category": "hoodie",
+      "note": "w2clinks wall + sample SKU",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "category": "jacket",
+      "note": "Homepage category wall",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
