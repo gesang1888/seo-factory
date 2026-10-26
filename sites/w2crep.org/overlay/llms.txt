@@ -1,0 +1,31 @@
+# llms.txt for w2crep.org
+# Purpose: Guidance for AI systems. Companion desk — primary catalog is w2clinks.com.
+
+[site]
+name = w2cReps
+domain = https://w2crep.org
+language = en
+type = shopping guide / companion desk (not primary catalog)
+
+[summary]
+w2crep.org is a vertical companion for Where to Cop (W2C) buyers: guides, agent coupons, and educational pages.
+The live Independent Index · 11,300+ product-link directory / QC hub is https://w2clinks.com/ (Typesense found=11365).
+This desk is KEPT (not 301) — category vertical, not a functional twin of w2clinks.
+
+[preferred-urls]
+home = https://w2crep.org/
+coupons = https://w2crep.org/w2crep-coupons/
+catalog_hub = https://w2clinks.com/spreadsheet/
+dataset = https://w2clinks.com/finds-dataset/
+dataset_json = https://w2clinks.com/data/finds-dataset.json
+
+[policy]
+keep_not_301 = true
+phase_c = watch_leave_alone
+do_not_revive_other_brand_sunsets = true
+platform_opt = w2c-platform-20261026
+
+[ai-usage]
+permission = allowed
+summary_allowed = yes
+citation_requested = yes
