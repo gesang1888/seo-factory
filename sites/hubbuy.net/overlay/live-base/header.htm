@@ -1,0 +1,432 @@
+
+<!-- Google Analytics 鈥?蹇呴』鏀惧湪 <head> 鍐咃紝鍘熺増鏀惧湪 <head> 涔嬪墠鏄敊璇殑 -->
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZQ8QKB899"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HZQ8QKB899');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 涓庝富椤典竴鑷达細Nunito 瀛椾綋 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #FF6900;
+            --primary-hover: #E55D00;
+            --primary-light: #fff3ec;
+            --warning: #FAAD14;
+            --error: #F5222D;
+            --bg-page: #F0F2F5;
+            --bg-card: #FFFFFF;
+            --bg-hover: #f9f9f9;
+            --text-primary: #262626;
+            --text-secondary: #8C8C8C;
+            --text-white: #FFFFFF;
+            --border-color: #D9D9D9;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 20px rgba(0,0,0,0.15);
+            --font-family: 'Nunito', Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Microsoft YaHei", "PingFang SC";
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-primary);
+            background-color: var(--bg-page);
+        }
+
+        /* 鈹€鈹€ 椤堕儴妯箙锛氫笌涓婚〉涓€鑷达紝姗欒壊娓愬彉 鈹€鈹€ */
+        .top-banner {
+            background: linear-gradient(90deg, var(--primary) 0%, #ff8c00 100%);
+            padding: 11px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-white);
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+        .top-banner a {
+            color: var(--text-white);
+            text-decoration: none;
+        }
+        .top-banner .banner-cta {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 20px;
+            padding: 3px 14px;
+            margin-left: 10px;
+            font-size: 13px;
+            transition: background 0.2s;
+        }
+        .top-banner .banner-cta:hover { background: rgba(255,255,255,0.4); }
+
+        /* 鈹€鈹€ 瀵艰埅鏍?鈹€鈹€ */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* 鈹€鈹€ Logo 鈹€鈹€ */
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .logo img { height: 32px; width: auto; }
+        .logo-sub {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: var(--bg-page);
+            border-radius: 4px;
+            padding: 2px 7px;
+            margin-left: 4px;
+        }
+
+        /* 鈹€鈹€ 瀵艰埅鑿滃崟 鈹€鈹€ */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        .nav-item:hover, .nav-item.active { color: var(--primary); }
+
+        /* CTA 鎸夐挳瀵艰埅椤?*/
+        .nav-item.nav-cta {
+            background: var(--primary);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .nav-item.nav-cta:hover { background: var(--primary-hover); transform: translateY(-1px); color: #fff; }
+
+        /* 鈹€鈹€ 姹夊牎鑿滃崟鎸夐挳锛堢Щ鍔ㄧ锛?鈹€鈹€ */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            color: var(--text-primary);
+            font-size: 22px;
+        }
+
+        /* 鈹€鈹€ 涓嬫媺鑿滃崟 鈹€鈹€ */
+        /* 鈹€鈹€ 涓嬫媺鑿滃崟 鈹€鈹€ */
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+            min-width: 235px;
+            display: none;
+            padding: 10px;
+            z-index: 100;
+            border: 1px solid var(--border-color);
+        }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
+        }
+        .dropdown-item {
+            padding: 10px 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background-color 0.2s, color 0.2s, transform 0.2s;
+        }
+        .dropdown-item i {
+            width: 22px;
+            text-align: center;
+            color: var(--primary);
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+        .dropdown-item:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+            transform: translateX(2px);
+        }
+
+        /* 鈹€鈹€ 瀵艰埅鏍忓唴鎼滅储妗?鈹€鈹€ */
+        .nav-search-form {
+            display: flex;
+            align-items: center;
+        }
+        .nav-search-input {
+            padding: 9px 18px;
+            border-radius: 50px 0 0 50px;
+            border: 1px solid var(--border-color);
+            border-right: none;
+            font-size: 14px;
+            outline: none;
+            width: 200px;
+            transition: all 0.3s;
+            background-color: var(--bg-card);
+            font-family: var(--font-family);
+        }
+        .nav-search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255,105,0,0.15);
+        }
+        .nav-search-btn {
+            background: var(--primary);
+            color: var(--text-white);
+            border: none;
+            border-radius: 0 50px 50px 0;
+            padding: 9px 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 14px;
+        }
+        .nav-search-btn:hover { background: var(--primary-hover); }
+
+        /* 鈹€鈹€ 绀句氦閾炬帴 鈹€鈹€ */
+        .social-links { display: flex; gap: 12px; }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--bg-hover);
+            color: var(--text-secondary);
+            font-size: 16px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: var(--text-white);
+            transform: scale(1.1);
+        }
+
+        .header-category-strip {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+        .header-category-grid {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 8px 20px 10px;
+            display: grid;
+            grid-template-columns: repeat(6, minmax(120px, 1fr));
+            gap: 6px 14px;
+        }
+        .header-category-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: center;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: background-color 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+        .header-category-link:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* 鈹€鈹€ 鍝嶅簲寮?鈹€鈹€ */
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .social-links { display: none; }
+            .header-container { flex-wrap: wrap; }
+            nav { width: 100%; order: 3; }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                padding: 12px 0;
+                width: 100%;
+            }
+            .nav-menu.open { display: flex; }
+            .nav-menu li { width: 100%; }
+            .nav-item { display: block; padding: 8px 4px; width: 100%; }
+            .nav-item.nav-cta { text-align: center; border-radius: 8px; }
+            .nav-search-input { width: 100%; }
+            .header-category-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 4px 8px;
+                padding: 8px 12px;
+            }
+            .header-category-link {
+                font-size: 12px;
+                white-space: normal;
+            }
+        }
+    </style>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/typesense-search.js"></script>
+</head>
+<body>
+
+    <!-- 椤堕儴妯箙锛氫笌涓婚〉涓€鑷达紝姗欒壊娓愬彉 -->
+    <div class="top-banner">
+        Ready to order? Place your haul directly on
+        <a href="https://www.hubbuy.com/" target="_blank" rel="noopener noreferrer">
+            <strong>HubBuy.com</strong>
+            <span class="banner-cta">Shop Now</span>
+        </a>
+        &nbsp;|&nbsp; Coupon: <strong style="text-decoration:underline">SHIP</strong> for extra savings
+    </div>
+
+    <!-- 瀵艰埅鏍?-->
+    <header>
+        <div class="header-container">
+
+            <!-- Logo锛氳矾寰勫幓鎺夌┖鏍硷紝涓庝富椤典竴鑷?-->
+            <a href="/" class="logo">
+                <img src="/hubbuy-logo.png" alt="HubBuy Logo">
+                <span class="logo-sub">GUIDE</span>
+            </a>
+
+            <!-- 姹夊牎鑿滃崟鎸夐挳锛堢Щ鍔ㄧ锛?-->
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- 瀵艰埅鑿滃崟 -->
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="/" class="nav-item">Home</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="nav-item">
+                            Guides <i class="fas fa-chevron-down" style="font-size:10px;margin-left:4px;"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=7&category=SNEAKERS&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-shoes381" class="dropdown-item"><i class="fas fa-shoe-prints"></i>Sneakers & Shoes</a>
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=8&category=JACKET&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-jackets839" class="dropdown-item"><i class="fas fa-user-tie"></i>Jackets & Coats</a>
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=2&category=T-SHIRT&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-t-shirts" class="dropdown-item"><i class="fas fa-shirt"></i>T-Shirts</a>
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=1&category=HOODIE&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-hoodies-sweaters" class="dropdown-item"><i class="fas fa-vest"></i>Hoodies/Sweaters</a>
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=4&category=SHORTS&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-pants-shorts" class="dropdown-item"><i class="fas fa-person-walking"></i>Pants/Shorts</a>
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-accessories" class="dropdown-item"><i class="fas fa-gem"></i>Accessories</a>
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=6&category=BAG&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-bags" class="dropdown-item"><i class="fas fa-bag-shopping"></i>Bags</a>
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=10&category=Electronics&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-electronics" class="dropdown-item"><i class="fas fa-mobile-screen-button"></i>Electronics</a>
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-headwear" class="dropdown-item"><i class="fas fa-hat-cowboy"></i>Headwear</a>
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-women" class="dropdown-item"><i class="fas fa-person-dress"></i>Women's Fashion</a>
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=3&category=Jersey&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-jersey" class="dropdown-item"><i class="fas fa-futbol"></i>Sports Jerseys</a>
+                            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-other-stuff" class="dropdown-item"><i class="fas fa-box-open"></i>Other Goods</a>
+                        </div>
+                    </li>
+                    <li><a href="/#faq" class="nav-item">FAQ</a></li>
+                    <!-- 鎼滅储妗?-->
+                    <li>
+                        <form class="nav-search-form" action="https://w2clinks.com/spreadsheet/hubbuycn/?utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=search" method="get" target="_blank"><input type="text" name="q" class="nav-search-input" placeholder="Search products..." required>
+                            <button type="submit" class="nav-search-btn"><i class="fas fa-search"></i></button>
+                        </form>
+                    </li>
+                    <li>
+                        <a href="https://www.hubbuy.com/" target="_blank" rel="noopener noreferrer" class="nav-item nav-cta">
+                            <i class="fas fa-shopping-bag"></i> Buy on HubBuy.com
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- 绀句氦閾炬帴锛氭柊澧?Discord锛屼慨姝?Telegram URL -->
+            <div class="social-links">
+                <a href="https://wa.me/8615396628356" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/SPORTSHOESVIP" target="_blank" rel="noopener noreferrer" title="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="https://discord.gg/sportshoesvip" target="_blank" rel="noopener noreferrer" title="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-category-strip" aria-label="Product categories">
+        <div class="header-category-grid">
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=7&category=SNEAKERS&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-shoes381" class="header-category-link">Sneakers &amp; Shoes</a>
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=8&category=JACKET&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-jackets839" class="header-category-link">Jackets &amp; Coats</a>
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=2&category=T-SHIRT&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-t-shirts" class="header-category-link">T-Shirts</a>
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=1&category=HOODIE&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-hoodies-sweaters" class="header-category-link">Hoodies/Sweaters</a>
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=4&category=SHORTS&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-pants-shorts" class="header-category-link">Pants/Shorts</a>
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-accessories" class="header-category-link">Accessories</a>
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=6&category=BAG&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-bags" class="header-category-link">Bags</a>
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=10&category=Electronics&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-electronics" class="header-category-link">Electronics</a>
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-headwear" class="header-category-link">Headwear</a>
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-women" class="header-category-link">Women's Fashion</a>
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=3&category=Jersey&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-jersey" class="header-category-link">Sports Jerseys</a>
+            <a href="https://w2clinks.com/spreadsheet/hubbuycn/?utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-other-stuff" class="header-category-link">Other Goods</a>
+        </div>
+    </div>
+
+    <script>
+        // 姹夊牎鑿滃崟鍒囨崲
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+        });
+
+        // 鐐瑰嚮鑿滃崟椤瑰悗鍏抽棴绉诲姩绔鑸?
+        navMenu.querySelectorAll('a:not([href="javascript:;"])').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.querySelector('i').className = 'fas fa-bars';
+            });
+        });
+    </script>
