@@ -1,0 +1,50 @@
+{
+  "brand": "LoloBuy",
+  "host": "bestlolobuyspreadsheet.com",
+  "last_verified": "2026-10-26",
+  "platform_opt": "lolobuy-platform-20261026",
+  "verify_on": "lolobuy.com register / wallet \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
+  "serp_note": "Brand folder URLs + /guides/coupons/ carry clicks; homepage needs Independent Index \u00b7 9,200+ SERP signal. Twin lolospreadsheet.com already 301\u2192hub.",
+  "offers": [
+    {
+      "id": "lolobuy-invite-2pgzy",
+      "type": "invite_ref",
+      "label": "Invite code 2pgzy",
+      "code": "2pgzy",
+      "value_claim": "Register inviteCode on lolobuy.com \u2014 gifts/wallet vary; confirm_live after register",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed expiry promised by this desk \u2014 re-confirm in-app the morning you pay",
+      "applies_to": "LoLoBuy register / invite field",
+      "exclusions": [
+        "This hub is not checkout",
+        "Stacking rules official-only"
+      ],
+      "source": "https://bestlolobuyspreadsheet.com/guides/coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "lolobuy-centurypay-fee-archive",
+      "type": "payment_promo",
+      "label": "CenturyPay fee discount archive",
+      "code": null,
+      "value_claim": "Credit-card fee 4% \u2192 3.5% (Jun 30\u2013Jul 30 2026 window) \u2014 historical unless still in wallet",
+      "status": "historical",
+      "expires_on": "2026-07-30",
+      "source": "https://bestlolobuyspreadsheet.com/guides/coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "lolobuy-worldcup-ship10-archive",
+      "type": "shipping_promo",
+      "label": "World Cup Carnival 10% shipping (US/CA/MX) archive",
+      "code": null,
+      "value_claim": "Automatic 10% shipping discount US/CA/MX Jun 22\u2013Jul 21 2026 \u2014 historical unless still in wallet",
+      "status": "historical",
+      "expires_on": "2026-07-21",
+      "source": "https://bestlolobuyspreadsheet.com/guides/coupons/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

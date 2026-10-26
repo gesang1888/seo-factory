@@ -1,0 +1,70 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "LoloBuy",
+  "host": "bestlolobuyspreadsheet.com",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T19:05:00Z",
+  "row_count": 9200,
+  "row_count_display": "9,200+",
+  "update_frequency": "Catalog cards refresh continuously; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Coupon intent still lives on /guides/coupons/.",
+  "platform_opt": "lolobuy-platform-20261026",
+  "hub_role": "brand_hub_only_no_country_desks",
+  "twin_note": "lolospreadsheet.com already 301\u2192bestlolobuyspreadsheet.com (Phase A); do not revive",
+  "endpoints": {
+    "html": "https://bestlolobuyspreadsheet.com/finds-dataset/",
+    "json": "https://bestlolobuyspreadsheet.com/data/finds-dataset.json",
+    "coupons_truth": "https://bestlolobuyspreadsheet.com/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/lolobuy/",
+    "hub": "https://bestlolobuyspreadsheet.com/"
+  },
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/, /guides/coupons/ and money URLs bumps when this stamp changes.",
+  "sample_skus": [
+    {
+      "sku": "cat_sneakers",
+      "title": "Sneakers & Shoes category proof (live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "SNEAKERS",
+      "source_url": "https://w2clinks.com/spreadsheet/lolobuy/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "brand_nike",
+      "title": "Nike brand QC rows (ranked on this hub)",
+      "price_cny": null,
+      "price_display": "see /brand/nike/",
+      "category_hint": "NIKE",
+      "source_url": "https://bestlolobuyspreadsheet.com/brand/nike/",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_jacket",
+      "title": "Jackets & Coats category proof (live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "JACKET",
+      "source_url": "https://w2clinks.com/spreadsheet/lolobuy/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "brand_moncler",
+      "title": "Moncler brand QC rows (ranked on this hub)",
+      "price_cny": null,
+      "price_display": "see /brand/moncler/",
+      "category_hint": "MONCLER",
+      "source_url": "https://bestlolobuyspreadsheet.com/brand/moncler/",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
