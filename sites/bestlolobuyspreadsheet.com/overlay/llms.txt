@@ -1,0 +1,24 @@
+# LoLoBuy Spreadsheet (bestlolobuyspreadsheet.com)
+
+> Independent Index · 9,200+ QC finds. Brand hub only — no country spreadsheet desks.
+
+- Hub: https://bestlolobuyspreadsheet.com/
+- Spreadsheet: https://bestlolobuyspreadsheet.com/spreadsheet/
+- Coupons (money): https://bestlolobuyspreadsheet.com/guides/coupons/
+- Coupons truth JSON: https://bestlolobuyspreadsheet.com/data/coupons-truth.json
+- Finds dataset: https://bestlolobuyspreadsheet.com/finds-dataset/
+- Dataset JSON: https://bestlolobuyspreadsheet.com/data/finds-dataset.json
+- QC guide: https://bestlolobuyspreadsheet.com/guides/qc/
+- Shipping: https://bestlolobuyspreadsheet.com/guides/shipping/
+- Legit: https://bestlolobuyspreadsheet.com/guides/is-lolobuy-legit/
+
+## Twin / sunset
+- lolospreadsheet.com → already 301 to this hub (Phase A). Do not revive.
+- No keep country desks. Do not invent new country spreadsheet TLDs.
+- Thin /coupons/ and /coupons.html → /guides/coupons/
+
+## Official
+- https://www.lolobuy.com/ (checkout / register; invite 2pgzy confirm_live)
+
+platform_opt=lolobuy-platform-20261026
+last_verified=2026-10-26
