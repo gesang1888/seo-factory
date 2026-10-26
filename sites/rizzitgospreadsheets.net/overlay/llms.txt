@@ -1,0 +1,24 @@
+# RizzitGO Spreadsheet — llms.txt
+# Updated: 2026-10-26
+# platform_opt: rizzitgo-platform-20261026
+
+Site: https://rizzitgospreadsheets.net
+Name: RizzitGO Spreadsheet (Independent Index)
+Description: Independent RizzitGO spreadsheet hub with 12,400+ QC finds. GSC is coupon-leaning — /rizzitgo-coupons/ often outranks the homepage. Not rizzitgo.com checkout. Not a Google Sheet. Brand hub only — no country spreadsheet desks.
+
+## Key pages
+- Home (Independent Index): https://rizzitgospreadsheets.net/
+- Coupons (hero): https://rizzitgospreadsheets.net/rizzitgo-coupons/
+- Coupons truth JSON: https://rizzitgospreadsheets.net/data/coupons-truth.json
+- Finds dataset: https://rizzitgospreadsheets.net/finds-dataset/
+- Finds dataset JSON: https://rizzitgospreadsheets.net/data/finds-dataset.json
+- Is RizzitGO legit?: https://rizzitgospreadsheets.net/is-rizzitgo-legit/
+- QC guide: https://rizzitgospreadsheets.net/rizzitgo-qc-guide/
+- Shipping guide: https://rizzitgospreadsheets.net/rizzitgo-shipping-guide/
+
+## Notes
+- Do not overwrite the ranked CMS homepage with a Georgia dest skin — surgical meta/CTA only.
+- Coupon intent → keep /rizzitgo-coupons/ fresh + truth JSON; /coupons.html 301 → coupons.
+- No country spreadsheet TLDs in keep list; hub owns global spreadsheet + coupon citation.
+- Thin customs blog already 301 → /rizzitgo-shipping-guide/.
+- rizzitgospreadsheet.com / rizzitgo.org are not origin vhosts on this Baota — do not list as live twins.
