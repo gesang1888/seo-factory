@@ -2,87 +2,102 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fansbuysheets.net/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://fansbuysheets.net/finds-dataset/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://fansbuysheets.net/data/finds-dataset.json</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://fansbuysheets.net/data/coupons-truth.json</loc>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/blog/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/blog/posts/fansbuy-agent-comparison/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/blog/posts/fansbuy-fashionreps-guide/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/blog/posts/fansbuy-reviews-2026/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/blog/posts/fansbuy-spreadsheet-guide/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/blog/posts/rep-spreadsheet-fansbuy/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/fansbuy-community/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/fansbuy-coupons/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/fansbuy-invite-code/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/fansbuy-qc-guide/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/fansbuy-refund-guide/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/fansbuy-shipping-guide/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/fansbuy-shoes-spreadsheet/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/fansbuy-spreadsheet/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/how-to-use-fansbuy/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://fansbuysheets.net/is-fansbuy-legit/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

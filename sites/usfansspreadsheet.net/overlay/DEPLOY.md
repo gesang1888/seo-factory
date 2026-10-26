@@ -17,3 +17,7 @@ rsync -av sites/usfansspreadsheet.net/overlay/usfansspreadsheet-net-vs-org/ root
 rsync -av sites/usfansspreadsheet.net/overlay/usfans-shipping-guide/ root@$HOST:/www/wwwroot/usfansspreadsheet.net/usfans-shipping-guide/
 rsync -av sites/usfansspreadsheet.net/overlay/is-usfans-legit/ root@$HOST:/www/wwwroot/usfansspreadsheet.net/is-usfans-legit/
 ```
+
+## A-hub QC moat (Step 5.1)
+
+Also see `DEPLOY-MOAT.md`. Adds `/finds-dataset/` + `/data/*.json`; thickens coupons truth table; optional reddit-community Discord coexistence block. Do not overwrite homepage hero.

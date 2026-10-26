@@ -1,0 +1,126 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "HipoBuy",
+  "host": "hipobuyspreadsheet.net",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T15:00:00Z",
+  "row_count": 8600,
+  "row_count_display": "8,600+",
+  "update_frequency": "Catalog cards refresh continuously; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated sample SKUs — not another opaque Google Sheet dump.",
+  "endpoints": {
+    "html": "https://hipobuyspreadsheet.net/finds-dataset/",
+    "json": "https://hipobuyspreadsheet.net/data/finds-dataset.json",
+    "coupons_truth": "https://hipobuyspreadsheet.net/data/coupons-truth.json",
+    "catalog": "https://hipobuyspreadsheet.net/"
+  },
+  "sample_skus": [
+    {
+      "sku": "wd_7869511728",
+      "title": "日默家Essential芭蕾粉柔光登机箱",
+      "price_cny": 668,
+      "price_display": "¥668",
+      "category_hint": "HOODIE",
+      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7869511728.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "wd_7868694396",
+      "title": "Mizuno LG 60S Sneakers",
+      "price_cny": 150,
+      "price_display": "¥150",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7868694396.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "wd_7865684209",
+      "title": "E-Superstar White Low Top Sneakers",
+      "price_cny": 208,
+      "price_display": "¥208",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7865684209.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "wd_7868725620",
+      "title": "Danner Trail 2650 Hiking Shoes",
+      "price_cny": 310,
+      "price_display": "¥310",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7868725620.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "wd_7865474747",
+      "title": "Huntington Tong Suede Low Top Sneakers",
+      "price_cny": 410,
+      "price_display": "¥410",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7865474747.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "wd_7868680536",
+      "title": "PAI PAI Boom Sneakers White/Yellow/Gold",
+      "price_cny": 200,
+      "price_display": "¥200",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7868680536.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "wd_7865660451",
+      "title": "Louis Vuitton Baseball Caps",
+      "price_cny": 58,
+      "price_display": "¥58",
+      "category_hint": "HAT",
+      "source_url": "https://w2clinks.com/yupoo-hat/wd_7865660451.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "wd_7855051203",
+      "title": "Louis Vuitton Cœur Battant Eau de Parfum 100ml",
+      "price_cny": 140,
+      "price_display": "¥140",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/accessories/wd_7855051203.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "wd_7868646724",
+      "title": "Supernova Rise Running Shoes",
+      "price_cny": 199,
+      "price_display": "¥199",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7868646724.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "wd_7868611396",
+      "title": "Ralph Lauren Grey Hoodie Sweatshirt",
+      "price_cny": 178,
+      "price_display": "¥178",
+      "category_hint": "T-SHIRT",
+      "source_url": "https://w2clinks.com/yupoo-t-shirt/wd_7868611396.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    }
+  ],
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes."
+}

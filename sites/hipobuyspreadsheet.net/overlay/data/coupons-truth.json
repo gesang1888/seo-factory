@@ -1,0 +1,43 @@
+{
+  "brand": "HipoBuy",
+  "host": "hipobuyspreadsheet.net",
+  "last_verified": "2026-10-26",
+  "verify_on": "hipobuy.com (official drawer / wallet — this hub never redeems)",
+  "update_cadence": "Re-verify on every freight payment morning; JSON stamped at least weekly",
+  "offers": [
+    {
+      "id": "hipo-invite-sc3y5g66q",
+      "type": "invite_code",
+      "label": "Published invite code (hub chrome)",
+      "code": "SC3Y5G66Q",
+      "value_claim": "Community / hub copy often cites a ~$158 shipping-oriented new-user bundle in invite contexts",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed public expiry on this desk — treat as unknown until the live drawer shows a date",
+      "applies_to": "Signup / invite attribution on hipobuy.com",
+      "exclusions": [
+        "Volumetric / private lines often outside shipping coupons",
+        "Never redeem on this spreadsheet TLD"
+      ],
+      "source": "hub invite CTA + 2026 master guide narrative",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "hipo-shipping-drawer",
+      "type": "shipping_coupon_drawer",
+      "label": "Official shipping discount drawer",
+      "code": null,
+      "value_claim": "Rotating shipping % / amount coupons shown in-app after signup",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Per-coupon expiry only visible in hipobuy.com wallet",
+      "applies_to": "International freight at Create Parcel (when eligible)",
+      "exclusions": [
+        "One shipping coupon per parcel typical",
+        "Line exclusions vary"
+      ],
+      "source": "official agent UX; not invent codes here",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

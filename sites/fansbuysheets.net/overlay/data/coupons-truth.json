@@ -1,0 +1,25 @@
+{
+  "brand": "FansBuy",
+  "host": "fansbuysheets.net",
+  "last_verified": "2026-10-26",
+  "verify_on": "fansbuy.com / in-app wallet — confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
+  "offers": [
+    {
+      "id": "fans-invite-pys5zt48",
+      "type": "affiliate_invite",
+      "label": "Affiliate invite code",
+      "code": "Fans-pys5Zt48",
+      "value_claim": "Affiliate invite bonus off first order (auto-attributed)",
+      "status": "listed_on_hub",
+      "expires_on": null,
+      "expires_note": "Hub copy historically says no fixed expiry — still re-confirm in-app",
+      "applies_to": "First-order affiliate attribution on FansBuy",
+      "exclusions": [
+        "This sheets host is not checkout"
+      ],
+      "source": "https://fansbuysheets.net/fansbuy-coupons/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
