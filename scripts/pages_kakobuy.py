@@ -322,10 +322,10 @@ PAGES: list[dict] = [
             title=f"Kakobuy Coupon Codes ({YEAR})",
             description="kakobuy coupon codes and coupons — how to apply invitation codes on Kakobuy after browsing W2CLinks.",
             h1="Kakobuy Coupon Codes",
-            intro="Coupon searches often mean registration bonuses or shipping discounts on Kakobuy checkout.",
+            intro="Coupon searches often mean registration bonuses or shipping discounts on Kakobuy checkout. As of 15 Sep 2026 kakobuy.com lists code KAKOSEP (¥1300 pack + extra 10% off shipping until 30 Sep) on tipdetail?id=55, plus the new-user ¥3000 pack.",
             sections=[
                 ("Register with invitation link", f'Use <a href="{REGISTER}" target="_blank" rel="noopener">our Kakobuy registration link</a> for referral benefits.'),
-                ("How to apply coupons", "Enter codes during registration or parcel payment — check Kakobuy help for current rules."),
+                ("How to apply coupons", "Current official code KAKOSEP: User Center → Coupons → Redeem on Kakobuy. Percentage coupons do not stack. Always confirm dates in the account."),
             ],
             faq=[
                 ("kakobuy coupon codes?", "Policies change — verify inside Kakobuy account."),
@@ -345,7 +345,7 @@ PAGES: list[dict] = [
             title=f"Code Promo Kakobuy — Coupons ({YEAR})",
             description="coupon kakobuy, kakobuy coupons — codes et invitation.",
             h1="Coupon et codes Kakobuy",
-            intro="Recherches coupon kakobuy pour bonus d'inscription ou réductions.",
+            intro="Recherches coupon kakobuy : au 15 sept. 2026, kakobuy.com publie le code KAKOSEP (pack 1300 CNY + 10 % extra livraison jusqu’au 30 sept.) et le pack nouveaux utilisateurs 3000 CNY.",
             sections=[("Inscription", f'<a href="{REGISTER}" target="_blank" rel="noopener">Lien d\'invitation</a>.')],
             faq=[],
         ),
@@ -353,7 +353,7 @@ PAGES: list[dict] = [
             title=f"Kakobuy Coupon Code — Kortingscodes ({YEAR})",
             description="kakobuy coupon code, kakobuy coupons — hoe coupon op Kakobuy te gebruiken.",
             h1="Kakobuy coupon en kortingscode",
-            intro="Coupon-zoekers willen registratiebonus of verzendkorting.",
+            intro="Coupon-zoekers: op 15 sep 2026 vermeldt kakobuy.com code KAKOSEP (1300 CNY-pakket + extra 10% verzending tot 30 sep) plus het 3000 CNY-pakket voor nieuwe gebruikers.",
             sections=[("Registreren", f'<a href="{REGISTER}" target="_blank" rel="noopener">Kakobuy uitnodigingslink</a>.')],
             faq=[
                 ("how to use coupon on kakobuy?", "Bij registratie of afrekenen in Kakobuy."),
