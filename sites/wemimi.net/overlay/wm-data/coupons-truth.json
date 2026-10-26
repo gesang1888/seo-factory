@@ -1,0 +1,51 @@
+{
+  "brand": "WeMimi",
+  "host": "wemimi.net",
+  "last_verified": "2026-10-26",
+  "platform_opt": "wemimi-platform-20261026",
+  "verify_on": "wemimi.com register / Coupon centre / Help Commodity Storage Timeline \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when official pack artwork changes (target weekly)",
+  "serp_note": "28d clicks all on / (6). Head query wemimi=3 (impressions 435, CTR low); wemimi spreadsheet=1. /wemimi-coupons/ was 404 pre-opt; /coupons.html had thin offers only. Brand hub only \u2014 twin already 301.",
+  "offers": [
+    {
+      "id": "wemimi-1000-newcomer-pack",
+      "type": "new_user_gift_pack",
+      "label": "\u00a51000 newcomer registration gift pack",
+      "code": null,
+      "value_claim": "Official wemimi.com register 8 Oct 2026: \u00a51000 CNY for new members / Newcomer Registration Gift Pack / \u201c1000CNY Gift For New Member\u201d bar \u2014 confirm_live in-app after register",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Re-confirm in-app the morning you claim; this desk does not invent expiry",
+      "applies_to": "WeMimi register \u2192 account / coupon centre",
+      "exclusions": [
+        "This hub is not checkout",
+        "No public typed-in promo code on this desk",
+        "UK 30% announcement is destination-specific"
+      ],
+      "source": "https://wemimi.net/wemimi-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "wemimi-uk-30pct-routes",
+      "type": "shipping_promo",
+      "label": "UK lines up to 30% price crash",
+      "code": null,
+      "value_claim": "Official announcement 8 Oct 2026: 12 UK shipping routes price crash up to 30% \u2014 confirm_live on the live bar the morning you book",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://www.wemimi.com/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "wemimi-storage-timeline",
+      "type": "storage_policy",
+      "label": "Commodity Storage Timeline (Help)",
+      "code": null,
+      "value_claim": "Official Help names a Commodity Storage Timeline \u2014 this desk does not invent a free-day count; confirm Help the morning you ship",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://www.wemimi.com/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

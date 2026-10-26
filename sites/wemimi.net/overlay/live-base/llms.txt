@@ -1,0 +1,34 @@
+# wemimi.net
+
+URL: https://wemimi.net/
+
+## Purpose
+
+wemimi.net is an independent product-link directory and shopping guide for global shoppers browsing Weidian, Taobao and 1688 finds. It helps users move from category browsing to Chinese shopping-agent checkout, QC photo review and international shipping decisions.
+
+## Main Topics
+
+- Verified Weidian, Taobao and 1688 product finds
+- Chinese shopping agent workflows
+- QC photo review before international shipping
+- Product categories for shoes, jackets, t-shirts, hoodies, pants, accessories, bags, electronics, headwear, women's fashion, sports jerseys and other goods
+- Practical shopping guidance for link checks, measurements, parcel planning and route selection
+
+## Category Hubs
+
+- Sneakers & Shoes: https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=7&category=SNEAKERS&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-shoes381
+- Jackets & Coats: https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=8&category=JACKET&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-jackets839
+- T-Shirts: https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=2&category=T-SHIRT&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-t-shirts
+- Hoodies & Sweaters: https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=1&category=HOODIE&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-hoodies-sweaters
+- Pants & Shorts: https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=4&category=SHORTS&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-pants-shorts
+- Accessories: https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-accessories
+- Bags: https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=6&category=BAG&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-bags
+- Electronics: https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=10&category=Electronics&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-electronics
+- Headwear: https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-headwear
+- Women's Fashion: https://w2clinks.com/spreadsheet/?utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-women
+- Sports Jerseys: https://w2clinks.com/spreadsheet/?page=1&sort=newest&typeid=3&category=Jersey&utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-jersey
+- Other Goods: https://w2clinks.com/spreadsheet/?utm_source=wemimi&utm_medium=aggregator&utm_campaign=wemimi&utm_content=cat-other-stuff
+
+## Relationship To Marketplaces And Agents
+
+wemimi.net does not sell products directly, process payments, own the listed marketplaces or provide final shipping services. Users should verify seller details, product options, QC photos, measurements, route restrictions and shipping terms before ordering through a third-party agent.
