@@ -1,0 +1,71 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "EsgoBuy",
+  "host": "esgobuyspreadsheet.net",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T19:40:00Z",
+  "row_count": 12400,
+  "row_count_display": "12,400+",
+  "update_frequency": "Catalog cards refresh continuously; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Coupon intent still lives on /esgobuy-coupons/.",
+  "platform_opt": "esgobuy-platform-20261026",
+  "hub_role": "brand_hub_only_no_country_desks",
+  "twin_note": "No Phase A hub twin. No Phase B/C EsgoBuy sunset to revive. Lookalike esgobuy.org is independent \u2014 not a keep desk. No country spreadsheet TLDs in inventory/GSC.",
+  "endpoints": {
+    "html": "https://esgobuyspreadsheet.net/finds-dataset/",
+    "json": "https://esgobuyspreadsheet.net/data/finds-dataset.json",
+    "coupons_truth": "https://esgobuyspreadsheet.net/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/esgobuy/",
+    "hub": "https://esgobuyspreadsheet.net/",
+    "ranked_spreadsheet": "https://esgobuyspreadsheet.net/esgobuy-spreadsheet/"
+  },
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/, /esgobuy-coupons/ and money URLs bumps when this stamp changes.",
+  "sample_skus": [
+    {
+      "sku": "cat_sneakers",
+      "title": "Sneakers & Shoes category proof (live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "SNEAKERS",
+      "source_url": "https://w2clinks.com/spreadsheet/esgobuy/?category=SNEAKERS",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_jacket",
+      "title": "Jackets & Coats category proof (live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "JACKET",
+      "source_url": "https://w2clinks.com/spreadsheet/esgobuy/?category=JACKET",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_women",
+      "title": "Women's Fashion category proof (live catalog)",
+      "price_cny": null,
+      "price_display": "see catalog",
+      "category_hint": "FEMALE STYLE",
+      "source_url": "https://w2clinks.com/spreadsheet/esgobuy/?category=FEMALE%20STYLE",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "page_shoes_sheet",
+      "title": "Shoes spreadsheet ranked article on this hub",
+      "price_cny": null,
+      "price_display": "see /esgobuy-shoes-spreadsheet/",
+      "category_hint": "SHOES",
+      "source_url": "https://esgobuyspreadsheet.net/esgobuy-shoes-spreadsheet/",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
