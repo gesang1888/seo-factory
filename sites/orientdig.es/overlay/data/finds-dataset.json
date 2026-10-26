@@ -1,0 +1,73 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "OrientDig",
+  "host": "orientdig.es",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T18:50:00Z",
+  "row_count": 8000,
+  "row_count_display": "8,000+",
+  "update_frequency": "w2clinks catalog refresh continuous; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Brand spreadsheet SERP owns the homepage Independent Index on orientdig.es.",
+  "platform_opt": "orientdig-platform-20261026",
+  "measurement": "Hub-published Independent Index claim 8,000+ across 33 categories on orientdig.es / w2clinks.com/spreadsheet/orientdig/ (2026-10-26).",
+  "endpoints": {
+    "html": "https://orientdig.es/finds-dataset/",
+    "json": "https://orientdig.es/data/finds-dataset.json",
+    "coupons_truth": "https://orientdig.es/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/orientdig/",
+    "ranked_spreadsheet": "https://orientdig.es/orientdig-spreadsheet/"
+  },
+  "keep_desks": [
+    "orientdig.fr",
+    "orientdig.us"
+  ],
+  "watch_desks": [
+    "orientdig.at",
+    "orientdigspreadsheet.de",
+    "orientdigspreadsheet.uk"
+  ],
+  "twins_301": {
+    "orientdigspreadsheet.nl": "orientdig.es",
+    "orientdigspreadsheet.it": "orientdig.es",
+    "orientdigspreadsheet.fr": "orientdig.fr",
+    "orientdigspreadsheet.us": "orientdig.us"
+  },
+  "sample_skus": [
+    {
+      "sku": "cat_sneakers",
+      "title": "Sneakers category wall",
+      "category": "SNEAKERS",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_hoodie",
+      "title": "Hoodie category entry",
+      "category": "HOODIE",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_jacket",
+      "title": "Jacket category entry",
+      "category": "JACKET",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_tshirt",
+      "title": "T-Shirt category entry",
+      "category": "T-SHIRT",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "cat_bag",
+      "title": "Bag category entry",
+      "category": "BAG",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
