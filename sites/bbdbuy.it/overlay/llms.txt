@@ -1,18 +1,19 @@
-# BBDBuy Spreadsheet Italia — llms.txt
+# BBDBuy Italia — llms.txt
 # Updated: 2026-10-26
+# platform_opt: bbdbuy-platform-20261026
 
 Site: https://bbdbuy.it
-Name: BBDBuy Spreadsheet Italia
-Description: Desk indipendente in italiano: come comprare in Cina con BBDBuy, catalogo, QC, coupon checklist, note Poste/IVA. Non è il checkout ufficiale.
+Name: BBDBuy Italia
+Description: Desk indipendente in italiano: Poste Italiane, CAP, ADM/IVA, QC, coupon checklist. Non è il checkout ufficiale e non è lo spreadsheet hub globale.
 
 ## Pagine chiave
 - Home: https://bbdbuy.it/
 - Coupon: https://bbdbuy.it/bbdbuy-coupons/
 - QC: https://bbdbuy.it/bbdbuy-qc/
 - Legit: https://bbdbuy.it/is-bbdbuy-legit/
-- Spreadsheet: https://bbdbuy.it/bbdbuy-spreadsheet/
 - Shipping: https://bbdbuy.it/bbdbuy-shipping/
+- Spreadsheet (nota locale): https://bbdbuy.it/bbdbuy-spreadsheet/
 
-## Note
-- Non sovrascrivere la homepage CMS con skin Georgia.
-- Intent locale (IT) > brand spreadsheet globale (che resta sui hub .net/.com del brand).
+## Ownership
+- Intent locale IT (QC / coupon / Poste / IVA) → bbdbuy.it
+- Brand / global spreadsheet → https://bbdbuyeu.net/

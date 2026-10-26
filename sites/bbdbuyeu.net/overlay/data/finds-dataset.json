@@ -1,0 +1,40 @@
+{
+  "brand": "BBDBuy",
+  "host": "bbdbuyeu.net",
+  "platform_opt": "bbdbuy-platform-20261026",
+  "last_verified": "2026-10-26",
+  "row_count": 10000,
+  "row_count_note": "Marketing floor from hub copy; refresh from catalog export when available",
+  "update_cadence": "Daily adds / weekly link hygiene",
+  "sources": [
+    "Taobao",
+    "1688",
+    "Weidian"
+  ],
+  "sample_skus": [
+    {
+      "id": "bbd-sample-sneaker",
+      "title": "Sample sneaker QC card",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "bbd-sample-hoodie",
+      "title": "Sample hoodie QC card",
+      "qc_photo": true,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "bbd-sample-bag",
+      "title": "Sample bag QC card",
+      "qc_photo": false,
+      "last_verified": "2026-10-26"
+    }
+  ],
+  "country_desks": {
+    "it": "https://bbdbuy.it/",
+    "ca": "https://bbdbuy.ca/",
+    "uk": "https://bbdbuy.uk/",
+    "us": "https://bbdbuy.us/"
+  }
+}

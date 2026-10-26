@@ -1,0 +1,42 @@
+{
+  "brand": "BBDBuy",
+  "host": "bbdbuyeu.net",
+  "platform_opt": "bbdbuy-platform-20261026",
+  "last_verified": "2026-10-26",
+  "verify_on": "BBDBuy / BBDBuyEU wallet after signup",
+  "update_cadence": "Re-check wallet the morning you pay; JSON stamped at least weekly",
+  "offers": [
+    {
+      "id": "bbd5off",
+      "type": "percent_off",
+      "label": "BBD5OFF \u2014 5% off (confirm live)",
+      "code": "BBD5OFF",
+      "value_claim": "Often marketed as 5% off \u2014 confirm min spend / exclusions in drawer",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Expiry only in live wallet/drawer",
+      "applies_to": "Eligible orders on bbdbuy.com / bbdbuyeu.com",
+      "exclusions": [
+        "This hub never redeems",
+        "Excluded lines / stacking rules vary"
+      ],
+      "source": "hub coupons page + live drawer",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "bbd-invite-1qodrw",
+      "type": "referral_invite",
+      "label": "Invite 1QodRw signup path",
+      "code": "1QodRw",
+      "value_claim": "Invite/register path \u2014 bonuses attach after account creation",
+      "status": "active_path",
+      "expires_on": null,
+      "applies_to": "https://www.bbdbuyeu.com/register?inviteCode=1QodRw",
+      "exclusions": [
+        "Country desks do not redeem"
+      ],
+      "source": "hub CTA",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
