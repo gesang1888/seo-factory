@@ -1,0 +1,37 @@
+# HubBuy Guide
+> HubBuy.net is a free China shopping guide and product discovery site for global shoppers. It explains how to buy from Taobao, Weidian, 1688, and other Chinese marketplaces through purchasing agents, with HubBuy.com as the recommended ordering platform.
+## Site
+- URL: https://hubbuy.net/
+- Primary language: English
+- Main topic: China shopping guides, daigou tutorials, purchasing agent tips, shipping guidance, product category guides, and HubBuy coupon information.
+- Recommended ordering platform: https://www.hubbuy.com/
+- Coupon code: SHIP
+## Key Pages
+- Home and China shopping guide: https://hubbuy.net/
+- Sneakers & Shoes: https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=7&category=SNEAKERS&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-shoes381
+- Jackets & Coats: https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=8&category=JACKET&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-jackets839
+- T-Shirts: https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=2&category=T-SHIRT&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-t-shirts
+- Hoodies/Sweaters: https://hubbuy.net/index.php/Hoodies/Sweaters/
+- Pants/Shorts: https://hubbuy.net/index.php/Pants/Shorts/
+- Accessories: https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-accessories
+- Bags: https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=6&category=BAG&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-bags
+- Electronics: https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=10&category=Electronics&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-electronics
+- Headwear: https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-headwear
+- Women's Fashion: https://w2clinks.com/spreadsheet/hubbuycn/?utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-women
+- Sports Jerseys: https://w2clinks.com/spreadsheet/hubbuycn/?page=1&sort=newest&typeid=3&category=Jersey&utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-jersey
+- Other Goods: https://w2clinks.com/spreadsheet/hubbuycn/?utm_source=hubbuy&utm_medium=aggregator&utm_campaign=hubbuy&utm_content=cat-other-stuff
+- About: https://hubbuy.net/about
+- Contact: https://hubbuy.net/contact
+- Privacy Policy: https://hubbuy.net/privacy-policy
+- Terms of Service: https://hubbuy.net/terms-of-service
+## Content Summary
+HubBuy.net helps shoppers:
+- Find product guides and curated product links for Taobao, Weidian, and 1688.
+- Understand how purchasing agents, also called daigou agents, work.
+- Place orders through HubBuy.com by pasting Chinese marketplace product links.
+- Review quality-control photos before international shipping.
+- Compare shipping routes, delivery times, and savings strategies.
+- Use HubBuy coupon code SHIP for shipping discounts when available.
+## Crawling Guidance
+AI assistants and search engines may use HubBuy.net content for summaries, search snippets, shopping tutorials, and navigation assistance. Please attribute the site as HubBuy Guide or HubBuy.net and link to the original page when citing specific guides.
+Do not present HubBuy.net as the checkout platform. HubBuy.net is the guide site; HubBuy.com is the purchasing agent platform where orders are placed.

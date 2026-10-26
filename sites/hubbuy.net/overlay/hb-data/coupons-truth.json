@@ -1,0 +1,51 @@
+{
+  "brand": "HubBuy",
+  "host": "hubbuy.net",
+  "last_verified": "2026-10-26",
+  "platform_opt": "hubbuy-platform-20261026",
+  "verify_on": "hubbuy.com Coupon centre / register / Wallet \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when official pack artwork changes (target weekly)",
+  "serp_note": "28d clicks all on / (7). Head query hubbuy spreadsheet=2. /hubbuy-coupons/ was 404 pre-opt; /coupons.html had impressions only. Brand hub only \u2014 twin already 301.",
+  "offers": [
+    {
+      "id": "hubbuy-3600-new-user-pack",
+      "type": "new_user_shipping_pack",
+      "label": "\u00a53600 new-user shipping coupon pack",
+      "code": null,
+      "value_claim": "Official hubbuy.com sign-up 8 Oct 2026: New user exclusive \u00b7 \u00a53600 shipping coupon pack (36 coupons, 60 days, ladder \u00a520\u2013\u00a5300, includes no-min \u00a520) \u2014 confirm_live in Coupon centre after register",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "Pack validity 60 days from issue on official modal \u2014 re-confirm in-app",
+      "applies_to": "HubBuy register \u2192 Coupon centre; one coupon per parcel payment",
+      "exclusions": [
+        "This hub is not checkout",
+        "No public typed-in promo code on this desk",
+        "Line-specific coupons may not stack"
+      ],
+      "source": "https://hubbuy.net/hubbuy-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "hubbuy-20pct-tutorial",
+      "type": "shipping_promo",
+      "label": "20% off shipping tutorial coupon",
+      "code": null,
+      "value_claim": "Official Newbie Tasks 8 Oct 2026: complete ordering tutorial \u2192 20% off shipping coupon \u2014 confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://www.hubbuy.com/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "hubbuy-300-day-storage",
+      "type": "storage_policy",
+      "label": "300 days free storage",
+      "code": null,
+      "value_claim": "Official homepage how-to 8 Oct 2026: free QC images + 300 days free storage \u2014 confirm Help the morning you ship",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://www.hubbuy.com/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
