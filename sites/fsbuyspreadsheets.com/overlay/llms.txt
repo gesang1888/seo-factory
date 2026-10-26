@@ -1,0 +1,27 @@
+# FSBuy Spreadsheet (fsbuyspreadsheets.com)
+
+> Independent Index · 12,400+ finds. Brand hub only — no country spreadsheet desks.
+
+- Hub: https://fsbuyspreadsheets.com/
+- Spreadsheet: https://fsbuyspreadsheets.com/fsbuy-spreadsheet/
+- Coupons (money): https://fsbuyspreadsheets.com/fsbuy-coupons/
+- Coupons truth JSON: https://fsbuyspreadsheets.com/data/coupons-truth.json
+- Finds dataset: https://fsbuyspreadsheets.com/finds-dataset/
+- Dataset JSON: https://fsbuyspreadsheets.com/data/finds-dataset.json
+- Shipping: https://fsbuyspreadsheets.com/fsbuy-shipping-guide/
+- Legit: https://fsbuyspreadsheets.com/is-fsbuy-legit/
+- QC: https://fsbuyspreadsheets.com/fsbuy-qc-guide/
+- Shoes sheet: https://fsbuyspreadsheets.com/fsbuy-shoes-spreadsheet/
+
+## Hub / sunset rules
+- Brand hub only. No keep country spreadsheet desks. Do not invent new country TLDs.
+- Lookalike hosts (e.g. fsbuy.org) are independent — not keep desks.
+- Twin fsbuyspreadsheet.org already 410 — do not revive; do not revive Phase C sunsets.
+- Thin /coupons/ and /coupons.html → /fsbuy-coupons/
+- FSBuy ≠ FansBuy.
+
+## Official
+- https://fsbuy.com/ (checkout; 40% routes + $400 coupon + invite_id 2824716 confirm_live)
+
+platform_opt=fsbuy-platform-20261026
+last_verified=2026-10-26
