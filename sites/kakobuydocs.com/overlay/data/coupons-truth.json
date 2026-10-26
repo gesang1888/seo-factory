@@ -1,0 +1,39 @@
+{
+  "brand": "Kakobuy",
+  "host": "kakobuydocs.com",
+  "last_verified": "2026-10-26",
+  "platform_opt": "kakobuy-platform-20261026",
+  "verify_on": "kakobuy.com / in-app wallet — confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
+  "serp_note": "Country desk kakobuy.fi carries brand clicks (kakobuy kokemuksia / kakobuy); brand spreadsheet queries should consolidate on kakobuydocs.com Independent Index.",
+  "offers": [
+    {
+      "id": "kakobuy-kakodocs",
+      "type": "coupon_code",
+      "label": "Desk coupon KAKODOCS",
+      "code": "KAKODOCS",
+      "value_claim": "Often cited ~5% first-order — confirm_live in checkout; register path also via ikako.vip/r/yze69",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed expiry promised by this desk — re-confirm in-app the morning you pay",
+      "applies_to": "Kakobuy checkout coupon field",
+      "exclusions": [
+        "This docs host is not checkout",
+        "Stacking rules official-only"
+      ],
+      "source": "https://kakobuydocs.com/kakobuy-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "kakobuy-kakonew26",
+      "type": "coupon_code",
+      "label": "New-user style KAKONEW26",
+      "code": "KAKONEW26",
+      "value_claim": "Listed on coupons page — confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://kakobuydocs.com/kakobuy-coupons/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}

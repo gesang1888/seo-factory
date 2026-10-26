@@ -1,0 +1,79 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "Kakobuy",
+  "host": "kakobuydocs.com",
+  "last_verified": "2026-10-26",
+  "generated_at": "2026-10-26T18:30:00Z",
+  "row_count": 11365,
+  "row_count_display": "11,300+",
+  "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs — not another opaque Google Sheet dump. Brand spreadsheet SERP owns the homepage Independent Index.",
+  "platform_opt": "kakobuy-platform-20261026",
+  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-26",
+  "endpoints": {
+    "html": "https://kakobuydocs.com/finds-dataset/",
+    "json": "https://kakobuydocs.com/data/finds-dataset.json",
+    "coupons_truth": "https://kakobuydocs.com/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/kakobuy/",
+    "ranked_spreadsheet": "https://kakobuydocs.com/kakobuy-spreadsheet/"
+  },
+  "keep_desks": [
+    "kakobuy.fi",
+    "kakospreadsheet.es",
+    "kakospreadsheet.ca"
+  ],
+  "twins_301": {
+    "kakobuytips.com": "kakobuydocs.com",
+    "kakospreadsheet.fr": "kakobuydocs.com",
+    "kakospreadsheet.nl": "kakobuydocs.com"
+  },
+  "sample_skus": [
+    {
+      "sku": "kakobuy-spreadsheet-wall",
+      "title": "Ranked spreadsheet category wall",
+      "category": "sneakers",
+      "price_cny": null,
+      "last_verified": "2026-10-26"
+    },
+    {
+      "sku": "kakobuy-shoes-spreadsheet",
+      "title": "Shoes spreadsheet inner",
+      "category": "shoes",
+      "price_cny": null,
+      "last_verified": "2026-10-26"
+    }
+  ],
+  "category_proofs": [
+    {
+      "key": "sneakers",
+      "path": "/kakobuy-spreadsheet/",
+      "note": "Ranked finds wall"
+    },
+    {
+      "key": "shoes",
+      "path": "/kakobuy-shoes-spreadsheet/",
+      "note": "Shoes inner"
+    },
+    {
+      "key": "coupons",
+      "path": "/kakobuy-coupons/",
+      "note": "KAKODOCS truth"
+    },
+    {
+      "key": "how-to",
+      "path": "/how-to-use-kakobuy/",
+      "note": "Workflow money URL"
+    },
+    {
+      "key": "legit",
+      "path": "/is-kakobuy-legit/",
+      "note": "Trust money URL"
+    }
+  ]
+}
