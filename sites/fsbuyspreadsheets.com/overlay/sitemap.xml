@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://fsbuyspreadsheets.com/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://fsbuyspreadsheets.com/start/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://fsbuyspreadsheets.com/coupons/</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/</loc><lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/fsbuy-spreadsheet/</loc><lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/fsbuy-coupons/</loc><lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/finds-dataset/</loc><lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/data/finds-dataset.json</loc><lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/data/coupons-truth.json</loc><lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/fsbuy-shipping-guide/</loc><lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/is-fsbuy-legit/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/fsbuy-qc-guide/</loc><lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/fsbuy-shoes-spreadsheet/</loc><lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/how-to-use-fsbuy/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/fsbuy-invite-code/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/llms.txt</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://fsbuyspreadsheets.com/blog/</loc><lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq></url>
 </urlset>

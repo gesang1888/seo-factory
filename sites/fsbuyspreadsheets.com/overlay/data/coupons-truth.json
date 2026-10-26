@@ -1,0 +1,62 @@
+{
+  "brand": "FSBuy",
+  "host": "fsbuyspreadsheets.com",
+  "last_verified": "2026-10-26",
+  "platform_opt": "fsbuy-platform-20261026",
+  "verify_on": "fsbuy.com Wallet / register / coupon dialog \u2014 confirm before pay",
+  "update_cadence": "Coupons page copy + JSON stamped when invite/shipping offers change (target weekly)",
+  "serp_note": "28d clicks: /fsbuy-coupons/ 3 \u00b7 / 1 \u00b7 /coupons/ 1 \u00b7 /fsbuy-spreadsheet/ 1. Homepage needs Independent Index \u00b7 12,400+ SERP signal. Brand hub only \u2014 no country desks.",
+  "offers": [
+    {
+      "id": "fsbuy-invite-2824716",
+      "type": "invite_id",
+      "label": "2824716 invite_id / new-user shipping",
+      "code": "2824716",
+      "value_claim": "Numeric invite_id on fsbuy.com unlocks new-user shipping offer (~30% SHIP line on ranked coupons article) \u2014 confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "expires_note": "No fixed expiry promised by this desk \u2014 re-confirm in-app the morning you pay",
+      "applies_to": "FSBuy register / invite_id query flow",
+      "exclusions": [
+        "This hub is not checkout",
+        "Stacking rules official-only",
+        "Not a 6-letter coupon string"
+      ],
+      "source": "https://fsbuyspreadsheets.com/fsbuy-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "fsbuy-30pct-ship",
+      "type": "shipping_promo",
+      "label": "30% SHIP line (ranked article)",
+      "code": "30% SHIP",
+      "value_claim": "Ranked /fsbuy-coupons/ still lists 30% SHIP \u2014 may be historical vs official 40% / $400 (8 Oct 2026); confirm_live",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://fsbuyspreadsheets.com/fsbuy-coupons/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "fsbuy-official-40pct",
+      "type": "shipping_promo",
+      "label": "40% off all FSBuy routes",
+      "code": null,
+      "value_claim": "Official homepage 8 Oct 2026: Enjoy 40% Off All Fsbuy Routes Now \u2014 confirm_live; not a printable coupon code on this desk",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://fsbuy.com/",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "id": "fsbuy-official-400",
+      "type": "new_user_gift",
+      "label": "$400 Shipping Coupon",
+      "code": null,
+      "value_claim": "Official homepage 8 Oct 2026: Register and Get a $400 Shipping Coupon \u2014 confirm_live in-app; Help storage policy 90 days (not 120-day marketing card)",
+      "status": "confirm_live",
+      "expires_on": null,
+      "source": "https://fsbuy.com/",
+      "last_verified": "2026-10-26"
+    }
+  ]
+}
