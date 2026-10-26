@@ -1,0 +1,96 @@
+# Fishgoo Spreadsheet
+
+> Buyer-focused landing page for Fishgoo users sourcing finds from Taobao, Weidian and 1688. Covers link verification, QC photo decisions, sizing risk, shipping cost, agent comparisons and refund safety.
+
+## Editorial Principle
+
+Do not build pages as keyword lists. Start every page from a real buyer pain point, then include search language naturally inside useful answers.
+
+## Primary URLs
+
+- [Home](https://fishgoospreadsheet.net/): main landing page covering buyer pain points, category guides and FAQ.
+- [Official Fishgoo](https://w2clinks.com/spreadsheet/fishgoo/?page=1&sort=newest&typeid=7&category=SNEAKERS&utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-shoes381): the live Fishgoo agent app.
+
+## On-page Sections
+
+- [Home hero](https://fishgoospreadsheet.net/#home): main landing hero.
+- [Finds](https://fishgoospreadsheet.net/#finds): twelve product-category guide cards.
+- [Beginner Guide](https://fishgoospreadsheet.net/#beginner-guide): step-by-step buying workflow.
+- [Fishgoo Spreadsheet hub](https://fishgoospreadsheet.net/#spreadsheet): article hub for spreadsheet trust, dead links and marketplace choice.
+- [Shipping Guide](https://fishgoospreadsheet.net/#shipping-guide): QC, parcel cost and safety guidance.
+- [Coupons](https://fishgoospreadsheet.net/#coupons): first-order, shipping and seasonal deal guidance.
+- [Comparisons](https://fishgoospreadsheet.net/#comparisons): agent and spreadsheet tool comparisons.
+- [Blog](https://fishgoospreadsheet.net/#blog): article-style internal links for beginner, link audit, QC and shipping topics.
+- [FAQ](https://fishgoospreadsheet.net/#faq): answers written from real buying friction.
+- [Contact](https://fishgoospreadsheet.net/#contact): final call-to-action and official Fishgoo links.
+
+## Category URLs
+
+- [Sneakers & Shoes](https://w2clinks.com/spreadsheet/fishgoo/?page=1&sort=newest&typeid=7&category=SNEAKERS&utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-shoes381)
+- [Jackets & Coats](https://w2clinks.com/spreadsheet/fishgoo/?page=1&sort=newest&typeid=8&category=JACKET&utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-jackets839)
+- [T-Shirts](https://w2clinks.com/spreadsheet/fishgoo/?page=1&sort=newest&typeid=2&category=T-SHIRT&utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-t-shirts)
+- [Hoodies & Sweaters](https://w2clinks.com/spreadsheet/fishgoo/?page=1&sort=newest&typeid=1&category=HOODIE&utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-hoodies-sweaters)
+- [Pants & Shorts](https://w2clinks.com/spreadsheet/fishgoo/?page=1&sort=newest&typeid=4&category=SHORTS&utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-pants-shorts)
+- [Accessories](https://w2clinks.com/spreadsheet/fishgoo/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-accessories)
+- [Bags](https://w2clinks.com/spreadsheet/fishgoo/?page=1&sort=newest&typeid=6&category=BAG&utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-bags)
+- [Electronics](https://w2clinks.com/spreadsheet/fishgoo/?page=1&sort=newest&typeid=10&category=Electronics&utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-electronics)
+- [Headwear](https://w2clinks.com/spreadsheet/fishgoo/?page=1&sort=newest&typeid=188&category=GLASSES&utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-headwear)
+- [Women's Fashion](https://w2clinks.com/spreadsheet/fishgoo/?utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-women)
+- [Sports Jerseys](https://w2clinks.com/spreadsheet/fishgoo/?page=1&sort=newest&typeid=3&category=Jersey&utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-jersey)
+- [Other Goods](https://w2clinks.com/spreadsheet/fishgoo/?utm_source=fishgoospreadsheet&utm_medium=aggregator&utm_campaign=fishgoo&utm_content=cat-other-stuff)
+
+## Buyer Pain Points to Cover
+
+1. Spreadsheet links can be dead, duplicated, outdated or missing seller context.
+2. New buyers are confused by the difference between Taobao, Weidian and 1688.
+3. QC photos decide whether users approve, exchange or return an item.
+4. Shipping cost often surprises buyers after items arrive at the warehouse.
+5. Sizing, batches, fabric and measurements vary by category and seller.
+6. Buyers need balanced safety checks for agents, sellers, refunds and shipping lines.
+
+## Recommended Article Plan
+
+1. Beginner walkthrough: how to use Fishgoo from link discovery to parcel submission.
+2. Spreadsheet link audit: freshness, seller context, duplicates and missing details.
+3. Marketplace comparison: when to use Taobao, Weidian or 1688.
+4. Category buying guides: what goes wrong per category and what to check.
+5. QC photo decision guide: measurements, alignment, stitching, defects, extra photos, return decisions.
+6. Shipping cost guide: actual weight, volume weight, line choice, insurance, sensitive items, customs risk.
+7. Safety and refund guide: payment, seller reliability, support evidence, realistic buyer protection.
+8. Agent comparison pages: compare tradeoffs without hype.
+
+## FAQ Direction
+
+- *What is a Fishgoo spreadsheet?* Explain it as a curated discovery and buying-support page, not a raw list of products.
+- *How do I use Fishgoo Spreadsheet?* Explain search, link checking, warehouse QC, shipping choice and parcel submission.
+- *Is Fishgoo safe and legit?* Provide a balanced checklist for seller signals, QC photos, support history, shipping route and local import rules.
+
+## Update Frequency
+
+Review content regularly — marketplace links, agent workflows, shipping lines and buyer questions change quickly.
+
+## Live search
+- https://fishgoospreadsheet.net/search/
+- https://fishgoospreadsheet.net/categories/
+- https://fishgoospreadsheet.net/official-fishgoo-spreadsheet/
+
+## Community
+- WhatsApp: https://wa.me/8615396628356
+- Telegram: https://t.me/fishgoospreadsheetnet
+
+## Landing pages (sample)
+- https://fishgoospreadsheet.net/official-fishgoo-spreadsheet/
+- https://fishgoospreadsheet.net/fishgoo-spreadsheet-2026/
+- https://fishgoospreadsheet.net/fishgoo-qc-photos/
+- https://fishgoospreadsheet.net/fishgoo-jordan-spreadsheet/
+- https://fishgoospreadsheet.net/fishgoo-dunk-spreadsheet/
+- https://fishgoospreadsheet.net/fishgoo-rep-spreadsheet/
+- https://fishgoospreadsheet.net/fishgoo-w2c-spreadsheet/
+- https://fishgoospreadsheet.net/fishgoo-google-sheets-alternative/
+- https://fishgoospreadsheet.net/fishgoo-spreadsheet-download/
+- https://fishgoospreadsheet.net/fishgoo-vs-pandabuy/
+- https://fishgoospreadsheet.net/fishgoo-shipping-usa/
+- https://fishgoospreadsheet.net/fishgoo-taobao-weidian-guide/
+- https://fishgoospreadsheet.net/fishgoo-hoodies-spreadsheet/
+- https://fishgoospreadsheet.net/fishgoo-sneakers-spreadsheet/
+- https://fishgoospreadsheet.net/fishgoo-stone-island-spreadsheet/
