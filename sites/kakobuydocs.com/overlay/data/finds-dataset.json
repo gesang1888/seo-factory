@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "Kakobuy",
   "host": "kakobuydocs.com",
-  "last_verified": "2026-10-26",
-  "generated_at": "2026-10-26T18:30:00Z",
+  "last_verified": "2026-10-27",
+  "generated_at": "2026-10-27T12:10:00Z",
   "row_count": 11365,
   "row_count_display": "11,300+",
   "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
@@ -13,9 +13,9 @@
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated category proofs — not another opaque Google Sheet dump. Brand spreadsheet SERP owns the homepage Independent Index.",
-  "platform_opt": "kakobuy-platform-20261026",
-  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-26",
+  "anti_sheet_note": "Public, citable row counts + dated category proofs — not another opaque Google Sheet dump. Brand spreadsheet SERP reclaim targets /kakobuy-spreadsheet/ + Independent Index on kakobuydocs.com.",
+  "platform_opt": "kakobuy-hub-reclaim-20261027",
+  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-27",
   "endpoints": {
     "html": "https://kakobuydocs.com/finds-dataset/",
     "json": "https://kakobuydocs.com/data/finds-dataset.json",
@@ -35,18 +35,74 @@
   },
   "sample_skus": [
     {
-      "sku": "kakobuy-spreadsheet-wall",
-      "title": "Ranked spreadsheet category wall",
-      "category": "sneakers",
-      "price_cny": null,
-      "last_verified": "2026-10-26"
+      "sku": "wd_7869511728",
+      "title": "日默家Essential芭蕾粉柔光登机箱",
+      "category": "hoodie",
+      "price_cny": 668,
+      "last_verified": "2026-10-27"
     },
     {
-      "sku": "kakobuy-shoes-spreadsheet",
-      "title": "Shoes spreadsheet inner",
-      "category": "shoes",
-      "price_cny": null,
-      "last_verified": "2026-10-26"
+      "sku": "wd_7868694396",
+      "title": "Mizuno LG 60S Sneakers",
+      "category": "misc",
+      "price_cny": 150,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7865684209",
+      "title": "E-Superstar White Low Top Sneakers",
+      "category": "misc",
+      "price_cny": 208,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868725620",
+      "title": "Danner Trail 2650 Hiking Shoes",
+      "category": "misc",
+      "price_cny": 310,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7865474747",
+      "title": "Huntington Tong Suede Low Top Sneakers",
+      "category": "misc",
+      "price_cny": 410,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868680536",
+      "title": "PAI PAI Boom Sneakers White/Yellow/Gold",
+      "category": "misc",
+      "price_cny": 200,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7865660451",
+      "title": "Louis Vuitton Baseball Caps",
+      "category": "hat",
+      "price_cny": 58,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7855051203",
+      "title": "Louis Vuitton Cœur Battant Eau de Parfum 100ml",
+      "category": "misc",
+      "price_cny": 140,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868646724",
+      "title": "Supernova Rise Running Shoes",
+      "category": "misc",
+      "price_cny": 199,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868611396",
+      "title": "Ralph Lauren Grey Hoodie Sweatshirt",
+      "category": "t-shirt",
+      "price_cny": 178,
+      "last_verified": "2026-10-27"
     }
   ],
   "category_proofs": [
@@ -75,5 +131,6 @@
       "path": "/is-kakobuy-legit/",
       "note": "Trust money URL"
     }
-  ]
+  ],
+  "hub_reclaim": "kakobuy-hub-reclaim-20261027"
 }
