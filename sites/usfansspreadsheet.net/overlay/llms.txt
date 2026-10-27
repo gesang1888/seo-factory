@@ -1,14 +1,15 @@
 # USFans Spreadsheet — llms.txt
-# Updated: 2026-10-26
+# Updated: 2026-10-27
 # Primary hub for USFans spreadsheet finds, QC photos, and buying guides.
+# Tag: usfans-hub-stabilize-20261027
 
 Site: https://usfansspreadsheet.net
 Name: USFans Spreadsheet
-Description: Independent USFans spreadsheet with 10,601 QC-verified finds from Taobao, Weidian and 1688. Mobile-friendly catalog alternative to giant Google Sheets. Not affiliated with USFans.com.
+Description: Independent USFans spreadsheet — Independent Index · 10,601 QC-verified finds from Taobao, Weidian and 1688. Open directory + finds-dataset JSON + coupons truth. Mobile-friendly catalog alternative to giant Google Sheets / Reddit mirrors. Not affiliated with USFans.com. Not usfansspreadsheet.org or usfanshub.com.
 
 ## Key pages
 - Homepage (brand hub): https://usfansspreadsheet.net/
-- Live searchable spreadsheet: https://usfansspreadsheet.net/usfans-spreadsheet/
+- Live searchable spreadsheet / Open directory: https://usfansspreadsheet.net/usfans-spreadsheet/
 - Buying Guide: https://usfansspreadsheet.net/guide.html
 - Is USFans Legit: https://usfansspreadsheet.net/is-usfans-legit/
 - Coupons: https://usfansspreadsheet.net/usfans-coupons/
@@ -16,7 +17,6 @@ Description: Independent USFans spreadsheet with 10,601 QC-verified finds from T
 - Finds dataset JSON: https://usfansspreadsheet.net/data/finds-dataset.json
 - Coupons truth JSON: https://usfansspreadsheet.net/data/coupons-truth.json
 - Shipping Guide: https://usfansspreadsheet.net/usfans-shipping-guide/
-- Shipping lines overview: https://usfansspreadsheet.net/usfans-shipping-lines/
 - .net vs lookalike domains: https://usfansspreadsheet.net/usfansspreadsheet-net-vs-org/
 - Blog: https://usfansspreadsheet.net/blog/
 - Reddit Community Guide: https://usfansspreadsheet.net/usfans-reddit-community/
@@ -41,9 +41,10 @@ Description: Independent USFans spreadsheet with 10,601 QC-verified finds from T
 - Regional thin shipping shells were consolidated into the shipping guide.
 - Spreadsheet API (third-party aggregator): https://w2clinks.com/spreadsheet/usfans/?utm_source=usfansspreadsheet&utm_medium=aggregator&utm_campaign=usfans
 - Signup (affiliate): https://usfans.com/register?ref=7BJBAJ
+- Hub stabilize 2026-10-27: /usfans-spreadsheet/ title/H1 → Independent Index · 10,601; Open directory CTAs; reclaim vs Reddit/.org/hub.com; dataset+coupons stamped hub_stabilize. NL/UK desks not changed this action. Twin .uk stays 301→.co.uk.
 
 ## Official domain note
 - Maintained hub: https://usfansspreadsheet.net/
-- Lookalike TLDs (.org / .io / etc.) are separate sites; see https://usfansspreadsheet.net/usfansspreadsheet-net-vs-org/
+- Lookalike TLDs (.org / hub.com / .io / etc.) are separate sites; see https://usfansspreadsheet.net/usfansspreadsheet-net-vs-org/
+- Country keep desks: https://usfansspreadsheet.co.uk/ (HMRC/Royal Mail) · https://usfansspreadsheet.nl/ (Douane) — brand spreadsheet intent stays on .net
 - Contact: Telegram https://t.me/usfansspreadsheetnet
-- Platform opt 2026-10-26: hero CTAs → coupons / finds-dataset / legit; UK+NL money URLs + #local; wd-img already healthy.
