@@ -1,0 +1,120 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "SugarGoo",
+  "host": "sugargoospreadsheetnow.com",
+  "last_verified": "2026-10-27",
+  "generated_at": "2026-10-27T23:20:00Z",
+  "row_count": 11365,
+  "row_count_display": "11,300+",
+  "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs — not another opaque Google Sheet dump or Reddit Sheet clone. Brand spreadsheet SERP reclaim targets /best-sugargoo-spreadsheet-2026.html + Independent Index on sugargoospreadsheetnow.com.",
+  "platform_opt": "sugargoo-hub-reclaim-20261027",
+  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-27",
+  "endpoints": {
+    "html": "https://sugargoospreadsheetnow.com/finds-dataset/",
+    "json": "https://sugargoospreadsheetnow.com/data/finds-dataset.json",
+    "coupons_truth": "https://sugargoospreadsheetnow.com/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/sugargoo/",
+    "ranked_spreadsheet": "https://sugargoospreadsheetnow.com/best-sugargoo-spreadsheet-2026.html",
+    "ranked_coupons": "https://sugargoospreadsheetnow.com/sugargoo-coupon-2026.html"
+  },
+  "keep_desks": [
+    "sugargoospreadsheet.au"
+  ],
+  "watch_desks": [],
+  "twins_301": {
+    "sugargoospreadsheets.us": "sugargoospreadsheetnow.com",
+    "sugargoospreadsheets.uk": "sugargoospreadsheetnow.com",
+    "sugargoospreadsheet.es": "sugargoospreadsheetnow.com",
+    "sugargoospreadsheets.fr": "sugargoospreadsheetnow.com",
+    "sugargoospreadsheets.de": "sugargoospreadsheetnow.com",
+    "sugargoospreadsheets.nl": "sugargoospreadsheetnow.com",
+    "sugargoo.at": "sugargoospreadsheetnow.com",
+    "sugargoospreadsheets2026.ca": "sugargoospreadsheetnow.com"
+  },
+  "external_skip": [
+    "sugargoo.ca",
+    "sugargoo.es",
+    "sugargoo.pt",
+    "sugargoo.cheap"
+  ],
+  "sample_skus": [
+    {
+      "sku": "wd_7869511728",
+      "title": "日默家Essential芭蕾粉柔光登机箱",
+      "category": "hoodie",
+      "price_cny": 668,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868694396",
+      "title": "Mizuno LG 60S Sneakers",
+      "category": "misc",
+      "price_cny": 150,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7865684209",
+      "title": "E-Superstar White Low Top Sneakers",
+      "category": "misc",
+      "price_cny": 208,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868725620",
+      "title": "Danner Trail 2650 Hiking Shoes",
+      "category": "misc",
+      "price_cny": 310,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7865474747",
+      "title": "Huntington Tong Suede Low Top Sneakers",
+      "category": "misc",
+      "price_cny": 410,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868680536",
+      "title": "PAI PAI Boom Sneakers White/Yellow/Gold",
+      "category": "misc",
+      "price_cny": 200,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7865660451",
+      "title": "Louis Vuitton Baseball Caps",
+      "category": "hat",
+      "price_cny": 58,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7855051203",
+      "title": "Louis Vuitton Cœur Battant Eau de Parfum 100ml",
+      "category": "misc",
+      "price_cny": 140,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868646724",
+      "title": "Supernova Rise Running Shoes",
+      "category": "misc",
+      "price_cny": 199,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868611396",
+      "title": "Ralph Lauren Grey Hoodie Sweatshirt",
+      "category": "t-shirt",
+      "price_cny": 178,
+      "last_verified": "2026-10-27"
+    }
+  ],
+  "hub_reclaim": "sugargoo-hub-reclaim-20261027"
+}
