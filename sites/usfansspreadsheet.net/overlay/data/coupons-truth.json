@@ -57,6 +57,7 @@
     }
   ],
   "platform_opt": "usfans-platform-20261026",
-  "stamp": "weekly_refresh",
-  "weekly_refresh": "ahub-dataset-refresh-20261027"
+  "stamp": "hub_stabilize",
+  "weekly_refresh": "ahub-dataset-refresh-20261027",
+  "hub_stabilize": "usfans-hub-stabilize-20261027"
 }

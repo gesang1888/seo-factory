@@ -3,7 +3,7 @@
   "brand": "USFans",
   "host": "usfansspreadsheet.net",
   "last_verified": "2026-10-27",
-  "generated_at": "2026-10-27T00:45:00Z",
+  "generated_at": "2026-10-27T23:45:00Z",
   "row_count": 10601,
   "row_count_display": "10,601",
   "update_frequency": "Homepage + searchable catalog share the same index; public dataset stamp reviewed when row count or sample prices change (target: weekly).",
@@ -124,6 +124,7 @@
   ],
   "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
   "platform_opt": "usfans-platform-20261026",
-  "stamp": "weekly_refresh",
-  "weekly_refresh": "ahub-dataset-refresh-20261027"
+  "stamp": "hub_stabilize",
+  "weekly_refresh": "ahub-dataset-refresh-20261027",
+  "hub_stabilize": "usfans-hub-stabilize-20261027"
 }
