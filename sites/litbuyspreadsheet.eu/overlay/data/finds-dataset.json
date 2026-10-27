@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "LitBuy",
   "host": "litbuyspreadsheet.eu",
-  "last_verified": "2026-10-26",
-  "generated_at": "2026-10-26T18:14:09Z",
+  "last_verified": "2026-10-27",
+  "generated_at": "2026-10-27T16:10:00Z",
   "row_count": 11365,
   "row_count_display": "11,300+",
   "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
@@ -13,9 +13,9 @@
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Brand spreadsheet SERP owns the homepage Independent Index.",
-  "platform_opt": "litbuy-platform-20261026",
-  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-26",
+  "anti_sheet_note": "Public, citable row counts + dated category proofs — not another opaque Google Sheet dump. Brand spreadsheet SERP reclaim targets /litbuy-spreadsheet/ + Independent Index on litbuyspreadsheet.eu.",
+  "platform_opt": "litbuy-hub-reclaim-20261027",
+  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-27",
   "endpoints": {
     "html": "https://litbuyspreadsheet.eu/finds-dataset/",
     "json": "https://litbuyspreadsheet.eu/data/finds-dataset.json",
@@ -41,43 +41,102 @@
   "sample_skus": [
     {
       "sku": "wd_7869511728",
-      "title": "Essential ballet-pink soft luggage (sample hit)",
-      "category": "HOODIE",
-      "price_cny": "668",
-      "last_verified": "2026-10-26"
+      "title": "日默家Essential芭蕾粉柔光登机箱",
+      "category": "hoodie",
+      "price_cny": 668,
+      "last_verified": "2026-10-27"
     },
     {
-      "sku": "litbuy-spreadsheet",
-      "title": "Ranked LitBuy spreadsheet catalog",
-      "category": "catalog",
-      "hub_path": "/litbuy-spreadsheet/",
-      "last_verified": "2026-10-26"
+      "sku": "wd_7868694396",
+      "title": "Mizuno LG 60S Sneakers",
+      "category": "misc",
+      "price_cny": 150,
+      "last_verified": "2026-10-27"
     },
     {
-      "sku": "litbuy-coupons",
-      "title": "Coupon tracker + truth JSON",
-      "category": "coupons",
-      "hub_path": "/litbuy-coupons/",
-      "last_verified": "2026-10-26"
+      "sku": "wd_7865684209",
+      "title": "E-Superstar White Low Top Sneakers",
+      "category": "misc",
+      "price_cny": 208,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868725620",
+      "title": "Danner Trail 2650 Hiking Shoes",
+      "category": "misc",
+      "price_cny": 310,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7865474747",
+      "title": "Huntington Tong Suede Low Top Sneakers",
+      "category": "misc",
+      "price_cny": 410,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868680536",
+      "title": "PAI PAI Boom Sneakers White/Yellow/Gold",
+      "category": "misc",
+      "price_cny": 200,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7865660451",
+      "title": "Louis Vuitton Baseball Caps",
+      "category": "hat",
+      "price_cny": 58,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7855051203",
+      "title": "Louis Vuitton Cœur Battant Eau de Parfum 100ml",
+      "category": "misc",
+      "price_cny": 140,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868646724",
+      "title": "Supernova Rise Running Shoes",
+      "category": "misc",
+      "price_cny": 199,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868611396",
+      "title": "Ralph Lauren Grey Hoodie Sweatshirt",
+      "category": "t-shirt",
+      "price_cny": 178,
+      "last_verified": "2026-10-27"
     }
   ],
   "category_proofs": [
     {
       "key": "catalog",
-      "hub_path": "/litbuy-spreadsheet/"
+      "path": "/litbuy-spreadsheet/",
+      "note": "Hub reclaim money URL"
     },
     {
       "key": "coupons",
-      "hub_path": "/litbuy-coupons/"
+      "path": "/litbuy-coupons/",
+      "note": "O4K87NHKR truth"
     },
     {
       "key": "ioss",
-      "hub_path": "/ioss-import-vat-eu/"
+      "path": "/ioss-import-vat-eu/",
+      "note": "Kept ranking article"
     },
     {
       "key": "vat-reform",
-      "hub_path": "/ecommerce-vat-reform-eu/"
+      "path": "/ecommerce-vat-reform-eu/",
+      "note": "Kept ranking article"
+    },
+    {
+      "key": "home",
+      "path": "/",
+      "note": "Independent Index hero"
     }
   ],
-  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes."
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
+  "hub_reclaim": "litbuy-hub-reclaim-20261027"
 }
