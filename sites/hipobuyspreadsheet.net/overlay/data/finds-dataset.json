@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "HipoBuy",
   "host": "hipobuyspreadsheet.net",
-  "last_verified": "2026-10-26",
-  "generated_at": "2026-10-26T16:00:00Z",
+  "last_verified": "2026-10-27",
+  "generated_at": "2026-10-27T00:45:00Z",
   "row_count": 8600,
   "row_count_display": "8,600+",
   "update_frequency": "Catalog cards refresh continuously; public dataset stamp reviewed at least weekly.",
@@ -13,7 +13,7 @@
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated sample SKUs \u2014 not another opaque Google Sheet dump.",
+  "anti_sheet_note": "Public, citable row counts + dated sample SKUs — not another opaque Google Sheet dump.",
   "endpoints": {
     "html": "https://hipobuyspreadsheet.net/finds-dataset/",
     "json": "https://hipobuyspreadsheet.net/data/finds-dataset.json",
@@ -22,106 +22,107 @@
   },
   "sample_skus": [
     {
-      "sku": "wd_7869511728",
-      "title": "\u65e5\u9ed8\u5bb6Essential\u82ad\u857e\u7c89\u67d4\u5149\u767b\u673a\u7bb1",
-      "price_cny": 668,
-      "price_display": "\u00a5668",
-      "category_hint": "HOODIE",
-      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7869511728.html",
-      "qc_photo": true,
-      "last_verified": "2026-10-26"
-    },
-    {
-      "sku": "wd_7868694396",
-      "title": "Mizuno LG 60S Sneakers",
-      "price_cny": 150,
-      "price_display": "\u00a5150",
-      "category_hint": "Find",
-      "source_url": "https://w2clinks.com/other-stuff/wd_7868694396.html",
-      "qc_photo": true,
-      "last_verified": "2026-10-26"
-    },
-    {
-      "sku": "wd_7865684209",
-      "title": "E-Superstar White Low Top Sneakers",
-      "price_cny": 208,
-      "price_display": "\u00a5208",
-      "category_hint": "Find",
-      "source_url": "https://w2clinks.com/other-stuff/wd_7865684209.html",
-      "qc_photo": true,
-      "last_verified": "2026-10-26"
-    },
-    {
-      "sku": "wd_7868725620",
-      "title": "Danner Trail 2650 Hiking Shoes",
-      "price_cny": 310,
-      "price_display": "\u00a5310",
-      "category_hint": "Find",
-      "source_url": "https://w2clinks.com/other-stuff/wd_7868725620.html",
-      "qc_photo": true,
-      "last_verified": "2026-10-26"
-    },
-    {
-      "sku": "wd_7865474747",
-      "title": "Huntington Tong Suede Low Top Sneakers",
-      "price_cny": 410,
-      "price_display": "\u00a5410",
-      "category_hint": "Find",
-      "source_url": "https://w2clinks.com/other-stuff/wd_7865474747.html",
-      "qc_photo": true,
-      "last_verified": "2026-10-26"
-    },
-    {
-      "sku": "wd_7868680536",
-      "title": "PAI PAI Boom Sneakers White/Yellow/Gold",
-      "price_cny": 200,
-      "price_display": "\u00a5200",
-      "category_hint": "Find",
-      "source_url": "https://w2clinks.com/other-stuff/wd_7868680536.html",
-      "qc_photo": true,
-      "last_verified": "2026-10-26"
-    },
-    {
       "sku": "wd_7865660451",
       "title": "Louis Vuitton Baseball Caps",
       "price_cny": 58,
-      "price_display": "\u00a558",
+      "price_display": "¥58",
       "category_hint": "HAT",
       "source_url": "https://w2clinks.com/yupoo-hat/wd_7865660451.html",
       "qc_photo": true,
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-27"
     },
     {
       "sku": "wd_7855051203",
-      "title": "Louis Vuitton C\u0153ur Battant Eau de Parfum 100ml",
+      "title": "Louis Vuitton Cœur Battant Eau de Parfum 100ml",
       "price_cny": 140,
-      "price_display": "\u00a5140",
+      "price_display": "¥140",
       "category_hint": "Find",
       "source_url": "https://w2clinks.com/accessories/wd_7855051203.html",
       "qc_photo": true,
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-27"
     },
     {
       "sku": "wd_7868646724",
       "title": "Supernova Rise Running Shoes",
       "price_cny": 199,
-      "price_display": "\u00a5199",
+      "price_display": "¥199",
       "category_hint": "Find",
       "source_url": "https://w2clinks.com/other-stuff/wd_7868646724.html",
       "qc_photo": true,
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-27"
     },
     {
       "sku": "wd_7868611396",
       "title": "Ralph Lauren Grey Hoodie Sweatshirt",
       "price_cny": 178,
-      "price_display": "\u00a5178",
+      "price_display": "¥178",
       "category_hint": "T-SHIRT",
       "source_url": "https://w2clinks.com/yupoo-t-shirt/wd_7868611396.html",
       "qc_photo": true,
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7854893077",
+      "title": "City of Stars Perfume Bottle Set",
+      "price_cny": 130,
+      "price_display": "¥130",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/accessories/wd_7854893077.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7855125873",
+      "title": "Blue de Beautiful Girl Perfume Bottle",
+      "price_cny": 130,
+      "price_display": "¥130",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/accessories/wd_7855125873.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7857739673",
+      "title": "Shili Merchants High Quality Perfume Collection",
+      "price_cny": 130,
+      "price_display": "¥130",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7857739673.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7868648680",
+      "title": "E Batch Bape Link 2 Low Top Sneakers",
+      "price_cny": 169,
+      "price_display": "¥169",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7868648680.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7858614486",
+      "title": "Emporio Armani Stronger With You Absolutely 100ml Spray",
+      "price_cny": 130,
+      "price_display": "¥130",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7858614486.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-27"
+    },
+    {
+      "sku": "wd_7865608919",
+      "title": "KAHAN@8 Multicolor Trail Running Shoes",
+      "price_cny": 190,
+      "price_display": "¥190",
+      "category_hint": "Find",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7865608919.html",
+      "qc_photo": true,
+      "last_verified": "2026-10-27"
     }
   ],
   "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
-  "platform_opt": "hipobuy-e2e-2026-10-26"
+  "platform_opt": "hipobuy-e2e-2026-10-26",
+  "weekly_refresh": "ahub-dataset-refresh-20261027"
 }

@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "FansBuy",
   "host": "fansbuysheets.net",
-  "last_verified": "2026-10-26",
-  "generated_at": "2026-10-26T15:00:00Z",
+  "last_verified": "2026-10-27",
+  "generated_at": "2026-10-27T00:45:00Z",
   "row_count": 12000,
   "row_count_display": "12,000+",
   "update_frequency": "Spreadsheet marketing claims daily refresh; public dataset stamp reviewed at least weekly on this hub.",
@@ -22,75 +22,97 @@
   },
   "sample_skus": [
     {
-      "sku": "wd_7789216254",
-      "source_url": "https://w2clinks.com/yupoo-bag/wd_7789216254.html",
-      "title": "White Wireless Earbuds with Charging Case",
-      "last_verified": "2026-10-26",
-      "qc_photo": true
+      "sku": "wd_7788742826",
+      "source_url": "https://w2clinks.com/yupoo-trousers/wd_7788742826.html",
+      "title": "Carhartt Blue Carpenter Jeans",
+      "last_verified": "2026-10-27",
+      "qc_photo": true,
+      "price_cny": 288,
+      "price_display": "¥288"
     },
     {
-      "sku": "wd_7789676422",
-      "source_url": "https://w2clinks.com/yupoo-electronics/wd_7789676422.html",
-      "title": "Pink! Black Hoodie and Sweatpants Set",
-      "last_verified": "2026-10-26",
-      "qc_photo": true
+      "sku": "wd_7788772516",
+      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7788772516.html",
+      "title": "Burberry Grey and Black Zip-Up Hoodies",
+      "last_verified": "2026-10-27",
+      "qc_photo": true,
+      "price_cny": 330.75,
+      "price_display": "¥330.75"
     },
     {
-      "sku": "wd_7789691090",
-      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7789691090.html",
-      "title": "Calvin Klein White, Black, and Blue Cotton Underwear Set",
-      "last_verified": "2026-10-26",
-      "qc_photo": true
+      "sku": "wd_7789143514",
+      "source_url": "https://w2clinks.com/yupoo-socks/wd_7789143514.html",
+      "title": "Nike Black and White Socks",
+      "last_verified": "2026-10-27",
+      "qc_photo": true,
+      "price_cny": 84,
+      "price_display": "¥84"
     },
     {
-      "sku": "wd_7789235890",
-      "source_url": "https://w2clinks.com/yupoo-underwear/wd_7789235890.html",
-      "title": "Prada White Crewneck Sweatshirt",
-      "last_verified": "2026-10-26",
-      "qc_photo": true
+      "sku": "wd_7788734188",
+      "source_url": "https://w2clinks.com/yupoo-down-jackets/wd_7788734188.html",
+      "title": "Moncler Black Puffer Jacket",
+      "last_verified": "2026-10-27",
+      "qc_photo": true,
+      "price_cny": 339.6,
+      "price_display": "¥339.6"
     },
     {
-      "sku": "wd_7789141558",
-      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7789141558.html",
-      "title": "Balenciaga Black Hoodie and Sweatshirt Collection",
-      "last_verified": "2026-10-26",
-      "qc_photo": true
+      "sku": "wd_7785780389",
+      "source_url": "https://w2clinks.com/yupoo-bag/wd_7785780389.html",
+      "title": "Louis Vuitton Colorful Card Holders Set",
+      "last_verified": "2026-10-27",
+      "qc_photo": true,
+      "price_cny": 111.38,
+      "price_display": "¥111.38"
     },
     {
-      "sku": "wd_7789737606",
-      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7789737606.html",
-      "title": "Yves Saint Laurent Black Card Holder, Louis Vuitton Monogram Card Case, Dior Emb",
-      "last_verified": "2026-10-26",
-      "qc_photo": true
+      "sku": "wd_7786228269",
+      "source_url": "https://w2clinks.com/yupoo-belt/wd_7786228269.html",
+      "title": "Burberry Beige Plaid Leather Belt",
+      "last_verified": "2026-10-27",
+      "qc_photo": true,
+      "price_cny": 125,
+      "price_display": "¥125"
     },
     {
-      "sku": "wd_7786175033",
-      "source_url": "https://w2clinks.com/yupoo-bag/wd_7786175033.html",
-      "title": "Hugo Boss Black Hoodie and Sweaters Collection",
-      "last_verified": "2026-10-26",
-      "qc_photo": true
+      "sku": "wd_7788754580",
+      "source_url": "https://w2clinks.com/yupoo-watch/wd_7788754580.html",
+      "title": "Omega Speedmaster Chronograph Watch",
+      "last_verified": "2026-10-27",
+      "qc_photo": true,
+      "price_cny": 230,
+      "price_display": "¥230"
     },
     {
-      "sku": "wd_7786708073",
-      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7786708073.html",
-      "title": "Goyard Black Travel Duffle Bag",
-      "last_verified": "2026-10-26",
-      "qc_photo": true
+      "sku": "wd_7785708435",
+      "source_url": "https://w2clinks.com/yupoo-belt/wd_7785708435.html",
+      "title": "OUYUE Black Leather Belt with Ornate Buckle",
+      "last_verified": "2026-10-27",
+      "qc_photo": true,
+      "price_cny": 126,
+      "price_display": "¥126"
     },
     {
-      "sku": "wd_7786723907",
-      "source_url": "https://w2clinks.com/yupoo-bag/wd_7786723907.html",
-      "title": "Ray-Ban Black/Silver Sunglasses",
-      "last_verified": "2026-10-26",
-      "qc_photo": true
+      "sku": "wd_7785715435",
+      "source_url": "https://w2clinks.com/yupoo-scarf/wd_7785715435.html",
+      "title": "Louis Vuitton Scarf with Tassels in Various Colors",
+      "last_verified": "2026-10-27",
+      "qc_photo": true,
+      "price_cny": 175,
+      "price_display": "¥175"
     },
     {
-      "sku": "wd_7786681107",
-      "source_url": "https://w2clinks.com/yupoo-glasses/wd_7786681107.html",
-      "title": "LJF88 [rewrite only this part]  \\n**LJF88 Trendy Casual T-Shirt**",
-      "last_verified": "2026-10-26",
-      "qc_photo": true
+      "sku": "wd_7785782519",
+      "source_url": "https://w2clinks.com/yupoo-electronics/wd_7785782519.html",
+      "title": "Dior Sauvage Eau de Parfum Set",
+      "last_verified": "2026-10-27",
+      "qc_photo": true,
+      "price_cny": 120,
+      "price_display": "¥120"
     }
   ],
-  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes."
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
+  "platform_opt": "fansbuy-platform-20261026",
+  "weekly_refresh": "ahub-dataset-refresh-20261027"
 }

@@ -1,9 +1,9 @@
 {
   "brand": "FansBuy",
   "host": "fansbuysheets.net",
-  "last_verified": "2026-10-26",
+  "last_verified": "2026-10-27",
   "platform_opt": "fansbuy-platform-20261026",
-  "verify_on": "fansbuy.com / in-app wallet \u2014 confirm before pay",
+  "verify_on": "fansbuy.com / in-app wallet — confirm before pay",
   "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
   "offers": [
     {
@@ -14,13 +14,13 @@
       "value_claim": "Affiliate invite bonus off first order (auto-attributed)",
       "status": "listed_on_hub",
       "expires_on": null,
-      "expires_note": "Hub copy historically says no fixed expiry \u2014 still re-confirm in-app",
+      "expires_note": "Hub copy historically says no fixed expiry — still re-confirm in-app",
       "applies_to": "First-order affiliate attribution on FansBuy",
       "exclusions": [
         "This sheets host is not checkout"
       ],
       "source": "https://fansbuysheets.net/fansbuy-coupons/",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-27"
     },
     {
       "id": "fans26-shipping-26pct",
@@ -28,16 +28,17 @@
       "label": "FANS26 international shipping",
       "code": "FANS26",
       "value_claim": "26% OFF international shipping (public coupon cited on hub 9 Oct 2026)",
-      "status": "confirm_live",
+      "status": "likely_expired",
       "expires_on": "2026-10-14",
-      "expires_note": "Tied to Anniversary Giveaway window ending 14 Oct 2026 \u2014 re-check drawer before pay; may already be gone",
+      "expires_note": "Tied to Anniversary Giveaway window ending 14 Oct 2026 — past expiry on stamp day; re-check drawer before pay; may already be gone",
       "applies_to": "International shipping on fansbuy.com",
       "exclusions": [
         "Not redeemed on this sheets host",
         "Stacking rules official-only"
       ],
       "source": "https://fansbuysheets.net/fansbuy-coupons/",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-27"
     }
-  ]
+  ],
+  "weekly_refresh": "ahub-dataset-refresh-20261027"
 }
