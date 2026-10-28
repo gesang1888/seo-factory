@@ -1,11 +1,12 @@
 {
   "brand": "LoveGoBuy",
   "host": "lovegobuyguide.com",
-  "last_verified": "2026-10-26",
+  "last_verified": "2026-10-28",
   "platform_opt": "lovegobuy-platform-20261026",
-  "verify_on": "lovegobuy.com / in-app wallet \u2014 confirm before pay",
+  "hub_reclaim": "lovegobuy-hub-reclaim-20261028",
+  "verify_on": "lovegobuy.com / in-app wallet — confirm before pay",
   "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
-  "serp_note": "Country desk lovegobuy.nl carries brand clicks (lovegobuy 26/28d); brand spreadsheet queries should consolidate on lovegobuyguide.com Independent Index.",
+  "serp_note": "Brand lovegobuy spreadsheet / coupons SERP consolidates on lovegobuyguide.com Independent Index · 11,300+. Compete vs JadeShip / Reddit / Puro with falsifiable row_count + Open directory — not new mirror TLDs. NL/IT keep local postal KPI only.",
   "offers": [
     {
       "id": "lovegobuy-invite-w5rjx3",
@@ -15,14 +16,14 @@
       "value_claim": "Register attribution via lovegobuy.com/?invite_code=W5RJX3; hub also cites $137 new-user pack confirm_live",
       "status": "confirm_live",
       "expires_on": null,
-      "expires_note": "No fixed expiry on desk \u2014 re-confirm in-app the morning you pay",
+      "expires_note": "No fixed expiry on desk — re-confirm in-app the morning you pay",
       "applies_to": "New-account invite attribution on LoveGoBuy",
       "exclusions": [
         "This guide host is not checkout",
         "Stacking rules official-only"
       ],
       "source": "https://lovegobuyguide.com/lovegobuy-coupon/",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-28"
     }
   ]
 }
