@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "HipoBuy",
   "host": "hipobuyspreadsheet.net",
-  "last_verified": "2026-10-27",
-  "generated_at": "2026-10-27T00:45:00Z",
+  "last_verified": "2026-10-28",
+  "generated_at": "2026-10-28T03:20:00Z",
   "row_count": 8600,
   "row_count_display": "8,600+",
   "update_frequency": "Catalog cards refresh continuously; public dataset stamp reviewed at least weekly.",
@@ -29,7 +29,7 @@
       "category_hint": "HAT",
       "source_url": "https://w2clinks.com/yupoo-hat/wd_7865660451.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "wd_7855051203",
@@ -39,7 +39,7 @@
       "category_hint": "Find",
       "source_url": "https://w2clinks.com/accessories/wd_7855051203.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "wd_7868646724",
@@ -49,7 +49,7 @@
       "category_hint": "Find",
       "source_url": "https://w2clinks.com/other-stuff/wd_7868646724.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "wd_7868611396",
@@ -59,7 +59,7 @@
       "category_hint": "T-SHIRT",
       "source_url": "https://w2clinks.com/yupoo-t-shirt/wd_7868611396.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "wd_7854893077",
@@ -69,7 +69,7 @@
       "category_hint": "Find",
       "source_url": "https://w2clinks.com/accessories/wd_7854893077.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "wd_7855125873",
@@ -79,7 +79,7 @@
       "category_hint": "Find",
       "source_url": "https://w2clinks.com/accessories/wd_7855125873.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "wd_7857739673",
@@ -89,7 +89,7 @@
       "category_hint": "Find",
       "source_url": "https://w2clinks.com/other-stuff/wd_7857739673.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "wd_7868648680",
@@ -99,7 +99,7 @@
       "category_hint": "Find",
       "source_url": "https://w2clinks.com/other-stuff/wd_7868648680.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "wd_7858614486",
@@ -109,7 +109,7 @@
       "category_hint": "Find",
       "source_url": "https://w2clinks.com/other-stuff/wd_7858614486.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "wd_7865608919",
@@ -119,10 +119,11 @@
       "category_hint": "Find",
       "source_url": "https://w2clinks.com/other-stuff/wd_7865608919.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     }
   ],
   "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
   "platform_opt": "hipobuy-e2e-2026-10-26",
-  "weekly_refresh": "ahub-dataset-refresh-20261027"
+  "weekly_refresh": "ahub-dataset-refresh-20261027",
+  "hub_defend": "hipobuy-hub-defend-20261028"
 }

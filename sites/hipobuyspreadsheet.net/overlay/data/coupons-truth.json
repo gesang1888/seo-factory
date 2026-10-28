@@ -1,7 +1,7 @@
 {
   "brand": "HipoBuy",
   "host": "hipobuyspreadsheet.net",
-  "last_verified": "2026-10-27",
+  "last_verified": "2026-10-28",
   "verify_on": "hipobuy.com (official drawer / wallet — this hub never redeems)",
   "update_cadence": "Re-verify on every freight payment morning; JSON stamped at least weekly",
   "offers": [
@@ -20,7 +20,7 @@
         "Never redeem on this spreadsheet TLD"
       ],
       "source": "hub invite CTA + 2026 master guide narrative",
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     },
     {
       "id": "hipo-shipping-drawer",
@@ -37,9 +37,10 @@
         "Line exclusions vary"
       ],
       "source": "official agent UX; not invent codes here",
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     }
   ],
   "platform_opt": "hipobuy-e2e-2026-10-26",
-  "weekly_refresh": "ahub-dataset-refresh-20261027"
+  "weekly_refresh": "ahub-dataset-refresh-20261027",
+  "hub_defend": "hipobuy-hub-defend-20261028"
 }
