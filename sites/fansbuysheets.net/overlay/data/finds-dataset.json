@@ -2,117 +2,143 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "FansBuy",
   "host": "fansbuysheets.net",
-  "last_verified": "2026-10-27",
-  "generated_at": "2026-10-27T00:45:00Z",
-  "row_count": 12000,
-  "row_count_display": "12,000+",
-  "update_frequency": "Spreadsheet marketing claims daily refresh; public dataset stamp reviewed at least weekly on this hub.",
+  "last_verified": "2026-10-28",
+  "generated_at": "2026-10-28T04:20:00Z",
+  "row_count": 11365,
+  "row_count_display": "11,300+",
+  "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
   "qc_field": "qc_photo",
   "price_fields": [
     "price_cny",
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated sample SKUs — not another opaque Google Sheet dump.",
+  "anti_sheet_note": "Public, citable row counts + dated sample SKUs — not another opaque Google Sheet dump. Hub reclaim vs fansbuyspreadsheet.com / fansbuy.org / w2clinks / qcradar; brand spreadsheet SERP owns fansbuysheets.net Independent Index.",
+  "platform_opt": "fansbuy-platform-20261026",
+  "hub_reclaim": "fansbuy-hub-reclaim-20261028",
+  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-28",
   "endpoints": {
     "html": "https://fansbuysheets.net/finds-dataset/",
     "json": "https://fansbuysheets.net/data/finds-dataset.json",
     "coupons_truth": "https://fansbuysheets.net/data/coupons-truth.json",
-    "catalog": "https://fansbuysheets.net/fansbuy-spreadsheet/"
+    "catalog": "https://w2clinks.com/spreadsheet/fansbuy/",
+    "ranked_spreadsheet": "https://fansbuysheets.net/fansbuy-spreadsheet/"
   },
+  "keep_desks": [
+    "fansbuy.co.uk"
+  ],
+  "watch_only": [
+    "fansbuy.nl",
+    "fansbuyspreadsheet.de"
+  ],
+  "twins_301_to_hub": [
+    "fansbuy.eu",
+    "fansbuyspreadsheet.eu",
+    "fansspreadsheet.net"
+  ],
+  "twins_301_to_uk": [
+    "fansbuyspreadsheet.uk"
+  ],
   "sample_skus": [
     {
-      "sku": "wd_7788742826",
-      "source_url": "https://w2clinks.com/yupoo-trousers/wd_7788742826.html",
-      "title": "Carhartt Blue Carpenter Jeans",
-      "last_verified": "2026-10-27",
+      "sku": "wd_7869511728",
+      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7869511728.html",
+      "title": "日默家Essential芭蕾粉柔光登机箱",
+      "last_verified": "2026-10-28",
       "qc_photo": true,
-      "price_cny": 288,
-      "price_display": "¥288"
+      "price_cny": 668,
+      "price_display": "¥668",
+      "category": "HOODIE"
     },
     {
-      "sku": "wd_7788772516",
-      "source_url": "https://w2clinks.com/yupoo-hoodie/wd_7788772516.html",
-      "title": "Burberry Grey and Black Zip-Up Hoodies",
-      "last_verified": "2026-10-27",
+      "sku": "wd_7868694396",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7868694396.html",
+      "title": "Mizuno LG 60S Sneakers",
+      "last_verified": "2026-10-28",
       "qc_photo": true,
-      "price_cny": 330.75,
-      "price_display": "¥330.75"
+      "price_cny": 150,
+      "price_display": "¥150",
+      "category": ""
     },
     {
-      "sku": "wd_7789143514",
-      "source_url": "https://w2clinks.com/yupoo-socks/wd_7789143514.html",
-      "title": "Nike Black and White Socks",
-      "last_verified": "2026-10-27",
+      "sku": "wd_7865684209",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7865684209.html",
+      "title": "E-Superstar White Low Top Sneakers",
+      "last_verified": "2026-10-28",
       "qc_photo": true,
-      "price_cny": 84,
-      "price_display": "¥84"
+      "price_cny": 208,
+      "price_display": "¥208",
+      "category": ""
     },
     {
-      "sku": "wd_7788734188",
-      "source_url": "https://w2clinks.com/yupoo-down-jackets/wd_7788734188.html",
-      "title": "Moncler Black Puffer Jacket",
-      "last_verified": "2026-10-27",
+      "sku": "wd_7868725620",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7868725620.html",
+      "title": "Danner Trail 2650 Hiking Shoes",
+      "last_verified": "2026-10-28",
       "qc_photo": true,
-      "price_cny": 339.6,
-      "price_display": "¥339.6"
+      "price_cny": 310,
+      "price_display": "¥310",
+      "category": ""
     },
     {
-      "sku": "wd_7785780389",
-      "source_url": "https://w2clinks.com/yupoo-bag/wd_7785780389.html",
-      "title": "Louis Vuitton Colorful Card Holders Set",
-      "last_verified": "2026-10-27",
+      "sku": "wd_7865474747",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7865474747.html",
+      "title": "Huntington Tong Suede Low Top Sneakers",
+      "last_verified": "2026-10-28",
       "qc_photo": true,
-      "price_cny": 111.38,
-      "price_display": "¥111.38"
+      "price_cny": 410,
+      "price_display": "¥410",
+      "category": ""
     },
     {
-      "sku": "wd_7786228269",
-      "source_url": "https://w2clinks.com/yupoo-belt/wd_7786228269.html",
-      "title": "Burberry Beige Plaid Leather Belt",
-      "last_verified": "2026-10-27",
+      "sku": "wd_7868680536",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7868680536.html",
+      "title": "PAI PAI Boom Sneakers White/Yellow/Gold",
+      "last_verified": "2026-10-28",
       "qc_photo": true,
-      "price_cny": 125,
-      "price_display": "¥125"
+      "price_cny": 200,
+      "price_display": "¥200",
+      "category": ""
     },
     {
-      "sku": "wd_7788754580",
-      "source_url": "https://w2clinks.com/yupoo-watch/wd_7788754580.html",
-      "title": "Omega Speedmaster Chronograph Watch",
-      "last_verified": "2026-10-27",
+      "sku": "wd_7865660451",
+      "source_url": "https://w2clinks.com/yupoo-hat/wd_7865660451.html",
+      "title": "Louis Vuitton Baseball Caps",
+      "last_verified": "2026-10-28",
       "qc_photo": true,
-      "price_cny": 230,
-      "price_display": "¥230"
+      "price_cny": 58,
+      "price_display": "¥58",
+      "category": "HAT"
     },
     {
-      "sku": "wd_7785708435",
-      "source_url": "https://w2clinks.com/yupoo-belt/wd_7785708435.html",
-      "title": "OUYUE Black Leather Belt with Ornate Buckle",
-      "last_verified": "2026-10-27",
+      "sku": "wd_7855051203",
+      "source_url": "https://w2clinks.com/accessories/wd_7855051203.html",
+      "title": "Louis Vuitton Cœur Battant Eau de Parfum 100ml",
+      "last_verified": "2026-10-28",
       "qc_photo": true,
-      "price_cny": 126,
-      "price_display": "¥126"
+      "price_cny": 140,
+      "price_display": "¥140",
+      "category": ""
     },
     {
-      "sku": "wd_7785715435",
-      "source_url": "https://w2clinks.com/yupoo-scarf/wd_7785715435.html",
-      "title": "Louis Vuitton Scarf with Tassels in Various Colors",
-      "last_verified": "2026-10-27",
+      "sku": "wd_7868646724",
+      "source_url": "https://w2clinks.com/other-stuff/wd_7868646724.html",
+      "title": "Supernova Rise Running Shoes",
+      "last_verified": "2026-10-28",
       "qc_photo": true,
-      "price_cny": 175,
-      "price_display": "¥175"
+      "price_cny": 199,
+      "price_display": "¥199",
+      "category": ""
     },
     {
-      "sku": "wd_7785782519",
-      "source_url": "https://w2clinks.com/yupoo-electronics/wd_7785782519.html",
-      "title": "Dior Sauvage Eau de Parfum Set",
-      "last_verified": "2026-10-27",
+      "sku": "wd_7868611396",
+      "source_url": "https://w2clinks.com/yupoo-t-shirt/wd_7868611396.html",
+      "title": "Ralph Lauren Grey Hoodie Sweatshirt",
+      "last_verified": "2026-10-28",
       "qc_photo": true,
-      "price_cny": 120,
-      "price_display": "¥120"
+      "price_cny": 178,
+      "price_display": "¥178",
+      "category": "T-SHIRT"
     }
-  ],
-  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
-  "platform_opt": "fansbuy-platform-20261026",
-  "weekly_refresh": "ahub-dataset-refresh-20261027"
+  ]
 }
