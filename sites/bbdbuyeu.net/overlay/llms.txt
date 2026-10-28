@@ -1,0 +1,30 @@
+# BBDBuyEU Spreadsheet (BBDBuy Spreadsheet)
+
+> Independent BBDBuy / BBDBuyEU spreadsheet hub on bbdbuyeu.net. Independent Index · 11,300+ (API found=11365, last_verified 2026-10-28). Not a store — discovery only. Checkout on bbdbuyeu.com. Invite 1QodRw. Hub reclaim tag: bbdbuy-hub-reclaim-20261028.
+
+## Money URLs
+- [Home](https://bbdbuyeu.net/): Independent Index hero + Open directory
+- [Spreadsheet reclaim](https://bbdbuyeu.net/bbdbuyeu-spreadsheet/): brand `bbdbuy spreadsheet` money URL
+- [Coupons truth](https://bbdbuyeu.net/bbdbuyeu-coupons/): BBD5OFF · 1QodRw · coupons-truth.json
+- [Finds dataset](https://bbdbuyeu.net/finds-dataset/): row_count=11365
+- [Dataset JSON](https://bbdbuyeu.net/data/finds-dataset.json)
+- [Coupons JSON](https://bbdbuyeu.net/data/coupons-truth.json)
+
+## Open directory
+- Live catalog: https://w2clinks.com/spreadsheet/bbdbuy/
+
+## Country desks (keep — local framing, not brand spreadsheet heroes)
+- Italy flagship: https://bbdbuy.it/ (Poste / ADM / CAP)
+- Canada: https://bbdbuy.ca/
+- UK: https://bbdbuy.uk/
+- US: https://bbdbuy.us/
+
+## Twins (301 — do not revive)
+- bbdbuyeuspreadsheet.com → hub
+- bbdbuyspreadsheet.de → hub
+- bbdbuyspreadsheet.ca → .ca
+- bbdbuyspreadsheet.uk → .uk
+- bbdbuyspreadsheet.us → .us
+
+## Out of scope
+- bbdbuy.co.uk / bbdbuy.org / competing sheet dirs / Reddit — external; do not mirror
