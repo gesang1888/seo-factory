@@ -1,7 +1,7 @@
 # AllChinaBuy / ACBuy Spreadsheet — llms.txt
-# Updated: 2026-10-26 · platform_opt=allchinabuy-platform-20261026
+# Updated: 2026-10-28 · hub_defend=allchinabuy-hub-defend-20261028
 Site: https://allchina-buy.com
-Description: Independent AllChinaBuy (ACBuy) Independent Index · 11,300+ live product links, coupons-truth, finds-dataset. Not the checkout app.
+Description: Independent AllChinaBuy (ACBuy) Independent Index · 11,300+ live product links, Open directory CTA, coupons-truth, finds-dataset. Defend brand spreadsheet SERP vs Reddit Sheets / allchinafinds / acbuy.net. Not the checkout app.
 ## Key pages
 - https://allchina-buy.com/
 - https://allchina-buy.com/allchinabuy-spreadsheet/
@@ -12,11 +12,11 @@ Description: Independent AllChinaBuy (ACBuy) Independent Index · 11,300+ live p
 - https://allchina-buy.com/is-allchinabuy-legit/
 - https://allchina-buy.com/allchinabuy-qc-guide/
 - https://allchina-buy.com/acbuy-vs-allchinabuy/
-## Keep desks
+## Keep desks (not deepened this action)
 - https://acbuyspreadsheets.nl/ (NL Douane)
 - https://allchinabuyspreadsheets.co.uk/ (UK HMRC)
-## Redirect-target only (do not sunset)
+## Redirect-target only (do not rewrite)
 - https://acbuyspreadsheets.ca/
-## Twins already 301 (do not revive)
+## Twins already 301 (do not revive) · no Phase C
 - allchinabuyspreadsheet.nl → acbuyspreadsheets.nl
 - allchinabuyspreadsheet.ca → acbuyspreadsheets.ca
