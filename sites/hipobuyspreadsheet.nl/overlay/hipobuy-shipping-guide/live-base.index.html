@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>HipoBuy verzendkosten naar Nederland — lab 29 Sep 2026</title>
+<meta name="description" content="HipoBuy verzendkosten naar Nederland: officiële estimator-snapshot 29 sep 2026 voor 1000 g / 35×25×10 cm plus volumgewicht. Alleen uitleg, geen kassa.">
+
+
+<meta property="og:title" content="HipoBuy verzendkosten naar Nederland — lab 29 Sep 2026">
+<meta property="og:description" content="HipoBuy verzendkosten naar Nederland: officiële estimator-snapshot 29 sep 2026 voor 1000 g / 35×25×10 cm plus volumgewicht. Alleen uitleg, geen kassa.">
+<meta property="og:url" content="https://hipobuyspreadsheet.nl/hipobuy-shipping-guide/">
+<link rel="canonical" href="https://hipobuyspreadsheet.nl/hipobuy-shipping-guide/">
+
+<link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
+<link rel="icon" sizes="32x32" href="https://hipobuy.com/static/favicon/32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"HipoBuy shipping to Nederland · 2026-09-29","url":"https://hipobuyspreadsheet.nl/hipobuy-shipping-guide/"}</script>
+<style>
+:root{
+  --acc:#00C853;--acd:#00A844;--acl:#F6FBF8;
+  --bk:#0A0A0A;--g1:#1A1A1A;--g2:#2D2D2D;--g3:#555;--g4:#888;--g5:#E5E5E5;--g6:#F6F6F6;--wh:#fff;
+  --gn:#16A34A;--gnl:#F0FDF4;--bl:#2563EB;--bll:#EFF6FF;
+  --am:#D97706;--aml:#FFFBEB;--rd:#DC2626;--rdl:#FEF2F2;--pu:#7C3AED;--pul:#F5F3FF;
+  --f:'DM Sans',sans-serif;--m:'DM Mono',monospace;--r:10px;--rl:16px;
+  --nav-bg:var(--wh);--nav-h:60px;
+  --footer-bg:#1A1A1A;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--wh);color:var(--bk);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%;display:block}
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:var(--wh);border-bottom:1px solid var(--g5);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nbrand{display:flex;align-items:center;gap:14px;min-width:0}
+.nlo{display:flex;align-items:center;flex-shrink:0}
+.nlo-logo{display:block;width:162px;height:35px;object-fit:contain;object-position:left center;flex-shrink:0;border-radius:0}
+.nflags{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.nregion{display:inline-flex;align-items:center}
+.nregion-flag{font-size:22px;line-height:1}
+.nfb{width:28px;height:28px;background:var(--acc);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700}
+.nl{display:flex;align-items:center;gap:4px;list-style:none}
+.nl a{font-size:13px;padding:6px 10px;border-radius:6px;color:var(--g4);transition:background .15s,color .15s}
+.nl a:hover{background:var(--g6);color:var(--bk);text-decoration:none}
+.nl a.on{color:var(--bk);font-weight:500}
+/* Announce */
+.ann{background:var(--acc);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:500}
+.ann a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+/* WA button */
+.bwa{display:flex;align-items:center;gap:7px;padding:7px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500;white-space:nowrap;transition:opacity .15s}
+.bwa:hover{opacity:.88;text-decoration:none}
+.bwa svg{width:16px;height:16px;flex-shrink:0}
+/* Lang/Currency button */
+.blc{display:flex;align-items:center;gap:5px;padding:6px 10px;border:1px solid var(--g5);border-radius:8px;background:var(--wh);font-family:var(--f);font-size:13px;font-weight:500;color:var(--bk);cursor:pointer;transition:border-color .15s,background .15s;white-space:nowrap}
+.blc:hover,.blc.open{border-color:var(--acc);background:var(--acl)}
+.blc #lc-curr{color:var(--g4);font-size:11px}
+/* Lang modal backdrop */
+.lbk{position:fixed;inset:0;z-index:198;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s}
+.lbk.show{opacity:1;pointer-events:all}
+/* Lang modal */
+.lmo{position:fixed;z-index:199;background:var(--wh);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.18);width:360px;max-width:calc(100vw - 32px);opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;transform:translateY(-8px) scale(.97)}
+@media(min-width:600px){.lmo{top:62px;right:24px}.lmo.show{opacity:1;pointer-events:all;transform:translateY(0) scale(1)}.lhan{display:none}}
+@media(max-width:599px){.lmo{bottom:0;left:0;right:0;width:100%;max-width:100%;border-radius:20px 20px 0 0;transform:translateY(100%);top:auto}.lmo.show{opacity:1;pointer-events:all;transform:translateY(0)}}
+.lhan{width:36px;height:4px;border-radius:2px;background:var(--g5);margin:12px auto 0}
+.lmi{padding:16px 20px 20px}
+.lmh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.lmt{font-size:15px;font-weight:600;color:var(--bk)}
+.lmc{width:28px;height:28px;border-radius:50%;background:var(--g6);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--g3);transition:background .15s}
+.lmc:hover{background:var(--g5)}
+.lsl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--g4);margin-bottom:10px}
+.lgr{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lop{padding:11px 14px;border:1.5px solid var(--g5);border-radius:10px;background:var(--wh);font-family:var(--f);font-size:13.5px;font-weight:500;color:var(--bk);cursor:pointer;text-align:center;transition:border-color .15s,color .15s,background .15s;display:flex;align-items:center;justify-content:center;gap:6px}
+.lop:hover{border-color:#a5b4fc}
+.lop.sel{border-color:#6366F1;color:#4338CA;background:#EEF2FF;font-weight:600}
+.lcf{width:100%;margin-top:18px;height:46px;background:linear-gradient(135deg,#818CF8,#6366F1);color:#fff;border:none;border-radius:12px;font-family:var(--f);font-size:15px;font-weight:600;cursor:pointer;transition:opacity .15s}
+.lcf:hover{opacity:.88}
+/* Breadcrumb */
+.bc{padding:14px 24px;max-width:1100px;margin:0 auto;font-size:12px;color:var(--g4);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.bc a{color:var(--g4)}.bc a:hover{color:var(--bk)}
+/* Page layout */
+.pw{max-width:1100px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start}
+/* Prose */
+.ph{font-size:21px;font-weight:600;letter-spacing:-.4px;color:var(--bk);margin-top:36px;margin-bottom:12px;padding-top:8px;border-top:1px solid var(--g5)}
+.pp{font-size:15px;color:var(--g2);line-height:1.82;margin-bottom:14px}
+.pul{padding-left:20px;margin-bottom:14px}
+.pul li{font-size:15px;color:var(--g2);line-height:1.75;margin-bottom:7px}
+/* Callout boxes */
+.cb{border-radius:var(--rl);padding:14px 16px;margin:16px 0;display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.7}
+.cb svg{flex-shrink:0;margin-top:2px}
+.cb div strong{display:block;margin-bottom:3px;font-size:13px}
+.tip{background:var(--acl);border:1px solid color-mix(in srgb,var(--acc) 35%,transparent);color:var(--acd)}.tip svg{color:var(--acc)}
+.warn{background:var(--aml);border:1px solid #FDE68A;color:#92400E}.warn svg{color:var(--am)}
+.info{background:var(--bll);border:1px solid #BFDBFE;color:#1E40AF}.info svg{color:var(--bl)}
+.good{background:var(--gnl);border:1px solid #BBF7D0;color:#166534}.good svg{color:var(--gn)}
+/* FAQ */
+.faq-item{border:1px solid var(--g5);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;cursor:pointer;font-size:14px;font-weight:500;color:var(--bk);gap:12px;background:var(--wh);transition:background .12s;list-style:none}
+.faq-q:hover{background:var(--g6)}
+.faq-q svg{width:15px;height:15px;color:var(--g4);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{padding:0 15px;max-height:0;overflow:hidden;transition:max-height .28s ease,padding .2s;font-size:13.5px;color:var(--g3);line-height:1.75}
+.faq-item.open .faq-a{max-height:400px;padding:0 15px 13px}
+/* Sidebar */
+.asb{position:sticky;top:72px}
+.sbc{border:1px solid var(--g5);border-radius:var(--rl);overflow:hidden;margin-bottom:16px}
+.sbh{background:var(--g6);padding:10px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--g4)}
+.sbb{padding:14px 16px}
+.sbcta{margin-top:12px;padding:10px 14px;background:var(--acc);color:#fff;border-radius:8px;text-align:center;font-size:13px;font-weight:500;display:block;transition:background .15s}
+.sbcta:hover{background:var(--acd);text-decoration:none}
+.sbwa{margin-top:8px;padding:9px 14px;background:#25D366;color:#fff;border-radius:8px;text-align:center;font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:6px;transition:opacity .15s}
+.sbwa:hover{opacity:.88;text-decoration:none}.sbwa svg{width:14px;height:14px}
+.sbli{list-style:none}
+.sbli li a{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-top:1px solid var(--g5);font-size:13px;color:var(--g3)}
+.sbli li:first-child a{border-top:none}
+.sbli li a:hover{color:var(--acc);text-decoration:none}
+.sbli li a svg{width:12px;height:12px;opacity:.4}
+/* Footer */
+.ft{background:#1A1A1A;color:#ccc;padding:40px 24px}
+.fti{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.flo{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;color:#fff;margin-bottom:12px}
+.flo-logo{height:26px;width:auto;max-width:150px;object-fit:contain}
+.flo-txt{font-size:14px;color:#fff}
+.flm{width:26px;height:26px;background:var(--acc);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff}
+.ftg{font-size:13px;color:#888;line-height:1.65;margin-bottom:16px}
+.fwa{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500}
+.fwa svg{width:15px;height:15px}
+.fc h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#888;margin-bottom:12px}
+.fc ul{list-style:none}.fc ul li{margin-bottom:9px}
+.fc ul li a{font-size:13px;color:#888;transition:color .12s}
+.fc ul li a:hover{color:#fff;text-decoration:none}
+.fb{max-width:1100px;margin:28px auto 0;padding-top:20px;border-top:1px solid #2D2D2D;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.fb p{font-size:12px;color:#666}
+/* WA float */
+.waf{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.wafb{width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);transition:transform .15s}
+.wafb:hover{transform:scale(1.08);text-decoration:none}.wafb svg{width:26px;height:26px;color:#fff}
+.wabu{background:var(--wh);border:1px solid var(--g5);border-radius:12px;padding:12px 16px;font-size:13px;max-width:200px;text-align:right;line-height:1.5;display:none}
+.wabu b{color:var(--bk);display:block;margin-bottom:2px}.wabu span{color:var(--g4);font-size:12px}
+.waf:hover .wabu{display:block}
+/* Responsive */
+@media(max-width:860px){.pw{grid-template-columns:1fr!important}.asb{position:static}.nl{display:none}.fti{grid-template-columns:1fr;gap:28px}.fb{flex-direction:column}}
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeUp .4s ease both}
+.fade-in-d{animation:fadeUp .4s .1s ease both}
+</style>
+<!-- country desk chrome 20261006h -->
+<link rel="icon" href="/favicon1.ico">
+<link rel="stylesheet" href="/assets/css/hipobuy-theme.css?v=20261006h">
+<link rel="stylesheet" href="/assets/css/hipobuy-nl-desk.css?v=20261006h">
+<style id="country-desk-chrome">:root{--acc:#15803d!important;--acd:#14532d!important;--link:#14532d!important;--primary:#15803d!important;--primary-dark:#14532d!important;--primary-soft:#e8f7f2!important}#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}header.top .nav a{color:#333!important}header.top .nav a[aria-current],header.top .nav a:hover{color:#15803d!important;background:transparent!important}header.top .hdr-login{background:#15803d!important;color:#fff!important}header.top .hdr-login:hover{background:#14532d!important;color:#fff!important}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hoeveel kost HipoBuy-verzending naar Nederland?","acceptedAnswer":{"@type":"Answer","text":"Snapshot 29 sep 2026, zelfde dag, 1000 g en 35×25×10 cm, Clothes / common goods: goedkoopste lijn NL AIR DHL-HIPO-EUCR1T ongeveer $34.20 (10–16 dagen, 1100 g volume). China Post SURFACE was goedkoper op die meetdag maar 60–90 werkdagen. Dit is geen kassa — open de officiële estimator met bestemming Netherlands na magazijnfoto’s."}},{"@type":"Question","name":"Waarom staat hier geen USA-rekenmachine?","acceptedAnswer":{"@type":"Answer","text":"Deze desk is Nederland. De oude sjabloon (DHL Express naar USA, ~$38 / 700 g, plus USA/UK/AU/CA-grid) hoort niet op dit host. Porto staat in de officiële estimator; de widget hierboven rekent alleen volumgewicht."}},{"@type":"Question","name":"Wat is volumgewicht?","acceptedAnswer":{"@type":"Answer","text":"De meeste NL-luchtlijnen factureren max(echt gewicht, L×B×H/8000), vaak afgerond op 100 g. 35×25×10 cm is 8750 cm³ → ongeveer 1094 g volume → vaak 1100 g. Sommige EUB-SKU’s delen door 6000. Alleen meetkunde; het geld staat in de officiële estimator."}},{"@type":"Question","name":"Wie betaalt invoer in Nederland?","acceptedAnswer":{"@type":"Answer","text":"Dat volgt de geboekte lijn: Tax free, Prepaid Duty of Duties Payable by Recipient. Douane mag controleren. Bron: Belastingdienst Douane. Deze pagina verzint geen eurobedragen en geen aangegeven waarde. Geen onderwaardering."}},{"@type":"Question","name":"Kan ik zendingen bundelen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Officiële statuspagina (eigen opname 30 sep 2026) noemt 90 dagen gratis opslag vanaf Stored — bevestig die tekst in de app op de ochtend van verzenden. Items gemarkeerd voor individuele verzending bundel je niet. PostNL of DHL moet op de live-SKU staan."}},{"@type":"Question","name":"Waar klaag ik als iets misgaat?","acceptedAnswer":{"@type":"Answer","text":"Alleen op hipobuy.com. hipobuyspreadsheet.nl is een onafhankelijke infosite: we zien je account niet, we innen geen porto en we openen geen ticket. Bewaar het in-app-nummer."}}]}</script>
+</head>
+<body data-shipping-patch="20261020nl" data-inner-chrome="20261006h-hipobuy-nl">
+<a class="skip" href="#main">Naar de inhoud</a>
+<header class="top" role="banner">
+  <div class="wrap">
+    <a href="/start/" class="brand">
+      <img src="/assets/images/hipobuy-wordmark.png" alt="HipoBuy" width="118" height="39">
+      <span>Spreadsheet</span>
+    </a>
+    <button class="burger" type="button" aria-expanded="false" aria-label="Menu openen">&#9776;</button>
+    <nav class="nav" aria-label="Hoofdmenu"><a href="/start/">Start</a><a href="/how-to-use-hipobuy/">Handleiding</a><a href="/catalogus/">Catalogus</a><a href="/hipobuy-freight/">Verzending</a><a href="/hulp/">Hulp</a><a href="/nieuws/">Nieuws</a></nav>
+    <a class="hdr-login" href="https://hipobuy.com/register?utm_source=hipobuyspreadsheet.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Inloggen bij HipoBuy</a>
+  </div>
+</header>
+<main id="main" class="inner-article">
+<header class="ahd">
+    <div class="ameta">
+      <span class="atg" style="background:var(--acl);color:var(--acd)">Shipping Guide</span>
+      <span class="adt">Lab 29 Sep 2026</span>
+    </div>
+    <h1 class="atit">HipoBuy verzendkosten naar Nederland<br><em>Lijnen van 29 Sep 2026, rekenmachine blijft</em></h1>
+    <p class="aint">Na magazijnfoto’s: werkelijk gewicht versus L×B×H/8000, daarna een NL-bestemming in HipoBuy — niet de USA-rij uit de sjabloontabel.</p>
+  </header>
+
+<aside class="cb info hipo-lab-note" id="estimator-lab" style="display:block">
+  <div>
+    <strong>Official HipoBuy estimator · 29 Sep 2026</strong>
+    Same-day parcel: 1000&nbsp;g, 35×25×10&nbsp;cm,
+    category Clothes / common goods. Volumetric L×W×H/8000 = 1.094&nbsp;kg
+    (many air lines billed 1100&nbsp;g). Display currency is the estimator USD column.
+    Goedkoopste lijn op de meetdag: NL AIR DHL-HIPO-EUCR1T ongeveer $34.20 (10–16 dagen, 1100&nbsp;g volume). China Post SURFACE was goedkoop maar 60–90 werkdagen.
+    Source: hipobuy.com estimator API, destination NL (Nederland). Re-run in-app after warehouse photos — this table is a snapshot, not a live checkout quote.
+    <strong>No declared-value coaching.</strong>
+  </div>
+</aside>
+<div class="tw hipo-lab" id="lab-20260929"><table><thead><tr><th>Line (estimator)</th><th>USD</th><th>Days</th><th>Billed</th></tr></thead><tbody><tr><td><code>NL AIR DHL-HIPO-EUCR1T</code><br><span style="color:#555;font-size:12px">速翔-欧洲DHL小包经济T（EUCR）</span></td><td class="mv">$34.20</td><td>10–16 days</td><td>1100 g volume weight</td></tr><tr><td><code>NL AIR DHL-HIPO-EUCR1</code><br><span style="color:#555;font-size:12px">速翔-欧洲DHL小包特快线（EUCR）</span></td><td class="mv">$34.57</td><td>6–11 days</td><td>1100 g volume weight</td></tr><tr><td><code>AF-CN Post SURFACE-NL-1</code><br><span style="color:#555;font-size:12px">中鹏-中国邮政SURFACE</span></td><td class="mv">$39.07</td><td>60–90 workdays</td><td>1000 g weight</td></tr><tr><td><code>HIPO-F-DHL-NL-1T</code><br><span style="color:#555;font-size:12px">速翔-欧洲DHL小包(经济T)</span></td><td class="mv">$39.51</td><td>10–16 workdays</td><td>1100 g volume weight</td></tr><tr><td><code>NL AIR DHL-HIPO-EUCR1D</code><br><span style="color:#555;font-size:12px">速翔-欧洲DHL小包带电（EUCR）</span></td><td class="mv">$40.05</td><td>12–18 days</td><td>1100 g volume weight</td></tr><tr><td><code>HIPO-SFF-DHL-NL-1</code><br><span style="color:#555;font-size:12px">速翔-欧洲DHL小包(特快线)</span></td><td class="mv">$40.10</td><td>6–11 workdays</td><td>1100 g volume weight</td></tr><tr><td><code>AF-CN Post SAL-NL-1</code><br><span style="color:#555;font-size:12px">中鹏-中国邮政SAL</span></td><td class="mv">$45.17</td><td>30–60 days</td><td>1000 g weight</td></tr><tr><td><code>HIPO-D-DHL-NL-1</code><br><span style="color:#555;font-size:12px">速翔-欧洲DHL小包(带电)</span></td><td class="mv">$46.01</td><td>12–18 workdays</td><td>1100 g volume weight</td></tr></tbody></table></div>
+<p class="pp" id="estimator-open"><a href="https://hipobuy.com/estimation">Open de officiële HipoBuy-estimator</a> met bestemming Nederland voordat je internationaal porto betaalt. De tabel hierboven is een snapshot van 29 sep 2026, geen kassa. USD-cijfers: de officiële valutaswitch verandert soms alleen het teken, niet het getal.</p>
+<h2 class="ph" id="douane">Btw en douane — drie modi, alleen uitleg</h2>
+<p class="pp">Invoer volgt de geboekte lijn. Labels in de estimator:</p>
+<h3 class="ph">Tax free</h3>
+<p class="pp">Verkocht als zonder invoer voor de ontvanger. De douane mag nog controleren.</p>
+<h3 class="ph">Prepaid Duty</h3>
+<p class="pp">Je betaalt invoer bij het porto. Totaal vóór vertrek.</p>
+<h3 class="ph">Duties Payable by Recipient</h3>
+<p class="pp">Lagere lijstprijs omdat invoer ontbreekt. Last-mile kan innen plus behandelingsfee. Vergelijk alleen hetzelfde modus.</p>
+<p class="pp"><a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/douane">Belastingdienst Douane</a> · <a href="https://taxation-customs.ec.europa.eu/vat-e-commerce_en">IOSS</a>. HipoBuy heeft zelf een drempeltabel die het als internet-compilatie en slechts indicatief labelt — wij verzinnen daar geen eurobedragen bij. <strong>Geen onderwaardering.</strong></p>
+<h2 class="ph">Volumgewicht</h2>
+<p class="pp">35×25×10 cm = 8750 cm³ / 8000 ≈ 1,094 kg, op de meeste NL-luchtlijnen 1100&nbsp;g tegen 1000&nbsp;g echt. De rekenmachine hieronder doet alleen die som; de prijs staat in de officiële estimator.</p>
+
+<div class="vol" id="vol-calc" style="border:1px solid var(--g5,#e5e5e5);border-radius:16px;padding:16px 18px;margin:16px 0">
+  <strong>Volumgewicht berekenen (geen prijs)</strong>
+  <p class="pp">Alleen meetkunde. De prijs staat in de officiële estimator. De meeste NL-luchtlijnen delen door 8000; sommige EUB-SKU’s door 6000. Factuur = maximum, vaak afgerond op 100&nbsp;g.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px">
+    <label>Lengte cm<br><input id="vol-l" type="number" min="1" value="35" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>Breedte cm<br><input id="vol-w" type="number" min="1" value="25" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>Hoogte cm<br><input id="vol-h" type="number" min="1" value="10" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>Echt gewicht g<br><input id="vol-g" type="number" min="1" value="1000" style="width:100%;height:36px;padding:0 8px;border:1.5px solid #e5e5e5;border-radius:8px"></label>
+    <label>Deler<br>
+      <select id="vol-d" style="width:100%;height:36px;border:1.5px solid #e5e5e5;border-radius:8px">
+        <option value="8000" selected>/8000</option>
+        <option value="6000">/6000</option>
+        <option value="5000">/5000</option>
+      </select>
+    </label>
+  </div>
+  <p class="pp" id="vol-out" style="margin-top:12px;background:#F6FBF8;padding:12px 14px;border-radius:10px"></p>
+</div>
+<script>
+(function(){
+  function hipoVol(){
+    var L=+document.getElementById('vol-l').value||0;
+    var W=+document.getElementById('vol-w').value||0;
+    var H=+document.getElementById('vol-h').value||0;
+    var G=+document.getElementById('vol-g').value||0;
+    var D=+document.getElementById('vol-d').value||8000;
+    var vol=Math.round(L*W*H/D*1000);
+    var billed=Math.ceil(Math.max(G,vol)/100)*100;
+    var el=document.getElementById('vol-out');
+    if(el) el.innerHTML='Volumgewicht: <b>'+vol+' g</b> · Gefactureerd (max, 100 g): <b>'+billed+' g</b>. Volumgewicht berekenen (geen prijs) — not checkout.';
+  }
+  ['vol-l','vol-w','vol-h','vol-g','vol-d'].forEach(function(id){
+    var n=document.getElementById(id); if(n) n.addEventListener(id==='vol-d'?'change':'input', hipoVol);
+  });
+  hipoVol();
+})();
+</script>
+
+<h2 class="ph">Verpakking en bundelen</h2>
+<p class="pp">Een schoenendoos van ongeveer 33×22×12 cm is 8712 cm³ → 1089&nbsp;g volume → vaak 1100&nbsp;g. Zonder doos 30×20×12 = 7200 cm³ → 900&nbsp;g, alleen als volume nog wint van het echte gewicht. Gratis-met-limiet versus betaald (vacuüm, hoeken) staat in de app. Eenmaal ingepakt zijn materiaalkosten vaak niet terug.</p>
+<p class="pp">Bundelen spaart het startgewicht. Officiële statuspagina (eigen opname 30 sep 2026) noemt 90 dagen gratis opslag vanaf Stored. Items gemarkeerd voor individuele verzending bundel je niet. Vanaf ongeveer 10 kg oogt een doos commerciëler — uitleg, geen truc. PostNL of DHL moet op de live-SKU staan, niet alleen „goedkope lijn“.</p>
+<figure class="shot"><img src="/media/warehouse-qc-20260930.png" alt="Officiële Order Status Display, eigen opname 30 sep 2026. Stored = 90 dagen gratis opslag." loading="lazy"><figcaption>Officiële Order Status Display, eigen opname 30 sep 2026. Stored = 90 dagen gratis opslag.</figcaption></figure>
+<figure class="shot"><img src="/media/restricted-item-20260930.png" alt="Officiële Declaration of Prohibited Products, eigen opname 30 sep 2026. Tabak, alcohol, geneesmiddelen reizen niet." loading="lazy"><figcaption>Officiële Declaration of Prohibited Products, eigen opname 30 sep 2026. Tabak, alcohol, geneesmiddelen reizen niet.</figcaption></figure>
+<p class="pp"><figure class="shot"><img src="/media/estimator-20260930.png" alt="Officiële estimator, eigen opname 30 sep 2026. Bestemming Netherlands, niet EU." loading="lazy"><figcaption>Officiële estimator, eigen opname 30 sep 2026. Bestemming Netherlands, niet EU.</figcaption></figure></p>
+<p class="pp"><a href="/hulp/">Hulp</a> · <a href="/nieuws/">Nieuws</a> · <a href="/cdn-cgi/l/email-protection#9dfef3fbf9a5a8afaba4adaeafababacddfaf0fcf4f1b3fef2f0"><span class="__cf_email__" data-cfemail="15767b73712d2027232c252627232324557278747c793b767a78">[email&#160;protected]</span></a></p>
+
+<h2 class="ph" id="calculator">Geen USA-rekenmachine op deze desk</h2>
+<p class="pp">De oude sjabloon (DHL Express naar USA, ~$38 / 700 g) is van deze pagina gehaald. Prijs voor Nederland staat in de <a href="https://hipobuy.com/estimation">officiële HipoBuy-estimator</a> met bestemming Netherlands. De widget hierboven rekent alleen volumgewicht, geen porto. CMS-zus: <a href="/hipobuy-freight/">/hipobuy-freight/</a>.</p>
+<h2 class="ph" id="faq">FAQ</h2>
+<div itemscope itemtype="https://schema.org/FAQPage"><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" onkeydown="if(event.key==='Enter')toggleFaq(this)" itemprop="name">Hoeveel kost HipoBuy-verzending naar Nederland?
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+    <div itemprop="text">Snapshot 29 sep 2026, zelfde dag, 1000 g en 35×25×10 cm, Clothes / common goods: goedkoopste lijn NL AIR DHL-HIPO-EUCR1T ongeveer $34.20 (10–16 dagen, 1100 g volume). China Post SURFACE was goedkoper op die meetdag maar 60–90 werkdagen. Dit is geen kassa — open de officiële estimator met bestemming Netherlands na magazijnfoto’s.</div>
+  </div>
+</div>
+<div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" onkeydown="if(event.key==='Enter')toggleFaq(this)" itemprop="name">Waarom staat hier geen USA-rekenmachine?
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+    <div itemprop="text">Deze desk is Nederland. De oude sjabloon (DHL Express naar USA, ~$38 / 700 g, plus USA/UK/AU/CA-grid) hoort niet op dit host. Porto staat in de officiële estimator; de widget hierboven rekent alleen volumgewicht.</div>
+  </div>
+</div>
+<div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" onkeydown="if(event.key==='Enter')toggleFaq(this)" itemprop="name">Wat is volumgewicht?
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+    <div itemprop="text">De meeste NL-luchtlijnen factureren max(echt gewicht, L×B×H/8000), vaak afgerond op 100 g. 35×25×10 cm is 8750 cm³ → ongeveer 1094 g volume → vaak 1100 g. Sommige EUB-SKU’s delen door 6000. Alleen meetkunde; het geld staat in de officiële estimator.</div>
+  </div>
+</div>
+<div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" onkeydown="if(event.key==='Enter')toggleFaq(this)" itemprop="name">Wie betaalt invoer in Nederland?
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+    <div itemprop="text">Dat volgt de geboekte lijn: Tax free, Prepaid Duty of Duties Payable by Recipient. Douane mag controleren. Bron: Belastingdienst Douane. Deze pagina verzint geen eurobedragen en geen aangegeven waarde. Geen onderwaardering.</div>
+  </div>
+</div>
+<div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" onkeydown="if(event.key==='Enter')toggleFaq(this)" itemprop="name">Kan ik zendingen bundelen?
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+    <div itemprop="text">Ja. Officiële statuspagina (eigen opname 30 sep 2026) noemt 90 dagen gratis opslag vanaf Stored — bevestig die tekst in de app op de ochtend van verzenden. Items gemarkeerd voor individuele verzending bundel je niet. PostNL of DHL moet op de live-SKU staan.</div>
+  </div>
+</div>
+<div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" onkeydown="if(event.key==='Enter')toggleFaq(this)" itemprop="name">Waar klaag ik als iets misgaat?
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+    <div itemprop="text">Alleen op hipobuy.com. hipobuyspreadsheet.nl is een onafhankelijke infosite: we zien je account niet, we innen geen porto en we openen geen ticket. Bewaar het in-app-nummer.</div>
+  </div>
+</div></div>
+</main>
+<footer class="site-ft">
+  <div class="wrap ft-grid">
+    <div>
+      <h3>HipoBuy Spreadsheet</h3>
+      <p>Onafhankelijke Nederlandstalige gids over HipoBuy en hoe je de w2clinks-catalogus gebruikt om vanuit Nederland in China te kopen.</p>
+      <p><a href="/cdn-cgi/l/email-protection#22414c44461a1710141b12111014141362454f434b4e0c414d4f"><span class="__cf_email__" data-cfemail="dfbcb1b9bbe7eaede9e6efecede9e9ee9fb8b2beb6b3f1bcb0b2">[email&#160;protected]</span></a></p>
+    </div>
+    <div>
+      <h3>Onderdelen</h3>
+      <ul><li><a href="/how-to-use-hipobuy/">HipoBuy-handleiding</a></li><li><a href="/catalogus/">Spreadsheet en categorieën</a></li><li><a href="/hipobuy-freight/">Verzending en douane</a></li><li><a href="/hulp/">Hulp en vragen</a></li><li><a href="/nieuws/">Nieuws</a></li><li><a href="/over-ons/">Over ons</a></li></ul>
+    </div>
+    <div>
+      <h3>Officiële links</h3>
+      <ul><li><a href="https://hipobuy.com?utm_source=hipobuyspreadsheet.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">HipoBuy (officiële site)</a></li><li><a href="https://hipobuy.com/login?utm_source=hipobuyspreadsheet.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">HipoBuy-account</a></li><li><a href="https://hipobuy.com/estimation?utm_source=hipobuyspreadsheet.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Officiële schatter (6 Oct 2026)</a></li></ul>
+    </div>
+    <div class="legal">
+      <p><strong>Onafhankelijkheidsnotitie.</strong> HipoBuy Spreadsheet is een onafhankelijke infosite. Wij zijn HipoBuy niet, we verwerken geen bestellingen, we innen geen porto en we zien je account niet. Elke bestelling, betaling en klacht loopt via de officiële site.</p>
+      <p>&copy; 2026 HipoBuy Spreadsheet. Nederlandse tekst, nagelezen voor publicatie.</p>
+    </div>
+  </div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function(){
+  var b=document.querySelector('.burger'), n=document.querySelector('nav.nav');
+  if(!b||!n) return;
+  b.addEventListener('click', function(){
+    var on=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', on?'false':'true');
+    n.classList.toggle('open', !on);
+  });
+})();
+</script>
+
+<script>
+function toggleFaq(el){
+  var i=el.closest('.faq-item'), w=i.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(x){x.classList.remove('open');});
+  if(!w) i.classList.add('open');
+}
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"929b089e9af94c578c60d725a652bacd","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body></html>
