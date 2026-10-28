@@ -1,7 +1,7 @@
 {
   "brand": "FansBuy",
   "host": "fansbuysheets.net",
-  "last_verified": "2026-10-27",
+  "last_verified": "2026-10-28",
   "platform_opt": "fansbuy-platform-20261026",
   "verify_on": "fansbuy.com / in-app wallet — confirm before pay",
   "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
@@ -20,7 +20,7 @@
         "This sheets host is not checkout"
       ],
       "source": "https://fansbuysheets.net/fansbuy-coupons/",
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     },
     {
       "id": "fans26-shipping-26pct",
@@ -37,8 +37,9 @@
         "Stacking rules official-only"
       ],
       "source": "https://fansbuysheets.net/fansbuy-coupons/",
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-28"
     }
   ],
-  "weekly_refresh": "ahub-dataset-refresh-20261027"
+  "weekly_refresh": "ahub-dataset-refresh-20261027",
+  "hub_reclaim": "fansbuy-hub-reclaim-20261028"
 }
