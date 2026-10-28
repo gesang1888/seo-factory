@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "MyCNBox",
   "host": "mycnbox.eu",
-  "last_verified": "2026-10-26",
-  "generated_at": "2026-10-26T17:12:52Z",
+  "last_verified": "2026-10-28",
+  "generated_at": "2026-10-28T03:40:00Z",
   "row_count": 11365,
   "row_count_display": "11,300+",
   "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
@@ -13,9 +13,9 @@
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Brand spreadsheet SERP owns the homepage Independent Index.",
+  "anti_sheet_note": "Public, citable row counts + dated category proofs — not another opaque Google Sheet dump. Hub reclaim vs mycnbox.net / mycnboxsheet.org; brand spreadsheet SERP owns mycnbox.eu Independent Index.",
   "platform_opt": "mycnbox-platform-20261026",
-  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-26",
+  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-28",
   "endpoints": {
     "html": "https://mycnbox.eu/finds-dataset/",
     "json": "https://mycnbox.eu/data/finds-dataset.json",
@@ -42,21 +42,70 @@
       "title": "Essential ballet-pink soft luggage (sample hit)",
       "category": "HOODIE",
       "price_cny": "668",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-28"
     },
     {
-      "sku": "mycnbox-shoes-sheet",
-      "title": "Ranked shoes spreadsheet rows",
+      "sku": "wd_7868694396",
+      "title": "Mizuno LG 60S Sneakers",
       "category": "sneakers",
-      "hub_path": "/mycnbox-shoes-spreadsheet/",
-      "last_verified": "2026-10-26"
+      "price_cny": "150",
+      "last_verified": "2026-10-28"
     },
     {
-      "sku": "mycnbox-spreadsheet",
-      "title": "Ranked EU W2C spreadsheet catalog",
-      "category": "catalog",
-      "hub_path": "/mycnbox-spreadsheet/",
-      "last_verified": "2026-10-26"
+      "sku": "wd_7865684209",
+      "title": "E-Superstar White Low Top Sneakers",
+      "category": "sneakers",
+      "price_cny": "208",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7868725620",
+      "title": "Danner Trail 2650 Hiking Shoes",
+      "category": "sneakers",
+      "price_cny": "310",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7865474747",
+      "title": "Huntington Tong Suede Low Top Sneakers",
+      "category": "sneakers",
+      "price_cny": "410",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7868680536",
+      "title": "PAI PAI Boom Sneakers White/Yellow/Gold",
+      "category": "sneakers",
+      "price_cny": "200",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7865660451",
+      "title": "Louis Vuitton Baseball Caps",
+      "category": "HAT",
+      "price_cny": "58",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7855051203",
+      "title": "Louis Vuitton Cœur Battant Eau de Parfum 100ml",
+      "category": "accessories",
+      "price_cny": "140",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7868646724",
+      "title": "Supernova Rise Running Shoes",
+      "category": "sneakers",
+      "price_cny": "199",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7868611396",
+      "title": "Ralph Lauren Grey Hoodie Sweatshirt",
+      "category": "T-SHIRT",
+      "price_cny": "178",
+      "last_verified": "2026-10-28"
     }
   ],
   "category_proofs": [
@@ -77,5 +126,6 @@
       "hub_path": "/mycnbox-coupons/"
     }
   ],
-  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes."
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
+  "hub_reclaim": "mycnbox-hub-reclaim-20261028"
 }
