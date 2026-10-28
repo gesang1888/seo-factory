@@ -1,40 +1,153 @@
 {
+  "schema": "seo-factory.finds-dataset.v1",
   "brand": "BBDBuy",
   "host": "bbdbuyeu.net",
-  "platform_opt": "bbdbuy-platform-20261026",
-  "last_verified": "2026-10-26",
-  "row_count": 10000,
-  "row_count_note": "Marketing floor from hub copy; refresh from catalog export when available",
-  "update_cadence": "Daily adds / weekly link hygiene",
+  "last_verified": "2026-10-28",
+  "generated_at": "2026-10-28T00:51:00Z",
+  "row_count": 11365,
+  "row_count_display": "11,300+",
+  "row_count_note": "API /api/products/ total=11365 and w2clinks Typesense agent:bbdbuy found=11365 on 2026-10-28; display floor 11,300+",
+  "update_cadence": "Daily adds / weekly link hygiene; public dataset stamp reviewed at least weekly",
+  "update_frequency": "Catalog refresh continuous; public dataset stamp reviewed at least weekly.",
   "sources": [
     "Taobao",
     "1688",
     "Weidian"
   ],
-  "sample_skus": [
-    {
-      "id": "bbd-sample-sneaker",
-      "title": "Sample sneaker QC card",
-      "qc_photo": true,
-      "last_verified": "2026-10-26"
-    },
-    {
-      "id": "bbd-sample-hoodie",
-      "title": "Sample hoodie QC card",
-      "qc_photo": true,
-      "last_verified": "2026-10-26"
-    },
-    {
-      "id": "bbd-sample-bag",
-      "title": "Sample bag QC card",
-      "qc_photo": false,
-      "last_verified": "2026-10-26"
-    }
-  ],
+  "anti_sheet_note": "Public, citable row counts + dated category proofs — not another opaque Google Sheet dump. Brand spreadsheet SERP reclaim targets /bbdbuyeu-spreadsheet/ + Independent Index on bbdbuyeu.net.",
+  "platform_opt": "bbdbuy-hub-reclaim-20261028",
+  "hub_reclaim": "bbdbuy-hub-reclaim-20261028",
+  "measurement": "bbdbuyeu.net/api/products/?page=1&per_page=1 total=11365; w2clinks.com/public/typesense-search.php filter agent:bbdbuy found=11365 on 2026-10-28",
+  "endpoints": {
+    "html": "https://bbdbuyeu.net/finds-dataset/",
+    "json": "https://bbdbuyeu.net/data/finds-dataset.json",
+    "coupons_truth": "https://bbdbuyeu.net/data/coupons-truth.json",
+    "catalog": "https://w2clinks.com/spreadsheet/bbdbuy/",
+    "ranked_spreadsheet": "https://bbdbuyeu.net/bbdbuyeu-spreadsheet/"
+  },
   "country_desks": {
     "it": "https://bbdbuy.it/",
     "ca": "https://bbdbuy.ca/",
     "uk": "https://bbdbuy.uk/",
     "us": "https://bbdbuy.us/"
-  }
+  },
+  "keep_desks": [
+    "bbdbuy.it",
+    "bbdbuy.ca",
+    "bbdbuy.uk",
+    "bbdbuy.us"
+  ],
+  "twins_301": {
+    "bbdbuyeuspreadsheet.com": "bbdbuyeu.net",
+    "bbdbuyspreadsheet.de": "bbdbuyeu.net",
+    "bbdbuyspreadsheet.ca": "bbdbuy.ca",
+    "bbdbuyspreadsheet.uk": "bbdbuy.uk",
+    "bbdbuyspreadsheet.us": "bbdbuy.us"
+  },
+  "sample_skus": [
+    {
+      "id": "wd_7869511728",
+      "sku": "wd_7869511728",
+      "title": "日默家Essential芭蕾粉柔光登机箱",
+      "category": "hoodie",
+      "price_cny": 668,
+      "qc_photo": true,
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "bbd-sample-sneaker",
+      "sku": "bbd-cat-sneaker",
+      "title": "Category sample — sneakers / shoes",
+      "category": "sneakers",
+      "qc_photo": true,
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "bbd-sample-hoodie",
+      "sku": "bbd-cat-hoodie",
+      "title": "Category sample — hoodie",
+      "category": "hoodie",
+      "qc_photo": true,
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "bbd-sample-tee",
+      "sku": "bbd-cat-tee",
+      "title": "Category sample — t-shirt",
+      "category": "t-shirt",
+      "qc_photo": true,
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "bbd-sample-bag",
+      "sku": "bbd-cat-bag",
+      "title": "Category sample — bag",
+      "category": "bag",
+      "qc_photo": false,
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "bbd-sample-hat",
+      "sku": "bbd-cat-hat",
+      "title": "Category sample — hat / headwear",
+      "category": "hat",
+      "qc_photo": true,
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "bbd-sample-jacket",
+      "sku": "bbd-cat-jacket",
+      "title": "Category sample — jacket / coat",
+      "category": "jacket",
+      "qc_photo": true,
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "bbd-sample-pants",
+      "sku": "bbd-cat-pants",
+      "title": "Category sample — trousers / pants",
+      "category": "pants",
+      "qc_photo": false,
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "bbd-sample-jersey",
+      "sku": "bbd-cat-jersey",
+      "title": "Category sample — sports jersey",
+      "category": "jersey",
+      "qc_photo": true,
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "bbd-sample-electronics",
+      "sku": "bbd-cat-electronics",
+      "title": "Category sample — electronics",
+      "category": "electronics",
+      "qc_photo": false,
+      "last_verified": "2026-10-28"
+    }
+  ],
+  "category_proofs": [
+    {
+      "key": "catalog",
+      "path": "/bbdbuyeu-spreadsheet/",
+      "note": "Hub reclaim money URL"
+    },
+    {
+      "key": "coupons",
+      "path": "/bbdbuyeu-coupons/",
+      "note": "BBD5OFF + 1QodRw truth"
+    },
+    {
+      "key": "dataset",
+      "path": "/finds-dataset/",
+      "note": "Public row_count stamp"
+    },
+    {
+      "key": "home",
+      "path": "/",
+      "note": "Independent Index hero"
+    }
+  ],
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes."
 }
