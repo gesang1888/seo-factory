@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "MuleBuy",
   "host": "bestmulebuysheets.com",
-  "last_verified": "2026-10-26",
-  "generated_at": "2026-10-26T18:40:00Z",
+  "last_verified": "2026-10-28",
+  "generated_at": "2026-10-28T05:30:00Z",
   "row_count": 8000,
   "row_count_display": "8,000+",
   "update_frequency": "w2clinks catalog refresh continuous; public dataset stamp reviewed at least weekly.",
@@ -13,7 +13,7 @@
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Brand spreadsheet SERP owns the homepage Independent Index.",
+  "anti_sheet_note": "Public, citable row counts + dated category proofs — not another opaque Google Sheet dump. Brand spreadsheet SERP owns the homepage Independent Index.",
   "platform_opt": "mulebuy-platform-20261026",
   "measurement": "Hub-published Independent Index claim 8,000+ across 33 categories on bestmulebuysheets.com / w2clinks.com/spreadsheet/mulebuy/ (2026-10-26). Typesense unfiltered found=11365 is NOT claimed as MuleBuy-only.",
   "endpoints": {
@@ -36,31 +36,62 @@
       "sku": "cat_sneakers",
       "title": "Sneakers category wall",
       "category": "SNEAKERS",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "cat_hoodie",
       "title": "Hoodie category entry",
       "category": "HOODIE",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "cat_jacket",
       "title": "Jacket category entry",
       "category": "JACKET",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "cat_tshirt",
       "title": "T-Shirt category entry",
       "category": "T-SHIRT",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-28"
     },
     {
       "sku": "cat_bag",
       "title": "Bag category entry",
       "category": "BAG",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "cat_pants",
+      "title": "Pants category entry",
+      "category": "PANTS",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "cat_shorts",
+      "title": "Shorts category entry",
+      "category": "SHORTS",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "cat_jersey",
+      "title": "Jersey category entry",
+      "category": "Jersey",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "cat_shoes",
+      "title": "Shoes category entry",
+      "category": "SHOES",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "cat_watch",
+      "title": "Watch category entry",
+      "category": "WATCH",
+      "last_verified": "2026-10-28"
     }
-  ]
+  ],
+  "hub_reclaim": "mulebuy-hub-reclaim-20261028"
 }

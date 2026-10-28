@@ -1,9 +1,9 @@
 {
   "brand": "MuleBuy",
   "host": "bestmulebuysheets.com",
-  "last_verified": "2026-10-26",
+  "last_verified": "2026-10-28",
   "platform_opt": "mulebuy-platform-20261026",
-  "verify_on": "mulebuy.com / in-app wallet \u2014 confirm before pay",
+  "verify_on": "mulebuy.com / in-app wallet — confirm before pay",
   "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
   "serp_note": "Country desk mulebuy.fr carries brand clicks (mulebuy / mulebuy france); brand spreadsheet + coupon citation should consolidate on bestmulebuysheets.com Independent Index.",
   "offers": [
@@ -12,28 +12,29 @@
       "type": "invite_ref",
       "label": "Partner signup 200345875",
       "code": "200345875",
-      "value_claim": "Partner / invite path \u2014 wallet gifts vary; confirm_live after register",
+      "value_claim": "Partner / invite path — wallet gifts vary; confirm_live after register",
       "status": "confirm_live",
       "expires_on": null,
-      "expires_note": "No fixed expiry promised by this desk \u2014 re-confirm in-app the morning you pay",
+      "expires_note": "No fixed expiry promised by this desk — re-confirm in-app the morning you pay",
       "applies_to": "MuleBuy register / referral field",
       "exclusions": [
         "This hub is not checkout",
         "Stacking rules official-only"
       ],
       "source": "https://bestmulebuysheets.com/mulebuy-coupons/",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-28"
     },
     {
       "id": "mulebuy-spb618-archive",
       "type": "coupon_code",
       "label": "Archive shipping SPB618",
       "code": "SPB618",
-      "value_claim": "Historical ~10% intl shipping (Jun 18\u201320 window) \u2014 confirm_live if still in wallet",
+      "value_claim": "Historical ~10% intl shipping (Jun 18–20 window) — confirm_live if still in wallet",
       "status": "historical",
       "expires_on": "2026-06-20",
       "source": "https://bestmulebuysheets.com/mulebuy-coupons/",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-28"
     }
-  ]
+  ],
+  "hub_reclaim": "mulebuy-hub-reclaim-20261028"
 }
