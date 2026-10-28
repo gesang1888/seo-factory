@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "CSSBuy",
   "host": "cssbuyspreadsheet.eu",
-  "last_verified": "2026-10-26",
-  "generated_at": "2026-10-26T17:39:39Z",
+  "last_verified": "2026-10-28",
+  "generated_at": "2026-10-28T02:40:00Z",
   "row_count": 11365,
   "row_count_display": "11,300+",
   "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
@@ -13,15 +13,17 @@
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump.",
+  "anti_sheet_note": "Public, citable row counts + dated category proofs — not another opaque Google Sheet dump. Hub reclaim vs W2C / JadeShip / Reddit.",
   "platform_opt": "cssbuy-platform-20261026",
-  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-26",
+  "hub_reclaim": "cssbuy-hub-reclaim-20261028",
+  "measurement": "w2clinks.com/public/typesense-search.php agent=cssbuy found=11365 on 2026-10-28",
   "endpoints": {
     "html": "https://cssbuyspreadsheet.eu/finds-dataset/",
     "json": "https://cssbuyspreadsheet.eu/data/finds-dataset.json",
     "coupons_truth": "https://cssbuyspreadsheet.eu/data/coupons-truth.json",
     "catalog": "https://w2clinks.com/spreadsheet/cssbuy/",
-    "ranked_spreadsheet": "https://cssbuyspreadsheet.eu/spreadsheet/"
+    "ranked_spreadsheet": "https://cssbuyspreadsheet.eu/spreadsheet/",
+    "open_directory": "https://w2clinks.com/spreadsheet/cssbuy/"
   },
   "keep_desks": [
     "cssbuy.es",
@@ -36,7 +38,10 @@
     "cssbuyspreadsheet.it": "cssbuy.it",
     "cssbuyspreadsheet.fr": "cssbuy.fr",
     "cssbuyspreadsheets.de": "cssbuyspreadsheet.eu",
-    "cssbuyspreadsheets.us": "cssbuyspreadsheet.eu"
+    "cssbuyspreadsheets.us": "cssbuyspreadsheet.eu",
+    "cssbuy.at": "cssbuyspreadsheet.eu",
+    "cssbuyspreadsheet.ca": "cssbuyspreadsheet.eu",
+    "cssbuyspreadsheet.uk": "cssbuyspreadsheet.eu"
   },
   "sample_skus": [
     {
@@ -44,31 +49,97 @@
       "title": "Essential ballet-pink soft luggage (sample hit)",
       "category": "HOODIE",
       "price_cny": "668",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-28"
     },
     {
-      "sku": "cssbuy-spreadsheet",
-      "title": "Ranked EU W2C spreadsheet catalog",
-      "category": "catalog",
-      "hub_path": "/spreadsheet/",
-      "last_verified": "2026-10-26"
+      "sku": "wd_7868694396",
+      "title": "Mizuno LG 60S Sneakers",
+      "category": "SNEAKERS",
+      "price_cny": "150",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7865684209",
+      "title": "E-Superstar White Low Top Sneakers",
+      "category": "SNEAKERS",
+      "price_cny": "208",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7868725620",
+      "title": "Danner Trail 2650 Hiking Shoes",
+      "category": "SHOES",
+      "price_cny": "310",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7865474747",
+      "title": "Huntington Tong Suede Low Top Sneakers",
+      "category": "SNEAKERS",
+      "price_cny": "410",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7868680536",
+      "title": "PAI PAI Boom Sneakers White/Yellow/Gold",
+      "category": "SNEAKERS",
+      "price_cny": "200",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7865660451",
+      "title": "Louis Vuitton Baseball Caps",
+      "category": "HAT",
+      "price_cny": "58",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7855051203",
+      "title": "Louis Vuitton Cœur Battant Eau de Parfum 100ml",
+      "category": "ACCESSORIES",
+      "price_cny": "140",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7868646724",
+      "title": "Supernova Rise Running Shoes",
+      "category": "SHOES",
+      "price_cny": "199",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "sku": "wd_7868611396",
+      "title": "Ralph Lauren Grey Hoodie Sweatshirt",
+      "category": "T-SHIRT",
+      "price_cny": "178",
+      "last_verified": "2026-10-28"
     }
   ],
   "category_proofs": [
     {
       "category": "sneakers",
-      "note": "Typesense shoes sample + /spreadsheet/",
-      "last_verified": "2026-10-26"
+      "note": "Typesense shoes sample + /spreadsheet/ Open directory",
+      "last_verified": "2026-10-28"
     },
     {
       "category": "hoodie",
-      "note": "w2clinks wall + sample SKU",
-      "last_verified": "2026-10-26"
+      "note": "w2clinks wall + sample SKU wd_7869511728",
+      "last_verified": "2026-10-28"
     },
     {
       "category": "jacket",
       "note": "Homepage category wall",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-28"
+    },
+    {
+      "category": "coupons",
+      "note": "/cssbuy-coupons/ + coupons-truth.json invite 1Yi9",
+      "last_verified": "2026-10-28"
     }
+  ],
+  "serp_competitors_named_not_operated": [
+    "w2cspreadsheet.com",
+    "jadeship.com",
+    "reddit.com/r/cssbuy"
   ]
 }
