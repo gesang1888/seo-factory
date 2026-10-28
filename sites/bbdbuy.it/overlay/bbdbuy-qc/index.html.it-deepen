@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QC BBDBuy Italia — Poste Italiane, ADM, CAP | BBDBuy.it</title>
+<meta name="description" content="Guida QC BBDBuy per l’Italia: foto di magazzino, criteri go/no-go, re-QC e differenza rispetto alle miniature del catalogo. Intent locale su bbdbuy.it.">
+<link rel="canonical" href="https://bbdbuy.it/bbdbuy-qc/">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="QC BBDBuy Italia — Poste Italiane, ADM, CAP">
+<meta property="og:description" content="Procedura QC citabile per ordini BBDBuy verso l’Italia. Meglio un re-QC che una spedizione sbagliata.">
+<meta property="og:url" content="https://bbdbuy.it/bbdbuy-qc/">
+<meta property="article:modified_time" content="2026-10-28">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Posso spedire senza accettare il QC?","acceptedAnswer":{"@type":"Answer","text":"Sconsigliato. Il rischio doganale e di reso internazionale è tuo."}},{"@type":"Question","name":"Il QC è sulle card di bbdbuy.it?","acceptedAnswer":{"@type":"Answer","text":"No. Il QC vincolante è nel pannello BBDBuy per lo SKU pagato."}}]}</script>
+<style>
+:root{--acc:#F0700C;--ink:#0f172a;--mute:#475569;--line:#e2e8f0;--bg:#f8fafc}
+*{box-sizing:border-box}body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#fff;line-height:1.7}
+.top{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:5}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top .wrap{display:flex;gap:16px;align-items:center;min-height:56px;flex-wrap:wrap}
+.brand{font-weight:700;text-decoration:none;color:var(--ink);font-family:system-ui,sans-serif;font-size:15px}
+.nav a{margin-left:12px;text-decoration:none;color:var(--mute);font-family:system-ui,sans-serif;font-size:14px}
+.hero{padding:40px 0 12px;background:linear-gradient(180deg,#fff7ed 0%,#fff 70%)}
+.eyebrow{font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);font-weight:700}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.2;margin:10px 0}
+.lead{font-size:18px;color:var(--mute)}
+.updated{font-family:system-ui,sans-serif;font-size:13px;color:var(--mute)}
+article{padding:8px 0 48px}
+article h2{font-size:24px;margin:1.6em 0 .5em}
+article ul,article ol{padding-left:1.2em}
+.box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:1.2em 0}
+.faq details{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:.6em 0}
+.faq summary{cursor:pointer;font-weight:700;font-family:system-ui,sans-serif}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-size:14px;font-family:system-ui,sans-serif}
+a{color:var(--acc)}
+.hub{margin-top:1em;padding:12px 14px;border-left:3px solid #0f766e;background:#f0fdfa;color:#134e4a}
+</style>
+<style id="it-deepen-20261028">.hub-uplink{margin:14px 0 0;padding:12px 14px;border-left:3px solid #0f766e;background:#f0fdfa;color:#134e4a;line-height:1.6;font-size:15px;max-width:760px}}.hub-uplink a{{color:#0f766e;font-weight:600}}#local{scroll-margin-top:88px}.local-box{margin:1.25em 0;padding:14px 16px;border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc}</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/">BBDBuy Italia</a><nav class="nav"><a href="/">Home</a><a href="/bbdbuy-coupons/">Coupon</a><a href="/bbdbuy-shipping/">Spedizione</a><a href="/is-bbdbuy-legit/">Affidabile?</a><a href="https://bbdbuyeu.net/">Hub spreadsheet</a></nav></div></header>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">bbdbuy.it · QC · Poste / ADM / CAP · aggiornato 2026-10-28</div>
+<h1>QC BBDBuy: regole go/no-go</h1>
+<p class="lead">Asset citabile sul quality check: meglio un re-QC che una spedizione verso l’Italia su un pezzo sbagliato.</p>
+<p class="updated">Aggiornato 2026-10-28 · desk IT deepen · data-it-deepen=20261028</p>
+</div>
+<p class="hub-uplink" data-it-deepen="20261028" data-step4-hub="1">Brand spreadsheet / coupons / dataset → <a href="https://bbdbuyeu.net/">bbdbuyeu.net</a> · <a href="https://bbdbuyeu.net/bbdbuyeu-coupons/">coupons</a> · <a href="https://bbdbuyeu.net/finds-dataset/">dataset</a> · <a href="https://bbdbuyeu.net/bbdbuyeu-spreadsheet/">spreadsheet</a> (Independent Index · 10,000+). Questa URL = desk Italia (Poste Italiane / ADM / CAP a cinque cifre / IVA).</p>
+</section>
+<article class="wrap">
+
+<section id="local" class="local-box" data-it-fingerprint="qc-poste-adm-cap" data-it-deepen="20261028">
+<h2>Fingerprint Italia prima del QC</h2>
+<ol>
+<li><strong>Destinazione</strong> — stima su <strong>Italia</strong>, non «EU» generica.</li>
+<li><strong>Indirizzo</strong> — via italiana + <strong>CAP a cinque cifre</strong> (es. <code>20121</code> Milano).</li>
+<li><strong>Last mile</strong> — spesso <strong>Poste Italiane</strong>; il desk non inventa il punto di ritiro.</li>
+<li><strong>Dogana / IVA</strong> — SKU + linea decidono. Fonte mattutina: <a href="https://www.adm.gov.it/portale/" rel="noopener" target="_blank">ADM (Agenzia delle Dogane e dei Monopoli)</a>.</li>
+</ol>
+<p>Spedizione: <a href="/bbdbuy-shipping/">spedire in Italia</a> · Spreadsheet brand: <a href="https://bbdbuyeu.net/">bbdbuyeu.net</a>.</p>
+</section>
+
+<p>Il QC è il passaggio foto in magazzino dopo l’acquisto e prima del corriere internazionale. Su query <em>qc bbdbuy</em> / <em>bbdbuy qc</em> questa pagina risponde con una procedura — non con «articolo sostituito».</p>
+<h2>Rifiuta se vedi</h2>
+<ul>
+<li>Macchie di colla, asimmetrie evidenti, taglia/etichetta non coerente, colore diverso dal listing.</li>
+<li>Foto sfocate o incomplete — chiedi re-QC.</li>
+<li>Non chiudere il pacco «per risparmiare storage» su un reject.</li>
+</ul>
+
+<h2 id="poste-adm-qc">Poste Italiane, ADM e CAP prima di accettare</h2>
+<p>Il QC in magazzino serve a evitare un cartone verso un <strong>CAP italiano</strong> con pezzo sbagliato. Last mile tipico: <strong>Poste Italiane</strong>. Rischio doganale/IVA: <strong>ADM</strong> — un re-QC costa meno di un reso dall’Italia. Brand spreadsheet / dataset restano su <a href="https://bbdbuyeu.net/">bbdbuyeu.net</a>; qui solo procedura locale.</p>
+<p>Checklist rapida: foto nitide di etichetta/taglia/colore → confronta listing → se dubbio chiedi re-QC → solo dopo chiudi verso Poste. Coupon Italia: <a href="/bbdbuy-coupons/">checklist coupon</a>.</p>
+
+<h2>Catalogo locale vs QC ufficiale</h2>
+<p>Le card su bbdbuy.it aiutano la ricerca; il QC vincolante è quello nel pannello BBDBuy per lo SKU pagato. Lo spreadsheet / dataset / coupons brand restano su <a href="https://bbdbuyeu.net/">bbdbuyeu.net</a> · <a href="https://bbdbuyeu.net/finds-dataset/">dataset</a> · <a href="https://bbdbuyeu.net/bbdbuyeu-spreadsheet/">spreadsheet</a>.</p>
+<section class="faq"><h2>FAQ</h2>
+<details open><summary>Posso spedire senza accettare il QC?</summary><p>Sconsigliato. Il rischio doganale e di reso internazionale è tuo.</p></details>
+<details><summary>Serve un re-QC prima di Poste Italiane?</summary><p>Se i dettagli non sono leggibili, sì. Un re-QC in magazzino costa meno di un reso dall’Italia.</p></details>
+</section>
+</article>
+<footer><div class="wrap"><p>© 2026 BBDBuy Italia · desk informativo indipendente.</p></div></footer>
+</body></html>
