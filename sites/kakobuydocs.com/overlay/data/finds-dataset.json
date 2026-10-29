@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "Kakobuy",
   "host": "kakobuydocs.com",
-  "last_verified": "2026-10-27",
-  "generated_at": "2026-10-27T12:10:00Z",
+  "last_verified": "2026-10-29",
+  "generated_at": "2026-10-29T12:40:00Z",
   "row_count": 11365,
   "row_count_display": "11,300+",
   "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
@@ -13,9 +13,9 @@
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated category proofs — not another opaque Google Sheet dump. Brand spreadsheet SERP reclaim targets /kakobuy-spreadsheet/ + Independent Index on kakobuydocs.com.",
-  "platform_opt": "kakobuy-hub-reclaim-20261027",
-  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-27",
+  "anti_sheet_note": "Public, citable row counts + dated category proofs (2026). Brand spreadsheet SERP targets /kakobuy-spreadsheet/ + Independent Index on kakobuydocs.com (stamp 2026-10-29).",
+  "platform_opt": "kakobuy-hub-keep-live-20261029",
+  "measurement": "w2clinks.com/public/typesense-search.php found=11365 on 2026-10-29",
   "endpoints": {
     "html": "https://kakobuydocs.com/finds-dataset/",
     "json": "https://kakobuydocs.com/data/finds-dataset.json",
