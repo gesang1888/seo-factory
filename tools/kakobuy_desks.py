@@ -178,13 +178,13 @@ HOME_META = {
     },
     "es": {
         "title": "Comprar en China y enviar a España con Kakobuy",
-        "desc": "Desk ES independiente. Catálogo en esta portada. /envio-kakobuy-espana/ se conserva. Lab 1 oct 2026. No copiamos un recuento de líneas ajeno.",
+        "desc": "Guía independiente para España. Catálogo en esta portada. /envio-kakobuy-espana/ se conserva. No copiamos un recuento de líneas ajeno.",
         "h1": "Enviar de China a <em>España</em> con Kakobuy",
         "hsub": "El artículo de envío sigue en /envio-kakobuy-espana/. Esta portada es el catálogo. No copiamos un recuento de líneas de otro agente.",
     },
     "fr": {
         "title": "Acheter en Chine et envoyer en France avec Kakobuy",
-        "desc": "Desk FR indépendant : catalogue sur cette accueil. Destination France dans l’estimateur. Pas la Belgique. Lab 1 oct. 2026.",
+        "desc": "Guide indépendant FR : catalogue sur cette accueil. Destination France dans l’estimateur. Pas la Belgique.",
         "h1": "Envoyer de Chine en <em>France</em> avec Kakobuy",
         "hsub": "Les articles /livraison-kakobuy/ et /kakobuy-france/ restent. La destination dans l’estimateur est la France, pas la Belgique.",
     },
@@ -865,7 +865,7 @@ def _help_meta(key: str, d: dict) -> dict:
     if key == "es":
         return {
             "title": "Ayuda: quince preguntas sobre Kakobuy en España",
-            "desc": "Desk ES independiente: catálogo en inglés, almacén según Help oficial, estimador con destino España. Lab 1 oct 2026.",
+            "desc": "Guía independiente para España: catálogo en inglés, almacén según Help oficial, estimador con destino España.",
             "h1": "Ayuda y preguntas frecuentes sobre Kakobuy en <em>español</em>",
             "lead": "Esta página vale para una calle española en este host. Pedidos solo en kakobuy.com.",
             "h2": "Las quince preguntas que más se repiten",
@@ -875,7 +875,7 @@ def _help_meta(key: str, d: dict) -> dict:
     if key == "fr":
         return {
             "title": "Aide : quinze questions sur Kakobuy en France",
-            "desc": "Desk FR indépendant : catalogue anglais, estimateur vers la France. Lab 1 oct. 2026. Pas la Belgique.",
+            "desc": "Guide indépendant FR : catalogue anglais, estimateur vers la France. Pas la Belgique.",
             "h1": "Aide et questions fréquentes sur Kakobuy en <em>France</em>",
             "lead": "Cette page vaut pour une adresse en France. Commandes seulement sur kakobuy.com.",
             "h2": "Les quinze questions qui reviennent",
@@ -919,7 +919,7 @@ def _news_meta(key: str, d: dict) -> dict:
     if key == "es":
         return {
             "title": "Novedades: lo que hemos comprobado en Kakobuy para España",
-            "desc": "Notas con fecha de este desk ES. No copiamos un recuento de líneas ajeno. Lab 1 oct 2026.",
+            "desc": "Notas con fecha para España. No copiamos un recuento de líneas ajeno.",
             "h1": "Qué hemos comprobado en la plataforma, <em>con fecha</em>",
             "lead": "Cada bloque es una medición de este host, no un recorte de hipobuy.es.",
             "how_h": "Cómo comprobamos las cosas",
@@ -928,7 +928,7 @@ def _news_meta(key: str, d: dict) -> dict:
     if key == "fr":
         return {
             "title": "Actualités : ce que nous avons vérifié sur Kakobuy pour la France",
-            "desc": "Notes datées du desk FR. Destination France, pas la Belgique. Lab 1 oct. 2026.",
+            "desc": "Notes datées pour la France. Destination France, pas la Belgique.",
             "h1": "Ce que nous avons vérifié sur la plateforme, <em>avec date</em>",
             "lead": "Chaque bloc est une mesure sur ce host.",
             "how_h": "Comment on vérifie",

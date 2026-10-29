@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es-ES">
 <head>
+<!-- kakobuy-ops-scrub-20261029 -->
 <!-- kakobuy-es-disclaimer-rm-20261029 -->
 <!-- kakobuy-es-us-gap-20261029 -->
 <meta charset="utf-8">
@@ -30,7 +31,7 @@
 
 <script>window.KAKOBUY_CATALOG={"affcode":"yze69","currency":"EUR","cnyPerEur":7.7762,"api":"/api/products.php","categories":[{"id":"SNEAKERS","label":"Zapatillas"},{"id":"SLIPPERS","label":"Zapatillas de casa"},{"id":"T-SHIRT","label":"Camisetas"},{"id":"POLO","label":"Polos"},{"id":"SHIRT","label":"Camisas"},{"id":"LONG SLEEVED","label":"Manga larga"},{"id":"HOODIE","label":"Sudaderas"},{"id":"SWEATER","label":"Jerseys"},{"id":"SHAWL","label":"Chales"},{"id":"JACKET","label":"Chaquetas"},{"id":"SHELL JACKET","label":"Chaquetas técnicas"},{"id":"FLEECE JACKET","label":"Forros polares"},{"id":"DOWN JACKETS","label":"Plumíferos"},{"id":"VEST","label":"Chalecos"},{"id":"TROUSERS","label":"Pantalones"},{"id":"SHORTS","label":"Shorts"},{"id":"Jersey","label":"Camisetas de equipo"},{"id":"BAG","label":"Bolsos"},{"id":"HAT","label":"Gorras"},{"id":"GLOVES","label":"Guantes"},{"id":"BELT","label":"Cinturones"},{"id":"SOCKS","label":"Calcetines"},{"id":"SCARF","label":"Bufandas"},{"id":"GLASSES","label":"Gafas"},{"id":"WATCH","label":"Relojes"},{"id":"JEWELRY","label":"Joyería"},{"id":"HEADGEAR","label":"Gorros"},{"id":"EARMUFF","label":"Orejeras"},{"id":"UNDERWEAR","label":"Ropa interior"},{"id":"KNEEPAD","label":"Rodilleras"},{"id":"Electronics","label":"Electrónica"},{"id":"CHILD","label":"Niños"},{"id":"FEMALE STYLE","label":"Mujer"}],"i18n":{"locale":"es-ES","product":"Producto","productOne":"1 producto","products":"productos","other":"Otros","priceOnKakobuy":"Precio en Kakobuy","openOnKakobuy":"Abrir en Kakobuy ↗","openAria":"Abrir {title} en Kakobuy (nueva pestaña)","openAriaCard":"{title} — abrir en Kakobuy","prev":"Anterior","next":"Siguiente","pageOf":"Página {current} / {pages}","loadError":"No se pudieron cargar los productos. Inténtalo de nuevo en un momento.","emptyCount":"0 productos"}};window.KAKOBUY_FI=window.KAKOBUY_CATALOG;</script>
 <style id="es-gap-20261029">.hub-uplink{margin:14px 0 0;padding:12px 14px;border-left:3px solid #0f766e;background:#f0fdfa;color:#134e4a;line-height:1.6;font-size:15px;max-width:760px}.hub-uplink a{color:#0f766e;font-weight:600}#local{scroll-margin-top:88px}.local-box{margin:1.25em 0;padding:14px 16px;border:1px solid #ccfbf1;border-radius:12px;background:#f0fdfa;color:#134e4a}</style>
-</head><body data-es-disclaimer-rm="20261029">
+</head><body data-es-disclaimer-rm="20261029" data-ops-scrub="20261029">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 <div class="kb-promo"><div class="container">KAKOSEP hasta el 30.9: pack 1300 CNY + 10 % envío · nuevos usuarios 3000 CNY · <a href="https://ikako.vip/r/yze69" target="_blank" rel="sponsored noopener noreferrer">Regístrate en Kakobuy</a></div></div>
 <header class="site-header"><div class="container nav">

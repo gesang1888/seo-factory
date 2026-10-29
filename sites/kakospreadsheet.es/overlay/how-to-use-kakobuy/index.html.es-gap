@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
+<!-- kakobuy-ops-scrub-20261029 -->
 <!-- kakobuy-es-disclaimer-rm-20261029 -->
 <!-- kakobuy-es-us-gap-20261029 -->
 <meta charset="utf-8">
@@ -138,11 +139,11 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
 
 :root{--acc:#F04A4F!important;--acd:#D13A3F!important;--link:#D13A3F!important;--primary:#F04A4F!important;--primary-dark:#D13A3F!important;--primary-soft:#FEE2E2!important}#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}header.top .nav a{color:#333!important}header.top .nav a[aria-current],header.top .nav a:hover{color:#F04A4F!important;background:transparent!important}header.top .hdr-login{background:#F04A4F!important;color:#fff!important}header.top .hdr-login:hover{background:#D13A3F!important;color:#fff!important}</style>
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://kakospreadsheet.es/how-to-use-kakobuy/", "url": "https://kakospreadsheet.es/how-to-use-kakobuy/", "name": "Kakobuy Spreadsheet en español: cómo haces el primer pedido desde España", "description": "Independent Kakobuy guide for España.", "inLanguage": "es-ES", "isPartOf": {"@type": "WebSite", "name": "Kakobuy desk", "url": "https://kakospreadsheet.es/"}, "publisher": {"@type": "Organization", "name": "Kakobuy independent desk", "url": "https://kakospreadsheet.es/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://kakospreadsheet.es/how-to-use-kakobuy/", "url": "https://kakospreadsheet.es/how-to-use-kakobuy/", "name": "Kakobuy Spreadsheet en español: cómo haces el primer pedido desde España", "description": "Independent Kakobuy guide for España.", "inLanguage": "es-ES", "isPartOf": {"@type": "WebSite", "name": "Kakobuy España", "url": "https://kakospreadsheet.es/"}, "publisher": {"@type": "Organization", "name": "Kakobuy guía independiente", "url": "https://kakospreadsheet.es/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "kakospreadsheet.es independent desk", "url": "https://kakospreadsheet.es/", "email": "cnfd85269032661@gmail.com", "inLanguage": "es-ES", "description": "Independent Kakobuy guide for España.", "contactPoint": {"@type": "ContactPoint", "email": "cnfd85269032661@gmail.com", "contactType": "customer support", "url": "https://kakospreadsheet.es/"}}</script>
 <style id="es-gap-20261029">.hub-uplink{margin:14px 0 0;padding:12px 14px;border-left:3px solid #0f766e;background:#f0fdfa;color:#134e4a;line-height:1.6;font-size:15px;max-width:760px}.hub-uplink a{color:#0f766e;font-weight:600}#local{scroll-margin-top:88px}.local-box{margin:1.25em 0;padding:14px 16px;border:1px solid #ccfbf1;border-radius:12px;background:#f0fdfa;color:#134e4a}</style>
 </head>
-<body data-es-disclaimer-rm="20261029">
+<body data-es-disclaimer-rm="20261029" data-ops-scrub="20261029">
 <a class="skip" href="#main">Saltar al contenido</a>
 <header class="top" role="banner">
   <div class="wrap">

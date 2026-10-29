@@ -50,6 +50,16 @@ FORBIDDEN_CONSUMER_OPS = (
     "desk LATAM",
     "Sin twin LATAM",
     "Sin desk LATAM",
+    "Desk ES ·",
+    "Desk CA ·",
+    "Keep desks",
+    "Do not revive",
+    "Phase A/B/C",
+    "Twins tips",
+    "hub reclaim",
+    "Not a dest-country skin",
+    "local KPI only",
+    "LATAM",
 )
 
 HUB_UPLINK_ES = (
@@ -92,7 +102,7 @@ LOCAL_HOWTO = f"""
 
 THICKEN_COMO = f"""
 <h2 id="correos-aeat-gap">Correos, AEAT y código postal (España)</h2>
-<p data-es-gap="{STAMP}">Comprar desde España en este desk significa: estimador en <strong>España</strong>, dirección con <strong>CP de cinco dígitos</strong>, última milla a menudo <strong>Correos</strong>, y aranceles/IVA según la SKU y la <strong>AEAT</strong> — no un héroe «Kakobuy Spreadsheet». El índice global vive en <a href="{HUB}/kakobuy-spreadsheet/">{HUB_HOST}/kakobuy-spreadsheet</a>.</p>
+<p data-es-gap="{STAMP}">Comprar desde España en esta guía significa: estimador en <strong>España</strong>, dirección con <strong>CP de cinco dígitos</strong>, última milla a menudo <strong>Correos</strong>, y aranceles/IVA según la SKU y la <strong>AEAT</strong> — no un héroe «Kakobuy Spreadsheet». El índice global vive en <a href="{HUB}/kakobuy-spreadsheet/">{HUB_HOST}/kakobuy-spreadsheet</a>.</p>
 """
 
 THICKEN_HOWTO = f"""
@@ -102,11 +112,11 @@ THICKEN_HOWTO = f"""
 
 US_BLOCK_HOME = f"""
 <section class="sec" id="us-intent" data-hub-us="{STAMP}" data-tag="{TAG}">
-  <h2 class="stit">United States intent · USPS / CBP (hub-only)</h2>
-  <p class="pp">USA shows strong impressions on this hub with near-zero clicks. There is <strong>no</strong> US keep desk and <strong>no</strong> new domain. This block is shipping / customs framing only — it does <strong>not</strong> compete with the Independent Index spreadsheet hero.</p>
+  <h2 class="stit">United States · USPS / CBP</h2>
+  <p class="pp">US shipping / customs framing on this hub. Brand finds stay on the Independent Index — this block does not replace the spreadsheet.</p>
   <div class="local-box" style="margin:16px 0 0;max-width:820px">
     <ol>
-      <li><strong>Estimator destination: United States</strong> — pick US, not “North America”, not a EU desk TLD.</li>
+      <li><strong>Estimator destination: United States</strong> — pick US, not “North America”, not a Canadian postal code.</li>
       <li><strong>Address</strong> — US street + <strong>ZIP</strong>. This hub does not file CBP entries.</li>
       <li><strong>Duties</strong> — SKU says tax-free / prepaid / collect. <strong>USPS</strong> or FedEx can add a collect fee. Source: <a href="https://www.cbp.gov/" rel="noopener">CBP</a> the morning you ship — no invented de-minimis dollar.</li>
       <li><strong>Last mile</strong> — often <strong>USPS</strong> or a commercial integrator after export.</li>
@@ -123,7 +133,7 @@ SHIPPING_TO_US_HTML = f"""<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!-- {TAG} -->
 <title>Kakobuy shipping to the US — USPS, CBP, ZIP notes</title>
-<meta name="description" content="Hub-only Kakobuy shipping-to-US notes: USPS last-mile, CBP / customs context, US ZIP. Not a spreadsheet hero. CTA to Independent Index · dataset · coupons on kakobuydocs.com. No US desk domain.">
+<meta name="description" content="Hub-only Kakobuy shipping-to-US notes: USPS last-mile, CBP / customs context, US ZIP. Not a spreadsheet hero. CTA to Independent Index · dataset · coupons on kakobuydocs.com. ">
 <meta property="og:title" content="Kakobuy shipping to the US — USPS, CBP, ZIP">
 <meta property="og:description" content="USPS / CBP / ZIP framing on the Kakobuy docs hub. Spreadsheet intent stays on /kakobuy-spreadsheet/.">
 <meta property="og:url" content="https://kakobuydocs.com/shipping-to-us/">
@@ -140,7 +150,7 @@ SHIPPING_TO_US_HTML = f"""<!DOCTYPE html>
     {{"@type":"ListItem","position":2,"name":"Shipping to US","item":"https://kakobuydocs.com/shipping-to-us/"}}
   ]}},
   {{"@type":"FAQPage","mainEntity":[
-    {{"@type":"Question","name":"Does kakobuydocs.com open a United States keep desk?","acceptedAnswer":{{"@type":"Answer","text":"No. This is a hub-only shipping-to-US page with USPS / CBP / ZIP framing. There is no .us Kakobuy desk and no new domain. Brand spreadsheet intent stays on /kakobuy-spreadsheet/ and /finds-dataset/."}}}},
+    {{"@type":"Question","name":"Is this a United States country guide?","acceptedAnswer":{{"@type":"Answer","text":"No. This is a hub shipping-to-US page with USPS / CBP / ZIP framing. Brand spreadsheet / finds stay on /kakobuy-spreadsheet/ and /finds-dataset/."}}}},
     {{"@type":"Question","name":"How should I read a Kakobuy quote for USPS?","acceptedAnswer":{{"@type":"Answer","text":"Create the agent account with a US address and ZIP. Pick United States in the official estimator. USD line names (USPS vs integrator) appear after the warehouse accepts the parcel — this HTML is not a live quote."}}}},
     {{"@type":"Question","name":"Does this page invent a de-minimis dollar?","acceptedAnswer":{{"@type":"Answer","text":"No. Duties follow the booked SKU (tax-free / prepaid / collect). USPS or FedEx can add a collect fee. Source CBP the morning you ship."}}}}
   ]}}
@@ -179,7 +189,7 @@ p{{margin:0 0 14px;color:var(--g2)}}
 </style>
 </head>
 <body data-hub-us="{STAMP}" data-tag="{TAG}">
-<div class="ann">Hub-only US shipping notes · <strong>not</strong> a spreadsheet hero · CTA → <a href="/kakobuy-spreadsheet/">Independent Index</a> · <a href="/finds-dataset/">dataset</a></div>
+<div class="ann">US shipping notes · CTA → <a href="/kakobuy-spreadsheet/">Independent Index</a> · <a href="/finds-dataset/">dataset</a></div>
 <nav class="nav">
   <div class="nbrand"><a class="nlo" href="/"><img src="/assets/images/official-logo.png" width="180" height="36" alt="Kakobuy"></a></div>
   <ul class="nl">
@@ -191,9 +201,9 @@ p{{margin:0 0 14px;color:var(--g2)}}
   </ul>
 </nav>
 <main class="wrap">
-  <div class="hbg">United States · USPS · CBP · ZIP · hub-only</div>
+  <div class="hbg">United States · USPS · CBP · ZIP</div>
   <h1>Kakobuy shipping to the US</h1>
-  <p class="lead">USPS / customs framing for buyers who land on the English hub from USA impressions. This page is <strong>not</strong> a Kakobuy Spreadsheet hero and does <strong>not</strong> open a .us desk. Brand finds stay on the Independent Index.</p>
+  <p class="lead">USPS / customs framing for buyers who land on the English hub from USA impressions. This page covers US shipping / customs framing. Brand finds stay on the Independent Index.</p>
   <div class="ctas">
     <a class="cp" href="/kakobuy-spreadsheet/">Open spreadsheet / Index</a>
     <a class="cs" href="/finds-dataset/">Dataset · 11,300+</a>
@@ -213,17 +223,17 @@ p{{margin:0 0 14px;color:var(--g2)}}
 
   <h2>What this page is / is not</h2>
   <p><strong>Is:</strong> hub-only conversion surface for USA brand/workflow impressions that currently show with near-zero CTR. Named USPS · CBP · ZIP so the SERP snippet is not a generic DHL table.</p>
-  <p><strong>Is not:</strong> a second Independent Index, a Google Sheet clone, a US keep desk, or a new domain (no kakobuys.co.uk either — UK lookalikes stay vetoed).</p>
+  <p><strong>Is not:</strong> a second Independent Index, a Google Sheet clone, or a Google Sheet clone — spreadsheet / finds stay on /kakobuy-spreadsheet/.</p>
 
   <h2>Uplink to hub money URLs</h2>
   <p>When the query is <em>kakobuy spreadsheet</em> / finds / coupons, use:</p>
-  <p><a href="/kakobuy-spreadsheet/">/kakobuy-spreadsheet/</a> · <a href="/finds-dataset/">/finds-dataset/</a> · <a href="/kakobuy-coupons/">/kakobuy-coupons/</a> · <a href="/">hub home</a>. Keep desks remain FI/ES/CA only.</p>
+  <p><a href="/kakobuy-spreadsheet/">/kakobuy-spreadsheet/</a> · <a href="/finds-dataset/">/finds-dataset/</a> · <a href="/kakobuy-coupons/">/kakobuy-coupons/</a> · <a href="/">hub home</a>. Country guides: FI / ES / CA.</p>
 
   <section class="faq" id="faq">
     <h2>FAQ</h2>
     <details open>
-      <summary>Is this a United States keep desk?</summary>
-      <p>No. kakobuydocs.com stays the English brand hub. FI / ES / CA are the only keep desks. This URL only deepens US shipping intent on the hub.</p>
+      <summary>Is this a United States country guide?</summary>
+      <p>No. kakobuydocs.com stays the English brand hub. Country guides are on kakobuy.fi, kakospreadsheet.es, and kakospreadsheet.ca. This URL deepens US shipping notes on the hub.</p>
     </details>
     <details>
       <summary>Where does the spreadsheet live?</summary>
@@ -236,7 +246,7 @@ p{{margin:0 0 14px;color:var(--g2)}}
   </section>
 </main>
 <footer class="ft">
-  <p>kakobuydocs.com — hub-only /shipping-to-us/ · tag {TAG}. Not Excel. Not a dest-country skin. Twins tips/.fr/.nl stay 301→hub.</p>
+  <p>kakobuydocs.com — hub-only /shipping-to-us/ · tag {TAG}. Not Excel. Independent of kakobuy.com checkout.</p>
   <p><a href="/">Home</a> · <a href="/kakobuy-spreadsheet/">Spreadsheet</a> · <a href="/finds-dataset/">Dataset</a> · <a href="/kakobuy-shipping-guide/">Shipping guide</a></p>
 </footer>
 </body>
@@ -341,7 +351,7 @@ def _ensure_es_gap_local(html: str) -> str:
     if n == 0:
         insert = (
             f'<section id="local" class="local-box" data-es-gap="{STAMP}">'
-            f"<h2>Desk ES · Correos / AEAT</h2>{HUB_UPLINK_ES}</section>"
+            f"<h2>España · Correos / AEAT</h2>{HUB_UPLINK_ES}</section>"
         )
         if "</main>" in html:
             new = html.replace("</main>", insert + "\n</main>", 1)
@@ -437,7 +447,7 @@ def build_hub_home(live: str) -> str:
         card = (
             '<a href="/shipping-to-us/" class="gc"><span class="gtg">US shipping</span>'
             "<p class=\"gtit\">Shipping to the US · USPS / CBP</p>"
-            '<p class="gdesc">Hub-only US fingerprint. Not a spreadsheet hero.</p></a>'
+            '<p class="gdesc">USPS · CBP · ZIP shipping notes.</p></a>'
         )
         html = html.replace(
             '<a href="/how-to-use-kakobuy/" class="gc">',
@@ -456,8 +466,8 @@ def build_hub_home(live: str) -> str:
         faq_q = (
             '{"@type":"Question","name":"Where does United States shipping intent live?",'
             '"acceptedAnswer":{"@type":"Answer","text":"USA shipping / USPS / CBP notes live on '
-            "kakobuydocs.com/shipping-to-us/ (hub-only). Brand spreadsheet stays on "
-            '/kakobuy-spreadsheet/. There is no US keep desk."}}'
+            "kakobuydocs.com/shipping-to-us/. Brand spreadsheet stays on "
+            '/kakobuy-spreadsheet/. Country guides remain on .fi / .es / .ca."}}'
         )
         html = html.replace(
             '{"@type":"Question","name":"Where do brand spreadsheet queries belong?"',
@@ -591,7 +601,7 @@ def build_all() -> dict[str, Path]:
             llms = llms.rstrip() + (
                 f"\n\n## United States (hub-only, {STAMP})\n"
                 f"- /shipping-to-us/ — USPS / CBP / ZIP notes; CTA → spreadsheet + dataset\n"
-                f"- No US keep desk; no kakobuys.co.uk\n"
+                f"- No US country guide domain; no kakobuys.co.uk\n"
             )
             llms_path.write_text(llms)
         out["hub:llms"] = llms_path
@@ -604,7 +614,7 @@ Gap plan R1+R2. Tag `{TAG}`.
 
 ## Guards
 
-- No new domains. No `kakobuys.co.uk`. Twins tips/.fr/.nl stay 301→hub.
+- No new domains. No `kakobuys.co.uk`. Sunset twins stay 301→hub (ops/docs only).
 - ES keep stays Correos/AEAT/CP5 + hub uplink; **no** consumer LATAM/ops/twin callouts (ops → docs/internal).
 - Hub `/shipping-to-us/` is **not** a spreadsheet hero; CTA → `/kakobuy-spreadsheet/` + `/finds-dataset/`.
 
