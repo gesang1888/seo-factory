@@ -1,7 +1,7 @@
 {
   "brand": "BaseTao",
   "host": "basetaospreadsheet.com",
-  "last_verified": "2026-10-26",
+  "last_verified": "2026-10-29",
   "verify_on": "basetao.com dashboard checkout preview (this hub never redeems)",
   "update_cadence": "Re-verify before each paid order; JSON stamped at least weekly",
   "platform_opt": "basetao-platform-20261026",
@@ -10,12 +10,12 @@
     {
       "id": "basetao-base10",
       "type": "service_fee_percent",
-      "label": "BASE10 \u2014 10% off service fee",
+      "label": "BASE10 — 10% off service fee",
       "code": "BASE10",
       "value_claim": "First-order service-fee discount on orders above $30; does not apply to international shipping invoices",
       "status": "confirm_live",
       "expires_on": null,
-      "expires_note": "Region-lock / stack limits move \u2014 confirm dashboard preview",
+      "expires_note": "Region-lock / stack limits move — confirm dashboard preview",
       "applies_to": "Service fee on first qualifying order",
       "exclusions": [
         "Not international shipping invoice",
@@ -23,14 +23,14 @@
         "Never redeem on basetaospreadsheet.com"
       ],
       "source": "hub coupon tracker active_codes; buyer-reported",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-29"
     },
     {
       "id": "basetao-bship20",
       "type": "shipping_subsidy_fixed",
-      "label": "BSHIP20 \u2014 $20 shipping subsidy",
+      "label": "BSHIP20 — $20 shipping subsidy",
       "code": "BSHIP20",
-      "value_claim": "Auto-applies on first shipping invoice of $60+ after account activation on mainstream lines (Yanwen, EMS, DHL) \u2014 confirm live",
+      "value_claim": "Auto-applies on first shipping invoice of $60+ after account activation on mainstream lines (Yanwen, EMS, DHL) — confirm live",
       "status": "confirm_live",
       "expires_on": null,
       "expires_note": "First-invoice / line eligibility moves; re-check Create Parcel preview",
@@ -41,14 +41,14 @@
         "Never redeem on this spreadsheet TLD"
       ],
       "source": "hub coupon tracker active_codes; buyer-reported",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-29"
     },
     {
       "id": "basetao-referral-credits",
       "type": "referral_invite",
       "label": "Referral / invite credits (no frozen code on hub)",
       "code": null,
-      "value_claim": "Referrer and referee bonuses as service-fee vouchers or wallet balance when a qualifying first order completes \u2014 confirm live on basetao.com",
+      "value_claim": "Referrer and referee bonuses as service-fee vouchers or wallet balance when a qualifying first order completes — confirm live on basetao.com",
       "status": "confirm_live",
       "expires_on": null,
       "expires_note": "This hub does not print a frozen invite string",
@@ -58,7 +58,8 @@
         "Credits move; dashboard preview wins"
       ],
       "source": "/basetao-referral-code/ CMS",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-29"
     }
-  ]
+  ],
+  "spam_hub_serp": "spam-hub-serp-live-20261029"
 }

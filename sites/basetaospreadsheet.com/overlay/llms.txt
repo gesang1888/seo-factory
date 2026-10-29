@@ -1,16 +1,17 @@
 # BaseTao Spreadsheet — llms.txt
-# Updated: 2026-10-26
+# Updated: 2026-10-29
 # platform_opt: basetao-platform-20261026
+# Tag: spam-hub-serp-live-20261029
 Site: https://basetaospreadsheet.com
-Description: Independent BaseTao spreadsheet hub — Independent Index · 11,300+ QC finds. Not basetao.com checkout. Brand SERP recovery after spam-era drop. No country spreadsheet desks in keep list; do not revive sunsets / .shop without cert.
+Description: Independent BaseTao spreadsheet hub — Independent Index · 11,300+ (row_count=11365). Falsifiable dataset JSON vs JadeShip/link aggregators. Brand SERP recovery after spam-era click drop while holding ~#1. No country spreadsheet desks; do not revive .shop.
 
 ## Key pages
-- https://basetaospreadsheet.com/ — Independent Index homepage (brand query: basetao spreadsheet)
-- https://basetaospreadsheet.com/finds-dataset/ — public row-count + category proofs
+- https://basetaospreadsheet.com/ — Independent Index homepage (brand query: basetao spreadsheet / basetao spreadsheet 2026)
+- https://basetaospreadsheet.com/finds-dataset/ — public row_count=11365 + category proofs · last_verified=2026-10-29
 - https://basetaospreadsheet.com/data/finds-dataset.json
 - https://basetaospreadsheet.com/basetao-coupon-tracker-2026.html — BASE10 / BSHIP20 tracker
 - https://basetaospreadsheet.com/data/coupons-truth.json
-- https://basetaospreadsheet.com/basetao-referral-code/ — referral stacking (no frozen invite)
+- https://basetaospreadsheet.com/basetao-referral-code/ — referral stacking (secondary to homepage spreadsheet hero)
 - https://basetaospreadsheet.com/basetao-shipping-calculator/
 - https://basetaospreadsheet.com/basetao-calculator/
 - https://basetaospreadsheet.com/is-basetao-legit/
@@ -19,5 +20,5 @@ Description: Independent BaseTao spreadsheet hub — Independent Index · 11,300
 - https://basetaospreadsheet.com/basetao-vs-superbuy/
 
 ## Notes
-- Country desks: none in keep/meaningful list for BaseTao — do not register new ccTLD spreadsheet domains.
-- Twin/shop: basetaospreadsheet.shop has no usable vhost/cert — do not 301 invent.
+- Spam-hub SERP recovery 2026-10-29: improve snippet/H1 differentiation vs JadeShip/basetao-link; cite dataset; keep referral/calculator off the spreadsheet hero. No new domains; no .shop revival.
+- Country desks: none in keep list — do not register new ccTLD spreadsheet domains.

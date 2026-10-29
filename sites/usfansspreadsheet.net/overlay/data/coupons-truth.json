@@ -1,7 +1,7 @@
 {
   "brand": "USFans",
   "host": "usfansspreadsheet.net",
-  "last_verified": "2026-10-27",
+  "last_verified": "2026-10-29",
   "verify_on": "USFans.com wallet after referral signup",
   "update_cadence": "Re-check wallet terms the morning you pay; JSON stamped at least weekly",
   "offers": [
@@ -20,7 +20,7 @@
         "Min spend / max discount / line eligibility vary per coupon"
       ],
       "source": "citable coupons page + live wallet",
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     },
     {
       "id": "usfans-shipping-pct",
@@ -37,7 +37,7 @@
         "Do not invent a typed vanity code"
       ],
       "source": "marketing + wallet",
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     },
     {
       "id": "usfans-ref-7bjbaj",
@@ -53,11 +53,12 @@
         "This spreadsheet host never redeems"
       ],
       "source": "hub CTA",
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     }
   ],
   "platform_opt": "usfans-platform-20261026",
-  "stamp": "hub_stabilize",
+  "stamp": "spam_hub_serp_live",
   "weekly_refresh": "ahub-dataset-refresh-20261027",
-  "hub_stabilize": "usfans-hub-stabilize-20261027"
+  "hub_stabilize": "usfans-hub-stabilize-20261027",
+  "spam_hub_serp": "spam-hub-serp-live-20261029"
 }
