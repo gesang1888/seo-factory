@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
+<!-- kakobuy-es-disclaimer-rm-20261029 -->
 <!-- kakobuy-es-us-gap-20261029 -->
 
 
@@ -39,7 +40,7 @@
 <link rel="stylesheet" href="/assets/css/kakobuy-es-desk.css?v=20261006k">
 <style id="country-desk-chrome">:root{--acc:#F04A4F!important;--acd:#D13A3F!important;--link:#D13A3F!important;--primary:#F04A4F!important;--primary-dark:#D13A3F!important;--primary-soft:#FEE2E2!important}#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}header.top .nav a{color:#333!important}header.top .nav a[aria-current],header.top .nav a:hover{color:#F04A4F!important;background:transparent!important}header.top .hdr-login{background:#F04A4F!important;color:#fff!important}header.top .hdr-login:hover{background:#D13A3F!important;color:#fff!important}</style>
 </head>
-<body data-inner-chrome="20261006k-kakobuy-es">
+<body data-es-disclaimer-rm="20261029" data-inner-chrome="20261006k-kakobuy-es">
 <a class="skip" href="#main">Saltar al contenido</a>
 <header class="top" role="banner">
   <div class="wrap">
@@ -62,7 +63,6 @@
   <h2 style="font-size:1.05rem;margin:0 0 8px">Desk ES · fiable / envío / Correos</h2>
   <p style="margin:0 0 8px">Intención local: <strong>fiable</strong>, <strong>envío a España</strong>, última milla <strong>Correos</strong>, aduana <strong>AEAT</strong>, CP de cinco dígitos. Sin estrellas inventadas.</p>
   <p class="hub-uplink" style="margin:0">Brand spreadsheet / Independent Index → <a href="https://kakobuydocs.com/">kakobuydocs.com</a> · <a href="https://kakobuydocs.com/kakobuy-coupons/">coupons</a> · <a href="https://kakobuydocs.com/finds-dataset/">dataset</a>. Este host no es un segundo hub.</p>
-<p class="latam-note" data-es-gap="20261029" data-latam-overflow="absorb-no-twin">Lectores hispanohablantes fuera de España (MX / CL / AR / CO / PE / VE …) pueden usar este desk en español, pero el framing local sigue siendo <strong>España · Correos · AEAT · CP de cinco dígitos</strong>. <strong>No</strong> hay twin LATAM ni segundo dominio — no prometemos aduana mexicana, chilena u otra. Brand spreadsheet → <a href="https://kakobuydocs.com/">kakobuydocs.com</a>.</p>
 </section>
 
 <div class="container article-layout"><article class="article">
@@ -119,5 +119,7 @@
 
 <script src="/assets/site.js?v=20260915b" defer></script>
 
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"8047afd6c28d462aaacaf0c6ccfd0fe8","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"8047afd6c28d462aaacaf0c6ccfd0fe8","r":1,"spa":2}' crossorigin="anonymous"></script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"8047afd6c28d462aaacaf0c6ccfd0fe8","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body></html>

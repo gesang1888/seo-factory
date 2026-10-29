@@ -5,7 +5,7 @@ Gap plan R1+R2. Tag `kakobuy-es-us-gap-20261029`.
 ## Guards
 
 - No new domains. No `kakobuys.co.uk`. Twins tips/.fr/.nl stay 301→hub.
-- ES keep stays Correos/AEAT local; LATAM overflow absorbed carefully (no twin).
+- ES keep stays Correos/AEAT/CP5 + hub uplink; **no** consumer LATAM/ops/twin callouts (ops → docs/internal).
 - Hub `/shipping-to-us/` is **not** a spreadsheet hero; CTA → `/kakobuy-spreadsheet/` + `/finds-dataset/`.
 
 ## Roots

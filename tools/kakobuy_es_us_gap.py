@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Kakobuy gap R1+R2 LIVE: deepen ES keep + hub US shipping block.
 
-- ES (kakospreadsheet.es): Correos/AEAT deepen on thin money pages;
-  careful LATAM overflow note (keep ES local; no new twin).
+- ES (kakospreadsheet.es): Correos/AEAT/CP5 deepen on thin money pages + hub uplink.
+  Consumer pages must NOT show LATAM/ops/twin callouts (ops stay in docs/internal).
 - Hub (kakobuydocs.com): /shipping-to-us/ USPS·CBP·ZIP + homepage US block;
   CTA uplink to spreadsheet/dataset (NOT a competing spreadsheet hero).
 - No new domains. No kakobuys.co.uk. Twins stay 301→hub.
@@ -39,19 +39,17 @@ ES_STYLE = (
     "font-size:15px;max-width:760px}.hub-uplink a{color:#0f766e;font-weight:600}"
     "#local{scroll-margin-top:88px}.local-box{margin:1.25em 0;padding:14px 16px;"
     "border:1px solid #ccfbf1;border-radius:12px;background:#f0fdfa;color:#134e4a}"
-    ".latam-note{margin:10px 0 0;font-size:14px;line-height:1.65;color:#115e59}"
     "</style>"
 )
 
-LATAM_NOTE = (
-    f'<p class="latam-note" data-es-gap="{STAMP}" data-latam-overflow="absorb-no-twin">'
-    "Lectores hispanohablantes fuera de España (MX / CL / AR / CO / PE / VE …) "
-    "pueden usar este desk en español, pero el framing local sigue siendo "
-    "<strong>España · Correos · AEAT · CP de cinco dígitos</strong>. "
-    "<strong>No</strong> hay twin LATAM ni segundo dominio — no prometemos "
-    "aduana mexicana, chilena u otra. Brand spreadsheet → "
-    f'<a href="{HUB}/">{HUB_HOST}</a>.'
-    "</p>"
+# Ops/LATAM overflow policy lives in docs/internal only — never inject on consumer HTML.
+FORBIDDEN_CONSUMER_OPS = (
+    "latam-note",
+    "data-latam-overflow",
+    "twin LATAM",
+    "desk LATAM",
+    "Sin twin LATAM",
+    "Sin desk LATAM",
 )
 
 HUB_UPLINK_ES = (
@@ -73,7 +71,6 @@ LOCAL_COMO = f"""
 <li><strong>Última milla</strong> — a menudo <strong>Correos</strong> (posible tasa Collect).</li>
 <li><strong>Aranceles / IVA</strong> — lo dice la SKU. Fuente: <a href="https://sede.agenciatributaria.gob.es/" rel="noopener" target="_blank">AEAT</a>. Sin valor declarado inventado.</li>
 </ol>
-{LATAM_NOTE}
 {HUB_UPLINK_ES}
 <p>Detalle envío: <a href="/envio-kakobuy-espana/">/envio-kakobuy-espana</a> · Opiniones: <a href="/kakobuy-opiniones/">¿es fiable?</a>.</p>
 </section>
@@ -88,7 +85,6 @@ LOCAL_HOWTO = f"""
 <li><strong>QC → consolidar → línea</strong> — fotos en almacén antes del flete; última milla a menudo <strong>Correos</strong>.</li>
 <li><strong>Aduanas</strong> — declara según SKU; lee <a href="https://sede.agenciatributaria.gob.es/" rel="noopener" target="_blank">AEAT</a> el día del envío.</li>
 </ol>
-{LATAM_NOTE}
 {HUB_UPLINK_ES}
 <p>Envío: <a href="/envio-kakobuy-espana/">Correos / IVA / AEAT</a> · Cómo comprar: <a href="/como-comprar-en-kakobuy/">pasos</a>.</p>
 </section>
@@ -97,13 +93,11 @@ LOCAL_HOWTO = f"""
 THICKEN_COMO = f"""
 <h2 id="correos-aeat-gap">Correos, AEAT y código postal (España)</h2>
 <p data-es-gap="{STAMP}">Comprar desde España en este desk significa: estimador en <strong>España</strong>, dirección con <strong>CP de cinco dígitos</strong>, última milla a menudo <strong>Correos</strong>, y aranceles/IVA según la SKU y la <strong>AEAT</strong> — no un héroe «Kakobuy Spreadsheet». El índice global vive en <a href="{HUB}/kakobuy-spreadsheet/">{HUB_HOST}/kakobuy-spreadsheet</a>.</p>
-{LATAM_NOTE}
 """
 
 THICKEN_HOWTO = f"""
 <h2 id="correos-aeat-primer">Dirección ES, Correos y AEAT en el primer haul</h2>
 <p data-es-gap="{STAMP}">El primer pedido desde España no necesita un héroe Spreadsheet: pega el enlace, paga en la app oficial, espera QC, consolida y elige línea con destino <strong>España</strong>. Tracking doméstico suele pasar por <strong>Correos</strong>; reglas de entrada las marca la <strong>AEAT</strong>.</p>
-{LATAM_NOTE}
 """
 
 US_BLOCK_HOME = f"""
@@ -306,20 +300,36 @@ def _ensure_marker_comment(html: str) -> str:
     return html.replace("<head>", f"<head>\n<!-- {TAG} -->", 1)
 
 
-def _append_latam_to_local(html: str) -> str:
-    """Append LATAM careful note + stamp inside existing #local section once."""
-    if f'data-es-gap="{STAMP}"' in html and "data-latam-overflow" in html:
-        return html
+def _strip_consumer_ops(html: str) -> str:
+    """Defense: never leave LATAM/ops callouts on consumer HTML."""
+    html = re.sub(
+        r'<p\b[^>]*\b(?:class="[^"]*latam-note[^"]*"|data-latam-overflow=)[^>]*>.*?</p>\s*',
+        "",
+        html,
+        flags=re.S | re.I,
+    )
+    html = re.sub(r"\.latam-note\{[^}]*\}", "", html)
+    for frag in (
+        " Sin twin LATAM.",
+        " Sin desk LATAM.",
+        " Sin twin LATAM",
+        " Sin desk LATAM",
+    ):
+        html = html.replace(frag, "")
+    return html
+
+
+def _ensure_es_gap_local(html: str) -> str:
+    """Stamp existing #local + ensure hub uplink. Never inject LATAM/ops copy."""
+    html = _strip_consumer_ops(html)
 
     def repl(m: re.Match[str]) -> str:
         block = m.group(0)
-        if "data-latam-overflow" in block:
-            return block
-        # stamp section
         if "data-es-gap=" not in block:
             block = block.replace("<section", f'<section data-es-gap="{STAMP}"', 1)
-        # insert note before closing section
-        return block.replace("</section>", LATAM_NOTE + "\n</section>", 1)
+        if "hub-uplink" not in block and HUB_HOST not in block:
+            block = block.replace("</section>", HUB_UPLINK_ES + "\n</section>", 1)
+        return block
 
     new, n = re.subn(
         r'<section[^>]*\bid="local"[^>]*>.*?</section>',
@@ -329,10 +339,9 @@ def _append_latam_to_local(html: str) -> str:
         flags=re.S,
     )
     if n == 0:
-        # fallback: inject before </main> or after first article hero
         insert = (
             f'<section id="local" class="local-box" data-es-gap="{STAMP}">'
-            f"<h2>Desk ES · Correos / AEAT</h2>{LATAM_NOTE}{HUB_UPLINK_ES}</section>"
+            f"<h2>Desk ES · Correos / AEAT</h2>{HUB_UPLINK_ES}</section>"
         )
         if "</main>" in html:
             new = html.replace("</main>", insert + "\n</main>", 1)
@@ -346,7 +355,7 @@ def build_es_como(live: str) -> str:
     html = _set_title_desc(
         html,
         "Cómo comprar en Kakobuy desde España — Correos, AEAT, CP",
-        "Pasos Kakobuy España: cuenta, QC, consolidar, envío. Correos / AEAT / CP cinco dígitos. Hub spreadsheet en kakobuydocs.com. Sin twin LATAM.",
+        "Pasos Kakobuy España: cuenta, QC, consolidar, envío. Correos / AEAT / CP cinco dígitos. Hub spreadsheet en kakobuydocs.com.",
     )
     html = _inject_head_style(html)
     html = _ensure_marker_comment(html)
@@ -357,15 +366,14 @@ def build_es_como(live: str) -> str:
             1,
         )
     else:
-        html = _append_latam_to_local(html)
+        html = _ensure_es_gap_local(html)
     if 'id="correos-aeat-gap"' not in html:
         html = html.replace(
             '<h2 id="errores">Errores frecuentes</h2>',
             THICKEN_COMO + '\n<h2 id="errores">Errores frecuentes</h2>',
             1,
         )
-    # soften spreadsheet-as-hero in brand aria if present mid-page lead only via local already
-    return html
+    return _strip_consumer_ops(html)
 
 
 def build_es_howto(live: str) -> str:
@@ -373,7 +381,7 @@ def build_es_howto(live: str) -> str:
     html = _set_title_desc(
         html,
         "Primer pedido Kakobuy España — Correos, AEAT, dirección",
-        "Guía primer haul Kakobuy desde España: Correos, AEAT, CP cinco dígitos. Brand spreadsheet → kakobuydocs.com. Sin desk LATAM.",
+        "Guía primer haul Kakobuy desde España: Correos, AEAT, CP cinco dígitos. Brand spreadsheet → kakobuydocs.com.",
     )
     html = _inject_head_style(html)
     html = _ensure_marker_comment(html)
@@ -387,21 +395,21 @@ def build_es_howto(live: str) -> str:
             1,
         )
     else:
-        html = _append_latam_to_local(html)
+        html = _ensure_es_gap_local(html)
     if 'id="correos-aeat-primer"' not in html:
         html = html.replace(
             "<h2>Primer haul: plano primero</h2>",
             THICKEN_HOWTO + "\n<h2>Primer haul: plano primero</h2>",
             1,
         )
-    return html
+    return _strip_consumer_ops(html)
 
 
 def build_es_local_pages(live: str) -> str:
-    """Home / opiniones / confiable / envio: LATAM careful + stamp on existing #local."""
+    """Home / opiniones / confiable / envio: stamp #local + hub uplink; no LATAM/ops UI."""
     html = _ensure_marker_comment(live)
-    html = _append_latam_to_local(html)
-    return html
+    html = _ensure_es_gap_local(html)
+    return _strip_consumer_ops(html)
 
 
 def build_hub_home(live: str) -> str:
@@ -525,7 +533,10 @@ def build_all() -> dict[str, Path]:
         if key in ("como-comprar-en-kakobuy", "how-to-use-kakobuy"):
             assert "Correos" in built and "AEAT" in built
             assert HUB_HOST in built
-        assert "data-latam-overflow" in built
+        assert "Correos" in built
+        assert HUB_HOST in built
+        for bad in FORBIDDEN_CONSUMER_OPS:
+            assert bad.lower() not in built.lower(), f"{key} still has ops needle {bad!r}"
 
     es_sm = _fetch(f"https://{ES_HOST}/sitemap.xml")
     for loc in (
@@ -594,7 +605,7 @@ Gap plan R1+R2. Tag `{TAG}`.
 ## Guards
 
 - No new domains. No `kakobuys.co.uk`. Twins tips/.fr/.nl stay 301→hub.
-- ES keep stays Correos/AEAT local; LATAM overflow absorbed carefully (no twin).
+- ES keep stays Correos/AEAT/CP5 + hub uplink; **no** consumer LATAM/ops/twin callouts (ops → docs/internal).
 - Hub `/shipping-to-us/` is **not** a spreadsheet hero; CTA → `/kakobuy-spreadsheet/` + `/finds-dataset/`.
 
 ## Roots
@@ -734,7 +745,7 @@ def verify() -> dict:
             return 0, str(exc)
 
     cases = [
-        (f"https://{ES_HOST}/", ("Correos", "AEAT", "data-latam-overflow", STAMP)),
+        (f"https://{ES_HOST}/", ("Correos", "AEAT", HUB_HOST, STAMP)),
         (
             f"https://{ES_HOST}/como-comprar-en-kakobuy/",
             ("Correos", "AEAT", HUB_HOST, "data-es-gap"),
@@ -743,8 +754,8 @@ def verify() -> dict:
             f"https://{ES_HOST}/how-to-use-kakobuy/",
             ("Correos", "AEAT", HUB_HOST, "data-es-gap"),
         ),
-        (f"https://{ES_HOST}/kakobuy-opiniones/", ("Correos", "data-latam-overflow")),
-        (f"https://{ES_HOST}/envio-kakobuy-espana/", ("Correos", "data-latam-overflow")),
+        (f"https://{ES_HOST}/kakobuy-opiniones/", ("Correos", HUB_HOST)),
+        (f"https://{ES_HOST}/envio-kakobuy-espana/", ("Correos", "AEAT", HUB_HOST)),
         (
             f"https://{HUB_HOST}/shipping-to-us/",
             ("USPS", "CBP", "ZIP", "/kakobuy-spreadsheet/", TAG),
@@ -762,9 +773,24 @@ def verify() -> dict:
             if h1 and re.search(r"spreadsheet|Independent Index", h1.group(1), re.I):
                 forbid_ok = False
                 missing.append("H1_MUST_NOT_BE_SPREADSHEET")
+        # ES consumer pages must not reintroduce LATAM/ops callouts
+        ops_hits = []
+        if ES_HOST in url and code == 200:
+            for bad in FORBIDDEN_CONSUMER_OPS:
+                if bad.lower() in body.lower():
+                    ops_hits.append(bad)
+                    forbid_ok = False
         ok = code == 200 and not missing and forbid_ok
-        checks.append({"url": url, "http": code, "ok": ok, "missing": missing})
-        print(("OK" if ok else "FAIL"), url, code, missing or "")
+        checks.append(
+            {
+                "url": url,
+                "http": code,
+                "ok": ok,
+                "missing": missing,
+                "ops_hits": ops_hits,
+            }
+        )
+        print(("OK" if ok else "FAIL"), url, code, missing or "", ops_hits or "")
 
     # twins still 301
     for twin in ("kakobuytips.com", "kakospreadsheet.fr", "kakospreadsheet.nl"):
