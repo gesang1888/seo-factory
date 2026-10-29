@@ -19,3 +19,7 @@ Description: Kakobuy primary spreadsheet/docs hub. Independent Index · 11,300+ 
 - kakobuytips.com → kakobuydocs.com
 - kakospreadsheet.fr → kakobuydocs.com
 - kakospreadsheet.nl → kakobuydocs.com
+
+## United States (hub-only, 20261029)
+- /shipping-to-us/ — USPS / CBP / ZIP notes; CTA → spreadsheet + dataset
+- No US keep desk; no kakobuys.co.uk
