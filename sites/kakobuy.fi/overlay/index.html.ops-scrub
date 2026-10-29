@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fi-FI">
+<head>
+<!-- kakobuy-ops-scrub-20261029 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kakobuy Suomi — Posti, suomalainen postinumero</title>
+<meta name="description" content="Finland desk: suomalainen postinumero, Posti last-mile, Tulli notes. Brand spreadsheet queries should not be primary H1 here.">
+<link rel="canonical" href="https://kakobuy.fi/">
+<link rel="icon" href="/favicon1.ico">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="stylesheet" href="/assets/css/kakobuy-theme.css?v=20261006k">
+<link rel="stylesheet" href="/assets/css/kakobuy-fi-desk.css?v=20261006k">
+<style>
+:root{
+  --acc:#F04A4F;--acd:#D13A3F;--link:#D13A3F;--login-fg:#fff;
+  --ink:#303133;--ink2:#495068;--mute:#8492b2;--dark:#181818;
+  --panel:#f5f6f7;--line:#eaecf0;--soft:#f5f6f7;
+  --r:18px;--rs:12px;--maxw:1120px;--medida:34em;
+  --f:"Microsoft Yahei","PingFang SC",Avenir,"Segoe UI","Hiragino Sans GB",sans-serif;--m:ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light;scroll-behavior:smooth}
+body{margin:0;font-family:var(--f);font-size:17px;line-height:1.72;color:var(--ink);background:#fff}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--link)}
+a:hover{color:var(--acd)}
+#main,[id]{scroll-margin-top:76px}
+h1,h2,h3{color:var(--dark);line-height:1.25;letter-spacing:-.01em;margin:0 0 .5em}
+h1{font-size:clamp(30px,4.4vw,45px);font-weight:800}
+h2{font-size:clamp(24px,3vw,32px);font-weight:800}
+h3{font-size:20px;font-weight:700}
+p{margin:0 0 1.05em}
+main p,main li,.sg-faq p{max-width:var(--medida)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:8px 18px;border-radius:var(--rs)}
+.top{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:var(--dark);text-decoration:none;font-size:15px;white-space:nowrap}
+.brand img{height:32px;width:auto}
+.brand span{color:#8492b2;font-weight:600}
+.nav{margin-left:auto;display:flex;gap:2px;flex-wrap:nowrap}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:#333;text-decoration:none;font-size:15px;white-space:nowrap}
+.nav a:hover,.nav a[aria-current]{color:var(--acc);background:transparent;font-weight:700}
+.hdr-login{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:var(--acc);color:var(--login-fg,#fff);font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+.hdr-login:hover{background:var(--acd);color:var(--login-fg,#fff)}
+.burger{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}
+.hero{position:relative;background:#181818;overflow:hidden}
+.hero__bg{position:absolute;inset:0;background:url(/img/hero.jpg?v=20261006k) center/cover no-repeat}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.58) 0%,color-mix(in srgb, var(--acc) 22%, transparent) 100%)}
+.hero .wrap{position:relative;padding:74px 22px 78px}
+.eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--acc);margin-bottom:14px}
+.hero .eyebrow{color:#fff3c4}
+.hero h1{color:#fff;max-width:15.5em}
+.hero p.lead{color:#f4f4f4;font-size:19px;max-width:34em}
+.sbox{margin-top:26px;max-width:660px}
+.sbox form{display:flex;gap:9px;background:#fff;border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 14px 40px rgba(24,24,24,.22)}
+.sbox input{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 8px}
+.sbox button{min-height:44px;padding:0 24px;border:0;border-radius:999px;background:var(--acc);color:var(--login-fg,#fff);font:inherit;font-weight:700;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips a{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);color:#fff8f0;text-decoration:none;font-size:14px}
+.sec{padding:62px 0;border-top:1px solid var(--line)}
+.sec--tint{background:linear-gradient(var(--soft) 0%,#fff 100%);border-top:0}
+.sec--first{border-top:0}
+.split{display:grid;grid-template-columns:1.04fr .96fr;gap:46px;align-items:center}
+.split--rev .fig{order:-1}
+.fig{margin:0}
+.fig img{border-radius:var(--r);border:1px solid var(--line);background:#fff}
+.fig figcaption{margin-top:11px;font-size:13.5px;line-height:1.55;color:var(--mute)}
+.lead{font-size:18px;color:var(--ink2);max-width:var(--medida)}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none}
+.btn:hover{background:var(--acd);color:#fff}
+.btn--ghost{background:#fff;color:var(--acd);border:1px solid var(--line)}
+.tl{list-style:none;margin:0;padding:0 0 0 30px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 18px 8px}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:-39px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px #fff}
+.tl b{display:block;color:var(--dark);font-size:17px}
+.tl span{color:var(--mute);font-size:14px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px;margin-top:8px}
+.cat{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 10px 14px;text-decoration:none;color:inherit}
+.cat:hover{transform:translateY(-3px);box-shadow:0 12px 28px color-mix(in srgb, var(--acc) 22%, transparent);border-color:color-mix(in srgb, var(--acc) 45%, #fff)}
+.cat img{width:72px;height:72px;object-fit:contain;padding:0;background:#fff}
+.cat__b{padding:10px 0 0}
+.cat em{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}
+.cat-grid--rich{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.cat-grid--rich .cat{align-items:flex-start;text-align:left;padding:14px}
+.eq{width:100%;border-collapse:collapse;max-width:36em;font-size:15px}
+.eq th,.eq td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+.eq th{color:#8492b2;font-weight:600}
+.cat__b strong{display:block;color:var(--dark);font-size:14.5px}
+.cat__b span{font-size:12px;color:var(--mute);letter-spacing:.04em}
+.states{margin:0;padding:0;list-style:none}
+.states li{padding:10px 0;border-bottom:1px solid var(--line);max-width:40em}
+.states code{font-family:var(--m);font-size:13px}
+.sg-faq{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff;max-width:40em}
+.sg-faq summary{cursor:pointer;font-weight:700}
+.ncard{border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 8px;margin-bottom:18px;max-width:40em}
+.ncard h2{font-size:22px}
+.list{margin:0 0 1.4em;padding:0 0 0 1.15em;max-width:var(--medida)}
+.list li{margin:0 0 .45em}
+.site-ft{background:#111;color:#ccc;padding:52px 0 30px;margin-top:24px;font-size:15.5px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px}
+.site-ft h3{color:#fff;font-size:15.5px;margin:0 0 12px;letter-spacing:.02em;font-weight:700}
+.site-ft p{margin:0 0 12px;max-width:36em}
+.site-ft a{color:#c2c2c2;text-decoration:none}
+.site-ft a:hover{color:#fff;text-decoration:underline}
+.site-ft ul{list-style:none;margin:0;padding:0}
+.site-ft li{margin-bottom:8px}
+.site-ft .legal{grid-column:1/-1;border-top:1px solid #2D2D2D;padding-top:20px;font-size:13.5px;color:#8a8a8a}
+.site-ft .legal p{margin:0 0 8px;max-width:none}
+.pw{max-width:40em;margin:0 auto;padding:40px 22px 64px}
+.inner-article{max-width:860px;margin:0 auto;padding:28px 24px 48px}
+#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}
+@media(max-width:1000px){
+  .split{grid-template-columns:1fr;gap:30px}
+  .split--rev .fig{order:0}
+  .ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:860px){
+  .burger{display:inline-flex;align-items:center;justify-content:center}
+  .nav{display:none;position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 12px}
+  .nav.open{display:flex}
+  .hdr-login{display:none}
+  .ft-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .sbox form{flex-direction:column}
+  .sbox button{width:100%}
+}
+
+:root{--primary-soft:#fee2e2;--login-fg:#fff}
+.hero .eyebrow{color:#fecaca}
+.sbox button{color:#fff}
+
+:root{--acc:#F04A4F!important;--acd:#D13A3F!important;--link:#D13A3F!important;--primary:#F04A4F!important;--primary-dark:#D13A3F!important;--primary-soft:#FEE2E2!important}#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}header.top .nav a{color:#333!important}header.top .nav a[aria-current],header.top .nav a:hover{color:#F04A4F!important;background:transparent!important}header.top .hdr-login{background:#F04A4F!important;color:#fff!important}header.top .hdr-login:hover{background:#D13A3F!important;color:#fff!important}/* portfolio-step4-local-css */
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
+.skip:focus{left:12px}
+.legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
+.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
+.local-src a{color:inherit}
+#local{scroll-margin-top:96px}
+.hub-uplink{margin:14px 0 0;padding:12px 14px;border-left:3px solid #0f766e;background:#f0fdfa;color:#134e4a;line-height:1.6;font-size:15px;max-width:760px}.hub-uplink a{color:#0f766e;font-weight:600}
+</style>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://kakobuy.fi/", "url": "https://kakobuy.fi/", "name": "Kakobuy Spreadsheet suomeksi: osta Kiinasta Suomeen turvallisesti", "description": "Riippumaton opas suomeksi: miten ostat Kiinasta Kakobuyn kautta, miten w2clinks-katalogi toimii ja miten paketti kulkee Suomeen.", "inLanguage": "fi-FI", "isPartOf": {"@type": "WebSite", "name": "Kakobuy España", "url": "https://kakobuy.fi/"}, "publisher": {"@type": "Organization", "name": "Kakobuy guía independiente", "url": "https://kakobuy.fi/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "kakobuy.fi independent desk", "url": "https://kakobuy.fi/", "email": "cnfd85269032661@gmail.com", "inLanguage": "fi-FI", "description": "Riippumaton opas suomeksi: miten ostat Kiinasta Kakobuyn kautta, miten w2clinks-katalogi toimii ja miten paketti kulkee Suomeen.", "contactPoint": {"@type": "ContactPoint", "email": "cnfd85269032661@gmail.com", "contactType": "customer support", "url": "https://kakobuy.fi/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "fi-FI", "mainEntity": [{"@type": "Question", "name": "Mikä Kakobuy on?", "acceptedAnswer": {"@type": "Answer", "text": "Kakobuy on ostoagentti. Se ostaa puolestasi kiinalaisista kaupoista, kuten Taobaosta, 1688:sta ja Weidianista, jotka eivät itse lähetä ulkomaille. Tuote saapuu agentin varastoon Kiinassa, siitä otetaan QC-kuvat ja vasta sen jälkeen valitset kansainvälisen linjan Suomeen. kakobuy.fi on riippumaton opas, ei kauppa eikä kassa, eikä se näe tiliäsi. Toimitusosoitteessa on suomalainen postinumero (esim. 00100 Helsinki)."}}, {"@type": "Question", "name": "Millä kielellä Kakobuy toimii?", "acceptedAnswer": {"@type": "Answer", "text": "Virallinen sivusto ja sovellus ovat pääosin englanniksi, ja osa tuotekorteista on kiinaksi. Tämä opas kirjoittaa suomeksi, mutta tilaus, maksu ja reklamaatio tehdään aina virallisella sivustolla. Jos jokin näkymä on epäselvä, ota kuvakaappaus ja kysy virallisesta chatista samana päivänä, ennen kuin maksat mitään. Selaimen käännöstoiminto auttaa, mutta tarkista summat aina alkuperäisestä näkymästä."}}, {"@type": "Question", "name": "Mikä spreadsheet on?", "acceptedAnswer": {"@type": "Answer", "text": "Spreadsheet ei ole Excel-taulukko. Se on katalogi tuotekortteja, joissa on kuva, merkki, viitehinta ja kaupan linkki. Löydät kortin w2clinksistä, kopioit kaupan linkin ja liität sen Kakobuyn hakuun. Katalogi ei myy mitään eikä peri maksuja, ja hinnat juanissa muuttuvat päivittäin, joten tarkista hinta aina agentilta."}}, {"@type": "Question", "name": "Kuinka monta kertaa maksan?", "acceptedAnswer": {"@type": "Answer", "text": "Maksat kahdesti. Ensin tuote ja Kiinan sisäinen rahti varastoon. Myöhemmin, kun tuotteet ovat varastossa ja QC-kuvat on hyväksytty, maksat kansainvälisen rahdin Suomeen. Välissä voit vielä peruuttaa, yhdistää paketteja tai vaihtaa linjaa. Tämä sivu ei näytä lopullista summaa, koska se lasketaan virallisessa arvioijassa."}}, {"@type": "Question", "name": "Mistä rahtihinta muodostuu?", "acceptedAnswer": {"@type": "Answer", "text": "Moni linja laskuttaa suuremman painoista: vaa’an painon tai tilavuuspainon, usein P×L×K (cm) / 8000. Untuvatakki on kevyt mutta tilaa vievä, joten tilavuus ratkaisee. Syötä omat mittasi viralliseen arvioijaan osoitteessa https://www.kakobuy.com/tools/estimate ja valitse kohteeksi Suomi. Tämä desk ei keksi linjaa, kuljetusaikaa eikä euromäärää."}}, {"@type": "Question", "name": "Kuinka kauan tuotteet saavat olla varastossa?", "acceptedAnswer": {"@type": "Answer", "text": "Kakobuyn virallisissa ohjeissa mainitaan sekä 100 päivää varastoon kirjaamisesta että 180 päivää. Tämä desk ei valitse lukua: tarkista virallinen ohje lähetysaamuna (6 Oct 2026). Jos aiot yhdistää useita tilauksia samaan pakettiin, suunnittele aikataulu niin, ettei ensimmäinen tuote odota liian kauan. Varastointiehdot voivat muuttua, joten tämä opas ei lupaa yhtään päivämäärää puolestasi."}}, {"@type": "Question", "name": "Voinko yhdistää useita tilauksia yhteen pakettiin?", "acceptedAnswer": {"@type": "Answer", "text": "Kyllä, se on tavallisin tapa säästää. Tuotteet odottavat varastossa, kunnes lähetät paketin. Yhdistäminen ei ole tullikikka: se mitä ilmoitat Tullille, lukee virallisessa lähetyksessä, ei tällä sivulla. Jos QC jakaa tuotteet useampaan laatikkoon, arvioi jokainen laatikko erikseen samaan kohteeseen Suomeen. Pyydä tarvittaessa poistamaan ylimääräiset kenkälaatikot, koska ne kasvattavat tilavuuspainoa."}}, {"@type": "Question", "name": "Kuka maksaa tullin ja ALV:n Suomeen?", "acceptedAnswer": {"@type": "Answer", "text": "Kuka maksaa tulot Suomeen, lukee SKU:sta. Posti voi Collectissa lisätä tullausmaksun. Lähde: Tulli. Kohde FI, viisinumeroinen postinumero kuten 00100 Helsinki, ei Ruotsi. Ei aliarvostusta. Se lukee valitun linjan SKU:ssa. Joissain linjoissa maksut on laskettu mukaan, toisissa vastaanottaja maksaa. Tarkista ehdot ennen lähetystä ja säilytä kuitit."}}, {"@type": "Question", "name": "Mitkä kynnysarvot pätevät?", "acceptedAnswer": {"@type": "Answer", "text": "ALV, IOSS ja kynnykset muuttuvat. Lue Tulli ja SKU lähetyspäivänä. Tämä desk ei keksi ilmoitusarvoa suomalaiselle osoitteelle eikä kopioi Ruotsin kynnystä. ALV, IOSS ja kynnysarvot muuttuvat. Tarkista ajantasainen tieto Tullilta lähetyspäivänä. Älä ilmoita todellista pienempää arvoa: se on riski sinulle, ei agentille."}}, {"@type": "Question", "name": "Mitä QC-kuvat ovat?", "acceptedAnswer": {"@type": "Answer", "text": "QC-kuvat ovat varaston ottamia valokuvia tuotteestasi ennen kansainvälistä lähetystä. Tarkista koko, väri, ompeleet ja mittanauhakuva. Lisäkulmat maksavat usein erikseen. Reklamointi on helpointa silloin, kun tuote on vielä varastossa, joten älä varaa linjaa Suomeen ennen kuin kuvat täsmäävät tilaukseen. Vertaa mittoja aina tuotekortin kokotaulukkoon, ei pelkkään kirjainkokoon."}}, {"@type": "Question", "name": "Mitä teen, jos kuva ei vastaa tilausta?", "acceptedAnswer": {"@type": "Answer", "text": "Avaa tiketti virallisella sivustolla heti, kun kuvat tulevat, ja liitä mukaan kuvakaappaus tuotekortista. Pyydä vaihtoa, palautusta myyjälle tai hyvitystä. Tämä opas ei voi avata tikettiä puolestasi eikä nähdä tilausnumeroasi. Säilytä kaikki viestit, koska ne ovat ainoa todisteesi myöhemmin. Kun tuote on jo lähtenyt Suomeen, vaihtoehtoja on selvästi vähemmän."}}, {"@type": "Question", "name": "Miksi tuotteella ei ole hintaa?", "acceptedAnswer": {"@type": "Answer", "text": "Kortti ilman hintaa tai manuaalinen lomake tarkoittaa yleensä, että lähdelinkki ei ole ostettavissa agentin kautta tai hintaa ei voitu lukea. Restricted on ostoesto, ei Tullin päätös. Tupakka, alkoholi ja lääkkeet eivät matkusta. Älä tilaa ilman oikeaa hintaa ja variantteja. Etsi mieluummin toinen myyjä samalle tuotteelle w2clinksistä tai suoraan Kakobuyn haulla."}}, {"@type": "Question", "name": "Voiko elektroniikkaa lähettää Suomeen?", "acceptedAnswer": {"@type": "Answer", "text": "Elektroniikassa on usein litiumakku, eikä jokainen lentolinja hyväksy niitä. Tarkista virallisesta arvioijasta, mitkä linjat Suomeen ottavat akun tai magneetin, ennen kuin ostat. Muuten tuote voi jäädä varastoon odottamaan. Sama koskee nesteitä, aerosoleja ja kaikkea, jossa on paristo. Tilaa tällaiset tuotteet erikseen, jotta ne eivät pysäytä koko pakettia."}}, {"@type": "Question", "name": "Mitä teen, jos paketti on jumissa?", "acceptedAnswer": {"@type": "Answer", "text": "Katso ensin oikea näkymä: tilaukset, sitten varasto, sitten lähetetty paketti. Useimmiten kysymys miksi se seisoo tarkoittaa, että katsot väärää näyttöä. Kun paketti on lähtenyt, seuraa virallista seurantakoodia. Jos koodi ei päivity useaan päivään, avaa tiketti virallisella sivustolla ja liitä seurantanumero. Suomessa viimeisen kilometrin hoitaa usein Posti, joten tarkista myös sen seuranta."}}, {"@type": "Question", "name": "Miten otan yhteyttä Kakobuyhin?", "acceptedAnswer": {"@type": "Answer", "text": "Virallisen sivuston chatin tai tiketin kautta osoitteessa https://www.kakobuy.com/. Tämä opas (kakobuy.fi) ei voi hakea tilausnumeroa eikä muuttaa tiliäsi. Säilytä sovelluksen tilausnumero. Oppaan omat korjaukset ja palautteen voit lähettää osoitteeseen cnfd85269032661@gmail.com, mutta tilauksiin liittyvät asiat hoidetaan aina Kakobuyn kanssa."}}]}</script>
+</head>
+<body data-ops-scrub="20261029">
+<a class="skip" href="#main">Siirry sisältöön</a>
+<header class="top" role="banner">
+  <div class="wrap">
+    <a href="/start/" class="brand">
+      <img src="/assets/images/kakobuy-logo.png" alt="Kakobuy" width="118" height="39">
+      <span>Spreadsheet</span>
+    </a>
+    <button class="burger" type="button" aria-expanded="false" aria-label="Avaa valikko">&#9776;</button>
+    <nav class="nav" aria-label="Päävalikko"><a href="/start/" aria-current="page">Start</a><a href="/how-to-use-kakobuy/">Opas</a><a href="/katalogi/">Katalogi</a><a href="/kakobuy-shipping/">Toimitus</a><a href="/ohje/">Ohje</a><a href="/uutiset/">Uutiset</a></nav>
+    <a class="hdr-login" href="https://www.kakobuy.com/?utm_source=kakobuy.fi&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Kirjaudu Kakobuyhin</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="hero__bg" role="img" aria-label="Kakobuyn virallinen etusivu"></div>
+  <div class="hero__scrim"></div>
+  <div class="wrap">
+    <span class="eyebrow">Riippumaton opas, suomeksi</span>
+    <h1>Kakobuy for a Finnish delivery address</h1>
+    <p class="lead">Miten liität tuotelinkin agenttiin, miten w2clinks-katalogi toimii, miten paketti kulkee Suomeen ja mitä tarkistat ennen Tullia.</p>
+    
+<!-- portfolio-step4-local -->
+<section class="sg-sec" id="local" data-step4="1">
+  <h2>What applies today to a Finnish delivery address</h2>
+  <p class="ssub">kakobuy.fi · local-intent desk · not a second brand hub.</p>
+  <ol class="local-steps"><li><strong>Estimator destination: Finland</strong><span>Pick FI — not SE, not this hostname. A Swedish postnummer is the wrong country.</span></li><li><strong>Address</strong><span>Finnish postcode (suomalainen postinumero), five digits.</span></li><li><strong>Duties</strong><span>SKU decides. Posti can add a collect fee. Source: Tulli the morning you ship.</span></li><li><strong>Last mile</strong><span>Often Posti. This desk does not invent a declared value for FI.</span></li></ol>
+  <p class="local-src">Official source: <a href="https://tulli.fi/" rel="noopener">Tulli</a>. Lab 26 Oct 2026.</p>
+  <p class="local-src">Money URLs (keep ≤6): <a href="/">Home</a> · <a href="/kakobuy-shipping/">/kakobuy-shipping</a></p>
+  <p class="hub-uplink" data-step4-hub="1" data-platform-opt="kakobuy-20261026">Kakobuy brand / spreadsheet docs → <a href="https://kakobuydocs.com/">kakobuydocs.com</a> · <a href="https://kakobuydocs.com/kakobuy-coupons/">coupons</a> · <a href="https://kakobuydocs.com/finds-dataset/">dataset</a> (Independent Index · 11,300+). This host stays Finnish postcode / Posti / Tulli.</p>
+</section>
+<!-- /portfolio-step4-local -->
+
+
+<div class="sbox">
+      <form id="w2c-search" action="https://w2clinks.com/spreadsheet/kakobuy/" method="get" target="_blank" rel="nofollow noopener" role="search">
+        <label class="skip" for="q">Hae tuotteita w2clinksistä</label>
+        <input id="q" name="q" type="search" autocomplete="off" placeholder="Hae sneakers, hoodie, jacket…">
+        <input type="hidden" name="utm_source" value="kakobuy.fi">
+        <input type="hidden" name="utm_medium" value="referral">
+        <input type="hidden" name="utm_campaign" value="hero-buscador">
+        <button type="submit">Hae</button>
+      </form>
+      <div class="chips"><a href="https://w2clinks.com/spreadsheet/kakobuy/?q=sneakers&amp;utm_source=kakobuy.fi&amp;utm_medium=referral&amp;utm_campaign=hero-chips" rel="nofollow noopener" target="_blank">sneakers</a><a href="https://w2clinks.com/spreadsheet/kakobuy/?q=slippers&amp;utm_source=kakobuy.fi&amp;utm_medium=referral&amp;utm_campaign=hero-chips" rel="nofollow noopener" target="_blank">slippers</a><a href="https://w2clinks.com/spreadsheet/kakobuy/?q=t-shirt&amp;utm_source=kakobuy.fi&amp;utm_medium=referral&amp;utm_campaign=hero-chips" rel="nofollow noopener" target="_blank">t-shirt</a><a href="https://w2clinks.com/spreadsheet/kakobuy/?q=polo&amp;utm_source=kakobuy.fi&amp;utm_medium=referral&amp;utm_campaign=hero-chips" rel="nofollow noopener" target="_blank">polo</a><a href="https://w2clinks.com/spreadsheet/kakobuy/?q=shirt&amp;utm_source=kakobuy.fi&amp;utm_medium=referral&amp;utm_campaign=hero-chips" rel="nofollow noopener" target="_blank">shirt</a><a href="https://w2clinks.com/spreadsheet/kakobuy/?q=shorts&amp;utm_source=kakobuy.fi&amp;utm_medium=referral&amp;utm_campaign=hero-chips" rel="nofollow noopener" target="_blank">shorts</a><a href="https://w2clinks.com/spreadsheet/kakobuy/?q=vest&amp;utm_source=kakobuy.fi&amp;utm_medium=referral&amp;utm_campaign=hero-chips" rel="nofollow noopener" target="_blank">vest</a><a href="https://w2clinks.com/spreadsheet/kakobuy/?q=long+sleeved&amp;utm_source=kakobuy.fi&amp;utm_medium=referral&amp;utm_campaign=hero-chips" rel="nofollow noopener" target="_blank">long sleeved</a></div>
+    </div>
+  </div>
+</section>
+<section class="sec sec--first" id="agent">
+  <div class="wrap"><div class="split"><div>
+    <h2>Ostoagentti on välikäsi, ei kauppa</h2>
+    <p class="lead">Kakobuy ei myy omia tuotteita. Se ostaa puolestasi kiinalaisista kaupoista, jotka eivät lähetä ulkomaille, vastaanottaa paketin varastoon, kuvaa sen, säilyttää sen ja lähettää Suomeen, kun sinä päätät.</p>
+    <p>Maksat kahdesti (ensin tuote, myöhemmin kansainvälinen rahti) ja odotat kahdesti. Välissä voit vielä peruuttaa, yhdistää tai vaihtaa linjaa. Maksut ja tiketit pysyvät osoitteessa https://www.kakobuy.com/.</p>
+    <p><a class="btn" href="/how-to-use-kakobuy/">Opas vaihe vaiheelta</a></p>
+  </div><figure class="fig"><img src="/img/shots/oficial.jpg" alt="Kakobuyn virallinen etusivu: hakupalkki, valikko ja rahtiarvioija" loading="lazy" width="1200" height="750"><figcaption>Virallinen kakobuy.com, 6 Oct 2026. Arvioija on osoitteessa /tools/estimate. Tämä desk ei keksi linjaa eikä summaa.</figcaption></figure></div></div>
+</section>
+
+<section class="sec" id="shots">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Liitä kiinalainen linkki tai hae sovelluksessa</h2>
+    <p class="lead">Kakobuy alkaa näin: liität Taobao-, 1688- tai Weidian-linkin tai kirjoitat tuotteen nimen. Kiinalainen kauppa näkee Kakobuyn; sinä näet myöhemmin varastokuvat ja linjan Suomeen.</p>
+    <p>Jos haku ei lue linkkiä, seuraava askel on manuaalinen lomake: nimi, koko, väri ja hinta juaneina. Kansainvälisen rahdin maksat vasta myöhemmin, varastosta.</p>
+    <p><a class="btn" href="/how-to-use-kakobuy/">Opas vaihe vaiheelta</a>
+       <a class="btn btn--ghost" href="https://www.kakobuy.com/" rel="noopener">Virallinen sivusto</a></p>
+  </div><figure class="fig"><img src="/img/shots/catalogus-zoek.jpg" alt="Huppari-haku Kakobuy-katalogissa w2clinksissä" loading="lazy" width="1200" height="900"><figcaption>Tulokset ja suodatinsarake. Kuvattu 6 Oct 2026.</figcaption></figure></div></div>
+</section>
+
+<section class="sec sec--tint" id="sheet-explain">
+  <div class="wrap"><div class="split split--rev"><div>
+    <span class="eyebrow" style="color:var(--acd)">Harhaanjohtava nimi</span>
+    <h2>Spreadsheet ei ole Excel-tiedosto</h2>
+    <p class="lead">Sana «spreadsheet» kuulostaa riveiltä ja sarakkeilta. Tässä se tarkoittaa tuotekorttien katalogia: kuva, merkki, viitehinta ja linkki, jonka liität agenttiin.</p>
+    <p>w2clinksissä näet kortteja, et soluja.</p>
+    <p><a class="btn btn--ghost" href="/katalogi/">Näin katalogi toimii</a></p>
+  </div><figure class="fig"><img src="/img/shots/catalogus.jpg" alt="Kakobuy-katalogi w2clinksissä: tuotekortit, joissa kuva, merkki ja viitehinta" loading="lazy" width="1200" height="900"><figcaption>Kortteja, ei Excel-soluja. Juanihinnat muuttuvat päivittäin. Kuvattu 6 Oct 2026, kategoria SNEAKERS.</figcaption></figure></div></div>
+</section>
+<section class="sec" id="cat-wall">
+  <div class="wrap">
+    <h2>Kolmekymmentäkolme kategoriaa ensimmäiseen päivään</h2>
+    <p class="lead">Jokainen kortti avaa kategorian katalogissa. Aloita yhdellä: viisi kategoriaa ensimmäisessä haulissa on nopein tie kalliiseen ja hankalaan laatikkoon.</p>
+    <div class="cat-grid"><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=SNEAKERS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-30-shoes.png?v=24" alt="SNEAKERS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Lenkkarit</strong><span>SNEAKERS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=SLIPPERS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-27-slippers.png?v=24" alt="SLIPPERS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Tossut</strong><span>SLIPPERS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=T-SHIRT&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-03-t-shirt.png?v=24" alt="T-SHIRT" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>T-paita</strong><span>T-SHIRT</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=POLO&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-04-polo.png?v=24" alt="POLO" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Pikeepaita</strong><span>POLO</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=SHIRT&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-05-shirt.png?v=24" alt="SHIRT" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Kauluspaita</strong><span>SHIRT</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=SHORTS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-07-shorts.png?v=24" alt="SHORTS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Shortsit</strong><span>SHORTS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=VEST&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-20-vest.png?v=24" alt="VEST" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Liivi</strong><span>VEST</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=LONG+SLEEVED&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-25-long-sleeved.png?v=24" alt="LONG SLEEVED" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Pitkähihainen</strong><span>LONG SLEEVED</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=HOODIE&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-06-hoodie.png?v=24" alt="HOODIE" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Huppari</strong><span>HOODIE</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=SWEATER&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-11-sweater.png?v=24" alt="SWEATER" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Neule</strong><span>SWEATER</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=SHAWL&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-12-shawl.png?v=24" alt="SHAWL" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Huivi</strong><span>SHAWL</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=JACKET&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-13-jacket.png?v=24" alt="JACKET" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Takki</strong><span>JACKET</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=SHELL+JACKET&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-18-jacket.png?v=24" alt="SHELL JACKET" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Kuoritakki</strong><span>SHELL JACKET</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=FLEECE+JACKET&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-17-fleece-jacket.png?v=24" alt="FLEECE JACKET" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Fleecetakki</strong><span>FLEECE JACKET</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=DOWN+JACKETS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-08-down-jackets.png?v=24" alt="DOWN JACKETS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Untuvatakki</strong><span>DOWN JACKETS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=TROUSERS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-19-trousers.png?v=24" alt="TROUSERS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Housut</strong><span>TROUSERS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=Jersey&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-jersey.png?v=24" alt="Jersey" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Pelipaita</strong><span>Jersey</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=FEMALE+STYLE&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-28-femaie-styie.png?v=24" alt="FEMALE STYLE" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Naisten</strong><span>FEMALE STYLE</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=Electronics&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-electronics.png?v=24" alt="Electronics" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Elektroniikka</strong><span>Electronics</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=GLOVES&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-15-giove.png?v=24" alt="GLOVES" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Hanskat</strong><span>GLOVES</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=BAG&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-00-bag.png?v=24" alt="BAG" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Laukku</strong><span>BAG</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=HAT&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-01-hat.png?v=24" alt="HAT" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Hattu</strong><span>HAT</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=JEWELRY&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-02-jewelry.png?v=24" alt="JEWELRY" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Korut</strong><span>JEWELRY</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=UNDERWEAR&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-09-underwear.png?v=24" alt="UNDERWEAR" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Alusvaatteet</strong><span>UNDERWEAR</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=BELT&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-10-belt.png?v=24" alt="BELT" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Vyö</strong><span>BELT</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=KNEEPAD&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-16-kneepad.png?v=24" alt="KNEEPAD" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Polvisuojat</strong><span>KNEEPAD</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=SOCKS&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-26-socks.png?v=24" alt="SOCKS" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Sukat</strong><span>SOCKS</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=HEADGEAR&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-22-headgear.png?v=24" alt="HEADGEAR" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Päähine</strong><span>HEADGEAR</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=EARMUFF&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-23-earmuff.png?v=24" alt="EARMUFF" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Korvaläpät</strong><span>EARMUFF</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=SCARF&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-24-scarf.png?v=24" alt="SCARF" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Kaulahuivi</strong><span>SCARF</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=GLASSES&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-31-glasses.png?v=25" alt="GLASSES" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Lasit</strong><span>GLASSES</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=WATCH&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-32-watch.png?v=26" alt="WATCH" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Kello</strong><span>WATCH</span></div></a><a class="cat" href="https://w2clinks.com/spreadsheet/kakobuy/?category=CHILD&amp;page=1&amp;sort=newest" rel="noopener" target="_blank"><img src="https://w2clinks.com/public/static/w2c/categories/cat-29-child.png?v=24" alt="CHILD" loading="lazy" decoding="async" width="96" height="96"><div class="cat__b"><strong>Lapset</strong><span>CHILD</span></div></a></div>
+  </div>
+</section>
+
+<section class="sec" id="states">
+  <div class="wrap"><div class="split"><div>
+    <h2>Yhdeksän tilaa, kolme näkymää</h2>
+    <p class="lead">Ensin maksat tuotteen ja Kiinan sisäisen rahdin varastoon. Kansainvälinen rahti tulee myöhemmin, kun valitset linjan Suomeen. ”Miksi se seisoo?” tarkoittaa lähes aina: katsot väärää näkymää.</p>
+    <ul class="tl"><li><b>Order Submitted</b><span>Order sent, product paid in China.</span></li><li><b>Order Placed</b><span>Kakobuy buys in the Chinese shop in your name.</span></li><li><b>Seller Shipped</b><span>The Chinese seller has shipped.</span></li><li><b>Arrived at Warehouse</b><span>Arrived at the warehouse.</span></li><li><b>Inspection &amp; Storage</b><span>Check, photos and storage. Live labels sit in the app.</span></li><li><b>Shipping Requested</b><span>You consolidate and book the international line.</span></li><li><b>Parcel Packed</b><span>The box is packed.</span></li><li><b>Shipped</b><span>Departure from China.</span></li><li><b>Delivered</b><span>Delivered; confirm receipt in the app.</span></li></ul>
+    <p>Ensimmäiset vaiheet ovat tilausten alla, sitten varasto, sitten paketti, jonka lähetät. Kakobuyn virallisissa ohjeissa mainitaan sekä 100 päivää varastoon kirjaamisesta että 180 päivää. Tämä desk ei valitse lukua: tarkista virallinen ohje lähetysaamuna (6 Oct 2026).</p>
+    <p><a class="btn" href="/how-to-use-kakobuy/">Opas koko polusta</a></p>
+  </div><figure class="fig"><img src="/img/shots/oficial.jpg" alt="Kakobuyn virallinen etusivu: hakupalkki, valikko ja rahtiarvioija" loading="lazy" width="1200" height="750"><figcaption>Virallinen kakobuy.com, 6 Oct 2026. Arvioija on osoitteessa /tools/estimate. Tämä desk ei keksi linjaa eikä summaa.</figcaption></figure></div></div>
+</section>
+
+<section class="sec sec--tint" id="lab">
+  <div class="wrap"><div class="split"><div>
+    <h2>Suomeen on linjoja, mutta kaikki eivät ole auki</h2>
+    <p class="lead">Valitse arvioijassa kohde <strong>Finland — 芬兰</strong>, ei EU eikä SE. Toimitusosoitteessa on suomalainen postinumero (esim. 00100 Helsinki).</p>
+    <p>Virallinen arvioija on osoitteessa https://www.kakobuy.com/tools/estimate: valitse maa, älä tätä hostnamea. Tämä desk ei keksi linjaa, kuljetusaikaa eikä euromäärää. Lähde: <a href="https://tulli.fi/" rel="noopener">Tulli</a>.</p>
+    <p><a class="btn" href="https://www.kakobuy.com/tools/estimate">Kakobuyn virallinen arvioija</a>
+       <a class="btn btn--ghost" href="/kakobuy-shipping/">Toimitussuunnitelma</a></p>
+  </div><figure class="fig"><img src="/img/shots/oficial.jpg" alt="Kakobuyn virallinen etusivu: hakupalkki, valikko ja rahtiarvioija" loading="lazy" width="1200" height="750"><figcaption>Virallinen kakobuy.com, 6 Oct 2026. Arvioija on osoitteessa /tools/estimate. Tämä desk ei keksi linjaa eikä summaa.</figcaption></figure></div></div>
+</section>
+<section class="sec" id="volume">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Maksamasi paino on harvoin pelkkä vaaka</h2>
+    <p class="lead">Moni linja laskuttaa suuremman painon vaa’asta ja tilavuudesta. Tavallinen jakaja on P×L×K (cm) / 8000. Untuvatakki on kevyt ja tilaa vievä: siinä tilavuus ratkaisee.</p>
+    <p>Esimerkki: 40×40×3 cm on 4800 cm³, jaettuna 8000:lla se on 600 g tilavuutta, kun todellinen paino on 200 g. Omat mittasi syötät viralliseen arvioijaan, kohteena Suomi.</p>
+  </div><figure class="fig"><img src="/img/shots/volume-voorbeeld.jpg" alt="Esimerkki tilavuuspainosta: 40×40×3 cm ja 200 g vaa’alla on 600 g tilavuutta" loading="lazy" width="1200" height="640"><figcaption>Laskuesimerkki, ei varastokuva. Moni linja laskuttaa suuremman painon vaa’asta ja tilavuudesta, usein P×L×K (cm) / 8000.</figcaption></figure></div></div>
+</section>
+
+<section class="sec sec--tint" id="restricted">
+  <div class="wrap"><div class="split split--rev"><div>
+    <h2>Monia tuotteita ei voi ostaa, vaikka ne näkyvät</h2>
+    <p class="lead">Virallisella sivustolla näet kortteja ilman hintaa tai manuaalisen lomakkeen kauppakortin sijaan. Se ei ole tämän etusivun vika: lähdelinkki ei ole ostettavissa agentin kautta, tai hintaa ei voitu lukea.</p>
+    <p>Sääntö: ilman oikeaa hintaa ja variantteja älä tilaa. Tupakka, alkoholi ja lääkkeet eivät matkusta. Restricted on ostoesto, ei Tullin päätös. Kakobuy ei myy omaa varastoa.</p>
+  </div><figure class="fig"><img src="/img/shots/catalogus.jpg" alt="Kakobuy-katalogi w2clinksissä: tuotekortit, joissa kuva, merkki ja viitehinta" loading="lazy" width="1200" height="900"><figcaption>Kortteja, ei Excel-soluja. Juanihinnat muuttuvat päivittäin. Kuvattu 6 Oct 2026, kategoria SNEAKERS.</figcaption></figure></div></div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <h2>Ohje, uutiset ja mistä kysyä</h2>
+    <p class="lead">Ensimmäisten tilausten kysymykset toistuvat. Ne ovat Ohje-sivulla — omassa osoitteessaan, ei tämän etusivun liitteenä.</p>
+    <p><a class="btn" href="/ohje/">Kaikki kysymykset Ohjeessa</a>
+       <a class="btn btn--ghost" href="/uutiset/">Päivätyt tarkistukset Uutisissa</a>
+       <a class="btn btn--ghost" href="/meista/">Meistä</a></p>
+  </div>
+</section>
+
+</main>
+<footer class="site-ft">
+  <div class="wrap ft-grid">
+    <div>
+      <h3>Kakobuy Spreadsheet</h3>
+      <p>Riippumaton suomenkielinen opas Kakobuysta ja siitä, miten käytät w2clinks-katalogia, kun ostat Kiinasta Suomeen.</p>
+      <p><a href="/cdn-cgi/l/email-protection#8be8e5edefb3beb9bdb2bbb8b9bdbdbacbece6eae2e7a5e8e4e6"><span class="__cf_email__" data-cfemail="f794999193cfc2c5c1cec7c4c5c1c1c6b7909a969e9bd994989a">[email&#160;protected]</span></a></p>
+    </div>
+    <div>
+      <h3>Osiot</h3>
+      <ul><li><a href="/how-to-use-kakobuy/">Kakobuy-opas</a></li><li><a href="/katalogi/">Spreadsheet ja kategoriat</a></li><li><a href="/kakobuy-shipping/">Toimitus ja tulli</a></li><li><a href="/ohje/">Ohje ja kysymykset</a></li><li><a href="/uutiset/">Uutiset</a></li><li><a href="/meista/">Meistä</a></li></ul>
+    </div>
+    <div>
+      <h3>Viralliset linkit</h3>
+      <ul><li><a href="https://www.kakobuy.com?utm_source=kakobuy.fi&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Kakobuy (virallinen sivusto)</a></li><li><a href="https://www.kakobuy.com/tools/estimate?utm_source=kakobuy.fi&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Rahtiarvioija (virallinen, 6 Oct 2026)</a></li></ul>
+    </div>
+    <div class="legal">
+      <p><strong>Riippumattomuusilmoitus.</strong> Kakobuy Spreadsheet on riippumaton tietosivusto. Emme ole Kakobuy, emme käsittele tilauksia, emme peri rahtia emmekä näe tiliäsi. Tilaus, maksu ja reklamaatio kulkevat virallisen sivuston kautta.</p>
+      <p>&copy; 2026 Kakobuy Spreadsheet. Suomenkielinen teksti, luettu ennen julkaisua.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var b=document.querySelector('.burger'), n=document.querySelector('nav.nav');
+  if(!b||!n) return;
+  b.addEventListener('click', function(){
+    var on=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', on?'false':'true');
+    n.classList.toggle('open', !on);
+  });
+})();
+</script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"30a7f2d9f61f456eb55ac62bcf891280","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -5,7 +5,7 @@
   "platform_opt": "kakobuy-hub-reclaim-20261027",
   "verify_on": "kakobuy.com / in-app wallet — confirm before pay",
   "update_cadence": "Coupons page copy + JSON stamped when invite/offer changes (target weekly)",
-  "serp_note": "Brand spreadsheet queries consolidate on kakobuydocs.com /kakobuy-spreadsheet/ + Independent Index · 11,300+. FI/ES/CA keep local KPI only. Twins tips/.fr/.nl stay 301→hub.",
+  "serp_note": "Brand spreadsheet queries consolidate on kakobuydocs.com /kakobuy-spreadsheet/ + Independent Index · 11,300+. Country guides: FI / ES / CA for local postal context.",
   "offers": [
     {
       "id": "kakobuy-kakodocs",

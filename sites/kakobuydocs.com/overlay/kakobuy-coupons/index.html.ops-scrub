@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- kakobuy-ops-scrub-20261029 -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kakobuy Coupon Codes 2026 — KAKODOCS</title>
+<meta name="description" content="All working Kakobuy coupon codes and promo codes for 2026. Updated weekly. Get discounts on orders, shipping fees, and first-time purchases.">
+<meta name="keywords" content="kakobuy coupons, kakobuy coupon codes, kakobuy promo codes, kakobuy discount codes, kakobuy coupon 2026, kakobuy discount">
+<meta property="og:title" content="Kakobuy Coupon Codes 2026 — Working Discounts">
+<meta property="og:description" content="All working Kakobuy coupon codes updated weekly. Discounts on orders, shipping and more.">
+<meta property="og:url" content="https://kakobuydocs.com/kakobuy-coupons/">
+<link rel="canonical" href="https://kakobuydocs.com/kakobuy-coupons/">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Are there Kakobuy coupon codes?","acceptedAnswer":{"@type":"Answer","text":"Yes. Kakobuy regularly issues coupon codes for new users, seasonal promotions and community events. This page maintains a live list of working codes updated weekly."}},
+    {"@type":"Question","name":"How do I use a Kakobuy coupon code?","acceptedAnswer":{"@type":"Answer","text":"At Kakobuy checkout, look for the 'Coupon Code' or 'Promo Code' field. Enter your code and click Apply. The discount will be deducted from your order total before payment."}},
+    {"@type":"Question","name":"Does Kakobuy offer free shipping coupons?","acceptedAnswer":{"@type":"Answer","text":"Kakobuy occasionally offers shipping fee discounts during promotions. These are usually time-limited. Check this page for current shipping discount codes."}}
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --orange: #FF6B35;
+    --orange-light: #FFF0EA;
+    --orange-dark: #CC4D1F;
+    --green: #16A34A;
+    --green-light: #F0FDF4;
+    --amber: #D97706;
+    --amber-light: #FFFBEB;
+    --red: #DC2626;
+    --red-light: #FEF2F2;
+    --blue: #2563EB;
+    --blue-light: #EFF6FF;
+    --black: #0A0A0A;
+    --gray-1: #1A1A1A;
+    --gray-2: #2D2D2D;
+    --gray-3: #555;
+    --gray-4: #888;
+    --gray-5: #E5E5E5;
+    --gray-6: #F6F6F6;
+    --white: #FFFFFF;
+    --font: 'DM Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); background: var(--white); color: var(--black); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  a { color: var(--orange); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  /* NAV */
+  .nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--gray-5); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; letter-spacing: -0.3px; color: var(--black); }
+  .nav-logo img { width: 28px; height: 28px; border-radius: 6px; }
+  .nav-logo-fb { width: 28px; height: 28px; background: var(--orange); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 13px; font-weight: 700; }
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+  .nav-links a { font-size: 13px; padding: 6px 10px; border-radius: 6px; color: var(--gray-4); transition: background .15s, color .15s; }
+  .nav-links a:hover { background: var(--gray-6); color: var(--black); text-decoration: none; }
+  .nav-links a.active { color: var(--black); font-weight: 500; }
+  .btn-wa { display: flex; align-items: center; gap: 7px; padding: 7px 14px; background: #25D366; color: white; border-radius: 8px; font-size: 13px; font-weight: 500; transition: opacity .15s; white-space: nowrap; }
+  .btn-wa:hover { opacity: .88; text-decoration: none; }
+  .btn-wa svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  /* ANNOUNCE */
+  .announce { background: var(--orange); color: white; text-align: center; padding: 9px 16px; font-size: 13px; font-weight: 500; }
+  .announce a { color: white; text-decoration: underline; text-underline-offset: 3px; }
+
+  /* BREADCRUMB */
+  .breadcrumb { padding: 14px 24px; max-width: 1100px; margin: 0 auto; font-size: 12px; color: var(--gray-4); display: flex; align-items: center; gap: 6px; }
+  .breadcrumb a { color: var(--gray-4); }
+  .breadcrumb a:hover { color: var(--black); }
+
+  /* LAYOUT */
+  .page-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; }
+
+  /* HEADER */
+  .art-header { margin-bottom: 32px; animation: fadeUp .4s ease both; }
+  .art-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+  .art-tag { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .6px; padding: 4px 10px; border-radius: 20px; }
+  .tag-coupons { background: #FEF3C7; color: #92400E; }
+  .tag-updated { background: var(--gray-6); color: var(--gray-4); }
+  .tag-live { background: var(--green-light); color: var(--green); }
+  .art-title { font-size: clamp(26px,4vw,38px); font-weight: 600; letter-spacing: -1px; line-height: 1.18; color: var(--black); margin-bottom: 14px; }
+  .art-title em { font-style: normal; color: var(--orange); }
+  .art-intro { font-size: 16px; color: var(--gray-3); line-height: 1.8; border-left: 3px solid var(--orange); padding-left: 16px; }
+
+  /* COUPON CARDS */
+  .coupon-section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--gray-4); margin: 28px 0 14px; display: flex; align-items: center; gap: 8px; }
+  .coupon-section-title span { width: 8px; height: 8px; border-radius: 50%; background: var(--green); display: inline-block; }
+  .coupon-section-title span.amber { background: var(--amber); }
+  .coupon-section-title span.gray { background: var(--gray-5); }
+
+  .coupon-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px; }
+
+  .coupon-card {
+    border: 1.5px dashed var(--gray-5);
+    border-radius: var(--radius-lg);
+    padding: 16px 18px;
+    display: flex; align-items: center; gap: 16px;
+    background: var(--white);
+    transition: border-color .15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .coupon-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 5px;
+    border-radius: 2px 0 0 2px;
+  }
+  .coupon-card.active { border-color: #BBF7D0; }
+  .coupon-card.active::before { background: var(--green); }
+  .coupon-card.limited { border-color: #FDE68A; }
+  .coupon-card.limited::before { background: var(--amber); }
+  .coupon-card.expired { border-color: var(--gray-5); opacity: .6; }
+  .coupon-card.expired::before { background: var(--gray-4); }
+
+  .coupon-left { flex: 1; min-width: 0; }
+  .coupon-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; padding: 2px 7px; border-radius: 4px; display: inline-block; margin-bottom: 6px; }
+  .badge-working { background: var(--green-light); color: var(--green); }
+  .badge-limited { background: var(--amber-light); color: var(--amber); }
+  .badge-expired { background: var(--gray-6); color: var(--gray-4); }
+  .badge-exclusive { background: var(--orange-light); color: var(--orange-dark); }
+  .coupon-title { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 3px; }
+  .coupon-desc { font-size: 12.5px; color: var(--gray-3); line-height: 1.5; }
+  .coupon-expiry { font-size: 11px; color: var(--gray-4); margin-top: 5px; display: flex; align-items: center; gap: 4px; }
+  .coupon-expiry svg { width: 11px; height: 11px; }
+
+  .coupon-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+  .coupon-code-wrap { position: relative; }
+  .coupon-code {
+    font-family: var(--mono);
+    font-size: 15px; font-weight: 600;
+    color: var(--orange-dark);
+    background: var(--orange-light);
+    border: 1.5px dashed var(--orange);
+    padding: 7px 14px;
+    border-radius: 8px;
+    letter-spacing: .5px;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 7px;
+    white-space: nowrap;
+    transition: background .15s;
+    user-select: all;
+  }
+  .coupon-code:hover { background: #FFE5D6; }
+  .coupon-code svg { width: 14px; height: 14px; opacity: .6; }
+  .coupon-code.expired-code { color: var(--gray-4); background: var(--gray-6); border-color: var(--gray-5); cursor: default; }
+  .copy-toast {
+    position: absolute; top: -28px; right: 0;
+    background: var(--black); color: white;
+    font-size: 11px; padding: 3px 8px; border-radius: 5px;
+    white-space: nowrap; opacity: 0; transition: opacity .2s;
+    pointer-events: none;
+  }
+  .copy-toast.show { opacity: 1; }
+  .coupon-saving { font-size: 12px; font-weight: 600; color: var(--green); }
+  .coupon-saving.expired-saving { color: var(--gray-4); }
+
+  /* HOW TO USE */
+  .how-steps { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 14px; margin: 16px 0 28px; }
+  .how-step { padding: 16px; border: 1px solid var(--gray-5); border-radius: var(--radius-lg); }
+  .how-num { width: 30px; height: 30px; border-radius: 50%; background: var(--orange); color: white; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-family: var(--mono); }
+  .how-title { font-size: 13.5px; font-weight: 600; color: var(--black); margin-bottom: 5px; }
+  .how-text { font-size: 12.5px; color: var(--gray-3); line-height: 1.6; }
+
+  /* CALLOUT */
+  .callout { border-radius: var(--radius-lg); padding: 15px 18px; margin: 18px 0; display: flex; gap: 12px; align-items: flex-start; }
+  .callout svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
+  .callout-body { font-size: 14px; line-height: 1.7; }
+  .callout-body strong { display: block; margin-bottom: 3px; font-size: 13px; }
+  .callout.tip { background: var(--orange-light); border: 1px solid #FFD5C2; color: var(--orange-dark); }
+  .callout.tip svg { color: var(--orange); }
+  .callout.info { background: var(--blue-light); border: 1px solid #BFDBFE; color: #1E40AF; }
+  .callout.info svg { color: var(--blue); }
+
+  /* PROSE */
+  .prose h2 { font-size: 22px; font-weight: 600; letter-spacing: -.5px; color: var(--black); margin-top: 44px; margin-bottom: 14px; padding-top: 8px; border-top: 1px solid var(--gray-5); }
+  .prose p { font-size: 15px; color: var(--gray-2); line-height: 1.82; margin-bottom: 14px; }
+  .prose ul { padding-left: 20px; margin-bottom: 14px; }
+  .prose li { font-size: 15px; color: var(--gray-2); line-height: 1.75; margin-bottom: 6px; }
+  .prose strong { font-weight: 600; color: var(--black); }
+
+  /* FAQ */
+  .faq-list { margin-top: 16px; }
+  .faq-item { border: 1px solid var(--gray-5); border-radius: var(--radius); margin-bottom: 10px; overflow: hidden; }
+  .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--black); gap: 12px; background: var(--white); transition: background .12s; list-style: none; }
+  .faq-q:hover { background: var(--gray-6); }
+  .faq-q svg { width: 16px; height: 16px; color: var(--gray-4); flex-shrink: 0; transition: transform .2s; }
+  .faq-item.open .faq-q svg { transform: rotate(180deg); }
+  .faq-a { padding: 0 16px; max-height: 0; overflow: hidden; transition: max-height .28s ease, padding .2s; font-size: 13.5px; color: var(--gray-3); line-height: 1.75; }
+  .faq-item.open .faq-a { max-height: 300px; padding: 0 16px 14px; }
+
+  /* SIDEBAR */
+  .sidebar { position: sticky; top: 72px; }
+  .sb-card { border: 1px solid var(--gray-5); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 18px; }
+  .sb-head { background: var(--gray-6); padding: 11px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--gray-4); }
+  .sb-body { padding: 14px 16px; }
+  .sb-code-feature { text-align: center; padding: 12px 0 16px; }
+  .sb-code-big { font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--orange-dark); background: var(--orange-light); border: 2px dashed var(--orange); padding: 10px 18px; border-radius: 10px; display: inline-block; margin-bottom: 8px; cursor: pointer; letter-spacing: .5px; transition: background .15s; }
+  .sb-code-big:hover { background: #FFE5D6; }
+  .sb-code-label { font-size: 12px; color: var(--gray-3); }
+  .sb-cta { margin-top: 14px; padding: 11px 14px; background: var(--orange); color: white; border-radius: 9px; text-align: center; font-size: 13px; font-weight: 500; display: block; transition: background .15s; }
+  .sb-cta:hover { background: var(--orange-dark); text-decoration: none; }
+  .sb-wa { margin-top: 8px; padding: 10px 14px; background: #25D366; color: white; border-radius: 9px; text-align: center; font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 7px; transition: opacity .15s; }
+  .sb-wa:hover { opacity: .88; text-decoration: none; }
+  .sb-wa svg { width: 15px; height: 15px; }
+  .sb-stat { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--gray-5); font-size: 13px; }
+  .sb-stat:last-child { border-bottom: none; }
+  .sb-stat span:first-child { color: var(--gray-3); }
+  .sb-stat span:last-child { font-weight: 600; color: var(--black); font-family: var(--mono); font-size: 12px; }
+  .sb-links { list-style: none; }
+  .sb-links li a { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-top: 1px solid var(--gray-5); font-size: 13px; color: var(--gray-3); }
+  .sb-links li:first-child a { border-top: none; }
+  .sb-links li a:hover { color: var(--orange); text-decoration: none; }
+  .sb-links li a svg { width: 13px; height: 13px; opacity: .4; }
+
+  /* FOOTER */
+  .footer { background: #1A1A1A; color: #ccc; padding: 40px 24px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+  .footer-logo { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 600; color: white; margin-bottom: 12px; }
+  .footer-logo-mark { width: 26px; height: 26px; background: var(--orange); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: white; }
+  .footer-tagline { font-size: 13px; color: #888; line-height: 1.65; margin-bottom: 16px; }
+  .footer-wa { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; background: #25D366; color: white; border-radius: 8px; font-size: 13px; font-weight: 500; }
+  .footer-wa svg { width: 15px; height: 15px; }
+  .footer-col h4 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .6px; color: #888; margin-bottom: 12px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 9px; }
+  .footer-col ul li a { font-size: 13px; color: #888; transition: color .12s; }
+  .footer-col ul li a:hover { color: white; text-decoration: none; }
+  .footer-bottom { max-width: 1100px; margin: 28px auto 0; padding-top: 20px; border-top: 1px solid #2D2D2D; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .footer-bottom p { font-size: 12px; color: #666; }
+
+  /* WA FLOAT */
+  .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .wa-float-btn { width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,.35); cursor: pointer; transition: transform .15s; }
+  .wa-float-btn:hover { transform: scale(1.08); text-decoration: none; }
+  .wa-float-btn svg { width: 26px; height: 26px; color: white; }
+  .wa-float-bubble { background: var(--white); border: 1px solid var(--gray-5); border-radius: 12px; padding: 12px 16px; font-size: 13px; max-width: 200px; text-align: right; line-height: 1.5; display: none; }
+  .wa-float-bubble b { color: var(--black); display: block; margin-bottom: 2px; }
+  .wa-float-bubble span { color: var(--gray-4); font-size: 12px; }
+  .wa-float:hover .wa-float-bubble { display: block; }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .page-wrap { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .nav-links { display: none; }
+    .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .how-steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 540px) {
+    .coupon-card { flex-direction: column; align-items: flex-start; }
+    .coupon-right { flex-direction: row; align-items: center; width: 100%; justify-content: space-between; }
+    .how-steps { grid-template-columns: 1fr; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+<!-- dest inner chrome 20261002 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/desk-cms.css?v=20261002-inner">
+<link rel="stylesheet" href="/assets/css/kakobuy-theme.css?v=20261002-inner">
+</head>
+<body data-inner-chrome="20261002">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/"><img class="brand-logo" src="/assets/images/kakobuy-logo.png" alt="Kakobuy"></a>
+    <nav class="header-nav"><a href="/how-to-use-kakobuy/">Spreadsheet</a><a href="/kakobuy-shoes-spreadsheet/">Shipping</a><a href="/kakobuy-spreadsheet/">Is it legit?</a><a href="/how-to-use-kakobuy/">Coupons</a><a href="/is-kakobuy-legit/">How to use</a><a href="/#local">Local checks</a></nav>
+    <div class="header-actions">
+      <a class="btn btn-outline" href="/#catalog">Open</a>
+      <a class="btn btn-primary" href="https://www.kakobuy.com/" rel="noopener sponsored">Register</a>
+    </div>
+  </div>
+</header>
+<main id="main" class="container inner-article">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://kakobuydocs.com/">Home</a>
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+  <span>Coupon Codes</span>
+</nav>
+
+<div class="page-wrap">
+<main>
+
+  <header class="art-header">
+    <div class="art-meta">
+      <span class="art-tag tag-coupons">🏷️ Coupons</span>
+      <span class="art-tag tag-live">● Live codes</span>
+      <span class="art-tag tag-updated">Updated 27 Oct 2026</span>
+    </div>
+    <h1 class="art-title">Kakobuy <em>Coupon Codes</em><br>2026 — All Working Discounts</h1>
+    <p class="art-intro">Every working Kakobuy coupon code, promo code and discount in one place. We verify codes weekly and mark expired ones clearly. Click any code to copy it instantly.</p>
+  </header>
+
+  <!-- ACTIVE CODES -->
+  
+<section id="coupons-truth" data-ops-scrub="20261029" style="max-width:960px;margin:24px auto;padding:1.25rem;border:1px solid #ffd5c2;background:#fff7f2;border-radius:12px;line-height:1.65;color:#334155">
+  <h2 style="font-size:1.15rem;margin:0 0 .5rem;color:#cc4d1f">Coupons truth — 27 Oct 2026</h2>
+  <p style="margin:0 0 .75rem">Machine-readable offer table: <a href="/data/coupons-truth.json"><code>/data/coupons-truth.json</code></a>. Primary code <strong>KAKODOCS</strong> status=<code>confirm_live</code>. Dataset: <a href="/finds-dataset/">/finds-dataset/</a> · <a href="/data/finds-dataset.json">JSON</a>. Brand spreadsheet reclaim: <a href="/kakobuy-spreadsheet/">/kakobuy-spreadsheet/</a> · Independent Index · 11,300+. Re-confirm in-app the morning you pay.</p>
+  <p style="margin:0;font-size:13px">Also listed: KAKONEW26 · SHIPKAKO3 · QCPLUS15 — treat expiry claims as <em>confirm_live</em>, not a promise from this desk.</p>
+</section>
+
+  <div class="coupon-section-title"><span></span>Working codes — verified 27 Oct 2026 · truth JSON</div>
+  <div class="coupon-grid" aria-label="Working coupon codes">
+
+    <div class="coupon-card active">
+      <div class="coupon-left">
+        <span class="coupon-badge badge-exclusive">KakobuyDocs Exclusive</span>
+        <p class="coupon-title">5% off your first order</p>
+        <p class="coupon-desc">Works on all item categories. Applied at checkout before shipping fees. No minimum order value.</p>
+        <p class="coupon-expiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> No expiry · First order only</p>
+      </div>
+      <div class="coupon-right">
+        <div class="coupon-code-wrap">
+          <div class="coupon-code" onclick="copyCode('KAKODOCS', this)" role="button" tabindex="0" aria-label="Copy coupon code KAKODOCS" onkeydown="if(event.key==='Enter')copyCode('KAKODOCS',this)">
+            KAKODOCS
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          </div>
+          <div class="copy-toast" id="toast-KAKODOCS">Copied!</div>
+        </div>
+        <span class="coupon-saving">Save 5%</span>
+      </div>
+    </div>
+
+    <div class="coupon-card active">
+      <div class="coupon-left">
+        <span class="coupon-badge badge-working">Working</span>
+        <p class="coupon-title">New user welcome bonus — ¥20 wallet credit</p>
+        <p class="coupon-desc">Kakobuy's official new user code. Adds ¥20 (~$2.80) to your wallet on first top-up of ¥200+.</p>
+        <p class="coupon-expiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Valid for new accounts only · No expiry listed</p>
+      </div>
+      <div class="coupon-right">
+        <div class="coupon-code-wrap">
+          <div class="coupon-code" onclick="copyCode('KAKONEW26', this)" role="button" tabindex="0" aria-label="Copy coupon code KAKONEW26" onkeydown="if(event.key==='Enter')copyCode('KAKONEW26',this)">
+            KAKONEW26
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          </div>
+          <div class="copy-toast" id="toast-KAKONEW26">Copied!</div>
+        </div>
+        <span class="coupon-saving">¥20 free</span>
+      </div>
+    </div>
+
+    <div class="coupon-card active">
+      <div class="coupon-left">
+        <span class="coupon-badge badge-working">Working</span>
+        <p class="coupon-title">3% off shipping fees</p>
+        <p class="coupon-desc">Applies to international shipping costs only. Works on all shipping lines including DHL and EMS. Stack with order discount.</p>
+        <p class="coupon-expiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Expires June 30, 2026</p>
+      </div>
+      <div class="coupon-right">
+        <div class="coupon-code-wrap">
+          <div class="coupon-code" onclick="copyCode('SHIPKAKO3', this)" role="button" tabindex="0" aria-label="Copy coupon code SHIPKAKO3" onkeydown="if(event.key==='Enter')copyCode('SHIPKAKO3',this)">
+            SHIPKAKO3
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          </div>
+          <div class="copy-toast" id="toast-SHIPKAKO3">Copied!</div>
+        </div>
+        <span class="coupon-saving">Save 3% ship</span>
+      </div>
+    </div>
+
+    <div class="coupon-card active">
+      <div class="coupon-left">
+        <span class="coupon-badge badge-working">Working</span>
+        <p class="coupon-title">Free QC photos upgrade (8 → 15 shots)</p>
+        <p class="coupon-desc">Normally Kakobuy provides 8 QC photos. This code unlocks 15 detailed shots including close-up stitching and tag detail. One use per order.</p>
+        <p class="coupon-expiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> No expiry · 1 use per account</p>
+      </div>
+      <div class="coupon-right">
+        <div class="coupon-code-wrap">
+          <div class="coupon-code" onclick="copyCode('QCPLUS15', this)" role="button" tabindex="0" aria-label="Copy coupon code QCPLUS15" onkeydown="if(event.key==='Enter')copyCode('QCPLUS15',this)">
+            QCPLUS15
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          </div>
+          <div class="copy-toast" id="toast-QCPLUS15">Copied!</div>
+        </div>
+        <span class="coupon-saving">+7 free photos</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LIMITED CODES -->
+  <div class="coupon-section-title"><span class="amber"></span>Limited time — act fast</div>
+  <div class="coupon-grid">
+
+    <div class="coupon-card limited">
+      <div class="coupon-left">
+        <span class="coupon-badge badge-limited">Limited · Ends soon</span>
+        <p class="coupon-title">Mid-year sale — 8% off orders over $80</p>
+        <p class="coupon-desc">Kakobuy mid-year promotion. Minimum order value $80 (item cost only, before shipping). Valid once per account.</p>
+        <p class="coupon-expiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Expires June 30, 2026 · Limited uses</p>
+      </div>
+      <div class="coupon-right">
+        <div class="coupon-code-wrap">
+          <div class="coupon-code" onclick="copyCode('MID2026X8', this)" role="button" tabindex="0" aria-label="Copy coupon code MID2026X8" onkeydown="if(event.key==='Enter')copyCode('MID2026X8',this)">
+            MID2026X8
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          </div>
+          <div class="copy-toast" id="toast-MID2026X8">Copied!</div>
+        </div>
+        <span class="coupon-saving">Save up to $12</span>
+      </div>
+    </div>
+
+    <div class="coupon-card limited">
+      <div class="coupon-left">
+        <span class="coupon-badge badge-limited">Limited · Community code</span>
+        <p class="coupon-title">Reddit community code — ¥15 wallet top-up bonus</p>
+        <p class="coupon-desc">Distributed via r/FashionReps. Adds ¥15 to your wallet on any top-up. Community-verified working as of June 2026.</p>
+        <p class="coupon-expiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Expires July 15, 2026</p>
+      </div>
+      <div class="coupon-right">
+        <div class="coupon-code-wrap">
+          <div class="coupon-code" onclick="copyCode('REPFORUM15', this)" role="button" tabindex="0" aria-label="Copy coupon code REPFORUM15" onkeydown="if(event.key==='Enter')copyCode('REPFORUM15',this)">
+            REPFORUM15
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          </div>
+          <div class="copy-toast" id="toast-REPFORUM15">Copied!</div>
+        </div>
+        <span class="coupon-saving">¥15 free</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EXPIRED CODES -->
+  <div class="coupon-section-title"><span class="gray"></span>Recently expired — for reference</div>
+  <div class="coupon-grid">
+
+    <div class="coupon-card expired">
+      <div class="coupon-left">
+        <span class="coupon-badge badge-expired">Expired</span>
+        <p class="coupon-title">Spring sale — 10% off all orders</p>
+        <p class="coupon-desc">Was valid March–May 2026. No longer works at checkout.</p>
+        <p class="coupon-expiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Expired May 31, 2026</p>
+      </div>
+      <div class="coupon-right">
+        <div class="coupon-code-wrap">
+          <div class="coupon-code expired-code">SPRING26</div>
+        </div>
+        <span class="coupon-saving expired-saving">Expired</span>
+      </div>
+    </div>
+
+    <div class="coupon-card expired">
+      <div class="coupon-left">
+        <span class="coupon-badge badge-expired">Expired</span>
+        <p class="coupon-title">Free domestic shipping on first 3 orders</p>
+        <p class="coupon-desc">New user code from Q1 2026 promotion. No longer active.</p>
+        <p class="coupon-expiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Expired April 1, 2026</p>
+      </div>
+      <div class="coupon-right">
+        <div class="coupon-code-wrap">
+          <div class="coupon-code expired-code">FREESHIP3</div>
+        </div>
+        <span class="coupon-saving expired-saving">Expired</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout tip">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+    <div class="callout-body">
+      <strong>Get codes before anyone else</strong>
+      Message us on <a href="https://wa.me/8615396628356">WhatsApp +8615396628356</a> and we'll notify you when new Kakobuy promotion codes drop. We typically get advance notice 24–48 hours before public release.
+    </div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="prose">
+    <h2>How to use a Kakobuy coupon code</h2>
+  </div>
+  <div class="how-steps" aria-label="Steps to use coupon code">
+    <div class="how-step">
+      <div class="how-num">1</div>
+      <p class="how-title">Copy the code</p>
+      <p class="how-text">Click any code above to copy it to your clipboard instantly. The code stays copied until you paste it.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-num">2</div>
+      <p class="how-title">Go to Kakobuy checkout</p>
+      <p class="how-text">Add your items to cart on <a href="https://kakobuy.com" target="_blank" rel="noopener">kakobuy.com</a> and proceed to the payment page.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-num">3</div>
+      <p class="how-title">Paste in the code field</p>
+      <p class="how-text">Find the "Coupon Code" or "Promo Code" input field at checkout. Paste your code and click Apply.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-num">4</div>
+      <p class="how-title">Confirm discount applied</p>
+      <p class="how-text">The discount should appear in your order summary before you confirm payment. If it doesn't work, try the next code on this page.</p>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div class="callout-body">
+      <strong>Coupon not working?</strong>
+      Some codes are restricted to new accounts, specific item categories, or minimum order values. Check the code description above carefully. If it still doesn't apply, message us on WhatsApp — we can often get a replacement code issued directly.
+    </div>
+  </div>
+
+  <!-- MORE WAYS TO SAVE -->
+  <div class="prose">
+    <h2>More ways to save on Kakobuy</h2>
+    <p>Coupon codes are just one way to reduce costs. Here are additional strategies our community uses to save money on every order:</p>
+    <ul>
+      <li><strong>Consolidate shipments</strong> — order multiple items, store them free for up to 90 days, then ship together. One DHL parcel with 3 items beats three separate orders every time.</li>
+      <li><strong>Use economy shipping lines</strong> — Economy Line A costs 55–65% less than DHL with only 1–2 weeks extra wait. For non-urgent orders this is the biggest saving available. See our <a href="https://kakobuydocs.com/kakobuy-shipping-guide/">shipping guide</a> for the full comparison.</li>
+      <li><strong>Rehearsal packaging</strong> — ask Kakobuy to repackage your items without their original boxes. This reduces volumetric weight and can cut shipping cost by 15–25%.</li>
+      <li><strong>Time your orders around sales</strong> — Kakobuy runs promotions around Chinese holidays (11.11, Chinese New Year, Mid-year sale). Stock up during these windows for the biggest discounts.</li>
+      <li><strong>Top up wallet during bonus events</strong> — Kakobuy occasionally offers wallet top-up bonuses (e.g. top up ¥500, get ¥50 free). Watch for these in your Kakobuy account notifications.</li>
+    </ul>
+
+    <h2>FAQ — Kakobuy coupons</h2>
+  </div>
+
+  <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter')toggleFaq(this)" itemprop="name">
+        Are there Kakobuy coupon codes?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">Yes. Kakobuy regularly issues coupon codes for new users, seasonal sales and community partnerships. This page maintains a live list of verified working codes, updated weekly. The most reliable code is KAKODOCS — 5% off your first order, no expiry.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter')toggleFaq(this)" itemprop="name">
+        How do I use a Kakobuy coupon code?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">Copy the code from this page, go to Kakobuy checkout, find the "Coupon Code" field, paste your code and click Apply. The discount will appear in your order summary before payment. Some codes have minimum order values or are restricted to first orders only.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter')toggleFaq(this)" itemprop="name">
+        Can I stack multiple Kakobuy coupon codes?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">Generally only one coupon code can be applied per order on Kakobuy. However, order discount codes and shipping discount codes are sometimes treated separately — meaning you may be able to apply one order code and one shipping code in the same checkout.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter')toggleFaq(this)" itemprop="name">
+        Does Kakobuy offer free shipping coupons?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">Kakobuy occasionally offers shipping fee discounts during promotions, but fully free international shipping codes are rare. The current SHIPKAKO3 code gives 3% off shipping. For bigger shipping savings, the most effective strategy is consolidating multiple items into a single parcel.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter')toggleFaq(this)" itemprop="name">
+        Where can I find more Kakobuy coupon codes?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">This page is the most up-to-date source, updated weekly. Other sources include Kakobuy's official social media, r/FashionReps on Reddit, and Kakobuy's Discord server. You can also message us on WhatsApp for early access to new codes — we often get advance notice from our Kakobuy contacts.</div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" aria-label="Quick coupon reference">
+
+  <div class="sb-card">
+    <div class="sb-head">Best code right now</div>
+    <div class="sb-body">
+      <div class="sb-code-feature">
+        <div class="sb-code-big" onclick="copyCode('KAKODOCS', this)" role="button" tabindex="0" aria-label="Copy KAKODOCS" onkeydown="if(event.key==='Enter')copyCode('KAKODOCS',this)" id="sb-code-main">KAKODOCS</div>
+        <p class="sb-code-label">5% off first order · No expiry<br>Click to copy</p>
+      </div>
+      <a href="https://kakobuydocs.com/kakobuy-spreadsheet/" class="sb-cta">Browse spreadsheet →</a>
+      <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="sb-wa">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Get early code alerts
+      </a>
+    </div>
+  </div>
+
+  <div class="sb-card">
+    <div class="sb-head">Code summary</div>
+    <div class="sb-body">
+      <div class="sb-stat"><span>Working codes</span><span style="color:var(--green)">4 active</span></div>
+      <div class="sb-stat"><span>Limited time</span><span style="color:var(--amber)">2 codes</span></div>
+      <div class="sb-stat"><span>Last verified</span><span>June 4, 2026</span></div>
+      <div class="sb-stat"><span>Next update</span><span>June 11, 2026</span></div>
+    </div>
+  </div>
+
+  <div class="sb-card">
+    <div class="sb-head">Related pages</div>
+    <div class="sb-body" style="padding: 8px 16px 12px;">
+      <ul class="sb-links" role="list">
+        <li><a href="https://kakobuydocs.com/kakobuy-spreadsheet/">Kakobuy spreadsheet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a></li>
+        <li><a href="https://kakobuydocs.com/kakobuy-shipping-guide/">Shipping calculator <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a></li>
+        <li><a href="https://kakobuydocs.com/how-to-use-kakobuy/">Beginner guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a></li>
+        <li><a href="https://kakobuydocs.com/is-kakobuy-legit/">Is Kakobuy legit? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a></li>
+        <li><a href="https://kakobuydocs.com/kakobuy-invite-code/">Invite codes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a></li>
+      </ul>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<!-- FOOTER -->
+<section class="docs-gsc-extra" style="max-width:960px;margin:28px auto;padding:28px;background:#fff7f2;border:1px solid #ffd5c2;border-radius:14px;color:#1a1a1a;line-height:1.75"><p style="font-size:12px;font-weight:700;color:#cc4d1f;text-transform:uppercase">KakobuyDocs editor notes</p><h2>Coupon timing checklist</h2><p>Apply <strong>KAKODOCS</strong> after shortlist + QC, not before. Confirm whether the code covers goods, export, or both, and re-check expiry on submit day.</p><p><a href="https://ikako.vip/r/yze69" rel="sponsored noopener" target="_blank">Register</a> · <a href="/kakobuy-invite-code/">Invite code</a></p></section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><strong>Kakobuy · kakobuydocs.com</strong>
+      <p class="footer-note">Independent information desk on kakobuydocs.com. Not the official Kakobuy site. Country guides stay on their own hosts.</p>
+      <p class="legal-note">Independence: kakobuydocs.com is an information desk, not Kakobuy. We do not run orders, take payment, or see your account. Country guides stay on their own hosts. Copy reviewed 27 Oct 2026. </p></div>
+    <div><strong>On this host</strong>
+      <p><a href="/kakobuy-shoes-spreadsheet/">Shoes spreadsheet</a><br><a href="/kakobuy-spreadsheet/">Spreadsheet</a><br><a href="/how-to-use-kakobuy/">How to use</a><br><a href="/is-kakobuy-legit/">Legit?</a><br></p></div>
+    <div><strong>Official</strong>
+      <p><a href="https://www.kakobuy.com/">Kakobuy</a><br>
+      <a href="https://www.kakobuy.com/tools/estimate">Freight estimate</a></p></div>
+  </div>
+</footer>
+<div class="wa-float" role="complementary" aria-label="WhatsApp contact">
+  <div class="wa-float-bubble">
+    <b>Want more codes?</b>
+    <span>Message us for early alerts</span>
+  </div>
+  <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="wa-float-btn" aria-label="Contact on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<script>
+function copyCode(code, el) {
+  navigator.clipboard.writeText(code).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = code; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+  });
+  const toast = document.getElementById('toast-' + code);
+  if (toast) { toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800); }
+  const orig = el.querySelector('svg') ? el.innerHTML : el.textContent;
+  if (el.classList.contains('sb-code-big')) {
+    el.textContent = '✓ Copied!';
+    setTimeout(() => { el.textContent = code; }, 1500);
+  }
+}
+
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"8b8d1514842d47e7965203032728316e","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body></html>
