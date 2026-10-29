@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "AllChinaBuy / ACBuy",
   "host": "allchina-buy.com",
-  "last_verified": "2026-10-28",
-  "generated_at": "2026-10-28T06:00:00Z",
+  "last_verified": "2026-10-29",
+  "generated_at": "2026-10-29T12:00:00Z",
   "row_count": 11365,
   "row_count_display": "11,300+",
   "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
@@ -40,39 +40,40 @@
       "title": "Essential ballet-pink soft luggage (sample hit)",
       "category": "HOODIE",
       "price_cny": "668",
-      "last_verified": "2026-10-28"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "allchinabuy-spreadsheet",
       "title": "Ranked hub W2C spreadsheet catalog",
       "category": "catalog",
       "hub_path": "/allchinabuy-spreadsheet/",
-      "last_verified": "2026-10-28"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "allchinabuy-coupons",
       "title": "ACBUY5 coupon tracker",
       "category": "coupons",
       "hub_path": "/allchinabuy-coupons/",
-      "last_verified": "2026-10-28"
+      "last_verified": "2026-10-29"
     }
   ],
   "category_proofs": [
     {
       "category": "sneakers / shoes",
       "proof": "Typesense + /allchinabuy-spreadsheet-shoes/",
-      "last_verified": "2026-10-28"
+      "last_verified": "2026-10-29"
     },
     {
       "category": "hoodie",
       "proof": "w2clinks catalog wall + sample SKU",
-      "last_verified": "2026-10-28"
+      "last_verified": "2026-10-29"
     },
     {
       "category": "coupons",
       "proof": "/allchinabuy-coupons/ + coupons-truth.json",
-      "last_verified": "2026-10-28"
+      "last_verified": "2026-10-29"
     }
   ],
-  "hub_defend": "allchinabuy-hub-defend-20261028"
+  "hub_defend": "allchinabuy-hub-defend-20261028",
+  "spam_hub_serp": "spam-hub-serp-live-20261029"
 }

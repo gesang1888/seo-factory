@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "BaseTao",
   "host": "basetaospreadsheet.com",
-  "last_verified": "2026-10-26",
-  "generated_at": "2026-10-26T17:00:00Z",
+  "last_verified": "2026-10-29",
+  "generated_at": "2026-10-29T12:00:00Z",
   "row_count": 11365,
   "row_count_display": "11,300+",
   "update_frequency": "Typesense catalog refresh continuous; public dataset stamp reviewed at least weekly.",
@@ -13,7 +13,7 @@
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated category proofs \u2014 not another opaque Google Sheet dump. Brand SERP recovery owns the homepage Independent Index.",
+  "anti_sheet_note": "Public, citable row counts + dated category proofs — not JadeShip aggregators or opaque Google Sheet dumps. Brand SERP recovery owns the homepage Independent Index.",
   "platform_opt": "basetao-platform-20261026",
   "endpoints": {
     "html": "https://basetaospreadsheet.com/finds-dataset/",
@@ -28,35 +28,35 @@
       "title": "Mizuno LG 60S Sneakers",
       "category": "sneakers",
       "price_cny": "150",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "e-superstar-white",
       "title": "E-Superstar White Low Top Sneakers",
       "category": "sneakers",
       "price_cny": "208",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "danner-trail-2650",
       "title": "Danner Trail 2650 Hiking Shoes",
       "category": "shoes",
       "price_cny": "310",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "lv-baseball-caps",
       "title": "Louis Vuitton Baseball Caps",
       "category": "HAT",
       "price_cny": "58",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "lv-coeur-battant",
-      "title": "Louis Vuitton C\u0153ur Battant Eau de Parfum 100ml",
+      "title": "Louis Vuitton Cœur Battant Eau de Parfum 100ml",
       "category": "fragrance",
       "price_cny": "140",
-      "last_verified": "2026-10-26"
+      "last_verified": "2026-10-29"
     }
   ],
   "category_proofs": [
@@ -80,5 +80,6 @@
       "path": "/jersey/",
       "note": "Category wall on hub"
     }
-  ]
+  ],
+  "spam_hub_serp": "spam-hub-serp-live-20261029"
 }

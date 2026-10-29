@@ -2,8 +2,8 @@
   "schema": "seo-factory.finds-dataset.v1",
   "brand": "USFans",
   "host": "usfansspreadsheet.net",
-  "last_verified": "2026-10-27",
-  "generated_at": "2026-10-27T23:45:00Z",
+  "last_verified": "2026-10-29",
+  "generated_at": "2026-10-29T12:00:00Z",
   "row_count": 10601,
   "row_count_display": "10,601",
   "update_frequency": "Homepage + searchable catalog share the same index; public dataset stamp reviewed when row count or sample prices change (target: weekly).",
@@ -13,7 +13,7 @@
     "price_usd_approx",
     "price_display"
   ],
-  "anti_sheet_note": "Public, citable row counts + dated sample SKUs — not another opaque Google Sheet dump.",
+  "anti_sheet_note": "Public, citable row counts + dated sample SKUs — not another opaque Reddit Google Sheet dump. Year-dated brand SERP cites this Independent Index.",
   "endpoints": {
     "html": "https://usfansspreadsheet.net/finds-dataset/",
     "json": "https://usfansspreadsheet.net/data/finds-dataset.json",
@@ -29,7 +29,7 @@
       "price_display": "¥701≈ $97.44",
       "source_url": "https://w2clinks.com/yupoo-jewelry/wd_7854801519.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "wd_7855084441",
@@ -39,7 +39,7 @@
       "price_display": "¥116≈ $16.12",
       "source_url": "https://w2clinks.com/yupoo-jersey/wd_7855084441.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "wd_7855094313",
@@ -49,7 +49,7 @@
       "price_display": "¥108≈ $15.01",
       "source_url": "https://w2clinks.com/yupoo-electronics/wd_7855094313.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "wd_7858043442",
@@ -59,7 +59,7 @@
       "price_display": "¥128≈ $17.79",
       "source_url": "https://w2clinks.com/yupoo-jersey/wd_7858043442.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "wd_7858086734",
@@ -69,7 +69,7 @@
       "price_display": "¥180≈ $25.02",
       "source_url": "https://w2clinks.com/yupoo-bag/wd_7858086734.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "wd_7854859133",
@@ -79,7 +79,7 @@
       "price_display": "¥58≈ $8.06",
       "source_url": "https://w2clinks.com/yupoo-bag/wd_7854859133.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "wd_7858116142",
@@ -89,7 +89,7 @@
       "price_display": "¥363≈ $50.46",
       "source_url": "https://w2clinks.com/yupoo-bag/wd_7858116142.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "wd_7858049450",
@@ -99,7 +99,7 @@
       "price_display": "¥379≈ $52.68",
       "source_url": "https://w2clinks.com/yupoo-bag/wd_7858049450.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "wd_7855066871",
@@ -109,7 +109,7 @@
       "price_display": "¥235≈ $32.67",
       "source_url": "https://w2clinks.com/yupoo-slippers/wd_7855066871.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     },
     {
       "sku": "wd_7858029552",
@@ -119,12 +119,13 @@
       "price_display": "¥98≈ $13.62",
       "source_url": "https://w2clinks.com/yupoo-jersey/wd_7858029552.html",
       "qc_photo": true,
-      "last_verified": "2026-10-27"
+      "last_verified": "2026-10-29"
     }
   ],
   "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
   "platform_opt": "usfans-platform-20261026",
-  "stamp": "hub_stabilize",
+  "stamp": "spam_hub_serp_live",
   "weekly_refresh": "ahub-dataset-refresh-20261027",
-  "hub_stabilize": "usfans-hub-stabilize-20261027"
+  "hub_stabilize": "usfans-hub-stabilize-20261027",
+  "spam_hub_serp": "spam-hub-serp-live-20261029"
 }

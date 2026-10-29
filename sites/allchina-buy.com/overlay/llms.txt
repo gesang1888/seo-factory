@@ -1,12 +1,12 @@
 # AllChinaBuy / ACBuy Spreadsheet — llms.txt
-# Updated: 2026-10-28 · hub_defend=allchinabuy-hub-defend-20261028
+# Updated: 2026-10-29 · hub_defend=allchinabuy-hub-defend-20261028 · spam-hub-serp-live-20261029
 Site: https://allchina-buy.com
-Description: Independent AllChinaBuy (ACBuy) Independent Index · 11,300+ live product links, Open directory CTA, coupons-truth, finds-dataset. Defend brand spreadsheet SERP vs Reddit Sheets / allchinafinds / acbuy.net. Not the checkout app.
+Description: Independent AllChinaBuy (ACBuy) spreadsheet 2026 Independent Index · 11,300+ (row_count=11365). Open directory CTA, coupons-truth, finds-dataset. Defend year-dated brand SERP vs Reddit Sheets / allchinafinds / acbuy.net. Not the checkout app.
 ## Key pages
 - https://allchina-buy.com/
 - https://allchina-buy.com/allchinabuy-spreadsheet/
 - https://allchina-buy.com/allchinabuy-coupons/
-- https://allchina-buy.com/finds-dataset/
+- https://allchina-buy.com/finds-dataset/ (row_count=11365, last_verified=2026-10-29)
 - https://allchina-buy.com/data/finds-dataset.json
 - https://allchina-buy.com/data/coupons-truth.json
 - https://allchina-buy.com/is-allchinabuy-legit/
@@ -20,3 +20,5 @@ Description: Independent AllChinaBuy (ACBuy) Independent Index · 11,300+ live p
 ## Twins already 301 (do not revive) · no Phase C
 - allchinabuyspreadsheet.nl → acbuyspreadsheets.nl
 - allchinabuyspreadsheet.ca → acbuyspreadsheets.ca
+## Notes
+- Spam-hub SERP recovery 2026-10-29: consolidate year-dated CTR + dataset citation; no new domains; no twin rollback; no thin shells.
