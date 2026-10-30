@@ -243,10 +243,10 @@ EXTRA_AGENTS = {
         css=["/assets/css/desk-cms.css", "/assets/css/pingubuy-theme.css"],
     ),
     "SpanBuy": A(
-        primary="#c026d3",
-        soft="#fdf4ff",
-        nav="#701a75",
-        logo="/assets/images/spanbuy-logo.png",
+        primary="#FF6B00",
+        soft="#FFF4EB",
+        nav="#E05E00",
+        logo="/assets/images/official-logo.png",
         official="https://www.spanbuy.com/en",
         estimator="https://www.spanbuy.com/en/estimate",
         register="https://www.spanbuy.com/en",
@@ -462,6 +462,24 @@ LEFTOVER = {
     ),
 }
 
+# Unique CMS hubs already live — leftover dest generate/PUT must not smash them.
+SKIP_UNIQUE = frozenset({
+    "boonspreadsheet.com",
+    "basetaospreadsheet.com",
+    "cnshopper.net",
+    "cnshopperspreadsheet.net",
+    "fishgoospreadsheet.net",
+    "goatedspreadsheet.com",
+    "pikospreadsheets.net",
+    "lolospreadsheet.com",
+    "eastmallspreadsheet.com",
+    "fsbuyspreadsheets.com",
+    "gtspreadsheet.com",
+    "itaobuyspreadsheet.net",
+    "pingubuyspreadsheet.net",
+    "spanbuyspreadsheets.com",
+})
+
 # Origin path that already has a usable logo file, copied onto leftover hosts.
 LOGO_SRC = {
     "MyCNBox": ("mycnbox.de", "assets/images/mycnbox-logo.png"),
@@ -496,6 +514,9 @@ def generate() -> None:
     if not CMS_CSS.is_file():
         raise SystemExit("missing desk-cms.css")
     for host, d in LEFTOVER.items():
+        if host in SKIP_UNIQUE:
+            print("SKIP unique CMS", host)
+            continue
         html = build_home(host)
         if "Georgia" in html:
             raise SystemExit(f"{host}: Georgia leak")
@@ -562,6 +583,9 @@ def put_homes() -> None:
     print(skin._run(client, f"mkdir -p '{bak}'"))
     sftp = client.open_sftp()
     for host, d in LEFTOVER.items():
+        if host in SKIP_UNIQUE:
+            print("SKIP unique CMS PUT", host)
+            continue
         remote_root = f"/www/wwwroot/{host}"
         ag = AGENTS[d["agent"]]
         logo_rel = ag["logo"].lstrip("/")
@@ -616,13 +640,16 @@ def put_inners() -> None:
     print(skin._run(client, f"mkdir -p '{bak}'"))
     rows = []
     for host in LEFTOVER:
+        if host in SKIP_UNIQUE:
+            print("SKIP unique CMS inner", host)
+            continue
         row = inventory_host(client, host)
         rows.append(row)
         print("INV", host, row["count"])
     inv_path = Path("/tmp/leftover-inners.json")
     inv_path.write_text(json.dumps(rows, indent=2), encoding="utf-8")
     snips = inner.build_snips()
-    leftover_snips = {h: snips[h] for h in LEFTOVER if h in snips}
+    leftover_snips = {h: snips[h] for h in LEFTOVER if h in snips and h not in SKIP_UNIQUE}
     snip_path = Path("/tmp/leftover-inner-chrome-snips.json")
     snip_path.write_text(json.dumps(leftover_snips), encoding="utf-8")
     sftp = client.open_sftp()
