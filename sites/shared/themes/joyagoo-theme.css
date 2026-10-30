@@ -1,0 +1,3 @@
+/* JoyaGoo country dest — official lime-on-black #111111 from joyagoo.com */
+:root { --primary: #111111; --primary-dark: #111111; --primary-soft: #f7fee7; --nav-dark: #000000; }
+body { background: var(--bg, #f7f8fa); }
