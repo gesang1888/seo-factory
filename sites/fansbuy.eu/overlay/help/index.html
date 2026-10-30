@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FansBuy Spreadsheet in English: help and frequently asked questions</title>
+<meta name="description" content="FAQ about FansBuy from a member state.">
+<link rel="canonical" href="https://fansbuy.eu/help/">
+<link rel="icon" href="/favicon1.ico">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="stylesheet" href="/assets/css/fansbuy-theme.css?v=20261007f">
+<link rel="stylesheet" href="/assets/css/fansbuy-eu-desk.css?v=20261007f">
+<style>
+:root{
+  --acc:#ff3344;--acd:#c12233;--link:#c12233;--login-fg:#fff;
+  --ink:#303133;--ink2:#495068;--mute:#8492b2;--dark:#181818;
+  --panel:#f5f6f7;--line:#eaecf0;--soft:#f5f6f7;
+  --r:18px;--rs:12px;--maxw:1120px;--medida:34em;
+  --f:"Microsoft Yahei","PingFang SC",Avenir,"Segoe UI","Hiragino Sans GB",sans-serif;--m:ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light;scroll-behavior:smooth}
+body{margin:0;font-family:var(--f);font-size:17px;line-height:1.72;color:var(--ink);background:#fff}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--link)}
+a:hover{color:var(--acd)}
+#main,[id]{scroll-margin-top:76px}
+h1,h2,h3{color:var(--dark);line-height:1.25;letter-spacing:-.01em;margin:0 0 .5em}
+h1{font-size:clamp(30px,4.4vw,45px);font-weight:800}
+h2{font-size:clamp(24px,3vw,32px);font-weight:800}
+h3{font-size:20px;font-weight:700}
+p{margin:0 0 1.05em}
+main p,main li,.sg-faq p{max-width:var(--medida)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:8px 18px;border-radius:var(--rs)}
+.top{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:var(--dark);text-decoration:none;font-size:15px;white-space:nowrap}
+.brand img{height:32px;width:auto}
+.brand span{color:#8492b2;font-weight:600}
+.nav{margin-left:auto;display:flex;gap:2px;flex-wrap:nowrap}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:#333;text-decoration:none;font-size:15px;white-space:nowrap}
+.nav a:hover,.nav a[aria-current]{color:var(--acc);background:transparent;font-weight:700}
+.hdr-login{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:var(--acc);color:var(--login-fg,#fff);font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+.hdr-login:hover{background:var(--acd);color:var(--login-fg,#fff)}
+.burger{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}
+.hero{position:relative;background:#181818;overflow:hidden}
+.hero__bg{position:absolute;inset:0;background:url(/img/hero.jpg?v=20261007f) center/cover no-repeat}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.58) 0%,color-mix(in srgb, var(--acc) 22%, transparent) 100%)}
+.hero .wrap{position:relative;padding:74px 22px 78px}
+.eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--acc);margin-bottom:14px}
+.hero .eyebrow{color:#fff3c4}
+.hero h1{color:#fff;max-width:15.5em}
+.hero p.lead{color:#f4f4f4;font-size:19px;max-width:34em}
+.sbox{margin-top:26px;max-width:660px}
+.sbox form{display:flex;gap:9px;background:#fff;border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 14px 40px rgba(24,24,24,.22)}
+.sbox input{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 8px}
+.sbox button{min-height:44px;padding:0 24px;border:0;border-radius:999px;background:var(--acc);color:var(--login-fg,#fff);font:inherit;font-weight:700;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips a{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);color:#fff8f0;text-decoration:none;font-size:14px}
+.sec{padding:62px 0;border-top:1px solid var(--line)}
+.sec--tint{background:linear-gradient(var(--soft) 0%,#fff 100%);border-top:0}
+.sec--first{border-top:0}
+.split{display:grid;grid-template-columns:1.04fr .96fr;gap:46px;align-items:center}
+.split--rev .fig{order:-1}
+.fig{margin:0}
+.fig img{border-radius:var(--r);border:1px solid var(--line);background:#fff}
+.fig figcaption{margin-top:11px;font-size:13.5px;line-height:1.55;color:var(--mute)}
+.lead{font-size:18px;color:var(--ink2);max-width:var(--medida)}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none}
+.btn:hover{background:var(--acd);color:#fff}
+.btn--ghost{background:#fff;color:var(--acd);border:1px solid var(--line)}
+.tl{list-style:none;margin:0;padding:0 0 0 30px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 18px 8px}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:-39px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px #fff}
+.tl b{display:block;color:var(--dark);font-size:17px}
+.tl span{color:var(--mute);font-size:14px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px;margin-top:8px}
+.cat{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 10px 14px;text-decoration:none;color:inherit}
+.cat:hover{transform:translateY(-3px);box-shadow:0 12px 28px color-mix(in srgb, var(--acc) 22%, transparent);border-color:color-mix(in srgb, var(--acc) 45%, #fff)}
+.cat img{width:72px;height:72px;object-fit:contain;padding:0;background:#fff}
+.cat__b{padding:10px 0 0}
+.cat em{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}
+.cat-grid--rich{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.cat-grid--rich .cat{align-items:flex-start;text-align:left;padding:14px}
+.eq{width:100%;border-collapse:collapse;max-width:36em;font-size:15px}
+.eq th,.eq td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+.eq th{color:#8492b2;font-weight:600}
+.cat__b strong{display:block;color:var(--dark);font-size:14.5px}
+.cat__b span{font-size:12px;color:var(--mute);letter-spacing:.04em}
+.states{margin:0;padding:0;list-style:none}
+.states li{padding:10px 0;border-bottom:1px solid var(--line);max-width:40em}
+.states code{font-family:var(--m);font-size:13px}
+.sg-faq{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff;max-width:40em}
+.sg-faq summary{cursor:pointer;font-weight:700}
+.ncard{border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 8px;margin-bottom:18px;max-width:40em}
+.ncard h2{font-size:22px}
+.list{margin:0 0 1.4em;padding:0 0 0 1.15em;max-width:var(--medida)}
+.list li{margin:0 0 .45em}
+.site-ft{background:#111;color:#ccc;padding:52px 0 30px;margin-top:24px;font-size:15.5px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px}
+.site-ft h3{color:#fff;font-size:15.5px;margin:0 0 12px;letter-spacing:.02em;font-weight:700}
+.site-ft p{margin:0 0 12px;max-width:36em}
+.site-ft a{color:#c2c2c2;text-decoration:none}
+.site-ft a:hover{color:#fff;text-decoration:underline}
+.site-ft ul{list-style:none;margin:0;padding:0}
+.site-ft li{margin-bottom:8px}
+.site-ft .legal{grid-column:1/-1;border-top:1px solid #2D2D2D;padding-top:20px;font-size:13.5px;color:#8a8a8a}
+.site-ft .legal p{margin:0 0 8px;max-width:none}
+.pw{max-width:40em;margin:0 auto;padding:40px 22px 64px}
+.inner-article{max-width:860px;margin:0 auto;padding:28px 24px 48px}
+#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}
+@media(max-width:1000px){
+  .split{grid-template-columns:1fr;gap:30px}
+  .split--rev .fig{order:0}
+  .ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:860px){
+  .burger{display:inline-flex;align-items:center;justify-content:center}
+  .nav{display:none;position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 12px}
+  .nav.open{display:flex}
+  .hdr-login{display:none}
+  .ft-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .sbox form{flex-direction:column}
+  .sbox button{width:100%}
+}
+
+:root{--primary-soft:#fff1f2;--login-fg:#fff}
+.hero .eyebrow{color:#fb7185}
+header.top .hdr-login,.hdr-login{background:#ff3344;color:#fff}
+header.top .hdr-login:hover,.hdr-login:hover{background:#c12233;color:#fff}
+.sbox button{color:#fff}
+
+:root{--acc:#ff3344!important;--acd:#c12233!important;--link:#c12233!important;--primary:#ff3344!important;--primary-dark:#c12233!important;--primary-soft:#e8f7f2!important}#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}header.top .nav a{color:#333!important}header.top .nav a[aria-current],header.top .nav a:hover{color:#ff3344!important;background:transparent!important}header.top .hdr-login{background:#ff3344!important;color:#fff!important}header.top .hdr-login:hover{background:#c12233!important;color:#fff!important}</style>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://fansbuy.eu/help/", "url": "https://fansbuy.eu/help/", "name": "FansBuy Spreadsheet in English: help and frequently asked questions", "description": "FAQ about FansBuy from a member state.", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "name": "FansBuy desk", "url": "https://fansbuy.eu/"}, "publisher": {"@type": "Organization", "name": "FansBuy independent desk", "url": "https://fansbuy.eu/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "fansbuy.eu independent desk", "url": "https://fansbuy.eu/", "email": "cnfd85269032661@gmail.com", "inLanguage": "en", "description": "FAQ about FansBuy from a member state.", "contactPoint": {"@type": "ContactPoint", "email": "cnfd85269032661@gmail.com", "contactType": "customer support", "url": "https://fansbuy.eu/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Does FansBuy sell the goods on this site?", "acceptedAnswer": {"@type": "Answer", "text": "No. FansBuy is a purchasing agent: it buys from Chinese third-party shops in your name, photographs the parcel in its warehouse, then you book an international SKU. fansbuy.eu is an independent information desk. Orders, payment and claims stay on https://fansbuy.com/. The cards on fansbuy.eu are a reading of the finds index, not stock FansBuy owns. Payment never happens on this hostname. The delivery address uses a a real member-state address, not this hostname."}}, {"@type": "Question", "name": "Can I use FansBuy in a local language?", "acceptedAnswer": {"@type": "Answer", "text": "The official app language switcher is independent of this desk. We measured the public site on 6 Oct 2026. Field names in the estimator often stay English even when the chrome is translated. The delivery address must still match a member state. Switching chrome language on fansbuy.eu does not change the official app. Confirm the in-app language the morning you order toward a member state."}}, {"@type": "Question", "name": "Why does the catalogue return nothing for local words?", "acceptedAnswer": {"@type": "Answer", "text": "The finds index this desk reads is English (sneakers, hoodie, jacket). Local words often return zero cards — that is an English index, not an empty shop. Type the English key. Measured 6 Oct 2026 via w2clinks on fansbuy.eu. The category wall still exposes the English keys (sneakers, hoodie, jacket) so you can paste them into w2clinks on fansbuy.eu. Measured 6 Oct 2026."}}, {"@type": "Question", "name": "How many times do I pay?", "acceptedAnswer": {"@type": "Answer", "text": "Twice: first the goods plus China domestic shipping into the warehouse, later the international line to a member state. Between those payments you can consolidate. This desk never charges you; FansBuy does, in-app. Warehouse photos sit between the two payments. Do not book international freight to a member state until you have accepted QC in-app."}}, {"@type": "Question", "name": "Why does the official site show dollars while this desk shows EUR?", "acceptedAnswer": {"@type": "Answer", "text": "On the official SPA the currency switcher has been observed to change the symbol without converting the digits. This desk converts the China warehouse card to EUR as a dated display (X-Rates 6 Oct 2026), not a checkout price. Re-read the number in-app the morning you pay. If the official SPA still prints USD digits after you pick EUR, trust the digits and https://fansbuy.com/estimates, not this HTML. Display rate dated 6 Oct 2026."}}, {"@type": "Question", "name": "How do I pay?", "acceptedAnswer": {"@type": "Answer", "text": "Only inside https://fansbuy.com/. Typical rails are card, PayPal and balance top-up — confirm in the official FAQ the same day. fansbuy.eu never takes card data and does not store a saved method. Register links on this desk never collect card numbers. Those fields exist only on https://fansbuy.com/. fansbuy.eu has no saved method."}}, {"@type": "Question", "name": "What is volumetric weight?", "acceptedAnswer": {"@type": "Answer", "text": "Most air SKUs bill max(actual, L×W×H/divisor) with the result in kilograms (the widget shows grams). A puffy jacket is light on the scale and expensive in volume. Geometry only — live money is in https://fansbuy.com/estimates with destination a member state. The widget uses 35×25×10 cm and 1000 g as a lab habit; your carton will differ. Open https://fansbuy.com/estimates with destination a member state before you pay freight."}}, {"@type": "Question", "name": "Who pays duties into a member state?", "acceptedAnswer": {"@type": "Answer", "text": "This hostname is not a customs territory. Duties follow the country you pick in the official estimator, not the TLD. Read that country’s customs site the morning you ship. No under-declaration. Prepaid vs collect is chosen when you submit the parcel, not when you buy the goods. Read the SKU heading and taxation-customs.ec.europa.eu the same morning."}}, {"@type": "Question", "name": "Is there a tax threshold I should game?", "acceptedAnswer": {"@type": "Answer", "text": "A hub TLD has no de-minimis of its own. Pick a real country in the estimator. This desk does not invent a threshold for “EU” as one destination. A screenshot of a threshold from Discord is not a filing. taxation-customs.ec.europa.eu is the source this desk names. We will not invent a declared value for a member state."}}, {"@type": "Question", "name": "Can I consolidate several orders?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — that is the usual saving. Pieces wait in the warehouse until you submit a parcel. Free storage on this agent: Official Help (https://fansbuy.com/help-283.html): 90 free warehouse days from “In warehouse”, then items can be treated as abandoned if you do not submit a parcel or pay an extension; maximum 180 days (6 Oct 2026). This dest does not invent a storage window as a coupon. Orders stay on fansbuy.com.. If QC splits cartons, estimate each carton to the same destination a member state. Storage clock on this agent: Official Help (https://fansbuy.com/help-283.html): 90 free warehouse days from “In warehouse”, then items can be treated as abandoned if you do not submit a parcel or pay an extension; maximum 180 days (6 Oct 2026). This dest does not invent a storage window as a coupon. Orders stay on fansbuy.com.. After that the warehouse can charge or dispose — official Help, not this page. Split cartons each need a a member state estimate."}}, {"@type": "Question", "name": "Do they photograph the goods?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, warehouse QC photos land in the app after the piece arrives in China. Extra angles are often a paid add-on. Disputes are easier while it is still in the warehouse, not after it has cleared last-mile. If a photo is blurry, buy another angle in-app before the piece leaves China toward a member state. This desk cannot open a ticket."}}, {"@type": "Question", "name": "What cannot ship?", "acceptedAnswer": {"@type": "Answer", "text": "Tobacco, alcohol, medicines and banned goods do not travel. Liquids, powders and pastes can need dangerous-goods paperwork. That is platform rule, not taxation-customs.ec.europa.eu law. Restricted / price-0 cards on this catalogue are not buyable. Restricted is a platform purchase block, not a taxation-customs.ec.europa.eu seizure notice. Price-0 cards on fansbuy.eu are not a shop error you can checkout."}}, {"@type": "Question", "name": "Why is a card restricted or priced 0?", "acceptedAnswer": {"@type": "Answer", "text": "The source link is not available for agent purchase, or the price could not be read. Do not plan a haul around a zero. Transborder shops are often out of scope. Check the live FansBuy product page. Price 0 often means the Weidian or Taobao link died. Open the live FansBuy product page the same day; do not plan the haul on this HTML."}}, {"@type": "Question", "name": "The parcel is lighter than the estimate?", "acceptedAnswer": {"@type": "Answer", "text": "Official FAQ covers estimated vs actual weight and postage refunds. This HTML is not a live quote. Re-run https://fansbuy.com/estimates with destination a member state after warehouse photos. Refunds for actual vs estimated weight are an official FAQ topic. Re-run https://fansbuy.com/estimates after warehouse photos, destination a member state, then pay."}}, {"@type": "Question", "name": "Where do I claim if something is wrong?", "acceptedAnswer": {"@type": "Answer", "text": "Only on https://fansbuy.com/, never here. fansbuy.eu cannot see your account. Use in-app chat / the official Help Center. This hostname is a hub, not a customs territory. The official estimator still needs a real country code. fansbuy.eu cannot look up an order ID. Keep the in-app number. Claims and chat live on https://fansbuy.com/ only."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top" role="banner">
+  <div class="wrap">
+    <a href="/start/" class="brand">
+      <img src="/assets/images/fansbuy-wordmark.png?v=20261007f" alt="FansBuy" width="118" height="39">
+      <span>Spreadsheet</span>
+    </a>
+    <button class="burger" type="button" aria-expanded="false" aria-label="Open menu">&#9776;</button>
+    <nav class="nav" aria-label="Main menu"><a href="/start/">Start</a><a href="/how-to-use-fansbuy/">Guide</a><a href="/catalog/">Catalog</a><a href="/fansbuy-freight/">Shipping</a><a href="/help/" aria-current="page">Help</a><a href="/news/">News</a></nav>
+    <a class="hdr-login" href="https://fansbuy.com/login?utm_source=fansbuy.eu&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Log in to FansBuy</a>
+  </div>
+</header>
+
+<main id="main">
+
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Help</span>
+  <h1>Help and questions about FansBuy in a member state</h1>
+  <p class="lead">Questions that come back on first orders. The delivery address uses a a real member-state address, not this hostname.</p>
+  <figure class="fig"><img src="/img/shots/oficial-inicio.jpg?v=20261007f" alt="Official FansBuy homepage: green wordmark, paste bar and three steps Place Orders, Submit Parcels, Sign Delivery" loading="lazy" width="1200" height="750"><figcaption>Official homepage of fansbuy.com, 6 Oct 2026. The three steps under the search bar are the loop: order in China, consolidate in the warehouse, receive abroad.</figcaption></figure><h2>What FansBuy is, and which language it uses</h2>
+<details class="sg-faq" open><summary>Does FansBuy sell the goods on this site?</summary><p>No. FansBuy is a purchasing agent: it buys from Chinese third-party shops in your name, photographs the parcel in its warehouse, then you book an international SKU. fansbuy.eu is an independent information desk. Orders, payment and claims stay on https://fansbuy.com/. The cards on fansbuy.eu are a reading of the finds index, not stock FansBuy owns. Payment never happens on this hostname. The delivery address uses a a real member-state address, not this hostname.</p></details>
+<details class="sg-faq"><summary>Can I use FansBuy in a local language?</summary><p>The official app language switcher is independent of this desk. We measured the public site on 6 Oct 2026. Field names in the estimator often stay English even when the chrome is translated. The delivery address must still match a member state. Switching chrome language on fansbuy.eu does not change the official app. Confirm the in-app language the morning you order toward a member state.</p></details>
+<details class="sg-faq"><summary>Why does the catalogue return nothing for local words?</summary><p>The finds index this desk reads is English (sneakers, hoodie, jacket). Local words often return zero cards — that is an English index, not an empty shop. Type the English key. Measured 6 Oct 2026 via w2clinks on fansbuy.eu. The category wall still exposes the English keys (sneakers, hoodie, jacket) so you can paste them into w2clinks on fansbuy.eu. Measured 6 Oct 2026.</p></details>
+<h2>What you will pay</h2>
+<details class="sg-faq"><summary>How many times do I pay?</summary><p>Twice: first the goods plus China domestic shipping into the warehouse, later the international line to a member state. Between those payments you can consolidate. This desk never charges you; FansBuy does, in-app. Warehouse photos sit between the two payments. Do not book international freight to a member state until you have accepted QC in-app.</p></details>
+<details class="sg-faq"><summary>Why does the official site show dollars while this desk shows EUR?</summary><p>On the official SPA the currency switcher has been observed to change the symbol without converting the digits. This desk converts the China warehouse card to EUR as a dated display (X-Rates 6 Oct 2026), not a checkout price. Re-read the number in-app the morning you pay. If the official SPA still prints USD digits after you pick EUR, trust the digits and https://fansbuy.com/estimates, not this HTML. Display rate dated 6 Oct 2026.</p></details>
+<details class="sg-faq"><summary>How do I pay?</summary><p>Only inside https://fansbuy.com/. Typical rails are card, PayPal and balance top-up — confirm in the official FAQ the same day. fansbuy.eu never takes card data and does not store a saved method. Register links on this desk never collect card numbers. Those fields exist only on https://fansbuy.com/. fansbuy.eu has no saved method.</p></details>
+<details class="sg-faq"><summary>What is volumetric weight?</summary><p>Most air SKUs bill max(actual, L×W×H/divisor) with the result in kilograms (the widget shows grams). A puffy jacket is light on the scale and expensive in volume. Geometry only — live money is in https://fansbuy.com/estimates with destination a member state. The widget uses 35×25×10 cm and 1000 g as a lab habit; your carton will differ. Open https://fansbuy.com/estimates with destination a member state before you pay freight.</p></details>
+<h2>Import into a member state</h2>
+<details class="sg-faq"><summary>Who pays duties into a member state?</summary><p>This hostname is not a customs territory. Duties follow the country you pick in the official estimator, not the TLD. Read that country’s customs site the morning you ship. No under-declaration. Prepaid vs collect is chosen when you submit the parcel, not when you buy the goods. Read the SKU heading and taxation-customs.ec.europa.eu the same morning.</p></details>
+<details class="sg-faq"><summary>Is there a tax threshold I should game?</summary><p>A hub TLD has no de-minimis of its own. Pick a real country in the estimator. This desk does not invent a threshold for “EU” as one destination. A screenshot of a threshold from Discord is not a filing. taxation-customs.ec.europa.eu is the source this desk names. We will not invent a declared value for a member state.</p></details>
+<h2>Warehouse, photos and what may travel</h2>
+<details class="sg-faq"><summary>Can I consolidate several orders?</summary><p>Yes — that is the usual saving. Pieces wait in the warehouse until you submit a parcel. Free storage on this agent: Official Help (https://fansbuy.com/help-283.html): 90 free warehouse days from “In warehouse”, then items can be treated as abandoned if you do not submit a parcel or pay an extension; maximum 180 days (6 Oct 2026). This dest does not invent a storage window as a coupon. Orders stay on fansbuy.com.. If QC splits cartons, estimate each carton to the same destination a member state. Storage clock on this agent: Official Help (https://fansbuy.com/help-283.html): 90 free warehouse days from “In warehouse”, then items can be treated as abandoned if you do not submit a parcel or pay an extension; maximum 180 days (6 Oct 2026). This dest does not invent a storage window as a coupon. Orders stay on fansbuy.com.. After that the warehouse can charge or dispose — official Help, not this page. Split cartons each need a a member state estimate.</p></details>
+<details class="sg-faq"><summary>Do they photograph the goods?</summary><p>Yes, warehouse QC photos land in the app after the piece arrives in China. Extra angles are often a paid add-on. Disputes are easier while it is still in the warehouse, not after it has cleared last-mile. If a photo is blurry, buy another angle in-app before the piece leaves China toward a member state. This desk cannot open a ticket.</p></details>
+<details class="sg-faq"><summary>What cannot ship?</summary><p>Tobacco, alcohol, medicines and banned goods do not travel. Liquids, powders and pastes can need dangerous-goods paperwork. That is platform rule, not taxation-customs.ec.europa.eu law. Restricted / price-0 cards on this catalogue are not buyable. Restricted is a platform purchase block, not a taxation-customs.ec.europa.eu seizure notice. Price-0 cards on fansbuy.eu are not a shop error you can checkout.</p></details>
+<details class="sg-faq"><summary>Why is a card restricted or priced 0?</summary><p>The source link is not available for agent purchase, or the price could not be read. Do not plan a haul around a zero. Transborder shops are often out of scope. Check the live FansBuy product page. Price 0 often means the Weidian or Taobao link died. Open the live FansBuy product page the same day; do not plan the haul on this HTML.</p></details>
+<h2>If something is wrong</h2>
+<details class="sg-faq"><summary>The parcel is lighter than the estimate?</summary><p>Official FAQ covers estimated vs actual weight and postage refunds. This HTML is not a live quote. Re-run https://fansbuy.com/estimates with destination a member state after warehouse photos. Refunds for actual vs estimated weight are an official FAQ topic. Re-run https://fansbuy.com/estimates after warehouse photos, destination a member state, then pay.</p></details>
+<details class="sg-faq"><summary>Where do I claim if something is wrong?</summary><p>Only on https://fansbuy.com/, never here. fansbuy.eu cannot see your account. Use in-app chat / the official Help Center. This hostname is a hub, not a customs territory. The official estimator still needs a real country code. fansbuy.eu cannot look up an order ID. Keep the in-app number. Claims and chat live on https://fansbuy.com/ only.</p></details>
+  <p><a class="btn" href="https://fansbuy.com/estimates">Official FansBuy site</a>
+     <a class="btn btn--ghost" href="/fansbuy-freight/">Shipping plan</a></p>
+</article>
+
+</main>
+<footer class="site-ft">
+  <div class="wrap ft-grid">
+    <div>
+      <h3>FansBuy Spreadsheet</h3>
+      <p>Independent English-language guide to FansBuy and to how you use the w2clinks catalogue to buy in China from a member state.</p>
+      <p><a href="mailto:cnfd85269032661@gmail.com">cnfd85269032661@gmail.com</a></p>
+    </div>
+    <div>
+      <h3>Sections</h3>
+      <ul><li><a href="/how-to-use-fansbuy/">FansBuy guide</a></li><li><a href="/catalog/">The spreadsheet and the categories</a></li><li><a href="/fansbuy-freight/">Shipping and customs</a></li><li><a href="/help/">Help and questions</a></li><li><a href="/news/">News</a></li><li><a href="/who-we-are/">About us</a></li></ul>
+    </div>
+    <div>
+      <h3>Official links</h3>
+      <ul><li><a href="https://fansbuy.com?utm_source=fansbuy.eu&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">FansBuy (official site)</a></li><li><a href="https://fansbuy.com/login?utm_source=fansbuy.eu&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Log in to FansBuy</a></li><li><a href="https://fansbuy.com/estimates?utm_source=fansbuy.eu&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Official estimator (6 Oct 2026)</a></li></ul>
+    </div>
+    <div class="legal">
+      <p><strong>Independence notice.</strong> FansBuy Spreadsheet is an independent information site. We are not FansBuy, we do not process orders, we do not collect shipping fees and we cannot see your account. Every order, payment and claim runs through the official site.</p>
+      <p>&copy; 2026 FansBuy Spreadsheet. English copy, edited and checked by people before publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var b=document.querySelector('.burger'), n=document.querySelector('nav.nav');
+  if(!b||!n) return;
+  b.addEventListener('click', function(){
+    var on=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', on?'false':'true');
+    n.classList.toggle('open', !on);
+  });
+})();
+</script>
+
+</body>
+</html>
