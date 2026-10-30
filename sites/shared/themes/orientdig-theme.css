@@ -1,8 +1,2 @@
-/* OrientDig country dest — matches official palette, Inter not serif. */
-:root {
-  --primary: #f7931e;
-  --primary-dark: #f7931e;
-  --primary-soft: #fff4e8;
-  --nav-dark: #272121;
-}
-body { background: var(--bg, #f7f8fa); }
+/* OrientDig country dest — official orange #f7931e from orientdig.com */
+:root { --primary: #f7931e; --primary-dark: #d67e14; --primary-soft: #fff4e8; --nav-dark: #272121; }
