@@ -1,8 +1,2 @@
-/* LoveGoBuy country dest — matches official palette, Inter not serif. */
-:root {
-  --primary: #e91e12;
-  --primary-dark: #e91e12;
-  --primary-soft: #fff0ee;
-  --nav-dark: #131926;
-}
-body { background: var(--bg, #f7f8fa); }
+/* LoveGoBuy country dest — official red from lovegobuy.com */
+:root { --primary: #e91e12; --primary-dark: #c8160c; --primary-soft: #fff0ee; --nav-dark: #0f172a; }
