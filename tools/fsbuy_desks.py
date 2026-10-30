@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""FSBuy desks: surgical #local on the Georgia .com hub; restore unique CMS.
+"""FSBuy .com hub: unique CMS money homepage. Ranked inners stay 200.
 
 Gates:
-1. Hub #local has the HUB fingerprint, no dest-country fingerprints.
-2. Estimator country ≠ TLD; .com must say it is not a customs territory.
-   GSC is mixed ITA/USA/ESP/FRA — still a hub, not a dest country.
-3. Titles have no invite token 2824716; body has no customs coaching / 58-line snapshot.
-   Coupon stacking stays on /fsbuy-coupons/ (not the homepage title).
-4. Single public dest host on origin — no same-agent country 301. www already 301s to apex.
-5. ia-collapse 301s unique 23–61KB CMS onto thin /coupons/ /shipping/ /start/ and home.
-   Disable it so ranked unique URLs 200. Keep 2026→spreadsheet (weaker unique into
-   stronger unique). Deep paths must not 404.
-6. Georgia home (~6.3KB) gets #local. Do not PUT a 5KB dest overlay over unique
-   23–61KB coupons/shipping/legit/spreadsheet/blog.
-
-Official Help path 404s; cite https://fsbuy.com/ honestly. Estimator is the SPA
-hash URL https://fsbuy.com/#/estimation (shell 200). Do not invent a free-day count.
+1. Homepage is unique CMS (money title FSBuy Spreadsheet 2026). Not leftover
+   dest #local / “not a customs territory” H1 / products-API dump.
+2. Titles have no invite token 2824716. Body has no customs coaching / 58-line.
+   invite_id= stays off the homepage.
+3. Independent of fsbuy.org and parked fsbuyspreadsheet.com — no 301.
+   Official checkout is fsbuy.com. FSBuy is not FansBuy. www already 301s apex.
+   Do not leftover-PUT (SKIP_UNIQUE).
+4. Ranked unique inners must 200. Do not PUT /fsbuy-coupons/ or the 12k product
+   dump inner. Slash aliases stay.
+5. Official fsbuy.com 8 Oct 2026: 40% off all routes, $400 shipping coupon,
+   Discord 50 CNY / first-order, Free QC Video. Help storage id/7278: 90 days
+   shopping-agent parcels from Warehoused (60 forwarding, 30 abnormal). Do not
+   treat the homepage marketing card “120 Days” as Help policy. Do not invent
+   a SHIP code. Do not copy Hangzhou / FansBuy.
 """
 from __future__ import annotations
 
@@ -23,98 +23,22 @@ import os
 import re
 import sys
 import time
-from html import escape
 from pathlib import Path
-
-_TOOLS = Path(__file__).resolve().parent
-if str(_TOOLS) not in sys.path:
-    sys.path.insert(0, str(_TOOLS))
-from desk_template import (
-    SKIP_CSS,
-    _check_local_section,
-    assert_dest_packs_unique,
-    dest_local_pack,
-    local_cta,
-    local_guide_html,
-    skip_label,
-    skip_link,
-)
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "sites"
-EST = "https://fsbuy.com/#/estimation"
 OFFICIAL = "https://fsbuy.com/"
-HELP = "https://fsbuy.com/"
-DATE = "2 Oct 2026"
+HELP_STORAGE = "https://fsbuy.com/help_center?id=7278"
+HELP_QC = "https://fsbuy.com/help_center?id=7279"
+DATE = "8 Oct 2026"
+EMAIL = "cnfd85269032661@gmail.com"
+MONEY_TITLE = "FSBuy Spreadsheet 2026"
+HOST = "fsbuyspreadsheets.com"
+COMPETITOR = "fsbuy.org"
+PARKED = "fsbuyspreadsheet.com"
 INVITE = "2824716"
-HUB_MIN = 6000
-LIVE_HUB_MIN = 7000
-STORAGE = (
-    "Official FSBuy Help is not a 200 path; cite the live homepage "
-    f"({HELP}). Confirm that live copy the morning you ship. "
-    "This desk does not invent a free-day count."
-)
-
-HUBS = {
-    "com": {
-        "host": "fsbuyspreadsheets.com",
-        "lang": "en",
-        "loc": "en",
-        "dest": None,
-        "dest_label": "a country in the estimator",
-        "ccy": "USD",
-        "title": None,
-        "h1": None,
-        "chrome": ("layout-stencil", "Numeric onboarding", "FSBuy"),
-        "keep": [
-            ("/fsbuy-coupons/", "Coupons (ranked)"),
-            ("/fsbuy-shipping-guide/", "Shipping (ranked)"),
-            ("/is-fsbuy-legit/", "Legit"),
-            ("/fsbuy-spreadsheet/", "Spreadsheet"),
-            ("/blog/", "Blog"),
-        ],
-    },
-}
-
-EST_NOTE = {
-    "com": (
-        "This .com hub is not a customs territory. Mixed IT/US/ES clicks do not "
-        "make .com a customs dest. Pick the real ship-to country in the official "
-        "estimator, not this hostname, not “EU” as one country."
-    ),
-}
-
-STORE_NOTE = {
-    "en": (
-        "Warehouse: official FSBuy homepage (Help is not a 200 path). Confirm "
-        "that live copy the morning you ship. Do not invent a free-day count "
-        "on this hub."
-    ),
-}
-
-TRAIL = {"en": ("Live money is in", "this HTML is not checkout.")}
-
-HUB_LOCAL_CSS = (
-    ".sg-sec#local{margin:1.25rem 0 0}"
-    ".sg-sec#local h2{margin-top:0}"
-    ".ssub{color:var(--muted,#57534e);font-size:.95rem;margin:0 0 12px}"
-    ".local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}"
-    ".local-steps li{border:1px solid color-mix(in srgb, var(--ink,#0f172a) 16%, transparent);"
-    "border-radius:12px;padding:14px 16px;background:var(--card,#ffffff)}"
-    ".local-steps strong{display:block;margin:0 0 6px;font-size:15px}"
-    ".local-steps span{display:block;color:var(--muted,#57534e);line-height:1.7;font-size:15px}"
-    ".local-src{font-size:14px;color:var(--muted,#57534e);line-height:1.7;margin:14px 0 0}"
-    "#local{scroll-margin-top:96px}"
-)
-
-ALIENS = ("1010 Wien", "Packstation", "form A1A 1A1", "Poste Italiane", "00-001 Warszawa")
-
-TITLE_SCRUB = (
-    "coupons/index.html",
-    "start/index.html",
-    "fsbuy-coupons/index.html",
-    "fsbuy-invite-code/index.html",
-)
+HUB_MIN = 24000
+LIVE_HUB_MIN = 25000
 
 RANKED_CMS = (
     ("/fsbuy-coupons/", 20000),
@@ -140,212 +64,124 @@ KEEP_REDIRECTS = (
     ("/spreadsheet", "/fsbuy-spreadsheet/"),
 )
 
-HERO_END = "</section>\n<section class=\"grid\">"
-NAV_END = "</nav>"
-INVITE_REGISTER = "https://fsbuy.com?invite_id=2824716"
-HOST = "fsbuyspreadsheets.com"
+INNER_TITLES = {
+    "/fsbuy-spreadsheet/": "FSBuy Spreadsheet 2026",
+    "/fsbuy-coupons/": "FSBuy Coupon Codes 2026",
+    "/is-fsbuy-legit/": "Is FSBuy Legit",
+}
 
 
-def _facts(spec: dict) -> dict:
-    return {
-        "agent": "FSBuy",
-        "host": spec["host"],
-        "lang": spec["lang"],
-        "loc": spec["loc"],
-        "dest": spec.get("dest"),
-        "dest_label": spec.get("dest_label") or "a country in the estimator",
-        "ccy": spec["ccy"],
-        "storage": STORAGE,
-        "estimator": EST,
-        "official": OFFICIAL,
-        "date": DATE,
-        "keep": spec.get("keep") or [],
-        "codes_off_title": [INVITE],
-        "strict_html_codes": True,
-    }
+def _decode_cf_email(html: str) -> str:
+    out = []
+    for m in re.finditer(r'data-cfemail="([0-9a-fA-F]+)"', html):
+        hexed = m.group(1)
+        key = int(hexed[:2], 16)
+        chars = [chr(int(hexed[i : i + 2], 16) ^ key) for i in range(2, len(hexed), 2)]
+        out.append("".join(chars))
+    return " ".join(out)
 
 
-def _local_block(key: str, spec: dict) -> str:
-    facts = _facts(spec)
-    loc = spec["loc"]
-    fp = dest_local_pack(facts.get("dest"))["fingerprint"]
-    store = STORE_NOTE.get(loc) or STORE_NOTE["en"]
-    live, not_co = TRAIL.get(loc) or TRAIL["en"]
-    extra = (
-        f'<p class="local-src">{escape(fp)}. {escape(EST_NOTE[key])} {escape(store)} '
-        f"{escape(live)} <a href=\"{escape(facts['estimator'])}\">{escape(facts['estimator'])}</a> "
-        f"— {escape(not_co)}</p>"
-    )
-    html = local_guide_html(facts).strip()
-    if not html.endswith("</section>"):
-        raise RuntimeError(f"{key}: missing section")
-    html = html[: -len("</section>")] + extra + "\n</section>"
+def _has_contact_email(html: str) -> bool:
+    if EMAIL in html:
+        return True
+    return EMAIL in _decode_cf_email(html)
+
+
+def _unique_home_errors(html: str) -> list[str]:
     err: list[str] = []
-    _check_local_section(html, facts, err)
-    if err:
-        raise RuntimeError(f"{key} #local: {'; '.join(err)}")
-    return html
-
-
-def _scrub_title_text(s: str) -> str:
-    s = re.sub(re.escape(INVITE) + r"[,]?\s*", "", s, flags=re.I)
-    s = re.sub(r"(?i)\s*invite_id\b", "", s)
-    s = re.sub(r"(?i)\s*[—\-–:,]*\s*invite\b", "", s)
-    s = re.sub(r":\s*,", ":", s)
-    s = re.sub(r",\s*,", ",", s)
-    s = re.sub(r"\s{2,}", " ", s).strip(" —–-,;&:")
-    return s
-
-
-def _strip_invite_title(html: str, new_title: str | None = None) -> str:
-    def title_sub(m):
-        if new_title:
-            return f"<title>{escape(new_title)}</title>"
-        return f"<title>{_scrub_title_text(m.group(1))}</title>"
-
-    html = re.sub(r"<title>(.*?)</title>", title_sub, html, count=1, flags=re.S)
-    return html
-
-
-def _scrub_token_from_home(html: str) -> str:
-    html = html.replace(
-        '<p class="note">FSBuy · fsbuyspreadsheets.com · invite_id 2824716</p>',
-        '<p class="note">FSBuy · fsbuyspreadsheets.com · not a customs territory</p>',
-    )
-    html = html.replace(
-        "FSBuy onboarding on this hub is the query parameter invite_id=2824716 on fsbuy.com. That is a different mechanic from BoonBuy-style inviteCode strings. Copying a “complete FSBuy resource” from a PikoBuy HTML skin is how these domains got treated as one doorway.",
-        "Coupon stacking stays on /fsbuy-coupons/. FSBuy onboarding is a numeric query on fsbuy.com, not a 6-letter coupon string. Copying a “complete FSBuy resource” from a PikoBuy HTML skin is how these domains got treated as one doorway.",
-    )
-    html = html.replace(
-        "The advertised 30% shipping off follows the account created with that invite_id. If you land on fsbuy.com without the query string, you are not in the same funnel.",
-        "The advertised 30% shipping off follows the account created on fsbuy.com. Coupon stacking stays on /fsbuy-coupons/. This homepage does not print a token.",
-    )
-    html = html.replace(
-        f'<p><a class="cta" href="{INVITE_REGISTER}">Attach 2824716 on FSBuy</a></p>',
-        '<p><a class="cta" href="/fsbuy-coupons/">Open FSBuy coupons</a></p>',
-    )
-    html = html.replace(
-        '<h3>Is 2824716 a freight coupon?</h3><p>It is an invite_id on the FSBuy entry URL.</p>',
-        "<h3>Where are coupons?</h3><p>Coupon stacking stays on /fsbuy-coupons/. This homepage does not print a token.</p>",
-    )
-    html = html.replace(
-        '"name": "Is 2824716 a freight coupon?"',
-        '"name": "Where are coupons?"',
-    )
-    html = html.replace(
-        '"text": "It is an invite_id on the FSBuy entry URL."',
-        '"text": "Coupon stacking stays on /fsbuy-coupons/. This homepage does not print a token."',
-    )
-    html = html.replace(
-        "FSBuy invite_id 2824716 — numeric onboarding, not a slogan page",
-        "FSBuy numeric onboarding, not a slogan page",
-    )
-    html = html.replace(
-        "fsbuyspreadsheets.com only writes about FSBuy. The advertised 30% shipping off follows the account created with that invite_id.",
-        "fsbuyspreadsheets.com only writes about FSBuy. Coupon stacking stays on /fsbuy-coupons/.",
-    )
-    html = html.replace('<a href="/">invite_id</a>', '<a href="/">Home</a>')
-    html = html.replace('<a href="/coupons/">ID 2824716</a>', '<a href="/fsbuy-coupons/">Coupons</a>')
-    html = html.replace('<a href="/shipping/">30% lines</a>', '<a href="/fsbuy-shipping-guide/">Shipping</a>')
-    html = html.replace('<a href="/start/">Open FSBuy</a>', '<a href="/how-to-use-fsbuy/">Start</a>')
-    html = html.replace(INVITE_REGISTER, OFFICIAL)
-    html = html.replace("invite_id=", "")
-    html = html.replace(INVITE, "")
-    return html
-
-
-def patch_static(html: str, key: str, spec: dict) -> str:
-    facts = _facts(spec)
-    block = _local_block(key, spec)
-    loc = spec["loc"]
-    html = _scrub_token_from_home(html)
-    html = _strip_invite_title(html, spec.get("title"))
-    if spec.get("h1"):
-        html = re.sub(r"<h1>.*?</h1>", f"<h1>{escape(spec['h1'])}</h1>", html, count=1, flags=re.S)
-    if 'class="skip"' not in html:
-        html = re.sub(
-            r"(<body[^>]*>)",
-            r"\1\n" + skip_link(skip_label(loc)).rstrip(),
-            html,
-            count=1,
-        )
-    if 'id="main"' not in html:
-        html = html.replace("<main>", '<main id="main">', 1)
-    if 'href="#local"' not in html:
-        if NAV_END not in html:
-            raise RuntimeError(f"{key} nav missing")
-        html = html.replace(
-            NAV_END,
-            f'<a href="#local">{escape(local_cta(facts))}</a></nav>',
-            1,
-        )
-    if "#local{scroll-margin-top" not in html:
-        if "</style>" in html:
-            html = html.replace("</style>", SKIP_CSS + HUB_LOCAL_CSS + "\n</style>", 1)
-        else:
-            html = html.replace("</head>", "<style>" + SKIP_CSS + HUB_LOCAL_CSS + "</style>\n</head>", 1)
-    if 'id="local"' in html:
-        html = re.sub(
-            r'<section class="sg-sec" id="local".*?</section>',
-            block,
-            html,
-            count=1,
-            flags=re.S,
-        )
-    else:
-        if HERO_END not in html:
-            raise RuntimeError(f"{key} hero marker missing")
-        html = html.replace(HERO_END, "</section>\n" + block + "\n<section class=\"grid\">", 1)
-    err: list[str] = []
-    _check_local_section(html, facts, err)
     title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
-    title = title_m.group(1) if title_m else ""
-    if re.search(r"invite\s*(code|id)?\s*[A-Z0-9]{5,}", title, flags=re.I) or INVITE in title:
+    title = re.sub(r"<[^>]+>", "", title_m.group(1) if title_m else "")
+    h1_m = re.search(r"<h1[^>]*>(.*?)</h1>", html, flags=re.S)
+    h1 = re.sub(r"<[^>]+>", "", h1_m.group(1) if h1_m else "")
+    if MONEY_TITLE not in title.replace("&amp;", "&"):
+        err.append(f"title missing money words: {title!r}")
+    if MONEY_TITLE not in h1.replace("&amp;", "&"):
+        err.append(f"h1 missing money words: {h1!r}")
+    if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I) or INVITE in title:
         err.append("invite in title")
+    if "invite_id=" in html or "inviter=" in html or "inviter id" in html.lower():
+        err.append("frozen invite token still on homepage")
     if INVITE in html:
         err.append("frozen invite token still on homepage")
+    if 'id="local"' in html or "not a customs territory" in html.lower():
+        err.append("leftover dest hub skin")
+    if "/api/products/" in html:
+        err.append("products API dump")
+    if "not Excel" not in html or "Google Sheet" not in html:
+        err.append("missing not-excel copy")
+    if not _has_contact_email(html):
+        err.append("missing contact email")
+    if "wa.me/8615396628356" not in html:
+        err.append("missing WhatsApp +8615396628356")
+    if "90 days" not in html and "90-day" not in html:
+        err.append("missing official 90 days free storage")
+    if "60 days" not in html and "60-day" not in html:
+        err.append("missing official 60-day forwarding storage")
+    if "$400" not in html:
+        err.append("missing official $400 shipping coupon")
+    if "40%" not in html and "40 percent" not in html.lower():
+        err.append("missing official 40% route offer")
+    if "Free QC Video" not in html and "QC Video" not in html and "quality inspection" not in html.lower():
+        err.append("missing official free QC")
+    if "FansBuy" not in html and "Fansbuy" not in html:
+        err.append("missing FSBuy ≠ FansBuy disambiguation")
+    if "Hangzhou" in html:
+        err.append("copied FansBuy Hangzhou warehouse")
+    if re.search(r"5-day (post-arrival )?return", html, flags=re.I):
+        err.append("copied 5-day return onto homepage")
+    if "official-promo" not in html:
+        err.append("missing official promo strip")
+    if "/assets/images/official-logo.png" not in html:
+        err.append("missing official FSBuy trademark")
+    if "/assets/official/official-storage.jpg" not in html:
+        err.append("missing official 90-day storage screenshot")
+    if "/assets/official/official-40routes.jpg" not in html:
+        err.append("missing official 40% routes banner")
+    if "/assets/official/official-400coupon.jpg" not in html and "/assets/official/official-400banner.jpg" not in html:
+        err.append("missing official $400 coupon screenshot")
+    if re.search(r"coupon code SHIP|Use Code:\s*SHIP", html, flags=re.I):
+        err.append("invented SHIP code")
     if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
         err.append("spain snapshot / coaching")
-    if "not a customs territory" not in html:
-        err.append("hub missing fingerprint")
-    if len(html.encode("utf-8")) < HUB_MIN:
-        err.append(f"hub collapsed to {len(html.encode('utf-8'))} bytes")
-    for marker in spec.get("chrome") or ():
-        if marker not in html:
-            err.append(f"hub chrome missing {marker}")
-    if err:
-        raise RuntimeError(f"{key}: {'; '.join(err)}")
-    return html
+    if "w2clinks.com/spreadsheet/fsbuy/" in html:
+        err.append("invented w2clinks FSBuy slug (404)")
+    if len(html) < HUB_MIN:
+        err.append(f"home too small {len(html)}")
+    return err
 
 
 def generate() -> None:
-    assert_dest_packs_unique()
-    blobs = {}
-    specs = {**HUBS}
-    for key, spec in specs.items():
-        src = OUT / spec["host"] / "live-base" / "index.html"
-        html = patch_static(src.read_text(encoding="utf-8"), key, spec)
-        dest = OUT / spec["host"] / "overlay" / "index.html"
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(html, encoding="utf-8")
-        inner = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
-        blobs[key] = inner.group(0) if inner else ""
-        print("hub", key, spec["host"], "bytes", len(html.encode("utf-8")))
-    fps = {k: dest_local_pack(specs[k].get("dest"))["fingerprint"] for k in blobs}
-    for key, inner in blobs.items():
-        fp = fps[key]
-        if fp not in inner:
-            raise SystemExit(f"{key} missing fingerprint {fp!r}")
-        for alien in ALIENS:
-            if alien in inner:
-                raise SystemExit(f"{key} leaked dest {alien!r}")
-        if EST not in inner:
-            raise SystemExit(f"{key} missing estimator")
-        if "not a customs territory" not in inner:
-            raise SystemExit(f"{key} hub missing customs-territory line")
-        if INVITE in inner:
-            raise SystemExit(f"{key} #local still has invite token")
-    print("generate ok", len(blobs), "desks")
+    dest = OUT / HOST / "overlay" / "index.html"
+    html = dest.read_text(encoding="utf-8")
+    err = _unique_home_errors(html)
+    if err:
+        raise SystemExit("unique overlay: " + "; ".join(err))
+    leftover = ROOT / "tools" / "leftover_hub_skins.py"
+    skip = leftover.read_text(encoding="utf-8")
+    if f'"{HOST}"' not in skip or "SKIP_UNIQUE" not in skip:
+        raise SystemExit("leftover_hub_skins.py must SKIP_UNIQUE fsbuyspreadsheets.com")
+    coupons = OUT / HOST / "overlay" / "coupons.html"
+    ch = coupons.read_text(encoding="utf-8")
+    cerr = []
+    if "FSBuy Coupons 2026" not in ch:
+        cerr.append("coupons title")
+    if "90 days" not in ch and "90-day" not in ch:
+        cerr.append("coupons missing 90-day storage")
+    if "$400" not in ch:
+        cerr.append("coupons missing $400 shipping coupon")
+    if "40%" not in ch:
+        cerr.append("coupons missing 40% routes")
+    if "/assets/images/official-logo.png" not in ch:
+        cerr.append("coupons missing official logo")
+    if "invite_id=" in ch or "inviter=" in ch or INVITE in ch:
+        cerr.append("invite token on coupons overlay")
+    title_m = re.search(r"<title>(.*?)</title>", ch, flags=re.S)
+    title = re.sub(r"<[^>]+>", "", title_m.group(1) if title_m else "")
+    if re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I) or INVITE in title:
+        cerr.append("invite in coupons title")
+    if cerr:
+        raise SystemExit("coupons overlay: " + "; ".join(cerr))
+    print("unique overlay ok", dest, "bytes", len(html), "coupons", len(ch))
 
 
 def _connect():
@@ -371,95 +207,77 @@ def _run(client, cmd: str, timeout: int = 90) -> str:
     return (stdout.read() + stderr.read()).decode(errors="replace").strip()
 
 
-def _scrub_title_token(html: str) -> str:
-    html = re.sub(
-        r"<title>(.*?)</title>",
-        lambda m: f"<title>{_scrub_title_text(m.group(1))}</title>",
-        html,
-        count=1,
-        flags=re.S,
+def _cf_purge(host: str) -> None:
+    import json
+    import urllib.error
+    import urllib.parse
+    import urllib.request
+
+    token = os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
+    if not token:
+        print("skip CF purge: no token")
+        return
+    req = urllib.request.Request(
+        "https://api.cloudflare.com/client/v4/zones?" + urllib.parse.urlencode({"name": host}),
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
     )
-    html = re.sub(
-        r"<h1([^>]*)>(.*?)</h1>",
-        lambda m: f"<h1{m.group(1)}>{_scrub_title_text(m.group(2))}</h1>",
-        html,
-        count=1,
-        flags=re.S,
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode())
+    except urllib.error.URLError as e:
+        print("CF zone lookup failed", e)
+        return
+    zid = (data.get("result") or [{}])[0].get("id")
+    if not zid:
+        print("CF zone not found", host, data.get("errors"))
+        return
+    preq = urllib.request.Request(
+        f"https://api.cloudflare.com/client/v4/zones/{zid}/purge_cache",
+        data=json.dumps({"purge_everything": True}).encode(),
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+        method="POST",
     )
-    return html
+    with urllib.request.urlopen(preq, timeout=20) as resp:
+        out = json.loads(resp.read().decode())
+    print("CF purge", host, out.get("success"), out.get("errors") or "")
 
 
 def put() -> None:
     generate()
     client = _connect()
     stamp = time.strftime("%Y%m%d-%H%M%S")
-    bak = f"/www/backup/fsbuy-desks-{stamp}"
+    bak = f"/www/backup/fsbuy-hub-deepen-{stamp}"
     _run(client, f"mkdir -p '{bak}'")
     sftp = client.open_sftp()
-    collapse = (
-        "# disabled 2026-10-02 desks: unique ranked CMS must serve at GSC URLs.\n"
-        "# Thin /coupons/ /shipping/ /start/ remain as extra paths, not destinations.\n"
-        "# Do not 301 unique 23–61KB coupons/shipping/legit/spreadsheet/blog onto Georgia skins.\n"
-        "# gsc-redirects 2026→spreadsheet and /spreadsheet/ aliases kept.\n"
+
+    local = OUT / HOST / "overlay" / "index.html"
+    remote = f"/www/wwwroot/{HOST}/index.html"
+    raw = local.read_text(encoding="utf-8")
+    err = _unique_home_errors(raw)
+    if err:
+        raise SystemExit("refusing PUT: " + "; ".join(err))
+    _run(client, f"cp -a '{remote}' '{bak}/{HOST}.index.html'")
+    sftp.put(str(local), remote)
+    print("PUT", remote, "bytes", local.stat().st_size)
+
+    coup_l = OUT / HOST / "overlay" / "coupons.html"
+    coup_r = f"/www/wwwroot/{HOST}/coupons.html"
+    _run(client, f"cp -a '{coup_r}' '{bak}/{HOST}.coupons.html' 2>/dev/null || true")
+    sftp.put(str(coup_l), coup_r)
+    print("PUT", coup_r, "bytes", coup_l.stat().st_size)
+
+    _run(
+        client,
+        f"mkdir -p '/www/wwwroot/{HOST}/assets/images' '/www/wwwroot/{HOST}/assets/official' "
+        f"'{bak}/assets'",
     )
-    for spec in HUBS.values():
-        local = OUT / spec["host"] / "overlay" / "index.html"
-        remote = f"/www/wwwroot/{spec['host']}/index.html"
-        raw = local.read_text(encoding="utf-8")
-        if 'id="local"' not in raw or "not a customs territory" not in raw:
-            raise SystemExit(f"refusing to PUT {spec['host']} without hub #local")
-        if INVITE in raw:
-            raise SystemExit(f"refusing to PUT {spec['host']} with frozen invite token")
-        if local.stat().st_size < HUB_MIN:
-            raise SystemExit(f"refusing to PUT collapsed hub {local.stat().st_size} B")
-        live = _run(client, f"wc -c < '{remote}'")
-        try:
-            live_n = int(live.strip().split()[0])
-        except ValueError:
-            live_n = 0
-        if live_n > 15000:
-            raise SystemExit(f"refusing to PUT over unique CMS home {live_n} B")
-        for marker in spec.get("chrome") or ():
-            if marker not in raw:
-                raise SystemExit(f"refusing to PUT hub missing chrome {marker}")
-        _run(client, f"cp -a '{remote}' '{bak}/{spec['host']}.index.html'")
-        sftp.put(str(local), remote)
-        print("PUT", remote, "bytes", local.stat().st_size)
-
-        ext = f"/www/server/panel/vhost/nginx/extension/{spec['host']}"
-        _run(client, f"mkdir -p '{bak}/nginx-{spec['host']}'")
-        _run(client, f"cp -a '{ext}/.' '{bak}/nginx-{spec['host']}/'")
-        with sftp.file(f"{ext}/ia-collapse.conf", "w") as fh:
-            fh.write(collapse)
-        print("disabled", f"{ext}/ia-collapse.conf")
-
-        root = f"/www/wwwroot/{spec['host']}"
-        for rel in TITLE_SCRUB:
-            remote_inner = f"{root}/{rel}"
-            try:
-                with sftp.open(remote_inner) as fh:
-                    inner_html = fh.read().decode("utf-8")
-            except FileNotFoundError:
-                print("skip missing", remote_inner)
-                continue
-            title_m = re.search(r"<title>(.*?)</title>", inner_html, flags=re.S)
-            title = title_m.group(1) if title_m else ""
-            leftover = bool(re.search(r"(?i)[—\-–:,]\s*invite\b|invite_id", title))
-            if INVITE not in title and not leftover:
-                print("title already clean", rel)
-                continue
-            before = len(inner_html)
-            _run(client, f"cp -a '{remote_inner}' '{bak}/{rel.replace('/', '_')}'")
-            scrubbed = _scrub_title_token(inner_html)
-            title_m = re.search(r"<title>(.*?)</title>", scrubbed, flags=re.S)
-            title = title_m.group(1) if title_m else ""
-            if INVITE in title:
-                raise SystemExit(f"title still has invite after scrub: {rel} {title!r}")
-            if abs(len(scrubbed) - before) > 400:
-                raise SystemExit(f"title scrub changed {rel} too much ({before}->{len(scrubbed)})")
-            with sftp.file(remote_inner, "w") as fh:
-                fh.write(scrubbed)
-            print("scrub title", rel, "title", title)
+    logo_l = OUT / HOST / "overlay" / "assets" / "images" / "official-logo.png"
+    sftp.put(str(logo_l), f"/www/wwwroot/{HOST}/assets/images/official-logo.png")
+    print("PUT official-logo.png", logo_l.stat().st_size)
+    off_dir = OUT / HOST / "overlay" / "assets" / "official"
+    for img in sorted(off_dir.glob("*")):
+        sftp.put(str(img), f"/www/wwwroot/{HOST}/assets/official/{img.name}")
+        print("PUT official", img.name, img.stat().st_size)
 
     nginx_t = _run(client, "nginx -t 2>&1")
     print(nginx_t)
@@ -468,11 +286,13 @@ def put() -> None:
     print(_run(client, "nginx -s reload 2>&1"))
     sftp.close()
     print("backup", bak)
-    print("Georgia hub kept; unique 23–61KB CMS restored; no dest overlay")
+    print("did not PUT ranked inners; did not rewrite gsc-redirects; did not PUT", COMPETITOR, PARKED)
     client.close()
+    _cf_purge(HOST)
 
 
 def live_check() -> None:
+    import urllib.error
     import urllib.request
 
     class NR(urllib.request.HTTPRedirectHandler):
@@ -480,7 +300,7 @@ def live_check() -> None:
             return None
 
     def fetch(url, follow=True):
-        req = urllib.request.Request(url, headers={"User-Agent": "fsbuy-desk-check/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "fsbuy-hub-check/1.0"})
         opener = urllib.request.build_opener() if follow else urllib.request.build_opener(NR)
         try:
             with opener.open(req, timeout=25) as resp:
@@ -489,90 +309,96 @@ def live_check() -> None:
             return e.code, url, e.headers.get("Location") or "", e.read() if e.fp else b""
 
     fail = 0
-    url = f"https://{HOST}/"
-    code, _, loc, body = fetch(url, follow=True)
+    code, _, loc, body = fetch(f"https://{HOST}/", follow=True)
     html = body.decode("utf-8", "replace")
-    title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
-    title = title_m.group(1) if title_m else ""
-    inner_m = re.search(r'<section class="sg-sec" id="local".*?</section>', html, flags=re.S)
-    inner = inner_m.group(0) if inner_m else ""
-    fp = "not a customs territory"
-    print(f"com {code} bytes={len(body)} local={bool(inner)} fp={fp in html}")
-    if code != 200 or not inner or fp not in inner:
-        print("  FAIL status/local/fp")
+    print(f"home {code} bytes={len(body)} loc={loc!r}")
+    if code != 200:
+        print("  FAIL home status")
         fail += 1
     else:
-        for alien in ALIENS:
-            if alien in inner:
-                print("  FAIL sister", alien)
-                fail += 1
-        if INVITE in title or INVITE in html:
-            print("  FAIL invite on homepage")
-            fail += 1
-        if re.search(r"58 l[ií]neas para Espa|23[,.]81\s*USD|how to under-?declar", html, flags=re.I):
-            print("  FAIL snapshot/coaching")
-            fail += 1
-        if EST not in inner:
-            print("  FAIL estimator")
-            fail += 1
         if len(body) < LIVE_HUB_MIN:
-            print("  FAIL hub collapsed", len(body))
+            print("  FAIL home too small", len(body))
             fail += 1
-        for marker in HUBS["com"].get("chrome") or ():
-            if marker not in html:
-                print("  FAIL hub chrome gone", marker)
-                fail += 1
+        for e in _unique_home_errors(html):
+            print("  FAIL", e)
+            fail += 1
 
-    code, _, loc, _ = fetch(url, follow=False)
+    code, _, loc, _ = fetch(f"https://www.{HOST}/", follow=False)
+    if code not in (301, 302, 303, 307, 308) or HOST not in (loc or "") or "www." in (loc or "").split("://", 1)[-1][:40]:
+        if f"www.{HOST}" in (loc or ""):
+            print("FAIL www still on www", code, loc)
+            fail += 1
+        elif code not in (301, 302, 303, 307, 308):
+            print("FAIL www not 301", code, loc)
+            fail += 1
+        else:
+            print("www", code, loc)
+    else:
+        print("www", code, loc)
+
+    code, _, loc, _ = fetch(f"https://{HOST}/", follow=False)
     if code in (301, 302, 303, 307, 308):
-        print("FAIL hub 301", loc)
+        print("FAIL 301 home", loc)
         fail += 1
     else:
-        print("indep hub", code)
+        print("indep home", code)
+
+    for src, dst in KEEP_REDIRECTS:
+        url = f"https://{HOST}{src}"
+        code, _, loc, _ = fetch(url, follow=False)
+        if code not in (301, 302, 303, 307, 308) or dst.rstrip("/") not in (loc or ""):
+            print("FAIL expected 301", url, code, "->", loc, "want", dst)
+            fail += 1
+        else:
+            print("kept 301", src, "->", loc)
 
     for path, min_bytes in RANKED_CMS:
-        inner_url = f"https://{HOST}{path}"
-        code, _, loc, _ = fetch(inner_url, follow=False)
+        url = f"https://{HOST}{path}"
+        code, _, loc, _ = fetch(url, follow=False)
         if code in (301, 302, 303, 307, 308) and loc:
-            if path.rstrip("/") not in loc and not loc.rstrip("/").endswith(path.rstrip("/")):
-                print("FAIL 301 inner", inner_url, "->", loc)
-                fail += 1
-                continue
-        code, final, _, body = fetch(inner_url, follow=True)
-        if code == 404 or code == 410 or len(body) < min_bytes:
-            print("FAIL inner", inner_url, code, len(body), final)
+            print("FAIL 301 inner", url, "->", loc)
+            fail += 1
+            continue
+        code, final, _, body = fetch(url, follow=True)
+        if code == 404 or len(body) < min_bytes:
+            print("FAIL inner", url, code, len(body), final)
             fail += 1
         else:
             print("inner", code, len(body), final)
             html = body.decode("utf-8", "replace")
             title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
             title = title_m.group(1) if title_m else ""
+            need = INNER_TITLES.get(path)
+            if need and need not in title.replace("&amp;", "&"):
+                print("FAIL inner title drifted", path, title)
+                fail += 1
             if path in ("/fsbuy-coupons/", "/coupons/", "/fsbuy-invite-code/", "/start/") and (
-                INVITE in title or re.search(r"(?i)[—\-–:,]\s*invite\s*$", title)
+                re.search(r"invite\s*(code)?\s*[A-Z0-9]{5,}", title, flags=re.I)
             ):
                 print("FAIL invite in inner title", path, title)
                 fail += 1
 
-    for src, dst in KEEP_REDIRECTS:
-        inner_url = f"https://{HOST}{src}"
-        code, _, loc, _ = fetch(inner_url, follow=False)
-        if code not in (301, 302, 303, 307, 308) or dst.rstrip("/") not in (loc or ""):
-            print("FAIL expected 301", inner_url, code, "->", loc, "want", dst)
+    coup_url = f"https://{HOST}/coupons.html"
+    code, final, _, body = fetch(coup_url, follow=True)
+    ch = body.decode("utf-8", "replace")
+    if code != 200 or len(body) < 4000 or ("90 days" not in ch and "90-day" not in ch):
+        print("FAIL coupons.html", code, len(body), final)
+        fail += 1
+    else:
+        print("coupons.html", code, len(body), final)
+
+    for other in (COMPETITOR, PARKED):
+        code, _, loc, _ = fetch(f"https://{other}/", follow=False)
+        if code in (301, 302, 303, 307, 308) and HOST in (loc or ""):
+            print("FAIL", other, "301 into hub", loc)
             fail += 1
         else:
-            print("kept 301", src, "->", loc)
-            code2, final, _, body = fetch(inner_url, follow=True)
-            if code2 != 200 or len(body) < 8000:
-                print("FAIL redirect target thin/404", final, code2, len(body))
-                fail += 1
-            else:
-                print("redirect target", code2, len(body), final)
+            print("indep", other, code, loc or "")
 
-    code, _, loc, _ = fetch(f"https://www.{HOST}/", follow=False)
-    if code in (301, 302, 303, 307, 308) and HOST in (loc or ""):
-        print("www apex", code, loc)
-    else:
-        print("www", code, loc)
+    code, _, loc, _ = fetch(f"https://{HOST}/", follow=False)
+    if code in (301, 302, 303, 307, 308) and (COMPETITOR in (loc or "") or PARKED in (loc or "")):
+        print("FAIL hub 301 into competitor", loc)
+        fail += 1
 
     if fail:
         raise SystemExit(f"live_check failures: {fail}")
