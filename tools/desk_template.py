@@ -1027,7 +1027,8 @@ def validate_desk(html: str, facts: dict, *, page: str = "home") -> list[str]:
         if x["customs"] not in html:
             err.append("customs source missing from dest desk")
     details = re.findall(r"<details class=\"sg-faq\".*?</details>", html, flags=re.S)
-    if page in ("home", "help") and len(details) < 12:
+    # Gold hipobuy.es keeps the 15 answers on /help, not dumped under the homepage hero.
+    if page == "help" and len(details) < 12:
         err.append(f"faq count {len(details)}")
     if page == "help":
         _check_local_section(html, facts, err)
