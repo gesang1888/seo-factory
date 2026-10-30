@@ -116,10 +116,9 @@ HUB = {
 }
 
 # Same-agent same-country extras. Dest = GSC clicks, then ccTLD.
-# CA: allchinabuyspreadsheet.ca has 1 click; acbuy CA has 0.
-# NL: acbuyspreadsheets.nl has 3 clicks; allchina NL has 0.
+# NL: acbuyspreadsheets.nl has the clicks; allchina NL extra 301s there.
+# CA: acbuyspreadsheets.ca is now an independent ACBuy dest — do not 301 it here.
 CONVERT_TWINS = {
-    "acbuyspreadsheets.ca": "allchinabuyspreadsheet.ca",
     "allchinabuyspreadsheet.nl": "acbuyspreadsheets.nl",
 }
 
