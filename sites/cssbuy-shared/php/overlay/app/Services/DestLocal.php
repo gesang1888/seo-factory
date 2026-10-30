@@ -49,12 +49,12 @@ class DestLocal
 .local-src a{color:inherit}
 #local{scroll-margin-top:96px}
 
-.dest-local-wrap{background:#fff8f3;border-top:1px solid #f3d5c4;border-bottom:1px solid #f3d5c4}
+.dest-local-wrap{background:#e8f8ee;border-top:1px solid #b7e7c8;border-bottom:1px solid #b7e7c8}
 .sg-sec{margin:0;padding:8px 0 12px}
 .sg-sec h2{font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.4px;margin:0 0 8px;color:#1a1a1a}
 .sg-sec .ssub{color:#555;margin:0 0 12px;font-size:15px;line-height:1.65}
-.sg-sec a{color:#E85D1A}
-.local-steps li{border-color:#f3d5c4}
+.sg-sec a{color:#009E44}
+.local-steps li{border-color:#b7e7c8}
 ';
     }
 

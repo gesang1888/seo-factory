@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CSSBuy Spreadsheet en français: aide et questions fréquentes</title>
+<meta name="description" content="FAQ about CSSBuy from la France.">
+<link rel="canonical" href="https://cssbuy.fr/aide/">
+<link rel="icon" href="/favicon1.ico">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="stylesheet" href="/assets/css/cssbuy-theme.css?v=20261006c">
+<link rel="stylesheet" href="/assets/css/cssbuy-fr-desk.css?v=20261006c">
+<style>
+:root{
+  --acc:#00C853;--acd:#009E44;--link:#009E44;
+  --ink:#303133;--ink2:#495068;--mute:#8492b2;--dark:#181818;
+  --panel:#f5f6f7;--line:#eaecf0;--soft:#f5f6f7;
+  --r:18px;--rs:12px;--maxw:1120px;--medida:34em;
+  --f:"Microsoft Yahei","PingFang SC",Avenir,"Segoe UI","Hiragino Sans GB",sans-serif;--m:ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light;scroll-behavior:smooth}
+body{margin:0;font-family:var(--f);font-size:17px;line-height:1.72;color:var(--ink);background:#fff}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--link)}
+a:hover{color:var(--acd)}
+#main,[id]{scroll-margin-top:76px}
+h1,h2,h3{color:var(--dark);line-height:1.25;letter-spacing:-.01em;margin:0 0 .5em}
+h1{font-size:clamp(30px,4.4vw,45px);font-weight:800}
+h2{font-size:clamp(24px,3vw,32px);font-weight:800}
+h3{font-size:20px;font-weight:700}
+p{margin:0 0 1.05em}
+main p,main li,.sg-faq p{max-width:var(--medida)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:8px 18px;border-radius:var(--rs)}
+.top{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:var(--dark);text-decoration:none;font-size:15px;white-space:nowrap}
+.brand img{height:32px;width:auto}
+.brand span{color:#8492b2;font-weight:600}
+.nav{margin-left:auto;display:flex;gap:2px;flex-wrap:nowrap}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--rs);color:#333;text-decoration:none;font-size:15px;white-space:nowrap}
+.nav a:hover,.nav a[aria-current]{color:var(--acc);background:transparent;font-weight:700}
+.hdr-login{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:var(--acc);color:#fff;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+.hdr-login:hover{background:var(--acd);color:#fff}
+.burger{display:none;margin-left:auto;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:var(--rs);font-size:19px;cursor:pointer}
+.hero{position:relative;background:#181818;overflow:hidden}
+.hero__bg{position:absolute;inset:0;background:url(/img/hero.jpg?v=20261006c) center/cover no-repeat}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.58) 0%,color-mix(in srgb, var(--acc) 22%, transparent) 100%)}
+.hero .wrap{position:relative;padding:74px 22px 78px}
+.eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--acc);margin-bottom:14px}
+.hero .eyebrow{color:#9ee8d2}
+.hero h1{color:#fff;max-width:15.5em}
+.hero p.lead{color:#e7f7f1;font-size:19px;max-width:34em}
+.sbox{margin-top:26px;max-width:660px}
+.sbox form{display:flex;gap:9px;background:#fff;border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 14px 40px rgba(24,24,24,.22)}
+.sbox input{flex:1;min-width:0;border:0;font:inherit;font-size:17px;padding:12px 8px}
+.sbox button{min-height:44px;padding:0 24px;border:0;border-radius:999px;background:var(--acc);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips a{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);color:#fff8f0;text-decoration:none;font-size:14px}
+.sec{padding:62px 0;border-top:1px solid var(--line)}
+.sec--tint{background:linear-gradient(var(--soft) 0%,#fff 100%);border-top:0}
+.sec--first{border-top:0}
+.split{display:grid;grid-template-columns:1.04fr .96fr;gap:46px;align-items:center}
+.split--rev .fig{order:-1}
+.fig{margin:0}
+.fig img{border-radius:var(--r);border:1px solid var(--line);background:#fff}
+.fig figcaption{margin-top:11px;font-size:13.5px;line-height:1.55;color:var(--mute)}
+.lead{font-size:18px;color:var(--ink2);max-width:var(--medida)}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none}
+.btn:hover{background:var(--acd);color:#fff}
+.btn--ghost{background:#fff;color:var(--acd);border:1px solid var(--line)}
+.tl{list-style:none;margin:0;padding:0 0 0 30px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 18px 8px}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:-39px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px #fff}
+.tl b{display:block;color:var(--dark);font-size:17px}
+.tl span{color:var(--mute);font-size:14px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px;margin-top:8px}
+.cat{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 10px 14px;text-decoration:none;color:inherit}
+.cat:hover{transform:translateY(-3px);box-shadow:0 12px 28px color-mix(in srgb, var(--acc) 22%, transparent);border-color:color-mix(in srgb, var(--acc) 45%, #fff)}
+.cat img{width:72px;height:72px;object-fit:contain;padding:0;background:#fff}
+.cat__b{padding:10px 0 0}
+.cat em{display:block;margin-top:8px;font-style:normal;font-size:13px;line-height:1.45;color:var(--mute);font-weight:400}
+.cat-grid--rich{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.cat-grid--rich .cat{align-items:flex-start;text-align:left;padding:14px}
+.eq{width:100%;border-collapse:collapse;max-width:36em;font-size:15px}
+.eq th,.eq td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+.eq th{color:#8492b2;font-weight:600}
+.cat__b strong{display:block;color:var(--dark);font-size:14.5px}
+.cat__b span{font-size:12px;color:var(--mute);letter-spacing:.04em}
+.states{margin:0;padding:0;list-style:none}
+.states li{padding:10px 0;border-bottom:1px solid var(--line);max-width:40em}
+.states code{font-family:var(--m);font-size:13px}
+.sg-faq{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;background:#fff;max-width:40em}
+.sg-faq summary{cursor:pointer;font-weight:700}
+.ncard{border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 8px;margin-bottom:18px;max-width:40em}
+.ncard h2{font-size:22px}
+.list{margin:0 0 1.4em;padding:0 0 0 1.15em;max-width:var(--medida)}
+.list li{margin:0 0 .45em}
+.site-ft{background:#111;color:#ccc;padding:52px 0 30px;margin-top:24px;font-size:15.5px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px}
+.site-ft h3{color:#fff;font-size:15.5px;margin:0 0 12px;letter-spacing:.02em;font-weight:700}
+.site-ft p{margin:0 0 12px;max-width:36em}
+.site-ft a{color:#c2c2c2;text-decoration:none}
+.site-ft a:hover{color:#fff;text-decoration:underline}
+.site-ft ul{list-style:none;margin:0;padding:0}
+.site-ft li{margin-bottom:8px}
+.site-ft .legal{grid-column:1/-1;border-top:1px solid #2D2D2D;padding-top:20px;font-size:13.5px;color:#8a8a8a}
+.site-ft .legal p{margin:0 0 8px;max-width:none}
+.pw{max-width:40em;margin:0 auto;padding:40px 22px 64px}
+.inner-article{max-width:860px;margin:0 auto;padding:28px 24px 48px}
+#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}
+@media(max-width:1000px){
+  .split{grid-template-columns:1fr;gap:30px}
+  .split--rev .fig{order:0}
+  .ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:860px){
+  .burger{display:inline-flex;align-items:center;justify-content:center}
+  .nav{display:none;position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 12px}
+  .nav.open{display:flex}
+  .hdr-login{display:none}
+  .ft-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .sbox form{flex-direction:column}
+  .sbox button{width:100%}
+}
+
+:root{--primary-soft:#e8f8ee}
+
+:root{--acc:#00C853!important;--acd:#009E44!important;--link:#009E44!important;--primary:#00C853!important;--primary-dark:#009E44!important;--primary-soft:#e8f7f2!important}#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}header.top .nav a{color:#333!important}header.top .nav a[aria-current],header.top .nav a:hover{color:#00C853!important;background:transparent!important}header.top .hdr-login{background:#00C853!important;color:#fff!important}header.top .hdr-login:hover{background:#009E44!important;color:#fff!important}</style>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://cssbuy.fr/aide/", "url": "https://cssbuy.fr/aide/", "name": "CSSBuy Spreadsheet en français: aide et questions fréquentes", "description": "FAQ about CSSBuy from la France.", "inLanguage": "fr-FR", "isPartOf": {"@type": "WebSite", "name": "CSSBuy desk", "url": "https://cssbuy.fr/"}, "publisher": {"@type": "Organization", "name": "CSSBuy independent desk", "url": "https://cssbuy.fr/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "cssbuy.fr independent desk", "url": "https://cssbuy.fr/", "email": "cnfd85269032661@gmail.com", "inLanguage": "fr-FR", "description": "FAQ about CSSBuy from la France.", "contactPoint": {"@type": "ContactPoint", "email": "cnfd85269032661@gmail.com", "contactType": "customer support", "url": "https://cssbuy.fr/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "fr-FR", "mainEntity": [{"@type": "Question", "name": "CSSBuy vend-il la marchandise de ce site ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. CSSBuy est un agent : il achète dans des boutiques chinoises de tiers à ton nom, photographie à l’entrepôt, puis tu livres une SKU vers la France. cssbuy.fr est un desk d’information indépendant. Commandes et litiges uniquement sur https://www.cssbuy.com/. Les fiches sur cssbuy.fr sont un index, pas un stock de CSSBuy. On n’encaisse rien sur ce nom d’hôte. L’adresse de livraison est une rue française, code postal à cinq chiffres, pas un code postal belge."}}, {"@type": "Question", "name": "Puis-je mettre CSSBuy en français ?", "acceptedAnswer": {"@type": "Answer", "text": "Le sélecteur de langue de la plateforme est indépendant de ce desk. Mesure 6 Oct 2026. Les champs de l’estimateur restent souvent en anglais. L’adresse doit être au format la France — pas la Belgique si le desk est la France. La langue de ce desk ne change pas l’app. Vérifie la langue in-app le matin de la commande vers la France."}}, {"@type": "Question", "name": "Pourquoi le catalogue ne trouve rien en français ?", "acceptedAnswer": {"@type": "Answer", "text": "L’index w2clinks sur cssbuy.fr est anglais (sneakers, hoodie, jacket). « Baskets » ou « sweat » renvoient souvent zéro fiches. Ce n’est pas une boutique vide. Mesuré 6 Oct 2026. Le mur de catégories garde les clés anglaises (sneakers, hoodie, jacket) pour w2clinks sur cssbuy.fr. Mesure 6 Oct 2026."}}, {"@type": "Question", "name": "Combien de fois je paie ?", "acceptedAnswer": {"@type": "Answer", "text": "Deux fois : d’abord la marchandise + domestique Chine, ensuite la ligne internationale vers la France. Entre les deux tu peux grouper. Ce desk n’encaisse pas. Les photos d’entrepôt s’intercalent entre les deux paiements. Ne livre pas le fret vers la France avant d’avoir accepté le QC dans l’app."}}, {"@type": "Question", "name": "Pourquoi des dollars chez l’officiel et du EUR ici ?", "acceptedAnswer": {"@type": "Answer", "text": "Le sélecteur officiel change souvent le symbole sans convertir le chiffre. Ce desk convertit la fiche Chine en EUR (X-Rates 6 Oct 2026) pour l’affichage, pas pour la caisse. Relis le montant dans l’app le jour du paiement. Si la SPA officielle imprime encore des chiffres USD après EUR, croit les chiffres et https://www.cssbuy.com/?action=estimates&go=page, pas cet HTML. Taux 6 Oct 2026."}}, {"@type": "Question", "name": "Comment je paie ?", "acceptedAnswer": {"@type": "Answer", "text": "Uniquement sur https://www.cssbuy.com/. Carte, PayPal, solde — FAQ officielle du jour. cssbuy.fr ne stocke pas de carte. Les liens Register de ce desk ne collectent pas de numéro de carte. Ces champs n’existent que sur https://www.cssbuy.com/. cssbuy.fr ne stocke aucune méthode."}}, {"@type": "Question", "name": "C’est quoi le poids volumétrique ?", "acceptedAnswer": {"@type": "Answer", "text": "La plupart des SKU air facturent max(réel, L×l×H/diviseur) en kg (le widget affiche des grammes). Une doudoune pèse peu et volumine. Géométrie seule — l’argent est dans https://www.cssbuy.com/?action=estimates&go=page avec destination la France. Le widget prend 35×25×10 cm et 1000 g comme habitude labo ; ton carton sera différent. Ouvre https://www.cssbuy.com/?action=estimates&go=page vers la France avant de payer le fret."}}, {"@type": "Question", "name": "Qui paie les droits vers la France ?", "acceptedAnswer": {"@type": "Answer", "text": "Qui paie les droits vers la France est sur la SKU. Colissimo peut ajouter des frais de dédouanement en Collect. Source : douane.gouv.fr. Destination FR, pas un code postal belge. Pas de sous-déclaration. Prepaid ou destinataire se choisit à l’envoi du colis, pas à l’achat. Lis l’en-tête SKU et douane.gouv.fr le matin même."}}, {"@type": "Question", "name": "Y a-t-il un seuil à contourner ?", "acceptedAnswer": {"@type": "Answer", "text": "TVA, IOSS et seuils bougent. Lis douane.gouv.fr et la SKU le jour de l’envoi. Ce desk n’invente pas une valeur déclarée et ne copie pas un dossier Belgique. Une capture Discord d’un seuil n’est pas un dépôt. La source de ce desk est douane.gouv.fr. On n’invente pas de valeur déclarée pour la France."}}, {"@type": "Question", "name": "Je peux grouper plusieurs commandes ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, l’économie habituelle. Les pièces attendent à l’entrepôt. Stockage : Official CSSBuy estimator URL redirected to login on 6 Oct 2026; confirm live Help the morning you ship. This desk does not invent a free-day count.. Si le QC coupe en cartons, estime chaque carton vers la France. Horloge de stockage : Official CSSBuy estimator URL redirected to login on 6 Oct 2026; confirm live Help the morning you ship. This desk does not invent a free-day count.. Ensuite l’entrepôt peut facturer ou jeter — aide officielle, pas cette page. Chaque carton coupé s’estime vers la France."}}, {"@type": "Question", "name": "Ils photographient ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, les photos d’entrepôt arrivent dans l’app une fois la pièce en Chine. Les angles extra sont souvent payants. Réclamer est plus simple tant qu’elle est à l’entrepôt, pas après la douane. Photo floue : achète un autre angle in-app avant que la pièce parte vers la France. Ce desk n’ouvre pas de ticket."}}, {"@type": "Question", "name": "Qu’est-ce qui ne voyage pas ?", "acceptedAnswer": {"@type": "Answer", "text": "Tabac, alcool, médicaments, interdits. Liquides et poudres peuvent être dangereux. Règle plateforme, pas douane.gouv.fr. Restricted ou prix 0 : on n’achète pas. Restricted est un blocage d’achat plateforme, pas une saisie douane.gouv.fr. Prix 0 sur cssbuy.fr n’est pas une caisse."}}, {"@type": "Question", "name": "Pourquoi restricted ou prix 0 ?", "acceptedAnswer": {"@type": "Answer", "text": "Le lien source n’est pas achetable par agent, ou le prix n’a pas été lu. Ne construis pas le haul sur un zéro. Vérifie la fiche live CSSBuy. Prix 0 veut souvent dire que le lien Weidian ou Taobao est mort. Ouvre la fiche live CSSBuy le jour même ; cet HTML n’est pas le haul."}}, {"@type": "Question", "name": "Le colis est plus léger que l’estimé ?", "acceptedAnswer": {"@type": "Answer", "text": "La FAQ officielle couvre estimé vs réel et remboursement de port. Cet HTML n’est pas un devis. Relance https://www.cssbuy.com/?action=estimates&go=page vers la France après les photos d’entrepôt. Les remboursements estimé vs réel sont dans la FAQ officielle. Relance https://www.cssbuy.com/?action=estimates&go=page vers la France après les photos, puis paie."}}, {"@type": "Question", "name": "Où je réclame ?", "acceptedAnswer": {"@type": "Answer", "text": "Seulement sur https://www.cssbuy.com/, jamais ici. cssbuy.fr ne voit pas ton compte. Chat in-app / aide officielle. La destination de l’estimateur est la France, pas le TLD. cssbuy.fr ne retrouve pas un numéro de commande. Garde l’ID in-app. Litiges et chat uniquement sur https://www.cssbuy.com/."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top" role="banner">
+  <div class="wrap">
+    <a href="/start/" class="brand">
+      <img src="/assets/images/cssbuy-logo.png" alt="CSSBuy" width="118" height="39">
+      <span>Spreadsheet</span>
+    </a>
+    <button class="burger" type="button" aria-expanded="false" aria-label="Ouvrir le menu">&#9776;</button>
+    <nav class="nav" aria-label="Menu principal"><a href="/start/">Start</a><a href="/how-to-use-cssbuy/">Guide</a><a href="/catalogue/">Catalogue</a><a href="/cssbuy-shipping/">Livraison</a><a href="/aide/" aria-current="page">Aide</a><a href="/actualites/">Actus</a></nav>
+    <a class="hdr-login" href="https://www.cssbuy.com/register?utm_source=cssbuy.fr&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Se connecter à CSSBuy</a>
+  </div>
+</header>
+
+<main id="main">
+
+<article class="pw">
+  <span class="eyebrow" style="color:var(--acd)">Aide</span>
+  <h1>Aide et questions sur CSSBuy depuis la France</h1>
+  <p class="lead">Questions des premières commandes. L’adresse est une rue française, code postal à cinq chiffres, pas un code postal belge.</p>
+  <figure class="fig"><img src="/img/shots/oficial.jpg" alt="Page d’accueil officielle CSSBuy : wordmark vert, recherche, forwarding et estimation dans le menu" loading="lazy" width="1200" height="750"><figcaption>Site officiel cssbuy.com, 6 Oct 2026. Estimation dans le menu ouvrait un login ce matin-là. Ce guide n’invente ni ligne ni montant.</figcaption></figure><h2>Ce qu’est CSSBuy et dans quelle langue ça tourne</h2>
+<details class="sg-faq" open><summary>CSSBuy vend-il la marchandise de ce site ?</summary><p>Non. CSSBuy est un agent : il achète dans des boutiques chinoises de tiers à ton nom, photographie à l’entrepôt, puis tu livres une SKU vers la France. cssbuy.fr est un desk d’information indépendant. Commandes et litiges uniquement sur https://www.cssbuy.com/. Les fiches sur cssbuy.fr sont un index, pas un stock de CSSBuy. On n’encaisse rien sur ce nom d’hôte. L’adresse de livraison est une rue française, code postal à cinq chiffres, pas un code postal belge.</p></details>
+<details class="sg-faq"><summary>Puis-je mettre CSSBuy en français ?</summary><p>Le sélecteur de langue de la plateforme est indépendant de ce desk. Mesure 6 Oct 2026. Les champs de l’estimateur restent souvent en anglais. L’adresse doit être au format la France — pas la Belgique si le desk est la France. La langue de ce desk ne change pas l’app. Vérifie la langue in-app le matin de la commande vers la France.</p></details>
+<details class="sg-faq"><summary>Pourquoi le catalogue ne trouve rien en français ?</summary><p>L’index w2clinks sur cssbuy.fr est anglais (sneakers, hoodie, jacket). « Baskets » ou « sweat » renvoient souvent zéro fiches. Ce n’est pas une boutique vide. Mesuré 6 Oct 2026. Le mur de catégories garde les clés anglaises (sneakers, hoodie, jacket) pour w2clinks sur cssbuy.fr. Mesure 6 Oct 2026.</p></details>
+<h2>Ce que tu vas payer</h2>
+<details class="sg-faq"><summary>Combien de fois je paie ?</summary><p>Deux fois : d’abord la marchandise + domestique Chine, ensuite la ligne internationale vers la France. Entre les deux tu peux grouper. Ce desk n’encaisse pas. Les photos d’entrepôt s’intercalent entre les deux paiements. Ne livre pas le fret vers la France avant d’avoir accepté le QC dans l’app.</p></details>
+<details class="sg-faq"><summary>Pourquoi des dollars chez l’officiel et du EUR ici ?</summary><p>Le sélecteur officiel change souvent le symbole sans convertir le chiffre. Ce desk convertit la fiche Chine en EUR (X-Rates 6 Oct 2026) pour l’affichage, pas pour la caisse. Relis le montant dans l’app le jour du paiement. Si la SPA officielle imprime encore des chiffres USD après EUR, croit les chiffres et https://www.cssbuy.com/?action=estimates&amp;go=page, pas cet HTML. Taux 6 Oct 2026.</p></details>
+<details class="sg-faq"><summary>Comment je paie ?</summary><p>Uniquement sur https://www.cssbuy.com/. Carte, PayPal, solde — FAQ officielle du jour. cssbuy.fr ne stocke pas de carte. Les liens Register de ce desk ne collectent pas de numéro de carte. Ces champs n’existent que sur https://www.cssbuy.com/. cssbuy.fr ne stocke aucune méthode.</p></details>
+<details class="sg-faq"><summary>C’est quoi le poids volumétrique ?</summary><p>La plupart des SKU air facturent max(réel, L×l×H/diviseur) en kg (le widget affiche des grammes). Une doudoune pèse peu et volumine. Géométrie seule — l’argent est dans https://www.cssbuy.com/?action=estimates&amp;go=page avec destination la France. Le widget prend 35×25×10 cm et 1000 g comme habitude labo ; ton carton sera différent. Ouvre https://www.cssbuy.com/?action=estimates&amp;go=page vers la France avant de payer le fret.</p></details>
+<h2>Import vers la France</h2>
+<details class="sg-faq"><summary>Qui paie les droits vers la France ?</summary><p>Qui paie les droits vers la France est sur la SKU. Colissimo peut ajouter des frais de dédouanement en Collect. Source : douane.gouv.fr. Destination FR, pas un code postal belge. Pas de sous-déclaration. Prepaid ou destinataire se choisit à l’envoi du colis, pas à l’achat. Lis l’en-tête SKU et douane.gouv.fr le matin même.</p></details>
+<details class="sg-faq"><summary>Y a-t-il un seuil à contourner ?</summary><p>TVA, IOSS et seuils bougent. Lis douane.gouv.fr et la SKU le jour de l’envoi. Ce desk n’invente pas une valeur déclarée et ne copie pas un dossier Belgique. Une capture Discord d’un seuil n’est pas un dépôt. La source de ce desk est douane.gouv.fr. On n’invente pas de valeur déclarée pour la France.</p></details>
+<h2>Entrepôt, photos et ce qui peut voyager</h2>
+<details class="sg-faq"><summary>Je peux grouper plusieurs commandes ?</summary><p>Oui, l’économie habituelle. Les pièces attendent à l’entrepôt. Stockage : Official CSSBuy estimator URL redirected to login on 6 Oct 2026; confirm live Help the morning you ship. This desk does not invent a free-day count.. Si le QC coupe en cartons, estime chaque carton vers la France. Horloge de stockage : Official CSSBuy estimator URL redirected to login on 6 Oct 2026; confirm live Help the morning you ship. This desk does not invent a free-day count.. Ensuite l’entrepôt peut facturer ou jeter — aide officielle, pas cette page. Chaque carton coupé s’estime vers la France.</p></details>
+<details class="sg-faq"><summary>Ils photographient ?</summary><p>Oui, les photos d’entrepôt arrivent dans l’app une fois la pièce en Chine. Les angles extra sont souvent payants. Réclamer est plus simple tant qu’elle est à l’entrepôt, pas après la douane. Photo floue : achète un autre angle in-app avant que la pièce parte vers la France. Ce desk n’ouvre pas de ticket.</p></details>
+<details class="sg-faq"><summary>Qu’est-ce qui ne voyage pas ?</summary><p>Tabac, alcool, médicaments, interdits. Liquides et poudres peuvent être dangereux. Règle plateforme, pas douane.gouv.fr. Restricted ou prix 0 : on n’achète pas. Restricted est un blocage d’achat plateforme, pas une saisie douane.gouv.fr. Prix 0 sur cssbuy.fr n’est pas une caisse.</p></details>
+<details class="sg-faq"><summary>Pourquoi restricted ou prix 0 ?</summary><p>Le lien source n’est pas achetable par agent, ou le prix n’a pas été lu. Ne construis pas le haul sur un zéro. Vérifie la fiche live CSSBuy. Prix 0 veut souvent dire que le lien Weidian ou Taobao est mort. Ouvre la fiche live CSSBuy le jour même ; cet HTML n’est pas le haul.</p></details>
+<h2>Si quelque chose cloche</h2>
+<details class="sg-faq"><summary>Le colis est plus léger que l’estimé ?</summary><p>La FAQ officielle couvre estimé vs réel et remboursement de port. Cet HTML n’est pas un devis. Relance https://www.cssbuy.com/?action=estimates&amp;go=page vers la France après les photos d’entrepôt. Les remboursements estimé vs réel sont dans la FAQ officielle. Relance https://www.cssbuy.com/?action=estimates&amp;go=page vers la France après les photos, puis paie.</p></details>
+<details class="sg-faq"><summary>Où je réclame ?</summary><p>Seulement sur https://www.cssbuy.com/, jamais ici. cssbuy.fr ne voit pas ton compte. Chat in-app / aide officielle. La destination de l’estimateur est la France, pas le TLD. cssbuy.fr ne retrouve pas un numéro de commande. Garde l’ID in-app. Litiges et chat uniquement sur https://www.cssbuy.com/.</p></details>
+  <p><a class="btn" href="https://www.cssbuy.com/?action=estimates&amp;go=page">Site officiel CSSBuy</a>
+     <a class="btn btn--ghost" href="/cssbuy-shipping/">Plan de livraison</a></p>
+</article>
+
+</main>
+<footer class="site-ft">
+  <div class="wrap ft-grid">
+    <div>
+      <h3>CSSBuy Spreadsheet</h3>
+      <p>Guide indépendant en français sur CSSBuy et sur la façon d’utiliser le catalogue w2clinks pour acheter en Chine depuis la France.</p>
+      <p><a href="mailto:cnfd85269032661@gmail.com">cnfd85269032661@gmail.com</a></p>
+    </div>
+    <div>
+      <h3>Rubriques</h3>
+      <ul><li><a href="/how-to-use-cssbuy/">Guide CSSBuy</a></li><li><a href="/catalogue/">Spreadsheet et catégories</a></li><li><a href="/cssbuy-shipping/">Livraison et douane</a></li><li><a href="/aide/">Aide et questions</a></li><li><a href="/actualites/">Actus</a></li><li><a href="/a-propos/">À propos</a></li></ul>
+    </div>
+    <div>
+      <h3>Liens officiels</h3>
+      <ul><li><a href="https://www.cssbuy.com?utm_source=cssbuy.fr&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">CSSBuy (site officiel)</a></li><li><a href="https://www.cssbuy.com/register?utm_source=cssbuy.fr&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Compte CSSBuy</a></li><li><a href="https://www.cssbuy.com/?action=estimates&amp;go=page&amp;utm_source=cssbuy.fr&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Estimateur (login le 6 Oct 2026)</a></li></ul>
+    </div>
+    <div class="legal">
+      <p><strong>Mention d’indépendance.</strong> CSSBuy Spreadsheet est un site d’information indépendant. Nous ne sommes pas CSSBuy, nous ne traitons pas les commandes, nous n’encaissons pas le port et nous ne voyons pas ton compte. Chaque commande, paiement et réclamation passe par le site officiel.</p>
+      <p>&copy; 2026 CSSBuy Spreadsheet. Texte français, relu avant publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var b=document.querySelector('.burger'), n=document.querySelector('nav.nav');
+  if(!b||!n) return;
+  b.addEventListener('click', function(){
+    var on=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', on?'false':'true');
+    n.classList.toggle('open', !on);
+  });
+})();
+</script>
+
+</body>
+</html>
