@@ -1,197 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PikoBuy .net hub — not a customs territory</title>
-<meta name="description" content="PikoBuy hub on pikospreadsheets.net is not a customs territory. Pick a real country in the official estimator. Not checkout.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PikoBuy Spreadsheet 2026</title>
+<meta name="description" content="PikoBuy spreadsheet: live Weidian, Taobao and 1688 QC finds. Not Excel, not a Google Sheet. Warehouse inspection with photo confirmation on pikobuy.com. Pay on pikobuy.com.">
+<meta property="og:title" content="PikoBuy Spreadsheet 2026">
+<meta property="og:description" content="PikoBuy spreadsheet: live Weidian, Taobao and 1688 QC finds. Not Excel, not a Google Sheet. Pay on pikobuy.com.">
+<meta property="og:url" content="https://pikospreadsheets.net/">
+<meta property="og:image" content="https://pikospreadsheets.net/assets/images/official-logo.png">
 <link rel="canonical" href="https://pikospreadsheets.net/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"WebSite","name":"PikoBuy Spreadsheet","alternateName":["PikoBuy Spreadsheet","PikoBuy spreadsheet 2026"],"url":"https://pikospreadsheets.net/","description":"PikoBuy spreadsheet: live Weidian, Taobao and 1688 QC finds. Not Excel, not a Google Sheet.","inLanguage":"en"},
+  {"@type":"WebPage","name":"PikoBuy Spreadsheet 2026","url":"https://pikospreadsheets.net/","description":"PikoBuy spreadsheet: live Weidian, Taobao and 1688 QC finds. Not Excel, not a Google Sheet.","inLanguage":"en","isPartOf":{"@type":"WebSite","url":"https://pikospreadsheets.net/"}},
+  {"@type":"Organization","name":"PikoBuy Spreadsheet","url":"https://pikospreadsheets.net/","email":"cnfd85269032661@gmail.com","description":"Independent PikoBuy spreadsheet desk. Not the official PikoBuy app.","sameAs":["https://www.pikobuy.com/"]},
+  {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is a PikoBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"A PikoBuy spreadsheet is a live finds index of Weidian, Taobao and 1688 links with QC notes. It is not Excel, not a Google Sheet download, and not checkout. Browse here, then buy on pikobuy.com."}},
+    {"@type":"Question","name":"Is this the same as PikoBuy.com?","acceptedAnswer":{"@type":"Answer","text":"No. pikospreadsheets.net is an independent information desk. Orders, payment and warehouse photos stay on pikobuy.com. This host does not take a card."}},
+    {"@type":"Question","name":"Where are PikoBuy coupon codes?","acceptedAnswer":{"@type":"Answer","text":"The ranked unique article is /pikobuy-coupons/. Official coupon centre is in the live pikobuy.com app. This homepage does not print a register code."}},
+    {"@type":"Question","name":"Do they photograph the goods?","acceptedAnswer":{"@type":"Answer","text":"Official PikoBuy guide: warehouse inspection is check-in, photo confirmation, and a defect check. Extra detailed photos may be paid. Confirm Help the morning you ship."}},
+    {"@type":"Question","name":"How do I buy from this PikoBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"Open a find on the w2clinks PikoBuy sheet, paste the Weidian/Taobao/1688 link into pikobuy.com, wait for warehouse photos, then book a line on the official site."}}
+  ]}
+]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/desk-cms.css?v=20261002-cms">
-<link rel="stylesheet" href="/assets/css/pikobuy-theme.css?v=20261002-cms">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-.sg-card .pr-src{font-size:11px;font-weight:500;color:#94a3b8}
-.sg-fx{color:#64748b;font-size:13px;line-height:1.55;margin:4px 0 10px;max-width:760px}
+:root{
+  --acc:#12B5B0;--acd:#0E8F8B;--acl:#EAF2F1;
+  --bk:#0A0A0A;--g2:#2D2D2D;--g3:#555;--g4:#888;--g5:#E5E5E5;--wh:#fff;
+  --bg:#EAF2F1;--gn:#16A34A;--gnl:#F0FDF4;--bl:#2563EB;--bll:#EFF6FF;
+  --am:#D97706;--aml:#FFFBEB;--rd:#DC2626;--rdl:#FEF2F2;--pu:#7C3AED;--pul:#F5F3FF;
+  --f:'Montserrat','DM Sans',sans-serif;--r:10px;--rl:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--bk);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%;display:block}
+.skip{position:absolute;left:-999px;width:1px;height:1px;overflow:hidden}
+.skip:focus{left:16px;top:16px;width:auto;height:auto;padding:8px 12px;background:#fff;z-index:200}
+.ann{background:var(--acc);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:500}
+.ann a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.nav{position:sticky;top:0;z-index:100;background:var(--wh);border-bottom:1px solid #d5ebe9;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nlo{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:var(--bk)}
+.nlo img{height:36px;width:auto;max-width:44px;border-radius:8px;object-fit:contain}
+.nlo b{color:var(--acc)}
+.nl{display:flex;align-items:center;gap:4px;list-style:none;flex-wrap:wrap}
+.nl a{font-size:13px;padding:6px 10px;border-radius:6px;color:var(--g4)}
+.nl a:hover{background:var(--acl);color:var(--bk);text-decoration:none}
+.nl a.on{color:var(--bk);font-weight:600}
+.nacts{display:flex;align-items:center;gap:8px}
+.bwa{display:flex;align-items:center;gap:7px;padding:7px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500}
+.bwa:hover{opacity:.88;text-decoration:none}
+.ncart{display:inline-flex;padding:8px 16px;background:var(--acc);border-radius:8px;color:#fff;font-size:13px;font-weight:600}
+.ncart:hover{background:var(--acd);text-decoration:none}
+.hero{max-width:860px;margin:0 auto;padding:44px 24px 28px;text-align:center}
+.hbg{display:inline-flex;align-items:center;gap:6px;background:var(--acl);color:var(--acd);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:16px}
+.hbg::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--acc);display:inline-block}
+.hero h1{font-size:clamp(24px,4vw,40px);font-weight:700;letter-spacing:-1.5px;line-height:1.12;margin-bottom:12px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hsub{font-size:15px;color:var(--g3);max-width:560px;margin:0 auto 24px;line-height:1.7}
+.hst{display:flex;justify-content:center;border:1px solid #d5ebe9;border-radius:var(--rl);overflow:hidden;max-width:560px;margin:0 auto 22px;background:#fff}
+.hs{flex:1;padding:12px 8px;text-align:center;border-right:1px solid #d5ebe9}
+.hs:last-child{border-right:none}
+.hsn{font-size:16px;font-weight:700}
+.hsl{font-size:10px;color:var(--g4);margin-top:2px;text-transform:uppercase;letter-spacing:.4px}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:18px}
+.btn{display:inline-flex;align-items:center;padding:11px 18px;border-radius:10px;font-weight:700;font-size:14px}
+.btn-primary{background:var(--acc);color:#fff}
+.btn-primary:hover{background:var(--acd);text-decoration:none}
+.btn-outline{border:1px solid #d5ebe9;background:#fff;color:var(--bk)}
+.btn-outline:hover{background:var(--acl);text-decoration:none}
+.search{display:flex;max-width:520px;margin:0 auto;border:1px solid #d5ebe9;border-radius:12px;overflow:hidden;background:#fff}
+.search input{flex:1;min-width:0;border:0;padding:12px 14px;font:inherit;outline:none}
+.search button{flex-shrink:0;border:0;background:var(--acc);color:#fff;padding:0 16px;font:inherit;font-weight:700;cursor:pointer}
+#official-promo{background:#fff;border-top:1px solid #d5ebe9;border-bottom:1px solid #d5ebe9}
+.opromo{max-width:1100px;margin:0 auto;padding:36px 24px}
+.opromo h2{font-size:22px;letter-spacing:-.4px;margin-bottom:8px}
+.ssub{color:var(--g3);font-size:14.5px;margin:0 0 16px;line-height:1.7}
+.oshots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.oshots figure{background:var(--acl);border-radius:14px;overflow:hidden;border:1px solid #d5ebe9}
+.oshots img{width:100%;height:190px;object-fit:contain;background:#111}
+.oshots figcaption{padding:12px 14px;font-size:13px;color:var(--g2);line-height:1.55}
+.opfacts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.opfact{background:var(--acl);border:1px solid #d5ebe9;border-radius:12px;padding:14px}
+.opfact b{display:block;font-size:14px;margin-bottom:4px}
+.opfact span{font-size:13px;color:var(--g3);line-height:1.55}
+#not-excel,.sec{max-width:1100px;margin:0 auto;padding:28px 24px}
+.ph{font-size:21px;font-weight:600;letter-spacing:-.4px;margin:8px 0 12px}
+.pp{font-size:15px;color:var(--g2);line-height:1.82;margin-bottom:14px}
+.cg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ccard{background:#fff;border:1px solid #d5ebe9;border-radius:12px;padding:14px;color:inherit}
+.ccard:hover{border-color:var(--acc);text-decoration:none}
+.cname{font-weight:700;font-size:14px}
+.ccnt{font-size:12px;color:var(--g4)}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gc{background:#fff;border:1px solid #d5ebe9;border-radius:12px;padding:16px;color:inherit}
+.gc:hover{border-color:var(--acc);text-decoration:none}
+.gtg{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;margin-bottom:8px}
+.gtit{font-weight:700;margin-bottom:4px}
+.gdesc{font-size:13px;color:var(--g3);line-height:1.55;margin-bottom:8px}
+.glink{font-size:13px;font-weight:700;color:var(--acc)}
+.waband{background:#fff;border-top:1px solid #d5ebe9;padding:28px 24px}
+.wabi{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.wabb{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 18px;border-radius:10px;font-weight:700}
+.wabb:hover{opacity:.9;text-decoration:none}
+.ft{background:#1A1A1A;color:#ccc;padding:40px 24px}
+.fti{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.flo{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;color:#fff;margin-bottom:12px}
+.ftg{font-size:13px;color:#888;line-height:1.65;margin-bottom:16px}
+.fwa{display:inline-flex;padding:8px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500}
+.fc h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#888;margin-bottom:12px}
+.fc ul{list-style:none}
+.fc ul li{margin-bottom:9px}
+.fc ul li a{font-size:13px;color:#888}
+.fc ul li a:hover{color:#fff;text-decoration:none}
+.waf{position:fixed;bottom:24px;right:24px;z-index:999}
+.wafb{width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35)}
+.wafb:hover{transform:scale(1.08);text-decoration:none}
+.wafb svg{width:26px;height:26px;color:#fff}
+@media(max-width:900px){
+  .nl,.ncart,.waf{display:none}
+  .nav{padding:0 12px;gap:8px}
+  .search{max-width:100%}
+  .oshots,.opfacts,.cg,.ggrid,.fti{grid-template-columns:1fr}
+}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://pikospreadsheets.net/", "url": "https://pikospreadsheets.net/", "name": "PikoBuy .net hub — not a customs territory", "description": "PikoBuy hub on pikospreadsheets.net is not a customs territory. Pick a real country in the official estimator. Not checkout.", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "name": "PikoBuy desk", "url": "https://pikospreadsheets.net/"}, "publisher": {"@type": "Organization", "name": "PikoBuy independent desk", "url": "https://pikospreadsheets.net/"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "pikospreadsheets.net independent desk", "url": "https://pikospreadsheets.net/", "email": "support@pikospreadsheets.net", "inLanguage": "en", "description": "PikoBuy hub on pikospreadsheets.net is not a customs territory. Pick a real country in the official estimator. Not checkout.", "contactPoint": {"@type": "ContactPoint", "email": "support@pikospreadsheets.net", "contactType": "customer support", "url": "https://pikospreadsheets.net/"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pikospreadsheets.net/"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Does PikoBuy sell the goods on this site?", "acceptedAnswer": {"@type": "Answer", "text": "No. PikoBuy is a purchasing agent: it buys from Chinese third-party shops in your name, photographs the parcel in its warehouse, then you book an international SKU. pikospreadsheets.net is an independent information desk. Orders, payment and claims stay on https://www.pikobuy.com/. The cards on pikospreadsheets.net are a reading of the finds index, not stock PikoBuy owns. Payment never happens on this hostname."}}, {"@type": "Question", "name": "Can I use PikoBuy in a local language?", "acceptedAnswer": {"@type": "Answer", "text": "The official app language switcher is independent of this desk. We measured the public site on 2 Oct 2026. Field names in the estimator often stay English even when the chrome is translated. The delivery address must still match a country in the estimator. Switching chrome language on pikospreadsheets.net does not change the official app. Confirm the in-app language the morning you order toward a country in the estimator."}}, {"@type": "Question", "name": "Why does the catalogue return nothing for local words?", "acceptedAnswer": {"@type": "Answer", "text": "The finds index this desk reads is English (sneakers, hoodie, jacket). Local words often return zero cards — that is an English index, not an empty shop. Type the English key. Measured 2 Oct 2026 via /api/products/ on pikospreadsheets.net. The category wall still exposes the English keys (sneakers, hoodie, jacket) so you can paste them into /api/products/ on pikospreadsheets.net. Measured 2 Oct 2026."}}, {"@type": "Question", "name": "How many times do I pay?", "acceptedAnswer": {"@type": "Answer", "text": "Twice: first the goods plus China domestic shipping into the warehouse, later the international line to a country in the estimator. Between those payments you can consolidate. This desk never charges you; PikoBuy does, in-app. Warehouse photos sit between the two payments. Do not book international freight to a country in the estimator until you have accepted QC in-app."}}, {"@type": "Question", "name": "Why does the official site show dollars while this desk shows USD?", "acceptedAnswer": {"@type": "Answer", "text": "On the official SPA the currency switcher has been observed to change the symbol without converting the digits. This desk converts the China warehouse card to USD as a dated display (X-Rates 2 Oct 2026), not a checkout price. Re-read the number in-app the morning you pay. If the official SPA still prints USD digits after you pick USD, trust the digits and https://www.pikobuy.com/, not this HTML. Display rate dated 2 Oct 2026."}}, {"@type": "Question", "name": "How do I pay?", "acceptedAnswer": {"@type": "Answer", "text": "Only inside https://www.pikobuy.com/. Typical rails are card, PayPal and balance top-up — confirm in the official FAQ the same day. pikospreadsheets.net never takes card data and does not store a saved method. Register links on this desk never collect card numbers. Those fields exist only on https://www.pikobuy.com/. pikospreadsheets.net has no saved method."}}, {"@type": "Question", "name": "What is volumetric weight?", "acceptedAnswer": {"@type": "Answer", "text": "Most air SKUs bill max(actual, L×W×H/divisor) with the result in kilograms (the widget shows grams). A puffy jacket is light on the scale and expensive in volume. Geometry only — live money is in https://www.pikobuy.com/ with destination a country in the estimator. The widget uses 35×25×10 cm and 1000 g as a lab habit; your carton will differ. Open https://www.pikobuy.com/ with destination a country in the estimator before you pay freight."}}, {"@type": "Question", "name": "Who pays duties into a country in the estimator?", "acceptedAnswer": {"@type": "Answer", "text": "This hostname is not a customs territory. Duties follow the country you pick in the official estimator, not the TLD. Read that country’s customs site the morning you ship. No under-declaration. Prepaid vs collect is chosen when you submit the parcel, not when you buy the goods. Read the SKU heading and the destination customs site named in the estimator the same morning."}}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "PikoBuy catalogue keys", "url": "https://pikospreadsheets.net/", "numberOfItems": 16, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sneakers", "description": "sneakers"}, {"@type": "ListItem", "position": 2, "name": "Hoodie", "description": "hoodie"}, {"@type": "ListItem", "position": 3, "name": "Jacket", "description": "jacket"}, {"@type": "ListItem", "position": 4, "name": "T-shirt", "description": "t-shirt"}, {"@type": "ListItem", "position": 5, "name": "Pants", "description": "pants"}, {"@type": "ListItem", "position": 6, "name": "Bags", "description": "bag"}, {"@type": "ListItem", "position": 7, "name": "Watches", "description": "watch"}, {"@type": "ListItem", "position": 8, "name": "Accessories", "description": "accessories"}, {"@type": "ListItem", "position": 9, "name": "Shoes", "description": "shoes"}, {"@type": "ListItem", "position": 10, "name": "Boots", "description": "boots"}, {"@type": "ListItem", "position": 11, "name": "Hats", "description": "hat"}, {"@type": "ListItem", "position": 12, "name": "Glasses", "description": "glasses"}, {"@type": "ListItem", "position": 13, "name": "Jewelry", "description": "jewelry"}, {"@type": "ListItem", "position": 14, "name": "Electronics", "description": "electronics"}, {"@type": "ListItem", "position": 15, "name": "Fragrance", "description": "perfume"}, {"@type": "ListItem", "position": 16, "name": "Sports", "description": "sports"}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="ann">Independent PikoBuy spreadsheet desk — warehouse QC photos and checkout stay on <a href="https://www.pikobuy.com/" rel="noopener">pikobuy.com</a>. This homepage does not print a register code.</div>
+<nav class="nav">
+  <a href="/" class="nlo">
+    <img src="/assets/images/official-logo.png" alt="PikoBuy">
+    <span>PikoBuy <b>Spreadsheet</b></span>
+  </a>
+  <ul class="nl">
+    <li><a class="on" href="/">Home</a></li>
+    <li><a href="/pikobuy-spreadsheet/">Spreadsheet</a></li>
+    <li><a href="/pikobuy-shipping-guide/">Shipping</a></li>
+    <li><a href="/is-pikobuy-legit/">Legit</a></li>
+    <li><a href="/pikobuy-coupons/">Coupons</a></li>
+    <li><a href="/how-to-use-pikobuy/">How to use</a></li>
+    <li><a href="/coupons.html">Offers</a></li>
+    <li><a href="https://w2clinks.com/spreadsheet/pikobuy/" target="_blank" rel="noopener">Finds</a></li>
+  </ul>
+  <div class="nacts">
+    <a class="bwa" href="https://wa.me/8615396628356" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="ncart" href="https://www.pikobuy.com/" rel="noopener">Open PikoBuy</a>
+  </div>
+</nav>
+<main id="main">
+<section class="hero">
+  <div class="hbg">LIVE FINDS · NOT EXCEL · NOT A GOOGLE SHEET</div>
+  <h1>PikoBuy Spreadsheet <em>2026</em></h1>
+  <p class="hsub">Live Weidian, Taobao and 1688 QC finds with Buy links. Not Excel, not a Google Sheet, not checkout. Browse the finds index, then pay on pikobuy.com. Official guide measured 8 Oct 2026: warehouse inspection is check-in, photo confirmation and a defect check.</p>
+  <div class="hst">
+    <div class="hs"><div class="hsn">QC photos</div><div class="hsl">Warehouse</div></div>
+    <div class="hs"><div class="hsn">5-day</div><div class="hsl">In-warehouse return</div></div>
+    <div class="hs"><div class="hsn">Shipping</div><div class="hsl">Ranked guide</div></div>
+    <div class="hs"><div class="hsn">Xiamen</div><div class="hsl">w2clinks warehouse note</div></div>
+  </div>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://w2clinks.com/spreadsheet/pikobuy/" target="_blank" rel="noopener">PikoBuy Spreadsheet 2026</a>
+    <a class="btn btn-outline" href="/pikobuy-spreadsheet/">Ranked spreadsheet article</a>
+    <a class="btn btn-outline" href="/pikobuy-shipping-guide/">Shipping guide</a>
+  </div>
+  <form class="search" action="https://w2clinks.com/spreadsheet/pikobuy/" method="get" target="_blank" rel="noopener">
+    <input type="search" name="q" placeholder="Search finds…">
+    <button type="submit">Go</button>
+  </form>
+</section>
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="/"><img class="brand-logo" src="/assets/images/pikobuy-logo.png" alt="PikoBuy"></a>
-    <nav class="header-nav"><a href="/pikobuy-coupons/">Spreadsheet</a><a href="/pikobuy-shipping-guide/">Shipping</a><a href="/is-pikobuy-legit/">Is it legit?</a><a href="/pikobuy-coupons/">Coupons</a><a href="/pikobuy-spreadsheet/">How to use</a><a href="#local">Local checks</a></nav>
-    <div class="header-actions">
-      <a class="btn btn-outline" href="#catalog">Open</a>
-      <a class="btn btn-primary" href="https://www.pikobuy.com/" rel="noopener sponsored">Register</a>
+<section id="official-promo">
+  <div class="opromo">
+    <h2>Official PikoBuy copy — 8 Oct 2026</h2>
+    <p class="ssub">Public English pages on <a href="https://www.pikobuy.com/" rel="noopener">pikobuy.com</a> (guide, About, returns protocol). The live app is Cloudflare-gated from this lab, so this desk <strong>does not invent a free-storage day count</strong> and does not print a typed-in code named SHIP. Coupon stacking stays on <a href="/pikobuy-coupons/">/pikobuy-coupons/</a> and <a href="/coupons.html">/coupons.html</a>. Confirm Help the morning you ship.</p>
+    <div class="oshots">
+      <figure>
+        <a href="https://www.pikobuy.com/" rel="noopener"><img src="/assets/images/official-logo.png" width="192" height="192" alt="Official PikoBuy trademark from pikobuy.com"></a>
+        <figcaption>Official PIKOBUY mark measured from pikobuy.com chrome, 8 Oct 2026. This desk is not the app. Register on pikobuy.com.</figcaption>
+      </figure>
+      <figure>
+        <a href="https://www.pikobuy.com/" rel="noopener"><img src="/assets/official/official-wordmark.jpg" width="243" height="57" alt="Official PIKOBUY wordmark"></a>
+        <figcaption>Official wordmark. Guide copy the same day: warehouse inspection is <strong>check-in, photo confirmation, and a defect check</strong>.</figcaption>
+      </figure>
+      <figure>
+        <a href="https://w2clinks.com/spreadsheet/pikobuy/" target="_blank" rel="noopener"><img src="/assets/official/official-finds.jpg" width="1440" height="1100" alt="w2clinks Pikobuy Spreadsheet 2026 live finds with CNY prices"></a>
+        <figcaption>Live finds: <strong>Pikobuy Spreadsheet 2026</strong> on w2clinks — photos and CNY prices. This host does not dump a products API.</figcaption>
+      </figure>
+    </div>
+    <div class="opfacts">
+      <div class="opfact"><b>Warehouse inspection</b><span>Official guide: check-in, photo confirmation, defect check. Extra detailed photos may be paid. Confirm in-app.</span></div>
+      <div class="opfact"><b>5-day in-warehouse return</b><span>Official returns protocol: apply within 5 days of “In Warehouse” (120 hours) when the seller allows resale. Confirm that article the morning you ship.</span></div>
+      <div class="opfact"><b>No invented storage days</b><span>Official Help is the live app. This desk does not invent a free-day count. Confirm the storage clock in-account.</span></div>
+      <div class="opfact"><b>Coupons in-app</b><span>This homepage does not print a register code. Ranked unique article: /pikobuy-coupons/. Confirm coupon centre on pikobuy.com.</span></div>
     </div>
   </div>
-</header>
-<main id="main" class="container">
-<section class="sg-hero">
-  <h1>This .net hostname is not a customs territory — pick a real country</h1>
-  <p class="hsub">PikoBuy · pikospreadsheets.net · USD display · a country in the estimator. Independent desk — not the official app, not checkout.</p>
-  <p class="eu-badge">Hub · USD · not a customs territory</p>
-  <div class="sg-ctas">
-    <a class="btn btn-primary" href="#catalog">Catalogue</a>
-    <a class="btn btn-outline" href="#local">Pick a country</a>
-    <a class="btn btn-outline" href="https://www.pikobuy.com/">Freight estimate</a>
-  </div>
-</section>
-<section class="sg-sec" id="local">
-  <h2>This hostname is not a customs territory</h2>
-  <p class="ssub">a country in the estimator · pikospreadsheets.net · not a location-name swap.</p>
-  <ol class="local-steps"><li><strong>Open the estimator with a country</strong><span>The official freight form needs US, CA, FR, ES, AT… not this hostname and not “Europe” as one country.</span></li><li><strong>Do not paste another dest’s lab</strong><span>Spain-only line counts and another desk’s postal operator stay off this hub.</span></li><li><strong>Hub pages already ranking stay</strong><span>Coupon / spreadsheet / IOSS html or articles on this host are not overwritten by a fake destination.</span></li><li><strong>Orders stay on the official app</strong><span>This hub does not take payment or see your account.</span></li></ol>
-  <p class="local-src">Lab 2 Oct 2026. Open the official estimator with a real country code. This HTML is not checkout.</p>
-  <p class="local-src">Already on this host (kept): <a href="/pikobuy-shipping-guide/">Shipping</a> · <a href="/is-pikobuy-legit/">Legit?</a> · <a href="/pikobuy-coupons/">Coupons</a> · <a href="/pikobuy-spreadsheet/">Spreadsheet</a></p>
 </section>
 
-<section class="sg-sec" id="agent"><h2>PikoBuy</h2><p>PikoBuy is a purchasing agent, not a shop. pikospreadsheets.net is a hub, not a customs territory.</p>
-<p>Orders, payment and warehouse photos stay on https://www.pikobuy.com/. This hostname never takes a card.</p></section>
-<section class="sg-sec" id="sheet-explain"><h2>Spreadsheet</h2><p>The spreadsheet on pikospreadsheets.net is an index, not Excel and not checkout.</p>
-<p>English keys (sneakers, hoodie, jacket) still feed /api/products/ on this host. Lab 2 Oct 2026.</p></section>
-<section class="sg-sec" id="restricted"><h2>Restricted</h2><p>Restricted is a platform purchase block, not a customs seizure notice for this hostname.</p>
-<p>Price-0 cards are dead Weidian/Taobao links, not a checkout you can force toward a country in the estimator.</p></section>
-<section class="sg-sec" id="cat-wall"><h2>Catalogue wall</h2><p class="ssub">Sixteen English index keys. Local words often return zero cards.</p><div class="sg-cats"><a class="sg-cat" href="#catalog" data-q="sneakers"><strong>Sneakers</strong><span>sneakers</span></a><a class="sg-cat" href="#catalog" data-q="hoodie"><strong>Hoodie</strong><span>hoodie</span></a><a class="sg-cat" href="#catalog" data-q="jacket"><strong>Jacket</strong><span>jacket</span></a><a class="sg-cat" href="#catalog" data-q="t-shirt"><strong>T-shirt</strong><span>t-shirt</span></a><a class="sg-cat" href="#catalog" data-q="pants"><strong>Pants</strong><span>pants</span></a><a class="sg-cat" href="#catalog" data-q="bag"><strong>Bags</strong><span>bag</span></a><a class="sg-cat" href="#catalog" data-q="watch"><strong>Watches</strong><span>watch</span></a><a class="sg-cat" href="#catalog" data-q="accessories"><strong>Accessories</strong><span>accessories</span></a><a class="sg-cat" href="#catalog" data-q="shoes"><strong>Shoes</strong><span>shoes</span></a><a class="sg-cat" href="#catalog" data-q="boots"><strong>Boots</strong><span>boots</span></a><a class="sg-cat" href="#catalog" data-q="hat"><strong>Hats</strong><span>hat</span></a><a class="sg-cat" href="#catalog" data-q="glasses"><strong>Glasses</strong><span>glasses</span></a><a class="sg-cat" href="#catalog" data-q="jewelry"><strong>Jewelry</strong><span>jewelry</span></a><a class="sg-cat" href="#catalog" data-q="electronics"><strong>Electronics</strong><span>electronics</span></a><a class="sg-cat" href="#catalog" data-q="perfume"><strong>Fragrance</strong><span>perfume</span></a><a class="sg-cat" href="#catalog" data-q="sports"><strong>Sports</strong><span>sports</span></a></div></section>
-<section class="sg-mw" id="catalog">
-  <p class="ssub">The catalogue on this homepage comes from /api/products/. Local-language words often return zero — type the English key (sneakers, hoodie).</p>
-  <p class="sg-fx">Prices in USD are a display conversion of the China warehouse card (X-Rates mid-market, 1 Oct 2026, 1 CNY = 0.149117 USD). Not a checkout price.</p>
-  <div class="sg-chips"><button type="button" data-q="" class="on">All</button><button type="button" data-q="sneakers" class="">Sneakers</button><button type="button" data-q="hoodie" class="">Hoodie</button><button type="button" data-q="t-shirt" class="">T Shirt</button><button type="button" data-q="jacket" class="">Jacket</button><button type="button" data-q="bag" class="">Bags</button><button type="button" data-q="watch" class="">Watches</button></div>
-  <div class="sg-fbar">
-    <input id="sg-q" type="search" placeholder="Search sneakers, hoodie…">
-    <span id="sg-count"></span>
-  </div>
-  <div class="sg-grid" id="sg-grid"></div>
+<section id="not-excel">
+  <h2 class="ph">This PikoBuy spreadsheet is not Excel</h2>
+  <p class="ssub">“Spreadsheet” here means a live finds index — Weidian, Taobao and 1688 rows with QC notes — not a .xlsx you download and freeze, and not the community Google Sheet. Photos and CNY prices live on the <a href="https://w2clinks.com/spreadsheet/pikobuy/" target="_blank" rel="noopener">w2clinks PikoBuy sheet</a>. This host does not dump a products API. Category keys match <a href="https://w2clinks.com/categories/" target="_blank" rel="noopener">w2clinks.com/categories/</a>.</p>
 </section>
-<script>
-(function(){
-  var PAPI='/api/products/';
-  var q='';
-  var W2C_IMG='https://w2clinks.com';
-  var FX_CCY="USD";
-  var FX_RATE=0.149117;
-  var FX_LOCALE="en";
-  var OPEN_LAB="Open";
-  var COUNT_TPL="{n} on this page";
-  var EMPTY_MSG="No cards for that English key. Try sneakers or hoodie.";
-  var ERR_MSG="Catalogue API not reachable on this host yet.";
-  var REG="https://www.pikobuy.com/";
-  function absImg(u){
-    if(!u) return '';
-    u=String(u);
-    if(/^https?:\/\//i.test(u)) return u;
-    if(u.indexOf('//')===0) return 'https:'+u;
-    if(u.charAt(0)==='/') return W2C_IMG+u;
-    return W2C_IMG+'/'+u.replace(/^\/+/, '');
-  }
-  function fmtMoney(it){
-    var src=String(it.currency||'CNY').toUpperCase();
-    var n=parseFloat(String(it.price||'').replace(/,/g,'.'));
-    if(!isFinite(n)) return {local:'', srcCcy:src, src:(it.currency||'')+' '+(it.price||'')};
-    var localN=n;
-    if(src==='CNY' && FX_CCY!=='CNY') localN=n*FX_RATE;
-    else if(src!==FX_CCY && src!=='CNY') localN=n;
-    var local='';
-    try { local=new Intl.NumberFormat(FX_LOCALE,{style:'currency',currency:FX_CCY}).format(localN); }
-    catch(e){ local=FX_CCY+' '+localN.toFixed(2); }
-    var srcLab=src+' '+String(it.price);
-    return {local:local, srcCcy:src, src:srcLab};
-  }
-  function render(data){
-    var items=data.items||data.products||[];
-    var g=document.getElementById('sg-grid');
-    var c=document.getElementById('sg-count');
-    if(c) c.textContent=COUNT_TPL.replace('{n}', String(items.length));
-    g.innerHTML='';
-    items.forEach(function(it){
-      var el=document.createElement('article');
-      el.className='sg-card';
-      var img=document.createElement('img');
-      img.src=absImg(it.image||''); img.alt=it.title||''; img.loading='lazy';
-      img.referrerPolicy='no-referrer'; img.decoding='async';
-      var b=document.createElement('div'); b.className='b';
-      var t=document.createElement('div'); t.className='t'; t.textContent=it.title||'';
-      var m=fmtMoney(it);
-      var p=document.createElement('div'); p.className='pr'; p.textContent=m.local||m.src;
-      b.appendChild(t); b.appendChild(p);
-      if(m.srcCcy==='CNY' && FX_CCY!=='CNY' && m.local){
-        var s=document.createElement('div'); s.className='pr-src'; s.textContent=m.src;
-        b.appendChild(s);
-      }
-      var a=document.createElement('a'); a.className='buy'; a.target='_blank'; a.rel='noopener sponsored';
-      a.href=it.href||it.target||REG; a.textContent=OPEN_LAB;
-      el.appendChild(img); el.appendChild(b); el.appendChild(a);
-      g.appendChild(el);
-    });
-    if(!items.length){
-      var empty=document.createElement('p'); empty.textContent=EMPTY_MSG; g.appendChild(empty);
-    }
-  }
-  function load(){
-    var u=new URL(PAPI, location.origin);
-    if(q) u.searchParams.set('q', q);
-    u.searchParams.set('limit','24');
-    u.searchParams.set('page','1');
-    fetch(u, {headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(render).catch(function(){
-      var g=document.getElementById('sg-grid');
-      g.innerHTML='';
-      var err=document.createElement('p'); err.textContent=ERR_MSG; g.appendChild(err);
-    });
-  }
-  function applyQ(next){
-    q=next||'';
-    var inp=document.getElementById('sg-q');
-    if(inp) inp.value=q;
-    document.querySelectorAll('.sg-chips button').forEach(function(x){
-      x.classList.toggle('on', (x.getAttribute('data-q')||'')===q);
-    });
-    load();
-  }
-  document.querySelectorAll('.sg-chips button').forEach(function(b){
-    b.addEventListener('click', function(){ applyQ(b.getAttribute('data-q')||''); });
-  });
-  document.querySelectorAll('a.sg-cat[data-q]').forEach(function(a){
-    a.addEventListener('click', function(ev){
-      ev.preventDefault();
-      applyQ(a.getAttribute('data-q')||'');
-      var cat=document.getElementById('catalog');
-      if(cat) cat.scrollIntoView({behavior:'smooth',block:'start'});
-    });
-  });
-  var inp=document.getElementById('sg-q');
-  var t=null;
-  inp.addEventListener('input', function(){
-    clearTimeout(t); t=setTimeout(function(){ q=inp.value.trim(); load(); }, 250);
-  });
-  load();
-})();
-</script>
-<section class="sg-sec" id="states"><h2>a country in the estimator</h2>
-<p class="ssub">This hostname is not a customs territory. Open the official estimator with a real country code — not this TLD, not “EU” as one country.</p>
-<p>Independence: pikospreadsheets.net is an information desk, not PikoBuy. We do not run orders, take payment, or see your account. Sister country hosts stay separate files — no 301. Copy reviewed 2 Oct 2026.</p></section><section class="sg-sec" id="shots"><h2>Official app</h2>
-<p class="ssub">Screenshots and live money stay on the official PikoBuy site, dated 2 Oct 2026.</p>
-<p><a class="btn btn-outline" href="https://www.pikobuy.com/" rel="noopener">Open PikoBuy</a>
-<a class="btn btn-primary" href="https://www.pikobuy.com/" rel="noopener">Freight estimate</a></p></section><section class="sg-sec" id="lab"><h2>Freight lab — not checkout</h2>
-<p class="ssub">The official estimator needs a <strong>country</strong>, not this hostname. Open https://www.pikobuy.com/ and pick US, CA, FR, ES… Spain-only line counts stay off this hub.</p>
-<p><a class="btn btn-primary" href="https://www.pikobuy.com/">Open the official freight estimate</a></p></section><section class="sg-sec" id="kept"><h2>Already ranking on this host</h2><div class="keep"><a href="/pikobuy-shipping-guide/">Shipping</a><a href="/is-pikobuy-legit/">Legit?</a><a href="/pikobuy-coupons/">Coupons</a><a href="/pikobuy-spreadsheet/">Spreadsheet</a></div></section><section class="sg-sec" id="faq"><h2>FAQ</h2><details class="sg-faq" open><summary>Does PikoBuy sell the goods on this site?</summary><p>No. PikoBuy is a purchasing agent: it buys from Chinese third-party shops in your name, photographs the parcel in its warehouse, then you book an international SKU. pikospreadsheets.net is an independent information desk. Orders, payment and claims stay on https://www.pikobuy.com/. The cards on pikospreadsheets.net are a reading of the finds index, not stock PikoBuy owns. Payment never happens on this hostname.</p></details><details class="sg-faq"><summary>Can I use PikoBuy in a local language?</summary><p>The official app language switcher is independent of this desk. We measured the public site on 2 Oct 2026. Field names in the estimator often stay English even when the chrome is translated. The delivery address must still match a country in the estimator. Switching chrome language on pikospreadsheets.net does not change the official app. Confirm the in-app language the morning you order toward a country in the estimator.</p></details><details class="sg-faq"><summary>Why does the catalogue return nothing for local words?</summary><p>The finds index this desk reads is English (sneakers, hoodie, jacket). Local words often return zero cards — that is an English index, not an empty shop. Type the English key. Measured 2 Oct 2026 via /api/products/ on pikospreadsheets.net. The category wall still exposes the English keys (sneakers, hoodie, jacket) so you can paste them into /api/products/ on pikospreadsheets.net. Measured 2 Oct 2026.</p></details><details class="sg-faq"><summary>How many times do I pay?</summary><p>Twice: first the goods plus China domestic shipping into the warehouse, later the international line to a country in the estimator. Between those payments you can consolidate. This desk never charges you; PikoBuy does, in-app. Warehouse photos sit between the two payments. Do not book international freight to a country in the estimator until you have accepted QC in-app.</p></details><details class="sg-faq"><summary>Why does the official site show dollars while this desk shows USD?</summary><p>On the official SPA the currency switcher has been observed to change the symbol without converting the digits. This desk converts the China warehouse card to USD as a dated display (X-Rates 2 Oct 2026), not a checkout price. Re-read the number in-app the morning you pay. If the official SPA still prints USD digits after you pick USD, trust the digits and https://www.pikobuy.com/, not this HTML. Display rate dated 2 Oct 2026.</p></details><details class="sg-faq"><summary>How do I pay?</summary><p>Only inside https://www.pikobuy.com/. Typical rails are card, PayPal and balance top-up — confirm in the official FAQ the same day. pikospreadsheets.net never takes card data and does not store a saved method. Register links on this desk never collect card numbers. Those fields exist only on https://www.pikobuy.com/. pikospreadsheets.net has no saved method.</p></details><details class="sg-faq"><summary>What is volumetric weight?</summary><p>Most air SKUs bill max(actual, L×W×H/divisor) with the result in kilograms (the widget shows grams). A puffy jacket is light on the scale and expensive in volume. Geometry only — live money is in https://www.pikobuy.com/ with destination a country in the estimator. The widget uses 35×25×10 cm and 1000 g as a lab habit; your carton will differ. Open https://www.pikobuy.com/ with destination a country in the estimator before you pay freight.</p></details><details class="sg-faq"><summary>Who pays duties into a country in the estimator?</summary><p>This hostname is not a customs territory. Duties follow the country you pick in the official estimator, not the TLD. Read that country’s customs site the morning you ship. No under-declaration. Prepaid vs collect is chosen when you submit the parcel, not when you buy the goods. Read the SKU heading and the destination customs site named in the estimator the same morning.</p></details><details class="sg-faq"><summary>Is there a tax threshold I should game?</summary><p>A hub TLD has no de-minimis of its own. Pick a real country in the estimator. This desk does not invent a threshold for “EU” as one destination. A screenshot of a threshold from Discord is not a filing. the destination customs site named in the estimator is the source this desk names. We will not invent a declared value for a country in the estimator.</p></details><details class="sg-faq"><summary>Can I consolidate several orders?</summary><p>Yes — that is the usual saving. Pieces wait in the warehouse until you submit a parcel. Free storage on this agent: Official PikoBuy Help is in the live app; confirm that copy the morning you ship. If QC splits cartons, estimate each carton to the same destination a country in the estimator. Storage clock on this agent: Official PikoBuy Help is in the live app; confirm that copy the morning you ship. After that the warehouse can charge or dispose — official Help, not this page. Split cartons each need a a country in the estimator estimate.</p></details><details class="sg-faq"><summary>Do they photograph the goods?</summary><p>Yes, warehouse QC photos land in the app after the piece arrives in China. Extra angles are often a paid add-on. Disputes are easier while it is still in the warehouse, not after it has cleared last-mile. If a photo is blurry, buy another angle in-app before the piece leaves China toward a country in the estimator. This desk cannot open a ticket.</p></details><details class="sg-faq"><summary>What cannot ship?</summary><p>Tobacco, alcohol, medicines and banned goods do not travel. Liquids, powders and pastes can need dangerous-goods paperwork. That is platform rule, not the destination customs site named in the estimator law. Restricted / price-0 cards on this catalogue are not buyable. Restricted is a platform purchase block, not a the destination customs site named in the estimator seizure notice. Price-0 cards on pikospreadsheets.net are not a shop error you can checkout.</p></details><details class="sg-faq"><summary>Why is a card restricted or priced 0?</summary><p>The source link is not available for agent purchase, or the price could not be read. Do not plan a haul around a zero. Transborder shops are often out of scope. Check the live PikoBuy product page. Price 0 often means the Weidian or Taobao link died. Open the live PikoBuy product page the same day; do not plan the haul on this HTML.</p></details><details class="sg-faq"><summary>The parcel is lighter than the estimate?</summary><p>Official FAQ covers estimated vs actual weight and postage refunds. This HTML is not a live quote. Re-run https://www.pikobuy.com/ with destination a country in the estimator after warehouse photos. Refunds for actual vs estimated weight are an official FAQ topic. Re-run https://www.pikobuy.com/ after warehouse photos, destination a country in the estimator, then pay.</p></details><details class="sg-faq"><summary>Where do I claim if something is wrong?</summary><p>Only on https://www.pikobuy.com/, never here. pikospreadsheets.net cannot see your account. Use in-app chat / the official Help Center. This hostname is a hub, not a customs territory. The official estimator still needs a real country code. pikospreadsheets.net cannot look up an order ID. Keep the in-app number. Claims and chat live on https://www.pikobuy.com/ only.</p></details></section>
-</main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div><strong>PikoBuy · pikospreadsheets.net</strong>
-      <p class="footer-note">Independent information desk on pikospreadsheets.net. Not the official PikoBuy site. Sister country hosts stay separate files — no 301.</p>
-      <p class="legal-note">Independence: pikospreadsheets.net is an information desk, not PikoBuy. We do not run orders, take payment, or see your account. Sister country hosts stay separate files — no 301. Copy reviewed 2 Oct 2026.</p></div>
-    <div><strong>On this host</strong>
-      <p><a href="/pikobuy-shipping-guide/">Shipping</a><br><a href="/is-pikobuy-legit/">Legit?</a><br><a href="/pikobuy-coupons/">Coupons</a><br><a href="/pikobuy-spreadsheet/">Spreadsheet</a><br></p></div>
-    <div><strong>Official</strong>
-      <p><a href="https://www.pikobuy.com/">PikoBuy</a><br>
-      <a href="https://www.pikobuy.com/">Freight estimate</a></p></div>
+
+<section class="sec" id="cats">
+  <h2 class="ph">Browse PikoBuy finds by category</h2>
+  <p class="ssub">English category keys open the live PikoBuy spreadsheet on w2clinks. This homepage does not dump a products API.</p>
+  <div class="cg">
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/pikobuy/" target="_blank" rel="noopener"><p class="cname">PikoBuy sheet</p><p class="ccnt">Live QC finds</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=SNEAKERS" target="_blank" rel="noopener"><p class="cname">Sneakers</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=HOODIE" target="_blank" rel="noopener"><p class="cname">Hoodies</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=JACKET" target="_blank" rel="noopener"><p class="cname">Jackets</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=BAG" target="_blank" rel="noopener"><p class="cname">Bags</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=T-SHIRT" target="_blank" rel="noopener"><p class="cname">T-shirts</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=Jersey" target="_blank" rel="noopener"><p class="cname">Jerseys</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/categories/" target="_blank" rel="noopener"><p class="cname">All categories</p><p class="ccnt">w2clinks.com/categories/</p></a>
   </div>
+</section>
+
+<section class="sec">
+  <h2 class="ph">Ranked guides already on this host</h2>
+  <p class="ssub">These unique CMS URLs stay 200. This homepage does not 301 onto them. Shipping already earns the most clicks on this host — do not overwrite it.</p>
+  <div class="ggrid">
+    <a class="gc" href="/pikobuy-shipping-guide/"><span class="gtg" style="background:var(--bll);color:#1E40AF">Shipping</span><p class="gtit">PikoBuy Shipping Guide 2026</p><p class="gdesc">Current GSC winner on this host (rates, times, calculator). Live money is still pikobuy.com.</p><span class="glink">Open →</span></a>
+    <a class="gc" href="/is-pikobuy-legit/"><span class="gtg" style="background:var(--gnl);color:#166534">Legit</span><p class="gtit">Is PikoBuy Legit? Honest Review 2026</p><p class="gdesc">Ranks for is pikobuy legit / safe. Independent desk — payment stays on pikobuy.com.</p><span class="glink">Open →</span></a>
+    <a class="gc" href="/pikobuy-coupons/"><span class="gtg" style="background:var(--aml);color:#92400E">Coupons</span><p class="gtit">PikoBuy Coupon Codes 2026</p><p class="gdesc">Ranked unique article. This homepage does not print a register code.</p><span class="glink">Open →</span></a>
+    <a class="gc" href="/pikobuy-spreadsheet/"><span class="gtg" style="background:var(--acl);color:var(--acd)">Spreadsheet</span><p class="gtit">PikoBuy Spreadsheet 2026 — W2C</p><p class="gdesc">Unique CMS article already on this host. Money title for the spreadsheet query also lives on /.</p><span class="glink">Open →</span></a>
+    <a class="gc" href="/how-to-use-pikobuy/"><span class="gtg" style="background:var(--pul);color:var(--pu)">How to</span><p class="gtit">How to Use PikoBuy — Beginner Guide 2026</p><p class="gdesc">Paste a Weidian/Taobao/1688 link into PikoBuy, wait for QC, then book freight.</p><span class="glink">Open →</span></a>
+    <a class="gc" href="/coupons.html"><span class="gtg" style="background:var(--rdl);color:var(--rd)">Offers</span><p class="gtit">Official inspection &amp; returns 图文</p><p class="gdesc">Guide + 5-day in-warehouse return, measured 8 Oct 2026. No invented SHIP code.</p><span class="glink">See offers →</span></a>
+  </div>
+</section>
+
+<section class="sec">
+  <h2 class="ph">How a PikoBuy order actually runs</h2>
+  <p class="pp">PikoBuy is a purchasing agent, not a shop. You paste a product link from Taobao, 1688, Weidian or Yupoo. They buy, photograph, store, then you book an international line. pikospreadsheets.net never takes a card. Official checkout is <a href="https://www.pikobuy.com/" rel="noopener">pikobuy.com</a>.</p>
+  <p class="pp">The official shopping guide on 8 Oct 2026 spelled the path as: select items → search/paste a link → first payment → warehouse inspection (check-in, photo confirmation, defect check) → pay international shipping → tracking within 3 days of dispatch. Returns protocol the same day: a 5-day in-warehouse window when the seller still allows resale. This desk does not invent a free-storage ladder.</p>
+  <p class="pp">This .net host is independent of pikospreadsheet.com and pikobuyspreadsheet.com — no 301 between them. Freight still comes from pikobuy.com after warehouse photos. This desk does not coach customs values and does not reprint a 58-line Spain snapshot.</p>
+</section>
+</main>
+
+<div class="waband">
+  <div class="wabi">
+    <div>
+      <h2>Need help with a PikoBuy order?</h2>
+      <p>WhatsApp +8615396628356 — product links, sizing, shipping quotes, QC notes. Email cnfd85269032661@gmail.com.</p>
+    </div>
+    <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="wabb">Chat — +8615396628356</a>
+  </div>
+</div>
+<footer class="ft">
+  <div class="fti">
+    <div>
+      <div class="flo"><img src="/assets/images/official-logo.png" alt="PikoBuy" style="height:28px;width:auto;border-radius:6px"> Spreadsheet</div>
+      <p class="ftg">Independent PikoBuy spreadsheet desk on pikospreadsheets.net. Not the official app, not checkout. Email cnfd85269032661@gmail.com. Orders stay on pikobuy.com.</p>
+      <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="fwa">+8615396628356</a>
+    </div>
+    <div class="fc"><h4>Spreadsheets</h4><ul>
+      <li><a href="https://w2clinks.com/spreadsheet/pikobuy/" target="_blank" rel="noopener">Live finds</a></li>
+      <li><a href="https://w2clinks.com/categories/" target="_blank" rel="noopener">Categories</a></li>
+      <li><a href="#not-excel">Not Excel</a></li>
+    </ul></div>
+    <div class="fc"><h4>Guides</h4><ul>
+      <li><a href="/pikobuy-spreadsheet/">Spreadsheet 2026</a></li>
+      <li><a href="/pikobuy-shipping-guide/">Shipping guide</a></li>
+      <li><a href="/is-pikobuy-legit/">Is it legit?</a></li>
+      <li><a href="/how-to-use-pikobuy/">How to use</a></li>
+      <li><a href="/pikobuy-coupons/">Coupon codes</a></li>
+      <li><a href="/coupons.html">Official offers</a></li>
+    </ul></div>
+  </div>
+  <p class="ftg" style="max-width:1100px;margin:28px auto 0;padding-top:20px;border-top:1px solid #2D2D2D">Independence: pikospreadsheets.net does not take payment or see your PikoBuy account. Coupon stacking stays on /coupons.html and /pikobuy-coupons/. Official warehouse inspection and the 5-day in-warehouse return window are on pikobuy.com — confirm Help the morning you ship. Ranked CMS URLs stay 200 — no 301 of the homepage onto /pikobuy-spreadsheet/. Copy reviewed 8 Oct 2026. Contact cnfd85269032661@gmail.com.</p>
 </footer>
-</body></html>
+<div class="waf">
+  <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="wafb" aria-label="WhatsApp +8615396628356"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+</div>
+</body>
+</html>
