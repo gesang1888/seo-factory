@@ -2,14 +2,12 @@
 <html lang="en-GB">
 <head>
 
-
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>FansBuy Coupons UK — GBP landing · truth on hub</title>
 <meta name="description" content="FansBuy UK coupon landing in GBP. Global truth table → fansbuysheets.net/fansbuy-coupons. Coupon ≠ HMRC duties.">
-
 
 <meta property="og:title" content="FansBuy Coupons UK — GBP landing · truth on hub">
 <meta property="og:description" content="All working FansBuy coupon codes for 2026, updated weekly. Use  for Affiliate invite bonus off your first order.">
@@ -19,7 +17,6 @@
 <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
 <link rel="icon" sizes="32x32" href="/assets/images/favicon-64.png">
-
 
 <style>
 :root{
@@ -208,7 +205,6 @@ body.theme-fansbuy{background:#fff}
 </header>
 <main id="main" class="inner-article">
 
-
  
 <div class="pw">
 <main class="fade-in">
@@ -317,19 +313,6 @@ function copyCode(code, el){
   if(el&&el.id==='sb-code-main'){const orig=el.textContent;el.textContent='✓ Copied!';setTimeout(()=>el.textContent=orig,1500);}
 }
 </script>
-<section class="uk-gsc-extra" style="max-width:960px;margin:28px auto;padding:28px;background:#f4f7fb;border:1px solid #d0dbe8;border-radius:14px;color:#1e293b;line-height:1.75">
-<section id="local" class="local-box" data-uk-fingerprint="coupon-not-hmrc" data-uk-deepen="20261028">
-<h2>UK coupons fingerprint</h2>
-<ol>
-<li><strong>Coupon ≠ HMRC duties</strong> — a code does not waive Royal Mail collect fees or import VAT.</li>
-<li><strong>GBP checkout</strong> — estimate freight/duty in GBP after shortlist + QC.</li>
-<li><strong>Truth table</strong> — global working codes → <a href="https://fansbuysheets.net/fansbuy-coupons/">fansbuysheets.net/fansbuy-coupons</a>.</li>
-<li><strong>Twin</strong> — <code>fansbuyspreadsheet.uk</code> stays 301→this desk; do not revive a second UK coupons URL.</li>
-</ol>
-<p>Ship planning: <a href="/fansbuy-shipping-guide/">UK shipping guide</a>.</p>
-</section>
-
-<p style="font-size:12px;font-weight:700;color:#dc2626;text-transform:uppercase">UK editor notes</p><h2>Coupons checklist (UK)</h2><p>Apply coupons after shortlisting, not before QC. Pair with invite <strong></strong> on the official FansBuy register page.</p><p>Order of operations: register → shortlist → QC → estimate GBP shipping/duty → submit.</p><p>Next: <a href="/fansbuy-invite-code/">invite code</a> · <a href="/fansbuy-shipping-guide/">UK shipping</a>.</p></section>
 </main>
 <footer class="site-ft">
   <div class="wrap ft-grid">
