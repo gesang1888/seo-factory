@@ -34,8 +34,13 @@ class HomeController
             'products' => $products,
             'categories' => categories_for_locale($config['lang'], $config['full_site']),
             'faqs' => $faqs,
-            'page_title' => __t('meta_title', ['country' => $config['country']]),
+            'page_title' => (class_exists(\App\Services\DestLocal::class) && \App\Services\DestLocal::key())
+                ? \App\Services\DestLocal::clusterTitle()
+                : __t('meta_title', ['country' => $config['country']]),
             'meta_desc' => __t('meta_desc', ['country' => $config['country']]),
+            'hero_h1' => (class_exists(\App\Services\DestLocal::class) && \App\Services\DestLocal::key())
+                ? \App\Services\DestLocal::clusterH1()
+                : null,
             'robots' => 'index, follow',
             'faq_schema' => json_encode($faqSchema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
         ];

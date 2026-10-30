@@ -20,6 +20,10 @@ from desk_fx import EXTRA_CSS_FX, catalog_block, currency_for, ui_copy
 from desk_template import (
     CUSTOMS,
     breadcrumb_ld,
+    cluster_desc,
+    cluster_h1,
+    cluster_keywords,
+    cluster_title,
     faq_ld,
     independence_copy,
     inject_jsonld,
@@ -33,6 +37,7 @@ from desk_template import (
     skip_label,
     validate_desk,
     webpage_ld,
+    website_ld,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -637,19 +642,22 @@ def build_home(host: str) -> str:
     f = _facts(host)
     u = ui_copy(d["loc"])
     css = "\n".join(f'<link rel="stylesheet" href="{escape(href)}?v=20261002-cms">' for href in ag["css"])
+    title = cluster_title(d["agent"], d.get("dest"), d["loc"], d.get("dest_label"))
+    h1 = cluster_h1(d["agent"], d.get("dest"), d["loc"], d.get("dest_label"))
+    kws = cluster_keywords(d["agent"], d.get("dest"), d["loc"], d.get("dest_label"))
+    desc = cluster_desc(d["agent"], d.get("dest"), d["loc"], d.get("dest_label") or "", host, f["customs"])
     if d.get("dest"):
-        desc = f"{d['agent']} independent desk for {d['dest_label']} on {host}. Catalogue, freight estimate, local last-mile. Not checkout."
         badge = f"{d['dest']} · {d['ccy']} · {f['customs']}"
     else:
-        desc = f"{d['agent']} hub on {host} is not a customs territory. Pick a real country in the official estimator. Not checkout."
         badge = f"Hub · {d['ccy']} · not a customs territory"
     html = f"""<!DOCTYPE html>
 <html lang="{escape(d['lang'])}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{escape(d['title'])}</title>
+<title>{escape(title)}</title>
 <meta name="description" content="{escape(desc)}">
+<meta name="keywords" content="{escape(', '.join(kws))}">
 <link rel="canonical" href="https://{escape(host)}/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -662,7 +670,7 @@ def build_home(host: str) -> str:
 {header_html(host, inner=False)}
 <main id="main" class="container">
 <section class="sg-hero">
-  <h1>{escape(d['h1'])}</h1>
+  <h1>{escape(h1)}</h1>
   <p class="hsub">{escape(d['agent'])} · {escape(host)} · {escape(d['ccy'])} display · {escape(d['dest_label'])}. Independent desk — not the official app, not checkout.</p>
   <p class="eu-badge">{escape(badge)}</p>
   <div class="sg-ctas">
@@ -674,7 +682,8 @@ def build_home(host: str) -> str:
 """
     html = inject_jsonld(
         html,
-        webpage_ld(url=f"https://{host}/", name=d["title"], desc=desc, lang=d["lang"], brand=d["agent"], host=host),
+        website_ld(url=f"https://{host}/", name=title, lang=d["lang"], brand=d["agent"], host=host, keywords=kws),
+        webpage_ld(url=f"https://{host}/", name=title, desc=desc, lang=d["lang"], brand=d["agent"], host=host),
         organization_ld(name=f"{host} independent desk", url=f"https://{host}/", email=f"support@{host}", lang=d["lang"], desc=desc),
         breadcrumb_ld([("Home", f"https://{host}/")]),
         faq_ld(d["lang"], long_faqs(f)[:8]),
