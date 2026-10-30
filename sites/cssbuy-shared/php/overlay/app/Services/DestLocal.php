@@ -77,6 +77,43 @@ class DestLocal
         return $fallback[$lang] ?? 'Skip to content';
     }
 
+    public static function clusterTitle(): string
+    {
+        $map = [
+            'at' => 'CSSBuy Spreadsheet für Käufer in Österreich',
+            'es' => 'CSSBuy Spreadsheet para compradores en España',
+            'fr' => 'CSSBuy Spreadsheet pour acheteurs en France',
+            'it' => 'CSSBuy Spreadsheet per acquirenti in Italia',
+            'nl' => 'CSSBuy Spreadsheet voor kopers in Nederland',
+        ];
+        $key = self::key();
+        return $map[$key] ?? 'CSSBuy Spreadsheet';
+    }
+
+    public static function clusterH1(): string
+    {
+        return self::clusterTitle() . ' (2026)';
+    }
+
+    public static function clusterKeywords(): array
+    {
+        $geo = [
+            'at' => 'osterreich',
+            'es' => 'espana',
+            'fr' => 'france',
+            'it' => 'italia',
+            'nl' => 'nederland',
+        ];
+        $key = self::key();
+        $g = $geo[$key] ?? 'eu';
+        return ['CSSBuy spreadsheet', 'cssbuy spreadsheet ' . $g, 'cssbuy sheet'];
+    }
+
+    public static function clusterKeywordsCsv(): string
+    {
+        return implode(', ', self::clusterKeywords());
+    }
+
     public static function faqs(): array
     {
         $key = self::key();

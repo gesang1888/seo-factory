@@ -25,6 +25,9 @@ $navGuides = nav_guide_slugs();
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= e($page_title) ?></title>
 <meta name="description" content="<?= e($meta_desc) ?>">
+<?php if (class_exists(\App\Services\DestLocal::class) && \App\Services\DestLocal::key()): ?>
+<meta name="keywords" content="<?= e(\App\Services\DestLocal::clusterKeywordsCsv()) ?>">
+<?php endif; ?>
 <link rel="canonical" href="<?= e($canonical) ?>">
 <meta name="robots" content="<?= e($robots) ?>">
 <meta property="og:type" content="website">
@@ -44,13 +47,21 @@ $navGuides = nav_guide_slugs();
   --font-main: "<?= e($c['fonts']['body']) ?>", Inter, system-ui, sans-serif;
   --font-display: "<?= e($c['fonts']['display']) ?>", Georgia, serif;
 }</style>
-<script type="application/ld+json"><?= json_encode([
+<script type="application/ld+json"><?php
+$websiteLd = [
     '@context' => 'https://schema.org',
     '@type' => 'WebSite',
-    'name' => 'CSSBuy ' . $c['country'],
+    'name' => (class_exists(\App\Services\DestLocal::class) && \App\Services\DestLocal::key())
+        ? \App\Services\DestLocal::clusterTitle()
+        : ('CSSBuy ' . $c['country']),
     'url' => 'https://' . $host . '/',
     'description' => $meta_desc,
-], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+];
+if (class_exists(\App\Services\DestLocal::class) && \App\Services\DestLocal::key()) {
+    $websiteLd['keywords'] = \App\Services\DestLocal::clusterKeywords();
+}
+echo json_encode($websiteLd, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+?></script>
 <?php if (!empty($faq_schema)): ?>
 <script type="application/ld+json"><?= $faq_schema ?></script>
 <?php endif; ?>

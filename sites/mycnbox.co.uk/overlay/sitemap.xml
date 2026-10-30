@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mycnbox.co.uk/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://mycnbox.co.uk/is-mycnbox-legit/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://mycnbox.co.uk/mycnbox-shipping-guide/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -140,8 +140,32 @@
   </url>
   <url>
     <loc>https://mycnbox.co.uk/mycnbox-spreadsheet/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mycnbox.co.uk/mycnbox-faq/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mycnbox.co.uk/mycnbox-finds/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mycnbox.co.uk/mycnbox-guide/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mycnbox.co.uk/mycnbox-qc/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

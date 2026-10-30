@@ -8,7 +8,7 @@ $country = e($config['country']);
 <section class="lite-hero">
   <div class="container">
     <span class="hero-flag"><?= $config['flag'] ?></span>
-    <h1><?= __t('hero_h1', ['country' => $country]) ?></h1>
+    <h1><?= !empty($hero_h1) ? e($hero_h1) : __t('hero_h1', ['country' => $country]) ?></h1>
     <p class="hero-sub"><?= __t('hero_sub') ?></p>
     <p class="hero-coupon"><?= __t('hero_coupon') ?></p>
     <a href="<?= e($register) ?>" target="_blank" rel="noopener sponsored" class="btn btn-brand btn-lg btn-block"><?= __t('hero_cta') ?></a>

@@ -24,6 +24,10 @@ from desk_fx import EXTRA_CSS_FX, catalog_block, currency_for, ui_copy
 from desk_template import (
     SKIP_CSS,
     breadcrumb_ld,
+    cluster_desc,
+    cluster_h1,
+    cluster_keywords,
+    cluster_title,
     customs_for,
     dest_local_pack,
     faq_ld,
@@ -42,6 +46,7 @@ from desk_template import (
     validate_desk,
     vol_js_labels,
     webpage_ld,
+    website_ld,
 )
 from kakobuy_desk_trust import CAT_LABELS, CAT_WALL, loc as _loc, pack as _trust_pack
 
@@ -510,6 +515,13 @@ def _chrome_head(key: str, d: dict, title: str, desc: str, path: str = "/") -> s
     logo = d.get("logo") or "/assets/kakobuy-logo.png"
     ld = webpage_ld(url=canonical, name=title, desc=desc, lang=d["lang"], brand="Kakobuy", host=host)
     loc = _loc(key)
+    kws = cluster_keywords("Kakobuy", d.get("dest"), loc, d.get("dest_label"))
+    kw_tag = f'<meta name="keywords" content="{escape(", ".join(kws))}">\n' if path == "/" else ""
+    site_ld = ""
+    if path == "/":
+        site_ld = (
+            f'<script type="application/ld+json">{json.dumps(website_ld(url=canonical, name=title, lang=d["lang"], brand="Kakobuy", host=host, keywords=kws), ensure_ascii=False)}</script>\n'
+        )
     return f"""<!DOCTYPE html>
 <html lang="{escape(d['lang'])}">
 <head>
@@ -517,7 +529,7 @@ def _chrome_head(key: str, d: dict, title: str, desc: str, path: str = "/") -> s
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(desc)}">
-<link rel="canonical" href="{canonical}">
+{kw_tag}<link rel="canonical" href="{canonical}">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="{escape(og_locale(d['lang']))}">
@@ -533,7 +545,7 @@ def _chrome_head(key: str, d: dict, title: str, desc: str, path: str = "/") -> s
 <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 {_hreflang()}
 <style>{THEME_CSS}</style>
-<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+{site_ld}<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 </head>
 <body class="kakobuy-desk">
 {skip_link(skip_label(loc))}
@@ -1151,7 +1163,13 @@ def build_about(key: str) -> str:
 
 def build_home(key: str) -> str:
     d = HOSTS[key]
-    m = HOME_META[key]
+    m = dict(HOME_META[key])
+    loc = _loc(key)
+    if d.get("dest"):
+        m["title"] = cluster_title("Kakobuy", d["dest"], loc, d.get("dest_label"))
+        m["h1"] = cluster_h1("Kakobuy", d["dest"], loc, d.get("dest_label"))
+        cname, _curl = customs_for(d.get("dest"))
+        m["desc"] = cluster_desc("Kakobuy", d["dest"], loc, d.get("dest_label") or "", d["host"], cname)
     html = _chrome_head(key, d, m["title"], m["desc"])
     html += _header(key, d)
     cat_lab = {"fr": "Catalogue", "es": "Catálogo", "nl": "Catalogus", "fi": "Katalogi"}.get(key, "Catalogue")

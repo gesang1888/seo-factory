@@ -50,6 +50,7 @@ CUSTOMS = {
     "GB": ("HMRC", "https://www.gov.uk/goods-sent-from-abroad"),
     "AU": ("ABF", "https://www.abf.gov.au/"),
     "PL": ("Krajowa Administracja Skarbowa", "https://www.podatki.gov.pl/"),
+    "FI": ("Tulli", "https://tulli.fi/"),
 }
 
 # Fingerprints of hipobuy.es Spain-only lab copy. Mentioning that we do
@@ -241,6 +242,20 @@ DEST_LOCAL = {
         "duty": "Kto płaci cło do Polski, wynika ze SKU. Kurier przy Collect może doliczyć opłatę. Źródło: KAS. Cel estymatora: PL z kodem 00-001 Warszawa, nie niemiecki automat paczkowy. Bez zaniżania wartości.",
         "threshold": "VAT, IOSS i progi się zmieniają. Czytaj KAS i SKU rano w dniu nadania. Ten desk nie wymyśla kwoty zgłoszeniowej dla adresu w Polsce.",
     },
+    "FI": {
+        "h2": "Mikä pätee tänään suomalaiseen osoitteeseen",
+        "cta": "Check FI",
+        "fingerprint": "00100 Helsinki",
+        "aliens": ("Packstation", "Colissimo", "iDEAL", "Royal Mail", "Österreichische Post", "USPS", "CBSA", "ABF", "Poste Italiane", "1010 Wien", "Nederlandse postcode"),
+        "steps": [
+            ("Arvioijan kohde: Suomi", "Valitse FI, ei EU, ei tämä hostname. Ruotsalainen postinumero on väärä maa."),
+            ("Osoite", "Suomalainen katuosoite ja viisinumeroinen postinumero (esim. 00100 Helsinki). Tämä ei ole Ruotsi."),
+            ("Tullit", "SKU päättää. Posti voi Collectissa lisätä maksun. Lähde: Tulli (tulli.fi) lähetysaamuna. Ei keksittyä ilmoitusarvoa."),
+            ("Viimeinen kilometri", "Usein Posti. Tällä hostilla jo rankkaava toimitus-URL säilyy — emme korvaa sitä DE-DHL-tekstillä."),
+        ],
+        "duty": "Kuka maksaa tullit Suomeen, seisoo varatulla SKU:lla. Posti voi Collectissa periä lisämaksun. Lähde: Tulli. Arvioijan kohde FI, postinumero 00100 Helsinki, ei Ruotsi. Ei aliarvostusta.",
+        "threshold": "ALV, IOSS ja kynnykset muuttuvat. Lue Tulli ja SKU lähetysaamuna. Tämä desk ei keksi ilmoitusarvoa suomalaiselle osoitteelle.",
+    },
     "HUB": {
         "h2": "This hostname is not a customs territory",
         "cta": "Pick a country",
@@ -281,6 +296,144 @@ def webpage_ld(*, url: str, name: str, desc: str, lang: str, brand: str, host: s
             "name": f"{brand} independent desk",
             "url": f"https://{host}/",
         },
+    }
+
+
+# kakobuy.co.uk pattern: Title/H1 "{Brand} Spreadsheet for {Country} Buyers"
+# plus WebSite keywords. Dest names stay localized so this is not an
+# English doorway clone. Search tokens "spreadsheet" / "sheet" stay English.
+KW_GEO = {
+    "AT": "osterreich",
+    "AU": "au",
+    "CA": "canada",
+    "DE": "deutschland",
+    "ES": "espana",
+    "FI": "suomi",
+    "FR": "france",
+    "GB": "uk",
+    "IT": "italia",
+    "NL": "nederland",
+    "PL": "polska",
+    "US": "us",
+}
+
+COUNTRY_SHORT = {
+    "AT": "Österreich",
+    "AU": "Australia",
+    "CA": "Canada",
+    "DE": "Deutschland",
+    "ES": "España",
+    "FI": "Suomi",
+    "FR": "France",
+    "GB": "UK",
+    "IT": "Italia",
+    "NL": "Nederland",
+    "PL": "Poland",
+    "US": "US",
+}
+
+_EN_BUYERS = {
+    "AU": "Australian Buyers",
+    "CA": "Canadian Buyers",
+    "GB": "UK Buyers",
+    "PL": "Polish Buyers",
+    "US": "US Buyers",
+    "AT": "Austrian Buyers",
+    "DE": "German Buyers",
+    "ES": "Spanish Buyers",
+    "FI": "Finnish Buyers",
+    "FR": "French Buyers",
+    "IT": "Italian Buyers",
+    "NL": "Dutch Buyers",
+}
+
+
+def cluster_country_name(dest: str | None, loc: str, dest_label: str | None = None) -> str:
+    if dest and dest in COUNTRY_SHORT:
+        return COUNTRY_SHORT[dest]
+    label = (dest_label or "").strip()
+    if label.startswith("the "):
+        label = label[4:]
+    if label.startswith("l’") or label.startswith("l'"):
+        label = label[2:]
+    if label.startswith("la "):
+        label = label[3:]
+    return label or "this destination"
+
+
+def cluster_title(agent: str, dest: str | None, loc: str, dest_label: str | None = None) -> str:
+    name = cluster_country_name(dest, loc, dest_label)
+    if not dest:
+        return f"{agent} Spreadsheet hub — pick a country in the estimator"
+    if loc == "de":
+        return f"{agent} Spreadsheet für Käufer in {name}"
+    if loc == "es":
+        return f"{agent} Spreadsheet para compradores en {name}"
+    if loc == "fr":
+        return f"{agent} Spreadsheet pour acheteurs en {name}"
+    if loc == "it":
+        return f"{agent} Spreadsheet per acquirenti in {name}"
+    if loc == "nl":
+        return f"{agent} Spreadsheet voor kopers in {name}"
+    if loc == "fi":
+        return f"{agent} Spreadsheet suomalaisille ostajille"
+    buyers = _EN_BUYERS.get(dest, f"{name} Buyers")
+    return f"{agent} Spreadsheet for {buyers}"
+
+
+def cluster_h1(agent: str, dest: str | None, loc: str, dest_label: str | None = None) -> str:
+    return f"{cluster_title(agent, dest, loc, dest_label)} (2026)"
+
+
+def cluster_keywords(agent: str, dest: str | None, loc: str = "en", dest_label: str | None = None) -> list[str]:
+    geo = KW_GEO.get(dest or "", "") or cluster_country_name(dest, loc, dest_label).lower()
+    geo = geo.replace(" ", "")
+    brand = agent
+    low = agent.lower()
+    return [
+        f"{brand} spreadsheet",
+        f"{low} spreadsheet {geo}",
+        f"{low} sheet",
+    ]
+
+
+def cluster_desc(agent: str, dest: str | None, loc: str, dest_label: str, host: str, customs: str) -> str:
+    name = cluster_country_name(dest, loc, dest_label)
+    kws = ", ".join(cluster_keywords(agent, dest, loc, dest_label))
+    if not dest:
+        return (
+            f"{agent} spreadsheet hub on {host} is not a customs territory. "
+            f"Keywords: {kws}. Pick a real country in the official estimator. Not checkout."
+        )
+    table = {
+        "de": f"{agent} Spreadsheet für {name} auf {host}. Finds, QC, Versand, Legal. Quelle: {customs}. Keine Unterdeklaration.",
+        "es": f"{agent} Spreadsheet para {name} en {host}. Finds, QC, envío, legal. Fuente: {customs}. Sin infradeclaración.",
+        "fr": f"{agent} Spreadsheet pour {name} sur {host}. Finds, QC, livraison, legal. Source : {customs}. Pas de sous-déclaration.",
+        "it": f"{agent} Spreadsheet per {name} su {host}. Finds, QC, spedizione, legal. Fonte: {customs}. Niente sottofatturazione.",
+        "nl": f"{agent} Spreadsheet voor {name} op {host}. Finds, QC, verzending, legal. Bron: {customs}. Geen onderwaardering.",
+        "fi": f"{agent} Spreadsheet Suomelle ({host}). Finds, QC, toimitus, legal. Lähde: {customs}. Ei aliarvostusta.",
+    }
+    if loc in table:
+        return table[loc]
+    return (
+        f"{agent} Spreadsheet for {name} buyers on {host}. Finds, QC, shipping, legal. "
+        f"Source: {customs}. Keywords: {kws}. Not checkout. No declared-value coaching."
+    )
+
+
+def website_ld(*, url: str, name: str, lang: str, brand: str, host: str, keywords: list[str]) -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": name,
+        "url": url,
+        "inLanguage": lang,
+        "publisher": {
+            "@type": "Organization",
+            "name": f"{brand} independent desk",
+            "url": f"https://{host}/",
+        },
+        "keywords": keywords,
     }
 
 
@@ -931,6 +1084,7 @@ def skip_label(loc: str) -> str:
         "fr": "Aller au contenu",
         "it": "Vai al contenuto",
         "nl": "Naar de inhoud",
+        "fi": "Siirry sisältöön",
         "en": "Skip to content",
     }.get(loc, "Skip to content")
 
