@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- DEPLOY GUARD: surgical hub reclaim; do not replace with Georgia overlay/index.html -->
-<!-- hub-reclaim=mycnbox-hub-reclaim-20261028 -->
+<!-- DEPLOY GUARD: surgical ; do not replace with Georgia overlay/index.html -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -90,7 +89,7 @@ img{max-width:100%;display:block}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="ticker">Hub reclaim 2026-10-28 · Independent Index · 11,300+ · Open directory · vs mycnbox.net/sheet.org · Official mycnbox.com 9 Oct 2026: $500 new-user coupons · 30% off events · free QC pics / free QC video · <a href="https://www.mycnbox.com/" rel="noopener">Official 图文</a></div>
+<div class="ticker">2026-10-28 · Independent Index · 11,300+ · Open directory · vs mycnbox.net/sheet.org · Official mycnbox.com 9 Oct 2026: $500 new-user coupons · 30% off events · free QC pics / free QC video · <a href="https://www.mycnbox.com/" rel="noopener">Official 图文</a></div>
 <nav class="nav">
   <a class="nbrand" href="/"><img src="/assets/images/official-logo.png" width="220" height="50" alt="MYCNBOX"></a>
   <ul class="nl">
@@ -124,16 +123,11 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-
 <section class="sec" id="local" style="padding-top:8px">
   <h2 class="ph">Hub money URLs (≤6) + country desks</h2>
   <p class="pp">Brand <em>mycnbox spreadsheet</em> intent belongs on <strong>mycnbox.eu</strong>. Local postal / Douane / Royal Mail / InPost intent stays on keep desks — do not revive es/de/fr sunsets.</p>
-  <div class="pp" id="hub-reclaim" data-hub-reclaim="mycnbox-hub-reclaim-20261028" style="border-left:3px solid #FF6F10;background:#fff7ed;padding:12px 14px;border-radius:8px;max-width:820px">
-    <strong>Reclaim 2026-10-28:</strong> Independent Index · 11,300+ (found=11365) · <a href="https://w2clinks.com/spreadsheet/mycnbox/" rel="noopener" target="_blank">Open directory</a> · <a href="/mycnbox-coupons/">coupons AABZKT</a> · <a href="/finds-dataset/">dataset</a>. Tag <code>mycnbox-hub-reclaim-20261028</code>. Named competitors in SERP: <em>mycnbox.net</em> · <em>mycnboxsheet.org</em> · official <em>mycnbox.com</em> — we do not mirror-register those hosts. NL/UK/PL desks keep local heroes (this action does <strong>not</strong> deepen NL).
-  </div>
-
   <p class="pp">Money URLs: <a href="/">Home</a> · <a href="/mycnbox-spreadsheet/">/mycnbox-spreadsheet/</a> · <a href="/mycnbox-coupons/">/mycnbox-coupons/</a> · <a href="/mycnbox-shipping-guide/">/mycnbox-shipping-guide/</a> · <a href="/mycnbox-refund-guide/">/mycnbox-refund-guide/</a> · <a href="/finds-dataset/">/finds-dataset/</a> · truth <a href="/data/coupons-truth.json">/data/coupons-truth.json</a> · dataset <a href="/data/finds-dataset.json">/data/finds-dataset.json</a></p>
-  <p class="pp">Keep: <a href="https://mycnbox.nl/">mycnbox.nl</a> · <a href="https://mycnbox.co.uk/">mycnbox.co.uk</a> · <a href="https://mycnbox.pl/">mycnbox.pl</a>. Haul twin already 301. platform_opt=mycnbox-platform-20261026 · hub_reclaim=mycnbox-hub-reclaim-20261028 · reviewed 28 Oct 2026.</p>
+  <p class="pp">Keep: <a href="https://mycnbox.nl/">mycnbox.nl</a> · <a href="https://mycnbox.co.uk/">mycnbox.co.uk</a> · <a href="https://mycnbox.pl/">mycnbox.pl</a>. Haul twin already 301. platform_opt=mycnbox-platform-20261026 · reviewed 28 Oct 2026.</p>
 </section>
 
 <section id="official-promo">

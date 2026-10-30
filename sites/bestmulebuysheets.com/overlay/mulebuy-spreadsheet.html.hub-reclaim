@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- hub-reclaim=mulebuy-hub-reclaim-20261028 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MuleBuy Spreadsheet — Independent Index · 8,000+</title>
-<meta name="description" content="MuleBuy spreadsheet hub reclaim: Independent Index · 8,000+ finds. Open directory + coupons + dataset — not a Google Sheet dump. Lab 28 Oct 2026.">
+<meta name="description" content="MuleBuy spreadsheet Independent Index · 8,000+ finds. Open directory + coupons + dataset — not a Google Sheet dump. Lab 28 Oct 2026.">
 <link rel="canonical" href="https://bestmulebuysheets.com/mulebuy-spreadsheet.html">
 <meta name="robots" content="index, follow">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -26,21 +25,10 @@
 <section class="hero" style="padding-bottom:40px;">
   <div class="hero-inner">
     <div class="crumb"><a href="index.html">Home</a> / Mulebuy Spreadsheet</div>
-    <div class="cellref">Independent Index · 8,000+ · last_verified 28 Oct 2026 · mulebuy-hub-reclaim-20261028</div>
+    <div class="cellref">Independent Index · 8,000+ · last_verified 28 Oct 2026</div>
     <h1 style="font-size:clamp(28px,4.4vw,44px);">MuleBuy Spreadsheet — Independent Index <em>8,000+</em></h1>
     <p class="lead">Brand <strong>mulebuy spreadsheet</strong> SERP belongs here — Independent Index of <strong>8,000+</strong> QC finds across categories. <strong>Not Excel / not a Google Sheet</strong>. Open the live directory, coupons truth, or public dataset.</p>
-    <div class="hero-actions" style="display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 8px" data-hub-reclaim="mulebuy-hub-reclaim-20261028">
-      <a href="https://w2clinks.com/spreadsheet/mulebuy/" target="_blank" rel="noopener" class="btn primary">Open directory</a>
-      <a href="/finds-dataset/" class="btn ghost">Dataset</a>
-      <a href="/mulebuy-coupons/" class="btn green">Coupons</a>
-      <a href="/data/finds-dataset.json" class="btn ghost">Dataset JSON</a>
     </div>
-    <section class="reclaim-box" id="hub-reclaim" data-hub-reclaim="mulebuy-hub-reclaim-20261028" style="margin:14px 0 6px;padding:14px 16px;background:#FFF7ED;border:1px solid #FED7AA;border-radius:12px;line-height:1.7;max-width:920px">
-      <p style="font-size:12px;font-weight:700;color:#C2410C;text-transform:uppercase;margin:0 0 8px">Hub ownership · reclaim</p>
-      <p style="margin:0 0 8px">Compete for <em>mulebuy spreadsheet</em> vs <strong>mymulebuyspreadsheet.com</strong> · <strong>mulegrid</strong> · <strong>mulebuysheets.com</strong> · <strong>w2cspreadsheet</strong> with a dated index: row_count_display <strong>8,000+</strong> · stamp <time datetime="2026-10-28">2026-10-28</time> · <a href="/data/finds-dataset.json">JSON</a>. Keep <a href="https://mulebuy.fr/">mulebuy.fr</a> local (Colissimo) — FR not deepened this round. Twins .co.uk/.es/.us <strong>301→hub</strong>. No Phase C.</p>
-      <p style="margin:0;font-size:13px;color:#57534e">Money: <a href="/">/</a> · <a href="/mulebuy-spreadsheet.html">spreadsheet</a> · <a href="/mulebuy-coupons/">coupons</a> · <a href="/finds-dataset/">dataset</a></p>
-    </section>
-  </div>
 </section>
 <section style="padding-top:32px;">
   <div class="wrap">
@@ -880,7 +868,6 @@
     </div>
   </div>
 </section>
-<section class="mule-gsc-extra" style="max-width:920px;margin:28px auto;padding:28px;background:#f7f5f2;border:1px solid #ddd5c8;border-radius:14px;color:#1e293b;line-height:1.75"><h2>Spreadsheet workflow tips</h2><p>Filter finds, shortlist with size notes, then QC before consolidating. Recalculate shipping after warehouse weights update.</p><p><a href="/guide.html">Guide</a> · <a href="/products.html">Products</a></p></section>
 <footer>
   <div class="foot-grid">
     <div class="foot-col">

@@ -2,10 +2,6 @@
 <html lang="fr-FR" data-default-currency="EUR">
 <head>
 
-
-
-
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coupons MuleBuy France — landing EUR · vérité sur hub</title>
@@ -163,7 +159,6 @@
     </div>
   </div>
 </main>
-<section class="fr-gsc-extra" style="max-width:960px;margin:28px auto;padding:28px;background:#f7faf7;border:1px solid #c5d8c8;border-radius:14px;color:#1e293b;line-height:1.75"><p style="font-size:12px;font-weight:700;color:#1a5c38;text-transform:uppercase">Notes éditeur</p><h2>Checklist coupons</h2><p>Appliquez les codes après shortlist, pas avant le QC. Vérifiez la date de validité et le stack éventuel avec une promo ligne.</p><p>Ordre : inscription → shortlist → QC → estimation fret → submit.</p><p><a href="/mulebuy-spreadsheet/">Spreadsheet</a> · <a href="/livraison-mulebuy/">Livraison</a></p></section>
 </main>
 <footer class="site-ft">
   <div class="wrap ft-grid">

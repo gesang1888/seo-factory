@@ -175,17 +175,8 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
     <h1>CSSBuy voor een Nederlands bezorgadres</h1>
     <p class="lead">Hoe je een productlink in de agent plakt, hoe de w2clinks-catalogus werkt, hoe een pakket naar Nederland reist en wat je checkt voor de Douane.</p>
     
-<!-- portfolio-step4-local · hub-reclaim=cssbuy-hub-reclaim-20261028 anti-cannibal -->
-<section class="sg-sec" id="local" data-step4="1" data-platform-opt="cssbuy-platform-20261026" data-hub-reclaim="cssbuy-hub-reclaim-20261028">
-  <h2>Wat vandaag geldt voor een Nederlands adres</h2>
-  <p class="ssub">cssbuy.nl · local-intent desk · <strong>not</strong> a second brand spreadsheet hub.</p>
-  <ol class="local-steps"><li><strong>Estimator-bestemming: Nederland</strong><span>Kies NL, niet EU, niet deze hostname. Een Belgische of Duitse postcode is het verkeerde land.</span></li><li><strong>Adres</strong><span>Nederlandse postcode (vorm 1234 AB), geen Duits afhaalautomaat-nummer.</span></li><li><strong>Invoer</strong><span>De SKU beslist. De bezorger (vaak DHL) kan bij Collect extra innen. Bron: Belastingdienst Douane op de verzenddag. Geen verzonnen aangegeven waarde.</span></li><li><strong>Laatste mile</strong><span>Vaak DHL. iDEAL is een NL-betaalrail in de officiële app — bevestig daar, niet op dit desk. Rankende BTW/douane-URL op deze host blijft.</span></li></ol>
-  <p class="local-src">Official source: <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/" rel="noopener">Douane</a>. Lab 28 Oct 2026 · anti-cannibal reclaim.</p>
-  <p class="local-src">Money URLs (keep ≤6): <a href="/">Home</a> · <a href="/cssbuy-shipping/">/cssbuy-shipping</a> · <a href="/cssbuy-coupons/">/cssbuy-coupons</a> · hub <a href="https://cssbuyspreadsheet.eu/">spreadsheet</a> · <a href="https://cssbuyspreadsheet.eu/finds-dataset/">dataset</a> · <a href="https://cssbuyspreadsheet.eu/cssbuy-coupons/">hub coupons</a></p>
-  <p class="hub-uplink" data-step4-hub="1" data-anti-cannibal="1">Exacte zoektermen <strong>cssbuy spreadsheet</strong> / <strong>cssbuy spreadsheet 2026</strong> → <a href="https://cssbuyspreadsheet.eu/">cssbuyspreadsheet.eu</a> (Independent Index · 11,300+ · <a href="https://cssbuyspreadsheet.eu/spreadsheet/">Open directory reclaim</a> · <a href="https://cssbuyspreadsheet.eu/finds-dataset/">dataset</a> · <a href="https://cssbuyspreadsheet.eu/cssbuy-coupons/">coupons</a>). Deze host blijft NL-postcode / Douane — <strong>geen</strong> Spreadsheet-held.</p>
-</section>
+<!-- portfolio-step4-local anti-cannibal -->
 <!-- /portfolio-step4-local -->
-
 
 <div class="sbox">
       <form id="w2c-search" action="https://w2clinks.com/spreadsheet/cssbuy/" method="get" target="_blank" rel="nofollow noopener" role="search">
@@ -219,16 +210,6 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
   </div><figure class="fig"><img src="/img/shots/catalogus-zoek.jpg" alt="Hoodie-zoekopdracht in de CSSBuy-catalogus op w2clinks" loading="lazy" width="1200" height="900"><figcaption>Resultaten met filterkolom. Opname 6 Oct 2026.</figcaption></figure></div></div>
 </section>
 
-<section class="sec sec--tint" id="sheet-explain" data-hub-reclaim="cssbuy-hub-reclaim-20261028">
-  <div class="wrap"><div class="split split--rev"><div>
-    <span class="eyebrow" style="color:var(--acd)">Globale sheet → hub</span>
-    <h2>Zoek je «CSSBuy spreadsheet»?</h2>
-    <p class="lead">De globale Independent Index · 11,300+ (dataset, coupons, Open directory) staat op <a href="https://cssbuyspreadsheet.eu/">cssbuyspreadsheet.eu</a> — niet op dit NL-desk. Hier blijf je bij NL-postcode en Douane.</p>
-    <p>Lokale cataloguskaarten helpen om te plakken in de agent; de merk-spreadsheet SERP hoort op de hub.</p>
-    <p><a class="btn" href="https://cssbuyspreadsheet.eu/">Open hub spreadsheet</a>
-       <a class="btn btn--ghost" href="/catalogus/">Lokale catalogus</a></p>
-  </div><figure class="fig"><img src="/img/shots/catalogus.jpg" alt="CSSBuy-catalogus op w2clinks: kaarten met foto, merk en referentieprijs" loading="lazy" width="1200" height="900"><figcaption>Kaarten, geen Excel-cellen. Yuan-prijzen veranderen per dag. Opname 6 Oct 2026, categorie SNEAKERS.</figcaption></figure></div></div>
-</section>
 <section class="sec" id="cat-wall">
   <div class="wrap">
     <h2>Drieëndertig categorieën voor de eerste dag</h2>
@@ -299,7 +280,7 @@ main p,main li,.sg-faq p{max-width:var(--medida)}
       <ul><li><a href="https://www.cssbuy.com?utm_source=cssbuy.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">CSSBuy (officiële site)</a></li><li><a href="https://www.cssbuy.com/register?utm_source=cssbuy.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">CSSBuy-account</a></li><li><a href="https://www.cssbuy.com/?action=estimates&amp;go=page&amp;utm_source=cssbuy.nl&amp;utm_medium=referral&amp;utm_campaign=portada" rel="nofollow noopener" target="_blank">Schatter (login op 6 Oct 2026)</a></li></ul>
     </div>
     <div class="legal">
-      <p><strong>Onafhankelijkheidsnotitie.</strong> cssbuy.nl is een onafhankelijke NL-desk (niet de merk-spreadsheet hub). Wij zijn CSSBuy niet. Globale sheet-intent → cssbuyspreadsheet.eu (cssbuy-hub-reclaim-20261028). Elke bestelling loopt via de officiële site.</p>
+      <p><strong>Onafhankelijkheidsnotitie.</strong> cssbuy.nl is een onafhankelijke NL-desk (niet de merk-spreadsheet hub). Wij zijn CSSBuy niet. Globale sheet-intent → cssbuyspreadsheet.eu (). Elke bestelling loopt via de officiële site.</p>
       <p>&copy; 2026 CSSBuy NL desk. Nederlandse tekst, nagelezen voor publicatie.</p>
     </div>
   </div>

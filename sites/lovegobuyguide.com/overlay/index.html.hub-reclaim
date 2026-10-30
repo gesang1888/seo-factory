@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<!-- platform_opt=lovegobuy-platform-20261026 · hub-reclaim=lovegobuy-hub-reclaim-20261028 -->
+<!-- platform_opt=lovegobuy-platform-20261026 -->
 <title>LoveGoBuy Spreadsheet — Independent Index · 11,300+</title>
 <meta name="description" content="LoveGoBuy Independent Index · 11,300+ finds (not Excel / not a Google Sheet). Coupons + dataset on lovegobuyguide.com. Keep desks: lovegobuy.nl / lovegobuy.it. Spreadsheet twins (.eu/.ca/.es) 301→this hub. Confirm offers in-app.">
 <meta property="og:title" content="LoveGoBuy Spreadsheet — Independent Index · 11,300+">
@@ -97,7 +97,7 @@ img{max-width:100%;display:block}
 @media(max-width:900px){.nl,.bwa{display:none}.offer-grid,.qf,.fti{grid-template-columns:1fr}}
 </style>
 </head>
-<body data-hub-reclaim="lovegobuy-hub-reclaim-20261028">
+<body>
 <a class="skip" href="#main">Skip</a>
 <div class="ann">Independent Index · <strong>11,300+</strong> · last_verified 2026-10-28 · Open directory · vs JadeShip/Reddit/Puro · twins 301→hub · keep <a href="https://lovegobuy.nl/">.nl</a>/<a href="https://lovegobuy.it/">.it</a></div>
 <nav class="nav">
@@ -117,19 +117,7 @@ img{max-width:100%;display:block}
     <a class="cs" href="https://www.lovegobuy.com/?invite_code=W5RJX3" rel="noopener sponsored">Register</a>
   </div>
   <div class="hst"><div class="hs"><div class="hsn">11,300+</div><div class="hsl">Independent Index</div></div><div class="hs"><div class="hsn">W5RJX3</div><div class="hsl">invite / coupons</div></div><div class="hs"><div class="hsn">NL·IT</div><div class="hsl">keep desks</div></div></div>
-  <div class="local-box" id="local" data-platform-opt="lovegobuy-20261026" data-hub-reclaim="lovegobuy-hub-reclaim-20261028">
-    <h2>Hub owns global spreadsheet / coupons</h2>
-    <ol>
-      <li><strong>Open directory</strong> — <a href="https://w2clinks.com/spreadsheet/lovegobuy/" rel="noopener" target="_blank">w2clinks LoveGoBuy</a> · Independent Index · 11,300+ (found=11365).</li>
-      <li><a href="/lovegobuy-spreadsheet/">/lovegobuy-spreadsheet/</a> — reclaim page vs JadeShip / Reddit / Puro</li>
-      <li><a href="/lovegobuy-coupon/">/lovegobuy-coupon/</a> — coupons + truth JSON (W5RJX3)</li>
-      <li><a href="/finds-dataset/">/finds-dataset/</a> + <a href="/data/finds-dataset.json">JSON</a> — stamp 2026-10-28</li>
-      <li><a href="/how-to-use-lovegobuy/">/how-to-use-lovegobuy/</a> — how-to</li>
-      <li><a href="/is-lovegobuy-legit/">/is-lovegobuy-legit/</a> — trust</li>
-    </ol>
-    <p class="money">Hub reclaim lovegobuy-hub-reclaim-20261028. Keep: <a href="https://lovegobuy.nl/">lovegobuy.nl</a> (PostNL) · <a href="https://lovegobuy.it/">lovegobuy.it</a> (Poste) — <strong>not deepened this action</strong>. Twins 301→hub: .eu / .ca / .es. Country twins .nl→.nl · .it→.it. Skip .co.uk / sheet.org / JadeShip mirrors.</p>
-  </div>
-</section>
+  </section>
 <section class="sec" id="official-promo">
   <h2 class="stit">Official LoveGoBuy chrome — 9 Oct 2026</h2>
   <p class="pp">Public lovegobuy.com sat behind a Cloudflare bot-check this morning. Chrome on this guide copies dest-measured LoveGoBuy wordmark and red <strong>#e91e12</strong> / Rubik. Public copies disagree on free warehouse days — this desk <strong>does not invent a free-day count</strong>. Coupon tokens stay off this homepage (ranked coupon HTML already prints one and stays 200). Email cnfd85269032661@gmail.com. This host is not a dest-country skin.</p>

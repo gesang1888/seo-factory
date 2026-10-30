@@ -20,6 +20,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
 
+from strip_editor_notes import strip_html
+
 ROOT = Path(__file__).resolve().parents[1]
 OVERLAY = ROOT / "sites" / "sugargoospreadsheet.au" / "overlay"
 HOST = "sugargoospreadsheet.au"
@@ -345,27 +347,8 @@ def deepen_gst(html: str) -> str:
             THICKEN_GST + "\n<h2>5. Official Australian sources</h2>",
             1,
         )
-    # Editor notes: local intent + hub uplink (no spreadsheet guide framing)
-    html = re.sub(
-        r'<section id="gsc-editor-notes".*?</section>',
-        (
-            '<section id="gsc-editor-notes" style="max-width:720px;margin:2rem auto;padding:1.25rem;'
-            'border-top:1px solid #e2e8f0;line-height:1.65;color:#334155">'
-            '<h2 style="font-size:1.1rem;margin:0 0 .5rem">Australia editor notes (en-AU)</h2>'
-            '<p style="margin:0 0 .75rem">AU keep desk for GST / ABF / ATO LVIG and Australia Post last-mile. '
-            f'Brand Spreadsheet / coupons → <a href="{HUB}/">sugargoospreadsheetnow.com</a>. '
-            f"Updated {TODAY}.</p>"
-            '<p style="margin:0">Related: <a href="/gst-import-australia/">GST import</a>, '
-            '<a href="/sugargoo-shipping-australia/">Shipping AU</a>, '
-            '<a href="/au-buyer-guides/">AU buyer guides</a>, '
-            f'<a href="{HUB}/sugargoo-coupon-2026.html">Hub coupons</a>, '
-            f'<a href="{HUB}/best-sugargoo-spreadsheet-2026.html">Hub spreadsheet</a>.</p>'
-            "</section>"
-        ),
-        html,
-        count=1,
-        flags=re.S,
-    )
+    # Drop GSC editor-notes box (consumer-facing 运营说明).
+    html = strip_html(html)
     # Footer soften
     html = html.replace("<h3>SugarGoo Spreadsheet</h3>", "<h3>SugarGoo Australia desk</h3>", 1)
     html = html.replace(
@@ -411,8 +394,8 @@ def build(live_gst: str | None = None, overlay_home: str | None = None) -> dict[
     if not live_home.exists() or live_home.stat().st_size < 1000:
         live_home.write_text(_fetch(f"https://{HOST}/"), encoding="utf-8")
 
-    home = deepen_home(home_src)
-    gst = deepen_gst(live_gst)
+    home = strip_html(deepen_home(home_src))
+    gst = strip_html(deepen_gst(live_gst))
 
     # Guardrails
     for label, html in (("home", home), ("gst", gst)):

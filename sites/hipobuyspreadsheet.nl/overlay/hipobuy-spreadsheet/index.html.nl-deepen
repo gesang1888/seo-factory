@@ -8,7 +8,6 @@
 <title>HipoBuy Nederland — NL-postcode & Douane (spreadsheet → hub)</title>
 <meta name="description" content="NL desk-notitie: merk-spreadsheet / finds / dataset horen op hipobuyspreadsheet.net (Independent Index · 8,600+). Hier: NL-postcode 1234 AB, Douane, PostNL.">
 
-
 <meta property="og:title" content="HipoBuy Nederland — NL-postcode & Douane (spreadsheet → hub)">
 <meta property="og:description" content="NL desk-notitie: merk-spreadsheet / finds / dataset horen op hipobuyspreadsheet.net (Independent Index · 8,600+). Hier: NL-postcode 1234 AB, Douane, PostNL.">
 <meta property="og:url" content="https://hipobuyspreadsheet.nl/hipobuy-spreadsheet/">
@@ -171,7 +170,6 @@ img{max-width:100%;display:block}
 </header>
 <main id="main" class="inner-article">
 
-
 <style>
 .hero{max-width:860px;margin:0 auto;padding:44px 24px 28px;text-align:center}
 .hbg{display:inline-flex;align-items:center;gap:6px;background:var(--acl);color:var(--acd);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:16px}
@@ -251,7 +249,7 @@ img{max-width:100%;display:block}
     <div class="hs"><div class="hsn">Daily</div><div class="hsl">Updates</div></div>
     <div class="hs"><div class="hsn">Free</div><div class="hsl">Access</div></div>
   </div>
-<p class="nl-gsc-extra-refresh" style="margin-top:12px;opacity:.9">Editor refresh 2026-07-31: confirm QC photos and EUR freight before submit.</p></section>
+</section>
  
 <div class="mw">
   <aside class="sb">
@@ -342,7 +340,6 @@ document.addEventListener('DOMContentLoaded',function(){
   lp(true);
 });
 </script>
-<section class="nl-gsc-extra-v2" style="max-width:960px;margin:28px auto;padding:28px;background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;color:#1e293b;line-height:1.75"><p style="font-size:12px;font-weight:700;color:#c2410c;text-transform:uppercase">NL editor notes</p><h2>Nederland: sheet-intent → hub; desk = Douane / PostNL</h2><p>Rijen/catalogus: open de hub <a href="https://hipobuyspreadsheet.net/">Independent Index</a> of <a href="https://hipobuyspreadsheet.net/finds-dataset/">finds-dataset</a>. Schat gewicht, modelleer EUR-vracht en BTW/Douane met postcode <strong>1234 AB</strong> vóór submit.</p><p>Pair: <a href="/hipobuy-shipping-guide/">shipping</a> · <a href="/hipobuy-qc-guide/">QC</a> · <a href="https://hipobuyspreadsheet.net/hipobuy-coupons/">hub coupons</a>.</p></section>
 </main>
 <footer class="site-ft">
   <div class="wrap ft-grid">

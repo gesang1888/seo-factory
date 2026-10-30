@@ -18,6 +18,8 @@ from pathlib import Path
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
+from strip_editor_notes import strip_html
+
 ROOT = Path(__file__).resolve().parents[1]
 OVERLAY = ROOT / "sites" / "fansbuy.co.uk" / "overlay"
 HOST = "fansbuy.co.uk"
@@ -423,7 +425,7 @@ def build() -> dict[str, Path]:
         base = OVERLAY / slug / "live-base.index.html"
         if not base.exists():
             raise SystemExit(f"missing live base: {base}")
-        deepened = BUILDERS[slug](base.read_text(errors="replace"))
+        deepened = strip_html(BUILDERS[slug](base.read_text(errors="replace")))
         _assert_ok(slug, deepened)
         dest = OVERLAY / slug / "index.html.uk-deepen"
         dest.write_text(deepened)

@@ -2,14 +2,12 @@
 <html lang="en-GB">
 <head>
 
-
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>FansBuy UK desk — Royal Mail / HMRC (not Spreadsheet hub)</title>
 <meta name="description" content="UK landing desk for FansBuy: Royal Mail, HMRC, GBP. Brand Spreadsheet / Independent Index · 12,000+ → fansbuysheets.net.">
-
 
 <meta property="og:title" content="FansBuy UK desk — Royal Mail / HMRC (not Spreadsheet hub)">
 <meta property="og:description" content="UK landing desk for FansBuy: Royal Mail, HMRC, GBP. Brand Spreadsheet / Independent Index → fansbuysheets.net.">
@@ -208,7 +206,6 @@ body.theme-fansbuy{background:#fff}
 </header>
 <main id="main" class="inner-article">
 
-
 <style>
 .hero{max-width:860px;margin:0 auto;padding:44px 24px 28px;text-align:center}
 .hbg{display:inline-flex;align-items:center;gap:6px;background:var(--acl);color:var(--acd);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:16px}
@@ -368,24 +365,6 @@ document.addEventListener('DOMContentLoaded',function(){
   if(!document.querySelector('#product-grid .pcard'))lp();
 });
 </script>
-<section class="uk-gsc-extra" style="max-width:960px;margin:28px auto;padding:28px;background:#f4f7fb;border:1px solid #d0dbe8;border-radius:14px;color:#1e293b;line-height:1.75">
-<section id="local" class="local-box" data-uk-fingerprint="uk-desk-not-second-hub" data-uk-deepen="20261028">
-<h2>UK desk — not a second Spreadsheet hub</h2>
-<ol>
-<li><strong>Brand Spreadsheet intent</strong> belongs on <a href="https://fansbuysheets.net/">fansbuysheets.net</a> (Independent Index · 12,000+).</li>
-<li><strong>This .co.uk URL</strong> helps UK landing: Royal Mail, HMRC, GBP, UK postcode — not a competing finds hero.</li>
-<li><strong>Coupons truth table</strong> → <a href="https://fansbuysheets.net/fansbuy-coupons/">hub coupons</a>; UK landing copy may stay local.</li>
-<li><strong>Dataset / W2C rows</strong> → <a href="https://fansbuysheets.net/finds-dataset/">hub finds-dataset</a>.</li>
-</ol>
-<p>Next on this desk: <a href="/fansbuy-shipping-guide/">UK shipping</a> · <a href="/fansbuy-qc-guide/">QC before Royal Mail</a>.</p>
-</section>
-
-<p style="font-size:12px;font-weight:700;color:#dc2626;text-transform:uppercase">UK editor notes</p>
-<h2 id="cede-hub">Why this page is not the brand Spreadsheet</h2>
-<p>GSC showed exact <em>fansbuy spreadsheet</em> clicks landing on the UK desk while the hub sat deeper. That is cannibalization. The Independent Index · <strong>12,000+</strong>, coupons truth and finds-dataset live on <a href="https://fansbuysheets.net/">fansbuysheets.net</a>. This .co.uk page is a UK landing helper (Royal Mail / HMRC / GBP) with optional local browsing — not a second global Spreadsheet hero.</p>
-<p>Open the hub catalogue: <a href="https://fansbuysheets.net/">Independent Index</a> · <a href="https://fansbuysheets.net/finds-dataset/">dataset</a> · <a href="https://fansbuysheets.net/fansbuy-coupons/">coupons</a>. Local next step: <a href="/fansbuy-shipping-guide/">UK shipping</a>.</p>
-
-<h2>How UK buyers should use this desk (then open the hub)</h2><p>Treat every row as a lead: open the source listing, confirm the product still matches, QC in warehouse, then model Royal Mail vs DHL in GBP.</p><ul><li>Prioritise rows with recent QC dates.</li><li>Build a shortlist with size, seller and landed-cost estimate.</li><li>Read <a href="/fansbuy-shipping-guide/">UK shipping</a> and <a href="/blog/posts/fansbuy-customs-guide/">customs</a> before heavy parcels.</li></ul></section>
 </main>
 <footer class="site-ft">
   <div class="wrap ft-grid">

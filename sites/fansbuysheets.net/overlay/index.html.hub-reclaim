@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- DEPLOY GUARD: surgical hub reclaim; do not replace with Georgia overlay/index.html -->
-<!-- hub-reclaim=fansbuy-hub-reclaim-20261028 -->
+<!-- DEPLOY GUARD: surgical ; do not replace with Georgia overlay/index.html -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -20,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-  {"@type":"WebSite","name":"FansBuy Spreadsheet","alternateName":["FansBuy Spreadsheet 2026","FansBuy Independent Index","fansbuy spreadsheet","fansbuy coupons","fansbuysheets.net"],"url":"https://fansbuysheets.net/","description":"Independent Index · 11,300+ FansBuy finds (found=11365). Not Excel. Primary hub after twin 301s. Hub reclaim 2026-10-28.","inLanguage":"en","dateModified":"2026-10-28"},
+  {"@type":"WebSite","name":"FansBuy Spreadsheet","alternateName":["FansBuy Spreadsheet 2026","FansBuy Independent Index","fansbuy spreadsheet","fansbuy coupons","fansbuysheets.net"],"url":"https://fansbuysheets.net/","description":"Independent Index · 11,300+ FansBuy finds (found=11365). Not Excel. Primary hub after twin 301s. 2026-10-28.","inLanguage":"en","dateModified":"2026-10-28"},
   {"@type":"WebPage","name":"FansBuy Spreadsheet 2026 — Independent Index · 11,300+","url":"https://fansbuysheets.net/","dateModified":"2026-10-28","isPartOf":{"@type":"WebSite","url":"https://fansbuysheets.net/"}},
   {"@type":"Organization","name":"FansBuy Spreadsheet","url":"https://fansbuysheets.net/","email":"cnfd85269032661@gmail.com","sameAs":["https://fansbuy.com/","https://discord.com/invite/4VPxrzrB6Z"]},
   {"@type":"FAQPage","mainEntity":[
@@ -133,7 +132,7 @@ img{max-width:100%;display:block}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="ann">Hub reclaim 2026-10-28 · Independent Index · 11,300+ · Open directory · vs fansbuyspreadsheet.com/fansbuy.org · Official QC photos &amp; videos · <strong>90-Day Free Storage</strong> · <a href="#hub-reclaim">Reclaim note</a></div>
+<div class="ann">2026-10-28 · Independent Index · 11,300+ · Open directory · vs fansbuyspreadsheet.com/fansbuy.org · Official QC photos &amp; videos · <strong>90-Day Free Storage</strong> · <a href="#hub-reclaim">Reclaim note</a></div>
 <nav class="nav">
   <div class="nbrand">
     <a href="/" class="nlo">
@@ -177,10 +176,7 @@ img{max-width:100%;display:block}
 <section class="sec" id="local">
   <h2 class="stit">Hub ownership · money URLs</h2>
   <p class="ssub">Brand spreadsheet + coupons intent lands on this .net hub. Country local intent (Royal Mail / HMRC) stays on <a href="https://fansbuy.co.uk/">fansbuy.co.uk</a>. Sunset twins stay 301 — do not revive.</p>
-  <div class="pp" id="hub-reclaim" data-hub-reclaim="fansbuy-hub-reclaim-20261028" style="border-left:3px solid #FF3444;background:#FFF5F5;padding:12px 14px;border-radius:8px;max-width:820px;margin:12px 0">
-    <strong>Reclaim 2026-10-28:</strong> Independent Index · 11,300+ (found=11365) · <a href="https://w2clinks.com/spreadsheet/fansbuy/" rel="noopener" target="_blank">Open directory</a> · <a href="/fansbuy-coupons/">coupons</a> · <a href="/finds-dataset/">dataset</a>. Tag <code>fansbuy-hub-reclaim-20261028</code>. Named SERP competitors: <em>fansbuyspreadsheet.com</em> · <em>fansbuy.org</em> · <em>w2clinks</em> · <em>qcradar</em> — named in copy only; we do not operate or mirror-register those hosts. UK keep stays Royal Mail/HMRC (not deepened this action). nl/de stay watch. Twins stay 301.
-  </div>
-  <p class="pp">Money URLs (≤6): <a href="/">Home</a> · <a href="/fansbuy-coupons/">/fansbuy-coupons/</a> · <a href="/fansbuy-shipping-guide/">/fansbuy-shipping-guide/</a> · <a href="/finds-dataset/">/finds-dataset/</a> · <a href="/is-fansbuy-legit/">/is-fansbuy-legit/</a> · <a href="/fansbuy-spreadsheet/">/fansbuy-spreadsheet/</a>. Machine-readable: <a href="/data/coupons-truth.json">coupons-truth.json</a> · <a href="/data/finds-dataset.json">finds-dataset.json</a>. Stamp <code>platform_opt=fansbuy-platform-20261026</code> · <code>hub_reclaim=fansbuy-hub-reclaim-20261028</code> · reviewed 28 Oct 2026.</p>
+  <p class="pp">Money URLs (≤6): <a href="/">Home</a> · <a href="/fansbuy-coupons/">/fansbuy-coupons/</a> · <a href="/fansbuy-shipping-guide/">/fansbuy-shipping-guide/</a> · <a href="/finds-dataset/">/finds-dataset/</a> · <a href="/is-fansbuy-legit/">/is-fansbuy-legit/</a> · <a href="/fansbuy-spreadsheet/">/fansbuy-spreadsheet/</a>. Machine-readable: <a href="/data/coupons-truth.json">coupons-truth.json</a> · <a href="/data/finds-dataset.json">finds-dataset.json</a>. Stamp <code>platform_opt=fansbuy-platform-20261026</code> · <code></code> · reviewed 28 Oct 2026.</p>
 </section>
 
 <section class="sec" id="official-promo">
