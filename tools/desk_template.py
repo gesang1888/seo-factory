@@ -45,6 +45,7 @@ CUSTOMS = {
     "FR": ("douane.gouv.fr", "https://www.douane.gouv.fr/"),
     "IT": ("Agenzia delle Dogane e dei Monopoli", "https://www.adm.gov.it/portale/"),
     "NL": ("Douane", "https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/"),
+    "FI": ("Tulli", "https://tulli.fi/"),
     "US": ("CBP", "https://www.cbp.gov/"),
     "CA": ("CBSA", "https://www.cbsa-asfc.gc.ca/"),
     "GB": ("HMRC", "https://www.gov.uk/goods-sent-from-abroad"),
@@ -127,7 +128,7 @@ DEST_LOCAL = {
             ("Última milla", "A menudo Correos. El artículo de aduana que ya posiciona en este host se conserva; esta portada no lo pisa."),
         ],
         "duty": "Quién paga aranceles al entrar en España lo dice la SKU. Correos puede añadir una tasa de despacho en Collect. Fuente: Agencia Tributaria, no un recuento de líneas de otro agente. Destino del estimador: España. Sin infradeclaración.",
-        "threshold": "IVA, IOSS y umbrales cambian. Lee la AEAT y la SKU el día del envío. Este desk no inventa un valor declarado ni copia un snapshot de 58 líneas ajenas.",
+        "threshold": "IVA, IOSS y umbrales cambian. Lee la AEAT y la SKU el día del envío. Este desk no inventa un valor declarado para una dirección en España.",
     },
     "FR": {
         "h2": "Ce qui vaut aujourd’hui pour une adresse en France",
@@ -156,6 +157,20 @@ DEST_LOCAL = {
         ],
         "duty": "Chi paga dazi verso l’Italia lo dice la SKU. Poste Italiane può aggiungere un fee di sdoganamento. Fonte: ADM (adm.gov.it). Destinazione IT, non Correos. Niente sottofatturazione.",
         "threshold": "IVA, IOSS e soglie cambiano. Leggi ADM e la SKU il giorno della spedizione. Questo desk non inventa un valore dichiarato per un CAP italiano.",
+    },
+    "FI": {
+        "h2": "Mitä tänään pätee suomalaiseen osoitteeseen",
+        "cta": "Check FI",
+        "fingerprint": "00100 Helsinki",
+        "aliens": ("Packstation", "Colissimo", "USPS", "iDEAL", "Royal Mail", "Österreichische Post", "CBSA", "ABF", "Poste Italiane", "form A1A 1A1"),
+        "steps": [
+            ("Arvioijan kohde: Suomi", "Valitse FI, ei EU, ei SE, ei tätä isäntänimeä. Ruotsalainen postinumero on väärä maa."),
+            ("Osoite", "Suomalainen katu ja viisinumeroinen postinumero (esim. 00100 Helsinki). Tämä ei ole Ruotsi."),
+            ("Tullit", "SKU päättää. Posti voi Collect-toimituksessa lisätä maksun. Lähde: Tulli (tulli.fi) lähetyspäivänä. Ei keksittyä ilmoitusarvoa."),
+            ("Viimeinen kilometri", "Usein Posti. Tämän hostin jo rankkaava toimitus-URL säilyy."),
+        ],
+        "duty": "Kuka maksaa tulot Suomeen, lukee SKU:sta. Posti voi Collectissa lisätä tullausmaksun. Lähde: Tulli. Kohde FI, viisinumeroinen postinumero kuten 00100 Helsinki, ei Ruotsi. Ei aliarvostusta.",
+        "threshold": "ALV, IOSS ja kynnykset muuttuvat. Lue Tulli ja SKU lähetyspäivänä. Tämä desk ei keksi ilmoitusarvoa suomalaiselle osoitteelle eikä kopioi Ruotsin kynnystä.",
     },
     "NL": {
         "h2": "Wat vandaag geldt voor een Nederlands adres",
@@ -408,6 +423,15 @@ def _local_chrome(loc: str) -> dict:
             "not_checkout": "deze HTML is geen kassa.",
             "hub": "Lab {date}. Open de officiële estimator met een echte landcode. Deze HTML is geen kassa.",
             "kept": "Al op deze host (behouden)",
+        },
+        "fi": {
+            "swap": "ei pelkkä maanimen vaihto",
+            "src": "Tämän deskin virallinen lähde",
+            "lab": "Lab",
+            "live": "Oikea raha on",
+            "not_checkout": "tämä HTML ei ole kassa.",
+            "hub": "Lab {date}. Avaa virallinen arvioija oikealla maakoodilla. Tämä HTML ei ole kassa.",
+            "kept": "Jo tällä hostilla (säilytetään)",
         },
         "en": {
             "swap": "not a location-name swap",
