@@ -6,6 +6,7 @@ Gates:
 2. Estimator country ≠ TLD; the .com hub must say it is not a customs territory.
 3. Titles have no invite/ref code; body has no customs coaching / 58-line snapshot.
 4. Same-agent country URLs stay independent (no 301). CA ≠ NL ≠ UK.
+   AllChinaBuy is not ACBuy: do not 301 into acbuyspreadsheets.* hosts.
 5. Same-country twins: target #local first, then 301; deep paths must not 404.
 6. Hub stays the original ~48KB CMS homepage — never PUT a 5KB country template over it.
 """
@@ -118,10 +119,10 @@ HUB = {
 # Same-agent same-country extras. Dest = GSC clicks, then ccTLD.
 # CA: allchinabuyspreadsheet.ca has 1 click; acbuy CA has 0.
 # NL: acbuyspreadsheets.nl has 3 clicks; allchina NL has 0.
-CONVERT_TWINS = {
-    "acbuyspreadsheets.ca": "allchinabuyspreadsheet.ca",
-    "allchinabuyspreadsheet.nl": "acbuyspreadsheets.nl",
-}
+# AllChinaBuy and ACBuy are different agents. Country dests of either
+# stay independent. Do not 301 allchinabuyspreadsheet.nl into
+# acbuyspreadsheets.nl, or acbuyspreadsheets.ca into this CA dest.
+CONVERT_TWINS = {}
 
 PATH_MAP = {
     "acbuyspreadsheets.ca": [
