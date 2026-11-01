@@ -293,7 +293,7 @@ def _sec_en(kind, host, label, customs, post, city, curl):
             f"{a} finds for {label} buyers",
             f"Top {a} finds on {host} are SKUs already QC’d for a {label} address — not a second global catalogue.",
             [
-                ("What are Kakobuy finds on this desk?", [
+                ("What are Kakobuy finds on this site?", [
                     f"Finds are rows you keep after warehouse photos: sneakers, jackets, bags. They live on {host} so Canada is not a location-name swap of a UK page.",
                 ]),
                 (f"Why {label} buyers use curated finds", [
@@ -309,7 +309,7 @@ def _sec_en(kind, host, label, customs, post, city, curl):
                     f"You still read {customs} ({curl}) the morning you ship. Finds only mean the piece was photographed in China before international freight.",
                 ]),
                 (f"Who should use finds from {host}", [
-                    f"Buyers who already have a {city} address and want QC’d picks, not a US de-minimis article. Sister hosts (FI/ES/FR/NL) stay separate files — no 301.",
+                    f"Buyers who already have a {city} address and want QC’d picks, not a US de-minimis article.",
                 ]),
                 ("Ready to open finds?", [
                     f"Use the cluster nav to QC, then shipping-to-Canada. Official register stays on kakobuy.com. {host} is information only.",
@@ -321,7 +321,7 @@ def _sec_en(kind, host, label, customs, post, city, curl):
             f"{a} QC photos before shipping to {label}",
             f"QC on {host} means warehouse photos in the official {a} app, taken in China, before you pay freight to {label}.",
             [
-                ("What QC is on this desk", [
+                ("What QC is on this site", [
                     "Quality check is extra angles of the piece in the warehouse — seams, tags, sole. It is not a laboratory and not a customs x-ray.",
                 ]),
                 ("When to ask for extra photos", [
@@ -372,7 +372,7 @@ def _sec_en(kind, host, label, customs, post, city, curl):
                     f"Yes if you treat {host} as a map and kakobuy.com as checkout. Address test: {city}. Source: {customs}.",
                 ]),
                 ("Ready to ship?", [
-                    f"QC first, then the official estimator toward {label}. Sister desks stay on their own hosts.",
+                    f"QC first, then the official estimator toward {label}.",
                 ]),
             ],
         )
@@ -428,10 +428,10 @@ def _sec_en(kind, host, label, customs, post, city, curl):
                     f"Estimator destination CA, address {city}. Read {customs} ({curl}) the morning you ship.",
                 ]),
                 (f"Step 5 — receive the package in {label}", [
-                    f"Last-mile is often {post}. Collect can add a fee. This desk does not track live parcels.",
+                    f"Last-mile is often {post}. Collect can add a fee.",
                 ]),
                 ("Tips for first orders", [
-                    "Do not paste a US ZIP. Do not book freight on a QC reject. Sister hosts are not 301s of this page.",
+                    "Do not paste a US ZIP. Do not book freight on a QC reject.",
                 ]),
             ],
         )
@@ -524,10 +524,10 @@ def _sec_fi(kind, host, label, customs, post, city, curl):
                     f"Luet silti {customs} ({curl}) lähetysaamuna. Finds tarkoittaa vain että kappale kuvattiin Kiinassa ennen kansainvälistä rahtia.",
                 ]),
                 ("Kenelle {host} findsit ovat", [
-                    f"Ostajalle, jolla on {city}-osoite. Sisarhostit (CA/ES/FR/NL) pysyvät erillisinä tiedostoina — ei 301.",
+                    f"Ostajalle, jolla on {city}-osoite.",
                 ]),
                 ("Valmis avaamaan findsit?", [
-                    "Cluster-navi: QC, sitten toimitus. Rekisteröinti kakobuy.comissa. Tämä host on infodesk.",
+                    "QC, sitten toimitus. Rekisteröinti kakobuy.comissa.",
                 ]),
             ],
         )
@@ -587,14 +587,14 @@ def _sec_fi(kind, host, label, customs, post, city, curl):
                     f"Kyllä, jos {host} on kartta ja kakobuy.com kassa. Osoitetesti: {city}. Lähde: {customs}.",
                 ]),
                 ("Valmis lähettämään?", [
-                    "QC ensin, sitten virallinen arvioija kohteeseen FI. Sisardeskien URL:t pysyvät omilla hosteillaan.",
+                    "QC ensin, sitten virallinen arvioija kohteeseen FI.",
                 ]),
             ],
         )
     if kind == "legal":
         return (
             f"Onko {a} laillinen Suomessa?",
-            f"{a} on ostoagentti. {host} on riippumaton infodesk, ei virallinen appi eikä {customs}.",
+            f"{a} on ostoagentti. {host} selittää Suomen polun; tilaukset kakobuy.comissa.",
             [
                 ("Onko Kakobuy laillinen Suomessa?", [
                     f"Ostoagentin käyttö ei ole rikos Suomessa. Restricted, alustan kiellot ja varattu SKU pätevät silti. Lue {curl} lähetysaamuna.",
@@ -693,7 +693,7 @@ def _sec_es(kind, host, label, customs, post, city, curl):
                     f"Sigues leyendo {customs} ({curl}) el día del envío. Find = fotografiado en China antes del flete internacional.",
                 ]),
                 ("Para quién", [
-                    f"Quien tiene {city}. Los hosts hermanos siguen en archivos separados — no 301.",
+                    f"Quien tiene {city}.",
                 ]),
                 ("Listo para abrir finds", [
                     "Navegación: QC, luego envío. Registro en kakobuy.com. Este host es información.",
@@ -1034,7 +1034,7 @@ def _sec_nl(kind, host, label, customs, post, city, curl):
                 ("Veiliger?", [
                     f"Je leest nog steeds {customs} ({curl}) op de verzenddag. Find = in China gefotografeerd vóór internationale vracht.",
                 ]),
-                ("Voor wie", [f"Wie {city} heeft. Zusterhosts blijven aparte bestanden — geen 301."]),
+                ("Voor wie", [f"Wie {city} heeft."]),
                 ("Finds openen", ["Nav: QC, dan verzending. Registreren op kakobuy.com. Deze host is informatie."]),
             ],
         )
@@ -1082,14 +1082,14 @@ def _sec_nl(kind, host, label, customs, post, city, curl):
                     f"Ja als {host} de kaart is en kakobuy.com de kassa. Adrescheck: {city}. Bron: {customs}.",
                 ]),
                 ("Klaar om te verzenden?", [
-                    "Eerst QC, dan officiële estimator naar NL. Zusterdesks zijn geen 301 van deze URL.",
+                    "Eerst QC, dan officiële estimator naar NL.",
                 ]),
             ],
         )
     if kind == "legal":
         return (
             f"Is {a} legaal in {label}?",
-            f"{a} is een inkoopagent. {host} is een infodesk, niet de officiële app en niet {customs}.",
+            f"{a} is een inkoopagent. Bestellen op kakobuy.com.",
             [
                 ("Is Kakobuy legaal in Nederland?", [
                     f"Een agent gebruiken is geen misdrijf. Restricted, platformregels en de SKU blijven. Lees {curl} op de verzenddag.",
@@ -1125,7 +1125,7 @@ def _sec_nl(kind, host, label, customs, post, city, curl):
                 ]),
                 ("Stap 5 — ontvangen", [f"Last mile vaak {post}. Collect kan extra innen."]),
                 ("Tips eerste order", [
-                    "Geen Duitse postcode. Geen vracht op afgewezen QC. Zusterhosts zijn geen 301.",
+                    "Geen Duitse postcode. Geen vracht op afgewezen QC.",
                 ]),
             ],
         )
@@ -1165,16 +1165,26 @@ def _nav(d: dict) -> str:
 
 def render_article(host: str, kind: str, d: dict) -> str:
     h1, lead, secs = sections_for(kind, d, host)
+    loc = d["loc"]
+    img, alt = {
+        "spreadsheet": ("/media/official-home-20261001.jpg", "Kakobuy"),
+        "finds": ("/img/cat/sneakers.jpg", "Kakobuy finds"),
+        "qc": ("/media/help-restricted-20261001.jpg", "Kakobuy QC"),
+        "shipping": ("/media/estimator-20261001.jpg", "Kakobuy shipping"),
+        "legal": ("/media/official-home-20261001.jpg", "Kakobuy"),
+        "guide": ("/media/official-home-20261001.jpg", "Kakobuy"),
+        "faq": ("/img/cat/hoodie.jpg", "Kakobuy FAQ"),
+    }.get(kind, ("/media/official-home-20261001.jpg", "Kakobuy"))
     chunks = [
         f'<article class="cluster-page" data-spreadsheet-cluster="20261030" {MARKER} data-kind="{escape(kind)}">',
         f"<h1>{escape(h1)}</h1>",
         f'<p class="lead">{escape(lead)}</p>',
+        f'<figure class="kb-illust"><img src="{img}" alt="{escape(alt)}" width="1400" height="900" loading="lazy" decoding="async"></figure>',
     ]
     for h2, paras in secs:
         chunks.append(f"<h2>{escape(h2)}</h2>")
         for p in paras:
             chunks.append(f"<p>{escape(p)}</p>")
-    loc = d["loc"]
     h2nav = {
         "en": "Spreadsheet / finds / QC / Shipping",
         "es": "Spreadsheet / finds / QC / Envío",
@@ -1184,14 +1194,14 @@ def render_article(host: str, kind: str, d: dict) -> str:
     }[loc]
     chunks.append(f"<h2>{escape(h2nav)}</h2>")
     chunks.append(_nav(d))
-    legal = {
-        "en": f"{host} is an information desk for {d['label']}, not Kakobuy. Sister country hosts stay separate files — no 301. Copy reviewed {TODAY}. No declared-value coaching. Source: {d['customs']}.",
-        "es": f"{host} es un desk informativo para {d['label']}, no Kakobuy. Los hosts hermanos siguen en archivos separados — no 301. Texto {TODAY}. Sin infradeclaración. Fuente: {d['customs']}.",
-        "fr": f"{host} est un desk d’information pour {d['label']}, pas Kakobuy. Hôtes sœurs en fichiers séparés — pas de 301. Texte {TODAY}. Pas de sous-déclaration. Source : {d['customs']}.",
-        "nl": f"{host} is een infodesk voor {d['label']}, niet Kakobuy. Zusterhosts blijven aparte bestanden — geen 301. Tekst {TODAY}. Geen onderwaardering. Bron: {d['customs']}.",
-        "fi": f"{host} on infodesk Suomelle, ei Kakobuy. Sisarhostit erillisinä tiedostoina — ei 301. Teksti {TODAY}. Ei aliarvostusta. Lähde: {d['customs']}.",
+    cta = {
+        "en": f"Shop and pay on kakobuy.com. Prices on this page are shown in local currency for {d['label']}.",
+        "es": f"Compra y paga en kakobuy.com. Los precios de esta página se muestran en moneda local para {d['label']}.",
+        "fr": f"Commande et paiement sur kakobuy.com. Les prix de cette page sont affichés dans la monnaie locale pour {d['label']}.",
+        "nl": f"Bestellen en betalen op kakobuy.com. Prijzen op deze pagina staan in lokale valuta voor {d['label']}.",
+        "fi": f"Tilaa ja maksa osoitteessa kakobuy.com. Hinnat tällä sivulla näytetään paikallisessa valuutassa.",
     }[loc]
-    chunks.append(f'<p class="legal-note">{escape(legal)}</p>')
+    chunks.append(f'<p class="kb-cta">{escape(cta)}</p>')
     chunks.append("</article>")
     return "\n".join(chunks) + "\n"
 
