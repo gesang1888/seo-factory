@@ -16,6 +16,7 @@ OFF = "https://orientdig.com/"
 EST = "https://orientdig.com/estimation/"
 HELP = "https://orientdig.com/help-center/"
 DIY = "https://orientdig.com/diy-order/"
+W2C_SHEET = "https://w2clinks.com/spreadsheet/orientdig/"
 
 SHOT_HOME = "/media/official-home-20261101.png"
 SHOT_EST = "/media/estimator-20261101.png"
@@ -492,7 +493,8 @@ def rebuild_home(html: str, host: str, d: dict) -> str:
         f'<section class="sg-sec" id="agent"><div class="sg-split"><div class="sg-prose">'
         f"<h2>OrientDig</h2><p>{escape(L['sub'])}</p>"
         f'<p><a class="btn btn-primary" href="{OFF}">{escape(L["reg"])}</a> '
-        f'<a class="btn btn-outline" href="{EST}">Estimation</a></p>'
+        f'<a class="btn btn-outline" href="{EST}">Estimation</a> '
+        f'<a class="btn btn-outline" href="{W2C_SHEET}" target="_blank" rel="noopener">w2clinks</a></p>'
         f'</div>{fig(SHOT_DIY, L["cap_diy"])}</div></section>',
     )
     html = _replace_section(html, "sheet-explain", shots_html(d))
@@ -532,6 +534,14 @@ def rebuild_home(html: str, host: str, d: dict) -> str:
         count=1,
     )
     html = strip_ops(html)
+    html = patch_catalog_w2c(html)
+    return html
+
+
+def patch_catalog_w2c(html: str) -> str:
+    """Homepage cards fetch /api/products/ and open on w2clinks.com."""
+    html = html.replace('var REG="https://orientdig.com/";', f'var REG="{W2C_SHEET}";')
+    html = html.replace("var REG='https://orientdig.com/';", f'var REG="{W2C_SHEET}";')
     return html
 
 

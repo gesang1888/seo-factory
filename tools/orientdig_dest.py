@@ -52,6 +52,9 @@ BAK_IT = "/www/backup/portfolio-step5-phasec-20261026-151213"
 OFFICIAL = "https://orientdig.com/"
 EST = "https://orientdig.com/estimation/"
 A = "OrientDig"
+W2C_SHEET = "https://w2clinks.com/spreadsheet/orientdig/"
+PRODUCTS_PHP = (ROOT / "templates" / "api" / "products.php").read_text(encoding="utf-8")
+PRODUCTS_INDEX = (ROOT / "templates" / "api" / "products_index.php").read_text(encoding="utf-8")
 
 HOSTS = {
     "orientdig.at": {
@@ -763,7 +766,99 @@ def generate() -> list[Path]:
             now = overlay(host) / rel
             if now.is_file() and now.read_bytes() != blob:
                 raise SystemExit(f"refused to smash unique {rel} on {host}")
+        written.extend(write_api_overlay(host))
     return written
+
+
+def write_api_overlay(host: str) -> list[Path]:
+    """Same-host /api/products/ adapter → w2clinks.com typesense."""
+    api_dir = overlay(host) / "api"
+    prod_dir = api_dir / "products"
+    prod_dir.mkdir(parents=True, exist_ok=True)
+    upstream = api_dir / "products.php"
+    index = prod_dir / "index.php"
+    upstream.write_text(PRODUCTS_PHP, encoding="utf-8")
+    index.write_text(PRODUCTS_INDEX, encoding="utf-8")
+    print("API", host, "products.php + products/index.php")
+    return [upstream, index]
+
+
+def _w2c_api_key() -> str:
+    for name in ("W2CLINKS_API_KEY", "W2C_PRODUCTS_API_KEY"):
+        val = (os.environ.get(name) or "").strip()
+        if val:
+            return val
+    for path in (
+        Path("/cursor/stores/self/w2c-api-key"),
+        Path("/tmp/hipobuy-creds/w2c-api-key"),
+    ):
+        if path.is_file():
+            val = path.read_text(encoding="utf-8").strip()
+            if val:
+                return val
+    return ""
+
+
+def put_api_secrets(client) -> None:
+    """Origin-only config.local.php — not written into git overlay."""
+    key = _w2c_api_key()
+    if not key:
+        print("API_KEY_SKIP no key file")
+        return
+    body = (
+        "<?php\ndeclare(strict_types=1);\n"
+        "return ['api_key' => " + json.dumps(key) + "];\n"
+    )
+    sftp = client.open_sftp()
+    n = 0
+    for host in ORDER:
+        remote = f"/www/wwwroot/{host}/api/config.local.php"
+        _run(client, f"mkdir -p '/www/wwwroot/{host}/api'")
+        bak = remote + ".bak"
+        _run(client, f"test -f '{remote}' && cp -a '{remote}' '{bak}' || true")
+        with sftp.open(remote, "w") as fh:
+            fh.write(body)
+        _run(client, f"chown www:www '{remote}' && chmod 640 '{remote}'")
+        n += 1
+    sftp.close()
+    print("API_KEY_PUT", n, "hosts")
+
+
+def fix_api_nginx(client) -> None:
+    """Route /api/products/ to PHP the way kakobuy dests do."""
+    old = """    location /api/ {
+        try_files $uri =404;
+        add_header X-Robots-Tag "noindex, nofollow" always;
+    }
+"""
+    new = """    location /api/ {
+        rewrite ^/api/([^/]+)/?$ /api/$1/index.php last;
+        add_header X-Robots-Tag "noindex, nofollow" always;
+    }
+"""
+    changed = 0
+    sftp = client.open_sftp()
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    bak_root = f"/www/backup/orientdig-api-nginx-{stamp}"
+    _run(client, f"mkdir -p '{bak_root}'")
+    for host in ORDER:
+        path = f"/www/server/panel/vhost/nginx/{host}.conf"
+        raw = _run(client, f"cat '{path}'")
+        if "rewrite ^/api/([^/]+)/?$ /api/$1/index.php last" in raw:
+            print("ok", host, "api rewrite")
+            continue
+        if old not in raw:
+            print("skip", host, "api block mismatch")
+            continue
+        _run(client, f"cp -a '{path}' '{bak_root}/{host}.conf'")
+        with sftp.open(path, "w") as fh:
+            fh.write(raw.replace(old, new, 1))
+        print("PATCH", path)
+        changed += 1
+    sftp.close()
+    if changed:
+        print(_run(client, "nginx -t && nginx -s reload"))
+    print("NGINX_API", changed)
 
 
 def put(files: list[Path] | None = None) -> None:
@@ -790,6 +885,8 @@ def put(files: list[Path] | None = None) -> None:
         n += 1
         print("PUT", remote)
     sftp.close()
+    put_api_secrets(client)
+    fix_api_nginx(client)
     client.close()
     print("PUT_DONE", n, "backup", bak)
 
@@ -812,6 +909,8 @@ def verify() -> None:
         ("https://orientdig.us/", "Best Finds"),
         ("https://orientdigspreadsheet.de/", "Beste Finds"),
         ("https://orientdigspreadsheet.uk/", "Best Finds"),
+        ("https://orientdigspreadsheet.uk/", "w2clinks.com/spreadsheet/orientdig"),
+        ("https://orientdig.at/", "w2clinks.com/spreadsheet/orientdig"),
         ("https://orientdig.at/orientdig-spreadsheet/", "1010 Wien"),
         ("https://orientdigspreadsheet.de/orientdig-spreadsheets/", "Packstation"),
         ("https://orientdigspreadsheet.de/orientdig-spreadsheet/", None),  # GSC 301 → plural keep
@@ -825,7 +924,9 @@ def verify() -> None:
         ("https://orientdig.us/orientdig-shipping/", "USPS"),
         ("https://orientdigspreadsheet.fr/", None),  # twin must stay 301
         ("https://orientdigspreadsheet.us/", None),
+        ("https://orientdig.es/como-comprar-en-orientdig/", "Guía OrientDig para España"),
     ]
+    # Duplicate unique check already listed above; keep twins last.
     for url, needle in checks:
         req = Request(url, headers={"User-Agent": "orientdig-dest/1.0"})
         try:
@@ -840,6 +941,53 @@ def verify() -> None:
             print("VERIFY", exc.code, url, loc)
         except Exception as exc:  # noqa: BLE001
             print("VERIFY_ERR", url, type(exc).__name__, str(exc)[:120])
+    verify_api()
+
+
+def verify_api() -> None:
+    from urllib.request import Request, urlopen
+
+    for host in ORDER:
+        for path, needle_q in (
+            (f"https://{host}/api/products/?limit=2&page=1", None),
+            (f"https://{host}/api/products/?q=sneakers&limit=2&page=1", "sneakers"),
+        ):
+            req = Request(path, headers={"User-Agent": "orientdig-dest/1.0", "Accept": "application/json"})
+            try:
+                with urlopen(req, timeout=22) as resp:
+                    raw = resp.read().decode("utf-8", "replace")
+                    data = json.loads(raw)
+                    items = data.get("items") or data.get("products") or []
+                    hrefs = [str(it.get("href") or it.get("target") or "") for it in items if isinstance(it, dict)]
+                    w2c = sum(1 for h in hrefs if h.startswith("https://w2clinks.com/"))
+                    print(
+                        "VERIFY_API",
+                        resp.status,
+                        host,
+                        "q=" + (needle_q or "-"),
+                        "n=" + str(len(items)),
+                        "w2c=" + str(w2c),
+                        "found=" + str(data.get("found", "")),
+                    )
+                    if resp.status != 200 or not items or w2c == 0:
+                        print("VERIFY_API_FAIL", host, path.split("?")[0])
+            except Exception as exc:  # noqa: BLE001
+                print("VERIFY_API_ERR", host, type(exc).__name__, str(exc)[:120])
+
+
+def wire_api() -> list[Path]:
+    """Homepage + /api/products/ only. Does not deepen inner CMS."""
+    written: list[Path] = []
+    for host in ORDER:
+        snap = _unique_snapshot(host)
+        written.append(patch_home(host, HOSTS[host]))
+        written.extend(write_api_overlay(host))
+        for rel, blob in snap.items():
+            now = overlay(host) / rel
+            if now.is_file() and now.read_bytes() != blob:
+                raise SystemExit(f"refused to smash unique {rel} on {host}")
+        print("WIRE", host)
+    return written
 
 
 def gsc_submit() -> None:
@@ -883,6 +1031,10 @@ def main() -> None:
     elif cmd == "put":
         put()
     elif cmd == "verify":
+        verify()
+    elif cmd == "api":
+        files = wire_api()
+        put(files)
         verify()
     elif cmd == "gsc":
         gsc_submit()
