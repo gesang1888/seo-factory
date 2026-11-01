@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://orientdigspreadsheet.it/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://orientdigspreadsheet.it/how-to-use-orientdig/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -56,7 +56,7 @@
   </url>
   <url>
     <loc>https://orientdigspreadsheet.it/is-orientdig-legit/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://orientdigspreadsheet.it/orientdig-finds/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://orientdigspreadsheet.it/orientdig-qc/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -116,13 +116,13 @@
   </url>
   <url>
     <loc>https://orientdigspreadsheet.it/orientdig-shipping/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://orientdigspreadsheet.it/orientdig-spreadsheets/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -149,5 +149,11 @@
     <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://orientdigspreadsheet.it/orientdig-faq/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
