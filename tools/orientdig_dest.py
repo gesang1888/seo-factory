@@ -905,6 +905,8 @@ def verify() -> None:
         ("https://orientdigspreadsheet.nl/", "OrientDig Spreadsheet voor kopers in Nederland"),
         ("https://orientdig.at/", "Finds"),
         ("https://orientdig.es/", "Mejores finds y QC"),
+        ("https://orientdig.es/", 'action="https://w2clinks.com/spreadsheet/"'),
+        ("https://orientdigspreadsheet.uk/", 'action="https://w2clinks.com/spreadsheet/"'),
         ("https://orientdig.fr/", "Meilleurs finds et QC"),
         ("https://orientdig.us/", "Best Finds"),
         ("https://orientdigspreadsheet.de/", "Beste Finds"),

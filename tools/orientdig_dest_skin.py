@@ -17,6 +17,7 @@ EST = "https://orientdig.com/estimation/"
 HELP = "https://orientdig.com/help-center/"
 DIY = "https://orientdig.com/diy-order/"
 W2C_SHEET = "https://w2clinks.com/spreadsheet/orientdig/"
+W2C_SEARCH = "https://w2clinks.com/spreadsheet/"
 
 SHOT_HOME = "/media/official-home-20261101.png"
 SHOT_EST = "/media/estimator-20261101.png"
@@ -70,7 +71,7 @@ body{background:#f6f7f8;font-family:Inter,ui-sans-serif,system-ui,-apple-system,
 .od-hero-copy .hsub{color:#f3f3f3;font-size:18px;max-width:640px}
 .od-search{display:flex;gap:8px;margin:22px 0 10px;background:#fff;border-radius:999px;padding:6px 6px 6px 16px;align-items:center;max-width:640px}
 .od-search input{flex:1;border:0;outline:none;font-size:14px;background:transparent}
-.od-search .btn{border-radius:999px;min-width:110px}
+.od-search .btn{border-radius:999px;min-width:110px;border:0;cursor:pointer;font:inherit}
 .od-hero .cluster-nav a{color:#fff}
 .od-hero .eu-badge{background:#f7931e;color:#fff}
 .od-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
@@ -468,9 +469,9 @@ def rebuild_hero(html: str, host: str, d: dict) -> str:
         '<div class="od-hero-copy">'
         f"<h1>{h1}</h1>"
         f'<p class="hsub">{escape(L["sub"])}</p>'
-        '<form class="od-search" action="https://orientdig.com/" method="get">'
+        f'<form class="od-search" action="{W2C_SEARCH}" method="get" target="_blank" rel="noopener">'
         f'<input name="q" placeholder="{escape(L["search"])}" aria-label="{escape(L["search"])}">'
-        f'<a class="btn btn-primary" href="{OFF}">{escape(L["submit"])}</a>'
+        f'<button class="btn btn-primary" type="submit">{escape(L["submit"])}</button>'
         "</form>"
         f"{nav_html}"
         f'<p class="eu-badge">{escape(d["dest"])} · {escape(d["ccy"])} · {escape(d["post"])}</p>'
