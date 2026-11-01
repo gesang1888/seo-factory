@@ -385,6 +385,20 @@ def cluster_h1(agent: str, dest: str | None, loc: str, dest_label: str | None = 
     return f"{cluster_title(agent, dest, loc, dest_label)} (2026)"
 
 
+def cluster_title_serp(agent: str, dest: str | None, loc: str, dest_label: str | None = None) -> str:
+    """SERP title: cluster title plus Finds & QC, matching kakobuy.co.uk. H1 stays unsuffixed."""
+    base = cluster_title(agent, dest, loc, dest_label)
+    suffix = {
+        "de": " – Beste Finds & QC",
+        "es": " – Mejores finds y QC",
+        "fr": " – Meilleurs finds et QC",
+        "it": " – Migliori finds e QC",
+        "nl": " – Beste finds en QC",
+        "fi": " – Finds ja QC",
+    }.get(loc, " – Best Finds & QC")
+    return base + suffix
+
+
 def cluster_keywords(agent: str, dest: str | None, loc: str = "en", dest_label: str | None = None) -> list[str]:
     geo = KW_GEO.get(dest or "", "") or cluster_country_name(dest, loc, dest_label).lower()
     geo = geo.replace(" ", "")
