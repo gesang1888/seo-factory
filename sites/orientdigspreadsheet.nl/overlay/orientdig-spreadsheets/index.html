@@ -28,6 +28,8 @@
 
 
 
+
+
 <style id="od-official-skin">
 :root{--primary:#f7931e;--primary-dark:#e07f12;--primary-soft:#fff4e8;--nav-dark:#272121;--od-orange:#f7931e}
 body{background:#f6f7f8;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -48,7 +50,7 @@ body{background:#f6f7f8;font-family:Inter,ui-sans-serif,system-ui,-apple-system,
 .od-hero-copy .hsub{color:#f3f3f3;font-size:18px;max-width:640px}
 .od-search{display:flex;gap:8px;margin:22px 0 10px;background:#fff;border-radius:999px;padding:6px 6px 6px 16px;align-items:center;max-width:640px}
 .od-search input{flex:1;border:0;outline:none;font-size:14px;background:transparent}
-.od-search .btn{border-radius:999px;min-width:110px}
+.od-search .btn{border-radius:999px;min-width:110px;border:0;cursor:pointer;font:inherit}
 .od-hero .cluster-nav a{color:#fff}
 .od-hero .eu-badge{background:#f7931e;color:#fff}
 .od-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
@@ -79,6 +81,8 @@ figure.shot figcaption{font-size:13px;color:#666;margin-top:8px}
 .od-pay{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .od-pay span{background:#fff;color:#272121;border-radius:6px;padding:4px 8px;font-size:11px;font-weight:800}
 </style>
+
+
 
 
 
@@ -123,18 +127,40 @@ figure.shot figcaption{font-size:13px;color:#666;margin-top:8px}
 <h2>Klaar</h2>
 <p>Finds, QC, verzending NL, daarna orientdig.com.</p>
 <h2>Bezorgadres in Nederland</h2>
-<p>Nederlandse straat en Nederlandse postcode 1234 AB. Een Duits Packstation of Belgische postcode is het verkeerde land.</p>
-<p>Kies in https://orientdig.com/estimation/ bestemming Nederland vóór je vracht betaalt.</p>
+<p>Op het label horen een Nederlandse straat en Nederlandse postcode 1234 AB. Een Duits Packstation-nummer of een Belgische viercijferige postcode is het verkeerde land, ook als de app Nederlands toont.</p>
+<p>Kies in https://orientdig.com/estimation/ bestemming Nederland vóór je internationale vracht betaalt. De SKU komt uit de calculator, niet van deze hostname.</p>
 <h2>Prijzen in EUR</h2>
-<p>Finds op deze pagina staan in EUR. Betalen doe je op orientdig.com. Live vracht: https://orientdig.com/estimation/. iDEAL bevestig je in de app.</p>
+<p>Finds op deze pagina staan in EUR. Betalen doe je op orientdig.com — kaart, PayPal, saldo of iDEAL, wat het account die ochtend aanbiedt. iDEAL bevestig je in de officiële app, niet op orientdigspreadsheet.nl.</p>
+<p>Staat in de SPA nog een dollarteken, dan geldt het bedrag in de app en de calculator https://orientdig.com/estimation/ met bestemming Nederland. Deze pagina is geen kassa.</p>
 <h2>Plak een Taobao-, 1688- of Weidian-link</h2>
-<p>Plak de URL op orientdig.com. OrientDig koopt naar het magazijn, daarna boek je de lijn naar Nederland.</p>
-<p>Sneakers, hoodies, jassen en tassen hebben meestal QC-foto’s.</p>
-<h2>QC-foto’s, dan PostNL</h2>
-<p>Foto’s in de app checken, daarna vracht. Last-mile vaak DHL / PostNL.</p>
-<p>Twee betalingen: goederen, daarna vracht. Magazijndagen in de Help op orientdig.com.</p>
+<p>Kopieer de product-URL uit de Chinese shop en plak die op orientdig.com. OrientDig koopt naar het magazijn. orientdigspreadsheet.nl is de spreadsheet en de handleiding naar een Nederlandse deur.</p>
+<p>Sneakers, hoodies, jassen en tassen hebben meestal QC-foto’s. Elektronica, parfum en vloeistoffen blijven eraf tot de app ze de ochtend van verzending toestaat.</p>
+<h2>QC-foto’s, dan PostNL of DHL</h2>
+<p>Wacht op magazijnfoto’s in de app. Extra hoeken zijn vaak betaald. Pas na QC boek je de internationale lijn. Last-mile vaak DHL / PostNL.</p>
+<p>Twee betalingen: goederen naar China, daarna vracht. Magazijndagen staan in de Help op orientdig.com — lees ze op de verzenddag, niet in een oude forumpost.</p>
 <h2>Douane</h2>
-<p>Wie invoerrechten betaalt, staat op de SKU. Bron: https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/ (Belastingdienst Douane). Deze pagina verzint geen aangegeven waarde.</p>
+<p>Wie invoerrechten, btw bij invoer en Collect betaalt, staat op de geboekte SKU. DHL / PostNL kan een toeslag innen die de calculator niet toont. Bron die ochtend: https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/ (Belastingdienst Douane). Deze pagina verzint geen tarief en geen aangegeven waarde.</p>
+<h2>Magazijn in China, geen PostNL-depot</h2>
+<p>QC-foto’s ontstaan in het OrientDig-magazijn in China. Een depot van DHL / PostNL in Nederland is last-mile, geen tweede QC-studio. Extra hoeken vraag je in de app vóór je vracht naar Nederland betaalt.</p>
+<p>Magazijndagen staan in de Help op orientdig.com. Deze pagina verzint geen gratis extra dagen. Na QC open je https://orientdig.com/estimation/ met bestemming Nederland. Nederlandse postcode 1234 AB.</p>
+<h2>Eerste order: één kleding-SKU</h2>
+<p>Voor de eerste Nederlandse deur volstaat één hoodie of een paar sneakers met magazijnfoto’s. Meerdere ongecheckte stukken op de eerste rekening mengen Belastingdienst Douane en Collect.</p>
+<p>Restricted, parfum, batterijen en vloeistoffen blijven eraf tot de app ze toestaat op de verzenddag. orientdigspreadsheet.nl toont finds; de blokkade staat in de app.</p>
+<h2>Engelse catalogus-keys zijn labels</h2>
+<p>De categorie-muur zegt sneakers, hoodie, jacket, bag omdat de index Engels is. Nederlandse woorden zoals schoenen of trui geven vaak 0 kaarten — dat is geen lege shop.</p>
+<p>Die keys veranderen douane noch last-mile. Estimator-land blijft Nederland, EUR is weergave, kassa is orientdig.com. iDEAL bevestig je in de officiële app, niet op orientdigspreadsheet.nl.</p>
+<h2>Wat deze hostname niet is</h2>
+<p>orientdigspreadsheet.nl is spreadsheet en handleiding naar een Nederlandse deur. Het is geen tweede OrientDig-kassa, geen Douane-loket en geen DHL / PostNL-klantenservice. Registreren en tickets alleen op orientdig.com.</p>
+<p>Een Duits Packstation-nummer of een Belgische viercijferige postcode hoort niet in deze estimator. NL is 1234 AB. De SKU komt uit de calculator, niet van een Discord-screenshot.</p>
+<h2>Tracken na de grens</h2>
+<p>Zolang de SKU in China is, zie je magazijnstatus in de app. Na de internationale lijn volgt tracking de SKU — vaak DHL / PostNL. Collect kan aan de deur verschijnen.</p>
+<p>Wie invoerrechten, btw bij invoer en Collect betaalt, staat op de geboekte SKU. Bron die ochtend: https://www.belastingdienst.nl/wps/wcm/connect/nl/douane/ (Belastingdienst Douane). Deze pagina plakt geen tarief in de title en verzint geen aangegeven waarde.</p>
+<h2>Retour alleen in het magazijn</h2>
+<p>Fail-QC of verkeerde maat los je in de app op zolang het stuk in China ligt. Heeft DHL / PostNL al bezorgd, opent Belastingdienst Douane geen magazijnticket.</p>
+<p>Twee betalingen blijven normaal: goederen naar China, daarna vracht. Toont de app één kas, dan geldt de app. orientdig.com.</p>
+<h2>Burenslanden zijn andere SKUs</h2>
+<p>Nederlandse postcode 1234 AB is de adrescheck van dit desk. Packstation is Duitsland. Vier cijfers zonder letters is vaak België. Verkeerd land in de estimator is een andere lijn.</p>
+<p>Een rankende douane-URL op orientdigspreadsheet.nl is geen live tarief. Bevestig in de app en bij de Douane op de verzenddag, daarna de lijn boeken.</p>
 <h2>Spreadsheet / finds / QC / Verzending</h2>
 <ul class="cluster-links"><li><a href="/orientdig-spreadsheets/">Spreadsheet</a></li><li><a href="/orientdig-finds/">Finds</a></li><li><a href="/orientdig-qc/">QC</a></li><li><a href="/orientdig-shipping/">Verzending</a></li><li><a href="/is-orientdig-legit/">Legaal?</a></li><li><a href="/how-to-use-orientdig/">Handleiding</a></li><li><a href="/orientdig-faq/">FAQ</a></li></ul>
 <p class="kb-cta">Bestellen en betalen op orientdig.com. Prijzen op deze pagina staan in lokale valuta.</p>

@@ -739,6 +739,49 @@ def seed_keep_pages(host: str, d: dict) -> None:
             print("SEED", host, keep, "from", old)
 
 
+def append_es_finds_buyer() -> Path | None:
+    """Buyer-facing Spanish depth after unique Dataset CMS. Does not rewrite the article."""
+    path = overlay("orientdig.es") / "finds-dataset" / "index.html"
+    if not path.is_file():
+        return None
+    html = path.read_text(encoding="utf-8")
+    section = """
+<section id="es-finds-buyer" class="wrap" lang="es">
+  <h2>Finds OrientDig para una puerta en España</h2>
+  <p>El dataset de arriba cuenta filas y categorías. Esta sección explica el camino de compra hacia una dirección española: fotos de almacén en China, luego flete. No es Excel ni caja. Los pedidos siguen en <a href="https://orientdig.com/">orientdig.com</a>.</p>
+  <p>La etiqueta quiere calle española y código postal de cinco dígitos. Un code postal francés o un CAP italiano es el país equivocado, aunque la app esté en español. Canarias, Ceuta o Melilla pueden ser otro producto de transportista — elige la línea viva en el estimador, no copies la SKU de Madrid.</p>
+  <h2>Cómo elegir un find</h2>
+  <p>Un find útil tiene enlace de Taobao, 1688 o Weidian vivo, al menos una foto de almacén, y destino España en <a href="https://orientdig.com/estimation/">el estimador oficial</a>. Precio 0 o restricted es fuente muerta, no un descuento. Zapatillas, sudaderas, cazadoras y bolsos suelen tener ángulos QC; electrónica, perfume y líquidos se quedan fuera hasta que la app los permita el día del envío.</p>
+  <p>Las claves del muro (sneakers, hoodie, jacket) están en inglés porque el índice está en inglés. Buscar «zapatillas» suele devolver cero fichas. Eso no convierte el paquete en un envío US. El país del estimador sigue siendo España. Pagas en euros de visualización aquí; la caja real está en orientdig.com.</p>
+  <h2>QC, Correos y Agencia Tributaria</h2>
+  <p>Las fotos QC se hacen en China. Extra ángulos se piden en la app mientras la SKU está en almacén. Cuando Correos ya tiene el cartón, la Agencia Tributaria no reabre un ticket de almacén. Tras aceptar el QC, reserva la línea internacional. Última milla a menudo Correos.</p>
+  <p>Hay dos pagos: mercancía a China, luego flete. Los días de almacén están en la Help oficial. Quién paga aranceles, IVA de importación y Collect lo decide la SKU reservada. Fuente el día del envío: <a href="https://sede.agenciatributaria.gob.es/">Agencia Tributaria</a>. Esta página no inventa un tipo ni un valor declarado.</p>
+  <h2>Primera compra y consolidación</h2>
+  <p>Para la primera puerta en España basta una SKU de ropa con fotos. Consolidar varias piezas sin QC en la primera factura mezcla aduana y Collect. Restricted se queda fuera aunque un foro lo nombre.</p>
+  <p>Fail-QC se resuelve en la app mientras la pieza está en China. Correos no rehace la foto de almacén a cartón ya en España. Si la app cobra una sola vez, vale la app — dos recibos (mercancía, luego flete) son el caso habitual.</p>
+  <h2>Qué no es este hostname</h2>
+  <p>orientdig.es es índice y guía hacia una puerta en España. No cobra tarjeta, no es atención de Correos y no sustituye el estimador. Registro y tickets solo en orientdig.com.</p>
+  <p>Un artículo de aduana que rankea aquí no es un arancel vivo: los umbrales cambian. Confirma destino España en el estimador y lee la Agencia Tributaria la mañana que envías. El JSON de arriba sigue siendo la prueba de filas; esta sección es la guía de comprador en español.</p>
+</section>
+"""
+    if 'id="es-finds-buyer"' in html:
+        html = re.sub(
+            r'\n?<section id="es-finds-buyer"[\s\S]*?</section>\n?',
+            "\n" + section + "\n",
+            html,
+            count=1,
+        )
+        print("ES_FINDS_BUYER replaced")
+    elif "</article>" in html:
+        html = html.replace("</article>", "</article>\n" + section, 1)
+        print("ES_FINDS_BUYER appended")
+    else:
+        html = html.replace("</body>", section + "\n</body>", 1)
+        print("ES_FINDS_BUYER appended")
+    path.write_text(html, encoding="utf-8")
+    return path
+
+
 def generate() -> list[Path]:
     written: list[Path] = []
     for host in ORDER:
@@ -766,6 +809,10 @@ def generate() -> list[Path]:
             now = overlay(host) / rel
             if now.is_file() and now.read_bytes() != blob:
                 raise SystemExit(f"refused to smash unique {rel} on {host}")
+        if host == "orientdig.es":
+            buyer = append_es_finds_buyer()
+            if buyer:
+                written.append(buyer)
         written.extend(write_api_overlay(host))
     return written
 
@@ -915,6 +962,15 @@ def verify() -> None:
         ("https://orientdig.at/", "w2clinks.com/spreadsheet/orientdig"),
         ("https://orientdig.at/orientdig-spreadsheet/", "1010 Wien"),
         ("https://orientdigspreadsheet.de/orientdig-spreadsheets/", "Packstation"),
+        ("https://orientdigspreadsheet.de/orientdig-spreadsheets/", "Lager in China, nicht in Frankfurt"),
+        ("https://orientdigspreadsheet.de/orientdig-faq/", "Einfuhrumsatzsteuer"),
+        ("https://orientdigspreadsheet.it/orientdig-faq/", "Packstation tedesca"),
+        ("https://orientdigspreadsheet.it/orientdig-spreadsheets/", "Magazzino in Cina"),
+        ("https://orientdigspreadsheet.nl/orientdig-faq/", "Belgische postcode"),
+        ("https://orientdigspreadsheet.nl/orientdig-spreadsheets/", "Magazijn in China"),
+        ("https://orientdig.es/orientdig-faq/", "Canarias, Ceuta o Melilla"),
+        ("https://orientdig.es/finds-dataset/", 'id="es-finds-buyer"'),
+        ("https://orientdig.es/finds-dataset/", "puerta en España"),
         ("https://orientdigspreadsheet.de/orientdig-spreadsheet/", None),  # GSC 301 → plural keep
         ("https://orientdig.es/como-comprar-en-orientdig/", "Guía OrientDig para España"),
         ("https://orientdig.es/orientdig-spreadsheet/", "compradores en España"),
