@@ -23,7 +23,9 @@ SKIN = f'data-kakobuy-skin="{STAMP}"'
 SHARED = ROOT / "sites" / "kakobuy-shared"
 OFFICIAL_CSS = SHARED / "kakobuy-official.css"
 THEME_CSS = SHARED / "kakobuy-theme.css"
-LOGO = SHARED / "official" / "logo.png"
+# nstatic www/pic/logo.png is the old HagoBuy wordmark. Header must stay Kakobuy.
+WORDMARK = SHARED / "kakobuy-logo.png"
+LOGO = WORDMARK
 XD = SHARED / "official" / "xd.webp"
 OFFICIAL_MP4 = "https://nstatic.kakobuy.com/www/kakobuy.mp4"
 
@@ -305,8 +307,8 @@ def patch_theme_vars(html: str) -> str:
             1,
         )
     html = re.sub(
-        r'src="/assets/kakobuy-logo\.png"',
-        'src="/assets/kakobuy-official-logo.png"',
+        r'src="/assets/kakobuy-official-logo\.png"',
+        'src="/assets/kakobuy-logo.png"',
         html,
     )
     html = html.replace('kakobuy-theme.css?v=20261001-home', "kakobuy-theme.css?v=20261101-skin")
@@ -464,9 +466,9 @@ def generate() -> list[Path]:
         for path in sorted(root.rglob("index.html")):
             if SKIP_FILE.search(str(path)):
                 continue
-            if process_file(host, path):
-                written.append(path)
-                print("SKIN", path.relative_to(ROOT))
+            changed = process_file(host, path)
+            written.append(path)
+            print("SKIN" if changed else "KEEP", path.relative_to(ROOT))
         # shared assets copied into overlay so PUT can send them
         asset_css = root / "assets" / "css"
         asset_css.mkdir(parents=True, exist_ok=True)
@@ -476,9 +478,20 @@ def generate() -> list[Path]:
         dest_theme.write_bytes(THEME_CSS.read_bytes())
         logo_dir = root / "assets"
         logo_dir.mkdir(parents=True, exist_ok=True)
-        (logo_dir / "kakobuy-official-logo.png").write_bytes(LOGO.read_bytes())
+        mark = WORDMARK.read_bytes()
+        (logo_dir / "kakobuy-logo.png").write_bytes(mark)
+        # Overwrite leftover HagoBuy copies so any stale img src still reads Kakobuy.
+        (logo_dir / "kakobuy-official-logo.png").write_bytes(mark)
         (logo_dir / "kakobuy-xd.webp").write_bytes(XD.read_bytes())
-        written.extend([dest_off, dest_theme, logo_dir / "kakobuy-official-logo.png", logo_dir / "kakobuy-xd.webp"])
+        written.extend(
+            [
+                dest_off,
+                dest_theme,
+                logo_dir / "kakobuy-logo.png",
+                logo_dir / "kakobuy-official-logo.png",
+                logo_dir / "kakobuy-xd.webp",
+            ]
+        )
     return written
 
 
@@ -522,15 +535,25 @@ def verify() -> None:
 
     opener = build_opener(NoRedir(), HTTPSHandler())
     checks = [
-        ("https://kakobuy.fi/", ["#ff5000", "EUR", "data-kakobuy-skin", "kakobuy.mp4"], True),
-        ("https://kakospreadsheet.ca/", ["CAD", "#ff5000", "kakobuy.com"], True),
-        ("https://kakospreadsheet.es/", ["EUR", "Mejores finds"], True),
-        ("https://kakospreadsheet.fr/", ["EUR", "Meilleurs finds", "kakobuy-fr-independent"], True),
-        ("https://kakospreadsheet.nl/", ["EUR", "Beste finds"], True),
-        ("https://kakobuy.fi/kakobuy-spreadsheet/", ["kb-illust", "EUR"], True),
-        ("https://kakobuy.fi/ohje/", ["Ohje"], True),
+        ("https://kakobuy.fi/", ["#ff5000", "EUR", "data-kakobuy-skin", "kakobuy.mp4", "/assets/kakobuy-logo.png"], True),
+        ("https://kakospreadsheet.ca/", ["CAD", "#ff5000", "kakobuy.com", "/assets/kakobuy-logo.png"], True),
+        ("https://kakospreadsheet.es/", ["EUR", "Mejores finds", "/assets/kakobuy-logo.png"], True),
+        ("https://kakospreadsheet.fr/", ["EUR", "Meilleurs finds", "kakobuy-fr-independent", "/assets/kakobuy-logo.png"], True),
+        ("https://kakospreadsheet.nl/", ["EUR", "Beste finds", "/assets/kakobuy-logo.png"], True),
+        ("https://kakobuy.fi/kakobuy-spreadsheet/", ["kb-illust", "EUR", "/assets/kakobuy-logo.png"], True),
+        ("https://kakobuy.fi/ohje/", ["Ohje", "/assets/kakobuy-logo.png"], True),
     ]
-    forbid = ["no 301", "independent desk", "infodesk", "Lab 1 Oct 2026", "ei ylikirjoiteta", "not overwritten"]
+    forbid = [
+        "no 301",
+        "independent desk",
+        "infodesk",
+        "Lab 1 Oct 2026",
+        "ei ylikirjoiteta",
+        "not overwritten",
+        "kakobuy-official-logo.png",
+        "HagoBuy",
+        "hagobuy",
+    ]
     for url, needles, _ in checks:
         try:
             r = opener.open(Request(url, headers={"User-Agent": "kakobuy-skin/1.0"}), timeout=20)
