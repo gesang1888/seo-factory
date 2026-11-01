@@ -35,6 +35,7 @@ def cluster_title_serp(agent: str, dest: str | None, loc: str, dest_label: str |
     }.get(loc, " – Best Finds & QC")
     return base + suffix
 from orientdig_dest_copy import inner_h1, inner_keywords, inner_serp_title, sections_for, wrap_copy
+import orientdig_dest_skin as odskin
 
 ROOT = Path(__file__).resolve().parents[1]
 STAMP = "20261101"
@@ -414,15 +415,20 @@ def _nav_links(d: dict) -> str:
 def render_article(host: str, kind: str, d: dict) -> str:
     h1, lead, secs = sections_for(kind, d, host)
     loc = d["loc"]
+    figs = odskin.article_figures(kind, d)
     chunks = [
         f'<article class="cluster-page" data-spreadsheet-cluster="20261030" {MARKER} data-kind="{escape(kind)}">',
         f"<h1>{escape(h1)}</h1>",
         f'<p class="lead">{escape(lead)}</p>',
     ]
-    for h2, paras in secs:
+    if figs:
+        chunks.append(figs[0])
+    for i, (h2, paras) in enumerate(secs):
         chunks.append(f"<h2>{escape(h2)}</h2>")
         for p in paras:
             chunks.append(f"<p>{escape(p)}</p>")
+        if i == 1 and len(figs) > 1:
+            chunks.append(figs[1])
     chunks.append(f"<h2>{escape(H2NAV[loc])}</h2>")
     chunks.append(_nav(d))
     chunks.append(f'<p class="kb-cta">{escape(CTA[loc])}</p>')
@@ -518,7 +524,7 @@ def patch_home(host: str, d: dict) -> Path:
             ),
         )
         html = html.replace("<body", f"<body {MARKER}", 1)
-    # Keep H1 unsuffixed (kakobuy.co.uk pattern): strip a trailing " (2026)" only if SERP suffix leaked.
+    html = odskin.rebuild_home(html, host, d)
     path.write_text(html, encoding="utf-8")
     return path
 
@@ -653,6 +659,7 @@ def wrap_old_slug(host: str, d: dict, old: str, keep: str) -> Path | None:
         flags=re.I,
     )
     html = upsert_meta(html, "description", lead[:220])
+    html = odskin.skin_chrome(html, host, d)
     dest.write_text(html, encoding="utf-8")
     print("WRAP", host, old, "->", keep)
     return dest
@@ -735,6 +742,7 @@ def generate() -> list[Path]:
         d = HOSTS[host]
         snap = _unique_snapshot(host)
         seed_keep_pages(host, d)
+        written.extend(odskin.install_media(host))
         written.append(patch_home(host, d))
         print("HOME", host, cluster_title_serp(A, d["dest"], d["loc"], d["label"]))
         for kind in d["pages"]:
@@ -746,6 +754,7 @@ def generate() -> list[Path]:
             wrap = wrap_old_slug(host, d, old, keep)
             if wrap:
                 written.append(wrap)
+        odskin.skin_overlay_files(host, d, [p for p in written if str(p).startswith(str(overlay(host)))])
         bump_sitemap(host, d)
         sm = overlay(host) / "sitemap.xml"
         if sm.is_file():

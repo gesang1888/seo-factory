@@ -118,14 +118,14 @@ def inner_h1(kind: str, d: dict) -> str:
     key = d["key"]
     table = {
         "spreadsheet": {
-            "uk": f"{A} Spreadsheet for UK Buyers (2026 Guide)",
-            "us": f"{A} Spreadsheet for US Buyers (2026 Guide)",
-            "at": f"{A} Spreadsheet für Käufer in Österreich (Leitfaden 2026)",
-            "de": f"{A} Spreadsheet für Käufer in Deutschland (Leitfaden 2026)",
-            "es": f"{A} Spreadsheet para compradores en España (guía 2026)",
-            "fr": f"{A} Spreadsheet pour acheteurs en France (guide 2026)",
-            "it": f"{A} Spreadsheet per acquirenti in Italia (guida 2026)",
-            "nl": f"{A} Spreadsheet voor kopers in Nederland (gids 2026)",
+            "uk": f"{A} Spreadsheet for UK Buyers",
+            "us": f"{A} Spreadsheet for US Buyers",
+            "at": f"{A} Spreadsheet für Käufer in Österreich",
+            "de": f"{A} Spreadsheet für Käufer in Deutschland",
+            "es": f"{A} Spreadsheet para compradores en España",
+            "fr": f"{A} Spreadsheet pour acheteurs en France",
+            "it": f"{A} Spreadsheet per acquirenti in Italia",
+            "nl": f"{A} Spreadsheet voor kopers in Nederland",
         },
         "finds": {
             "uk": f"Top {A} Finds for UK Buyers (2026 Guide)",
@@ -212,184 +212,170 @@ def sections_for(kind: str, d: dict, host: str):
 
 
 def extra_local(d: dict, host: str) -> list:
-    """Dest-unique depth so inners are not a country-name doorway."""
+    """Local buyer depth: address, currency, last-mile, QC. No ops notes."""
     post, city, customs, curl, ccy = d["post"], d["city"], d["customs"], d["customs_url"], d["ccy"]
     key = d["key"]
     packs = {
         "uk": [
-            ("UK address test on this desk", [
-                f"{host} only makes sense with a UK postcode on the label. Northern Ireland is often another carrier product — do not assume the same {post} SKU as mainland GB. A French code postal in {EST} is the wrong country, even if the chrome looks similar.",
-                f"GBP ({ccy}) on this page is display conversion of the China warehouse card, not checkout. Live freight stays in {EST} with destination United Kingdom. {host} does not file HMRC entries and does not invent a VAT figure.",
+            ("How to fill a UK delivery address", [
+                f"Use a UK street and postcode on the label. Northern Ireland is often a different carrier product than mainland {post}, so pick the live line in the app instead of swapping the country name.",
+                f"Open {EST} and set destination United Kingdom before you pay international freight.",
             ]),
-            ("Official estimator vs this hostname", [
-                f"The estimator country code is GB, not the letters in {host}. Sister desks (US, FR, DE) stay separate files — no 301. If you needed an EU IOSS screenshot, you opened the wrong country site.",
-                f"Last-mile is often {post}. Collect can add a handling fee the estimator hides. Read the booked SKU, then {curl}, the morning you ship. No declared-value coaching on {host}.",
+            (f"Prices in {ccy}", [
+                f"This page shows finds in {ccy}. You pay on {OFF} — card, PayPal or balance, whatever the official account offers that day.",
+                f"If the official screen still prints a dollar symbol, trust the number in the app and the calculator at {EST}.",
             ]),
-            ("What this UK desk will not do", [
-                f"{host} will not take a card, open a warehouse ticket, or paste a live quote into the title. Payment, QC retakes and the parcel submit stay on {OFF}.",
-                f"Educational source named here is {customs}. Ranked VAT notes already on this host stay as local reading — they are not a tariff table and they are not copied onto a US or FR page.",
+            ("Paste a Taobao, 1688 or Weidian link", [
+                f"Copy the product URL from the Chinese shop, paste it on {OFF}, and OrientDig buys it into the warehouse. {host} is the spreadsheet and guide for that path toward a UK door.",
+                "Sneakers, hoodies, jackets and bags are the usual rows because those SKUs still have QC angles. Electronics, perfume and liquids stay off the sheet unless the app allows them the morning you submit.",
             ]),
-            ("Storage and two payments", [
-                f"Official Help describes warehouse storage in days that can change — confirm the live {OFF} article the morning you ship toward the United Kingdom. {host} does not reprint a storage countdown as a promise.",
-                f"Two payments are normal: goods into the China warehouse, then international freight after QC. {ccy} on {host} never settles either payment. {post} only appears after you book the line.",
+            ("QC photos, then Royal Mail", [
+                f"Wait for warehouse photos in the app. Extra angles are often a paid add-on. After you accept QC, book the international line. Last mile is often {post}.",
+                f"Two payments are normal: goods into China, then freight. Storage days are listed in official Help on {OFF} — read them the day you ship.",
             ]),
-            ("Sister country files", [
-                f"US, FR, DE, ES, IT, NL and AT desks are other hostnames. They must not 301 into {host} and {host} must not 301 into them. A UK buyer who needs Royal Mail should not land on a Colissimo paragraph.",
-                f"If a forum pasted a screenshot from another dest, ignore the last-mile name. This page names {post} and {customs} because the door is in the United Kingdom.",
+            ("Import charges", [
+                f"Who pays VAT and handling depends on the booked SKU. {post} can add a collect fee. Read {curl} ({customs}) the morning you ship. This page does not invent a rate or a declared value.",
             ]),
         ],
         "us": [
-            ("US ZIP test on this desk", [
-                f"{host} is written for a US street and ZIP, not a Canadian postal code in the A1A 1A1 pattern. Destination United States in {EST} — this desk does not invent a de-minimis dollar.",
-                f"{ccy} on this page is display, not checkout. Last-mile is often {post} or FedEx. Collect can add a fee the estimator hides. Source: {curl}.",
+            ("How to fill a US delivery address", [
+                f"Use a US street and ZIP. A Canadian postal code in the A1A 1A1 pattern is the wrong country. Open {EST} with destination United States.",
+                f"{city} is the format the label needs.",
             ]),
-            ("Official estimator vs this hostname", [
-                f"The estimator country is US, not the TLD of {host}. A UK postcode or EU code postal is the wrong country. Sister desks stay separate files — no 301.",
-                f"{host} does not file CBP entries. Informal-entry headlines on forums are not this lab. Read the booked SKU and {customs} the morning you ship.",
+            (f"Prices in {ccy}", [
+                f"Finds on this page are shown in {ccy}. Pay on {OFF}. Live freight is the calculator at {EST}.",
             ]),
-            ("What this US desk will not do", [
-                f"No card data, no warehouse tickets, no live quote in the title. Those live on {OFF} and {EST}.",
-                f"No declared-value coaching. Pay what the SKU and {customs} require. {city} is the address test.",
+            ("Paste a Taobao, 1688 or Weidian link", [
+                f"Paste the Chinese shop URL on {OFF}. OrientDig buys into the warehouse, then you book a line toward a US door after QC.",
+                "Shoes, hoodies, jackets and bags dominate because those SKUs still have warehouse photos.",
             ]),
-            ("Storage and two payments", [
-                f"Warehouse storage days are an official Help number that moves. Confirm on {OFF} the morning you ship to a US ZIP. {host} does not freeze a countdown.",
-                f"Pay goods first, freight after QC. {ccy} on this desk is display. {post} only shows up after the booked SKU.",
+            ("QC photos, then USPS", [
+                f"Accept warehouse photos in the app, then book freight. Last mile is often {post} or FedEx.",
+                f"Two payments: goods first, freight after QC. Storage days live in official Help on {OFF}.",
             ]),
-            ("Sister country files", [
-                f"UK, CA-pattern addresses and EU desks are other files. No 301. A US ZIP must not inherit a Royal Mail or Colissimo paragraph.",
-                f"This page names {post} and {customs} because the door is in the United States. It does not invent a de-minimis dollar.",
+            ("Import charges", [
+                f"Who pays duty depends on the booked SKU. Read {curl} ({customs}) the morning you ship. This page does not invent a de-minimis dollar or a declared value.",
             ]),
         ],
         "at": [
-            ("Adresstest Österreich", [
-                f"{host} gilt nur mit österreichischer Straße und vierstelliger PLZ — {city}. Eine deutsche fünfstellige PLZ oder Packstation im Schätzer ist das falsche Land, auch wenn die UI ähnlich aussieht.",
-                f"{ccy} hier ist Anzeige, keine Kasse. Letzte Meile oft {post}, nicht DHL DE. Collect kann extra kassieren. Quelle: {curl}.",
+            ("Lieferadresse in Österreich", [
+                f"Österreichische Straße und vierstellige PLZ — {city}. Eine deutsche Packstation oder fünfstellige DE-PLZ ist das falsche Land.",
+                f"Im Schätzer {EST} Ziel Österreich wählen, bevor du Porto zahlst.",
             ]),
-            ("Schätzer versus Hostname", [
-                f"Schätzer-Land ist AT, nicht die Buchstaben in {host}, nicht EU, nicht DE. Schwesterdesks bleiben eigene Dateien — kein 301.",
-                f"{host} gibt keine Zollanmeldung ab. Rankende Zollnotizen auf diesem Host bleiben Lokaltext, kein Tarif. Keine Unterdeklaration.",
+            (f"Preise in {ccy}", [
+                f"Finds auf dieser Seite stehen in {ccy}. Zahlen tust du auf {OFF}.",
+                f"Live-Fracht steht im Rechner {EST} mit Ziel Österreich.",
             ]),
-            ("Was dieser AT-Desk nicht tut", [
-                f"Keine Karte, kein Lagerticket, kein Live-Quote im Title. Das bleibt auf {OFF} und {EST} mit Ziel Österreich.",
-                f"Quelle dieses Desks: {customs}. 1010 Wien ist der Fingerprint — nicht Packstation, nicht Colissimo.",
+            ("Taobao-, 1688- oder Weidian-Link einfügen", [
+                f"Produkt-URL auf {OFF} einfügen. OrientDig kauft ins Lager, danach buchst du die Linie nach Österreich.",
+                "Sneaker, Hoodies, Jacken und Taschen haben meist QC-Fotos.",
             ]),
-            ("Lagerdauer und zwei Zahlungen", [
-                f"Offizielle Help-Texte zur Lagerdauer ändern sich. Am Versandmorgen auf {OFF} lesen. {host} druckt keinen Countdown als Zusage.",
-                f"Zwei Zahlungen: Ware ins Lager, Fracht nach QC. {ccy} auf {host} settlet nichts. {post} kommt erst nach der gebuchten SKU.",
+            ("QC-Fotos, dann Österreichische Post", [
+                f"Lagerfotos in der App prüfen, dann Fracht buchen. Letzte Meile oft {post}, nicht DHL DE.",
+                f"Zwei Zahlungen: Ware, dann Porto. Lagerdauer steht in der Help auf {OFF}.",
             ]),
-            ("Schwesterländer", [
-                f"DE, FR, IT, NL, UK, US sind andere Hosts. Kein 301. Eine österreichische Tür darf keinen Packstation-Absatz erben.",
-                f"Diese Seite nennt {post} und {customs}, weil die Tür in Österreich steht — {city}.",
+            ("Abgaben", [
+                f"Wer Zoll und Nachnahme zahlt, steht auf der SKU. Quelle: {curl} ({customs}). Diese Seite nennt keinen Deklarationsbetrag.",
             ]),
         ],
         "de": [
-            ("Adresstest Deutschland", [
-                f"{host} gilt mit fünfstelliger PLZ. Packstation ist ein DE-Muster. 1010 Wien oder Post AT im Schätzer ist das falsche Land.",
-                f"{ccy} ist Anzeige. Letzte Meile oft {post}. DHL kann Zollgebühren kassieren, die der Schätzer nicht zeigt. Quelle: {curl}.",
+            ("Lieferadresse in Deutschland", [
+                f"Fünfstellige PLZ. Packstation ist ein deutsches Muster — {city}. 1010 Wien ist Österreich, nicht hier.",
+                f"Im Schätzer {EST} Ziel Deutschland wählen.",
             ]),
-            ("Schätzer versus Hostname", [
-                f"Schätzer-Land ist DE, nicht AT, nicht EU, nicht {host} als Land. Schwesterdesks ohne 301.",
-                f"Keine Zollanmeldung durch dieses HTML. Rankende zoll.de-Notizen bleiben. Keine Unterdeklaration.",
+            (f"Preise in {ccy}", [
+                f"Finds auf dieser Seite in {ccy}. Zahlen auf {OFF}. Live-Fracht: {EST} mit Ziel Deutschland.",
             ]),
-            ("Was dieser DE-Desk nicht tut", [
-                f"Keine Karte, kein Ticket, kein Live-Quote. {OFF} und {EST} mit Ziel Deutschland.",
-                f"Fingerprint: Packstation möglich. Nicht 1010 Wien, nicht Colissimo. Quelle: {customs}.",
+            ("Taobao-, 1688- oder Weidian-Link einfügen", [
+                f"Link auf {OFF} einfügen. OrientDig kauft ins Lager, du buchst danach die Linie nach Deutschland.",
+                "Sneaker, Hoodies, Jacken und Taschen haben meist QC-Fotos.",
             ]),
-            ("Lagerdauer und zwei Zahlungen", [
-                f"Lagerdauer steht in der offiziellen Help und bewegt sich. {OFF} am Versandmorgen. {host} friert keinen Countdown.",
-                f"Ware zuerst, Fracht nach QC. {ccy} ist Anzeige. {post} erst nach der SKU.",
+            ("QC-Fotos, dann DHL", [
+                f"Fotos in der App prüfen, dann Fracht. Letzte Meile oft {post}. Packstation möglich.",
+                f"Zwei Zahlungen: Ware, dann Porto. Lagerdauer in der Help auf {OFF}.",
             ]),
-            ("Schwesterländer", [
-                f"AT, NL, FR sind andere Hosts. Kein 301. Eine deutsche Tür darf keinen 1010-Wien-Absatz erben.",
-                f"Diese Seite nennt {post} und {customs}, weil die Tür in Deutschland steht — {city}.",
+            ("Abgaben", [
+                f"SKU entscheidet, wer Zoll zahlt. DHL kann Gebühren kassieren, die der Schätzer nicht zeigt. Quelle: {curl} ({customs}). Kein Deklarationsbetrag auf dieser Seite.",
             ]),
         ],
         "es": [
-            ("Prueba de dirección España", [
-                f"{host} pide calle española y {city}. Un code postal francés o un CAP italiano es el país equivocado aunque la UI se parezca.",
-                f"{ccy} es visualización. Última milla a menudo {post}. Collect puede añadir despacho. Fuente: {curl}. No copiamos un recuento de líneas de otro agente.",
+            ("Dirección de entrega en España", [
+                f"Calle española y {city}. Un code postal francés o un CAP italiano es el país equivocado.",
+                f"En {EST} elige destino España antes de pagar el flete.",
             ]),
-            ("Estimador versus hostname", [
-                f"El país del estimador es ES, no EU, no este TLD. Los desks hermanos son archivos distintos — sin 301.",
-                f"{host} no presenta un DUA. Las notas de aduana ya rankeadas se conservan. Sin infradeclaración.",
+            (f"Precios en {ccy}", [
+                f"Los finds de esta página se muestran en {ccy}. Pagas en {OFF}. El flete en vivo está en {EST}.",
             ]),
-            ("Qué no hace este desk ES", [
-                f"Ni tarjeta, ni ticket de almacén, ni quote en el title. Eso vive en {OFF} y {EST} con destino España.",
-                f"Fuente: {customs}. Correos, no Colissimo ni Packstation.",
+            ("Pega un enlace de Taobao, 1688 o Weidian", [
+                f"Pega la URL en {OFF}. OrientDig compra al almacén y luego reservas la línea hacia España.",
+                "Zapatillas, sudaderas, cazadoras y bolsos suelen tener fotos QC.",
             ]),
-            ("Almacén y dos pagos", [
-                f"Los días de almacén salen de la Help oficial y cambian. Confirma en {OFF} el día del envío. {host} no congela un contador.",
-                f"Primero mercancía, después flete tras QC. {ccy} es visualización. {post} aparece tras la SKU.",
+            ("Fotos QC, luego Correos", [
+                f"Revisa las fotos en la app y reserva el flete. Última milla a menudo {post}.",
+                f"Dos pagos: mercancía, luego flete. Días de almacén en la Help de {OFF}.",
             ]),
-            ("Hosts hermanos", [
-                f"FR, IT, UK, US son otros archivos. Sin 301. Una puerta española no hereda un párrafo Colissimo.",
-                f"Esta página nombra {post} y {customs} porque la puerta está en España — {city}. No copiamos un recuento de líneas.",
+            ("Aduana", [
+                f"Quién paga aranceles lo decide la SKU. Fuente: {curl} ({customs}). Esta página no inventa un valor declarado.",
             ]),
         ],
         "fr": [
-            ("Test d’adresse France", [
-                f"{host} veut une rue française et {city}. Un code postal belge à quatre chiffres est le mauvais pays.",
-                f"{ccy} = affichage. Dernier km souvent {post}. Collect peut ajouter des frais. Source : {curl}.",
+            ("Adresse de livraison en France", [
+                f"Rue française et {city}. Un code postal belge à quatre chiffres est le mauvais pays.",
+                f"Dans {EST}, choisissez destination France avant de payer le fret.",
             ]),
-            ("Estimateur versus nom d’hôte", [
-                f"Le pays de l’estimateur est FR, pas BE, pas EU, pas {host}. Les desks sœurs restent des fichiers séparés — pas de 301.",
-                f"{host} ne dépose pas de DAU. Les notes douane déjà classées restent. Pas de sous-déclaration.",
+            (f"Prix en {ccy}", [
+                f"Les finds de cette page s’affichent en {ccy}. Vous payez sur {OFF}. Le fret live est dans {EST}.",
             ]),
-            ("Ce que ce desk FR ne fait pas", [
-                f"Pas de carte, pas de ticket, pas de quote dans le title. {OFF} et {EST} destination France.",
-                f"Source : {customs}. Colissimo, pas Correos, pas Packstation.",
+            ("Coller un lien Taobao, 1688 ou Weidian", [
+                f"Collez l’URL sur {OFF}. OrientDig achète vers l’entrepôt, puis vous réservez la ligne vers la France.",
+                "Baskets, hoodies, vestes et sacs ont le plus souvent des photos QC.",
             ]),
-            ("Entrepôt et deux paiements", [
-                f"La durée d’entrepôt est un chiffre Help officiel qui bouge. Confirme sur {OFF} le matin de l’envoi. {host} ne fige pas un compte à rebours.",
-                f"Marchandise d’abord, fret après QC. {ccy} = affichage. {post} n’apparaît qu’après la SKU.",
+            ("Photos QC, puis Colissimo", [
+                f"Validez les photos dans l’app, puis le fret. Dernier km souvent {post}.",
+                f"Deux paiements : marchandise, puis fret. Durée d’entrepôt dans la Help de {OFF}.",
             ]),
-            ("Hôtes sœurs", [
-                f"ES, BE n’est pas un TLD ici, UK, DE sont d’autres fichiers. Pas de 301. Une porte FR n’hérite pas d’un paragraphe Correos.",
-                f"Cette page nomme {post} et {customs} parce que la porte est en France — {city}.",
+            ("Douane", [
+                f"Qui paie droits et Collect dépend de la SKU. Source : {curl} ({customs}). Cette page n’invente pas de valeur déclarée.",
             ]),
         ],
         "it": [
-            ("Test indirizzo Italia", [
-                f"{host} vuole via italiana e {city}. Un código español o un code postal FR è il paese sbagliato.",
-                f"{ccy} è display. Ultimo miglio spesso {post}. Collect può aggiungere fee. Fonte: {curl}.",
+            ("Indirizzo di consegna in Italia", [
+                f"Via italiana e {city}. Un código español o un code postal francese è il paese sbagliato.",
+                f"In {EST} scegli destinazione Italia prima di pagare il nolo.",
             ]),
-            ("Estimator versus hostname", [
-                f"Il paese dell’estimator è IT, non EU, non {host}. Desk gemelli = file separati, niente 301.",
-                f"{host} non presenta una bolla. Note dogana già in ranking restano. Niente sottofatturazione.",
+            (f"Prezzi in {ccy}", [
+                f"I finds di questa pagina sono in {ccy}. Paghi su {OFF}. Il nolo live è in {EST}.",
             ]),
-            ("Cosa questo desk IT non fa", [
-                f"Niente carta, niente ticket, niente quote nel title. {OFF} e {EST} destinazione Italia.",
-                f"Fonte: {customs}. Poste Italiane, non Correos, non Packstation.",
+            ("Incolla un link Taobao, 1688 o Weidian", [
+                f"Incolla l’URL su {OFF}. OrientDig compra in magazzino, poi prenoti la linea verso l’Italia.",
+                "Sneaker, felpe, giacche e borse hanno di solito foto QC.",
             ]),
-            ("Magazzino e due pagamenti", [
-                f"I giorni di magazzino stanno nella Help ufficiale e si muovono. Conferma su {OFF} il mattino della spedizione. {host} non congela un countdown.",
-                f"Prima la merce, poi il nolo dopo QC. {ccy} è display. {post} arriva dopo la SKU.",
+            ("Foto QC, poi Poste Italiane", [
+                f"Controlla le foto in app, poi il nolo. Ultimo miglio spesso {post}.",
+                f"Due pagamenti: merce, poi nolo. Giorni di magazzino nella Help di {OFF}.",
             ]),
-            ("Host gemelli", [
-                f"ES, FR, DE, NL sono altri file. Niente 301. Una porta italiana non eredita un paragrafo Correos.",
-                f"Questa pagina nomina {post} e {customs} perché la porta è in Italia — {city}.",
+            ("Dogana", [
+                f"Chi paga dazi lo decide la SKU. Fonte: {curl} ({customs}). Questa pagina non inventa un valore dichiarato.",
             ]),
         ],
         "nl": [
-            ("Adrescheck Nederland", [
-                f"{host} wil een Nederlandse straat en {city}. Een Duits Packstation-nummer of Belgische postcode is het verkeerde land.",
-                f"{ccy} is weergave. Last-mile vaak {post}. Collect kan inklaring bijtellen. Bron: {curl}. iDEAL bevestig je in de app, niet hier.",
+            ("Bezorgadres in Nederland", [
+                f"Nederlandse straat en {city}. Een Duits Packstation of Belgische postcode is het verkeerde land.",
+                f"Kies in {EST} bestemming Nederland vóór je vracht betaalt.",
             ]),
-            ("Estimator versus hostname", [
-                f"Estimator-land is NL, niet EU, niet DE, niet {host}. Zus-desks blijven aparte files — geen 301.",
-                f"{host} dient geen aangifte in. Rankende Douane-notities blijven. Geen onderwaardering.",
+            (f"Prijzen in {ccy}", [
+                f"Finds op deze pagina staan in {ccy}. Betalen doe je op {OFF}. Live vracht: {EST}. iDEAL bevestig je in de app.",
             ]),
-            ("Wat deze NL-desk niet doet", [
-                f"Geen kaart, geen ticket, geen quote in de title. {OFF} en {EST} bestemming Nederland.",
-                f"Bron: {customs}. Nederlandse postcode 1234 AB, geen Packstation.",
+            ("Plak een Taobao-, 1688- of Weidian-link", [
+                f"Plak de URL op {OFF}. OrientDig koopt naar het magazijn, daarna boek je de lijn naar Nederland.",
+                "Sneakers, hoodies, jassen en tassen hebben meestal QC-foto’s.",
             ]),
-            ("Magazijn en twee betalingen", [
-                f"Magazijndagen staan in de officiële Help en schuiven. Bevestig op {OFF} op de verzenddag. {host} bevriest geen countdown.",
-                f"Eerst goederen, daarna vracht na QC. {ccy} is weergave. {post} komt pas na de SKU.",
+            ("QC-foto’s, dan PostNL", [
+                f"Foto’s in de app checken, daarna vracht. Last-mile vaak {post}.",
+                f"Twee betalingen: goederen, daarna vracht. Magazijndagen in de Help op {OFF}.",
             ]),
-            ("Zus-hosts", [
-                f"DE, BE is geen TLD hier, FR, UK zijn andere files. Geen 301. Een Nederlandse deur erft geen Packstation-alinea.",
-                f"Deze pagina noemt {post} en {customs} omdat de deur in Nederland staat — {city}. iDEAL bevestig je in de app.",
+            ("Douane", [
+                f"Wie invoerrechten betaalt, staat op de SKU. Bron: {curl} ({customs}). Deze pagina verzint geen aangegeven waarde.",
             ]),
         ],
     }
@@ -402,124 +388,115 @@ def extra_faq(d: dict, host: str) -> list:
     q = {
         "uk": [
             ("Does Northern Ireland use the same Royal Mail SKU?", [
-                f"Often not. {city}. Pick the live line in the official app. {host} does not invent a carrier product.",
-                f"Mainland GB last-mile is often {post}. Confirm in {EST} with destination United Kingdom.",
+                f"Often not. {city}. Pick the live line in the app. Mainland last mile is often {post}.",
+                f"Confirm destination United Kingdom in {EST}.",
             ]),
-            ("Can I paste an EU code postal into the estimator?", [
-                f"No. That is the wrong country for {host}. Educational source: {curl} ({customs}).",
-                "Sister FR/ES desks are separate files — no 301.",
+            ("Where do I pay?", [
+                f"On {OFF}. This page shows finds in the local currency; the account, wallet and tickets stay on the official site.",
             ]),
-            ("Where does warehouse storage sit?", [
-                f"In the official Help on {OFF}, as days from stored-in-warehouse. Confirm that article the morning you ship. {host} does not freeze a countdown.",
-                "Do not book UK freight until QC is accepted. Two payments are normal.",
+            ("When do I book freight?", [
+                f"After you accept QC photos in the app. Storage days are in official Help on {OFF}.",
             ]),
-            ("Is this the official OrientDig site?", [
-                f"No. {host} is an independent UK information desk. Register and pay on {OFF}. Last-mile named here is {post}.",
+            ("Who pays import VAT?", [
+                f"The booked SKU. Read {curl} ({customs}) the morning you ship. This page does not invent a rate.",
             ]),
         ],
         "us": [
-            ("Does this desk invent a de-minimis dollar?", [
-                f"No. Informal-entry rules change. Read {curl} ({customs}) the morning you ship.",
-                f"Last-mile is often {post}. {city} is the address test on {host}.",
-            ]),
             ("Can I use a Canadian postal code?", [
-                "No. Form A1A 1A1 is the wrong country for this US desk.",
-                f"Estimator destination is United States in {EST}.",
+                f"No. Use a US ZIP — {city}. Destination United States in {EST}.",
             ]),
-            ("Where does warehouse storage sit?", [
-                f"Official Help on {OFF}. Confirm the morning you ship to a US ZIP. {host} does not freeze days.",
-                f"QC first, then freight. Last-mile often {post}.",
+            ("Where do I pay?", [
+                f"On {OFF}. Last mile is often {post}.",
             ]),
-            ("Is this the official site?", [
-                f"No. {host} is an independent US desk. Pay on {OFF}. This desk does not invent a de-minimis dollar. Source: {customs}.",
+            ("When do I book freight?", [
+                f"After QC photos. Storage days are in Help on {OFF}.",
+            ]),
+            ("Who pays duty?", [
+                f"The booked SKU. Read {curl} ({customs}). This page does not invent a de-minimis dollar.",
             ]),
         ],
         "at": [
             ("Darf ich eine deutsche Packstation angeben?", [
-                f"Nein. {host} ist Österreich. Adresstest: {city}. Packstation ist DE.",
-                f"Letzte Meile oft {post}. Quelle: {curl} ({customs}).",
+                f"Nein. Adresse in Österreich — {city}. Packstation ist Deutschland. Letzte Meile oft {post}.",
             ]),
-            ("Ist der Schätzer AT oder DE?", [
-                f"AT. Nicht EU, nicht {host} als Land. Live: {EST} mit Ziel Österreich.",
+            ("Wo zahle ich?", [
+                f"Auf {OFF}. Schätzer: {EST} mit Ziel Österreich.",
             ]),
-            ("Wo steht die Lagerdauer?", [
-                f"In der offiziellen Help auf {OFF}. Am Versandmorgen lesen. {host} friert keinen Countdown.",
-                f"Erst QC, dann Fracht. Letzte Meile oft {post}.",
+            ("Wann buche ich Fracht?", [
+                f"Nach den QC-Fotos. Lagerdauer in der Help auf {OFF}.",
             ]),
-            ("Ist das die offizielle Site?", [
-                f"Nein. {host} ist ein unabhängiger AT-Desk. Zahlen auf {OFF}. Quelle: {customs}. Adresse: {city}.",
+            ("Wer zahlt Zoll?", [
+                f"Die SKU. Quelle: {curl} ({customs}). Kein Deklarationsbetrag auf dieser Seite.",
             ]),
         ],
         "de": [
             ("Darf ich 1010 Wien verwenden?", [
-                f"Nein. {host} ist Deutschland. Adresstest: {city}. 1010 Wien ist AT.",
-                f"Letzte Meile oft {post}. Quelle: {curl} ({customs}).",
+                f"Nein. Deutschland — {city}. Packstation möglich. Letzte Meile oft {post}.",
             ]),
-            ("Schätzer DE oder AT?", [
-                f"DE. Live: {EST} mit Ziel Deutschland. Packstation möglich.",
+            ("Wo zahle ich?", [
+                f"Auf {OFF}. Schätzer: {EST} mit Ziel Deutschland.",
             ]),
-            ("Wo steht die Lagerdauer?", [
-                f"Offizielle Help auf {OFF}. {host} friert keine Tage. Erst QC, dann Fracht über {post}.",
+            ("Wann buche ich Fracht?", [
+                f"Nach den QC-Fotos. Lagerdauer in der Help auf {OFF}.",
             ]),
-            ("Offizielle Site?", [
-                f"Nein. {host} ist DE-Infodesk. Zahlen auf {OFF}. Quelle: {customs}. {city}.",
+            ("Wer zahlt Zoll?", [
+                f"Die SKU. Quelle: {curl} ({customs}). Kein Deklarationsbetrag auf dieser Seite.",
             ]),
         ],
         "es": [
             ("¿Puedo usar un code postal francés?", [
-                f"No. {host} es España. Prueba: {city}. Fuente: {curl} ({customs}).",
-                "No copiamos un recuento de líneas de otro agente.",
+                f"No. España — {city}. Última milla a menudo {post}.",
             ]),
-            ("¿Estimador ES o EU?", [
-                f"ES. Live: {EST} destino España. Última milla a menudo {post}.",
+            ("¿Dónde pago?", [
+                f"En {OFF}. Calculadora: {EST} destino España.",
             ]),
-            ("¿Dónde está el almacenamiento?", [
-                f"Help oficial en {OFF}. {host} no congela días. QC primero, flete después. {post}.",
+            ("¿Cuándo reservo el flete?", [
+                f"Después de las fotos QC. Días de almacén en la Help de {OFF}.",
             ]),
-            ("¿Es el sitio oficial?", [
-                f"No. {host} es desk ES independiente. Pago en {OFF}. Fuente: {customs}. {city}.",
+            ("¿Quién paga aduana?", [
+                f"La SKU. Fuente: {curl} ({customs}). Esta página no inventa un valor declarado.",
             ]),
         ],
         "fr": [
             ("Puis-je mettre un code belge ?", [
-                f"Non. {host} est la France. Test : {city}. Source : {curl} ({customs}).",
+                f"Non. France — {city}. Dernier km souvent {post}.",
             ]),
-            ("Estimateur FR ou BE ?", [
-                f"FR. Live : {EST} destination France. Dernier km souvent {post}.",
+            ("Où payer ?", [
+                f"Sur {OFF}. Calculateur : {EST} destination France.",
             ]),
-            ("Durée d’entrepôt ?", [
-                f"Help officielle sur {OFF}. {host} ne fige pas les jours. QC puis fret. {post}.",
+            ("Quand réserver le fret ?", [
+                f"Après les photos QC. Durée d’entrepôt dans la Help de {OFF}.",
             ]),
-            ("Site officiel ?", [
-                f"Non. {host} est un desk FR indépendant. Paiement {OFF}. Source : {customs}. {city}.",
+            ("Qui paie la douane ?", [
+                f"La SKU. Source : {curl} ({customs}). Cette page n’invente pas de valeur déclarée.",
             ]),
         ],
         "it": [
             ("Posso usare un código español?", [
-                f"No. {host} è Italia. Test: {city}. Fonte: {curl} ({customs}).",
+                f"No. Italia — {city}. Ultimo miglio spesso {post}.",
             ]),
-            ("Estimator IT o EU?", [
-                f"IT. Live: {EST} destinazione Italia. Ultimo miglio spesso {post}.",
+            ("Dove pago?", [
+                f"Su {OFF}. Calcolatore: {EST} destinazione Italia.",
             ]),
-            ("Magazzino quanti giorni?", [
-                f"Help ufficiale su {OFF}. {host} non congela i giorni. Prima QC, poi nolo. {post}.",
+            ("Quando prenoto il nolo?", [
+                f"Dopo le foto QC. Giorni di magazzino nella Help di {OFF}.",
             ]),
-            ("Sito ufficiale?", [
-                f"No. {host} è desk IT indipendente. Paga su {OFF}. Fonte: {customs}. {city}.",
+            ("Chi paga la dogana?", [
+                f"La SKU. Fonte: {curl} ({customs}). Questa pagina non inventa un valore dichiarato.",
             ]),
         ],
         "nl": [
             ("Mag ik een Packstation gebruiken?", [
-                f"Nee. {host} is Nederland. Check: {city}. Bron: {curl} ({customs}).",
+                f"Nee. Nederland — {city}. Last-mile vaak {post}.",
             ]),
-            ("Estimator NL of DE?", [
-                f"NL. Live: {EST} bestemming Nederland. Last-mile vaak {post}. iDEAL in de app.",
+            ("Waar betaal ik?", [
+                f"Op {OFF}. Calculator: {EST} bestemming Nederland. iDEAL in de app.",
             ]),
-            ("Magazijndagen?", [
-                f"Officiële Help op {OFF}. {host} bevriest geen dagen. Eerst QC, dan vracht. {post}.",
+            ("Wanneer boek ik vracht?", [
+                f"Na de QC-foto’s. Magazijndagen in de Help op {OFF}.",
             ]),
-            ("Officiële site?", [
-                f"Nee. {host} is NL-infodesk. Betalen op {OFF}. Bron: {customs}. {city}.",
+            ("Wie betaalt douane?", [
+                f"De SKU. Bron: {curl} ({customs}). Deze pagina verzint geen aangegeven waarde.",
             ]),
         ],
     }
@@ -531,25 +508,20 @@ def wrap_copy(host: str, d: dict, keep_slug: str):
     loc = d["loc"]
     if loc == "fr":
         return (
-            f"Avis {A} France — page canonique",
-            f"Cette URL n’est plus la page avis. Le texte classé pour une adresse en France est {url} (Colissimo, douane.gouv.fr).",
-            [
-                ("Où lire les avis ?", [
-                    f"Les avis et le cadre Colissimo restent sur {url}. Cette page existe pour ne pas voler l’indexation à la page keep.",
-                    f"Le desk {host} reste un site France indépendant. Commandes sur {OFF}.",
-                ]),
-            ],
+            f"Avis {A} France",
+            f"Les avis OrientDig pour une adresse en France sont sur {url}. Commandes sur {OFF}.",
+            [("Lire la suite", [f"Ouvrez {url}. Colissimo, douane.gouv.fr."])],
         )
     if loc == "de":
         return (
-            f"{A} — kanonische Seite",
-            f"Diese URL ist ein kurzer Verweis. Der Keep-Text liegt unter {url}.",
-            [("Weiter", [f"Öffne {url} auf {host}. Bestellung auf {OFF}."])],
+            f"{A} Spreadsheet",
+            f"Der ausführliche Text steht unter {url}. Bestellen auf {OFF}.",
+            [("Weiterlesen", [f"Öffne {url}."])],
         )
     return (
-        f"{A} — canonical page",
-        f"This URL is a short wrap. The keep article is {url}.",
-        [("Continue", [f"Open {url} on {host}. Orders stay on {OFF}."])],
+        f"{A} spreadsheet",
+        f"The full article is {url}. Orders stay on {OFF}.",
+        [("Continue", [f"Open {url}."])],
     )
 
 
@@ -581,7 +553,7 @@ def _uk(kind, host, d):
                 ]),
                 ("Who should use an OrientDig spreadsheet?", [
                     f"First-time UK buyers who need an address test and anyone who already uses {A} but wants spreadsheet, finds, QC and shipping-to-UK in one British site in {ccy}.",
-                    "If you ship to a French door, this is the wrong country page. Sister hosts stay separate files — no 301. If you need a broker, hire one — this hostname is information only.",
+                    "If you ship to a French door, this is the wrong country page. If you need a broker, hire one — orders stay on orientdig.com.",
                 ]),
                 ("Common mistakes without a spreadsheet", [
                     f"Pasting an EU code postal into the estimator, treating {host} as checkout, or booking freight before QC. Last-mile is often {post}; Collect can add a fee the estimator hides.",
@@ -643,7 +615,7 @@ def _uk(kind, host, d):
                 ]),
                 ("When to ask for extra photos", [
                     f"Ask while the SKU is in the warehouse. After {post} has the carton, {customs} is the wrong office for a warehouse retake.",
-                    "Extra angles are often a paid add-on in the official app. This HTML cannot open tickets.",
+                    "Extra angles are often a paid add-on in the official app. Open tickets in the OrientDig app.",
                 ]),
                 ("What QC does not do", [
                     f"QC does not file an HMRC entry, does not pay import VAT, and does not invent a declared value. Educational source: {curl}.",
@@ -684,7 +656,7 @@ def _uk(kind, host, d):
                 ]),
                 ("Customs, VAT and import fees", [
                     f"Read {customs} at {curl} the morning you ship. Import VAT thresholds and Collect rules change. Ranked VAT articles on this site stay as local notes — they are not a live tariff table.",
-                    "This HTML does not coach a declared value. Pay what the booked SKU and HMRC rules require.",
+                    "This page does not coach a declared value. Pay what the booked SKU and HMRC rules require.",
                 ]),
                 ("Common shipping risks", [
                     f"Wrong country in the estimator (EU code postal), booking before QC, ignoring Northern Ireland as another carrier product. Those mistakes are UK-path errors, not 'agent is down'.",
@@ -757,7 +729,7 @@ def _uk(kind, host, d):
                 ]),
                 ("Step 4 — pay only on the official site", [
                     f"Register and pay on {OFF}. {host} never stores a card. GBP on this desk is display conversion, not checkout.",
-                    "If the official SPA still prints USD digits after you pick GBP, trust the digits and the estimator, not this HTML.",
+                    "If the official SPA still prints USD digits after you pick GBP, trust the digits and the estimator.",
                 ]),
                 ("Common beginner mistakes", [
                     "EU destination in the estimator, booking before QC, treating this hostname as a shop.",
@@ -773,7 +745,7 @@ def _uk(kind, host, d):
         f"{A} spreadsheet FAQ for UK buyers on {host}: index, QC, {post}, {customs}. Not checkout.",
         [
             ("Does this site sell the goods?", [
-                f"No. {A} is a purchasing agent. {host} is an independent information desk for the United Kingdom. Orders stay on {OFF}.",
+                f"No. {A} is a purchasing agent. Orders stay on {OFF}. {host} lists finds for UK buyers.",
                 "Cards on this hostname are an index, not stock OrientDig owns.",
             ]),
             ("What is the OrientDig spreadsheet?", [
@@ -794,7 +766,7 @@ def _uk(kind, host, d):
             ]),
             ("Why GBP here and dollars on the official SPA?", [
                 f"Display conversion of the China warehouse card. Checkout currency is whatever {OFF} shows the morning you pay.",
-                "Trust the official digits and the estimator, not this HTML.",
+                "Trust the official digits and the estimator.",
             ]),
             ("Is Northern Ireland the same as mainland GB?", [
                 "Often another carrier product. Do not assume the same Royal Mail SKU.",
@@ -835,7 +807,7 @@ def _us(kind, host, d):
                 ]),
                 ("Who should use an OrientDig spreadsheet?", [
                     f"First-time US buyers who need a ZIP test and anyone who already uses {A} but wants spreadsheet, finds, QC and shipping-to-US on one American site in {ccy}.",
-                    "If you ship to Canada, this is the wrong country page. Sister hosts stay separate files — no 301.",
+                    "If you ship to Canada, this is the wrong country page. Orders stay on orientdig.com.",
                 ]),
                 ("Common mistakes without a spreadsheet", [
                     f"Pasting a Canadian postal code, treating {host} as checkout, or booking freight before QC. Last-mile is often {post} or FedEx; Collect can add a fee the estimator hides.",
@@ -897,7 +869,7 @@ def _us(kind, host, d):
                 ]),
                 ("When to ask for extra photos", [
                     f"While the SKU is in the warehouse. After {post} has the carton, {customs} is the wrong office for a retake.",
-                    "Extra angles are often paid in-app. This HTML cannot open tickets.",
+                    "Extra angles are often paid in-app. Open tickets in the OrientDig app.",
                 ]),
                 ("What QC does not do", [
                     f"It does not file a CBP entry and does not invent a de-minimis dollar. Source: {curl}.",
@@ -1026,7 +998,7 @@ def _us(kind, host, d):
         f"{A} spreadsheet FAQ for US buyers on {host}: index, QC, {post}, {customs}. Not checkout.",
         [
             ("Does this site sell the goods?", [
-                f"No. {host} is an independent US information desk. Orders stay on {OFF}.",
+                f"No. Orders stay on {OFF}. {host} lists finds for US buyers.",
                 "Cards are an index, not stock.",
             ]),
             ("What is the OrientDig spreadsheet?", [
@@ -1086,7 +1058,7 @@ def _at(kind, host, d):
                 ]),
                 ("Wer soll es nutzen?", [
                     f"Erstbesteller mit österreichischer Tür und alle, die {A} schon nutzen, aber Spreadsheet, Finds, QC und Versand-AT auf einem AT-Host in {ccy} wollen.",
-                    "Wer nach Deutschland schickt, ist auf der falschen Country-Seite. Schwesterhosts bleiben eigene Dateien — kein 301.",
+                    "Wer nach Deutschland schickt, ist auf der falschen Country-Seite.",
                 ]),
                 ("Typische Fehler ohne Sheet", [
                     f"Deutsche PLZ im Schätzer, {host} als Kasse, Fracht vor QC. Letzte Meile oft {post}; Collect kann Gebühren addieren, die der Schätzer verbirgt.",
@@ -1277,7 +1249,7 @@ def _at(kind, host, d):
         f"{A} Spreadsheet-FAQ für Österreich auf {host}: Index, QC, {post}, {customs}. Keine Kasse.",
         [
             ("Verkauft diese Site die Ware?", [
-                f"Nein. {host} ist ein unabhängiger AT-Infodesk. Bestellung auf {OFF}.",
+                f"Nein. Bestellung auf {OFF}. {host} zeigt Finds für Österreich.",
                 "Karten sind ein Index, kein Lager.",
             ]),
             ("Was ist das Spreadsheet?", [
@@ -1330,11 +1302,11 @@ def _de(kind, host, d):
                 ]),
                 ("Sicherer?", [
                     f"Lagerfotos vor der Fracht — {customs} bleibt. {curl} am Versandmorgen. Kein Satz im Title.",
-                    f"Kein Deklarationswert, keine Zollanmeldung durch dieses HTML. Adresstest: {city}.",
+                    f"Kein Deklarationswert auf dieser Seite. Adresstest: {city}.",
                 ]),
                 ("Für wen?", [
                     f"Erstbesteller mit deutscher Tür und alle, die Spreadsheet/Finds/QC/Versand-DE auf einem DE-Host in {ccy} wollen.",
-                    "AT-Labels gehören nach Österreich. Kein 301 zwischen Schwesterhosts.",
+                    "AT-Labels gehören nach Österreich.",
                 ]),
                 ("Fehler ohne Sheet", [
                     f"1010 Wien im Schätzer, {host} als Kasse, Fracht vor QC. {post} kann Collect-Gebühren addieren.",
@@ -1521,7 +1493,7 @@ def _de(kind, host, d):
         f"{A} Spreadsheet-FAQ Deutschland auf {host}: Index, QC, {post}, {customs}.",
         [
             ("Verkauft die Site Ware?", [
-                f"Nein. {host} ist DE-Infodesk. Bestellung {OFF}.",
+                f"Nein. Bestellung auf {OFF}. {host} zeigt Finds für Deutschland.",
             ]),
             ("Was ist das Spreadsheet?", [
                 f"Shortlist für {city}. Kein Excel. Keywords: orientdig spreadsheet deutschland.",
@@ -1764,7 +1736,7 @@ def _es(kind, host, d):
         f"FAQ spreadsheet {A} para España en {host}: índice, QC, {post}, {customs}.",
         [
             ("¿Esta web vende?", [
-                f"No. {host} es desk ES independiente. Pedidos {OFF}.",
+                f"No. Pedidos en {OFF}. {host} muestra finds para España.",
             ]),
             ("Qué es el spreadsheet", [
                 f"Shortlist para {city}. No Excel. Keywords: orientdig spreadsheet espana.",
@@ -2007,7 +1979,7 @@ def _fr(kind, host, d):
         f"FAQ spreadsheet {A} France sur {host} : index, QC, {post}, {customs}.",
         [
             ("Ce site vend-il ?", [
-                f"Non. {host} est un desk FR indépendant. Commandes {OFF}.",
+                f"Non. Commandes sur {OFF}. {host} liste les finds pour la France.",
             ]),
             ("Spreadsheet ?", [
                 f"Shortlist pour {city}. Pas Excel. Keywords: orientdig spreadsheet france.",
@@ -2250,7 +2222,7 @@ def _it(kind, host, d):
         f"FAQ spreadsheet {A} Italia su {host}: indice, QC, {post}, {customs}.",
         [
             ("Questo sito vende?", [
-                f"No. {host} è desk IT indipendente. Ordini {OFF}.",
+                f"No. Ordini su {OFF}. {host} elenca i finds per l’Italia.",
             ]),
             ("Spreadsheet", [
                 f"Shortlist per {city}. Non Excel. Keywords: orientdig spreadsheet italia.",
@@ -2493,7 +2465,7 @@ def _nl(kind, host, d):
         f"{A} spreadsheet-FAQ Nederland op {host}: index, QC, {post}, {customs}.",
         [
             ("Verkoopt deze site?", [
-                f"Nee. {host} is NL-infodesk. Bestellen {OFF}.",
+                f"Nee. Bestellen op {OFF}. {host} toont finds voor Nederland.",
             ]),
             ("Spreadsheet", [
                 f"Shortlist voor {city}. Geen Excel. Keywords: orientdig spreadsheet nederland.",
