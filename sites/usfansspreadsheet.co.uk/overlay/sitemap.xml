@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://usfansspreadsheet.co.uk/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-02</lastmod>
   </url>
   <url>
     <loc>https://usfansspreadsheet.co.uk/start/</loc>
@@ -90,11 +90,11 @@
 </url>
   <url>
     <loc>https://usfansspreadsheet.co.uk/usfans-shipping-guide/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-02</lastmod>
 </url>
   <url>
     <loc>https://usfansspreadsheet.co.uk/usfans-spreadsheet/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-02</lastmod>
   </url>
   <url>
     <loc>https://usfansspreadsheet.co.uk/faq.html</loc>
@@ -104,19 +104,31 @@
   </url>
   <url>
     <loc>https://usfansspreadsheet.co.uk/usfans-finds/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://usfansspreadsheet.co.uk/usfans-guide/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://usfansspreadsheet.co.uk/usfans-qc/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usfansspreadsheet.co.uk/is-usfans-legal-uk/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usfansspreadsheet.co.uk/usfans-faq/</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
