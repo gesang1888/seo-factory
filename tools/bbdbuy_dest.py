@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Deepen BBDBuy dest desks to UK-cluster inner depth.
 
-Independent country hosts (UK/US/CA/IT/DE). Does not touch bbdbuyeu.net or
+Independent country hosts (UK/US/CA/IT/DE/FR). Does not touch bbdbuyeu.net or
 bbdbuyeuspreadsheet.com hubs. Does not smash unique coupons/telegram/contact.
 No declared-value coaching. GSC: sitemap submit only.
 """
@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import shutil
 import sys
 import time
 from html import escape
@@ -183,6 +184,30 @@ HOSTS = {
         "canon": [("is-bbdbuy-legit", "ist-bbdbuy-serioes")],
         "nav_extra": [],
     },
+    "bbdbuy.fr": {
+        "key": "fr",
+        "dest": "FR",
+        "loc": "fr",
+        "lang": "fr-FR",
+        "label": "la France",
+        "ccy": "EUR",
+        "customs": "douane.gouv.fr",
+        "customs_url": "https://www.douane.gouv.fr/",
+        "post": "Colissimo / La Poste",
+        "city": "code postal français à cinq chiffres",
+        "pages": {
+            "spreadsheet": "bbdbuy-spreadsheet",
+            "finds": "bbdbuy-finds",
+            "qc": "bbdbuy-qc",
+            "shipping": "bbdbuy-shipping",
+            "legal": "is-bbdbuy-legit",
+            "guide": "how-to-use-bbdbuy",
+            "faq": "bbdbuy-faq",
+        },
+        "skip": set(),
+        "canon": [],
+        "nav_extra": [],
+    },
 }
 
 ORDER = [
@@ -191,7 +216,18 @@ ORDER = [
     "bbdbuy.ca",
     "bbdbuy.it",
     "bbdbuyspreadsheet.de",
+    "bbdbuy.fr",
 ]
+
+# Unique country-desk leftover pages: official chrome only, keep ranked body.
+LEFTOVER_SKIN = {
+    "bbdbuy.uk": ["start", "catalog", "about", "help", "news"],
+    "bbdbuy.us": ["start", "catalog", "about", "help", "news"],
+    "bbdbuy.ca": ["start", "catalog", "about", "help", "news"],
+    "bbdbuy.it": ["start", "catalogo", "chi-siamo", "aiuto", "notizie"],
+    "bbdbuyspreadsheet.de": ["start", "katalog", "ueber-uns", "hilfe", "neuigkeiten"],
+    "bbdbuy.fr": [],
+}
 
 
 NAV_LAB = {
@@ -283,6 +319,7 @@ CTA = {
 
 UNIQUE_PUT = {
     "bbdbuy-coupons",
+    "bbdbuy-coupon",
     "bbdbuy-telegram",
     "contact",
 }
@@ -693,8 +730,112 @@ def seed_keep_pages(host: str, d: dict) -> None:
             print("SEED", host, keep, "from", old)
 
 
+def seed_new_overlay(host: str, template: str = "bbdbuy.uk") -> None:
+    """Copy cluster shells from an existing dest so generate() can swap <main>."""
+    dest = overlay(host)
+    if (dest / "index.html").is_file() and MAIN_RE.search((dest / "index.html").read_text(encoding="utf-8", errors="replace")):
+        return
+    src = overlay(template)
+    if not src.is_dir():
+        raise SystemExit(f"missing template overlay {template}")
+    dest.mkdir(parents=True, exist_ok=True)
+    skip = {"bbdbuy-coupons", "bbdbuy-coupon", "bbdbuy-telegram", "contact"}
+    for child in src.iterdir():
+        if child.name in skip:
+            continue
+        target = dest / child.name
+        if child.is_dir():
+            if target.exists():
+                continue
+            shutil.copytree(child, target, dirs_exist_ok=True)
+        elif not target.exists():
+            shutil.copy2(child, target)
+    print("SEED_OVERLAY", host, "from", template)
+
+
+def leftover_skin() -> list[Path]:
+    """Official chrome on leftover country-desk pages. Ranked body stays."""
+    written: list[Path] = []
+    client = None
+    sftp = None
+    try:
+        for host, slugs in LEFTOVER_SKIN.items():
+            d = HOSTS[host]
+            for slug in slugs:
+                path = overlay(host) / slug / "index.html"
+                if not path.is_file():
+                    if sftp is None:
+                        client = _connect()
+                        sftp = client.open_sftp()
+                    remote = f"/www/wwwroot/{host}/{slug}/index.html"
+                    try:
+                        path.parent.mkdir(parents=True, exist_ok=True)
+                        sftp.get(remote, str(path))
+                    except Exception as exc:  # noqa: BLE001
+                        print("SKIP leftover", host, slug, type(exc).__name__)
+                        continue
+                html = path.read_text(encoding="utf-8")
+                before = html
+                html = odskin.skin_chrome(html, host, d)
+                if html == before:
+                    print("LEFTOVER_SKIN_NOOP", host, slug)
+                path.write_text(html, encoding="utf-8")
+                written.append(path)
+                print("LEFTOVER_SKIN", host, slug, path.stat().st_size)
+    finally:
+        if sftp is not None:
+            sftp.close()
+        if client is not None:
+            client.close()
+    return written
+
+
+def provision_origin_host(host: str, template: str = "bbdbuy.uk") -> None:
+    """Create wwwroot + nginx vhost from a live dest template. SSL if DNS already points here."""
+    client = _connect()
+    live = f"/www/wwwroot/{host}"
+    conf = f"/www/server/panel/vhost/nginx/{host}.conf"
+    src_conf = f"/www/server/panel/vhost/nginx/{template}.conf"
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    bak = f"/www/backup/bbdbuy-dest-provision-{stamp}"
+    print(_run(client, f"mkdir -p '{bak}' '{live}'"))
+    exists = _run(client, f"test -f '{conf}' && echo yes || echo no")
+    if exists.strip() == "yes":
+        print("PROVISION_SKIP nginx exists", host)
+        client.close()
+        return
+    print(_run(client, f"cp -a '{src_conf}' '{bak}/{template}.conf'"))
+    raw = _run(client, f"cat '{src_conf}'")
+    raw = raw.replace(template, host)
+    raw = raw.replace(f"/www/wwwroot/{template}", live)
+    sftp = client.open_sftp()
+    with sftp.open(conf, "w") as fh:
+        fh.write(raw)
+    sftp.close()
+    print("PROVISION_NGINX", conf)
+    for sub in (
+        f"/www/server/panel/vhost/nginx/well-known/{host}.conf",
+        f"/www/server/panel/vhost/rewrite/{host}.conf",
+    ):
+        src = sub.replace(host, template)
+        print(_run(client, f"test -f '{src}' && cp -a '{src}' '{sub}' && sed -i 's/{template}/{host}/g' '{sub}' || true"))
+    print(_run(client, f"mkdir -p '/www/server/panel/vhost/nginx/extension/{host}'"))
+    cert_dir = f"/www/server/panel/vhost/cert/{host}"
+    print(_run(client, f"mkdir -p '{cert_dir}'"))
+    src_cert = f"/www/server/panel/vhost/cert/{template}"
+    # Copy template certs only as a placeholder so nginx -t can parse; replace if certbot works.
+    print(_run(client, f"cp -a '{src_cert}/.' '{cert_dir}/' 2>/dev/null || true"))
+    test = _run(client, "nginx -t 2>&1")
+    print(test)
+    if "syntax is ok" in test or "successful" in test:
+        print(_run(client, "nginx -s reload"))
+    client.close()
+    print("PROVISION", host, bak)
+
+
 def generate() -> list[Path]:
     written: list[Path] = []
+    seed_new_overlay("bbdbuy.fr")
     for host in ORDER:
         d = HOSTS[host]
         snap = _unique_snapshot(host)
@@ -721,6 +862,7 @@ def generate() -> list[Path]:
             if now.is_file() and now.read_bytes() != blob:
                 raise SystemExit(f"refused to smash unique {rel} on {host}")
         written.extend(write_api_overlay(host))
+    written.extend(leftover_skin())
     return written
 
 
@@ -883,6 +1025,13 @@ def verify() -> None:
         ("https://bbdbuyspreadsheet.de/", "Beste Finds"),
         ("https://bbdbuyspreadsheet.de/bbdbuy-spreadsheet/", "Packstation"),
         ("https://bbdbuyspreadsheet.de/bbdbuy-faq/", "Einfuhrumsatzsteuer"),
+        ("https://bbdbuy.fr/", "acheteurs en France"),
+        ("https://bbdbuy.fr/", 'action="https://w2clinks.com/spreadsheet/"'),
+        ("https://bbdbuy.fr/bbdbuy-spreadsheet/", "code postal"),
+        ("https://bbdbuy.uk/start/", "od-head"),
+        ("https://bbdbuy.uk/catalog/", "od-head"),
+        ("https://bbdbuy.it/start/", "od-head"),
+        ("https://bbdbuyspreadsheet.de/start/", "od-head"),
         ("https://bbdbuyeu.net/", "Independent Index"),
         ("https://bbdbuyspreadsheet.uk/", None),
         ("https://bbdbuyspreadsheet.ca/", None),
@@ -1005,8 +1154,15 @@ def main() -> None:
         verify()
     elif cmd == "gsc":
         gsc_submit()
+    elif cmd == "leftover":
+        files = leftover_skin()
+        put(files)
+        verify()
+    elif cmd == "provision":
+        provision_origin_host("bbdbuy.fr")
     elif cmd == "all":
         reclaim_nginx()
+        provision_origin_host("bbdbuy.fr")
         files = generate()
         put(files)
         verify()

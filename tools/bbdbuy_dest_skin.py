@@ -46,6 +46,7 @@ UNIQUE_DIR = {
     "bbdbuy.ca": {"bbdbuy-coupons", "contact", "how-to-use-bbdbuy"},
     "bbdbuy.it": {"bbdbuy-coupons"},
     "bbdbuyspreadsheet.de": set(),
+    "bbdbuy.fr": set(),
 }
 
 CSS = """
@@ -160,7 +161,7 @@ OPS_RX = [
     r"Hosty siostrzane[^.]{0,90}\.",
     r"nie 301\.\s*",
     r"Independent information desk on [^.]+\. Not the official BBDBuy site\.?\s*",
-    r"bbdbuy\.(?:uk|us|ca|it) is an information desk, not BBDBuy\.?\s*",
+    r"bbdbuy\.(?:uk|us|ca|it|fr) is an information desk, not BBDBuy\.?\s*",
     r"bbdbuyspreadsheet\.de is an information desk[^.]{0,80}\.?\s*",
     r"Gemessen 2 Oct 2026[^.]*\.\s*",
 ]
@@ -303,11 +304,17 @@ def chrome(d: dict) -> dict:
         "sheet": "Spreadsheet",
         "ship": "Livraison",
         "help": "Aide",
-        "reg": "Connexion",
+        "reg": "S’inscrire",
+        "login": "Connexion",
         "cart": "Panier",
-        "promo": "Commandez sur www.bbdbuy.com",
+        "promo": "Partagez votre expérience et gagnez de l’argent !",
+        "fwd": "Forwarding",
+        "est": "Estimation livraison",
+        "custom": "Commande personnalisée",
+        "app": "App",
+        "aff": "Affiliation",
         "lang": "Français",
-        "search": "Lien ou nom du produit",
+        "search": "Lien ou mot-clé",
         "submit": "Rechercher",
         "sub": f"Achetez en Chine pour une adresse en {label}. Prix de cette page en {ccy}.",
         "s1t": "Passer commande",
@@ -525,13 +532,13 @@ def skin_chrome(html: str, host: str, d: dict) -> str:
     html = inject_css(html)
     html = re.sub(r'<div class="od-promo">[\s\S]*?</div>\s*', "", html, count=1)
     html = re.sub(
-        r"<header class=\"site-header\">[\s\S]*?</header>|<header class=\"od-head\">[\s\S]*?</header>",
+        r"<header class=\"(?:site-header|od-head|top)\"[^>]*>[\s\S]*?</header>",
         header_html(host, d),
         html,
         count=1,
     )
     html = re.sub(
-        r"<footer class=\"site-footer\">[\s\S]*?</footer>|<footer class=\"od-foot\">[\s\S]*?</footer>",
+        r"<footer class=\"(?:site-footer|od-foot|site-ft)\"[^>]*>[\s\S]*?</footer>",
         footer_html(host, d),
         html,
         count=1,

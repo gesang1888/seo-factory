@@ -625,16 +625,36 @@ def extra_faq(d: dict, host: str) -> list:
         ],
         "fr": [
             ("Puis-je mettre un code belge ?", [
-                f"Non. France — {city}. Dernier km souvent {post}.",
+                f"Non. France — {city}. Un code postal belge à quatre chiffres est le mauvais pays. Dernier km souvent {post}.",
+                f"Destination France dans {EST}. Un código español n’est pas cette page.",
             ]),
             ("Où payer ?", [
-                f"Sur {OFF}. Calculateur : {EST} destination France.",
+                f"Sur {OFF}. {host} montre des finds en euro ; la caisse, le portefeuille et les tickets restent sur le site officiel.",
+                f"Fret live : calculateur {EST} destination France.",
             ]),
             ("Quand réserver le fret ?", [
-                f"Après les photos QC. Durée d’entrepôt dans la Help de {OFF}.",
+                f"Après les photos QC dans l’app. {post} ne refait pas une photo d’entrepôt une fois le carton en France.",
+                f"Durée d’entrepôt dans la Help de {OFF}. Lis-la le matin de l’envoi.",
             ]),
             ("Qui paie la douane ?", [
-                f"La SKU. Source : {curl} ({customs}). Cette page n’invente pas de valeur déclarée.",
+                f"La SKU réservée. {post} peut ajouter un Collect que l’estimateur ne montre pas.",
+                f"Source : {curl} ({customs}). Cette page n’invente pas de taux ni de valeur déclarée.",
+            ]),
+            ("Les clés anglaises (sneakers, hoodie) sont-elles une boutique BE ?", [
+                "Non. Le mur catégories est anglais parce que l’index est anglais. « Baskets » ou « sweat » donnent souvent zéro carte.",
+                "Le pays de l’estimateur reste la France. Ces clés ne changent ni la douane ni le dernier km.",
+            ]),
+            ("Deux paiements — c’est une erreur ?", [
+                "Non. Marchandise vers la Chine d’abord, fret international après QC. Deux reçus dans l’app sont normaux.",
+                f"Si l’app facture une seule fois, l’app gagne. {OFF}.",
+            ]),
+            ("Faut-il ce spreadsheet ?", [
+                f"Non. Tu peux chercher dans l’app officielle. La feuille évite les cartes Weidian mortes vers une porte en France.",
+                f"{host} ne voit pas le compte. Inscription seulement sur {OFF}.",
+            ]),
+            ("Une boîte belge, c’est la même SKU ?", [
+                f"Non. Un code belge à quatre chiffres est un autre pays dans l’estimateur. {city} est le test d’adresse de ce desk.",
+                f"Confirme destination France dans {EST} le matin de l’envoi.",
             ]),
         ],
         "it": [
