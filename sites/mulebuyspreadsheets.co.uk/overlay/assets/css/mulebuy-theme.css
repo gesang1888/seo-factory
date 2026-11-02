@@ -1,0 +1,8 @@
+/* MuleBuy country dest — matches official palette, Inter not serif. */
+:root {
+  --primary: #9456ff;
+  --primary-dark: #9456ff;
+  --primary-soft: #f5f0ff;
+  --nav-dark: #191a1f;
+}
+body { background: var(--bg, #f7f8fa); }
