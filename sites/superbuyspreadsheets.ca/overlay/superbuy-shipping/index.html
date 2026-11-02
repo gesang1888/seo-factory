@@ -24,41 +24,77 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en-CA", "mainEntity": [{"@type": "Question", "name": "Does Superbuy sell the goods on this site?", "acceptedAnswer": {"@type": "Answer", "text": "No. Superbuy is a purchasing agent: it buys from Chinese third-party shops in your name, photographs the parcel in its warehouse, then you book an international SKU. superbuyspreadsheets.ca is an independent information desk. Orders, payment and claims stay on https://www.superbuy.com/. The cards on superbuyspreadsheets.ca are a reading of the finds index, not stock Superbuy owns. Payment never happens on this hostname."}}, {"@type": "Question", "name": "Can I use Superbuy in a local language?", "acceptedAnswer": {"@type": "Answer", "text": "The official app language switcher is independent of this desk. We measured the public site on 2 Oct 2026. Field names in the estimator often stay English even when the chrome is translated. The delivery address must still match Canada. Switching chrome language on superbuyspreadsheets.ca does not change the official app. Confirm the in-app language the morning you order toward Canada."}}, {"@type": "Question", "name": "Why does the catalogue return nothing for local words?", "acceptedAnswer": {"@type": "Answer", "text": "The finds index this desk reads is English (sneakers, hoodie, jacket). Local words often return zero cards — that is an English index, not an empty shop. Type the English key. Measured 2 Oct 2026 via /api/products/ on superbuyspreadsheets.ca. The category wall still exposes the English keys (sneakers, hoodie, jacket) so you can paste them into /api/products/ on superbuyspreadsheets.ca. Measured 2 Oct 2026."}}, {"@type": "Question", "name": "How many times do I pay?", "acceptedAnswer": {"@type": "Answer", "text": "Twice: first the goods plus China domestic shipping into the warehouse, later the international line to Canada. Between those payments you can consolidate. This desk never charges you; Superbuy does, in-app. Warehouse photos sit between the two payments. Do not book international freight to Canada until you have accepted QC in-app."}}, {"@type": "Question", "name": "Why does the official site show dollars while this desk shows CAD?", "acceptedAnswer": {"@type": "Answer", "text": "On the official SPA the currency switcher has been observed to change the symbol without converting the digits. This desk converts the China warehouse card to CAD as a dated display (X-Rates 2 Oct 2026), not a checkout price. Re-read the number in-app the morning you pay. If the official SPA still prints USD digits after you pick CAD, trust the digits and https://www.superbuy.com/en/page/query/freight/, not this HTML. Display rate dated 2 Oct 2026."}}, {"@type": "Question", "name": "How do I pay?", "acceptedAnswer": {"@type": "Answer", "text": "Only inside https://www.superbuy.com/. Typical rails are card, PayPal and balance top-up — confirm in the official FAQ the same day. superbuyspreadsheets.ca never takes card data and does not store a saved method. Register links on this desk never collect card numbers. Those fields exist only on https://www.superbuy.com/. superbuyspreadsheets.ca has no saved method."}}, {"@type": "Question", "name": "What is volumetric weight?", "acceptedAnswer": {"@type": "Answer", "text": "Most air SKUs bill max(actual, L×W×H/divisor) with the result in kilograms (the widget shows grams). A puffy jacket is light on the scale and expensive in volume. Geometry only — live money is in https://www.superbuy.com/en/page/query/freight/ with destination Canada. The widget uses 35×25×10 cm and 1000 g as a lab habit; your carton will differ. Open https://www.superbuy.com/en/page/query/freight/ with destination Canada before you pay freight."}}, {"@type": "Question", "name": "Who pays duties into Canada?", "acceptedAnswer": {"@type": "Answer", "text": "Who pays duties into Canada is on the booked SKU. A broker or last-mile can add a collect fee. Educational source: CBSA. Use a Canadian postal code in the estimator, not a US ZIP. No declared-value coaching. Prepaid vs collect is chosen when you submit the parcel, not when you buy the goods. Read the SKU heading and CBSA the same morning."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Superbuy catalogue keys", "url": "https://superbuyspreadsheets.ca/", "numberOfItems": 16, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sneakers", "description": "sneakers"}, {"@type": "ListItem", "position": 2, "name": "Hoodie", "description": "hoodie"}, {"@type": "ListItem", "position": 3, "name": "Jacket", "description": "jacket"}, {"@type": "ListItem", "position": 4, "name": "T-shirt", "description": "t-shirt"}, {"@type": "ListItem", "position": 5, "name": "Pants", "description": "pants"}, {"@type": "ListItem", "position": 6, "name": "Bags", "description": "bag"}, {"@type": "ListItem", "position": 7, "name": "Watches", "description": "watch"}, {"@type": "ListItem", "position": 8, "name": "Accessories", "description": "accessories"}, {"@type": "ListItem", "position": 9, "name": "Shoes", "description": "shoes"}, {"@type": "ListItem", "position": 10, "name": "Boots", "description": "boots"}, {"@type": "ListItem", "position": 11, "name": "Hats", "description": "hat"}, {"@type": "ListItem", "position": 12, "name": "Glasses", "description": "glasses"}, {"@type": "ListItem", "position": 13, "name": "Jewelry", "description": "jewelry"}, {"@type": "ListItem", "position": 14, "name": "Electronics", "description": "electronics"}, {"@type": "ListItem", "position": 15, "name": "Fragrance", "description": "perfume"}, {"@type": "ListItem", "position": 16, "name": "Sports", "description": "sports"}]}</script>
 <style id="spreadsheet-cluster-css">.cluster-nav{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:12px 0 8px;font-size:14px;font-weight:600}.cluster-nav a{text-decoration:none}.cluster-page{max-width:760px;margin:0 auto;padding:8px 0 24px}.cluster-page .lead{font-size:18px;line-height:1.65}.cluster-links{display:grid;gap:6px}</style>
+
+<style id="superbuy-official-skin">
+:root{--acc:#ff1733;--acd:#e00e28;--link:#e00e28;--primary:#ff1733;--primary-dark:#e00e28;--primary-soft:#fff6f7;--ink:#303133;--mute:#8492b2;--dark:#181818;--line:#eaecf0}
+body{background:#fff;font-family:"Microsoft Yahei","PingFang SC",Avenir,"Segoe UI","Hiragino Sans GB",Inter,ui-sans-serif,system-ui,sans-serif;color:var(--ink)}
+.cb-promo{background:#181818;color:#fff;text-align:center;padding:8px 14px;font-weight:600;font-size:13px}
+.cb-promo a{color:#fff;text-decoration:none}
+.hdr-login,.btn-primary,.cb-login{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:#ff1733;color:#fff;font-size:14px;font-weight:700;text-decoration:none;border:0}
+.hdr-login:hover,.btn-primary:hover{background:#e00e28;color:#fff}
+.btn-outline,.btn-cart{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:#fff;color:#e00e28;border:1px solid #eaecf0;text-decoration:none;font-weight:700;font-size:14px}
+header.top,header.cb-head{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eaecf0}
+.cluster-nav{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:12px 0 8px;font-size:14px;font-weight:600}
+.cb-head-inner,.top .wrap{width:min(1120px,calc(100% - 28px));margin:0 auto;display:flex;align-items:center;gap:12px;min-height:72px;flex-wrap:wrap}
+.cb-head-left,.nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-left:auto}
+.cb-head-left a,.nav a{color:#333;text-decoration:none;padding:0 12px;min-height:44px;display:inline-flex;align-items:center;border-radius:12px;font-size:15px;font-weight:600}
+.cb-head-left a:hover,.nav a:hover,.cb-head-left a.on,.nav a[aria-current]{color:#ff1733}
+.cb-logo img,.brand img{height:32px;width:auto;display:block}
+.cb-ccy{color:#8492b2;font-size:13px;font-weight:600}
+.cb-head-search{display:flex;gap:8px;margin:0 auto 14px;background:#fff;border:2px solid #ff1733;border-radius:999px;padding:6px 6px 6px 18px;align-items:center;width:min(1100px,calc(100% - 28px))}
+.cb-head-search input{flex:1;border:0;outline:none;font-size:15px;background:transparent}
+.cb-head-search .btn{background:#ff1733;color:#fff;border-radius:999px;min-width:96px;border:0;font-weight:700;cursor:pointer;padding:8px 16px}
+.cb-hero{position:relative;border-radius:0;overflow:hidden;min-height:420px;margin:0 0 8px;background:#181818}
+.cb-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.42);object-position:center top}
+.cb-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.62) 0%,rgba(148,86,255,.22) 100%);z-index:0}
+.cb-hero-copy{position:relative;z-index:1;padding:74px 36px 78px;color:#fff;max-width:760px;width:min(1120px,calc(100% - 28px));margin:0 auto}
+.cb-hero-copy h1{color:#fff;font-size:clamp(28px,4.4vw,45px);letter-spacing:-.02em;margin:0 0 12px}
+.cb-hero-copy .hsub{color:#f3edff;font-size:19px;max-width:640px}
+.cb-search{display:flex;gap:8px;margin:22px 0 10px;background:#fff;border-radius:999px;padding:8px 8px 8px 18px;align-items:center;max-width:660px}
+.cb-search input{flex:1;border:0;outline:none;font-size:17px;background:transparent}
+.cb-search .btn{border-radius:999px;min-width:110px;border:0;cursor:pointer;font:inherit;background:#ff1733;color:#fff;font-weight:700;min-height:44px;padding:0 24px}
+.cb-hero .cluster-nav a{color:#fff}
+.cb-hero .eu-badge{background:#ff1733;color:#fff;display:inline-block;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700}
+.cb-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px auto;width:min(1120px,calc(100% - 28px))}
+@media(max-width:800px){.cb-head-inner{text-align:center}.cb-steps{grid-template-columns:1fr}.cb-hero-copy{padding:36px 18px}}
+.cb-step{background:#fff;border-radius:16px;padding:18px;border:1px solid #eaecf0}
+.cb-step strong{display:block;color:#ff1733;font-size:13px;margin-bottom:6px}
+.sg-split{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
+@media(max-width:860px){.sg-split{grid-template-columns:1fr}}
+figure.shot{margin:0}
+figure.shot img{width:100%;border-radius:14px;border:1px solid #eaecf0;display:block;background:#fff}
+figure.shot figcaption{font-size:13px;color:#8492b2;margin-top:8px}
+.sg-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.sg-cat{padding:0;overflow:hidden;border:1px solid #eaecf0;border-radius:18px;text-decoration:none;color:inherit;background:#fff}
+.sg-cat img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#f5f6f7}
+.sg-cat .b{padding:10px 12px}
+.cluster-page{max-width:820px}
+.cluster-nav a{color:#e00e28}
+.site-footer,.cb-foot,.site-ft{background:#111;color:#ccc;margin-top:36px;padding:52px 0 30px;font-size:15.5px}
+.cb-foot a,.site-ft a{color:#c2c2c2;text-decoration:none}
+.cb-foot-grid,.ft-grid{width:min(1120px,calc(100% - 28px));margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+@media(max-width:800px){.cb-foot-grid,.ft-grid{grid-template-columns:1fr 1fr}}
+.cb-foot h3,.site-ft h3{color:#fff;font-size:15.5px;margin:0 0 12px}
+.cb-foot ul{margin:0;padding:0;list-style:none}
+.cb-pay{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.cb-pay span{background:#fff;color:#111;border-radius:6px;padding:4px 8px;font-size:11px;font-weight:800}
+</style>
+
 </head>
 <body data-spreadsheet-cluster="20261030">
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="/"><img class="brand-logo" src="/assets/images/superbuy-logo.png" alt="Superbuy"></a>
-    <nav class="header-nav"><a href="/is-superbuy-legit/">Spreadsheet</a><a href="/superbuy-spreadsheet/">Shipping</a><a href="/how-to-use-superbuy/">Is it legit?</a><a href="/is-superbuy-legit/">Coupons</a><a href="/superbuy-coupons/">How to use</a><a href="#local">Local checks</a></nav>
-    <div class="header-actions">
-      <a class="btn btn-outline" href="#catalog">Open</a>
-      <a class="btn btn-primary" href="https://www.superbuy.com/" rel="noopener sponsored">Register</a>
-    </div>
-  </div>
-</header>
+<div class="cb-promo"><a href="https://www.superbuy.com/" rel="noopener">Shop from China on www.superbuy.com — register before you paste a link.</a></div><header class="cb-head top" role="banner"><div class="cb-head-inner wrap"><a class="cb-logo brand" href="/"><img src="/assets/images/superbuy-logo.png" alt="Superbuy" width="118" height="39"></a><nav class="cb-head-left nav"><a class="on" href="/">Home</a><a href="/superbuy-spreadsheet/">Spreadsheet</a><a href="https://www.superbuy.com/en/page/query/freight/" rel="noopener">Shipping Calculator</a><a href="/superbuy-shipping/">Shipping</a><a href="/how-to-use-superbuy/">Help</a><a href="https://www.superbuy.com/" rel="noopener">How To Buy</a></nav><div class="cb-head-right" style="display:flex;align-items:center;gap:12px"><span class="cb-ccy">English / CAD</span><a class="hdr-login" href="https://www.superbuy.com/" rel="noopener">Log in to Superbuy</a></div></div><form class="cb-head-search" action="https://w2clinks.com/spreadsheet/" method="get" target="_blank" rel="noopener"><input name="q" placeholder="Enter the product name/link" aria-label="Enter the product name/link"><button class="btn" type="submit">Search</button></form></header>
 <main id="main" class="container inner-article">
 <article class="cluster-page" data-spreadsheet-cluster="20261030" data-kind="shipping">
 <h1>Superbuy shipping to Canada</h1>
 <p class="lead">Superbuy shipping to Canada is an official-estimator country code, not this TLD. Open the live freight form toward Canada after warehouse photos.</p>
 <p>Who pays at the border is on the booked SKU (tax-free / prepaid / collect). Last-mile can add a collect fee. Source: CBSA.</p>
-<p>Desk fingerprint: form A1A 1A1. Who pays duties into Canada is on the booked SKU. A broker or last-mile can add a collect fee. Educational source: CBSA. Use a Canadian postal code in the estimator, not a US ZIP. No declared-value coaching. Ranked shipping URLs on superbuyspreadsheets.ca stay — this page does not overwrite them with a live quote.</p>
+<p>Desk fingerprint: form A1A 1A1. Who pays duties into Canada is on the booked SKU. A broker or last-mile can add a collect fee. Educational source: CBSA. Use a Canadian postal code in the estimator, not a US ZIP. Ranked shipping URLs on superbuyspreadsheets.ca stay — this page does not overwrite them with a live quote.</p>
 <h2>Spreadsheet / finds / QC / Shipping</h2>
 <ul class="cluster-links"><li><a href="/superbuy-spreadsheet/">Spreadsheet</a></li><li><a href="/superbuy-finds/">Finds</a></li><li><a href="/superbuy-qc/">QC</a></li><li><a href="/superbuy-shipping/">Shipping</a></li><li><a href="/is-superbuy-legit/">Is it legal?</a></li><li><a href="/how-to-use-superbuy/">Guide</a></li><li><a href="/superbuy-faq/">FAQ</a></li></ul>
-<p class="legal-note">superbuyspreadsheets.ca is an information desk for Canada, not Superbuy. Sister country hosts stay separate files — no 301. Copy reviewed 30 Oct 2026.</p>
+<p class="legal-note">superbuyspreadsheets.ca is an information desk for Canada, not Superbuy. </p>
 </article>
 
 </main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div><strong>Superbuy · superbuyspreadsheets.ca</strong>
-      <p class="footer-note">Independent information desk on superbuyspreadsheets.ca. Not the official Superbuy site. Sister country hosts stay separate files — no 301.</p>
-      <p class="legal-note">Independence: superbuyspreadsheets.ca is an information desk, not Superbuy. We do not run orders, take payment, or see your account. Sister country hosts stay separate files — no 301. Copy reviewed 2 Oct 2026.</p></div>
-    <div><strong>On this host</strong>
-      <p><a href="/superbuy-spreadsheet/">Spreadsheet</a><br><a href="/how-to-use-superbuy/">How to use</a><br><a href="/is-superbuy-legit/">Is it legit?</a><br><a href="/superbuy-coupons/">Coupons</a><br></p></div>
-    <div><strong>Official</strong>
-      <p><a href="https://www.superbuy.com/">Superbuy</a><br>
-      <a href="https://www.superbuy.com/en/page/query/freight/">Freight estimate</a></p></div>
-  </div>
-</footer>
+<footer class="cb-foot site-ft"><div class="cb-foot-grid ft-grid"><div><h3>Customer Service</h3><ul><li><a href="https://www.superbuy.com/en/page/guide/feecomposition/">Help</a></li><li><a href="/superbuy-faq/">Questions</a></li></ul></div><div><h3>Payment</h3><ul><li><a href="https://www.superbuy.com/">www.superbuy.com</a></li><li>CAD</li></ul><p class="cb-pay"><span>VISA</span><span>Mastercard</span><span>PayPal</span></p></div><div><h3>Shopping Agent Guidance</h3><ul><li><a href="/how-to-use-superbuy/">Help</a></li><li><a href="https://www.superbuy.com/en/page/query/freight/">Shipping Calculator</a></li><li><a href="/superbuy-qc/">QC</a></li></ul></div><div><h3>Superbuy</h3><p>Superbuy spreadsheet for Canada. Display currency CAD. Orders on www.superbuy.com.</p><p><a href="https://www.superbuy.com/">www.superbuy.com</a></p></div></div></footer>
 </body></html>
