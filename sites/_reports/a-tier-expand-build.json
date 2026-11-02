@@ -1,0 +1,76 @@
+[
+  {
+    "host": "mycnbox.co.uk",
+    "files": [
+      {
+        "kind": "home",
+        "slug": "/",
+        "path": "sites/mycnbox.co.uk/overlay/index.html",
+        "words_before": 878,
+        "words_after": 879,
+        "remote": "/www/wwwroot/mycnbox.co.uk/index.html"
+      },
+      {
+        "kind": "sheet",
+        "slug": "/mycnbox-spreadsheet/",
+        "path": "sites/mycnbox.co.uk/overlay/mycnbox-spreadsheet/index.html",
+        "words_before": 1793,
+        "words_after": 1794,
+        "remote": "/www/wwwroot/mycnbox.co.uk/mycnbox-spreadsheet/index.html"
+      },
+      {
+        "kind": "ship",
+        "slug": "/mycnbox-shipping-guide/",
+        "path": "sites/mycnbox.co.uk/overlay/mycnbox-shipping-guide/index.html",
+        "words_before": 1306,
+        "words_after": 1393,
+        "remote": "/www/wwwroot/mycnbox.co.uk/mycnbox-shipping-guide/index.html"
+      },
+      {
+        "kind": "legal",
+        "slug": "/is-mycnbox-legit/",
+        "path": "sites/mycnbox.co.uk/overlay/is-mycnbox-legit/index.html",
+        "words_before": 1290,
+        "words_after": 1290,
+        "remote": "/www/wwwroot/mycnbox.co.uk/is-mycnbox-legit/index.html"
+      }
+    ]
+  },
+  {
+    "host": "mycnbox.pl",
+    "files": [
+      {
+        "kind": "home",
+        "slug": "/",
+        "path": "sites/mycnbox.pl/overlay/index.html",
+        "words_before": 869,
+        "words_after": 870,
+        "remote": "/www/wwwroot/mycnbox.pl/index.html"
+      },
+      {
+        "kind": "sheet",
+        "slug": "/mycnbox-spreadsheet/",
+        "path": "sites/mycnbox.pl/overlay/mycnbox-spreadsheet/index.html",
+        "words_before": 1191,
+        "words_after": 1192,
+        "remote": "/www/wwwroot/mycnbox.pl/mycnbox-spreadsheet/index.html"
+      },
+      {
+        "kind": "ship",
+        "slug": "/mycnbox-shipping-guide/",
+        "path": "sites/mycnbox.pl/overlay/mycnbox-shipping-guide/index.html",
+        "words_before": 921,
+        "words_after": 994,
+        "remote": "/www/wwwroot/mycnbox.pl/mycnbox-shipping-guide/index.html"
+      },
+      {
+        "kind": "legal",
+        "slug": "/is-mycnbox-legit/",
+        "path": "sites/mycnbox.pl/overlay/is-mycnbox-legit/index.html",
+        "words_before": 945,
+        "words_after": 945,
+        "remote": "/www/wwwroot/mycnbox.pl/is-mycnbox-legit/index.html"
+      }
+    ]
+  }
+]
