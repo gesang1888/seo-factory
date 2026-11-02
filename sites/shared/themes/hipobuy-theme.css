@@ -1,8 +1,8 @@
-/* HipoBuy country dest — matches official palette, Inter not serif. */
+/* HipoBuy country dest — official hipobuy.com blue, Inter not serif. */
 :root {
-  --primary: #15803d;
-  --primary-dark: #15803d;
-  --primary-soft: #f0fdf4;
-  --nav-dark: #14532d;
+  --primary: #3B82F6;
+  --primary-dark: #2563eb;
+  --primary-soft: #eff6ff;
+  --nav-dark: #1e40af;
 }
 body { background: var(--bg, #f7f8fa); }
