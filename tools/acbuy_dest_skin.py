@@ -24,6 +24,12 @@ SHOT_EST = "/media/estimator-nl.jpg"
 SHOT_DIY = "/media/oficial-diy.jpg"
 SHOT_GIF = "/media/official-home.jpg"
 
+
+def shot_est(d: dict) -> str:
+    if d.get("key") == "ca":
+        return "/media/estimator-ca.jpg"
+    return SHOT_EST
+
 CATS = [
     ("sneakers", "sneakers.png"),
     ("hoodie", "hoodie.png"),
@@ -66,7 +72,7 @@ UNIQUE_DIR = {
         "privacy-policy", "contact", "terms",
         "category", "blog",
     }
-    for h in ("acbuyspreadsheets.nl",)
+    for h in ("acbuyspreadsheets.nl", "acbuyspreadsheets.ca")
 }
 for _h in UNIQUE_DIR:
     UNIQUE_DIR[_h].add("how-to-use-acbuy")
@@ -125,6 +131,9 @@ figure.shot figcaption{font-size:13px;color:#8492b2;margin-top:8px}
 .cb-foot ul{margin:0;padding:0;list-style:none}
 .cb-pay{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .cb-pay span{background:#fff;color:#111;border-radius:6px;padding:4px 8px;font-size:11px;font-weight:800}
+.local-steps{display:grid;gap:14px;padding:0;margin:16px 0 0;list-style:none}
+.local-steps li{display:grid;gap:4px}
+.local-steps strong{display:block}
 </style>
 """
 
@@ -568,7 +577,7 @@ def shots_html(d: dict) -> str:
         '<div class="sg-split"><div>'
         f"{fig(SHOT_HOME, L['cap_home'])}"
         "</div><div>"
-        f"{fig(SHOT_EST, L['cap_est'])}"
+        f"{fig(shot_est(d), L['cap_est'])}"
         f"{fig(SHOT_DIY, L['cap_diy'])}"
         "</div></div></section>"
     )
@@ -620,7 +629,7 @@ def rebuild_home(html: str, host: str, d: dict) -> str:
     html = _replace_section(
         html,
         "local",
-        f'<section class="sg-sec" id="local">{fig(SHOT_EST, L["cap_est"])}'
+        f'<section class="sg-sec" id="local">{fig(shot_est(d), L["cap_est"])}'
         f"<h2>{escape(L['local_h2'])}</h2>"
         f"<ol class=\"local-steps\">"
         f"<li><strong>{escape(L['loc1t'])}</strong><span>{escape(L['loc1'])}</span></li>"
@@ -647,9 +656,10 @@ def rebuild_home(html: str, host: str, d: dict) -> str:
         html,
         "restricted",
         f'<section class="sg-sec" id="restricted"><h2>QC</h2>'
-        f"<p>{escape(L['s2'])}</p>{fig(SHOT_EST, L['s2'])}</section>",
+        f"<p>{escape(L['s2'])}</p>{fig(shot_est(d), L['s2'])}</section>",
     )
     html = _replace_section(html, "cat-wall", cat_wall(d))
+    html = _replace_section(html, "how", process_html(d))
     html = _replace_section(html, "states", process_html(d))
     from acbuy_dest_copy import extra_faq
 
@@ -708,14 +718,14 @@ def patch_catalog_w2c(html: str) -> str:
 def article_figures(kind: str, d: dict) -> list[str]:
     L = chrome(d)
     if kind == "shipping":
-        return [fig(SHOT_EST, L["cap_est"]), fig(SHOT_HOME, L["cap_home"])]
+        return [fig(shot_est(d), L["cap_est"]), fig(SHOT_HOME, L["cap_home"])]
     if kind == "guide":
         return [fig(SHOT_DIY, L["cap_diy"]), fig(SHOT_GIF, L["s1"])]
     if kind == "qc":
-        return [fig(SHOT_EST, L["s2"]), fig(SHOT_EST, L["cap_est"])]
+        return [fig(shot_est(d), L["s2"]), fig(shot_est(d), L["cap_est"])]
     if kind == "legal":
         return [fig(SHOT_DIY, L["cap_diy"]), fig(SHOT_HOME, L["cap_home"])]
-    return [fig(SHOT_HOME, L["cap_home"]), fig(SHOT_EST, L["cap_est"])]
+    return [fig(SHOT_HOME, L["cap_home"]), fig(shot_est(d), L["cap_est"])]
 
 
 def install_media(host: str) -> list[Path]:
@@ -733,6 +743,7 @@ def install_media(host: str) -> list[Path]:
         "oficial-inicio.jpg": MEDIA_SRC / "shots" / "oficial-inicio.jpg",
         "oficial-diy.jpg": MEDIA_SRC / "shots" / "oficial-diy.jpg",
         "estimator-nl.jpg": MEDIA_SRC / "shots" / "estimator-nl.jpg",
+        "estimator-ca.jpg": MEDIA_SRC / "shots" / "estimator-ca.jpg",
         "hero.jpg": MEDIA_SRC / "hero.jpg",
         "acbuy-wordmark.png": MEDIA_SRC / "acbuy-wordmark.png",
         "acbuy-logo.png": MEDIA_SRC / "acbuy-logo.png",
