@@ -217,7 +217,7 @@ def sections_for(kind: str, d: dict, host: str):
     if kind != "faq":
         secs = list(secs) + extra_local(d, host) + more_depth(d, host)
     else:
-        secs = list(secs) + extra_faq(d, host)
+        secs = extra_faq(d, host)
     return h1, lead, secs
 
 

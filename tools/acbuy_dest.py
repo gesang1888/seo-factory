@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Deepen ACBuy dest desk to UK-cluster inner depth.
 
-One independent dest: acbuyspreadsheets.nl. Twin allchinabuyspreadsheet.nl
-stays 301 onto the NL dest. Unique acbuyspreadsheets.ca CMS stays 200
-(not reversed onto AllChinaBuy CA). Hub allchina-buy.com Independent Index
-is skipped. Unique coupons/legit/invite/qc-guide/refund and the 65KB
-acbuy-spreadsheet CMS are not smashed. Cluster guide is acbuy-guide;
-how-to-use-acbuy stays. New legal slug so is-acbuy-legit stays.
-Skip acbuy.cheap. No dest reclaim. No declared-value coaching.
-GSC: sitemap submit only.
+Dests: acbuyspreadsheets.nl and acbuyspreadsheets.ca. Twin
+allchinabuyspreadsheet.nl stays 301 onto the NL dest. AllChinaBuy CA
+(allchinabuyspreadsheet.ca) stays an independent dest — no 301 onto
+ACBuy CA. Hub allchina-buy.com Independent Index is skipped. Unique
+coupons/legit/invite/qc-guide/refund and ranked spreadsheet/shipping
+CMS are not smashed. Cluster guide is acbuy-guide; how-to-use-acbuy
+stays. New legal slugs so is-acbuy-legit stays. Skip acbuy.cheap.
+No dest reclaim. No declared-value coaching. GSC: sitemap submit only.
 """
 from __future__ import annotations
 
@@ -206,18 +206,20 @@ def cluster_title_serp(agent: str, dest: str | None, loc: str, dest_label: str |
 
 
 def pages_for(host: str) -> dict[str, str]:
+    legal = "is-acbuy-legal-ca" if host.endswith(".ca") else "is-acbuy-legal-nl"
     return {
         "spreadsheet": "acbuy-spreadsheet",
         "finds": "acbuy-finds",
         "qc": "acbuy-qc",
         "shipping": "acbuy-shipping-guide",
-        "legal": "is-acbuy-legal-nl",
+        "legal": legal,
         "guide": "acbuy-guide",
         "faq": "acbuy-faq",
     }
 
 
 NL_SKIP = {"spreadsheet"}
+CA_SKIP = {"spreadsheet", "shipping"}
 
 HOSTS = {
     "acbuyspreadsheets.nl": {
@@ -226,23 +228,33 @@ HOSTS = {
         "post": "PostNL", "city": "Nederlandse postcode (form 1234 AB)",
         "pages": pages_for("acbuyspreadsheets.nl"), "skip": set(NL_SKIP), "canon": [],
     },
+    "acbuyspreadsheets.ca": {
+        "key": "ca", "dest": "CA", "loc": "en", "lang": "en-CA", "label": "Canada",
+        "ccy": "CAD", "customs": "CBSA", "customs_url": "https://www.cbsa-asfc.gc.ca/",
+        "post": "Canada Post", "city": "Canadian postal code (form A1A 1A1)",
+        "pages": pages_for("acbuyspreadsheets.ca"), "skip": set(CA_SKIP), "canon": [],
+    },
 }
 
 ORDER = [
-    "acbuyspreadsheets.nl",
+    "acbuyspreadsheets.ca",
 ]
 
 TWINS_KEEP = {
     "allchinabuyspreadsheet.nl": "acbuyspreadsheets.nl",
+    "www.acbuyspreadsheets.ca": "acbuyspreadsheets.ca",
 }
 
 HUB_KEEP = "allchina-buy.com"
-ACBUY_CA_KEEP = "acbuyspreadsheets.ca"
 
 LEFTOVER_SKIN = {
     "acbuyspreadsheets.nl": [
         "start", "catalogus", "hulp", "nieuws", "over-ons",
         "acbuy-spreadsheet",
+    ],
+    "acbuyspreadsheets.ca": [
+        "start", "catalog", "help", "news", "about",
+        "acbuy-spreadsheet", "acbuy-shipping-guide",
     ],
 }
 
@@ -448,6 +460,13 @@ def _home_ld_replacer(host, serp, kws, d):
             return m.group(0)
         if data.get("@type") == "WebPage":
             data["name"] = serp
+            data["url"] = f"https://{host}/"
+            data["@id"] = f"https://{host}/"
+            data["inLanguage"] = d.get("lang") or "en"
+            if d.get("dest") == "CA":
+                data["description"] = (
+                    f"{A} Spreadsheet for Canadian buyers on {host}. Finds, QC, shipping. Source: {d['customs']}."
+                )
             part = data.get("isPartOf")
             if isinstance(part, dict):
                 part["@type"] = "WebSite"
@@ -459,6 +478,7 @@ def _home_ld_replacer(host, serp, kws, d):
             data["name"] = serp
             data["keywords"] = kws
             data["url"] = f"https://{host}/"
+            data["inLanguage"] = d.get("lang") or "en"
         return f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>'
 
     return repl
@@ -475,8 +495,26 @@ def patch_home(host: str, d: dict) -> Path:
     desc = {
         "de": f"{A} Spreadsheet für {d['label']} auf {host}. Finds, QC, Versand. Quelle: {d['customs']}.",
         "nl": f"{A} spreadsheet voor {d['label']} op {host}. Finds, QC, verzending. Bron: {d['customs']}.",
+        "it": f"{A} Spreadsheet per {d['label']} su {host}. Finds, QC, spedizione. Fonte: {d['customs']}.",
     }.get(d["loc"], f"{A} Spreadsheet for {d['label']} buyers on {host}. Finds, QC, shipping. Source: {d['customs']}.")
+    if d.get("dest") == "CA":
+        desc = f"{A} Spreadsheet for Canadian buyers on {host}. Finds, QC, shipping. Source: {d['customs']}."
     html = upsert_meta(html, "description", desc)
+    html = upsert_meta(html, "keywords", ", ".join(kws))
+    html = re.sub(
+        r'(<link\s+rel="canonical"\s+href=")[^"]*(")',
+        rf'\1https://{host}/\2',
+        html,
+        count=1,
+        flags=re.I,
+    )
+    html = re.sub(
+        r'(<meta\s+property="og:url"\s+content=")[^"]*(")',
+        rf'\1https://{host}/\2',
+        html,
+        count=1,
+        flags=re.I,
+    )
     h1 = cluster_title_serp(A, d["dest"], d["loc"], d["label"]).split(" – ")[0].split(" - ")[0]
     html = re.sub(r"<h1>[\s\S]*?</h1>", f"<h1>{escape(h1)}</h1>", html, count=1, flags=re.I)
     html = re.sub(
@@ -507,8 +545,22 @@ def patch_home(host: str, d: dict) -> Path:
         )
         html = html.replace("<body", f"<body {MARKER}", 1)
     html = cbskin.rebuild_home(html, host, d)
+    html = retarget_host(html, host, d)
     path.write_text(html, encoding="utf-8")
     return path
+
+
+def retarget_host(html: str, host: str, d: dict) -> str:
+    html = html.replace("https://acbuyspreadsheets.nl/", f"https://{host}/")
+    html = html.replace("acbuyspreadsheets.nl", host)
+    html = html.replace("allchinabuy-theme.css", "acbuy-theme.css")
+    html = html.replace("support@acbuyspreadsheets.nl", f"support@{host}")
+    html = re.sub(r'"inLanguage": "nl-NL"', f'"inLanguage": "{d["lang"]}"', html)
+    html = html.replace("acbuy spreadsheet nederland", f"acbuy spreadsheet {d['label'].lower()}")
+    if (d.get("loc") or "en") == "en":
+        html = html.replace("Naar de inhoud", "Skip to content")
+        html = html.replace("Vai al contenuto", "Skip to content")
+    return html
 
 
 def _inner_ld_replacer(page_url: str, name: str, kws: list[str], desc: str):
@@ -597,6 +649,7 @@ def deepen_inner(host: str, kind: str, d: dict) -> Path | None:
             )
         else:
             html = inject_jsonld(html, block)
+    html = retarget_host(html, host, d)
     path.write_text(html, encoding="utf-8")
     return path
 
@@ -687,7 +740,12 @@ def seed_missing_cluster(host: str, template: str | None = None) -> None:
     src = overlay(template)
     live = dest / "live-base" / "index.html"
     home = dest / "index.html"
-    if not home.is_file() and live.is_file():
+    template_home = overlay(template) / "index.html"
+    if not home.is_file() and template_home.is_file() and host != template:
+        home.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(template_home, home)
+        print("SEED home from template", host, template)
+    elif not home.is_file() and live.is_file():
         shutil.copy2(live, home)
         print("SEED home from live-base", host)
     skip_slugs = {d["pages"][k] for k in d.get("skip", set()) if k in d["pages"]}
@@ -731,6 +789,8 @@ def leftover_skin() -> list[Path]:
     sftp = None
     try:
         for host, slugs in LEFTOVER_SKIN.items():
+            if host not in ORDER:
+                continue
             d = HOSTS[host]
             for slug in slugs:
                 if _is_unique(slug):
@@ -758,6 +818,8 @@ def leftover_skin() -> list[Path]:
                     continue
                 html = path.read_text(encoding="utf-8", errors="replace")
                 html = cbskin.skin_chrome(html, host, d)
+                html = retarget_host(html, host, d)
+                html = re.sub(r'\s*<link rel="alternate"[^>]*hreflang="nl-NL"[^>]*>', "", html, flags=re.I)
                 path.write_text(html, encoding="utf-8")
                 written.append(path)
                 print("LEFTOVER_SKIN", host, slug, path.stat().st_size)
@@ -813,6 +875,7 @@ def pull_official_media() -> None:
     try:
         for remote_shots in (
             "/www/wwwroot/acbuyspreadsheets.nl/img/shots",
+            "/www/wwwroot/acbuyspreadsheets.ca/img/shots",
         ):
             try:
                 for name in sftp.listdir(remote_shots):
@@ -825,9 +888,12 @@ def pull_official_media() -> None:
                 print("PULL_SHOTS_FAIL", remote_shots, type(exc).__name__, str(exc)[:120])
         for remote, local_name in (
             ("/www/wwwroot/acbuyspreadsheets.nl/assets/images/acbuy-wordmark.png", dest / "acbuy-wordmark.png"),
+            ("/www/wwwroot/acbuyspreadsheets.ca/assets/images/acbuy-wordmark.png", dest / "acbuy-wordmark.png"),
             ("/www/wwwroot/acbuyspreadsheets.nl/img/hero.jpg", dest / "hero.jpg"),
+            ("/www/wwwroot/acbuyspreadsheets.ca/img/hero.jpg", dest / "hero.jpg"),
             ("/www/wwwroot/acbuyspreadsheets.nl/img/oficial-inicio.jpg", dest / "official-home.jpg"),
             ("/www/wwwroot/acbuyspreadsheets.nl/img/shots/oficial-inicio.jpg", dest / "official-home.jpg"),
+            ("/www/wwwroot/acbuyspreadsheets.ca/img/shots/oficial-inicio.jpg", dest / "official-home.jpg"),
         ):
             try:
                 sftp.get(remote, str(local_name))
@@ -1040,6 +1106,9 @@ def put(files: list[Path] | None = None) -> None:
         rel = path.relative_to(ROOT / "sites").as_posix()
         host = rel.split("/", 1)[0]
         rest = path.relative_to(overlay(host)).as_posix()
+        if rest.split("/", 1)[0] in {"live-base", "live-base.index.html"}:
+            print("PUT_SKIP live-base", host, rest)
+            continue
         remote = f"/www/wwwroot/{host}/{rest}"
         _run(client, f"mkdir -p '{str(Path(remote).parent)}'")
         _run(
@@ -1070,14 +1139,14 @@ def verify() -> None:
 
     opener = build_opener(NoRedir(), HTTPSHandler())
     checks = [
+        ("https://acbuyspreadsheets.ca/", "Canadian Buyers"),
+        ("https://acbuyspreadsheets.ca/", 'name="q"'),
+        ("https://acbuyspreadsheets.ca/", "Canada Post"),
+        ("https://acbuyspreadsheets.ca/", "cb-head"),
+        ("https://acbuyspreadsheets.ca/", 'action="https://w2clinks.com/spreadsheet/"'),
+        ("https://acbuyspreadsheets.ca/acbuy-coupons/", "ACBuy"),
         ("https://acbuyspreadsheets.nl/", "kopers in Nederland"),
-        ("https://acbuyspreadsheets.nl/", 'name="q"'),
-        ("https://acbuyspreadsheets.nl/", "PostNL"),
-        ("https://acbuyspreadsheets.nl/", "cb-head"),
-        ("https://acbuyspreadsheets.nl/", 'action="https://w2clinks.com/spreadsheet/"'),
-        ("https://acbuyspreadsheets.nl/acbuy-coupons/", "ACBuy"),
         ("https://allchina-buy.com/", "Independent Index"),
-        ("https://acbuyspreadsheets.ca/", "ACBuy"),
         ("https://allchinabuyspreadsheet.ca/", "Canadian Buyers"),
     ]
     for url, needle in checks:
