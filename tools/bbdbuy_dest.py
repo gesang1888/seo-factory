@@ -739,7 +739,15 @@ def seed_new_overlay(host: str, template: str = "bbdbuy.uk") -> None:
     if not src.is_dir():
         raise SystemExit(f"missing template overlay {template}")
     dest.mkdir(parents=True, exist_ok=True)
-    skip = {"bbdbuy-coupons", "bbdbuy-coupon", "bbdbuy-telegram", "contact"}
+    skip = {
+        "bbdbuy-coupons",
+        "bbdbuy-coupon",
+        "bbdbuy-telegram",
+        "contact",
+        "DEPLOY-PLATFORM.md",
+        "DEPLOY-IT-DEEPEN.md",
+        "index.html.platform-patched",
+    }
     for child in src.iterdir():
         if child.name in skip:
             continue
