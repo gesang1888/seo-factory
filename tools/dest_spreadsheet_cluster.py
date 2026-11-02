@@ -54,7 +54,6 @@ TWINS = {
     "litbuyspreadsheets.es",
     "acbuyspreadsheets.ca",
     "allchinabuyspreadsheet.nl",
-    "cssbuy.at",  # nginx 301 → cssbuyspreadsheet.eu (Phase B sunset)
 }
 PHP_CSSBUY = {"cssbuy.at", "cssbuy.es", "cssbuy.fr", "cssbuy.it", "cssbuy.nl"}
 UNIQUE_PHP_HUBS = {"hipobuyspreadsheet.net"}
