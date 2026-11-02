@@ -1,0 +1,8 @@
+/* OOTDBuy country dest — official black chrome + SPA red. */
+:root {
+  --primary: #f03f3f;
+  --primary-dark: #ed4014;
+  --primary-soft: #fff1f0;
+  --nav-dark: #111111;
+}
+body { background: var(--bg, #f7f8fa); }

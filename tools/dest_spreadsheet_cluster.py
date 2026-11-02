@@ -49,7 +49,6 @@ DATE = "30 Oct 2026"
 TWINS = {
     "fansbuy.eu",
     "sugargoospreadsheets.de",
-    "ootdbuyspreadsheet.de",
     "litbuyspreadsheet.me.uk",
     "litbuyspreadsheets.es",
     "acbuyspreadsheets.ca",

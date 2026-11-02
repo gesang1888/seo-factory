@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OOTDBuy Spreadsheet 2026 — DE W2C</title>
+<meta name="description" content="The most complete OOTDBUY spreadsheet. Browse 12,000+ rep products with direct purchase links. Updated daily.">
+
+<meta property="og:title" content="OOTDBuy Spreadsheet 2026 — DE W2C">
+<meta property="og:description" content="The most complete OOTDBUY spreadsheet. Browse 12,000+ rep products with direct purchase links. Updated daily.">
+<meta property="og:url" content="https://ootdbuyspreadsheet.de/ootdbuy-spreadsheet/">
+<link rel="canonical" href="https://ootdbuyspreadsheet.de/ootdbuy-spreadsheet/">
+<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+<link rel="icon" sizes="32x32" href="/assets/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"OOTDBUY Spreadsheet 2026","url":"https://ootdbuyspreadsheet.de/ootdbuy-spreadsheet/"}</script>
+<style>
+:root{
+  --acc:#1A56DB;--acd:#1341B5;--acl:#EBF5FF;
+  --bk:#0A0A0A;--g1:#1A1A1A;--g2:#2D2D2D;--g3:#555;--g4:#888;--g5:#E5E5E5;--g6:#F6F6F6;--wh:#fff;
+  --gn:#16A34A;--gnl:#F0FDF4;--bl:#2563EB;--bll:#EFF6FF;
+  --am:#D97706;--aml:#FFFBEB;--rd:#DC2626;--rdl:#FEF2F2;--pu:#7C3AED;--pul:#F5F3FF;
+  --f:'DM Sans',sans-serif;--m:'DM Mono',monospace;--r:10px;--rl:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--wh);color:var(--bk);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%;display:block}
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:var(--wh);border-bottom:1px solid var(--g5);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nbrand{display:flex;align-items:center;gap:14px;min-width:0}
+.nlo{display:flex;align-items:center;flex-shrink:0}
+.nlo-logo{display:block;width:162px;height:35px;object-fit:contain;object-position:left center;flex-shrink:0;border-radius:0}
+.nflags{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.nregion{display:inline-flex;align-items:center}
+.nregion-flag{font-size:22px;line-height:1}
+.nfb{width:28px;height:28px;background:var(--acc);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700}
+.nl{display:flex;align-items:center;gap:4px;list-style:none}
+.nl a{font-size:13px;padding:6px 10px;border-radius:6px;color:var(--g4);transition:background .15s,color .15s}
+.nl a:hover{background:var(--g6);color:var(--bk);text-decoration:none}
+.nl a.on{color:var(--bk);font-weight:500}
+/* Announce */
+.ann{background:var(--acc);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:500}
+.ann a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+/* WA button */
+.bwa{display:flex;align-items:center;gap:7px;padding:7px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500;white-space:nowrap;transition:opacity .15s}
+.bwa:hover{opacity:.88;text-decoration:none}
+.bwa svg{width:16px;height:16px;flex-shrink:0}
+/* Lang/Currency button */
+.blc{display:flex;align-items:center;gap:5px;padding:6px 10px;border:1px solid var(--g5);border-radius:8px;background:var(--wh);font-family:var(--f);font-size:13px;font-weight:500;color:var(--bk);cursor:pointer;transition:border-color .15s,background .15s;white-space:nowrap}
+.blc:hover,.blc.open{border-color:var(--acc);background:var(--acl)}
+.blc #lc-curr{color:var(--g4);font-size:11px}
+/* Lang modal backdrop */
+.lbk{position:fixed;inset:0;z-index:198;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s}
+.lbk.show{opacity:1;pointer-events:all}
+/* Lang modal */
+.lmo{position:fixed;z-index:199;background:var(--wh);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.18);width:360px;max-width:calc(100vw - 32px);opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;transform:translateY(-8px) scale(.97)}
+@media(min-width:600px){.lmo{top:62px;right:24px}.lmo.show{opacity:1;pointer-events:all;transform:translateY(0) scale(1)}.lhan{display:none}}
+@media(max-width:599px){.lmo{bottom:0;left:0;right:0;width:100%;max-width:100%;border-radius:20px 20px 0 0;transform:translateY(100%);top:auto}.lmo.show{opacity:1;pointer-events:all;transform:translateY(0)}}
+.lhan{width:36px;height:4px;border-radius:2px;background:var(--g5);margin:12px auto 0}
+.lmi{padding:16px 20px 20px}
+.lmh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.lmt{font-size:15px;font-weight:600;color:var(--bk)}
+.lmc{width:28px;height:28px;border-radius:50%;background:var(--g6);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--g3);transition:background .15s}
+.lmc:hover{background:var(--g5)}
+.lsl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--g4);margin-bottom:10px}
+.lgr{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lop{padding:11px 14px;border:1.5px solid var(--g5);border-radius:10px;background:var(--wh);font-family:var(--f);font-size:13.5px;font-weight:500;color:var(--bk);cursor:pointer;text-align:center;transition:border-color .15s,color .15s,background .15s;display:flex;align-items:center;justify-content:center;gap:6px}
+.lop:hover{border-color:#a5b4fc}
+.lop.sel{border-color:#6366F1;color:#4338CA;background:#EEF2FF;font-weight:600}
+.lcf{width:100%;margin-top:18px;height:46px;background:linear-gradient(135deg,#818CF8,#6366F1);color:#fff;border:none;border-radius:12px;font-family:var(--f);font-size:15px;font-weight:600;cursor:pointer;transition:opacity .15s}
+.lcf:hover{opacity:.88}
+/* Breadcrumb */
+.bc{padding:14px 24px;max-width:1100px;margin:0 auto;font-size:12px;color:var(--g4);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.bc a{color:var(--g4)}.bc a:hover{color:var(--bk)}
+/* Page layout */
+.pw{max-width:1100px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start}
+/* Prose */
+.ph{font-size:21px;font-weight:600;letter-spacing:-.4px;color:var(--bk);margin-top:36px;margin-bottom:12px;padding-top:8px;border-top:1px solid var(--g5)}
+.pp{font-size:15px;color:var(--g2);line-height:1.82;margin-bottom:14px}
+.pul{padding-left:20px;margin-bottom:14px}
+.pul li{font-size:15px;color:var(--g2);line-height:1.75;margin-bottom:7px}
+/* Callout boxes */
+.cb{border-radius:var(--rl);padding:14px 16px;margin:16px 0;display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.7}
+.cb svg{flex-shrink:0;margin-top:2px}
+.cb div strong{display:block;margin-bottom:3px;font-size:13px}
+.tip{background:var(--acl);border:1px solid color-mix(in srgb,var(--acc) 35%,transparent);color:var(--acd)}.tip svg{color:var(--acc)}
+.warn{background:var(--aml);border:1px solid #FDE68A;color:#92400E}.warn svg{color:var(--am)}
+.info{background:var(--bll);border:1px solid #BFDBFE;color:#1E40AF}.info svg{color:var(--bl)}
+.good{background:var(--gnl);border:1px solid #BBF7D0;color:#166534}.good svg{color:var(--gn)}
+/* FAQ */
+.faq-item{border:1px solid var(--g5);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;cursor:pointer;font-size:14px;font-weight:500;color:var(--bk);gap:12px;background:var(--wh);transition:background .12s;list-style:none}
+.faq-q:hover{background:var(--g6)}
+.faq-q svg{width:15px;height:15px;color:var(--g4);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{padding:0 15px;max-height:0;overflow:hidden;transition:max-height .28s ease,padding .2s;font-size:13.5px;color:var(--g3);line-height:1.75}
+.faq-item.open .faq-a{max-height:400px;padding:0 15px 13px}
+/* Sidebar */
+.asb{position:sticky;top:72px}
+.sbc{border:1px solid var(--g5);border-radius:var(--rl);overflow:hidden;margin-bottom:16px}
+.sbh{background:var(--g6);padding:10px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--g4)}
+.sbb{padding:14px 16px}
+.sbcta{margin-top:12px;padding:10px 14px;background:var(--acc);color:#fff;border-radius:8px;text-align:center;font-size:13px;font-weight:500;display:block;transition:background .15s}
+.sbcta:hover{background:var(--acd);text-decoration:none}
+.sbwa{margin-top:8px;padding:9px 14px;background:#25D366;color:#fff;border-radius:8px;text-align:center;font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:6px;transition:opacity .15s}
+.sbwa:hover{opacity:.88;text-decoration:none}.sbwa svg{width:14px;height:14px}
+.sbli{list-style:none}
+.sbli li a{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-top:1px solid var(--g5);font-size:13px;color:var(--g3)}
+.sbli li:first-child a{border-top:none}
+.sbli li a:hover{color:var(--acc);text-decoration:none}
+.sbli li a svg{width:12px;height:12px;opacity:.4}
+/* Footer */
+.ft{background:#1A1A1A;color:#ccc;padding:40px 24px}
+.fti{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.flo{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;color:#fff;margin-bottom:12px}
+.flo-logo{height:26px;width:auto;max-width:150px;object-fit:contain}
+.flo-txt{font-size:14px;color:#fff}
+.flm{width:26px;height:26px;background:var(--acc);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff}
+.ftg{font-size:13px;color:#888;line-height:1.65;margin-bottom:16px}
+.fwa{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500}
+.fwa svg{width:15px;height:15px}
+.fc h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#888;margin-bottom:12px}
+.fc ul{list-style:none}.fc ul li{margin-bottom:9px}
+.fc ul li a{font-size:13px;color:#888;transition:color .12s}
+.fc ul li a:hover{color:#fff;text-decoration:none}
+.fb{max-width:1100px;margin:28px auto 0;padding-top:20px;border-top:1px solid #2D2D2D;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.fb p{font-size:12px;color:#666}
+/* WA float */
+.waf{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.wafb{width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);transition:transform .15s}
+.wafb:hover{transform:scale(1.08);text-decoration:none}.wafb svg{width:26px;height:26px;color:#fff}
+.wabu{background:var(--wh);border:1px solid var(--g5);border-radius:12px;padding:12px 16px;font-size:13px;max-width:200px;text-align:right;line-height:1.5;display:none}
+.wabu b{color:var(--bk);display:block;margin-bottom:2px}.wabu span{color:var(--g4);font-size:12px}
+.waf:hover .wabu{display:block}
+/* Responsive */
+@media(max-width:860px){.pw{grid-template-columns:1fr!important}.asb{position:static}.nl{display:none}.fti{grid-template-columns:1fr;gap:28px}.fb{flex-direction:column}}
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeUp .4s ease both}
+.fade-in-d{animation:fadeUp .4s .1s ease both}
+</style>
+<meta name="ssr-injected" content="1">
+<!-- hreflang: independent ootdbuy cluster -->
+<link rel="alternate" hreflang="de-DE" href="https://ootdbuyspreadsheet.de/ootdbuy-spreadsheet/" />
+<link rel="alternate" hreflang="en-US" href="https://ootdbuyspreadsheet.us/ootdbuy-spreadsheet/" />
+<link rel="alternate" hreflang="en-GB" href="https://ootdbuyspreadsheet.co.uk/ootdbuy-spreadsheet/" />
+<link rel="alternate" hreflang="en-CA" href="https://ootdbuyspreadsheet.ca/ootdbuy-spreadsheet/" />
+<link rel="alternate" hreflang="nl-NL" href="https://ootdbuy.nl/ootdbuy-spreadsheet/" />
+<link rel="alternate" hreflang="fr-BE" href="https://ootdbuy.be/ootdbuy-spreadsheet/" />
+<link rel="alternate" hreflang="de-CH" href="https://ootdbuy.ch/ootdbuy-spreadsheet/" />
+<link rel="alternate" hreflang="x-default" href="https://ootdbuyspreadsheet.org/ootdbuy-spreadsheet/" />
+<!-- dest inner chrome 20261002 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/desk-cms.css?v=20261002-inner">
+<!-- country desk chrome 20261006t -->
+<link rel="icon" href="/favicon1.ico">
+<link rel="stylesheet" href="/assets/css/ootdbuy-theme.css?v=20261006t">
+<link rel="stylesheet" href="/assets/css/ootdbuy-de-desk.css?v=20261006t">
+<style id="country-desk-chrome">:root{--acc:#ff6600!important;--acd:#d15300!important;--link:#d15300!important;--primary:#ff6600!important;--primary-dark:#d15300!important;--primary-soft:#ffece0!important}#lang-modal,#lang-backdrop,.lmo,.lbk,.bc,.waf,.wabu,.wafb{display:none!important}header.top .nav a{color:#333!important}header.top .nav a[aria-current],header.top .nav a:hover{color:#ff6600!important;background:transparent!important}header.top .hdr-login{background:#ff6600!important;color:#fff!important}header.top .hdr-login:hover{background:#d15300!important;color:#fff!important}</style>
+
+
+<style id="ootd-official-skin">
+:root{--primary:#f03f3f;--primary-dark:#ed4014;--primary-soft:#fff1f0;--nav-dark:#111111;--od-red:#f03f3f}
+body{background:#f6f7f8;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.od-promo{background:#111111;color:#fff;text-align:center;padding:8px 14px;font-weight:600;font-size:13px;letter-spacing:.01em}
+.od-promo a{color:#fff;text-decoration:none}
+.btn-outline,.od-reg{border:1px solid #f03f3f;color:#f03f3f;background:#fff;border-radius:999px;padding:8px 16px;text-decoration:none;font-weight:600;font-size:14px}
+.btn-primary,.od-login{background:#f03f3f;color:#fff;border-radius:999px;padding:8px 16px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid #f03f3f}
+.btn-cart{border:1px solid #f03f3f;color:#f03f3f;border-radius:999px;padding:8px 16px;text-decoration:none;font-weight:600;font-size:14px}
+.od-head{background:#111111;border-bottom:1px solid #1f1f1f;position:sticky;top:0;z-index:50}
+.od-head-inner{width:min(1180px,calc(100% - 28px));margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 0;flex-wrap:wrap}
+.od-head-search{display:flex;gap:8px;margin:0 auto 12px;background:#fff;border:2px solid #f03f3f;border-radius:999px;padding:6px 6px 6px 18px;align-items:center;width:min(1100px,calc(100% - 28px))}
+.od-head-search input{flex:1;border:0;outline:none;font-size:14px;background:transparent}
+.od-head-search .btn{background:#f03f3f;color:#fff;border-radius:999px;min-width:96px;border:0;font-weight:700;cursor:pointer;padding:8px 16px}
+.od-head-left,.od-head-right{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:14px;font-weight:600}
+.od-head-left a,.od-head-right a{color:#eee;text-decoration:none}
+.od-head-left a:hover,.od-head-right a:hover,.od-head-left a.on{color:#f03f3f}
+.od-head-right{justify-content:flex-end}
+.od-logo img{height:36px;width:auto;display:block}
+.od-ccy{color:#bbb;font-size:13px;font-weight:600}
+.od-hero{position:relative;border-radius:18px;overflow:hidden;min-height:420px;margin:18px 0 8px;background:#111111}
+.od-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.38);object-position:center top}
+.od-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,17,17,.78) 0%,rgba(17,17,17,.4) 55%,rgba(17,17,17,.18) 100%);z-index:0}
+.od-hero-copy{position:relative;z-index:1;padding:48px 36px 36px;color:#fff;max-width:760px}
+.od-hero-copy h1{color:#fff;font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;margin:0 0 12px}
+.od-hero-copy .hsub{color:#f3f3f3;font-size:18px;max-width:640px}
+.od-search{display:flex;gap:8px;margin:22px 0 10px;background:#fff;border-radius:999px;padding:6px 6px 6px 16px;align-items:center;max-width:640px}
+.od-search input{flex:1;border:0;outline:none;font-size:14px;background:transparent}
+.od-search .btn{border-radius:999px;min-width:110px;border:0;cursor:pointer;font:inherit;background:#f03f3f;color:#fff;font-weight:700}
+.od-hero .cluster-nav a{color:#fff}
+.od-hero .eu-badge{background:#f03f3f;color:#fff}
+.od-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+@media(max-width:800px){.od-head-inner{text-align:center}.od-head-left,.od-head-right{justify-content:center}.od-steps{grid-template-columns:1fr}.od-hero-copy{padding:28px 18px}}
+.od-step{background:#fff;border-radius:16px;padding:18px;border:1px solid #eee}
+.od-step strong{display:block;color:#f03f3f;font-size:13px;margin-bottom:6px}
+.od-step h3{margin:0 0 6px;font-size:18px}
+.od-step p{margin:0;color:#555;font-size:14px}
+.sg-split{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
+@media(max-width:860px){.sg-split{grid-template-columns:1fr}}
+figure.shot{margin:0}
+figure.shot img{width:100%;border-radius:14px;border:1px solid #eee;display:block;background:#fff}
+figure.shot figcaption{font-size:13px;color:#666;margin-top:8px}
+.sg-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.sg-cat{padding:0;overflow:hidden}
+.sg-cat img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#f5f5f5}
+.sg-cat .b{padding:10px 12px}
+.cluster-page{max-width:820px}
+.cluster-page figure.shot{margin:16px 0 22px}
+.cluster-nav a{color:#f03f3f}
+.site-footer,.od-foot{background:#111111;color:#eee;margin-top:36px;padding:36px 0 28px}
+.od-foot a{color:#fff;text-decoration:none}
+.od-foot-grid{width:min(1180px,calc(100% - 28px));margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:800px){.od-foot-grid{grid-template-columns:1fr 1fr}}
+.od-foot h3{color:#f03f3f;font-size:14px;margin:0 0 10px}
+.od-foot p,.od-foot li{font-size:13px;line-height:1.7;color:#d8d8d8}
+.od-foot ul{margin:0;padding:0;list-style:none}
+.od-pay{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.od-pay span{background:#fff;color:#111111;border-radius:6px;padding:4px 8px;font-size:11px;font-weight:800}
+</style>
+
+
+</head>
+<body data-inner-chrome="20261006t-ootdbuy-de">
+<a class="skip" href="#main">Zum Inhalt</a>
+<div class="od-promo"><a href="https://ootdbuy.com/" rel="noopener">Bestellen auf ootdbuy.com — zuerst registrieren, dann den Link einfügen.</a></div><header class="od-head"><div class="od-head-inner"><a class="od-logo" href="/"><img src="/assets/images/ootdbuy-logo.png" alt="OOTDBuy"></a><nav class="od-head-left"><a class="on" href="/">Start</a><a href="/ootdbuy-spreadsheet/">Spreadsheet</a><a href="https://ootdbuy.com/estimation/" rel="noopener">Fracht schätzen</a><a href="/ootdbuy-shipping-guide/">Versand</a><a href="/how-to-use-ootdbuy/">Hilfe</a><a href="https://ootdbuy.com/" rel="noopener">How To Buy</a></nav><div class="od-head-right"><span class="od-ccy">Deutsch / EUR</span><a class="btn-cart" href="https://ootdbuy.com/" rel="noopener">Warenkorb</a><a class="od-login" href="https://ootdbuy.com/" rel="noopener">Anmelden/Registrieren</a></div></div><form class="od-head-search" action="https://w2clinks.com/spreadsheet/" method="get" target="_blank" rel="noopener"><input name="q" placeholder="Produktname oder Link" aria-label="Produktname oder Link"><button class="btn" type="submit">Suchen</button></form></header>
+<main id="main" class="inner-article">
+<div class="fbar">
+      <div class="sw">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" class="si" id="search-input" placeholder="Search OOTDBUY products..." oninput="hs(this.value)">
+      </div>
+      <select class="ss" id="sort-sel" onchange="lp()">
+        <option value="d">Sort: Default</option>
+        <option value="pa">Price: Low &rarr; High</option>
+        <option value="pd">Price: High &rarr; Low</option>
+      </select>
+      <span class="rc" id="rc"><b>0</b> products</span>
+    </div>
+    <div class="pg" id="product-grid"><article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786167181.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1823866485-1234478995-3f8800000194d5ec36650a22d234_1200_1200.jpg?imageView2/2/w/400" alt="Rick Owens Black High Top Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Rick Owens Black High Top Sneakers</h3><span itemprop="brand">Rick Owens</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">585.6</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7788813858.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1648967869-1234478995-6cc400000197450605100a22d249_1200_1200.jpg?imageView2/2/w/400" alt="New Balance U9060 Sneakers in Various Colors" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">New Balance U9060 Sneakers in Various Colors</h3><span itemprop="brand">New Balance</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">298.8</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786239947.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1876829933-1234478995-585c0000019658b11e830a22d249_1200_1200.jpg?imageView2/2/w/400" alt="Air Jordan 5 Retro High Top Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Air Jordan 5 Retro High Top Sneakers</h3><span itemprop="brand">Jordan</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">325</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7788697412.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-4a0d000001953979e83d0a8133b0_800_800.jpg?imageView2/2/w/400" alt="Dior Green and Black Sneakers with White Sole" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Dior Green and Black Sneakers with White Sole</h3><span itemprop="brand">Dior</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">510</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7788812036.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-682600000194b80661b40aa08290_1200_1200.jpg?imageView2/2/w/400" alt="Air Jordan 4 Sneakers in Various Colors" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Air Jordan 4 Sneakers in Various Colors</h3><span itemprop="brand">Jordan</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">250</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7785723355.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-160000000194fc16e6360aa0834c_800_600.jpg?imageView2/2/w/400" alt="Air Jordan 3 White Blue Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Air Jordan 3 White Blue Sneakers</h3><span itemprop="brand">Jordan</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">278</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786168731.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-244400000195c49cf4160a231226-unadjust_850_850.png?imageView2/2/w/400" alt="Air Jordan 4 Sneakers in Various Colors" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Air Jordan 4 Sneakers in Various Colors</h3><span itemprop="brand">Jordan</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">380</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7789665258.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-546400000195c947f8f30a8115c2-unadjust_800_800.png?imageView2/2/w/400" alt="Nike Air More Uptempo Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Air More Uptempo Sneakers</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">290</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7785713517.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-458a00000195c49f88d20a8133b0-unadjust_800_800.png?imageView2/2/w/400" alt="Jordan 11 Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Jordan 11 Sneakers</h3><span itemprop="brand">Jordan</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">380</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786995351.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-3d0200000195c49b3f110aa0834c-unadjust_850_850.png?imageView2/2/w/400" alt="Nike Air Jordan 1 Low Sneakers in Various Colors" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Air Jordan 1 Low Sneakers in Various Colors</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">200</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7789119354.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-124f00000194e27a71e40aa0834c_1600_2000.jpg?imageView2/2/w/400" alt="Balenciaga Black Sock Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Balenciaga Black Sock Sneakers</h3><span itemprop="brand">Balenciaga</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">369</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786119515.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-15cb00000194a9076cc40a22d234_1200_1200.jpg?imageView2/2/w/400" alt="New Balance Classic Sneakers in Black, Grey, and White Variants" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">New Balance Classic Sneakers in Black, Grey, and White Variants</h3><span itemprop="brand">New Balance</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">290</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7789162688.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-1d3500000194e247694e0a8115b5_1200_1200.jpg?imageView2/2/w/400" alt="Nike Football Cleats" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Football Cleats</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">299</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786141285.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-1a000000019749d603be0a22d249_1200_1200.jpg?imageView2/2/w/400" alt="Rick Owens Black High Top Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Rick Owens Black High Top Sneakers</h3><span itemprop="brand">Rick Owens</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">585.6</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786027001.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-4a5c00000195c934f1c10aa0834c-unadjust_800_800.png?imageView2/2/w/400" alt="Nike Dunk Low Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Dunk Low Sneakers</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">330</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7789067340.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-10eb000001974420535b0a22d249-unadjust_420_421.png?imageView2/2/w/400" alt="Nike Air Max Black and Blue Running Shoes" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Air Max Black and Blue Running Shoes</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">310.8</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7789170508.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-064c00000194b80fa59f0aa0834c_1200_1200.jpg?imageView2/2/w/400" alt="Adidas Yeezy Boost 350 V2 Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Adidas Yeezy Boost 350 V2 Sneakers</h3><span itemprop="brand">Adidas</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">299</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786200259.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-7f1600000194b811e39e0a210559_1200_1200.jpg?imageView2/2/w/400" alt="Nike Running Shoes Multi-Color" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Running Shoes Multi-Color</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">199</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7789769894.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-234300000194b8100f610a8115b5_1200_1200.jpg?imageView2/2/w/400" alt="Nike Dunk Low Sneakers in Various Colorways" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Dunk Low Sneakers in Various Colorways</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">228</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786746337.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-5bd700000194b81141340a239383_1200_1200.jpg?imageView2/2/w/400" alt="Adidas Yeezy Boost 700 Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Adidas Yeezy Boost 700 Sneakers</h3><span itemprop="brand">Adidas</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">240</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7789698872.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-4e0b00000194b804cea00a8133b5_850_850.jpg?imageView2/2/w/400" alt="Nike Dunk Low Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Dunk Low Sneakers</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">160</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7789720546.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-6a3500000194e293897e0a8133b5_850_850.jpg?imageView2/2/w/400" alt="Diverse Colorway Sneakers Collection" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Diverse Colorway Sneakers Collection</h3><span itemprop="brand">Other Brands</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">450</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7789712586.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-693500000194e2917cef0a8133b5_750_750.jpg?imageView2/2/w/400" alt="Louis Vuitton Monogram Low Top Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Louis Vuitton Monogram Low Top Sneakers</h3><span itemprop="brand">Louis Vuitton</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">350</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786728539.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-52cc00000194b80f4eae0a8133b5_850_850.jpg?imageView2/2/w/400" alt="Adidas Yeezy Boost 350 V2 Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Adidas Yeezy Boost 350 V2 Sneakers</h3><span itemprop="brand">Adidas</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">230</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786677325.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-224000000195c905f23c0a22d249-unadjust_761_513.png?imageView2/2/w/400" alt="Adidas Running Shoes in Various Colors and Styles" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Adidas Running Shoes in Various Colors and Styles</h3><span itemprop="brand">Adidas</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">248</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7786744339.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1623462477-1234478995-0cf900000194b2e71d8b0a210559_1200_1200.jpg?imageView2/2/w/400" alt="BAPE Star Low Top Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">BAPE Star Low Top Sneakers</h3><span itemprop="brand">A Bathing Ape</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">290</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7788744798.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1767724244-1234478995-340200000191292b23bf0a8133b5_1200_1200.jpg?imageView2/2/w/400" alt="Yeezy Boost 350 V2 Sneakers in Various Colors" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Yeezy Boost 350 V2 Sneakers in Various Colors</h3><span itemprop="brand">Yeezy</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">180</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7785749017.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1767724244-1234478995-6a390000019119229c4c0a8115b5-unadjust_800_800.png?imageView2/2/w/400" alt="Nike Air Jordan Low Black Suede Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Air Jordan Low Black Suede Sneakers</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">340</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7788790352.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1767724244-1234478995-053200000191292cd99a0a8115b5_1200_1200.jpg?imageView2/2/w/400" alt="New Balance Running Shoes" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">New Balance Running Shoes</h3><span itemprop="brand">New Balance</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">280</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7785788507.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1767724244-1234478995-487800000191192155b00a210559-unadjust_800_800.png?imageView2/2/w/400" alt="Adidas Samba Brown Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Adidas Samba Brown Sneakers</h3><span itemprop="brand">Adidas</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">210</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7788806120.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1767724244-1234478995-67d700000191292fa49c0a210559_850_850.jpg?imageView2/2/w/400" alt="Yeezy Boost 350 V2 Sneakers in Various Colors" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Yeezy Boost 350 V2 Sneakers in Various Colors</h3><span itemprop="brand">Yeezy</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">390</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7785776559.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1767724244-1234478995-7471000001911916c07b0a232357-unadjust_800_800.png?imageView2/2/w/400" alt="Adidas Yeezy Black Sneaker" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Adidas Yeezy Black Sneaker</h3><span itemprop="brand">Adidas</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">240</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7788748830.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1767724244-1234478995-4d1d0000019111fee2630a239383-unadjust_800_800.png?imageView2/2/w/400" alt="Dior Black Low Top Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Dior Black Low Top Sneakers</h3><span itemprop="brand">Dior</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">440</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7788814004.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1767724244-1234478995-0aaa000001911227fb680a232357-unadjust_800_800.png?imageView2/2/w/400" alt="Nike Black Air Max Plus Sneaker" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Black Air Max Plus Sneaker</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">150</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7788818074.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1675274933-1234478995-1da800000196afc444ca0a23b4de_850_850.jpg?imageView2/2/w/400" alt="Nike Air Max Sneakers in Various Colors and Styles" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Air Max Sneakers in Various Colors and Styles</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">228</span></span></div></a></article>
+<article class="pcard" itemscope itemtype="https://schema.org/Product"><a href="https://w2clinks.com/yupoo-sneakers/wd_7785737437.html" rel="nofollow sponsored"><div class="pimg"><img src="https://si.geilicdn.com/open1767724244-1234478995-713f000001911211ecdf0a239383-unadjust_800_800.png?imageView2/2/w/400" alt="Nike Air Max Plus Red and Blue Sneakers" width="400" height="400" loading="lazy"></div><div class="pbdy"><h3 itemprop="name">Nike Air Max Plus Red and Blue Sneakers</h3><span itemprop="brand">Nike</span><span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="CNY"><span itemprop="price">150</span></span></div></a></article></div><noscript><ul class="ssr-fallback"><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786167181.html">Rick Owens Black High Top Sneakers — 585.6 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7788813858.html">New Balance U9060 Sneakers in Various Colors — 298.8 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786239947.html">Air Jordan 5 Retro High Top Sneakers — 325 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7788697412.html">Dior Green and Black Sneakers with White Sole — 510 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7788812036.html">Air Jordan 4 Sneakers in Various Colors — 250 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7785723355.html">Air Jordan 3 White Blue Sneakers — 278 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786168731.html">Air Jordan 4 Sneakers in Various Colors — 380 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7789665258.html">Nike Air More Uptempo Sneakers — 290 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7785713517.html">Jordan 11 Sneakers — 380 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786995351.html">Nike Air Jordan 1 Low Sneakers in Various Colors — 200 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7789119354.html">Balenciaga Black Sock Sneakers — 369 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786119515.html">New Balance Classic Sneakers in Black, Grey, and White Variants — 290 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7789162688.html">Nike Football Cleats — 299 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786141285.html">Rick Owens Black High Top Sneakers — 585.6 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786027001.html">Nike Dunk Low Sneakers — 330 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7789067340.html">Nike Air Max Black and Blue Running Shoes — 310.8 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7789170508.html">Adidas Yeezy Boost 350 V2 Sneakers — 299 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786200259.html">Nike Running Shoes Multi-Color — 199 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7789769894.html">Nike Dunk Low Sneakers in Various Colorways — 228 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786746337.html">Adidas Yeezy Boost 700 Sneakers — 240 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7789698872.html">Nike Dunk Low Sneakers — 160 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7789720546.html">Diverse Colorway Sneakers Collection — 450 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7789712586.html">Louis Vuitton Monogram Low Top Sneakers — 350 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786728539.html">Adidas Yeezy Boost 350 V2 Sneakers — 230 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786677325.html">Adidas Running Shoes in Various Colors and Styles — 248 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7786744339.html">BAPE Star Low Top Sneakers — 290 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7788744798.html">Yeezy Boost 350 V2 Sneakers in Various Colors — 180 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7785749017.html">Nike Air Jordan Low Black Suede Sneakers — 340 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7788790352.html">New Balance Running Shoes — 280 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7785788507.html">Adidas Samba Brown Sneakers — 210 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7788806120.html">Yeezy Boost 350 V2 Sneakers in Various Colors — 390 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7785776559.html">Adidas Yeezy Black Sneaker — 240 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7788748830.html">Dior Black Low Top Sneakers — 440 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7788814004.html">Nike Black Air Max Plus Sneaker — 150 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7788818074.html">Nike Air Max Sneakers in Various Colors and Styles — 228 CNY</a></li><li><a href="https://w2clinks.com/yupoo-sneakers/wd_7785737437.html">Nike Air Max Plus Red and Blue Sneakers — 150 CNY</a></li></ul></noscript>
+    <nav class="pgn">
+      <button class="pgb" onclick="lp()" disabled><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="pgb on">1</button><button class="pgb">2</button><button class="pgb">3</button>
+      <button class="pgb" onclick="lp()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+    </nav>
+  <section class="ootd-gsc-de-pass2" style="max-width:920px;margin:28px auto;padding:28px;background:#f5f7fb;border:1px solid #d5deea;border-radius:14px;color:#1e293b;line-height:1.75"><h2>So nutzen DE-Käufer das Spreadsheet</h2>
+<p>Jede Zeile ist ein Lead, keine Bestellung. Batch, Größentabelle und aktuelle QC prüfen,
+bevor CNY beim Agenten bezahlt wird. Gewicht früh notieren — Volumengewicht treibt oft
+die DE-Versandkosten stärker als der Artikelpreis.</p>
+<ul>
+<li>MwSt./Zoll in EUR vor dem Ship-Click einplanen.</li>
+<li>Peak-Season (Nov–Jan) erhöht Zollrisiko; Reddit-ETAs aus dem Sommer halten selten.</li>
+<li>Kombinieren mit <a href="/ootdbuy-shipping-guide/">Shipping</a>,
+<a href="/how-to-use-ootdbuy/">How to use</a>,
+<a href="/ootdbuy-qc-guide/">QC</a>.</li>
+</ul>
+</section>
+</main>
+<footer class="od-foot"><div class="od-foot-grid"><div><h3>Kundenservice</h3><ul><li><a href="https://ootdbuy.com/help">Hilfe</a></li><li><a href="/ootdbuy-faq/">Fragen</a></li></ul></div><div><h3>Zahlung</h3><ul><li><a href="https://ootdbuy.com/">ootdbuy.com</a></li><li>EUR</li></ul><p class="od-pay"><span>VISA</span><span>Mastercard</span><span>PayPal</span></p></div><div><h3>Einkaufsagent</h3><ul><li><a href="/how-to-use-ootdbuy/">Hilfe</a></li><li><a href="https://ootdbuy.com/estimation/">Fracht schätzen</a></li><li><a href="/ootdbuy-qc/">QC</a></li></ul></div><div><h3>OOTDBuy</h3><p>OOTDBuy-Spreadsheet für Deutschland. Anzeige in EUR. Bestellen auf ootdbuy.com.</p><p><a href="https://ootdbuy.com/">ootdbuy.com</a></p></div></div></footer>
+<script>
+(function(){
+  var b=document.querySelector('.burger'), n=document.querySelector('nav.nav');
+  if(!b||!n) return;
+  b.addEventListener('click', function(){
+    var on=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', on?'false':'true');
+    n.classList.toggle('open', !on);
+  });
+})();
+</script>
+
+<div class="waf">
+  <div class="wabu"><b>Need help?</b><span>Chat on WhatsApp</span></div>
+  <a href="https://wa.me/" target="_blank" rel="noopener" class="wafb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+</div>
+
+<script>
+/* ══ i18n + currency engine ══ */
+const LANGS=[
+  {c:'en',l:'English',f:'🇺🇸'},{c:'es',l:'Español',f:'🇪🇸'},
+  {c:'de',l:'Deutsch',f:'🇩🇪'},{c:'fr',l:'Français',f:'🇫🇷'},
+  {c:'it',l:'Italiano',f:'🇮🇹'},{c:'pt',l:'Português',f:'🇧🇷'},
+  {c:'nl',l:'Nederlands',f:'🇳🇱'},{c:'pl',l:'Polski',f:'🇵🇱'},
+  {c:'zh',l:'中文',f:'🇨🇳'},
+];
+const CURRS=[
+  {c:'CNY',s:'¥',r:1},
+  {c:'USD',s:'$',r:0.138},{c:'EUR',s:'€',r:0.127},{c:'GBP',s:'£',r:0.109},
+  {c:'JPY',s:'¥',r:21.4},
+  {c:'AUD',s:'A$',r:0.212},{c:'CAD',s:'C$',r:0.189},{c:'BRL',s:'R$',r:0.69},
+];
+const PRICE_BASE='CNY';
+const T={
+  en:{buy:'OOTDBUY →',no:'No products found.',sp:'Search OOTDBUY products...',mt:'Language & Currency',ml:'LANGUAGE',mc:'CURRENCY',mb:'Confirm'},
+  es:{buy:'Comprar en OOTDBUY →',no:'Sin resultados.',sp:'Buscar en OOTDBUY...',mt:'Idioma y Moneda',ml:'IDIOMA',mc:'MONEDA',mb:'Confirmar'},
+  de:{buy:'Auf OOTDBUY kaufen →',no:'Keine Produkte.',sp:'OOTDBUY suchen...',mt:'Sprache & Währung',ml:'SPRACHE',mc:'WÄHRUNG',mb:'Bestätigen'},
+  fr:{buy:'Acheter sur OOTDBUY →',no:'Aucun résultat.',sp:'Rechercher OOTDBUY...',mt:'Langue & Devise',ml:'LANGUE',mc:'DEVISE',mb:'Confirmer'},
+  it:{buy:'Acquista su OOTDBUY →',no:'Nessun prodotto.',sp:'Cerca su OOTDBUY...',mt:'Lingua e Valuta',ml:'LINGUA',mc:'VALUTA',mb:'Conferma'},
+  pt:{buy:'Comprar no OOTDBUY →',no:'Sem resultados.',sp:'Buscar no OOTDBUY...',mt:'Idioma e Moeda',ml:'IDIOMA',mc:'MOEDA',mb:'Confirmar'},
+  nl:{buy:'Koop via OOTDBUY →',no:'Geen producten gevonden.',sp:'Zoek OOTDBUY producten...',mt:'Taal & Valuta',ml:'TAAL',mc:'VALUTA',mb:'Bevestigen'},
+  pl:{buy:'Kup na OOTDBUY →',no:'Brak produktów.',sp:'Szukaj OOTDBUY...',mt:'Język i waluta',ml:'JĘZYK',mc:'WALUTA',mb:'Potwierdź'},
+  zh:{buy:'在OOTDBUY购买 →',no:'未找到商品。',sp:'搜索OOTDBUY商品...',mt:'语言与货币',ml:'语言',mc:'货币',mb:'确认'},
+};
+let aL=localStorage.getItem('kd_lang')||'de';
+let aC=localStorage.getItem('kd_curr')||'EUR';
+let pL=aL,pC=aC,mO=false;
+
+function cvtFromCny(cny){const c=CURRS.find(x=>x.c===aC)||CURRS.find(x=>x.c===PRICE_BASE);const v=cny*c.r;return(['JPY','CNY'].includes(c.c))?c.s+Math.round(v).toLocaleString():c.s+v.toFixed(2);}
+function fmtPrice(raw,cur){if(raw==null||raw==='')return'';const n=parseFloat(String(raw).replace(/[^\d.]/g,''));if(isNaN(n))return String(raw);const base=(cur||PRICE_BASE).toUpperCase();if(base!=='CNY')return String(raw);return cvtFromCny(n);}
+
+function toggleLM(){mO?closeLM():openLM()}
+function openLM(){pL=aL;pC=aC;buildG();['lang-modal','lang-backdrop'].forEach(id=>document.getElementById(id).classList.add('show'));document.getElementById('lang-btn').classList.add('open');document.body.style.overflow='hidden';mO=true;}
+function closeLM(){['lang-modal','lang-backdrop'].forEach(id=>document.getElementById(id).classList.remove('show'));document.getElementById('lang-btn').classList.remove('open');document.body.style.overflow='';mO=false;}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mO)closeLM();});
+
+function buildG(){
+  document.getElementById('lang-grid').innerHTML=LANGS.map(l=>`<button class="lop${l.c===pL?' sel':''}" onclick="pL='${l.c}';buildG()">${l.f} ${l.l}</button>`).join('');
+  document.getElementById('curr-grid').innerHTML=CURRS.map(c=>`<button class="lop${c.c===pC?' sel':''}" onclick="pC='${c.c}';buildG()">${c.c}</button>`).join('');
+}
+function applyLC(){
+  aL=pL;aC=pC;
+  localStorage.setItem('kd_lang',aL);localStorage.setItem('kd_curr',aC);
+  closeLM();setBadge();applyT();
+  if(typeof lp==='function')lp();else if(typeof loadProducts==='function')loadProducts();
+}
+function setBadge(){
+  const l=LANGS.find(x=>x.c===aL)||LANGS[0];
+  const c=CURRS.find(x=>x.c===aC)||CURRS[0];
+  const btn=document.getElementById('lang-btn');
+  if(!btn||!l||!c)return;
+  document.getElementById('lc-flag').textContent=l.f;
+  document.getElementById('lc-lang').textContent=l.c.toUpperCase();
+  document.getElementById('lc-curr').textContent='· '+c.c;
+}
+function applyT(){
+  const t=T[aL]||T.en;
+  document.querySelectorAll('[data-t]').forEach(el=>{const k=el.getAttribute('data-t');if(t[k])el.textContent=t[k];});
+  const si=document.getElementById('search-input');if(si)si.placeholder=t.sp;
+}
+function toggleFaq(el){const i=el.closest('.faq-item'),w=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!w)i.classList.add('open');}
+document.addEventListener('DOMContentLoaded',()=>{buildG();setBadge();applyT();if(typeof lp==='function')lp();});
+</script>
+<script>
+const DEMO=[];
+const CATMAP={"bags": "BAG", "hoodies": "HOODIE", "sweater": "SWEATER", "tshirts": "T-SHIRT", "vest": "VEST", "shoes": "SNEAKERS", "slippers": "SLIPPERS", "polo": "POLO", "pants": "SHORTS", "long-sleeved": "LONG SLEEVED", "shawl": "SHAWL"};
+const PAPI='/api/products/';
+const REG='https://ootdbuy.com/register?inviteCode=FCGYHLJWL';
+const SHEET='https://w2clinks.com/spreadsheet/ootdbuy/';
+let cat='all',sq='';
+function sk(n){document.getElementById('product-grid').innerHTML=Array(n).fill(0).map(()=>'<div class="pcard sk"><div class="skim"></div><div class="pbdy"><div class="skl"></div><div class="skl sh"></div></div></div>').join('');}
+function rp(ps){
+  const t=(typeof T!=='undefined')?(T[aL]||T.en):{};
+  const buyBtn=t.buy||'OOTDBUY →';const noP=t.no||'No products found.';
+  const g=document.getElementById('product-grid');
+  if(!ps.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--g4);font-size:14px">'+noP+'</div>';return;}
+  const fp=p=>((typeof fmtPrice==='function')?fmtPrice(p.priceCny??p.price,p.currency||'CNY'):(p.price||''));
+  g.innerHTML=ps.map(p=>`<article class="pcard">
+    <div class="pimg">
+      ${p.img?`<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="pph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>`:'<div class="pph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>'}
+      ${p.badge?`<span class="pbg">${p.badge}</span>`:''}
+    </div>
+    <div class="pbdy"><p class="pnm">${p.name}</p>
+      <div class="pmeta"><span class="ppr">${fp(p)}</span><span class="ppl">${p.platform||'W2C'}</span></div>
+    </div>
+    <a href="${p.target||SHEET}" target="_blank" rel="noopener" class="plnk">${buyBtn}</a>
+  </article>`).join('');
+}
+function fc(c){cat=c;document.querySelectorAll('.cl a').forEach(a=>a.classList.toggle('on',a.getAttribute('onclick')&&a.getAttribute('onclick').includes("'"+c+"'")));lp();}
+let st;function hs(v){clearTimeout(st);st=setTimeout(()=>{sq=v.trim();lp();},280);}
+async function lp(){
+  sk(12);
+  try{
+    const u=new URL(PAPI,location.origin);
+    u.searchParams.set('limit','24');
+    u.searchParams.set('country','DE');
+    if(sq)u.searchParams.set('keyword',sq);
+    if(cat!=='all'&&CATMAP[cat])u.searchParams.set('category',CATMAP[cat]);
+    const r=await fetch(u);
+    const d=await r.json();
+    let ps=(d.items||[]).map((it,i)=>({
+      id:i+1,name:it.title||'',price:it.price||'',priceCny:parseFloat(it.price)||0,
+      currency:(it.currency||'CNY').toUpperCase(),platform:it.brand||'W2C',cat:cat,
+      img:it.image||'',badge:i<3?'TOP':'',target:it.target||it.source||SHEET
+    }));
+    if(!ps.length)ps=[...DEMO];
+    const s=document.getElementById('sort-sel').value;
+    if(s==='pa')ps.sort((a,b)=>(a.priceCny||0)-(b.priceCny||0));
+    if(s==='pd')ps.sort((a,b)=>(b.priceCny||0)-(a.priceCny||0));
+    document.getElementById('rc').innerHTML='<b>'+ps.length.toLocaleString()+'</b> products';
+    rp(ps);
+  }catch(e){document.getElementById('rc').innerHTML='<b>'+DEMO.length+'</b> products';rp(DEMO);}
+}
+</script>
+</body></html>
