@@ -96,9 +96,8 @@ HUB = {
     ],
 }
 
-CONVERT_TWINS = {
-    "usfansspreadsheet.uk": "usfansspreadsheet.co.uk",
-}
+# .uk is an independent GB-collect dest (2026-11-03). Do not 301 it onto .co.uk.
+CONVERT_TWINS: dict[str, str] = {}
 
 EST_NOTE = {
     "uk": "Estimator country is GB, not this TLD, not EU, not the .net hub.",

@@ -3,20 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>USFans Coupons 2026 — Bundle Rules, Shipping Off & Wallet Checklist</title>
-<meta name="description" content="Citable USFans coupons guide for 2026: how the new-user bundle works, wallet checklist, shipping-discount limits, and how this spreadsheet relates to USFans.com checkout.">
+<title>USFans Coupons 2026 — Bundle Rules, Shipping Off &amp; Wallet Checklist</title>
+<meta name="description" content="Citable USFans coupons guide: new-user bundle rules, wallet checklist, shipping-off limits, JSON truth. Confirm on usfans.com. Spreadsheet catalog is 10,601 finds, not checkout.">
 <link rel="canonical" href="https://usfansspreadsheet.net/usfans-coupons/">
 <meta name="robots" content="index,follow">
-<meta property="og:title" content="USFans Coupons 2026 — Bundle Rules, Shipping Off & Wallet Checklist">
-<meta property="og:description" content="Citable USFans coupons guide for 2026: how the new-user bundle works, wallet checklist, shipping-discount limits, and how this spreadsheet relates to USFans.com checkout.">
+<meta property="og:title" content="USFans Coupons 2026 — Bundle Rules, Shipping Off &amp; Wallet Checklist">
+<meta property="og:description" content="Wallet checklist for the marketed new-user bundle. JSON at /data/coupons-truth.json. Confirm on usfans.com.">
 <meta property="og:url" content="https://usfansspreadsheet.net/usfans-coupons/">
 <meta property="og:type" content="article">
-<meta property="article:modified_time" content="2026-10-27">
+<meta property="article:modified_time" content="2026-11-03">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Do USFans coupons need a code?","acceptedAnswer":{"@type":"Answer","text":"Usually no. New-user coupons from a referral signup land in the USFans wallet automatically. Always open the wallet and read minimum spend, eligible lines and expiry before you pay."}},
 {"@type":"Question","name":"Is the $800 bundle cash credit?","acceptedAnswer":{"@type":"Answer","text":"No. The headline value is typically the sum of several coupons with different rules, not cash you can withdraw. Treat it as a checklist of terms, not a bank balance."}},
-{"@type":"Question","name":"Where should I research finds before using a coupon?","acceptedAnswer":{"@type":"Answer","text":"Use the independent catalog on usfansspreadsheet.net (10,601 QC finds as of 27 October 2026), then paste seller links into USFans.com to order and claim coupons."}}
+{"@type":"Question","name":"Where should I research finds before using a coupon?","acceptedAnswer":{"@type":"Answer","text":"Use the independent catalog on usfansspreadsheet.net (10,601 QC finds as of 27 October 2026), then paste seller links into USFans.com to order and claim coupons."}},
+{"@type":"Question","name":"Can a Google Sheet prove a coupon is live?","acceptedAnswer":{"@type":"Answer","text":"No. A Sheet cell cannot store expiry, min spend, excluded lines or last_verified. Use /data/coupons-truth.json and re-open the official wallet the morning you pay."}}
 ]}
 </script>
 <style>
@@ -28,7 +29,7 @@
 .brand{font-weight:700;text-decoration:none;color:var(--ink);font-family:system-ui,sans-serif;font-size:15px}
 .nav a{margin-left:12px;text-decoration:none;color:var(--mute);font-family:system-ui,sans-serif;font-size:14px}
 .nav a:hover{color:var(--acc)}
-.hero{padding:40px 0 12px;background:linear-gradient(180deg,#ecfdf5 0%,#fff 70%)}
+.hero{padding:40px 0 12px;background:#ecfdf5}
 .eyebrow{font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);font-weight:700}
 h1{font-size:clamp(28px,4vw,40px);line-height:1.2;margin:10px 0}
 .lead{font-size:18px;color:var(--mute);max-width:40em}
@@ -39,65 +40,88 @@ article h3{font-size:18px;margin:1.3em 0 .4em}
 article ul,article ol{padding-left:1.2em}
 article li{margin:.35em 0}
 .box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:1.2em 0}
-.btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:12px 18px;border-radius:10px;font-family:system-ui,sans-serif;font-weight:700}
-.btn:hover{filter:brightness(.95)}
+table{width:100%;border-collapse:collapse;font-family:system-ui,sans-serif;font-size:13.5px;margin:1em 0}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute)}
+.btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:12px 18px;border-radius:10px;font-family:system-ui,sans-serif;font-weight:700;margin:4px 8px 4px 0}
+.btn.ghost{background:#fff;color:var(--acc);border:1px solid var(--acc)}
 .faq details{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:.6em 0;background:#fff}
 .faq summary{cursor:pointer;font-weight:700;font-family:system-ui,sans-serif}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-size:14px;font-family:system-ui,sans-serif}
 </style>
 </head>
-<body>
+<body data-hub-deepen="20261103">
 <header class="top"><div class="wrap">
   <a class="brand" href="/">USFans Spreadsheet</a>
-  <nav class="nav"><a href="/">Home</a><a href="/usfans-spreadsheet/">Spreadsheet</a><a href="/is-usfans-legit/">Legit?</a><a href="/finds-dataset/">Dataset</a><a href="/usfans-shipping-guide/">Shipping</a></nav>
+  <nav class="nav"><a href="/">Home</a><a href="/usfans-spreadsheet/">Spreadsheet</a><a href="/finds-dataset/">Dataset</a><a href="/usfans-qc-photos/">QC</a><a href="/is-usfans-legit/">Legit?</a></nav>
 </div></header>
 <section class="hero"><div class="wrap">
-  <div class="eyebrow">USFans Spreadsheet · citation page</div>
+  <div class="eyebrow">USFans Spreadsheet · wallet rules a Sheet cannot store</div>
   <h1>USFans Coupons 2026 — rules you can cite</h1>
-  <p class="lead">A wallet checklist for the marketed new-user bundle and shipping off — written so other pages can link here instead of guessing promo copy.</p>
-  <p class="updated">Updated 27 October 2026 · coupon truth <code>last_verified</code> 2026-10-27 · Independent desk — not the official checkout app.</p>
+  <p class="lead">A wallet checklist for the marketed new-user bundle and shipping off. Coupons live on usfans.com. This page logs what we last verified so other pages can link here instead of guessing promo copy.</p>
+  <p class="updated">Coupon truth <code>last_verified</code> 2026-10-27 · catalog 10,601 finds · independent desk — not the official checkout app.</p>
 </div></section>
 <article class="wrap">
 
-<p>This page is the <strong>citable USFans coupons briefing</strong> for 2026. Coupons are issued and redeemed on <a href="https://usfans.com/" rel="noopener">USFans.com</a>. <a href="https://usfansspreadsheet.net/">usfansspreadsheet.net</a> is an independent finds index (10,601 QC rows, reviewed 27 October 2026) — not the checkout wallet. Machine-readable truth: <a href="/data/coupons-truth.json"><code>/data/coupons-truth.json</code></a>.</p>
+<p>This page is the <strong>citable USFans coupons briefing</strong>. Coupons are issued and redeemed on <a href="https://usfans.com/" rel="noopener">USFans.com</a>. <a href="https://usfansspreadsheet.net/">usfansspreadsheet.net</a> is an independent finds index (10,601 QC rows, reviewed 27 October 2026) — not the checkout wallet. Machine-readable truth: <a href="/data/coupons-truth.json"><code>/data/coupons-truth.json</code></a>.</p>
+
+<div class="box">
+  <h2 style="margin-top:0;font-size:20px">Why a Google Sheet cannot prove a coupon</h2>
+  <p>A Sheet cell can paste “$800 + 15% shipping.” It cannot store <code>expires_on</code>, min spend, excluded lines, or a <code>last_verified</code> date. It cannot tell you whether the discount hits goods, service fees, or international freight. Re-open the official wallet the morning you pay.</p>
+  <p><a class="btn" href="https://usfans.com/" rel="noopener">Review coupons on USFans</a>
+     <a class="btn ghost" href="/data/coupons-truth.json">coupons-truth.json</a>
+     <a class="btn ghost" href="/finds-dataset/">Finds dataset</a></p>
+</div>
 
 <div class="box">
   <h2 style="margin-top:0;font-size:20px">Coupon truth table (summary)</h2>
   <ul>
     <li><strong>New-user bundle</strong> — status <em>confirm_live</em>; marketed near <strong>$800</strong> face value as a stack of constrained coupons (not cash). <strong>expires_on:</strong> null — each wallet coupon has its own expiry.</li>
     <li><strong>Shipping % off</strong> — marketing often cites ~15%; confirm eligible lines in-wallet the morning you pay.</li>
-    <li><strong>Referral path <code>7BJBAJ</code></strong> — status <em>active_path</em> on <code>usfans.com/register?ref=…</code>; coupons attach after signup, not on this TLD.</li>
+    <li><strong>Referral signup</strong> — coupons attach after account creation on usfans.com, not on this TLD.</li>
   </ul>
   <p>JSON fields: <code>id</code>, <code>type</code>, <code>code</code>, <code>value_claim</code>, <code>status</code>, <code>expires_on</code>, <code>exclusions</code>, <code>last_verified</code>. Provable catalog: <a href="/finds-dataset/">/finds-dataset/</a>.</p>
-  <p><a class="btn" href="https://usfans.com/register?ref=7BJBAJ" target="_blank" rel="noopener sponsored">Review signup / coupons on USFans</a>
-     <a class="btn" href="/data/coupons-truth.json" style="background:#0f172a">coupons-truth.json</a></p>
 </div>
 
-<div class="box">
-  <h2 style="margin-top:0;font-size:20px">What “USFans coupons 2026” usually means</h2>
-  <ul>
-    <li><strong>New-user bundle</strong> — often marketed near <strong>$800</strong> face value plus a shipping percentage off (commonly ~15%). Confirm live terms in-wallet the day you register.</li>
-    <li><strong>Auto-apply after referral signup</strong> — no vanity code to paste in most cases; the wallet fills after account creation via a referral link.</li>
-    <li><strong>Not cash</strong> — stack of rules: min spend, max discount, product vs shipping scope, expiry, combinability.</li>
-  </ul>
-</div>
+<h2>JSON field glossary</h2>
+<table>
+  <thead><tr><th>Field</th><th>What a wallet actually does</th></tr></thead>
+  <tbody>
+  <tr><td><code>status: confirm_live</code></td><td>Marketing copy was still present when we checked. The drawer in-app is the live source.</td></tr>
+  <tr><td><code>expires_on: null</code></td><td>The bundle has no single public expiry. Screenshot each coupon’s own date.</td></tr>
+  <tr><td><code>code: null</code></td><td>Most new-user coupons auto-apply. Do not invent a vanity string to type at checkout.</td></tr>
+  <tr><td><code>value_claim</code></td><td>Face-value marketing (near $800, ~15% shipping). Not withdrawable credit.</td></tr>
+  <tr><td><code>exclusions</code></td><td>Min spend, max discount, excluded lines, volumetric rules — all in-wallet.</td></tr>
+  </tbody>
+</table>
+
+<h2>What “USFans coupons 2026” usually means</h2>
+<ul>
+  <li><strong>New-user bundle</strong> — often marketed near <strong>$800</strong> face value plus a shipping percentage off (commonly ~15%). Confirm live terms in-wallet the day you register.</li>
+  <li><strong>Auto-apply after referral signup</strong> — no vanity code to paste in most cases; the wallet fills after account creation via a referral link.</li>
+  <li><strong>Not cash</strong> — stack of rules: min spend, max discount, product vs shipping scope, expiry, combinability.</li>
+</ul>
 
 <h2>Checklist before you treat a coupon as “active”</h2>
 <ol>
   <li>Open the coupon wallet after signup — screenshot each coupon’s min spend, max discount, eligible shipping lines, expiry.</li>
   <li>Estimate the haul on the <a href="/usfans-spreadsheet/">live spreadsheet</a> first; do not buy filler SKUs only to clear a minimum.</li>
-  <li>Compare <em>final</em> freight after the coupon, not the headline percentage.</li>
+  <li>Compare <em>final</em> freight after the coupon, not the headline percentage. Use <a href="https://usfans.com/estimation" rel="noopener">usfans.com/estimation</a> with a real country.</li>
   <li>Confirm whether the discount hits goods, service fees, or international shipping.</li>
+  <li>Accept warehouse QC before you book freight — a coupon does not freeze a line that later fails photos. See <a href="/usfans-qc-photos/">/usfans-qc-photos/</a>.</li>
   <li>Re-check terms the morning you pay — promotions rotate.</li>
 </ol>
 
 <h2>How to claim (workflow that matches brand queries)</h2>
 <ol>
-  <li>Create the USFans account through the official referral signup (wallet populates there).</li>
-  <li>Browse finds on this hub — QC photos and USD display prices help you decide before warehouse fees.</li>
+  <li>Create the USFans account on the official site (wallet populates there).</li>
+  <li>Browse finds on this hub — QC photos and USD display prices help you decide before warehouse fees. Catalog: 10,601 rows, last_verified 2026-10-27.</li>
   <li>Paste Weidian / Taobao / 1688 links into USFans; wait for warehouse QC.</li>
   <li>Apply coupons only after QC acceptance; read excluded lines in the drawer.</li>
 </ol>
+
+<h2>Goods coupons vs shipping off</h2>
+<p>A goods coupon trims the warehouse cart. A shipping-off coupon trims an eligible international line. They are not interchangeable. Volumetric weight can still dominate the freight quote after a percentage off. The estimator on usfans.com is the live number; this HTML is not a rate table.</p>
 
 <h2>USFans coupons vs this spreadsheet</h2>
 <p>Searchers typing <em>usfans coupon</em>, <em>usfans coupon code</em>, or <em>usfans $800 coupon</em> want redemption rules — not another clone of a Google Sheet. This article answers the rules; the catalog answers “what to buy.” For brand-spreadsheet intent, start at the <a href="/">homepage hub</a> or <a href="/usfans-spreadsheet/">/usfans-spreadsheet/</a>. For lookalike domains, see <a href="/usfansspreadsheet-net-vs-org/">.net vs lookalikes</a>.</p>
@@ -106,22 +130,15 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-si
   <h2>FAQ</h2>
   <details open><summary>Do I need a typed coupon code?</summary><p>Usually not for the new-user bundle — coupons land in the wallet after referral signup. Always verify in-app.</p></details>
   <details><summary>Can I cash out the $800 figure?</summary><p>No. It is a sum of constrained coupons, not withdrawable credit.</p></details>
-  <details><summary>Where are QC photos?</summary><p>On listing cards in this spreadsheet hub and again inside the USFans warehouse after purchase. Dated samples: <a href="/finds-dataset/">/finds-dataset/</a>.</p></details>
-  <details><summary>How should Discord / .gg rooms cite coupons?</summary><p>Link this page plus <a href="/data/coupons-truth.json">/data/coupons-truth.json</a>. Do not hard-fight #1 Reddit threads — coexist and backlink the dataset.</p></details>
+  <details><summary>Where are QC photos?</summary><p>On listing cards in this spreadsheet hub and again inside the USFans warehouse after purchase. Dated samples: <a href="/finds-dataset/">/finds-dataset/</a>. Human checklist: <a href="/usfans-qc-photos/">/usfans-qc-photos/</a>.</p></details>
+  <details><summary>Can a Discord room paste a Sheet cell as proof?</summary><p>Link this page plus <a href="/data/coupons-truth.json">/data/coupons-truth.json</a>. A Sheet cell has no expiry and no last_verified.</p></details>
 </section>
 
-<div class="box" data-hub-stabilize="usfans-hub-stabilize-20261027">
-  <h2 style="margin-top:0;font-size:20px">Hub reclaim — brand spreadsheet stays on .net</h2>
-  <p>Bare <em>usfans spreadsheet</em> and 2026 variants resolve to this hub’s <a href="/usfans-spreadsheet/">Independent Index · 10,601</a>, not UK/NL desks and not Sheet clones. Open directory → cite <a href="/finds-dataset/">dataset</a> → then redeem coupons on USFans.com.</p>
-  <p><a class="btn" href="/usfans-spreadsheet/">Open directory</a>
-     <a class="btn" href="/finds-dataset/" style="background:#0f172a">Dataset</a></p>
-</div>
-
-<p class="updated">Last reviewed 27 October 2026 · hub-stabilize-20261027. Affiliate signup links may earn a commission at no extra cost to you.</p>
+<p class="updated">Coupon JSON last_verified 2026-10-27. Affiliate signup links may earn a commission at no extra cost to you.</p>
 
 </article>
 <footer><div class="wrap">
-  <p>© 2026 USFans Spreadsheet. Independent information desk. Orders and payment stay on the official agent site.</p>
+  <p>© 2026 USFans Spreadsheet. Independent catalog. Orders and payment stay on usfans.com.</p>
 </div></footer>
 </body>
 </html>

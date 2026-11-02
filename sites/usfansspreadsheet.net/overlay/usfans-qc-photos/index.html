@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USFans QC Photos: Inspection Checklist &amp; Common Defects</title>
+<meta name="description" content="USFans QC photos checklist a Google Sheet cannot host: shoes, bags, jerseys, watches. Approve, request another angle, or return. Catalog 10,601 finds, last_verified 2026-10-27.">
+<meta name="keywords" content="usfans qc photos, usfans quality control, usfans spreadsheet qc">
+<link rel="canonical" href="https://usfansspreadsheet.net/usfans-qc-photos/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=6">
+<link rel="stylesheet" href="/usfans-seo.css">
+<meta property="og:title" content="USFans QC Photos: Inspection Checklist &amp; Common Defects">
+<meta property="og:description" content="Warehouse QC vs listing photos. Approve, retake, return. Dated samples on /finds-dataset/.">
+<meta property="og:url" content="https://usfansspreadsheet.net/usfans-qc-photos/">
+<meta property="article:modified_time" content="2026-11-03">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"USFans QC Photos: Inspection Checklist","description":"How USFans QC photos work with this spreadsheet: what to look for, when to approve or reject, and how this differs from a Google Sheet thumbnail.","url":"https://usfansspreadsheet.net/usfans-qc-photos/","dateModified":"2026-11-03","publisher":{"@type":"Organization","name":"USFans Spreadsheet"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to read USFans QC photos before shipping","step":[{"@type":"HowToStep","name":"Open the warehouse set in the app","text":"Wait for USFans warehouse photos of the SKU you paid for. Listing photos on this hub are research only."},{"@type":"HowToStep","name":"Check category-specific defects","text":"Shoes: glue, sole, size tag. Bags: stitching, hardware, lining. Jerseys: print alignment, nameset. Watches: bezel, clasp, crown."},{"@type":"HowToStep","name":"Approve, request another photo, or return","text":"Use the warehouse window. Packed weight and volumetric size still matter after you accept photos."}]}</script>
+  <!-- usfans-hreflang: same-host language versions only -->
+<link rel="alternate" hreflang="en" href="https://usfansspreadsheet.net/usfans-qc-photos/" />
+<link rel="alternate" hreflang="x-default" href="https://usfansspreadsheet.net/usfans-qc-photos/" />
+<style>
+.qc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:1.2em 0}
+.qc-card{border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;background:#fff}
+.qc-card img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#f1f5f9}
+.qc-card p{margin:0;padding:12px 14px;font-size:14px;color:#334155;line-height:1.55}
+.qc-card strong{display:block;margin:0 0 4px;color:#0f172a}
+.article h2{margin-top:1.6em}
+.article table{width:100%;border-collapse:collapse;font-size:14.5px;margin:1em 0}
+.article th,.article td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left;vertical-align:top}
+.article th{background:#f8fafc;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#64748b}
+</style>
+</head>
+<body data-hub-deepen="20261103">
+<div class="independent-banner" role="note">
+  Independent USFans spreadsheet index — not affiliated with USFans.com.
+  Some outbound links are affiliate referrals and may earn a commission at no extra cost to you.
+</div>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="/" class="logo">
+      <img src="/usfanslogo.png" alt="USFans Spreadsheet" class="logo-img" width="92" height="22">
+      <span class="logo-sheet">Spreadsheet</span>
+    </a>
+    <nav class="nav">
+      <a href="/usfans-spreadsheet/">Search</a>
+      <a href="/finds-dataset/">Dataset</a>
+      <a href="/usfans-coupons/">Coupons</a>
+      <a href="/usfans-qc-photos/">QC</a>
+      <a href="/guide.html">Guide</a>
+    </nav>
+    <a href="/usfans-spreadsheet/" class="nav-cta">Open spreadsheet</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; QC Photos</div>
+  <h1>USFans QC Photos: Inspection Checklist</h1>
+  <p class="sub">Warehouse photos after the goods land in China — before you pay international shipping. A Google Sheet thumbnail is not this checklist.</p>
+</section>
+<article class="article">
+
+  <p><strong>QC (Quality Control) photos</strong> are warehouse pictures taken after your item arrives at USFans — before you pay international shipping. This spreadsheet surfaces 10,601 finds (last_verified 27 October 2026) that already have listing or community QC albums. The photos in the official app, for the SKU you paid for, remain authoritative.</p>
+
+  <h2>What a Google Sheet cannot do</h2>
+  <p>A shared Sheet usually pastes one thumbnail and a seller link. It does not date the photo, does not flag <code>qc_photo</code> in JSON, and does not tell you when to request a tape measurement versus when to return. This hub publishes:</p>
+  <ul class="article-list">
+    <li>A dated catalog stamp on <a href="/finds-dataset/">/finds-dataset/</a> — <code>row_count=10601</code>, <code>last_verified=2026-10-27</code>.</li>
+    <li>Sample SKUs with an explicit QC flag in <a href="/data/finds-dataset.json">finds-dataset.json</a>.</li>
+    <li>This page: category defects, approve / retake / return, packed-weight check before freight.</li>
+  </ul>
+  <p>Register, warehouse tickets and freight stay on <a href="https://usfans.com/" rel="noopener">usfans.com</a>. Estimator: <a href="https://usfans.com/estimation" rel="noopener">usfans.com/estimation</a> with a real country, not this hostname.</p>
+
+  <h2>Two photo sets (do not mix them)</h2>
+  <table>
+    <thead><tr><th>Set</th><th>Where</th><th>What it proves</th></tr></thead>
+    <tbody>
+    <tr><td>Listing / community QC</td><td>This hub and W2C listings</td><td>Someone photographed a similar SKU. Useful for research. Not your parcel.</td></tr>
+    <tr><td>Warehouse QC</td><td>USFans app, after you pay for the goods</td><td>The unit in the warehouse. Approve, request another angle, or return in that window.</td></tr>
+    </tbody>
+  </table>
+  <p>Coupons do not freeze a failed QC. Re-read wallet terms after you accept photos — <a href="/usfans-coupons/">/usfans-coupons/</a>.</p>
+
+  <h2>What to check in warehouse photos</h2>
+  <ul class="article-list">
+    <li>Logo placement, stitching, and colour vs the seller listing you pasted</li>
+    <li>Size tag and insole / wash labels — ask for a tape if the tag is unreadable</li>
+    <li>Box, dust bag, and accessories if the listing promised them</li>
+    <li>Defects: glue marks, scuffs, stains, wrong variant, detached hardware</li>
+    <li>Packed silhouette: a puffy jacket can bill on volume even when the scale is light</li>
+  </ul>
+
+  <h2>Category checklists (the Sheet has none)</h2>
+  <div class="qc-grid">
+    <figure class="qc-card">
+      <img src="https://usfansspreadsheet.net/wd-img/si.geilicdn.com/wdseller161562884-11040000018f5326911a0a239846_1080_1080.jpg?imageView2/2/w/400&amp;_wp=1" alt="Slide sandal listing used as a QC research example" width="400" height="400" loading="lazy">
+      <p><strong>Shoes &amp; slides</strong> Glue overflow on the sole, left/right pair, size tag, insole print, box lid. Request a tape across the insole if the tag is hidden.</p>
+    </figure>
+    <figure class="qc-card">
+      <img src="https://usfansspreadsheet.net/wd-img/si.geilicdn.com/pcitem2035150416-63f90000019c5834c0b10a231316_600_801.jpg?imageView2/2/w/400&amp;_wp=1" alt="Quilted bag listing used as a QC research example" width="400" height="400" loading="lazy">
+      <p><strong>Bags</strong> Stitch tension, hardware colour, lining, zipper pull, corners. Open-flap photo if the listing shows a logo inside.</p>
+    </figure>
+    <figure class="qc-card">
+      <img src="https://usfansspreadsheet.net/wd-img/si.geilicdn.com/pcitem1957688274-5e8b0000019f12256c020a8132bd_1600_2133.jpg?imageView2/2/w/400&amp;_wp=1" alt="Jersey listing used as a QC research example" width="400" height="400" loading="lazy">
+      <p><strong>Jerseys</strong> Print alignment, nameset spelling, sponsor spacing, hem. Natural-light photo if warehouse lamps shift the colour.</p>
+    </figure>
+    <figure class="qc-card">
+      <img src="https://usfansspreadsheet.net/wd-img/si.geilicdn.com/pcitem1814013252-202300000199ca0109e90a20e672_1080_1080.jpg?imageView2/2/w/400&amp;_wp=1" alt="Watch listing used as a QC research example" width="400" height="400" loading="lazy">
+      <p><strong>Watches</strong> Bezel alignment, clasp stamp, crown, bracelet pin. Ask for a close-up if the first set is only a wrist-distance shot.</p>
+    </figure>
+  </div>
+  <p>These images are listing examples from the same 10,601-row catalog. They are not warehouse photos of a parcel you already paid for.</p>
+
+  <h2>Approve, request photos or return?</h2>
+  <h3>Approve</h3>
+  <p>The item matches the ordered model, colour and size; measurements are within the tolerance you accepted; no visible construction or cosmetic defect affects use. Screenshot the set before you book freight.</p>
+  <h3>Request another photo</h3>
+  <p>Ask for a tape measurement when sizing is unclear, a close-up when stitching or print alignment is hidden, and natural-light colour photos when warehouse lighting changes the appearance. Extra angles are often a paid add-on in the app — confirm the live fee there, not on this page.</p>
+  <h3>Return or exchange</h3>
+  <p>Use the warehouse return window for the wrong item, wrong size, stains, damage, severe glue marks, detached parts or a material difference from the seller listing. Keep screenshots of the listing and QC set. After the parcel leaves China, that warehouse window is closed.</p>
+  <p><strong>Final check:</strong> confirm packed weight and whether removing packaging changes volumetric shipping cost before submitting the parcel. Live money is in the official estimator.</p>
+
+  <h2>Dated samples you can cite</h2>
+  <p>The public proof table lives on <a href="/finds-dataset/">/finds-dataset/</a>. Every sample SKU there has <code>qc_photo: true</code> and <code>last_verified: 2026-10-27</code>. That is the difference versus a Sheet that never stamps a date.</p>
+  <ul class="article-list">
+    <li><a href="https://w2clinks.com/yupoo-jewelry/wd_7854801519.html">wd_7854801519</a> — watch, QC flagged</li>
+    <li><a href="https://w2clinks.com/yupoo-jersey/wd_7855084441.html">wd_7855084441</a> — jersey, QC flagged</li>
+    <li><a href="https://w2clinks.com/yupoo-bag/wd_7858049450.html">wd_7858049450</a> — bag, QC flagged</li>
+    <li><a href="https://w2clinks.com/yupoo-slippers/wd_7855066871.html">wd_7855066871</a> — slides, QC flagged</li>
+  </ul>
+
+  <h2>Browse QC-verified finds</h2>
+  <p>Start with <a href="/shoes.html">shoes</a>, <a href="/hoodies.html">hoodies</a>, <a href="/bags.html">bags</a>, or <a href="/usfans-spreadsheet/">search</a>. Filter the same Independent Index · 10,601. Then paste the seller link on usfans.com and wait for warehouse photos before you book a line.</p>
+  <p><a href="/finds-dataset/" class="btn btn-secondary">Open dated dataset →</a>
+     <a href="/usfans-spreadsheet/" class="btn btn-secondary">Search the spreadsheet →</a></p>
+
+</article>
+<section class="section section-alt">
+  <div class="section-head"><span class="eyebrow">Keep exploring</span><h2>More USFans Spreadsheet resources</h2></div>
+  <div class="cat-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+    <a href="/usfans-spreadsheet/" class="cat-card"><div class="cat-icon">🔍</div><h3>Search</h3><p>10,601 finds</p></a>
+    <a href="/finds-dataset/" class="cat-card"><div class="cat-icon">📄</div><h3>Dataset</h3><p>JSON + last_verified</p></a>
+    <a href="/usfans-coupons/" class="cat-card"><div class="cat-icon">🎁</div><h3>Coupons</h3><p>Wallet rules</p></a>
+    <a href="/guide.html" class="cat-card"><div class="cat-icon">📘</div><h3>Buying Guide</h3><p>Step-by-step</p></a>
+    <a href="/is-usfans-legit/" class="cat-card"><div class="cat-icon">✅</div><h3>Legit?</h3><p>Independent notes</p></a>
+    <a href="/blog/" class="cat-card"><div class="cat-icon">📝</div><h3>Blog</h3><p>QC tips &amp; hauls</p></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div>
+      <div class="logo" style="margin-bottom:14px">
+        <span class="logo-us">US</span><span class="logo-fans">Fans</span><span class="logo-sheet">Spreadsheet</span>
+      </div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.6);max-width:300px">
+        Independent USFans spreadsheet index — 10,601 curated finds · usfansspreadsheet.net
+      </p>
+    </div>
+    <div>
+      <h4>Spreadsheet</h4>
+      <ul>
+        <li><a href="/usfans-spreadsheet/">Search 10,601 finds</a></li>
+        <li><a href="/finds-dataset/">Finds dataset</a></li>
+        <li><a href="/usfans-qc-photos/">QC photos</a></li>
+        <li><a href="/categories/">All 33 Categories</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Guides</h4>
+      <ul>
+        <li><a href="/guide.html">How to Buy</a></li>
+        <li><a href="/is-usfans-legit/">Is USFans Legit?</a></li>
+        <li><a href="/usfans-coupons/">Coupons</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get Started</h4>
+      <ul>
+        <li><a href="https://usfans.com/" target="_blank" rel="noopener">Register on USFans</a></li>
+        <li><a href="https://usfans.com/estimation" target="_blank" rel="noopener">Freight estimator</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 USFansSpreadsheet.net — independent catalog. Warehouse QC stays in the official app.</p>
+  </div>
+</footer>
+</body>
+</html>

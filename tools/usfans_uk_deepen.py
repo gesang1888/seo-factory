@@ -2,7 +2,7 @@
 """Deepen usfansspreadsheet.co.uk keep desk (action 3): HMRC / refund / ship-to-UK
 + #local fingerprint + hub uplink.
 
-LIVE only on usfansspreadsheet.co.uk. Does NOT revive twin .uk (keep 301→.co.uk).
+LIVE only on usfansspreadsheet.co.uk. Does NOT 301 .uk (independent GB-collect dest as of 2026-11-03).
 Does NOT touch hub (.net) or NL. No new PL/ES/IT/DE desks.
 Requires ORIGIN_SSH_PASS (or internal/usfans-ssh.env via --load-env).
 """
@@ -53,8 +53,8 @@ HUB_UPLINK = (
     f'<a href="{HUB}/usfans-coupons/">coupons</a> · '
     f'<a href="{HUB}/usfans-spreadsheet/">spreadsheet</a> '
     "(Independent Index · 10,601). This URL = UK local "
-    "(HMRC / Royal Mail / UK postcode / NI). Twin "
-    f"<code>{TWIN}</code> stays 301 → <code>.co.uk</code> — not revived."
+    "(HMRC / Royal Mail / UK postcode / NI). Sibling "
+    f"<code>{TWIN}</code> is an independent GB-collect dest — not a 301 onto this host."
     "</p>"
 )
 
@@ -438,8 +438,8 @@ def _sanity(slug: str, html: str) -> None:
         for token in ("ship to the UK", "Northern Ireland", "how long"):
             if token.lower() not in html.lower():
                 raise SystemExit(f"{slug}: missing SERP token {token}")
-    if slug == "usfans-coupons" and TWIN not in html:
-        raise SystemExit(f"{slug}: missing twin 301 narrative")
+    if slug == "usfans-coupons" and "usfansspreadsheet.net" not in html:
+        raise SystemExit(f"{slug}: missing hub uplink")
     if re.search(r"<h1[^>]*>[^<]*Spreadsheet", html, re.I):
         raise SystemExit(f"{slug}: H1 still Spreadsheet hero")
     title_m = re.search(r"<title>(.*?)</title>", html, re.S | re.I)

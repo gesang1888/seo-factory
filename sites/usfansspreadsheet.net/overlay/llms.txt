@@ -1,11 +1,11 @@
 # USFans Spreadsheet — llms.txt
-# Updated: 2026-10-27
+# Updated: 2026-11-03
 # Primary hub for USFans spreadsheet finds, QC photos, and buying guides.
-# Tag: usfans-hub-stabilize-20261027
+# Tag: usfans-hub-reclaim-20261103
 
 Site: https://usfansspreadsheet.net
 Name: USFans Spreadsheet
-Description: Independent USFans spreadsheet — Independent Index · 10,601 QC-verified finds from Taobao, Weidian and 1688. Open directory + finds-dataset JSON + coupons truth. Mobile-friendly catalog alternative to giant Google Sheets / Reddit mirrors. Not affiliated with USFans.com. Not usfansspreadsheet.org or usfanshub.com.
+Description: Searchable USFans spreadsheet catalog — 10,601 QC finds from Taobao, Weidian and 1688. Open /usfans-spreadsheet/, finds-dataset JSON, and coupons truth. Not a Google Sheet. Not affiliated with USFans.com.
 
 ## Key pages
 - Homepage (brand hub): https://usfansspreadsheet.net/
@@ -13,6 +13,7 @@ Description: Independent USFans spreadsheet — Independent Index · 10,601 QC-v
 - Buying Guide: https://usfansspreadsheet.net/guide.html
 - Is USFans Legit: https://usfansspreadsheet.net/is-usfans-legit/
 - Coupons: https://usfansspreadsheet.net/usfans-coupons/
+- QC photos checklist: https://usfansspreadsheet.net/usfans-qc-photos/
 - Provable finds dataset: https://usfansspreadsheet.net/finds-dataset/
 - Finds dataset JSON: https://usfansspreadsheet.net/data/finds-dataset.json
 - Coupons truth JSON: https://usfansspreadsheet.net/data/coupons-truth.json
@@ -41,10 +42,11 @@ Description: Independent USFans spreadsheet — Independent Index · 10,601 QC-v
 - Regional thin shipping shells were consolidated into the shipping guide.
 - Spreadsheet API (third-party aggregator): https://w2clinks.com/spreadsheet/usfans/?utm_source=usfansspreadsheet&utm_medium=aggregator&utm_campaign=usfans
 - Signup (affiliate): https://usfans.com/register?ref=7BJBAJ
-- Hub stabilize 2026-10-27: /usfans-spreadsheet/ title/H1 → Independent Index · 10,601; Open directory CTAs; reclaim vs Reddit/.org/hub.com; dataset+coupons stamped hub_stabilize. NL/UK desks not changed this action. Twin .uk stays 301→.co.uk.
+- Hub reclaim 2026-11-03: title wins bare “usfans spreadsheet”; /usfans-spreadsheet/ is the search URL; dest “customs territory” block removed from hub home. Dataset / coupons / QC photos deepened (Sheet cannot cite dated JSON or a warehouse checklist). Row count stays 10,601.
+- usfansspreadsheet.uk is an independent GB-collect / NI / IM dest (not a 301 onto .co.uk). .co.uk stays live. No dest-to-dest 301.
 
 ## Official domain note
 - Maintained hub: https://usfansspreadsheet.net/
 - Lookalike TLDs (.org / hub.com / .io / etc.) are separate sites; see https://usfansspreadsheet.net/usfansspreadsheet-net-vs-org/
-- Country keep desks: https://usfansspreadsheet.co.uk/ (HMRC/Royal Mail) · https://usfansspreadsheet.nl/ (Douane) — brand spreadsheet intent stays on .net
+- Country desks: https://usfansspreadsheet.co.uk/ (UK buyers / Royal Mail) · https://usfansspreadsheet.uk/ (GB collect, NI BT, IM) · https://usfansspreadsheet.nl/ (Douane) — brand spreadsheet intent stays on .net
 - Contact: Telegram https://t.me/usfansspreadsheetnet

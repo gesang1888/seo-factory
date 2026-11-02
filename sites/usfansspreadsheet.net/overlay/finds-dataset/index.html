@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>USFans Finds Dataset — Row Counts, Sample SKUs &amp; last_verified</title>
-<meta name="description" content="Provable USFans spreadsheet dataset: 10,601 rows, weekly freshness stamp, sample SKUs with QC flags. Anti–Google-Sheet substitute on usfansspreadsheet.net.">
+<meta name="description" content="Provable USFans spreadsheet dataset: 10,601 rows, last_verified 2026-10-27, sample SKUs with QC flags. Public JSON a Google Sheet cannot host. Catalog at /usfans-spreadsheet/.">
 <link rel="canonical" href="https://usfansspreadsheet.net/finds-dataset/">
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="USFans Finds Dataset — provable QC / price freshness">
-<meta property="og:description" content="10,601 indexed finds with last_verified=2026-10-27. Public JSON + sample SKUs.">
+<meta property="og:description" content="10,601 indexed finds with last_verified=2026-10-27. Public JSON + sample SKUs. Not a Google Sheet dump.">
 <meta property="og:url" content="https://usfansspreadsheet.net/finds-dataset/">
 <meta property="og:type" content="article">
-<meta property="article:modified_time" content="2026-10-27">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "USFans spreadsheet finds dataset", "description": "Public row counts, update frequency and sample SKUs for the independent USFans spreadsheet hub.", "url": "https://usfansspreadsheet.net/finds-dataset/", "creator": {"@type": "Organization", "name": "USFans Spreadsheet"}, "dateModified": "2026-10-27", "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://usfansspreadsheet.net/data/finds-dataset.json"}, {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://usfansspreadsheet.net/data/coupons-truth.json"}], "variableMeasured": ["sku", "title", "price", "qc_photo", "last_verified"]}</script>
+<meta property="article:modified_time" content="2026-11-03">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "USFans spreadsheet finds dataset", "description": "Public row counts, update frequency and sample SKUs for the independent USFans spreadsheet hub.", "url": "https://usfansspreadsheet.net/finds-dataset/", "creator": {"@type": "Organization", "name": "USFans Spreadsheet"}, "dateModified": "2026-10-27", "numberOfItems": 10601, "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://usfansspreadsheet.net/data/finds-dataset.json"}, {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://usfansspreadsheet.net/data/coupons-truth.json"}], "variableMeasured": ["sku", "title", "price", "qc_photo", "last_verified"]}</script>
 <style>
 :root{--acc:#2563eb;--ink:#0f172a;--mute:#475569;--line:#e2e8f0;--bg:#f8fafc;--ok:#166534;--okbg:#f0fdf4}
 *{box-sizing:border-box}body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#fff;line-height:1.7}
@@ -22,7 +22,7 @@
 .brand{font-weight:700;text-decoration:none;color:var(--ink);font-family:system-ui,sans-serif;font-size:15px}
 .nav a{margin-left:12px;text-decoration:none;color:var(--mute);font-family:system-ui,sans-serif;font-size:14px}
 .nav a:hover,.nav a.on{color:var(--acc)}
-.hero{padding:40px 0 16px;background:linear-gradient(180deg,#ecfdf5 0%,#fff 72%)}
+.hero{padding:40px 0 16px;background:#ecfdf5}
 .eyebrow{font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);font-weight:700}
 h1{font-size:clamp(28px,4vw,40px);line-height:1.2;margin:10px 0}
 .lead{font-size:18px;color:var(--mute);max-width:42em}
@@ -49,71 +49,117 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-si
 a{color:var(--acc)}
 </style>
 </head>
-<body>
+<body data-hub-deepen="20261103">
 <header class="top"><div class="wrap">
   <a class="brand" href="/">USFans Spreadsheet</a>
-  <nav class="nav"><a href="/">Home</a><a href="/usfans-spreadsheet/">Spreadsheet</a><a href="/usfans-coupons/">Coupons</a><a href="/finds-dataset/" class=on>Dataset</a><a href="/usfans-reddit-community/">Community</a></nav>
+  <nav class="nav"><a href="/">Home</a><a href="/usfans-spreadsheet/">Spreadsheet</a><a href="/usfans-coupons/">Coupons</a><a href="/finds-dataset/" class=on>Dataset</a><a href="/usfans-qc-photos/">QC</a></nav>
 </div></header>
 <section class="hero"><div class="wrap">
-  <div class="eyebrow">USFans Spreadsheet · provable dataset · hub-stabilize-20261027</div>
+  <div class="eyebrow">USFans Spreadsheet · public JSON · not a Google Sheet</div>
   <h1>USFans finds dataset</h1>
-  <p class="lead">Public row counts, update frequency and dated sample SKUs — so bare <em>usfans spreadsheet</em> cites this Independent Index · 10,601 instead of Reddit Sheets or .org/hub.com clones.</p>
+  <p class="lead">A dated, machine-readable catalog claim: <strong>10,601</strong> rows, <code>last_verified=2026-10-27</code>, sample SKUs with QC flags. A shared Google Sheet cannot publish this JSON, cannot freeze a row count, and cannot attach warehouse QC to a SKU.</p>
   <div class="stamp">last_verified <time datetime="2026-10-27">2026-10-27</time> · 10,601 rows · row_count=10601</div>
 </div></section>
 <article class="wrap">
 <div class="stats">
   <div class="stat"><b>10,601</b><span>Indexed finds</span></div>
-  <div class="stat"><b>weekly</b><span>Target stamp cadence</span></div>
+  <div class="stat"><b>2026-10-27</b><span>Catalog stamp</span></div>
   <div class="stat"><b>QC</b><span>Sample rows flag qc_photo</span></div>
   <div class="stat"><b>JSON</b><span>Machine-readable truth</span></div>
 </div>
 
 <div class="box">
-  <h2 style="margin-top:0;font-size:20px">Why this page exists</h2>
-  <p>Searchers bouncing between Reddit, Discord (.gg) and giant Sheets need a <strong>falsifiable</strong> catalog claim: how many rows, when prices/QC samples were last checked, and which SKUs prove the count is not vapor.</p>
+  <h2 style="margin-top:0;font-size:20px">Why a Sheet cannot replace this page</h2>
+  <p>Community Google Sheets still circulate on Reddit. They are useful as chat logs. They are not a dataset: there is no public <code>row_count</code>, no <code>last_verified</code> field, no downloadable JSON, and no SKU that proves the count is not vapor.</p>
+  <p>This hub cites <strong>10,601</strong> Taobao / Weidian / 1688 finds. We do not invent a higher count to match a Sheet headline. When the catalog changes, this stamp and the JSON change together.</p>
   <p><a class="btn" href="/data/finds-dataset.json">Download finds-dataset.json</a>
      <a class="btn ghost" href="/data/coupons-truth.json">Coupons truth JSON</a>
-     <a class="btn ghost" href="/usfans-spreadsheet/">Open directory</a></p>
+     <a class="btn ghost" href="/usfans-spreadsheet/">Search the catalog</a>
+     <a class="btn ghost" href="/usfans-qc-photos/">QC checklist</a></p>
 </div>
+
+<h2>How to cite the catalog</h2>
+<ol>
+  <li>Link <a href="/finds-dataset/">https://usfansspreadsheet.net/finds-dataset/</a> when you need a row count.</li>
+  <li>Quote <code>row_count=10601</code> and <code>last_verified=2026-10-27</code> from the JSON, not from a screenshot of a Sheet tab.</li>
+  <li>Point at a sample SKU below if someone asks “is the count real?”</li>
+  <li>Keep coupons on <a href="/usfans-coupons/">/usfans-coupons/</a>. Offers rotate in the official wallet; they are not a column in this dataset.</li>
+</ol>
+<p>Search the same index at <a href="/usfans-spreadsheet/">/usfans-spreadsheet/</a>. Register and pay on <a href="https://usfans.com/" rel="noopener">usfans.com</a>. Freight: <a href="https://usfans.com/estimation" rel="noopener">usfans.com/estimation</a> with a real country — not this hostname.</p>
+
+<h2>JSON fields</h2>
+<p>The payload at <a href="/data/finds-dataset.json"><code>/data/finds-dataset.json</code></a> is the citable object. Fields that a Sheet cell cannot type:</p>
+<table>
+  <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+  <tbody>
+  <tr><td><code>row_count</code></td><td>Integer 10601. Display form <code>10,601</code>. Do not round up to a marketing 15k.</td></tr>
+  <tr><td><code>last_verified</code></td><td>ISO date of the catalog stamp: 2026-10-27. Sample SKUs share this date.</td></tr>
+  <tr><td><code>qc_field</code></td><td><code>qc_photo</code> — true when the sample row has a warehouse-style photo on the listing.</td></tr>
+  <tr><td><code>price_cny</code> / <code>price_usd_approx</code></td><td>China warehouse card and a USD display. Not a checkout price.</td></tr>
+  <tr><td><code>source_url</code></td><td>Public W2C listing used as the sample proof, not a paid checkout URL.</td></tr>
+  <tr><td><code>endpoints.qc_photos</code></td><td>Human checklist at <a href="/usfans-qc-photos/">/usfans-qc-photos/</a> — how to approve, request another angle, or return.</td></tr>
+  </tbody>
+</table>
+<pre>{
+  "brand": "USFans",
+  "host": "usfansspreadsheet.net",
+  "last_verified": "2026-10-27",
+  "row_count": 10601,
+  "qc_field": "qc_photo"
+}</pre>
 
 <h2>Freshness pipeline</h2>
 <ul>
   <li><code>last_verified</code> on this page, in JSON, and on coupon truth rows.</li>
-  <li>Sitemap <code>lastmod</code> for <code>/finds-dataset/</code> (and linked money URLs) tracks the dataset stamp.</li>
+  <li>Sitemap <code>lastmod</code> for <code>/finds-dataset/</code> tracks the dataset stamp.</li>
   <li>Sample SKUs below are pulled from the live hub surface — not invented filler.</li>
+  <li>Homepage + searchable catalog share the same index. Public stamp is reviewed when row count or sample prices change.</li>
 </ul>
-<p>Homepage + searchable catalog share the same index; public dataset stamp reviewed when row count or sample prices change (target: weekly).</p>
 
 <h2>Sample SKUs (public proof)</h2>
+<p>Ten dated rows. Each has a QC flag. Open the listing if you need the photo; warehouse QC inside USFans remains authoritative for the SKU you paid for.</p>
 <table>
   <thead><tr><th>SKU</th><th>Title</th><th>Price</th><th>QC</th><th>Verified</th><th>Link</th></tr></thead>
   <tbody>
-  <tr><td><code>wd_7854801519</code></td><td>Audemars Piguet Rose Gold Automatic Watch</td><td>¥701≈ $97.44</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-jewelry/wd_7854801519.html">open</a></td></tr><tr><td><code>wd_7855084441</code></td><td>Nike Red and White Checkered Croatia Jersey</td><td>¥116≈ $16.12</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-jersey/wd_7855084441.html">open</a></td></tr><tr><td><code>wd_7855094313</code></td><td>Gold and Black Gradient Pilot Sunglasses with Case</td><td>¥108≈ $15.01</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-electronics/wd_7855094313.html">open</a></td></tr><tr><td><code>wd_7858043442</code></td><td>Brazil Blue Short Sleeve Soccer Jersey</td><td>¥128≈ $17.79</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-jersey/wd_7858043442.html">open</a></td></tr><tr><td><code>wd_7858086734</code></td><td>Louis Vuitton Monogram Crossbody Bag Set</td><td>¥180≈ $25.02</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-bag/wd_7858086734.html">open</a></td></tr><tr><td><code>wd_7854859133</code></td><td>Stussy Blue Canvas Wallet</td><td>¥58≈ $8.06</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-bag/wd_7854859133.html">open</a></td></tr><tr><td><code>wd_7858116142</code></td><td>Coach Blue Signature Jacquard Shoulder Bag</td><td>¥363≈ $50.46</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-bag/wd_7858116142.html">open</a></td></tr><tr><td><code>wd_7858049450</code></td><td>Chanel Black Quilted Mini Flap Bag</td><td>¥379≈ $52.68</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-bag/wd_7858049450.html">open</a></td></tr><tr><td><code>wd_7855066871</code></td><td>Burberry Black Plaid Slide Sandals 2.0</td><td>¥235≈ $32.67</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-slippers/wd_7855066871.html">open</a></td></tr><tr><td><code>wd_7858029552</code></td><td>Nike Black France Football Jersey</td><td>¥98≈ $13.62</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-jersey/wd_7858029552.html">open</a></td></tr>
+  <tr><td><code>wd_7854801519</code></td><td>Audemars Piguet Rose Gold Automatic Watch</td><td>¥701≈ $97.44</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-jewelry/wd_7854801519.html">open</a></td></tr>
+  <tr><td><code>wd_7855084441</code></td><td>Nike Red and White Checkered Croatia Jersey</td><td>¥116≈ $16.12</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-jersey/wd_7855084441.html">open</a></td></tr>
+  <tr><td><code>wd_7855094313</code></td><td>Gold and Black Gradient Pilot Sunglasses with Case</td><td>¥108≈ $15.01</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-electronics/wd_7855094313.html">open</a></td></tr>
+  <tr><td><code>wd_7858043442</code></td><td>Brazil Blue Short Sleeve Soccer Jersey</td><td>¥128≈ $17.79</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-jersey/wd_7858043442.html">open</a></td></tr>
+  <tr><td><code>wd_7858086734</code></td><td>Louis Vuitton Monogram Crossbody Bag Set</td><td>¥180≈ $25.02</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-bag/wd_7858086734.html">open</a></td></tr>
+  <tr><td><code>wd_7854859133</code></td><td>Stussy Blue Canvas Wallet</td><td>¥58≈ $8.06</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-bag/wd_7854859133.html">open</a></td></tr>
+  <tr><td><code>wd_7858116142</code></td><td>Coach Blue Signature Jacquard Shoulder Bag</td><td>¥363≈ $50.46</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-bag/wd_7858116142.html">open</a></td></tr>
+  <tr><td><code>wd_7858049450</code></td><td>Chanel Black Quilted Mini Flap Bag</td><td>¥379≈ $52.68</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-bag/wd_7858049450.html">open</a></td></tr>
+  <tr><td><code>wd_7855066871</code></td><td>Burberry Black Plaid Slide Sandals 2.0</td><td>¥235≈ $32.67</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-slippers/wd_7855066871.html">open</a></td></tr>
+  <tr><td><code>wd_7858029552</code></td><td>Nike Black France Football Jersey</td><td>¥98≈ $13.62</td><td>yes</td><td><time datetime="2026-10-27">2026-10-27</time></td><td><a href="https://w2clinks.com/yupoo-jersey/wd_7858029552.html">open</a></td></tr>
   </tbody>
 </table>
-<p>Full machine-readable payload: <a href="/data/finds-dataset.json"><code>/data/finds-dataset.json</code></a>.</p>
+<p>Category mix in the proof set: watches, jerseys, eyewear, bags, slides. That is the same mix the searchable catalog filters at <a href="/usfans-spreadsheet/">/usfans-spreadsheet/</a>.</p>
 
-<h2>Coupon truth table</h2>
-<p>Structured offers with expiry notes live at <a href="/data/coupons-truth.json"><code>/data/coupons-truth.json</code></a>. Human checklist: <a href="/usfans-coupons/">/usfans-coupons/</a>. Always confirm on the official agent — this hostname is not checkout.</p>
+<h2>QC flag vs warehouse QC</h2>
+<p><code>qc_photo=true</code> on a sample row means this hub already surfaces a community / listing photo. It is not a substitute for the warehouse set USFans takes after you pay for the goods. Use <a href="/usfans-qc-photos/">/usfans-qc-photos/</a> for the approve / retake / return sequence. A Google Sheet typically pastes a thumbnail once and never dates it.</p>
+
+<h2>Coupon truth is a different file</h2>
+<p>Structured offers with expiry notes live at <a href="/data/coupons-truth.json"><code>/data/coupons-truth.json</code></a>. Human checklist: <a href="/usfans-coupons/">/usfans-coupons/</a>. Always confirm on the official agent — this hostname is not checkout. Coupons are not a column on the finds dataset because wallet terms rotate independently of SKU prices.</p>
 
 <section class="faq" id="discord">
-  <h2>Community coexistence (Discord / .gg / Reddit)</h2>
+  <h2>How rooms should cite this catalog</h2>
   <details open>
-    <summary>Do we compete with Discord invite links?</summary>
-    <p>No. Discord/.gg rooms are where haul chatter lives. This hub’s job is the <strong>dated catalog + coupon truth</strong> those rooms can cite. Prefer linking the dataset/coupons URLs instead of hard-fighting #1 Reddit threads.</p>
-  </details>
-  <details>
-    <summary>What should a Discord mod link?</summary>
+    <summary>What should a Discord or Reddit post link?</summary>
     <p>Prefer <a href="/finds-dataset/">/finds-dataset/</a> (row count + last_verified) and <a href="/usfans-coupons/">/usfans-coupons/</a> over a brittle Sheet URL. Community desk: <a href="/usfans-reddit-community/">/usfans-reddit-community/</a>.</p>
   </details>
   <details>
     <summary>Where is warehouse QC authoritative?</summary>
-    <p>Listing/QC thumbnails on this hub help research. Warehouse QC inside the official agent is authoritative for the SKU you paid for. See also <a href="/usfans-qc-photos/">/usfans-qc-photos/</a>.</p>
+    <p>Listing photos on this hub help research. Warehouse QC inside the official agent is authoritative for the SKU you paid for. See <a href="/usfans-qc-photos/">/usfans-qc-photos/</a>.</p>
+  </details>
+  <details>
+    <summary>Why is the count 10,601 and not a round 15,000?</summary>
+    <p>Because that is the indexed catalog on this host as of 27 October 2026. We do not pad the integer to match another Sheet’s headline.</p>
   </details>
 </section>
 
-<p><a class="btn" href="https://usfans.com/register?ref=7BJBAJ" rel="noopener sponsored" target="_blank">Open official USFans signup</a></p>
+<p><a class="btn" href="https://usfans.com/" rel="noopener">Open USFans.com</a>
+   <a class="btn ghost" href="https://usfans.com/estimation" rel="noopener">Freight estimator</a></p>
 </article>
-<footer><div class="wrap"><p>© 2026 USFans Spreadsheet. Independent information desk on usfansspreadsheet.net. Orders and payment stay on the official agent site.</p></div></footer>
+<footer><div class="wrap"><p>© 2026 USFans Spreadsheet. Independent catalog on usfansspreadsheet.net. Orders and payment stay on usfans.com.</p></div></footer>
 </body>
 </html>
