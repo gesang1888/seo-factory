@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+<head>
+<title>HipoBuy verzending Nederland – kosten, tijd en DHL</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>HipoBuy verzending Nederland – kosten, tijd en DHL</title>
+<meta name="keywords" content="hipobuy shipping, hipobuy shipping nederland, hipobuy delivery time">
+<meta name="description" content="HipoBuy verzending naar Nederland. Last-mile vaak PostNL.">
+
+
+<meta property="og:title" content="HipoBuy verzending Nederland – kosten, tijd en DHL">
+<meta property="og:description" content="HipoBuy verzending naar Nederland. Last-mile vaak PostNL.">
+<meta property="og:url" content="https://hipobuyspreadsheet.nl/hipobuy-shipping-guide/">
+<link rel="canonical" href="https://hipobuyspreadsheet.nl/hipobuy-shipping-guide/">
+
+<link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
+<link rel="icon" sizes="32x32" href="https://hipobuy.com/static/favicon/32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "HipoBuy finds for UK buyers", "url": "https://hipobuyspreadsheet.nl/hipobuy-finds/", "description": "HipoBuy Spreadsheet for UK buyers on hipobuyspreadsheet.nl. Finds, QC, shipping, legal. Source: HMRC. Keywords: HipoBuy spreadsheet, hipobuy spreadsheet the united kingdom, hipobuy sheet.", "keywords": ["HipoBuy spreadsheet", "hipobuy spreadsheet the united kingdom", "hipobuy sheet"]}</script>
+<style>
+:root{
+  --acc:#00C853;--acd:#00A844;--acl:#F6FBF8;
+  --bk:#0A0A0A;--g1:#1A1A1A;--g2:#2D2D2D;--g3:#555;--g4:#888;--g5:#E5E5E5;--g6:#F6F6F6;--wh:#fff;
+  --gn:#16A34A;--gnl:#F0FDF4;--bl:#2563EB;--bll:#EFF6FF;
+  --am:#D97706;--aml:#FFFBEB;--rd:#DC2626;--rdl:#FEF2F2;--pu:#7C3AED;--pul:#F5F3FF;
+  --f:'DM Sans',sans-serif;--m:'DM Mono',monospace;--r:10px;--rl:16px;
+  --nav-bg:var(--wh);--nav-h:60px;
+  --footer-bg:#1A1A1A;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--wh);color:var(--bk);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%;display:block}
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:var(--wh);border-bottom:1px solid var(--g5);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nbrand{display:flex;align-items:center;gap:14px;min-width:0}
+.nlo{display:flex;align-items:center;flex-shrink:0}
+.nlo-logo{display:block;width:162px;height:35px;object-fit:contain;object-position:left center;flex-shrink:0;border-radius:0}
+.nflags{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.nregion{display:inline-flex;align-items:center}
+.nregion-flag{font-size:22px;line-height:1}
+.nfb{width:28px;height:28px;background:var(--acc);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700}
+.nl{display:flex;align-items:center;gap:4px;list-style:none}
+.nl a{font-size:13px;padding:6px 10px;border-radius:6px;color:var(--g4);transition:background .15s,color .15s}
+.nl a:hover{background:var(--g6);color:var(--bk);text-decoration:none}
+.nl a.on{color:var(--bk);font-weight:500}
+/* Announce */
+.ann{background:var(--acc);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:500}
+.ann a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+/* WA button */
+.bwa{display:flex;align-items:center;gap:7px;padding:7px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500;white-space:nowrap;transition:opacity .15s}
+.bwa:hover{opacity:.88;text-decoration:none}
+.bwa svg{width:16px;height:16px;flex-shrink:0}
+/* Lang/Currency button */
+.blc{display:flex;align-items:center;gap:5px;padding:6px 10px;border:1px solid var(--g5);border-radius:8px;background:var(--wh);font-family:var(--f);font-size:13px;font-weight:500;color:var(--bk);cursor:pointer;transition:border-color .15s,background .15s;white-space:nowrap}
+.blc:hover,.blc.open{border-color:var(--acc);background:var(--acl)}
+.blc #lc-curr{color:var(--g4);font-size:11px}
+/* Lang modal backdrop */
+.lbk{position:fixed;inset:0;z-index:198;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s}
+.lbk.show{opacity:1;pointer-events:all}
+/* Lang modal */
+.lmo{position:fixed;z-index:199;background:var(--wh);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.18);width:360px;max-width:calc(100vw - 32px);opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;transform:translateY(-8px) scale(.97)}
+@media(min-width:600px){.lmo{top:62px;right:24px}.lmo.show{opacity:1;pointer-events:all;transform:translateY(0) scale(1)}.lhan{display:none}}
+@media(max-width:599px){.lmo{bottom:0;left:0;right:0;width:100%;max-width:100%;border-radius:20px 20px 0 0;transform:translateY(100%);top:auto}.lmo.show{opacity:1;pointer-events:all;transform:translateY(0)}}
+.lhan{width:36px;height:4px;border-radius:2px;background:var(--g5);margin:12px auto 0}
+.lmi{padding:16px 20px 20px}
+.lmh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.lmt{font-size:15px;font-weight:600;color:var(--bk)}
+.lmc{width:28px;height:28px;border-radius:50%;background:var(--g6);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--g3);transition:background .15s}
+.lmc:hover{background:var(--g5)}
+.lsl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--g4);margin-bottom:10px}
+.lgr{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lop{padding:11px 14px;border:1.5px solid var(--g5);border-radius:10px;background:var(--wh);font-family:var(--f);font-size:13.5px;font-weight:500;color:var(--bk);cursor:pointer;text-align:center;transition:border-color .15s,color .15s,background .15s;display:flex;align-items:center;justify-content:center;gap:6px}
+.lop:hover{border-color:#a5b4fc}
+.lop.sel{border-color:#6366F1;color:#4338CA;background:#EEF2FF;font-weight:600}
+.lcf{width:100%;margin-top:18px;height:46px;background:linear-gradient(135deg,#818CF8,#6366F1);color:#fff;border:none;border-radius:12px;font-family:var(--f);font-size:15px;font-weight:600;cursor:pointer;transition:opacity .15s}
+.lcf:hover{opacity:.88}
+/* Breadcrumb */
+.bc{padding:14px 24px;max-width:1100px;margin:0 auto;font-size:12px;color:var(--g4);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.bc a{color:var(--g4)}.bc a:hover{color:var(--bk)}
+/* Page layout */
+.pw{max-width:1100px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start}
+/* Prose */
+.ph{font-size:21px;font-weight:600;letter-spacing:-.4px;color:var(--bk);margin-top:36px;margin-bottom:12px;padding-top:8px;border-top:1px solid var(--g5)}
+.pp{font-size:15px;color:var(--g2);line-height:1.82;margin-bottom:14px}
+.pul{padding-left:20px;margin-bottom:14px}
+.pul li{font-size:15px;color:var(--g2);line-height:1.75;margin-bottom:7px}
+/* Callout boxes */
+.cb{border-radius:var(--rl);padding:14px 16px;margin:16px 0;display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.7}
+.cb svg{flex-shrink:0;margin-top:2px}
+.cb div strong{display:block;margin-bottom:3px;font-size:13px}
+.tip{background:var(--acl);border:1px solid color-mix(in srgb,var(--acc) 35%,transparent);color:var(--acd)}.tip svg{color:var(--acc)}
+.warn{background:var(--aml);border:1px solid #FDE68A;color:#92400E}.warn svg{color:var(--am)}
+.info{background:var(--bll);border:1px solid #BFDBFE;color:#1E40AF}.info svg{color:var(--bl)}
+.good{background:var(--gnl);border:1px solid #BBF7D0;color:#166534}.good svg{color:var(--gn)}
+/* FAQ */
+.faq-item{border:1px solid var(--g5);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;cursor:pointer;font-size:14px;font-weight:500;color:var(--bk);gap:12px;background:var(--wh);transition:background .12s;list-style:none}
+.faq-q:hover{background:var(--g6)}
+.faq-q svg{width:15px;height:15px;color:var(--g4);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{padding:0 15px;max-height:0;overflow:hidden;transition:max-height .28s ease,padding .2s;font-size:13.5px;color:var(--g3);line-height:1.75}
+.faq-item.open .faq-a{max-height:400px;padding:0 15px 13px}
+/* Sidebar */
+.asb{position:sticky;top:72px}
+.sbc{border:1px solid var(--g5);border-radius:var(--rl);overflow:hidden;margin-bottom:16px}
+.sbh{background:var(--g6);padding:10px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--g4)}
+.sbb{padding:14px 16px}
+.sbcta{margin-top:12px;padding:10px 14px;background:var(--acc);color:#fff;border-radius:8px;text-align:center;font-size:13px;font-weight:500;display:block;transition:background .15s}
+.sbcta:hover{background:var(--acd);text-decoration:none}
+.sbwa{margin-top:8px;padding:9px 14px;background:#25D366;color:#fff;border-radius:8px;text-align:center;font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:6px;transition:opacity .15s}
+.sbwa:hover{opacity:.88;text-decoration:none}.sbwa svg{width:14px;height:14px}
+.sbli{list-style:none}
+.sbli li a{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-top:1px solid var(--g5);font-size:13px;color:var(--g3)}
+.sbli li:first-child a{border-top:none}
+.sbli li a:hover{color:var(--acc);text-decoration:none}
+.sbli li a svg{width:12px;height:12px;opacity:.4}
+/* Footer */
+.ft{background:#1A1A1A;color:#ccc;padding:40px 24px}
+.fti{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.flo{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;color:#fff;margin-bottom:12px}
+.flo-logo{height:26px;width:auto;max-width:150px;object-fit:contain}
+.flo-txt{font-size:14px;color:#fff}
+.flm{width:26px;height:26px;background:var(--acc);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff}
+.ftg{font-size:13px;color:#888;line-height:1.65;margin-bottom:16px}
+.fwa{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500}
+.fwa svg{width:15px;height:15px}
+.fc h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#888;margin-bottom:12px}
+.fc ul{list-style:none}.fc ul li{margin-bottom:9px}
+.fc ul li a{font-size:13px;color:#888;transition:color .12s}
+.fc ul li a:hover{color:#fff;text-decoration:none}
+.fb{max-width:1100px;margin:28px auto 0;padding-top:20px;border-top:1px solid #2D2D2D;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.fb p{font-size:12px;color:#666}
+/* WA float */
+.waf{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.wafb{width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);transition:transform .15s}
+.wafb:hover{transform:scale(1.08);text-decoration:none}.wafb svg{width:26px;height:26px;color:#fff}
+.wabu{background:var(--wh);border:1px solid var(--g5);border-radius:12px;padding:12px 16px;font-size:13px;max-width:200px;text-align:right;line-height:1.5;display:none}
+.wabu b{color:var(--bk);display:block;margin-bottom:2px}.wabu span{color:var(--g4);font-size:12px}
+.waf:hover .wabu{display:block}
+/* Responsive */
+@media(max-width:860px){.pw{grid-template-columns:1fr!important}.asb{position:static}.nl{display:none}.fti{grid-template-columns:1fr;gap:28px}.fb{flex-direction:column}}
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeUp .4s ease both}
+.fade-in-d{animation:fadeUp .4s .1s ease both}
+
+.mw{max-width:1200px;margin:0 auto;padding:8px 24px 56px;display:grid;grid-template-columns:215px 1fr;gap:24px;align-items:start}
+.sb{position:sticky;top:72px}
+.sbtit{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--g4);margin-bottom:8px;padding-left:4px}
+.sbsec{margin-bottom:22px}
+.cl{list-style:none}
+.cl li a{display:flex;align-items:center;justify-content:space-between;padding:6px 9px;border-radius:8px;font-size:13px;color:var(--g2);transition:background .12s,color .12s}
+.cl li a:hover{background:var(--g6);color:var(--bk);text-decoration:none}
+.cl li a.on{background:var(--acl);color:var(--acd);font-weight:500}
+.cn{font-size:11px;color:var(--g4);font-family:var(--m)}
+.cl li a.on .cn{color:var(--acc)}
+.sbcard{background:var(--g6);border-radius:var(--rl);padding:13px}
+.sbcard-t{font-size:13px;font-weight:500;margin-bottom:5px}
+.sbcard-d{font-size:12px;color:var(--g3);line-height:1.55;margin-bottom:10px}
+.sbwas{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500;width:100%;transition:opacity .15s}
+.sbwas:hover{opacity:.88;text-decoration:none}.sbwas svg{width:14px;height:14px}
+.fbar{display:flex;gap:8px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.sw{flex:1;min-width:180px;position:relative}
+.sw svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--g4)}
+.si{width:100%;height:37px;padding:0 12px 0 33px;border:1.5px solid var(--g5);border-radius:9px;font-family:var(--f);font-size:13px;background:var(--wh);outline:none;transition:border-color .15s}
+.si:focus{border-color:var(--acc)}.si::placeholder{color:var(--g4)}
+.ss{height:37px;padding:0 10px;border:1.5px solid var(--g5);border-radius:9px;font-family:var(--f);font-size:12.5px;background:var(--wh);outline:none;cursor:pointer}
+.rc{font-size:13px;color:var(--g4);white-space:nowrap}.rc b{color:var(--bk);font-weight:500}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:13px;margin-bottom:24px}
+.pcard{border:1px solid var(--g5);border-radius:var(--rl);overflow:hidden;background:var(--wh);transition:border-color .15s,transform .15s;cursor:pointer;display:flex;flex-direction:column}
+.pcard:hover{border-color:var(--acc);transform:translateY(-2px)}
+.pimg{aspect-ratio:1;background:var(--g6);position:relative;overflow:hidden}
+.pimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.pcard:hover .pimg img{transform:scale(1.04)}
+.pph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--g5)}
+.pph svg{width:32px;height:32px}
+.pbg{position:absolute;top:7px;left:7px;background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:.3px}
+.pbdy{padding:10px;flex:1;display:flex;flex-direction:column;gap:5px}
+.pnm{font-size:13px;font-weight:500;color:var(--bk);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pmeta{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.ppr{font-size:14px;font-weight:700;color:var(--acc);font-family:var(--m)}
+.ppl{font-size:10.5px;color:var(--g4);background:var(--g6);padding:2px 6px;border-radius:4px}
+.plnk{display:block;margin:0 10px 10px;padding:7px;background:var(--acc);color:#fff;text-align:center;border-radius:8px;font-size:12.5px;font-weight:500;transition:background .15s}
+.plnk:hover{background:var(--acd);text-decoration:none}
+.pgn{display:flex;align-items:center;justify-content:center;gap:5px}
+.pgb{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid var(--g5);border-radius:7px;font-size:12.5px;color:var(--g3);cursor:pointer;transition:all .12s;background:var(--wh)}
+.pgb:hover{border-color:var(--acc);color:var(--acc)}.pgb.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:500}
+.sk{animation:pulse 1.5s ease-in-out infinite}.skim{background:var(--g5);aspect-ratio:1}.skl{height:11px;background:var(--g5);border-radius:4px;margin-bottom:7px}.skl.sh{width:55%}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@media(max-width:768px){.mw{grid-template-columns:1fr}.sb{position:static}}
+#home-trust{max-width:1100px;margin:0 auto;padding:8px 24px 8px}
+#home-trust .sec{padding:36px 0 8px}
+#home-trust .faq-item.open .faq-a{max-height:1600px}
+.ncard{border:1px solid var(--g5);border-radius:var(--rl);padding:16px 18px;margin-bottom:12px;background:var(--wh)}
+.ncard h3{font-size:15px;font-weight:600;margin-bottom:6px;color:var(--bk);letter-spacing:-.2px}
+.ncard p{font-size:13.5px;color:var(--g3);line-height:1.7;margin:0}
+.home-more{margin:4px 0 8px;font-size:13px;font-weight:600}
+.tw{overflow-x:auto;margin:16px 0;border:1px solid var(--g5);border-radius:var(--rl)}
+.tw table{width:100%;border-collapse:collapse;font-size:13px}
+.tw th,.tw td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--g5);vertical-align:top}
+.tw th{background:var(--g6);font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--g4);font-weight:700}
+.tw .mv{font-family:var(--m);font-weight:600;color:var(--acc);white-space:nowrap}
+.tw tr:last-child td{border-bottom:none}
+.tw code{font-family:var(--m);font-size:12px}
+figure.shot{margin:16px 0}
+figure.shot img{width:100%;max-width:920px;height:auto;border:1px solid var(--g5);border-radius:var(--rl);background:var(--g6)}
+figure.shot figcaption{font-size:13px;color:var(--g4);margin-top:6px;line-height:1.55}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
+.skip:focus{left:12px}
+.legal-note{font-size:13px;color:#64748b;line-height:1.65;margin:8px 0 0;max-width:640px}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
+.local-src{font-size:14px;color:#334155;line-height:1.7;margin:14px 0 0}
+.local-src a{color:inherit}
+#local{scroll-margin-top:96px}
+
+.sg-sec{max-width:1200px;margin:0 auto;padding:24px 24px 8px}
+.sg-sec h2{font-size:clamp(22px,3.2vw,32px);font-weight:700;letter-spacing:-.7px;margin:0 0 8px;color:var(--bk,#0A0A0A)}
+.sg-sec .ssub{color:var(--g3,#555);margin:0 0 12px;font-size:15px;line-height:1.6}
+.sg-sec a{color:var(--acd,#00A844)}
+
+</style>
+<style id="spreadsheet-cluster-css">.cluster-nav{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:12px 0 8px;font-size:14px;font-weight:600}.cluster-nav a{text-decoration:none}.cluster-page{max-width:760px;margin:0 auto;padding:8px 0 24px}.cluster-page .lead{font-size:18px;line-height:1.65}.cluster-links{display:grid;gap:6px}</style>
+
+
+
+
+
+
+
+<style id="hipobuy-official-skin">
+:root{--acc:#3B82F6;--acd:#2563eb;--link:#2563eb;--primary:#3B82F6;--primary-dark:#2563eb;--primary-soft:#eff6ff;--ink:#303133;--mute:#8492b2;--dark:#181818;--line:#eaecf0}
+body{background:#fff;font-family:"Microsoft Yahei","PingFang SC",Avenir,"Segoe UI","Hiragino Sans GB",Inter,ui-sans-serif,system-ui,sans-serif;color:var(--ink)}
+.cb-promo{background:#181818;color:#fff;text-align:center;padding:8px 14px;font-weight:600;font-size:13px}
+.cb-promo a{color:#fff;text-decoration:none}
+.hdr-login,.btn-primary,.cb-login{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:#3B82F6;color:#fff;font-size:14px;font-weight:700;text-decoration:none;border:0}
+.hdr-login:hover,.btn-primary:hover{background:#2563eb;color:#fff}
+.btn-outline,.btn-cart{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:#fff;color:#2563eb;border:1px solid #eaecf0;text-decoration:none;font-weight:700;font-size:14px}
+header.top,header.cb-head{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eaecf0}
+.cluster-nav{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:12px 0 8px;font-size:14px;font-weight:600}
+.cb-head-inner,.top .wrap{width:min(1120px,calc(100% - 28px));margin:0 auto;display:flex;align-items:center;gap:12px;min-height:72px;flex-wrap:wrap}
+.cb-head-left,.nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-left:auto}
+.cb-head-left a,.nav a{color:#333;text-decoration:none;padding:0 12px;min-height:44px;display:inline-flex;align-items:center;border-radius:12px;font-size:15px;font-weight:600}
+.cb-head-left a:hover,.nav a:hover,.cb-head-left a.on,.nav a[aria-current]{color:#3B82F6}
+.cb-logo img,.brand img{height:32px;width:auto;display:block}
+.cb-ccy{color:#8492b2;font-size:13px;font-weight:600}
+.cb-head-search{display:flex;gap:8px;margin:0 auto 14px;background:#fff;border:2px solid #3B82F6;border-radius:999px;padding:6px 6px 6px 18px;align-items:center;width:min(1100px,calc(100% - 28px))}
+.cb-head-search input{flex:1;border:0;outline:none;font-size:15px;background:transparent}
+.cb-head-search .btn{background:#3B82F6;color:#fff;border-radius:999px;min-width:96px;border:0;font-weight:700;cursor:pointer;padding:8px 16px}
+.cb-hero{position:relative;border-radius:0;overflow:hidden;min-height:420px;margin:0 0 8px;background:#181818}
+.cb-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.42);object-position:center top}
+.cb-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,24,24,.62) 0%,rgba(59,130,246,.28) 100%);z-index:0}
+.cb-hero-copy{position:relative;z-index:1;padding:74px 36px 78px;color:#fff;max-width:760px;width:min(1120px,calc(100% - 28px));margin:0 auto}
+.cb-hero-copy h1{color:#fff;font-size:clamp(28px,4.4vw,45px);letter-spacing:-.02em;margin:0 0 12px}
+.cb-hero-copy .hsub{color:#eff6ff;font-size:19px;max-width:640px}
+.cb-search{display:flex;gap:8px;margin:22px 0 10px;background:#fff;border-radius:999px;padding:8px 8px 8px 18px;align-items:center;max-width:660px}
+.cb-search input{flex:1;border:0;outline:none;font-size:17px;background:transparent}
+.cb-search .btn{border-radius:999px;min-width:110px;border:0;cursor:pointer;font:inherit;background:#3B82F6;color:#fff;font-weight:700;min-height:44px;padding:0 24px}
+.cb-hero .cluster-nav a{color:#fff}
+.cb-hero .eu-badge{background:#3B82F6;color:#fff;display:inline-block;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700}
+.cb-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px auto;width:min(1120px,calc(100% - 28px))}
+@media(max-width:800px){.cb-head-inner{text-align:center}.cb-steps{grid-template-columns:1fr}.cb-hero-copy{padding:36px 18px}}
+.cb-step{background:#fff;border-radius:16px;padding:18px;border:1px solid #eaecf0}
+.cb-step strong{display:block;color:#3B82F6;font-size:13px;margin-bottom:6px}
+.sg-split{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
+@media(max-width:860px){.sg-split{grid-template-columns:1fr}}
+figure.shot{margin:0}
+figure.shot img{width:100%;border-radius:14px;border:1px solid #eaecf0;display:block;background:#fff}
+figure.shot figcaption{font-size:13px;color:#8492b2;margin-top:8px}
+.sg-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.sg-cat{padding:0;overflow:hidden;border:1px solid #eaecf0;border-radius:18px;text-decoration:none;color:inherit;background:#fff}
+.sg-cat img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#f5f6f7}
+.sg-cat .b{padding:10px 12px}
+.cluster-page{max-width:820px}
+.cluster-nav a{color:#2563eb}
+.site-footer,.cb-foot,.site-ft{background:#111;color:#ccc;margin-top:36px;padding:52px 0 30px;font-size:15.5px}
+.cb-foot a,.site-ft a{color:#c2c2c2;text-decoration:none}
+.cb-foot-grid,.ft-grid{width:min(1120px,calc(100% - 28px));margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+@media(max-width:800px){.cb-foot-grid,.ft-grid{grid-template-columns:1fr 1fr}}
+.cb-foot h3,.site-ft h3{color:#fff;font-size:15.5px;margin:0 0 12px}
+.cb-foot ul{margin:0;padding:0;list-style:none}
+.cb-pay{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.cb-pay span{background:#fff;color:#111;border-radius:6px;padding:4px 8px;font-size:11px;font-weight:800}
+.local-steps{display:grid;gap:14px;padding:0;margin:16px 0 0;list-style:none}
+.local-steps li{display:grid;gap:4px}
+.local-steps strong{display:block}
+#lang-modal,.lmo,.lbk,.waf,.lmi,.lmh,.lgr,.lcf,#lang-grid,#curr-grid{display:none!important}
+</style>
+
+
+
+
+
+
+
+</head>
+<body data-spreadsheet-cluster="20261030">
+<a class="skip" href="#main">Naar de inhoud</a>
+
+<main id="main" class="container inner-article">
+<article class="cluster-page" data-spreadsheet-cluster="20261030" data-hipobuy-dest="20261102" data-kind="shipping">
+<h1>HipoBuy verzending naar Nederland</h1><nav class="cluster-nav" data-spreadsheet-cluster="20261030" aria-label="HipoBuy"><a href="/hipobuy-spreadsheet/">Spreadsheet</a><a href="/hipobuy-finds/">Finds</a><a href="/hipobuy-qc/">QC</a><a href="/hipobuy-shipping-guide/">Verzending</a><a href="/is-hipobuy-legal-nl/">Legaal?</a><a href="/hipobuy-guide/">Handleiding</a><a href="/hipobuy-faq/">FAQ</a></nav>
+<p class="lead">HipoBuy verzending naar Nederland. Last-mile vaak PostNL.</p>
+<figure class="shot"><img src="/media/estimator-nl.jpg" alt="Vrachtcalculator. Bestemming Nederland vóór je porto betaalt." width="1400" height="900" loading="lazy" decoding="async"><figcaption>Vrachtcalculator. Bestemming Nederland vóór je porto betaalt.</figcaption></figure>
+<h2>Estimator</h2>
+<p>Nederland, niet BE, niet EU. Nederlandse postcode (form 1234 AB).</p>
+<h2>Douane</h2>
+<p>SKU beslist. Bron: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/douane/ (Douane).</p>
+<figure class="shot"><img src="/media/oficial-inicio.jpg" alt="HipoBuy-home — plak de link om te starten." width="1400" height="900" loading="lazy" decoding="async"><figcaption>HipoBuy-home — plak de link om te starten.</figcaption></figure>
+<h2>Bezorgadres in Nederland</h2>
+<p>Op het label horen een Nederlandse straat en Nederlandse postcode (form 1234 AB). Een Duits Packstation-nummer of een Belgische postcode is het verkeerde land.</p>
+<p>Kies in https://hipobuy.com/estimation bestemming Nederland vóór je internationale vracht betaalt.</p>
+<h2>Prijzen in EUR</h2>
+<p>Finds op deze pagina staan in EUR. Betalen op hipobuy.com — kaart, PayPal, saldo of iDEAL, wat het account die ochtend aanbiedt.</p>
+<p>Staat in de SPA nog een dollarteken, dan geldt het bedrag in de app en https://hipobuy.com/estimation met bestemming Nederland.</p>
+<h2>Plak een Taobao-, 1688- of Weidian-link</h2>
+<p>Plak de product-URL op hipobuy.com. HipoBuy koopt naar het magazijn. hipobuyspreadsheet.nl is de spreadsheet naar een Nederlandse deur.</p>
+<p>Sneakers, hoodies, jassen en tassen hebben meestal QC-foto’s.</p>
+<h2>QC-foto’s, dan PostNL of DHL</h2>
+<p>Wacht op magazijnfoto’s, daarna de internationale lijn. Last-mile vaak PostNL.</p>
+<p>Twee betalingen: goederen naar China, daarna vracht. Magazijndagen in de Help op hipobuy.com.</p>
+<h2>Douane</h2>
+<p>Wie invoerrechten en btw bij invoer betaalt, staat op de SKU. Bron: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/douane/ (Douane). Deze pagina verzint geen tarief en geen aangegeven waarde.</p>
+<h2>Magazijn in China, geen PostNL-depot</h2>
+<p>QC-foto’s uit China. Na QC https://hipobuy.com/estimation met bestemming Nederland. Nederlandse postcode (form 1234 AB).</p>
+<h2>Eerste bestelling: één kleding-SKU</h2>
+<p>Een hoodie of sneakers met magazijnfoto’s volstaat voor de eerste Nederlandse deur.</p>
+<h2>Engelse catalogsleutels zijn labels</h2>
+<p>Estimator-land blijft Nederland, EUR is weergave, kassa is hipobuy.com.</p>
+<h2>Wat deze hostname niet is</h2>
+<p>hipobuyspreadsheet.nl is spreadsheet naar een Nederlandse deur. Registreren alleen op hipobuy.com. Een Belgische postcode is het verkeerde land.</p>
+<h2>Tracking na de grens</h2>
+<p>Tracking volgt de SKU — vaak PostNL. Bron: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/douane/ (Douane).</p>
+<h2>Retour alleen in het magazijn</h2>
+<p>Fail-QC in de app in China. Na bezorging geen magazijnticket via Douane.</p>
+<h2>Buurlanden zijn andere SKUs</h2>
+<p>Een Belgische postcode in de estimator is het verkeerde land. iDEAL bevestig je in de app.</p>
+<h2>Spreadsheet / finds / QC / Verzending</h2>
+<ul class="cluster-links"><li><a href="/hipobuy-spreadsheet/">Spreadsheet</a></li><li><a href="/hipobuy-finds/">Finds</a></li><li><a href="/hipobuy-qc/">QC</a></li><li><a href="/hipobuy-shipping-guide/">Verzending</a></li><li><a href="/is-hipobuy-legal-nl/">Legaal?</a></li><li><a href="/hipobuy-guide/">Handleiding</a></li><li><a href="/hipobuy-faq/">FAQ</a></li></ul>
+<p class="kb-cta">Bestellen en betalen op hipobuy.com. Prijzen op deze pagina staan in lokale valuta.</p>
+</article>
+</main>
+<footer class="cb-foot site-ft"><div class="cb-foot-grid ft-grid"><div><h3>Klantenservice</h3><ul><li><a href="https://hipobuy.com/help">Helpcentrum</a></li><li><a href="/hipobuy-faq/">Vragen</a></li></ul></div><div><h3>Betaling</h3><ul><li><a href="https://hipobuy.com/">hipobuy.com</a></li><li>EUR</li></ul><p class="cb-pay"><span>VISA</span><span>Mastercard</span><span>PayPal</span></p></div><div><h3>Inkoopagent</h3><ul><li><a href="/hipobuy-guide/">Helpcentrum</a></li><li><a href="https://hipobuy.com/estimation">Vrachtcalculator</a></li><li><a href="/hipobuy-qc/">QC</a></li></ul></div><div><h3>HipoBuy</h3><p>HipoBuy-spreadsheet voor Nederland. Weergave in EUR. Bestellen op hipobuy.com.</p><p><a href="https://hipobuy.com/">hipobuy.com</a></p></div></div></footer>
+</body></html>
