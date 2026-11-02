@@ -1,11 +1,12 @@
-# Deploy Step 5 — usfansspreadsheet.uk → usfansspreadsheet.co.uk
+# Deploy Step 5 — usfansspreadsheet.uk → usfansspreadsheet.co.uk (SUPERSEDED)
 
 Twin host consolidation (portfolio Step 5 Phase A, 2026-10-26).
 
-## Status
-- **LIVE (pre-existing / Step4; documented Step5)** on same Baota origin as usfansspreadsheet.net
-- Backup: `/www/backup/portfolio-step5-20261026-141745/usfansspreadsheet.uk.conf.bak` (if rewritten this step)
-- curl: `https://usfansspreadsheet.uk/` and deep path → `301 https://usfansspreadsheet.co.uk$request_uri`
+**Superseded 2026-11-03:** `.uk` is an independent GB-collect dest. See `DEPLOY-UK-RECLAIM.md`. Do not restore the catch-all 301 onto `.co.uk`.
+
+## Status (historical, 2026-10-26)
+- Was catch-all 301 onto usfansspreadsheet.co.uk
+- Backup: `/www/backup/portfolio-step5-20261026-141745/usfansspreadsheet.uk.conf.bak`
 
 ## Replay
 1. Keep existing TLS certs under `/www/server/panel/vhost/cert/usfansspreadsheet.uk/`

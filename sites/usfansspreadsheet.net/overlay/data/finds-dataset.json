@@ -18,7 +18,8 @@
     "html": "https://usfansspreadsheet.net/finds-dataset/",
     "json": "https://usfansspreadsheet.net/data/finds-dataset.json",
     "coupons_truth": "https://usfansspreadsheet.net/data/coupons-truth.json",
-    "catalog": "https://usfansspreadsheet.net/usfans-spreadsheet/"
+    "catalog": "https://usfansspreadsheet.net/usfans-spreadsheet/",
+    "qc_photos": "https://usfansspreadsheet.net/usfans-qc-photos/"
   },
   "sample_skus": [
     {
@@ -123,8 +124,5 @@
     }
   ],
   "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
-  "platform_opt": "usfans-platform-20261026",
-  "stamp": "hub_stabilize",
-  "weekly_refresh": "ahub-dataset-refresh-20261027",
-  "hub_stabilize": "usfans-hub-stabilize-20261027"
+  "stamp": "catalog"
 }
