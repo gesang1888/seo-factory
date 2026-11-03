@@ -1,7 +1,7 @@
 # MyCNBox EU — llms.txt
-# Updated: 2026-10-28 · hub_reclaim=mycnbox-hub-reclaim-20261028 · platform_opt=mycnbox-platform-20261026
+# Updated: 2026-11-03 · hub-reclaim=20261103
 Site: https://mycnbox.eu
-Description: MyCNBox primary spreadsheet hub. Independent Index · 11,300+ (Typesense found=11365). Brand spreadsheet / coupons / dataset queries belong here. Keep country desks (.nl / .co.uk / .pl) for local postal KPI — NL not deepened in hub-reclaim action. mycnboxhaul.com 301→.eu. Do not revive es/de/fr. External mycnbox.net / mycnbox.com / mycnboxsheet.org are not this portfolio.
+Description: English MyCNBox spreadsheet hub. Searchable QC catalog, coupons, dataset JSON, shipping guide. Not mycnbox.com checkout. Not a Google Sheet.
 ## Key pages
 - https://mycnbox.eu/
 - https://mycnbox.eu/mycnbox-spreadsheet/
@@ -12,7 +12,6 @@ Description: MyCNBox primary spreadsheet hub. Independent Index · 11,300+ (Type
 - https://mycnbox.eu/is-mycnbox-legit/
 - https://mycnbox.eu/mycnbox-shipping-guide/
 - https://mycnbox.eu/mycnbox-refund-guide/
-## Keep desks
-- https://mycnbox.nl/
-- https://mycnbox.co.uk/
-- https://mycnbox.pl/
+## Official
+- https://www.mycnbox.com/
+- https://www.mycnbox.com/estimation/

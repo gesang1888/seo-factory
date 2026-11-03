@@ -1,5 +1,5 @@
 # BoonBuy Spreadsheet — llms.txt
-# Updated: 2026-10-26
+# Updated: 2026-11-03 · hub-reclaim=20261103
 # platform_opt: boonbuy-platform-20261026
 
 Site: https://boonspreadsheet.com
@@ -17,7 +17,6 @@ Description: Independent BoonBuy spreadsheet hub with 12,400+ QC finds. GSC is c
 - Shipping guide: https://boonspreadsheet.com/boonbuy-shipping-guide/
 
 ## Notes
-- Do not overwrite the ranked CMS homepage with a Georgia dest skin — surgical meta/CTA only.
-- Coupon intent (code promo boonbuy, boonbuy coupon, code de reduction) → keep /boonbuy-coupons/ fresh + truth JSON.
-- No country spreadsheet TLDs in keep list for this brand; hub owns global spreadsheet + coupon citation.
-- Thin /shipping/ and customs blog already 301 → /boonbuy-shipping-guide/; /start/ 301 → home.
+- Homepage is a searchable BoonBuy spreadsheet (12,400+), not a destination customs desk.
+- Coupon intent stays on /boonbuy-coupons/ — do not overwrite that ranked page.
+- Register and estimate freight on boonbuy.com/shipping-estimate.

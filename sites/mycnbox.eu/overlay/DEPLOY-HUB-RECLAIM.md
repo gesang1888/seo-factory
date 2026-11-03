@@ -41,8 +41,8 @@ chown -R www:www "$HUB/index.html" "$HUB/mycnbox-spreadsheet" "$HUB/mycnbox-coup
 
 ## Verify
 
-- `/` title Independent Index · 11,300+; H1 Independent Index · 11,300+; CTA **Open directory**; reclaim box names mycnbox.net / sheet.org; stamp 2026-10-28
-- `/mycnbox-spreadsheet/` title Independent Index · 11,300+; Open directory / Dataset / Coupons CTAs; no inflated 12,000+
+- `/` title MyCNBox Spreadsheet — searchable QC catalog; H1 MyCNBox Spreadsheet; four-step `#local`; stamp `data-hub-reclaim="20261103"`; no Independent Index · 11,300+ in title/H1; no public ops notes
+- `/mycnbox-spreadsheet/` / `/mycnbox-coupons/` / `/finds-dataset/` stay 200 (this action does not overwrite those ranked inners)
 - `/finds-dataset/` + `/data/finds-dataset.json` last_verified=2026-10-28 · row_count=11365 · hub_reclaim=mycnbox-hub-reclaim-20261028
 - `/mycnbox-coupons/` + `/data/coupons-truth.json` stamped 2026-10-28
 - haul still 301→.eu; es/de/fr still 200 watch; NL/UK/PL untouched this action

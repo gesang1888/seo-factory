@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basetao Spreadsheet 2026 — Independent Index · 11,300+</title>
-    <meta name="description" content="Basetao Independent Index: 11,300+ Weidian/Taobao/1688 QC finds. Not Excel, not a Google Sheet, not checkout. Coupons on /basetao-coupon-tracker-2026.html; pay on basetao.com.">
+    <title>Basetao Spreadsheet — searchable QC catalog</title>
+    <meta name="description" content="Basetao spreadsheet you can search: Weidian, Taobao and 1688 QC finds. Coupons on /basetao-coupon-tracker-2026.html. Dataset JSON on this hub. Not a Google Sheet. Pay on basetao.com.">
     <meta name="keywords" content="Basetao, Basetao Spreadsheet, what is Basetao, Basetao QC, Basetao shipping calculator, Basetao referral code, Basetao review, Basetao coupon">
-    <meta property="og:title" content="Basetao Spreadsheet 2026 — Independent Index · 11,300+">
-    <meta property="og:description" content="Basetao Independent Index: 11,300+ Weidian/Taobao/1688 QC finds. Not Excel, not a Google Sheet, not checkout. Coupons on /basetao-coupon-tracker-2026.html; pay on basetao.com.">
+    <meta property="og:title" content="Basetao Spreadsheet — searchable QC catalog">
+    <meta property="og:description" content="Search the Basetao spreadsheet. Cite the dated dataset. Check coupons on a separate page. Pay on basetao.com.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://basetaospreadsheet.com/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
     <meta property="og:site_name" content="Basetao Spreadsheet">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Basetao Spreadsheet 2026 — Independent Index · 11,300+">
-    <meta name="twitter:description" content="Basetao Independent Index: 11,300+ Weidian/Taobao/1688 QC finds. Not Excel, not a Google Sheet, not checkout. Coupons on /basetao-coupon-tracker-2026.html; pay on basetao.com.">
+    <meta name="twitter:title" content="Basetao Spreadsheet — searchable QC catalog">
+    <meta name="twitter:description" content="Search the Basetao spreadsheet. Cite the dated dataset. Check coupons on a separate page. Pay on basetao.com.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,9 +39,9 @@
         "Basetao Independent Index",
         "basetao spreadsheet"
       ],
-      "dateModified": "2026-10-26",
+      "dateModified": "2026-11-03",
       "url": "https://basetaospreadsheet.com/",
-      "description": "Basetao spreadsheet Independent Index · 11,300+: live Weidian, Taobao and 1688 QC finds. Not Excel, not a Google Sheet. Use the free shipping calculator, then pay on basetao.com.",
+      "description": "Searchable Basetao spreadsheet catalog of Weidian, Taobao and 1688 QC finds. Not Excel, not a Google Sheet. Pay on basetao.com.",
       "inLanguage": "en",
       "potentialAction": {
         "@type": "SearchAction",
@@ -160,7 +160,13 @@
         }
         .contact-link:hover { background: rgba(255,255,255,.08); color: #fff; border-color: rgba(210,117,63,.7); }
         .contact-link i { color: #d2753f; font-size: 18px; width: 20px; text-align: center; }
-    </style>
+    .hub-cite{max-width:900px;margin:1.25rem auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:0 20px}
+.hub-cite a{display:block;padding:16px 18px;border:1px solid #dbe3ec;border-radius:12px;background:#fff;text-decoration:none;color:#0f172a}
+.hub-cite a:hover{border-color:#334155}
+.hub-cite strong{display:block;font-size:16px;margin:0 0 6px}
+.hub-cite span{display:block;font-size:14px;line-height:1.65;color:#334155}
+@media (max-width:768px){.hub-cite{grid-template-columns:1fr}}
+</style>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -256,12 +262,12 @@
         <section class="hero-bg text-white">
             <div class="max-w-7xl mx-auto px-6 py-20 md:py-28">
                 <div class="max-w-3xl">
-                    <span class="pill inline-flex rounded-full px-4 py-2 text-xs font-black uppercase tracking-widest bg-white/95">Basetao Spreadsheet · Independent Index · 11,300+</span>
+                    <span class="pill inline-flex rounded-full px-4 py-2 text-xs font-black uppercase tracking-widest bg-white/95">Basetao Spreadsheet · searchable QC catalog</span>
                     <h1 class="mt-6 text-4xl md:text-6xl font-black leading-tight">
                         Basetao Spreadsheet – What Is Basetao, QC Finds &amp; Shipping Help
                     </h1>
                     <p class="mt-6 text-base md:text-lg text-gray-100 leading-relaxed max-w-2xl">
-                        This Basetao spreadsheet is an <strong>Independent Index · 11,300+</strong> of Weidian, Taobao and 1688 finds — not Excel, not a Google Sheet, not checkout. Research QC photos, cite the <a href="/finds-dataset/" class="underline text-white">dataset</a>, use coupons on the <a href="/basetao-coupon-tracker-2026.html" class="underline text-white">tracker</a>, then pay on basetao.com. Updated 26 Oct 2026.
+                        This Basetao spreadsheet is a searchable catalog of Weidian, Taobao and 1688 finds — not Excel, not a Google Sheet, not checkout. Research QC photos, cite the <a href="/finds-dataset/" class="underline text-white">dataset</a>, use coupons on the <a href="/basetao-coupon-tracker-2026.html" class="underline text-white">tracker</a>, then pay on basetao.com.
                     </p>
                     <div class="mt-8 flex flex-wrap gap-3">
                         <a href="https://w2clinks.com/spreadsheet/basetao/?utm_source=basetaospreadsheet&utm_medium=aggregator&utm_campaign=basetao&utm_content=homepage-trending" class="bg-brand-orange hover:bg-brand-orangeHover text-white font-bold px-6 py-3 rounded-md shadow-lg" rel="noopener noreferrer">Browse Basetao Spreadsheet Finds</a>
@@ -274,19 +280,22 @@
             </div>
         </section>
 
-        <section class="sg-sec py-10 bg-brand-soft" id="local">
+        <section class="hub-cite" id="hub-cite" data-hub-reclaim="20261103">
+          <a href="/basetao-coupon-tracker-2026.html"><strong>Coupons</strong><span>Verify BASE10 / shipping offers on a separate page. This hub does not redeem codes.</span></a>
+          <a href="/finds-dataset/"><strong>Dataset</strong><span>Cite the public <code>row_count</code> JSON. We do not invent a higher count.</span></a>
+          <a href="/basetao-qc-guide/"><strong>QC guide</strong><span>Warehouse photo reject rules before you book a line on basetao.com.</span></a>
+        </section>
+        <section class="sg-sec py-10 bg-brand-soft" id="local" data-hub-reclaim="20261103">
             <div class="max-w-7xl mx-auto px-6">
-                <h2 class="text-2xl md:text-3xl font-black text-brand-navy">This .com hub is not a customs territory</h2>
-                <p class="mt-3 text-gray-600 max-w-3xl">Pick a real ship-to country in the official estimator. Money URLs on this Independent Index (≤6):</p>
-                <ul class="mt-4 grid md:grid-cols-2 gap-2 text-sm font-semibold text-brand-navy">
-                    <li><a class="text-brand-orange hover:underline" href="/basetao-coupon-tracker-2026.html">Coupon tracker 2026</a></li>
-                    <li><a class="text-brand-orange hover:underline" href="/data/coupons-truth.json">coupons-truth.json</a></li>
-                    <li><a class="text-brand-orange hover:underline" href="/finds-dataset/">Finds dataset · 11,300+</a></li>
-                    <li><a class="text-brand-orange hover:underline" href="/data/finds-dataset.json">finds-dataset.json</a></li>
-                    <li><a class="text-brand-orange hover:underline" href="/basetao-referral-code/">Referral / invite stacking</a></li>
-                    <li><a class="text-brand-orange hover:underline" href="/basetao-shipping-calculator/">Shipping calculator</a></li>
-                </ul>
-                <p class="mt-3 text-xs text-gray-500">Also: <a href="/is-basetao-legit/">Is BaseTao legit?</a> · <a href="/basetao-qc-guide/">QC guide</a>. Lab 26 Oct 2026. platform_opt=basetao-platform-20261026. This HTML is not checkout.</p>
+                <h2 class="text-2xl md:text-3xl font-black text-brand-navy">How to use this Basetao spreadsheet</h2>
+                <p class="mt-3 text-gray-600 max-w-3xl">Search the catalog. Cite the dated JSON. Check coupons and QC on their own pages. Pay and ship on basetao.com.</p>
+                <ol class="local-steps mt-4 space-y-3 text-gray-700">
+                    <li><strong>Search the catalog</strong> — Filter <em>basetao spreadsheet</em> finds below or on w2clinks. You do not need Excel or a Reddit thread to open the list.</li>
+                    <li><strong>Cite the dated dataset</strong> — Public JSON on <a class="text-brand-orange hover:underline" href="/finds-dataset/">/finds-dataset/</a>. We do not invent a higher count.</li>
+                    <li><strong>Check coupons separately</strong> — Offers change in the official app. This hub logs what we last verified on <a class="text-brand-orange hover:underline" href="/basetao-coupon-tracker-2026.html">/basetao-coupon-tracker-2026.html</a>.</li>
+                    <li><strong>QC, then a real country</strong> — Read <a class="text-brand-orange hover:underline" href="/basetao-qc-guide/">/basetao-qc-guide/</a>. Freight needs a real country on <a class="text-brand-orange hover:underline" href="https://www.basetao.com/best-taobao-agent-service/how_make/cost.html" rel="noopener">basetao.com cost / estimate</a> — not this hostname.</li>
+                </ol>
+                <p class="mt-3 text-xs text-gray-500">Register and pay only on basetao.com. This page does not take payment and does not coach a declared value.</p>
             </div>
         </section>
 

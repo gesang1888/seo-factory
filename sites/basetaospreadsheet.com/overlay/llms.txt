@@ -1,11 +1,11 @@
 # BaseTao Spreadsheet — llms.txt
-# Updated: 2026-10-26
+# Updated: 2026-11-03 · hub-reclaim=20261103
 # platform_opt: basetao-platform-20261026
 Site: https://basetaospreadsheet.com
-Description: Independent BaseTao spreadsheet hub — Independent Index · 11,300+ QC finds. Not basetao.com checkout. Brand SERP recovery after spam-era drop. No country spreadsheet desks in keep list; do not revive sunsets / .shop without cert.
+Description: Independent BaseTao spreadsheet hub — searchable QC catalog. Cite public dataset JSON. Not basetao.com checkout. Brand query: basetao spreadsheet.
 
 ## Key pages
-- https://basetaospreadsheet.com/ — Independent Index homepage (brand query: basetao spreadsheet)
+- https://basetaospreadsheet.com/ — Basetao Spreadsheet homepage (brand query: basetao spreadsheet)
 - https://basetaospreadsheet.com/finds-dataset/ — public row-count + category proofs
 - https://basetaospreadsheet.com/data/finds-dataset.json
 - https://basetaospreadsheet.com/basetao-coupon-tracker-2026.html — BASE10 / BSHIP20 tracker
