@@ -1,5 +1,7 @@
 # Deploy — CSSBuy hub reclaim (2026-10-28)
 
+Dest-strip 2026-11-03: PUT `index.html.hub-reclaim` as `/index.html`. Keep Spreadsheet **2026** year; drop Independent Index · 11,300+. Four-step + hub-cite. Do **not** PUT Georgia `overlay/index.html` if it diverges. Do **not** PUT cssbuy.nl / ES keep. Do **not** revive twins. Skip unique cssbuy.co.uk.
+
 Action 2 LIVE: reclaim hub `cssbuyspreadsheet.eu` for brand `cssbuy spreadsheet` / coupons / dataset vs **W2C / JadeShip / Reddit**, and stop **NL desk** spreadsheet cannibalization on `cssbuy.nl`.
 
 Origin: Baota. Roots: `/www/wwwroot/cssbuyspreadsheet.eu` + `/www/wwwroot/cssbuy.nl`

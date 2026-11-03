@@ -1,19 +1,19 @@
 # Best Mulebuy Sheets — llms.txt
-# Updated: 2026-10-28 · hub_reclaim=mulebuy-hub-reclaim-20261028 · platform_opt=mulebuy-platform-20261026
+# Updated: 2026-11-03 · hub-reclaim=20261103
 Site: https://bestmulebuysheets.com
-Description: MuleBuy primary spreadsheet hub. Independent Index · 8,000+ (33 categories). Brand spreadsheet queries belong here. Open directory + coupons truth + finds-dataset. Keep country desk mulebuy.fr for Colissimo / FR postal KPI (not deepened this reclaim round). Twins mulebuyspreadsheets.co.uk/.es/.us 301→this hub. Do not revive sunsets. No Phase C. Compete vs mymulebuyspreadsheet / mulegrid / mulebuysheets / w2cspreadsheet with falsifiable stamps — do not mirror those domains.
+Name: Best Mulebuy Spreadsheet 2026
+Description: Independent MuleBuy spreadsheet hub — Independent Index · 8,000+, coupons-truth JSON, finds dataset. Not the official Mulebuy checkout.
+
 ## Key pages
-- https://bestmulebuysheets.com/
-- https://bestmulebuysheets.com/mulebuy-spreadsheet.html
-- https://bestmulebuysheets.com/mulebuy-coupons/
-- https://bestmulebuysheets.com/finds-dataset/
-- https://bestmulebuysheets.com/data/finds-dataset.json
-- https://bestmulebuysheets.com/data/coupons-truth.json
-- https://bestmulebuysheets.com/guide.html
-- https://bestmulebuysheets.com/faq.html
-## Keep desks
-- https://mulebuy.fr/
-## Twins (301 — do not revive)
-- mulebuyspreadsheets.co.uk → bestmulebuysheets.com
-- mulebuyspreadsheets.es → bestmulebuysheets.com
-- mulebuyspreadsheets.us → bestmulebuysheets.com
+- Homepage: https://bestmulebuysheets.com/
+- Spreadsheet: https://bestmulebuysheets.com/mulebuy-spreadsheet.html
+- Coupons: https://bestmulebuysheets.com/mulebuy-coupons/
+- Dataset: https://bestmulebuysheets.com/finds-dataset/
+- Finds dataset JSON: https://bestmulebuysheets.com/data/finds-dataset.json
+- Coupons truth JSON: https://bestmulebuysheets.com/data/coupons-truth.json
+- Guide: https://bestmulebuysheets.com/guide.html
+- FAQ: https://bestmulebuysheets.com/faq.html
+
+## Official
+- https://mulebuy.com/
+- https://mulebuy.com/estimation/

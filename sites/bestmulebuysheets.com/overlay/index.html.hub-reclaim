@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- hub-reclaim=mulebuy-hub-reclaim-20261028 -->
+<!-- hub-reclaim=20261103 dest-strip · keep Independent Index · 8,000+ -->
 <meta charset="UTF-8">
 <!-- platform_opt=mulebuy-platform-20261026 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best Mulebuy Spreadsheet 2026 — Independent Index · 8,000+</title>
-<meta name="description" content="MuleBuy Independent Index · 8,000+ QC finds (not Excel / not a Google Sheet). Coupons + dataset on bestmulebuysheets.com. Keep desk: mulebuy.fr (Colissimo). Twins mulebuyspreadsheets.co.uk/.es/.us 301→this hub. Open directory CTA · reclaim vs mymulebuyspreadsheet / mulegrid / mulebuysheets. Lab 28 Oct 2026. Confirm offers in-app.">
+<meta name="description" content="Best Mulebuy Spreadsheet 2026: Independent Index · 8,000+ QC finds. Cite the dated dataset JSON. Check coupons separately. Pay on mulebuy.com. Lab 28 Oct 2026. Confirm offers in-app.">
 <link rel="canonical" href="https://bestmulebuysheets.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Best Mulebuy Spreadsheet 2026 — Independent Index · 8,000+">
-<meta property="og:description" content="Independent Index · 8,000+. Coupons-truth JSON + finds dataset. Keep mulebuy.fr. Do not revive sunset twins (.co.uk/.es/.us).">
+<meta property="og:description" content="Independent Index · 8,000+. Coupons-truth JSON + finds dataset. Pay on mulebuy.com.">
 <meta property="og:url" content="https://bestmulebuysheets.com/">
 <meta property="og:image" content="https://bestmulebuysheets.com/images/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -31,6 +31,17 @@
 @media(max-width:900px){.process-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:860px){.media-split,.media-split.flip .media-split-visual,.media-split.flip .media-split-copy{grid-template-columns:1fr;order:0}}
 @media(max-width:800px){.cat-showcase,.visual-grid{grid-template-columns:1fr}}
+
+.hub-cite{max-width:900px;margin:1.25rem auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:0 20px}
+.hub-cite a{display:block;padding:16px 18px;border:1px solid #dbe3ec;border-radius:12px;background:#fff;text-decoration:none;color:#0f172a}
+.hub-cite a:hover{border-color:#334155}
+.hub-cite strong{display:block;font-size:16px;margin:0 0 6px}
+.hub-cite span{display:block;font-size:14px;line-height:1.65;color:#334155}
+@media (max-width:768px){.hub-cite{grid-template-columns:1fr}}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
 </style>
 <script type="application/ld+json">
 {
@@ -38,7 +49,7 @@
   "@type": "WebSite",
   "name": "BestMulebuySheets",
   "url": "https://bestmulebuysheets.com/",
-  "description": "MuleBuy Independent Index · 8,000+: live Weidian/Taobao/1688 QC finds. Not Excel. Primary hub after twin 301s.","dateModified": "2026-10-26","alternateName": ["Mulebuy spreadsheet","Best Mulebuy Sheets","MuleBuy Independent Index"],
+  "description": "MuleBuy Independent Index · 8,000+: live Weidian/Taobao/1688 QC finds. Not Excel. Pay on mulebuy.com.","dateModified": "2026-11-03","alternateName": ["Mulebuy spreadsheet","Best Mulebuy Sheets","MuleBuy Independent Index"],
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://w2clinks.com/spreadsheet/mulebuy/?q={search_term_string}",
@@ -92,7 +103,7 @@
       <a href="guide.html">Guide</a>
       <a href="agents.html">Agents</a>
       <a href="faq.html">FAQ</a>
-      <a href="#local">Hub ownership</a>
+      <a href="#local">How to use</a>
     </div>
     <a href="https://mulebuy.com/register?ref=200345875" class="navcta" target="_blank" rel="noopener">Sign Up</a>
     <button class="burger" aria-label="Menu">☰</button>
@@ -102,9 +113,9 @@
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="cellref">Independent Index · 8,000+ · primary MuleBuy hub</div>
+    <div class="cellref">Independent Index · 8,000+ · last reviewed 28 October 2026</div>
     <h1>Best Mulebuy Spreadsheet — Independent Index <em>8,000+</em></h1>
-    <p class="lead">Brand spreadsheet SERP belongs here (not on <a href="https://mulebuy.fr/">mulebuy.fr</a>). Independent Index of <strong>8,000+ verified links</strong> across <span data-cat-count>33</span> categories — <strong>not Excel / not a Google Sheet</strong>. Twins <strong>mulebuyspreadsheets.co.uk/.es/.us</strong> already 301→this hub — do not revive. Coupons + dataset stamps live on this host.</p>
+    <p class="lead">Search the <strong>mulebuy spreadsheet</strong> on this hub. Independent Index of <strong>8,000+ verified links</strong> across <span data-cat-count>33</span> categories — <strong>not Excel / not a Google Sheet</strong>. Cite the dated dataset JSON. Check coupons on their own page. Register and estimate freight on mulebuy.com.</p>
     <div class="hero-actions">
       <a href="https://w2clinks.com/spreadsheet/mulebuy/" target="_blank" rel="noopener" class="btn primary">Open directory</a>
       <a href="/mulebuy-coupons/" class="btn green">Coupons</a>
@@ -120,26 +131,21 @@
   </div>
 </section>
 
-<section class="sg-sec reclaim-box" id="hub-reclaim" data-hub-reclaim="mulebuy-hub-reclaim-20261028" style="max-width:72rem;margin:1.25rem auto 0;padding:0 1.25rem">
-  <div style="padding:16px 18px;background:#FFF7ED;border:1px solid #FED7AA;border-radius:12px;line-height:1.7;color:#1c1917">
-    <p style="font-size:12px;font-weight:700;color:#C2410C;text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px">Hub reclaim · bestmulebuysheets.com · mulebuy-hub-reclaim-20261028</p>
-    <p style="margin:0 0 10px">Brand query <em>mulebuy spreadsheet</em> belongs on this Independent Index · <strong>8,000+</strong> — not opaque Sheet dumps. Compete with <strong>mymulebuyspreadsheet.com</strong> · <strong>mulegrid.com</strong> · <strong>mulebuysheets.com</strong> · <strong>w2cspreadsheet</strong> using a falsifiable stamp: <a href="/data/finds-dataset.json">finds-dataset.json</a> · <a href="/data/coupons-truth.json">coupons-truth.json</a> · <time datetime="2026-10-28">2026-10-28</time>. Keep desk <a href="https://mulebuy.fr/">mulebuy.fr</a> stays Colissimo / douane (FR not deepened this round). Twins <strong>.co.uk / .es / .us</strong> already <strong>301→this hub</strong> — do not revive. No Phase C.</p>
-    <p style="margin:0;font-size:13px;color:#57534e">Open: <a href="https://w2clinks.com/spreadsheet/mulebuy/" target="_blank" rel="noopener">directory</a> · <a href="/mulebuy-spreadsheet.html">spreadsheet page</a> · <a href="/mulebuy-coupons/">coupons</a> · <a href="/finds-dataset/">dataset</a></p>
-  </div>
+<section class="hub-cite" id="hub-cite" data-hub-reclaim="20261103">
+  <a href="/mulebuy-coupons/"><strong>Coupons</strong><span>Verify offers on a separate page. This hub does not redeem codes.</span></a>
+  <a href="/finds-dataset/"><strong>Dataset</strong><span>Cite Independent Index · 8,000+ and the public JSON. We do not invent a higher count.</span></a>
+  <a href="https://mulebuy.com/estimation/"><strong>QC then freight</strong><span>Warehouse photos first. Live rates on mulebuy.com/estimation/ with a real country.</span></a>
 </section>
-
-<section class="sg-sec" id="local" data-hub-reclaim="mulebuy-hub-reclaim-20261028" data-hub-reclaim="mulebuy-hub-reclaim-20261028" data-platform-opt="mulebuy-20261026">
-  <h2>Hub ownership · money URLs ≤6</h2>
-  <p class="ssub">bestmulebuysheets.com is the MuleBuy brand spreadsheet hub — <strong>not</strong> a customs territory and <strong>not</strong> a second FR desk. Pick the real ship-to country in the official estimator.</p>
+<section class="sg-sec" id="local" data-hub-reclaim="20261103" data-platform-opt="mulebuy-20261026">
+  <h2>How to use this MuleBuy spreadsheet</h2>
+  <p class="ssub">Search 8,000+ finds. Cite the dated JSON. Check coupons separately. Pay and ship on mulebuy.com.</p>
   <ol class="local-steps">
-    <li><strong>Brand / spreadsheet</strong><span>This hub (<a href="/mulebuy-spreadsheet.html">/mulebuy-spreadsheet.html</a> · <a href="/finds-dataset/">/finds-dataset/</a> · w2clinks catalog).</span></li>
-    <li><strong>Coupons / invite</strong><span><a href="/mulebuy-coupons/">/mulebuy-coupons/</a> · truth JSON · partner ref <code>200345875</code> (confirm_live).</span></li>
-    <li><strong>How-to / agents / FAQ</strong><span>Ranked inners stay 200 — <a href="/guide.html">guide</a> · <a href="/agents.html">agents</a> · <a href="/faq.html">FAQ</a>.</span></li>
-    <li><strong>Keep desk</strong><span><a href="https://mulebuy.fr/">mulebuy.fr</a> — Colissimo / code postal FR / douane.gouv.fr. Brand spreadsheet queries should consolidate here.</span></li>
-    <li><strong>Twins (301 — do not revive)</strong><span>mulebuyspreadsheets.co.uk · .es · .us → this hub (Phase B).</span></li>
+    <li><strong>Search the catalog</strong><span> Filter finds on <a href="/mulebuy-spreadsheet.html">/mulebuy-spreadsheet.html</a> or the directory. You do not need Excel or a Reddit thread to open the list.</span></li>
+    <li><strong>Cite the dated dataset</strong><span> Independent Index · <strong>8,000+</strong> on <a href="/finds-dataset/">/finds-dataset/</a> and the public JSON. We do not invent a higher count.</span></li>
+    <li><strong>Check coupons separately</strong><span> Offers change in the official app. This hub logs what we last verified on <a href="/mulebuy-coupons/">/mulebuy-coupons/</a>.</span></li>
+    <li><strong>QC, then a real country</strong><span> Accept warehouse photos in-app. Freight needs a real country on <a href="https://mulebuy.com/estimation/" rel="noopener">mulebuy.com/estimation/</a> — not this hostname.</span></li>
   </ol>
-  <p class="local-src money">Money URLs: <a href="/">/</a> · <a href="/mulebuy-spreadsheet.html">spreadsheet</a> · <a href="/mulebuy-coupons/">coupons</a> · <a href="/finds-dataset/">dataset</a> · <a href="/guide.html">guide</a> · <a href="/faq.html">FAQ</a></p>
-  <p class="local-src">Lab 28 Oct 2026 · mulebuy-hub-reclaim-20261028. FR keep not deepened this round. Orders stay on mulebuy.com — this hub does not take payment.</p>
+  <p class="local-src">Register and pay only on mulebuy.com. This page does not take payment and does not coach a declared value.</p>
 </section>
 <div class="ticker-bar">
   <div class="wrap">
@@ -831,21 +837,20 @@
   <div class="foot-grid">
     <div class="foot-col">
       <img src="https://mulebuy.com/assets/png/logo-DOPVzfZQ.png" alt="Mulebuy" width="100" height="26" style="margin-bottom:12px;opacity:.9;">
-      <p style="max-width:260px;">MuleBuy primary hub — Independent Index · 8,000+. Keep mulebuy.fr for Colissimo. Twins .co.uk/.es/.us 301→here. Not affiliated with Mulebuy.com.</p>
+      <p style="max-width:260px;">MuleBuy spreadsheet hub — Independent Index · 8,000+. Not affiliated with Mulebuy.com. Register and pay on mulebuy.com.</p>
     </div>
     <div class="foot-col">
-      <h4>Hub money</h4>
+      <h4>On this hub</h4>
       <a href="https://w2clinks.com/spreadsheet/mulebuy/" target="_blank" rel="noopener">Spreadsheet</a>
       <a href="/mulebuy-coupons/">Coupons</a>
       <a href="/finds-dataset/">Dataset</a>
       <a href="guide.html">Guide</a>
     </div>
     <div class="foot-col">
-      <h4>Keep / twins</h4>
-      <a href="https://mulebuy.fr/">mulebuy.fr (keep)</a>
+      <h4>On this host</h4>
       <a href="agents.html">Compare agents</a>
       <a href="faq.html">FAQ</a>
-      <span style="display:block;color:#94a3b8;font-size:12px;margin-top:8px">Twins .co.uk/.es/.us → 301 hub</span>
+      <a href="https://mulebuy.com/estimation/" rel="noopener">Official estimator</a>
     </div>
   </div>
   <div class="foot-bottom">

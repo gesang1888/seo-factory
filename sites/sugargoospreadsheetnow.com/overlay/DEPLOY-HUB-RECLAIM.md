@@ -1,5 +1,7 @@
 # Deploy — SugarGoo hub reclaim (2026-10-27)
 
+Dest-strip 2026-11-03: PUT `index.html.platform-patched` as `/index.html`. Title is searchable QC catalog (drop Independent Index · 11,300+). Four-step + hub-cite. Strip public `#gsc-editor-notes` on spreadsheet/coupons html. Do **not** dest-skin this hub. Do **not** PUT AU keep. Do **not** revive twins. Skip sugargoo.ca/.es/.pt/.cheap.
+
 Action 2 LIVE: strengthen `/best-sugargoo-spreadsheet-2026.html` + `/sugargoo-coupon-2026.html` + dataset/coupons signals for brand `sugargoo spreadsheet` SERP.
 
 Origin: Baota. Root: `/www/wwwroot/sugargoospreadsheetnow.com`
