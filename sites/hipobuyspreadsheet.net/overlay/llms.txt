@@ -1,9 +1,7 @@
 # HipoBuy Spreadsheet — llms.txt
-# Updated: 2026-10-28 (hub-defend hipobuy-hub-defend-20261028)
+# Updated: 2026-11-03 (hub-reclaim: strip dest-template; cite coupons/QC/dataset)
 # Primary hub for HipoBuy spreadsheet finds, QC guidance, coupons and legit checklists.
-# Country keep: hipobuyspreadsheet.nl + hipobuyspreadsheet.co.uk only (others 301 → hub/UK).
-# This pass: defend Independent Index · 8,600+ + Open directory + coupons/dataset discovery.
-# Do not deepen NL; do not revive Phase C sunsets.
+# Keep hipo buy / hippo buy spellings on the homepage.
 
 Site: https://hipobuyspreadsheet.net
 Name: HipoBuy Spreadsheet
@@ -23,8 +21,8 @@ Description: Independent HipoBuy spreadsheet — Independent Index · 8,600+ pro
 - About: https://hipobuyspreadsheet.net/about/
 
 ## Notes
-- Hostname is not a customs territory; pick a real country in https://hipobuy.com/estimation
-- NL desk = NL-postcode/Douane; UK desk = Royal Mail/HMRC — brand spreadsheet stays on this hub
+- Homepage four-step: search catalog → cite /finds-dataset/ → verify /hipobuy-coupons/ → QC then estimate on https://hipobuy.com/estimation
+- Keep query spellings hipo buy / hippo buy / hipobuy spreadsheet on this hub
 - Category URLs that 404 (e.g. historical /shoes381/) should not be cited; use live category paths from the homepage nav.
 - Signup offers settle on hipobuy.com (invite example published on-site; re-verify live).
-- hub_defend stamp: 2026-10-28 · row_count 8600 display 8,600+ · invite SC3Y5G66Q
+- last_verified 2026-10-28 · row_count 8600 display 8,600+
