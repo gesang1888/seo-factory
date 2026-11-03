@@ -1,0 +1,17 @@
+# TigBuy Spreadsheet — llms.txt
+# Updated: 2026-11-03 · hub-reclaim=20261103
+Site: https://tigspreadsheet.com
+Name: TigBuy Spreadsheet
+Description: Independent TigBuy spreadsheet hub — searchable QC catalog, coupons, shipping and QC guides. Not the official TigBuy checkout.
+
+## Key pages
+- Homepage: https://tigspreadsheet.com/
+- Spreadsheet: https://tigspreadsheet.com/tigbuy-spreadsheet/
+- Coupons: https://tigspreadsheet.com/tigbuy-coupons/
+- Shipping: https://tigspreadsheet.com/tigbuy-shipping-guide/
+- QC: https://tigspreadsheet.com/tigbuy-qc-guide/
+- Legit: https://tigspreadsheet.com/is-tigbuy-legit/
+
+## Official
+- https://www.tigbuy.com/
+- https://tigbuy.com/estimates

@@ -1,0 +1,17 @@
+# PinguBuy Spreadsheet — llms.txt
+# Updated: 2026-11-03 · hub-reclaim=20261103
+Site: https://pingubuyspreadsheet.net
+Name: PinguBuy Spreadsheet
+Description: Independent PinguBuy spreadsheet hub — searchable QC catalog, coupons, shipping guide. Not the official PinguBuy checkout. PinguBuy is not PingBuy.
+
+## Key pages
+- Homepage: https://pingubuyspreadsheet.net/
+- Spreadsheet: https://pingubuyspreadsheet.net/pingubuy-spreadsheet/
+- Coupons: https://pingubuyspreadsheet.net/pingubuy-coupons/
+- Shipping: https://pingubuyspreadsheet.net/pingubuy-shipping-guide/
+- Legit: https://pingubuyspreadsheet.net/is-pingubuy-legit/
+- How to: https://pingubuyspreadsheet.net/how-to-use-pingubuy/
+
+## Official
+- https://www.pingubuy.com/
+- https://www.pingubuy.com/estimates

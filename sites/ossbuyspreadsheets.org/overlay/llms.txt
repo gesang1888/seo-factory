@@ -1,0 +1,17 @@
+# OSSBuy Spreadsheet — llms.txt
+# Updated: 2026-11-03 · hub-reclaim=20261103
+Site: https://ossbuyspreadsheets.org
+Name: OSSBuy Spreadsheet
+Description: Independent OSSBuy spreadsheet hub — searchable QC catalog, coupons, shipping and QC guides. Not the official OSSBuy checkout.
+
+## Key pages
+- Homepage: https://ossbuyspreadsheets.org/
+- Spreadsheet: https://ossbuyspreadsheets.org/ossbuy-spreadsheet/
+- Coupons: https://ossbuyspreadsheets.org/ossbuy-coupons/
+- Shipping: https://ossbuyspreadsheets.org/ossbuy-shipping-guide
+- QC: https://ossbuyspreadsheets.org/ossbuy-qc-guide
+- Legit: https://ossbuyspreadsheets.org/is-ossbuy-legit
+
+## Official
+- https://www.ossbuy.com/
+- https://www.ossbuy.com/freight-estimate

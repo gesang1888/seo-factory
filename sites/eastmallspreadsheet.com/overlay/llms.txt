@@ -1,0 +1,17 @@
+# EastMallBuy Spreadsheet — llms.txt
+# Updated: 2026-11-03 · hub-reclaim=20261103
+Site: https://eastmallspreadsheet.com
+Name: EastMallBuy Spreadsheet
+Description: Independent EastMallBuy spreadsheet hub — searchable QC catalog, coupons, shipping guide. Not the official EastMallBuy checkout.
+
+## Key pages
+- Homepage: https://eastmallspreadsheet.com/
+- Spreadsheet: https://eastmallspreadsheet.com/eastmallbuy-spreadsheet/
+- Coupons: https://eastmallspreadsheet.com/eastmallbuy-coupons/
+- Shipping: https://eastmallspreadsheet.com/eastmallbuy-shipping-guide/
+- Legit: https://eastmallspreadsheet.com/is-eastmallbuy-legit/
+- How to: https://eastmallspreadsheet.com/how-to-use-eastmallbuy/
+
+## Official
+- https://www.eastmallbuy.com/
+- https://www.eastmallbuy.com/estimate
