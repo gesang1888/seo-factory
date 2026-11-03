@@ -1,5 +1,7 @@
 # Deploy — LoveGoBuy hub reclaim (2026-10-28)
 
+Dest-strip 2026-11-03: PUT `overlay/index.html` as `/index.html` (not platform-patched). Title is searchable QC catalog (drop Independent Index · 11,300+). Four-step + hub-cite. Strip public `#gsc-editor-notes` on `/lovegobuy-spreadsheet/` and `/lovegobuy-coupon/`. Do **not** dest-skin this hub. Do **not** deepen NL/IT. Do **not** revive twins. Skip .co.uk / lovegobuysheet.org.
+
 Action 2 LIVE: strengthen `/lovegobuy-spreadsheet/` + `/lovegobuy-coupon/` + dataset/coupons signals for brand `lovegobuy spreadsheet` SERP vs JadeShip / Reddit / Puro.
 
 Origin: Baota. Root: `/www/wwwroot/lovegobuyguide.com`

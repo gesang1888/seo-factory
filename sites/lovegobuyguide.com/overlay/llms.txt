@@ -1,22 +1,19 @@
-# LoveGoBuy Guide — llms.txt
-# Updated: 2026-10-28 · hub_reclaim=lovegobuy-hub-reclaim-20261028
+# LoveGoBuy Spreadsheet — llms.txt
+# Updated: 2026-11-03 · hub-reclaim=20261103
 Site: https://lovegobuyguide.com
-Description: LoveGoBuy primary spreadsheet hub. Independent Index · 11,300+ (Typesense found=11365). Brand spreadsheet / coupons queries belong here vs JadeShip / Reddit Sheets / Puro Classico. Keep country desks (lovegobuy.nl / lovegobuy.it) for local postal KPI only — do not deepen them in this reclaim. Spreadsheet twins .eu/.ca/.es 301→this hub. Do not revive sunsets. Do not operate .co.uk / lovegobuysheet.org.
+Name: LoveGoBuy Spreadsheet
+Description: Independent LoveGoBuy spreadsheet hub — searchable QC catalog, coupons-truth JSON, finds dataset. Not the official LoveGoBuy checkout.
+
 ## Key pages
-- https://lovegobuyguide.com/
-- https://lovegobuyguide.com/lovegobuy-spreadsheet/
-- https://lovegobuyguide.com/lovegobuy-coupon/
-- https://lovegobuyguide.com/finds-dataset/
-- https://lovegobuyguide.com/data/finds-dataset.json
-- https://lovegobuyguide.com/data/coupons-truth.json
-- https://lovegobuyguide.com/is-lovegobuy-legit/
-- https://lovegobuyguide.com/how-to-use-lovegobuy/
-## Keep desks (untouched this action)
-- https://lovegobuy.nl/
-- https://lovegobuy.it/
-## Twins (301 — do not revive)
-- lovegobuyspreadsheet.eu → lovegobuyguide.com
-- lovegobuyspreadsheet.ca → lovegobuyguide.com
-- lovegobuyspreadsheet.es → lovegobuyguide.com
-- lovegobuyspreadsheet.nl → lovegobuy.nl
-- lovegobuyspreadsheet.it → lovegobuy.it
+- Homepage: https://lovegobuyguide.com/
+- Spreadsheet: https://lovegobuyguide.com/lovegobuy-spreadsheet/
+- Coupons: https://lovegobuyguide.com/lovegobuy-coupon/
+- Dataset: https://lovegobuyguide.com/finds-dataset/
+- Finds dataset JSON: https://lovegobuyguide.com/data/finds-dataset.json
+- Coupons truth JSON: https://lovegobuyguide.com/data/coupons-truth.json
+- Legit: https://lovegobuyguide.com/is-lovegobuy-legit/
+- How to use: https://lovegobuyguide.com/how-to-use-lovegobuy/
+
+## Official
+- https://www.lovegobuy.com/
+- https://www.lovegobuy.com/shipping/estimation/index

@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<!-- platform_opt=lovegobuy-platform-20261026 · hub-reclaim=lovegobuy-hub-reclaim-20261028 -->
-<title>LoveGoBuy Spreadsheet — Independent Index · 11,300+</title>
-<meta name="description" content="LoveGoBuy Independent Index · 11,300+ finds (not Excel / not a Google Sheet). Coupons + dataset on lovegobuyguide.com. Keep desks: lovegobuy.nl / lovegobuy.it. Spreadsheet twins (.eu/.ca/.es) 301→this hub. Confirm offers in-app.">
-<meta property="og:title" content="LoveGoBuy Spreadsheet — Independent Index · 11,300+">
-<meta property="og:description" content="Independent Index · 11,300+. Coupons-truth JSON + finds dataset. Keep NL/IT desks for local KPI. Do not revive sunset twins.">
+<!-- hub-reclaim=20261103 dest-strip -->
+<title>LoveGoBuy Spreadsheet — searchable QC catalog</title>
+<meta name="description" content="Searchable LoveGoBuy spreadsheet of Weidian/Taobao/1688 QC finds. Cite the dated dataset JSON. Check coupons separately. Pay on lovegobuy.com. Confirm offers in-app.">
+<meta property="og:title" content="LoveGoBuy Spreadsheet — searchable QC catalog">
+<meta property="og:description" content="Searchable LoveGoBuy spreadsheet. Coupons-truth JSON + finds dataset. Pay on lovegobuy.com.">
 <meta property="og:url" content="https://lovegobuyguide.com/">
 <link rel="canonical" href="https://lovegobuyguide.com/">
 <link rel="icon" type="image/png" href="/assets/images/official-favicon.png">
@@ -16,14 +16,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-  {"@type":"WebSite","name":"LoveGoBuy Spreadsheet","alternateName":["LoveGoBuy Guide 2026","LoveGoBuy Independent Index","lovegobuy spreadsheet","lovegobuyguide.com"],"url":"https://lovegobuyguide.com/","description":"Independent Index · 11,300+: live Weidian/Taobao/1688 QC finds. Not Excel. Primary hub after spreadsheet twin 301s.","inLanguage":"en","dateModified":"2026-10-28"},
-  {"@type":"WebPage","name":"LoveGoBuy Spreadsheet 2026 — Independent Index · 11,300+","url":"https://lovegobuyguide.com/","dateModified":"2026-10-28","isPartOf":{"@type":"WebSite","url":"https://lovegobuyguide.com/"}},
+  {"@type":"WebSite","name":"LoveGoBuy Spreadsheet","alternateName":["LoveGoBuy Guide 2026","LoveGoBuy Independent Index","lovegobuy spreadsheet","lovegobuyguide.com"],"url":"https://lovegobuyguide.com/","description":"Searchable LoveGoBuy spreadsheet of Weidian/Taobao/1688 QC finds. Not Excel. Pay on lovegobuy.com.","inLanguage":"en","dateModified":"2026-11-03"},
+  {"@type":"WebPage","name":"LoveGoBuy Spreadsheet — searchable QC catalog","url":"https://lovegobuyguide.com/","dateModified":"2026-11-03","isPartOf":{"@type":"WebSite","url":"https://lovegobuyguide.com/"}},
   {"@type":"Organization","name":"LoveGoBuy Spreadsheet","url":"https://lovegobuyguide.com/","email":"cnfd85269032661@gmail.com","sameAs":["https://www.lovegobuy.com/"]},
   {"@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"What is a LoveGoBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"A LoveGoBuy spreadsheet is a live finds index of Weidian, Taobao and 1688 links. It is not Excel, not a Google Sheet, and not checkout. Browse here, then buy on lovegobuy.com."}},
-    {"@type":"Question","name":"Is lovegobuyguide.com a dest-country skin?","acceptedAnswer":{"@type":"Answer","text":"No. This hostname is the English brand hub, not a member-state dest. Pick the real ship-to country in the official estimator."}},
-    {"@type":"Question","name":"What happened to lovegobuyspreadsheet.eu?","acceptedAnswer":{"@type":"Answer","text":"lovegobuyspreadsheet.eu / .ca / .es now 301-redirect to lovegobuyguide.com (Phase A/B/C). Keep country desks: lovegobuy.nl and lovegobuy.it. Do not revive sunset twins."}},
-    {"@type":"Question","name":"Where do brand spreadsheet queries belong?","acceptedAnswer":{"@type":"Answer","text":"Brand / global LoveGoBuy spreadsheet intent belongs on lovegobuyguide.com. NL/IT desks keep local postal KPI (PostNL / Poste Italiane)."}}
+    {"@type":"Question","name":"Where do I estimate LoveGoBuy freight?","acceptedAnswer":{"@type":"Answer","text":"Open lovegobuy.com/shipping/estimation/index and pick a real ship-to country. This hub is a spreadsheet catalog, not checkout."}},
+    {"@type":"Question","name":"Where are LoveGoBuy coupons verified?","acceptedAnswer":{"@type":"Answer","text":"Offers are logged on /lovegobuy-coupon/. Confirm live in the official app before you pay."}},
+    {"@type":"Question","name":"Is this the official LoveGoBuy site?","acceptedAnswer":{"@type":"Answer","text":"No. lovegobuyguide.com is an independent spreadsheet hub. Register, pay and estimate freight on lovegobuy.com."}}
   ]}
 ]}
 </script>
@@ -95,20 +95,31 @@ img{max-width:100%;display:block}
 .local-box li{margin:6px 0;color:var(--g2)}
 .money{font-size:13px;color:var(--g3);margin-top:10px}
 @media(max-width:900px){.nl,.bwa{display:none}.offer-grid,.qf,.fti{grid-template-columns:1fr}}
+
+.hub-cite{max-width:900px;margin:1.25rem auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:0 20px}
+.hub-cite a{display:block;padding:16px 18px;border:1px solid #dbe3ec;border-radius:12px;background:#fff;text-decoration:none;color:#0f172a}
+.hub-cite a:hover{border-color:#334155}
+.hub-cite strong{display:block;font-size:16px;margin:0 0 6px}
+.hub-cite span{display:block;font-size:14px;line-height:1.65;color:#334155}
+@media (max-width:768px){.hub-cite{grid-template-columns:1fr}}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
 </style>
 </head>
-<body data-hub-reclaim="lovegobuy-hub-reclaim-20261028">
+<body data-hub-reclaim="20261103">
 <a class="skip" href="#main">Skip</a>
-<div class="ann">Independent Index · <strong>11,300+</strong> · last_verified 2026-10-28 · Open directory · vs JadeShip/Reddit/Puro · twins 301→hub · keep <a href="https://lovegobuy.nl/">.nl</a>/<a href="https://lovegobuy.it/">.it</a></div>
+<div class="ann">LoveGoBuy spreadsheet · coupons · dataset · <a href="#local">How to use</a></div>
 <nav class="nav">
   <div class="nbrand"><a class="nlo" href="/"><img src="/assets/images/official-logo.png" width="180" height="36" alt="LoveGoBuy"></a></div>
-  <ul class="nl"><li><a class="on" href="/">Home</a></li><li><a href="/lovegobuy-spreadsheet/">Spreadsheet</a></li><li><a href="/lovegobuy-coupon/">Coupons</a></li><li><a href="/finds-dataset/">Dataset</a></li><li><a href="/is-lovegobuy-legit/">Legit</a></li><li><a href="#local">Local</a></li></ul>
+  <ul class="nl"><li><a class="on" href="/">Home</a></li><li><a href="/lovegobuy-spreadsheet/">Spreadsheet</a></li><li><a href="/lovegobuy-coupon/">Coupons</a></li><li><a href="/finds-dataset/">Dataset</a></li><li><a href="/is-lovegobuy-legit/">Legit</a></li><li><a href="#local">How to use</a></li></ul>
   <a class="bwa" href="https://wa.me/8615396628356">WhatsApp</a>
 </nav>
 <section class="hero fade-in" id="main">
-  <div class="hbg">Independent Index · 11,300+ · last_verified 2026-10-28 · vs JadeShip / Reddit / Puro</div>
-  <h1>LoveGoBuy Spreadsheet — Independent Index · <em>11,300+</em></h1>
-  <p class="hsub">Brand <strong>lovegobuy spreadsheet</strong> / coupons belong on this hub. Falsifiable Typesense <code>found=11365</code> — not a JadeShip dump, not a Reddit Sheet, not Puro Classico. Open the directory, cite dataset JSON. Keep NL/IT local (untouched this reclaim). <strong>Twins .eu/.ca/.es 301→this hub</strong>.</p>
+  <div class="hbg">LoveGoBuy spreadsheet · last reviewed 28 October 2026</div>
+  <h1>LoveGoBuy Spreadsheet</h1>
+  <p class="hsub">Search the <strong>lovegobuy spreadsheet</strong> on this hub. Cite the dated dataset JSON. Check coupons on their own page. Register and estimate freight on lovegobuy.com.</p>
   <div class="hctas">
     <a class="cp" href="https://w2clinks.com/spreadsheet/lovegobuy/" rel="noopener" target="_blank">Open directory</a>
     <a class="cs" href="/lovegobuy-spreadsheet/">Spreadsheet</a>
@@ -116,23 +127,27 @@ img{max-width:100%;display:block}
     <a class="cs" href="/finds-dataset/">Dataset</a>
     <a class="cs" href="https://www.lovegobuy.com/?invite_code=W5RJX3" rel="noopener sponsored">Register</a>
   </div>
-  <div class="hst"><div class="hs"><div class="hsn">11,300+</div><div class="hsl">Independent Index</div></div><div class="hs"><div class="hsn">W5RJX3</div><div class="hsl">invite / coupons</div></div><div class="hs"><div class="hsn">NL·IT</div><div class="hsl">keep desks</div></div></div>
-  <div class="local-box" id="local" data-platform-opt="lovegobuy-20261026" data-hub-reclaim="lovegobuy-hub-reclaim-20261028">
-    <h2>Hub owns global spreadsheet / coupons</h2>
-    <ol>
-      <li><strong>Open directory</strong> — <a href="https://w2clinks.com/spreadsheet/lovegobuy/" rel="noopener" target="_blank">w2clinks LoveGoBuy</a> · Independent Index · 11,300+ (found=11365).</li>
-      <li><a href="/lovegobuy-spreadsheet/">/lovegobuy-spreadsheet/</a> — reclaim page vs JadeShip / Reddit / Puro</li>
-      <li><a href="/lovegobuy-coupon/">/lovegobuy-coupon/</a> — coupons + truth JSON (W5RJX3)</li>
-      <li><a href="/finds-dataset/">/finds-dataset/</a> + <a href="/data/finds-dataset.json">JSON</a> — stamp 2026-10-28</li>
-      <li><a href="/how-to-use-lovegobuy/">/how-to-use-lovegobuy/</a> — how-to</li>
-      <li><a href="/is-lovegobuy-legit/">/is-lovegobuy-legit/</a> — trust</li>
-    </ol>
-    <p class="money">Hub reclaim lovegobuy-hub-reclaim-20261028. Keep: <a href="https://lovegobuy.nl/">lovegobuy.nl</a> (PostNL) · <a href="https://lovegobuy.it/">lovegobuy.it</a> (Poste) — <strong>not deepened this action</strong>. Twins 301→hub: .eu / .ca / .es. Country twins .nl→.nl · .it→.it. Skip .co.uk / sheet.org / JadeShip mirrors.</p>
-  </div>
+  <div class="hst"><div class="hs"><div class="hsn">QC</div><div class="hsl">Warehouse photos</div></div><div class="hs"><div class="hsn">JSON</div><div class="hsl">dataset stamp</div></div><div class="hs"><div class="hsn">W5RJX3</div><div class="hsl">invite / coupons</div></div></div>
+</section>
+<section class="hub-cite" id="hub-cite" data-hub-reclaim="20261103">
+  <a href="/lovegobuy-coupon/"><strong>Coupons</strong><span>Verify W5RJX3 on a separate page. This hub does not redeem codes.</span></a>
+  <a href="/finds-dataset/"><strong>Dataset</strong><span>Cite the public JSON. We do not invent a higher count.</span></a>
+  <a href="/how-to-use-lovegobuy/"><strong>How to use</strong><span>Agent steps on this host; live rates on lovegobuy.com.</span></a>
+</section>
+<section class="sec" id="local" data-hub-reclaim="20261103">
+  <h2 class="stit">How to use this LoveGoBuy spreadsheet</h2>
+  <p class="ssub">Search the catalog. Cite the dated JSON. Check coupons separately. Pay and ship on lovegobuy.com.</p>
+  <ol class="local-steps">
+    <li><strong>Search the catalog</strong><span> Filter finds on <a href="/lovegobuy-spreadsheet/">/lovegobuy-spreadsheet/</a>. You do not need Excel or a Reddit thread to open the list.</span></li>
+    <li><strong>Cite the dated dataset</strong><span> Public JSON on <a href="/finds-dataset/">/finds-dataset/</a>. We do not invent a higher count.</span></li>
+    <li><strong>Check coupons separately</strong><span> Offers change in the official app. This hub logs what we last verified on <a href="/lovegobuy-coupon/">/lovegobuy-coupon/</a>.</span></li>
+    <li><strong>QC, then a real country</strong><span> Accept warehouse photos in-app. Freight needs a real country on <a href="https://www.lovegobuy.com/shipping/estimation/index" rel="noopener">lovegobuy.com/shipping/estimation/index</a> — not this hostname.</span></li>
+  </ol>
+  <p class="pp">Register and pay only on lovegobuy.com. This page does not take payment and does not coach a declared value.</p>
 </section>
 <section class="sec" id="official-promo">
   <h2 class="stit">Official LoveGoBuy chrome — 9 Oct 2026</h2>
-  <p class="pp">Public lovegobuy.com sat behind a Cloudflare bot-check this morning. Chrome on this guide copies dest-measured LoveGoBuy wordmark and red <strong>#e91e12</strong> / Rubik. Public copies disagree on free warehouse days — this desk <strong>does not invent a free-day count</strong>. Coupon tokens stay off this homepage (ranked coupon HTML already prints one and stays 200). Email cnfd85269032661@gmail.com. This host is not a dest-country skin.</p>
+  <p class="pp">Chrome on this guide copies the LoveGoBuy wordmark and red <strong>#e91e12</strong> / Rubik. Public copies disagree on free warehouse days — this desk <strong>does not invent a free-day count</strong>. Coupon tokens stay off this homepage. Email cnfd85269032661@gmail.com.</p>
   <div class="offer-grid">
     <figure>
       <img src="/assets/official/official-home.jpg" width="1440" height="900" alt="LoveGoBuy official 图文">
@@ -140,10 +155,10 @@ img{max-width:100%;display:block}
     </figure>
     <figure>
       <img src="/assets/official/official-promo.jpg" width="1280" height="400" alt="LoveGoBuy official offer">
-      <figcaption>Primary hub after twin 301s. Keep dest desks .nl / .it themselves.</figcaption>
+      <figcaption>Official LoveGoBuy offer art. Spreadsheet money title does not become a coupon landing.</figcaption>
     </figure>
   </div>
-  <div class="qf"><div class="qc"><b>$0 invented days</b><span>Public Help copies disagree. Confirm live LoveGoBuy Help.</span></div><div class="qc"><b>Hub IA</b><span>Spreadsheet + coupons + dataset. Home does not replace ranked inners.</span></div><div class="qc"><b>Twins 301</b><span>.eu / .ca / .es → this hub (Phase A/B/C).</span></div><div class="qc"><b>Invite</b><span>W5RJX3 lives on /lovegobuy-coupon/ + truth JSON.</span></div></div>
+  <div class="qf"><div class="qc"><b>$0 invented days</b><span>Public Help copies disagree. Confirm live LoveGoBuy Help.</span></div><div class="qc"><b>Spreadsheet</b><span>Catalog + coupons + dataset on this host.</span></div><div class="qc"><b>QC photos</b><span>Warehouse photos sit between the two payments.</span></div><div class="qc"><b>Invite</b><span>W5RJX3 lives on /lovegobuy-coupon/ + truth JSON.</span></div></div>
 </section>
 <section class="sec" id="how"><h2 class="stit">Guide SOP (this host)</h2>
     <p class="ssub">Workflow only. This HTML is not checkout.</p>
@@ -153,21 +168,21 @@ img{max-width:100%;display:block}
       <div class="step"><b>3 · QC</b>Accept warehouse photos in-app before you book freight.</div>
       <div class="step"><b>4 · Line</b>Open the official estimator with a real ship-to country. No declared-value coaching.</div>
     </div>
-    <p class="pp">Ranked <a href="/how-to-use-lovegobuy/">/how-to-use-lovegobuy/</a> already titles How to Use Lovegobuy — Step-by-Step Guide and stays 200. Women's Fashion sits with the other finds on the ranked spreadsheet inner.</p></section>
+    <p class="pp">Ranked <a href="/how-to-use-lovegobuy/">/how-to-use-lovegobuy/</a> already titles How to Use Lovegobuy — Step-by-Step Guide. Women's Fashion sits with the other finds on the ranked spreadsheet inner.</p></section>
 <section class="trust"><div class="ti">
   <div>Official #e91e12 chrome</div>
   <div>Rubik · LoveGoBuy wordmark</div>
-  <div>Independent Index · 11,300+</div>
-  <div>Twins 301 · keep NL/IT</div>
+  <div>Searchable QC catalog</div>
+  <div>Pay on lovegobuy.com</div>
 </div></section>
 <section class="sec">
   <h2 class="stit">Finds keys (w2clinks wall, not a products catalog)</h2>
-  <p class="ssub">Thirty-three keys from w2clinks.com/categories/. Women's Fashion is in the wall. Ranked /lovegobuy-spreadsheet/ stays 200. This homepage does not dump a products catalog.</p>
+  <p class="ssub">Thirty-three keys from w2clinks.com/categories/. Women's Fashion is in the wall. Ranked /lovegobuy-spreadsheet/ is the catalog.</p>
   <div class="cg"><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-30-shoes.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Sneakers & Shoes</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-27-slippers.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Slippers</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-03-t-shirt.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">T-Shirts</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-04-polo.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Polo</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-05-shirt.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Dress Shirts</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-07-shorts.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Pants / Shorts</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-20-vest.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Vests & Outerwear</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-25-long-sleeved.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Long Sleeved</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-06-hoodie.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Hoodies</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-11-sweater.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Sweaters</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-12-shawl.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Shawls</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-13-jacket.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Jackets</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-18-jacket.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Shell Jacket</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-17-fleece-jacket.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Fleece Jacket</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-08-down-jackets.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Down Jackets</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-19-trousers.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Trousers</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-jersey.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Jersey</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-28-femaie-styie.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Women's Fashion</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-electronics.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Electronics</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-15-giove.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Gloves</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-00-bag.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Bags</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-01-hat.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Hats</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-02-jewelry.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Jewelry</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-09-underwear.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Underwear</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-10-belt.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Belts</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-16-kneepad.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Kneepads</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-26-socks.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Socks</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-22-headgear.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Headgear</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-23-earmuff.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Earmuffs</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-24-scarf.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Scarves</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-31-glasses.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Glasses</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-32-watch.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Watches</p></a><a href="/lovegobuy-spreadsheet/" class="ccard"><img src="/assets/images/cats/cat-29-child.png" alt="" class="ccard-ico" width="44" height="44" loading="lazy"><span class="ccard-tag">w2clinks</span><p class="ccard-name">Kids</p></a></div>
 </section>
 <section class="sec" style="padding-top:0">
   <h2 class="stit">Already ranking on this host</h2>
-  <p class="ssub">Home only points. Ranked unique HTML stays 200.</p>
+  <p class="ssub">Home only points at pages already on this host.</p>
   <div class="guides"><a href="/how-to-use-lovegobuy/" class="gc"><span class="gtg">How-to</span><p class="gtit">How to Use Lovegobuy</p><p class="gdesc">Ranked beginner inner. Home does not replace it.</p></a><a href="/lovegobuy-spreadsheet/" class="gc"><span class="gtg">Finds</span><p class="gtit">LoveGoBuy Spreadsheet 2026</p><p class="gdesc">Ranked finds on this hub.</p></a><a href="/is-lovegobuy-legit/" class="gc"><span class="gtg">Trust</span><p class="gtit">Is LoveGoBuy Legit 2026?</p><p class="gdesc">Independent review inner.</p></a><a href="/lovegobuy-coupon/" class="gc"><span class="gtg">Coupons</span><p class="gtit">Coupons + truth JSON</p><p class="gdesc">/coupons.html 301→ here. Invite W5RJX3.</p></a></div>
 </section>
 <section class="waband">
@@ -176,9 +191,9 @@ img{max-width:100%;display:block}
   <a class="wabb" href="https://wa.me/8615396628356">WhatsApp +8615396628356</a>
 </section>
 <footer class="ft"><div class="fti">
-  <div><p>lovegobuyguide.com — LoveGoBuy primary hub. Independent Index · 11,300+. Not Excel. Not a Google Sheet. Not a dest-country skin. Spreadsheet twins (.eu/.ca/.es) 301→here. Email <a href="mailto:cnfd85269032661@gmail.com">cnfd85269032661@gmail.com</a>.</p></div>
-  <div><p><strong>Hub money</strong></p><p><a href="/lovegobuy-spreadsheet/">Spreadsheet</a><br><a href="/lovegobuy-coupon/">Coupons</a><br><a href="/finds-dataset/">Dataset</a><br><a href="/is-lovegobuy-legit/">Legit</a></p></div>
-  <div><p><strong>Keep desks / official</strong></p><p><a href="https://lovegobuy.nl/">lovegobuy.nl</a> · <a href="https://lovegobuy.it/">lovegobuy.it</a><br><a href="https://www.lovegobuy.com/">www.lovegobuy.com/</a><br><a href="https://wa.me/8615396628356">WhatsApp</a><br><span style="opacity:.7">twins .eu/.ca/.es → 301 hub</span></p></div>
+  <div><p>lovegobuyguide.com — LoveGoBuy spreadsheet hub. Not Excel. Not a Google Sheet. Pay on lovegobuy.com. Email <a href="mailto:cnfd85269032661@gmail.com">cnfd85269032661@gmail.com</a>.</p></div>
+  <div><p><strong>On this hub</strong></p><p><a href="/lovegobuy-spreadsheet/">Spreadsheet</a><br><a href="/lovegobuy-coupon/">Coupons</a><br><a href="/finds-dataset/">Dataset</a><br><a href="/is-lovegobuy-legit/">Legit</a></p></div>
+  <div><p><strong>Official</strong></p><p><a href="https://www.lovegobuy.com/">www.lovegobuy.com/</a><br><a href="https://www.lovegobuy.com/shipping/estimation/index">Freight estimate</a><br><a href="https://wa.me/8615396628356">WhatsApp</a></p></div>
 </div></footer>
 </body>
 </html>

@@ -1,5 +1,7 @@
 # Deploy — MuleBuy hub reclaim (2026-10-28)
 
+Dest-strip 2026-11-03: PUT `index.html.hub-reclaim` as `/index.html`. **Keep** title Independent Index · 8,000+ and Spreadsheet 2026. Four-step + hub-cite. Do **not** dest-skin this hub. Do **not** deepen FR. Do **not** revive twins. Do **not** invent a count above 8,000+.
+
 Action 2 LIVE: strengthen hub Independent Index · 8,000+ + `/mulebuy-spreadsheet.html` + coupons/dataset for brand `mulebuy spreadsheet` SERP.
 
 Origin: Baota. Root: `/www/wwwroot/bestmulebuysheets.com`
