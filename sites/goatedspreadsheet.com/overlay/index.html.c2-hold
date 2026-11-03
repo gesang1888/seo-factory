@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GoatedBuy Spreadsheet 2026</title>
+<meta name="description" content="GoatedBuy spreadsheet: live Weidian, Taobao and 1688 QC finds. Not Excel, not a Google Sheet. Official 8 Oct 2026: 90 days free storage, 3–5 QC photos, ¥5290 welcome gift. Pay on goatedbuy.com.">
+<meta property="og:title" content="GoatedBuy Spreadsheet 2026">
+<meta property="og:description" content="GoatedBuy spreadsheet: live Weidian, Taobao and 1688 QC finds. Not Excel, not a Google Sheet. Pay on goatedbuy.com.">
+<meta property="og:url" content="https://goatedspreadsheet.com/">
+<meta property="og:image" content="https://goatedspreadsheet.com/assets/official/official-home.jpg">
+<link rel="canonical" href="https://goatedspreadsheet.com/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"WebSite","name":"GoatedBuy Spreadsheet","alternateName":["GoatedBuy Spreadsheet","GoatedBuy spreadsheet 2026"],"url":"https://goatedspreadsheet.com/","description":"GoatedBuy spreadsheet: live Weidian, Taobao and 1688 QC finds. Not Excel, not a Google Sheet. Use the ranked guides, then pay on goatedbuy.com.","inLanguage":"en"},
+  {"@type":"WebPage","name":"GoatedBuy Spreadsheet 2026","url":"https://goatedspreadsheet.com/","description":"GoatedBuy spreadsheet: live Weidian, Taobao and 1688 QC finds. Not Excel, not a Google Sheet.","inLanguage":"en","isPartOf":{"@type":"WebSite","url":"https://goatedspreadsheet.com/"}},
+  {"@type":"Organization","name":"GoatedBuy Spreadsheet","url":"https://goatedspreadsheet.com/","email":"cnfd85269032661@gmail.com","description":"Independent GoatedBuy spreadsheet desk. Not the official GoatedBuy app.","sameAs":["https://goatedbuy.com/"]},
+  {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is a GoatedBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"A GoatedBuy spreadsheet is a live finds index of Weidian, Taobao and 1688 links with QC notes. It is not Excel, not a Google Sheet download, and not checkout. Browse here, then buy on goatedbuy.com."}},
+    {"@type":"Question","name":"Is this the same as GoatedBuy.com?","acceptedAnswer":{"@type":"Answer","text":"No. goatedspreadsheet.com is an independent information desk. Orders, payment and warehouse photos stay on goatedbuy.com. This host does not take a card."}},
+    {"@type":"Question","name":"Where are GoatedBuy coupon codes?","acceptedAnswer":{"@type":"Answer","text":"Official new-user offers measured 8 Oct 2026 sit on /coupons.html. The ranked unique article is /goatedbuy-coupons/. This homepage does not print a register code."}},
+    {"@type":"Question","name":"How long is free storage on GoatedBuy?","acceptedAnswer":{"@type":"Answer","text":"Official English SPA on 8 Oct 2026: 3–5 free QC photos and 90 days free storage. Confirm Help on goatedbuy.com the morning you ship."}},
+    {"@type":"Question","name":"How do I buy from this GoatedBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"Open a find on the w2clinks GoatedBuy sheet, paste the Weidian/Taobao/1688 link into goatedbuy.com, wait for QC photos, then book a line on the official estimator."}}
+  ]}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --acc:#DB262B;--acd:#B81E23;--acl:#FFF2EF;
+  --bk:#0A0A0A;--g1:#1A1A1A;--g2:#2D2D2D;--g3:#555;--g4:#888;--g5:#E5E5E5;--g6:#F6F6F6;--wh:#fff;
+  --bg:#FFF2EF;--page:#FFF2EF;--gn:#16A34A;--gnl:#F0FDF4;--bl:#2563EB;--bll:#EFF6FF;
+  --am:#D97706;--aml:#FFFBEB;--rd:#DC2626;--rdl:#FEF2F2;--pu:#7C3AED;--pul:#F5F3FF;
+  --f:'Montserrat','DM Sans',sans-serif;--m:'DM Mono',monospace;--r:10px;--rl:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--bk);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%;display:block}
+.skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip:focus{left:16px;top:16px;width:auto;height:auto;padding:8px 12px;background:#fff;z-index:200;border-radius:8px}
+.nav{position:sticky;top:0;z-index:100;background:var(--wh);border-bottom:1px solid #F0C8C2;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nlo{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;letter-spacing:-.3px;color:var(--bk)}
+.nlo img{height:36px;width:auto;max-width:160px;border-radius:6px;object-fit:contain;background:#111}
+.nl{display:flex;align-items:center;gap:4px;list-style:none;flex-wrap:wrap}
+.nl a{font-size:13px;padding:6px 10px;border-radius:6px;color:var(--g4);transition:background .15s,color .15s}
+.nl a:hover{background:var(--acl);color:var(--bk);text-decoration:none}
+.nl a.on{color:var(--bk);font-weight:600}
+.nacts{display:flex;align-items:center;gap:8px}
+.ncart{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--acc);border-radius:8px;color:#fff;font-size:13px;font-weight:600}
+.ncart:hover{background:var(--acd);text-decoration:none}
+.ann{background:var(--acc);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:500}
+.ann a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.bwa{display:flex;align-items:center;gap:7px;padding:7px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500;white-space:nowrap}
+.bwa:hover{opacity:.88;text-decoration:none}
+.hero{max-width:860px;margin:0 auto;padding:44px 24px 28px;text-align:center}
+.hbg{display:inline-flex;align-items:center;gap:6px;background:var(--acl);color:var(--acd);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:16px}
+.hbg::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--acc);display:inline-block}
+.hero h1{font-size:clamp(24px,4vw,40px);font-weight:700;letter-spacing:-1.5px;line-height:1.12;margin-bottom:12px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hsub{font-size:15px;color:var(--g3);max-width:560px;margin:0 auto 24px;line-height:1.7}
+.hst{display:flex;justify-content:center;gap:0;border:1px solid var(--g5);border-radius:var(--rl);overflow:hidden;max-width:520px;margin:0 auto 22px;background:#fff}
+.hs{flex:1;padding:12px 8px;text-align:center;border-right:1px solid var(--g5)}
+.hs:last-child{border-right:none}
+.hsn{font-size:18px;font-weight:700;letter-spacing:-.4px}
+.hsl{font-size:10px;color:var(--g4);margin-top:2px;text-transform:uppercase;letter-spacing:.4px}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:18px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 18px;border-radius:10px;font-weight:700;font-size:14px}
+.btn-primary{background:var(--acc);color:#fff}
+.btn-primary:hover{background:var(--acd);text-decoration:none}
+.btn-outline{border:1px solid #F0C8C2;background:#fff;color:var(--bk)}
+.btn-outline:hover{background:var(--acl);text-decoration:none}
+.search{display:flex;max-width:520px;margin:0 auto;border:1px solid #F0C8C2;border-radius:12px;overflow:hidden;background:#fff}
+.search input{flex:1;border:0;padding:12px 14px;font:inherit;outline:none}
+.search button{border:0;background:var(--acc);color:#fff;padding:0 16px;font:inherit;font-weight:700;cursor:pointer}
+#official-promo{background:#fff;border-top:1px solid #F0C8C2;border-bottom:1px solid #F0C8C2}
+.opromo{max-width:1100px;margin:0 auto;padding:36px 24px}
+.opromo h2{font-size:22px;letter-spacing:-.4px;margin-bottom:8px}
+.ssub{color:var(--g3);font-size:14.5px;margin:0 0 16px;line-height:1.7}
+.oshots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.oshots figure{background:var(--acl);border-radius:14px;overflow:hidden;border:1px solid #F0C8C2}
+.oshots img{width:100%;height:190px;object-fit:contain;background:#111}
+.oshots figcaption{padding:12px 14px;font-size:13px;color:var(--g2);line-height:1.55}
+.opfacts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.opfact{background:var(--acl);border:1px solid #F0C8C2;border-radius:12px;padding:14px}
+.opfact b{display:block;font-size:14px;margin-bottom:4px}
+.opfact span{font-size:13px;color:var(--g3);line-height:1.55}
+#not-excel{max-width:1100px;margin:0 auto;padding:36px 24px 8px}
+.sec{max-width:1100px;margin:0 auto;padding:8px 24px 36px}
+.ph{font-size:21px;font-weight:600;letter-spacing:-.4px;margin:8px 0 12px}
+.pp{font-size:15px;color:var(--g2);line-height:1.82;margin-bottom:14px}
+.cg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ccard{background:#fff;border:1px solid #F0C8C2;border-radius:12px;padding:14px;color:inherit}
+.ccard:hover{border-color:var(--acc);text-decoration:none}
+.cname{font-weight:700;font-size:14px}
+.ccnt{font-size:12px;color:var(--g4)}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gc{background:#fff;border:1px solid #F0C8C2;border-radius:12px;padding:16px;color:inherit}
+.gc:hover{border-color:var(--acc);text-decoration:none}
+.gtg{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;margin-bottom:8px}
+.gtit{font-weight:700;margin-bottom:4px}
+.gdesc{font-size:13px;color:var(--g3);line-height:1.55;margin-bottom:8px}
+.glink{font-size:13px;font-weight:700;color:var(--acc)}
+.waband{background:#fff;border-top:1px solid #F0C8C2;padding:28px 24px}
+.wabi{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.wabb{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 18px;border-radius:10px;font-weight:700}
+.wabb:hover{opacity:.9;text-decoration:none}
+.ft{background:#1A1A1A;color:#ccc;padding:40px 24px}
+.fti{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.flo{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;color:#fff;margin-bottom:12px}
+.ftg{font-size:13px;color:#888;line-height:1.65;margin-bottom:16px}
+.fwa{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500}
+.fc h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#888;margin-bottom:12px}
+.fc ul{list-style:none}
+.fc ul li{margin-bottom:9px}
+.fc ul li a{font-size:13px;color:#888}
+.fc ul li a:hover{color:#fff;text-decoration:none}
+.waf{position:fixed;bottom:24px;right:24px;z-index:999}
+.wafb{width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35)}
+.wafb:hover{transform:scale(1.08);text-decoration:none}
+.wafb svg{width:26px;height:26px;color:#fff}
+@media(max-width:900px){
+  .nl{display:none}
+  .oshots,.opfacts,.cg,.ggrid,.fti{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body data-c2-hold="20261103">
+<a class="skip" href="#main">Skip to content</a>
+<div class="ann">GoatedBuy 2.0 is live on the official SPA — 3–5 free QC photos &amp; 90 days free storage. Independent spreadsheet desk — pay on <a href="https://goatedbuy.com/" rel="noopener">goatedbuy.com</a>.</div>
+<nav class="nav">
+  <a href="/" class="nlo">
+    <img src="/assets/images/official-logo.png" alt="GoatedBuy">
+    <span class="brand-mark">GoatedBuy <b>Spreadsheet</b></span>
+  </a>
+  <ul class="nl">
+    <li><a class="on" href="/">Home</a></li>
+    <li><a href="/goatedbuy-spreadsheet/">Spreadsheet</a></li>
+    <li><a href="/goatedbuy-coupons/">Coupons</a></li>
+    <li><a href="/is-goatedbuy-legit/">Legit</a></li>
+    <li><a href="/goatedbuy-shipping-guide/">Shipping</a></li>
+    <li><a href="/how-to-use-goatedbuy/">How to use</a></li>
+    <li><a href="/coupons.html">Offers</a></li>
+    <li><a href="https://w2clinks.com/spreadsheet/goatedbuy/" target="_blank" rel="noopener">Finds</a></li>
+  </ul>
+  <div class="nacts">
+    <a class="bwa" href="https://wa.me/8615396628356" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="ncart" href="https://goatedbuy.com/" rel="noopener">Open GoatedBuy</a>
+  </div>
+</nav>
+<main id="main">
+<section class="hero">
+  <div class="hbg">LIVE FINDS · NOT EXCEL · NOT A GOOGLE SHEET</div>
+  <h1>GoatedBuy Spreadsheet <em>2026</em></h1>
+  <p class="hsub">Live Weidian, Taobao and 1688 QC finds with Buy links. Not Excel, not a Google Sheet, not checkout. Browse the finds index, then pay on goatedbuy.com. Official English SPA measured 8 Oct 2026: 90 days free storage, 3–5 QC photos, ¥5290 welcome gift.</p>
+  <div class="hst">
+    <div class="hs"><div class="hsn">90 days</div><div class="hsl">Free storage</div></div>
+    <div class="hs"><div class="hsn">3–5</div><div class="hsl">QC photos</div></div>
+    <div class="hs"><div class="hsn">¥5290</div><div class="hsl">Welcome gift</div></div>
+    <div class="hs"><div class="hsn">150+</div><div class="hsl">Lines</div></div>
+  </div>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://w2clinks.com/spreadsheet/goatedbuy/" target="_blank" rel="noopener">GoatedBuy Spreadsheet 2026</a>
+    <a class="btn btn-outline" href="/goatedbuy-spreadsheet/">Ranked spreadsheet article</a>
+    <a class="btn btn-outline" href="/coupons.html">Official offers</a>
+  </div>
+  <form class="search" action="https://w2clinks.com/spreadsheet/goatedbuy/" method="get" target="_blank" rel="noopener">
+    <input type="search" name="q" placeholder="Search GoatedBuy spreadsheet finds…">
+    <button type="submit">Search</button>
+  </form>
+</section>
+
+<section id="official-promo">
+  <div class="opromo">
+    <h2>Official GoatedBuy offers — 8 Oct 2026</h2>
+    <p class="ssub">Measured on the English SPA at <a href="https://goatedbuy.com/" rel="noopener">goatedbuy.com</a> (<code>/client/#/</code>). Coupons credit after register. This homepage does not print a register code and does not invent a typed-in coupon named SHIP. Ladder screenshots also sit on <a href="/coupons.html">/coupons.html</a>. Confirm Help the morning you ship.</p>
+    <div class="oshots">
+      <figure>
+        <a href="https://goatedbuy.com/" rel="noopener"><img src="/assets/official/official-home.jpg" width="1440" height="1100" alt="Official GoatedBuy homepage 8 Oct 2026: Goatedbuy 2.0, QC and storage, welcome gift"></a>
+        <figcaption>Official home: <strong>Goatedbuy 2.0 is officially live</strong>. Shop Taobao, 1688 and Chinese stores; they buy, inspect, consolidate and ship. Register on goatedbuy.com.</figcaption>
+      </figure>
+      <figure>
+        <a href="/coupons.html"><img src="/assets/official/official-qc-storage.jpg" width="1160" height="120" alt="Official GoatedBuy QC and storage: 3-5 free QC photos and 90 days free storage"></a>
+        <figcaption>Step 2 on the official home: <strong>3–5 free QC photos &amp; 90 days free storage</strong>. Confirm that live copy the morning you ship. Do not invent an overdue ladder here.</figcaption>
+      </figure>
+      <figure>
+        <a href="/coupons.html"><img src="/assets/official/official-welcome.jpg" width="376" height="330" alt="Official GoatedBuy new user welcome gift: ¥5290 in coupons plus 15% off"></a>
+        <figcaption>Homepage tile: <strong>New user welcome gift — sign up and get ¥5290 in coupons + 15% OFF</strong>. Issued after register on goatedbuy.com. Confirm Wallet the same morning.</figcaption>
+      </figure>
+    </div>
+    <div class="opfacts">
+      <div class="opfact"><b>¥5290 welcome gift</b><span>Official tile 8 Oct 2026. Pile of coupons after register, not one typed-in code. Confirm coupon centre in-app.</span></div>
+      <div class="opfact"><b>15% OFF hook</b><span>Shown on the same welcome-gift tile. Eligibility is in-app, not on this HTML.</span></div>
+      <div class="opfact"><b>90 days free storage</b><span>Official home: “3–5 free QC photos &amp; 90 days free storage”. Confirm Help the morning you ship.</span></div>
+      <div class="opfact"><b>150+ shipping lines</b><span>Official home: cheaper routes with 150+ lines; consolidation can save up to 50%. Freight form: <a href="https://goatedbuy.com/#/pages/estimation/shipping">estimator</a>.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="not-excel">
+  <h2 class="ph">This GoatedBuy spreadsheet is not Excel</h2>
+  <p class="ssub">“Spreadsheet” here means a live finds index — Weidian, Taobao and 1688 rows with QC notes — not a .xlsx you download and freeze, and not the community Google Sheet. Photos and CNY prices live on the <a href="https://w2clinks.com/spreadsheet/goatedbuy/" target="_blank" rel="noopener">w2clinks GoatedBuy sheet</a>. This host does not dump a products API. Category keys match <a href="https://w2clinks.com/categories/" target="_blank" rel="noopener">w2clinks.com/categories/</a>.</p>
+</section>
+
+<section class="sec" id="cats">
+  <h2 class="ph">Browse GoatedBuy finds by category</h2>
+  <p class="ssub">English category keys open the live GoatedBuy spreadsheet on w2clinks — photos and CNY prices there. This homepage does not dump a products API.</p>
+  <div class="cg">
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/goatedbuy/" target="_blank" rel="noopener"><p class="cname">GoatedBuy sheet</p><p class="ccnt">Live QC finds</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=SNEAKERS" target="_blank" rel="noopener"><p class="cname">Sneakers</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=HOODIE" target="_blank" rel="noopener"><p class="cname">Hoodies</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=JACKET" target="_blank" rel="noopener"><p class="cname">Jackets</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=BAG" target="_blank" rel="noopener"><p class="cname">Bags</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=T-SHIRT" target="_blank" rel="noopener"><p class="cname">T-shirts</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/spreadsheet/?category=WATCH" target="_blank" rel="noopener"><p class="cname">Watches</p><p class="ccnt">w2clinks category</p></a>
+    <a class="ccard" href="https://w2clinks.com/categories/" target="_blank" rel="noopener"><p class="cname">All categories</p><p class="ccnt">w2clinks.com/categories/</p></a>
+  </div>
+</section>
+
+<section class="sec">
+  <h2 class="ph">Ranked guides already on this host</h2>
+  <p class="ssub">Home only points at ranked coupon and spreadsheet pages already on this host.</p>
+  <div class="ggrid">
+    <a class="gc" href="/goatedbuy-spreadsheet/"><span class="gtg" style="background:var(--acl);color:var(--acd)">Spreadsheet</span><p class="gtit">GoatedBuy Spreadsheet 2026</p><p class="gdesc">Ranked unique CMS article. Money title that already earned clicks on this host.</p><span class="glink">Open →</span></a>
+    <a class="gc" href="/goatedbuy-coupons/"><span class="gtg" style="background:var(--aml);color:#92400E">Coupons</span><p class="gtit">GoatedBuy Coupon Codes 2026</p><p class="gdesc">Ranked unique article. Official 8 Oct screenshots also live on /coupons.html.</p><span class="glink">Open →</span></a>
+    <a class="gc" href="/is-goatedbuy-legit/"><span class="gtg" style="background:var(--gnl);color:#166534">Legit</span><p class="gtit">Is GoatedBuy Legit? Honest Review 2026</p><p class="gdesc">Already ranking. Independent desk — payment stays on goatedbuy.com.</p><span class="glink">Open →</span></a>
+    <a class="gc" href="/goatedbuy-shipping-guide/"><span class="gtg" style="background:var(--bll);color:#1E40AF">Shipping</span><p class="gtit">GoatedBuy Shipping Guide 2026</p><p class="gdesc">Rates, times and calculator notes. Live money is the official estimator.</p><span class="glink">Open →</span></a>
+    <a class="gc" href="/how-to-use-goatedbuy/"><span class="gtg" style="background:var(--pul);color:var(--pu)">How to</span><p class="gtit">How to use the GoatedBuy Spreadsheet</p><p class="gdesc">Paste a Weidian/Taobao/1688 link into GoatedBuy, wait for QC, then book freight.</p><span class="glink">Open →</span></a>
+    <a class="gc" href="/coupons.html"><span class="gtg" style="background:var(--rdl);color:var(--rd)">Offers</span><p class="gtit">Official ¥5290 welcome gift 图文</p><p class="gdesc">Screenshots from goatedbuy.com 8 Oct 2026. No public SHIP code on this desk.</p><span class="glink">See offers →</span></a>
+  </div>
+</section>
+
+<section class="sec">
+  <h2 class="ph">How a GoatedBuy order actually runs</h2>
+  <p class="pp">GoatedBuy is a purchasing agent, not a shop. You paste a product link from Taobao, 1688 or Weidian. They buy, photograph, store, then you book an international line. goatedspreadsheet.com never takes a card. Official checkout is <a href="https://goatedbuy.com/" rel="noopener">goatedbuy.com</a>.</p>
+  <p class="pp">The official home on 8 Oct 2026 spelled the four steps as Place Order → QC &amp; Storage → Submit Parcel → Global Shipping. QC copy that day was 3–5 free photos and 90 days free storage. Welcome bonus for new users sat on the same homepage. Hash routes under <code>#/pages/…</code> often stay on thin client chrome — we measured the homepage tiles, not an empty activity shell.</p>
+  <p class="pp">Freight still comes from <a href="https://goatedbuy.com/#/pages/estimation/shipping">https://goatedbuy.com/#/pages/estimation/shipping</a> after warehouse photos. This desk does not coach a declared value.</p>
+</section>
+</main>
+
+<div class="waband">
+  <div class="wabi">
+    <div>
+      <h2>Need help with a GoatedBuy order?</h2>
+      <p>WhatsApp +8615396628356 — product links, sizing, shipping quotes, QC notes. Email cnfd85269032661@gmail.com.</p>
+    </div>
+    <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="wabb">Chat — +8615396628356</a>
+  </div>
+</div>
+<footer class="ft">
+  <div class="fti">
+    <div>
+      <div class="flo"><img src="/assets/images/official-logo.png" alt="GoatedBuy" style="height:28px;width:auto;background:#111;border-radius:6px"> Spreadsheet</div>
+      <p class="ftg">Independent GoatedBuy spreadsheet desk on goatedspreadsheet.com. Not the official app, not checkout. Email cnfd85269032661@gmail.com. Orders stay on goatedbuy.com.</p>
+      <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="fwa">+8615396628356</a>
+    </div>
+    <div class="fc"><h4>Spreadsheets</h4><ul>
+      <li><a href="https://w2clinks.com/spreadsheet/goatedbuy/" target="_blank" rel="noopener">Live finds</a></li>
+      <li><a href="https://w2clinks.com/categories/" target="_blank" rel="noopener">Categories</a></li>
+      <li><a href="#not-excel">Not Excel</a></li>
+    </ul></div>
+    <div class="fc"><h4>Guides</h4><ul>
+      <li><a href="/goatedbuy-spreadsheet/">Spreadsheet 2026</a></li>
+      <li><a href="/is-goatedbuy-legit/">Is it legit?</a></li>
+      <li><a href="/goatedbuy-shipping-guide/">Shipping guide</a></li>
+      <li><a href="/how-to-use-goatedbuy/">How to use</a></li>
+      <li><a href="/goatedbuy-coupons/">Coupon codes</a></li>
+      <li><a href="/coupons.html">Official offers</a></li>
+    </ul></div>
+  </div>
+  <p class="ftg" style="max-width:1100px;margin:28px auto 0;padding-top:20px;border-top:1px solid #2D2D2D">goatedspreadsheet.com does not take payment or see your GoatedBuy account. Coupon stacking stays on /coupons.html and /goatedbuy-coupons/. Official free storage is 90 days on goatedbuy.com — confirm Help the morning you ship. Copy reviewed 8 Oct 2026. Contact cnfd85269032661@gmail.com.</p>
+</footer>
+<div class="waf">
+  <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="wafb" aria-label="WhatsApp +8615396628356"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+</div>
+</body>
+</html>
