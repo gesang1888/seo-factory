@@ -1,5 +1,5 @@
 # FashionReps Spreadsheet — llms.txt
-# Updated: 2026-10-26 (platform opt)
+# Updated: 2026-11-03 · hub-reclaim=20261103
 
 Site: https://fashionrepsspreadsheet.com
 Name: FashionReps Spreadsheet

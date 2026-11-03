@@ -42,8 +42,8 @@ chown -R www:www "$HUB/index.html" "$HUB/fansbuy-spreadsheet" "$HUB/fansbuy-coup
 
 ## Verify
 
-- `/` title Independent Index · 11,300+; H1 Independent Index · 11,300+; CTA **Open directory**; reclaim box names fansbuyspreadsheet.com / fansbuy.org; stamp 2026-10-28
-- `/fansbuy-spreadsheet/` title Independent Index · 11,300+; Open directory / Dataset / Coupons CTAs; no inflated 12,000+
+- `/` title FansBuy Spreadsheet — searchable QC catalog; H1 FansBuy Spreadsheet; four-step `#local`; stamp `data-hub-reclaim="20261103"`; no Independent Index · 11,300+ in title/H1; no public ops notes
+- `/fansbuy-spreadsheet/` / `/fansbuy-coupons/` / `/fansbuy-shipping-guide/` stay 200 (this action does not overwrite those ranked inners)
 - `/finds-dataset/` + `/data/finds-dataset.json` last_verified=2026-10-28 · row_count=11365 · hub_reclaim=fansbuy-hub-reclaim-20261028
 - `/fansbuy-coupons/` + `/data/coupons-truth.json` stamped 2026-10-28
 - twins still 301→hub / .uk→.co.uk; nl/de still 200 watch; UK untouched this action

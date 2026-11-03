@@ -41,8 +41,8 @@ Submit `https://basetaospreadsheet.com/sitemap.xml` after deploy.
 
 ## Verify
 
-- `/` title contains Independent Index · 11,300+
-- `/#local` money URLs present
+- `/` title is Basetao Spreadsheet — searchable QC catalog; H1 stays Basetao Spreadsheet; no Independent Index · 11,300+ in title
+- `/#local` is four-step how-to (no customs-territory dest sentence); cites coupons / dataset / QC
 - `/basetao-coupon-tracker-2026.html` has truth callout + FAQ JSON-LD; date 26 Oct 2026
 - `/data/coupons-truth.json` + `/data/finds-dataset.json` + `/finds-dataset/` → 200
 - `/is-basetao-legit/` + `/basetao-qc-guide/` → 200

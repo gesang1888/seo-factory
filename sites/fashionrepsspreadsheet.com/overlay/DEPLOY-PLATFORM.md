@@ -55,7 +55,7 @@ Submit `https://fashionrepsspreadsheet.com/sitemap.xml` after deploy.
 
 ## Verify
 
-- `/` H1/tag contains Independent Index · 10,000+
+- `/` title stays FashionReps Spreadsheet 2026 — Independent Index · 10,000+; `#local` is four-step how-to (no customs-territory dest sentence); stamp `data-hub-reclaim="20261103"`
 - `/fashionreps-coupons/` truth callout + FAQ JSON-LD; date 26 Oct 2026
 - `/data/coupons-truth.json` + `/data/finds-dataset.json` + `/finds-dataset/` → 200
 - `/llms.txt` has no hubbuy-* 404 cites

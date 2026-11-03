@@ -41,8 +41,8 @@ Submit `https://boonspreadsheet.com/sitemap.xml` after deploy.
 
 ## Verify
 
-- `/` title contains Independent Index · 12,400+
-- `/boonbuy-coupons/` has truth callout + FAQ JSON-LD; dates 26 Oct 2026
+- `/` title still Independent Index · 12,400+ (unique count kept); `#local` is four-step how-to (no customs-territory dest sentence); stamp `data-hub-reclaim="20261103"`
+- `/boonbuy-coupons/` unchanged this action (still 200)
 - `/data/coupons-truth.json` + `/data/finds-dataset.json` + `/finds-dataset/` → 200
 - `/llms.txt` → 200
 - `/start/` → 301 home; `/shipping/` still → shipping-guide

@@ -37,6 +37,6 @@ cp "$LOCAL/llms.txt" "$LOCAL/sitemap.xml" "$HUB/"
 
 ## Verify
 
-- `/` Independent Index · 11,300+; **Open directory** CTA; `#hub-defend` names Reddit Sheets / allchinafinds / acbuy.net; stamp 2026-10-28
+- `/` title AllChinaBuy Spreadsheet 2026 (year kept; no Independent Index · 11,300+); four-step `#local`; stamp `data-hub-reclaim="20261103"`; no public ops notes (no Keep NL/UK / twins 301)
 - `/allchinabuy-coupons/` + `/finds-dataset/` + JSON `hub_defend=allchinabuy-hub-defend-20261028` · `last_verified=2026-10-28`
 - twins still 301; CA 200 untouched; NL/UK heroes untouched this round
