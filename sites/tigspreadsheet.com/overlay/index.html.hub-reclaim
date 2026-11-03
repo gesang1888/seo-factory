@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TigBuy Spreadsheet — searchable QC catalog</title>
+<meta name="description" content="TigBuy spreadsheet: live Weidian, Taobao, 1688 and Yupoo finds. Not Excel, not a Google Sheet. Official tigbuy.com 9 Oct 2026: Discord 10K Party — 10KG free shipping, 25% OFF coupon, 80% OFF flash sales. Help Storage Period of goods: 90 days. Pay on tigbuy.com.">
+<meta property="og:title" content="TigBuy Spreadsheet — searchable QC catalog">
+<meta property="og:description" content="TigBuy spreadsheet: live finds, not Excel, not a Google Sheet. Official Discord 10K Party: 10KG free shipping, 25% coupon, 80% flash. Independent of tigbuyspreadsheets.com and tigbuy-spreadsheet.com.">
+<meta property="og:url" content="https://tigspreadsheet.com/">
+<meta property="og:image" content="https://tigspreadsheet.com/assets/images/official-logo.png">
+<link rel="canonical" href="https://tigspreadsheet.com/">
+<link rel="icon" type="image/png" href="/assets/images/official-favicon.png">
+<link rel="apple-touch-icon" href="/assets/images/official-apple-touch.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"WebSite","name":"TigBuy Spreadsheet","alternateName":["TigBuy Spreadsheet","TigBuy spreadsheet 2026","Tigbuy Spreadsheet"],"url":"https://tigspreadsheet.com/","description":"TigBuy spreadsheet: live Weidian, Taobao and 1688 finds. Not Excel, not a Google Sheet.","inLanguage":"en"},
+  {"@type":"WebPage","name":"TigBuy Spreadsheet — searchable QC catalog","url":"https://tigspreadsheet.com/","description":"TigBuy spreadsheet: live finds. Not Excel, not a Google Sheet.","inLanguage":"en","isPartOf":{"@type":"WebSite","url":"https://tigspreadsheet.com/"}},
+  {"@type":"Organization","name":"TigBuy Spreadsheet","url":"https://tigspreadsheet.com/","email":"cnfd85269032661@gmail.com","logo":"https://tigspreadsheet.com/assets/images/official-logo.png","description":"Independent TigBuy spreadsheet desk. Not the official TigBuy app. Not tigbuyspreadsheets.com, not tigbuy-spreadsheet.com, not tigbuyspreadsheet.com, not tigbuyspreadsheet.net.","sameAs":["https://www.tigbuy.com/","https://discord.gg/dtQSvGTUjT"]},
+  {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is a TigBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"A TigBuy spreadsheet is a live finds index of Weidian, Taobao, 1688 and Yupoo links. It is not Excel, not a Google Sheet download, and not checkout. Browse ranked articles on this host, then buy on tigbuy.com."}},
+    {"@type":"Question","name":"Is this the same as tigbuy.com?","acceptedAnswer":{"@type":"Answer","text":"No. tigspreadsheet.com is an independent information desk. Orders, payment and warehouse photos stay on tigbuy.com. This host does not take a card."}},
+    {"@type":"Question","name":"What promotions are live on TigBuy?","acceptedAnswer":{"@type":"Answer","text":"Official homepage banner measured 9 Oct 2026: tiGbuy Discord 10K Party — 10KG Free Shipping, 25% OFF Coupon, 80% OFF Flash Sales. Join Discord discord.gg/dtQSvGTUjT. Confirm the live banner the morning you post. This desk does not print a register query."}},
+    {"@type":"Question","name":"How long is warehouse storage free?","acceptedAnswer":{"@type":"Answer","text":"Official Help article Storage Period of goods (/help-10.html) measured 9 Oct 2026: the free storage time is 90 days. Please extend the storage time or submit it for shipment before the goods expire. Confirm that live article the morning you ship."}},
+    {"@type":"Question","name":"Where do I estimate TigBuy freight?","acceptedAnswer":{"@type":"Answer","text":"Warehouse photos stay in-account. Live rates need a real country on tigbuy.com/estimates. This page does not take payment."}}
+  ]}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --acc:#038DFA;--acd:#0268C4;--acl:#EFF6FF;--acs:#BFDBFE;
+  --bk:#0A0A0A;--g2:#1F2937;--g3:#4B5563;--g4:#9CA3AF;--g5:#E5E7EB;--wh:#fff;
+  --bg:#F7FBFF;--gn:#16A34A;--gnl:#F0FDF4;--bl:#038DFA;--bll:#EFF6FF;
+  --am:#D97706;--aml:#FFFBEB;--rd:#DC2626;--rdl:#FEF2F2;--pu:#7C3AED;--pul:#F5F3FF;
+  --f:'Inter',system-ui,Arial,sans-serif;--r:10px;--rl:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--bk);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%;display:block}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:20;border-radius:8px}
+.skip:focus{left:12px}
+.ann{background:var(--acc);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:500}
+.ann a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.nav{position:sticky;top:0;z-index:100;background:var(--wh);border-bottom:1px solid var(--acs);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nbrand{display:flex;align-items:center;gap:10px;min-width:0}
+.nlo{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:var(--bk)}
+.nlo img{height:36px;width:auto;max-width:220px;object-fit:contain}
+.nl{display:flex;align-items:center;gap:4px;list-style:none;flex-wrap:wrap}
+.nl a{font-size:13px;padding:6px 10px;border-radius:6px;color:var(--g4)}
+.nl a:hover{background:var(--acl);color:var(--bk);text-decoration:none}
+.nl a.on{color:var(--bk);font-weight:600}
+.nacts{display:flex;align-items:center;gap:8px}
+.bwa{display:flex;align-items:center;gap:7px;padding:7px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:500}
+.bwa:hover{opacity:.88;text-decoration:none}
+.ncart{display:inline-flex;padding:8px 16px;background:var(--acc);border-radius:8px;color:#fff;font-size:13px;font-weight:600}
+.ncart:hover{background:var(--acd);text-decoration:none}
+.hero{max-width:860px;margin:0 auto;padding:48px 24px 32px;text-align:center}
+.hero.fade-in{animation:fadeUp .4s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.hbg{display:inline-flex;align-items:center;gap:6px;background:var(--acl);color:var(--acd);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:16px}
+.hbg::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--acc);display:inline-block}
+.hero h1{font-size:clamp(26px,4.4vw,44px);font-weight:800;letter-spacing:-1.6px;line-height:1.12;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hsub{font-size:16px;color:var(--g3);max-width:640px;margin:0 auto 24px;line-height:1.75}
+.hctas{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.cp{padding:13px 28px;background:var(--acc);color:#fff;border-radius:10px;font-size:15px;font-weight:600}
+.cp:hover{background:var(--acd);text-decoration:none}
+.cs{padding:12px 24px;border:1.5px solid var(--g5);color:var(--bk);border-radius:10px;font-size:15px;font-weight:500;background:#fff}
+.cs:hover{border-color:var(--acc);color:var(--acc);text-decoration:none}
+.hst{display:flex;justify-content:center;border:1px solid var(--acs);border-radius:var(--rl);overflow:hidden;max-width:720px;margin:0 auto;background:#fff}
+.hs{flex:1;padding:14px 8px;text-align:center;border-right:1px solid var(--acs)}
+.hs:last-child{border-right:none}
+.hsn{font-size:18px;font-weight:700}
+.hsl{font-size:11px;color:var(--g4);margin-top:3px;text-transform:uppercase;letter-spacing:.4px}
+.trust{background:#fff;border-top:1px solid var(--acs);border-bottom:1px solid var(--acs);padding:20px}
+.ti{max-width:1100px;margin:0 auto;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.tit{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--g3)}
+#official-promo,#not-excel{scroll-margin-top:72px}
+#official-promo{background:#fff}
+.opromo{max-width:1100px;margin:0 auto;padding:36px 24px}
+.opromo h2{font-size:22px;letter-spacing:-.4px;margin-bottom:8px}
+.ssub{color:var(--g3);font-size:14.5px;margin:0 0 16px;line-height:1.7}
+.oshots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.oshots figure{background:var(--acl);border-radius:14px;overflow:hidden;border:1px solid var(--acs)}
+.oshots img{width:100%;height:190px;object-fit:contain;background:#fff}
+.oshots figcaption{padding:12px 14px;font-size:13px;color:var(--g2);line-height:1.55}
+.opfacts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.opfact{background:var(--acl);border:1px solid var(--acs);border-radius:12px;padding:14px}
+.opfact b{display:block;font-size:14px;margin-bottom:4px}
+.opfact span{font-size:13px;color:var(--g3);line-height:1.55}
+.sec{max-width:1100px;margin:0 auto;padding:36px 24px}
+.ph{font-size:21px;font-weight:600;letter-spacing:-.4px;margin:8px 0 12px}
+.pp{font-size:15px;color:var(--g2);line-height:1.82;margin-bottom:14px}
+.stit{font-size:24px;font-weight:700;letter-spacing:-.5px;margin-bottom:6px}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px}
+.ccard{border:1px solid var(--acs);border-radius:var(--rl);padding:16px;display:flex;flex-direction:column;gap:6px;background:var(--wh);color:inherit}
+.ccard:hover{border-color:var(--acc);transform:translateY(-2px);text-decoration:none}
+.cico{font-size:22px}
+.cname{font-size:13px;font-weight:600;color:var(--bk)}
+.ccnt{font-size:12px;color:var(--g4)}
+.guides{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.gc{border:1px solid var(--g5);border-radius:var(--rl);padding:18px;display:flex;flex-direction:column;gap:8px;background:#fff;color:inherit}
+.gc:hover{border-color:var(--acc);transform:translateY(-2px);text-decoration:none}
+.gtg{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:4px;display:inline-block}
+.gtit{font-size:14px;font-weight:600}
+.gdesc{font-size:12.5px;color:var(--g4);line-height:1.55;flex:1}
+.glink{font-size:12px;font-weight:600;color:var(--acc)}
+.waband{background:#0F172A;padding:36px 24px;text-align:center}
+.wabi{max-width:560px;margin:0 auto}
+.waband h2{font-size:24px;font-weight:600;color:#fff;margin-bottom:10px}
+.waband p{font-size:15px;color:#94A3B8;margin-bottom:20px}
+.wabb{display:inline-flex;padding:13px 28px;background:#25D366;color:#fff;border-radius:10px;font-weight:600}
+.ft{background:#111827;color:#ccc;padding:40px 24px}
+.fti{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.flo{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;color:#fff;margin-bottom:12px}
+.flo img{height:32px;width:auto;background:#fff;border-radius:6px;padding:4px 8px}
+.ftg{font-size:13px;color:#888;line-height:1.65;margin-bottom:16px}
+.fwa{display:inline-flex;padding:8px 14px;background:#25D366;color:#fff;border-radius:8px;font-size:13px}
+.fc h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#888;margin-bottom:12px}
+.fc ul{list-style:none}
+.fc ul li{margin-bottom:9px}
+.fc ul li a{font-size:13px;color:#888}
+.fc ul li a:hover{color:#fff;text-decoration:none}
+.waf{position:fixed;bottom:24px;right:24px;z-index:999}
+.wafb{width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35)}
+.wafb svg{width:26px;height:26px;color:#fff}
+@media(max-width:860px){
+  .nl{display:none}
+  .oshots,.opfacts,.fti{grid-template-columns:1fr}
+  .hst{flex-wrap:wrap}
+  .hs{min-width:40%}
+}
+
+.hub-cite{max-width:1100px;margin:1.25rem auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:0 24px}
+.hub-cite a{display:block;padding:16px 18px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;text-decoration:none;color:inherit}
+.hub-cite a:hover{border-color:var(--acc,#334155);text-decoration:none}
+.hub-cite strong{display:block;font-size:16px;margin:0 0 6px}
+.hub-cite span{display:block;font-size:14px;line-height:1.65;color:#334155}
+@media (max-width:768px){.hub-cite{grid-template-columns:1fr}}
+.local-steps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.local-steps li{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;background:#fff}
+.local-steps strong{display:block;margin:0 0 6px;font-size:15px}
+.local-steps span{display:block;color:#334155;line-height:1.7;font-size:15px}
+</style>
+</head>
+<body data-hub-reclaim="20261103">
+<a class="skip" href="#main">Skip to content</a>
+<div class="ann">Official Discord 10K Party: 10KG free shipping · 25% OFF coupon · 80% OFF flash · <a href="https://discord.gg/dtQSvGTUjT" rel="noopener">Join Discord</a>.</div>
+<nav class="nav">
+  <div class="nbrand">
+    <a href="/" class="nlo">
+      <img src="/assets/images/official-logo.png" width="220" height="66" alt="TigBuy">
+      Spreadsheet
+    </a>
+  </div>
+  <ul class="nl">
+    <li><a class="on" href="/">Home</a></li>
+    <li><a href="/tigbuy-spreadsheet/">Spreadsheet</a></li>
+    <li><a href="/is-tigbuy-legit/">Is it Legit?</a></li>
+    <li><a href="/tigbuy-shipping-guide/">Shipping</a></li>
+    <li><a href="/tigbuy-coupons/">Coupons</a></li>
+    <li><a href="#local">How to use</a></li>
+    <li><a href="/coupons.html">Offers</a></li>
+    <li><a href="/blog/">Blog</a></li>
+  </ul>
+  <div class="nacts">
+    <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="bwa">WhatsApp</a>
+    <a href="https://www.tigbuy.com/" target="_blank" rel="noopener" class="ncart">Open TigBuy</a>
+  </div>
+</nav>
+<section class="hero fade-in" id="main">
+  <div class="hbg">LIVE FINDS · NOT EXCEL · SEARCHABLE QC CATALOG</div>
+  <h1>TigBuy Spreadsheet</h1>
+  <p class="hsub">Search the <strong>TigBuy spreadsheet</strong> on this hub. Cite dated coupon, shipping and QC pages. Check coupons separately. Register and estimate freight on tigbuy.com. Official homepage banner 9 Oct 2026: <strong>Discord 10K Party</strong> — <strong>10KG Free Shipping</strong>, <strong>25% OFF Coupon</strong>, <strong>80% OFF Flash Sales</strong>. Help Storage Period of goods: <strong>90 days</strong>.</p>
+  <div class="hctas">
+    <a href="https://w2clinks.com/spreadsheet/?q=" class="cp" target="_blank" rel="noopener">Open directory</a>
+    <a href="/tigbuy-spreadsheet/" class="cs">Ranked spreadsheet →</a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/" class="cs" target="_blank" rel="noopener">Browse finds</a>
+    <a href="https://www.tigbuy.com/" class="cs" target="_blank" rel="noopener">Register on TigBuy</a>
+  </div>
+  <div class="hst">
+    <div class="hs"><div class="hsn">10KG</div><div class="hsl">Free shipping</div></div>
+    <div class="hs"><div class="hsn">25%</div><div class="hsl">OFF coupon</div></div>
+    <div class="hs"><div class="hsn">80%</div><div class="hsl">Flash sales</div></div>
+    <div class="hs"><div class="hsn">90 days</div><div class="hsl">Storage Help-10</div></div>
+  </div>
+</section>
+
+<section class="hub-cite" id="hub-cite" data-hub-reclaim="20261103">
+  <a href="/tigbuy-coupons/"><strong>Coupons</strong><span>Verify live offers on a separate page. This hub does not redeem codes.</span></a>
+  <a href="/tigbuy-shipping-guide/"><strong>Shipping</strong><span>Line notes on this hub. Live rates need a real country on the official estimator.</span></a>
+  <a href="/tigbuy-qc-guide/"><strong>QC then freight</strong><span>What to check on warehouse photos. Then a real country on tigbuy.com/estimates.</span></a>
+</section>
+<section class="sec" id="local" data-hub-reclaim="20261103">
+  <h2 class="stit">How to use this TigBuy spreadsheet</h2>
+  <p class="ssub">Search the catalog. Cite dated coupons and shipping pages. Check coupons separately. Pay and ship on the official site.</p>
+  <ol class="local-steps">
+    <li><strong>Search the catalog</strong><span> Filter finds on <a href="/tigbuy-spreadsheet/">/tigbuy-spreadsheet/</a> or the directory. You do not need Excel or a Reddit thread to open the list.</span></li>
+    <li><strong>Cite dated coupons and shipping</strong><span> This hub does not invent a product count. Use <a href="/tigbuy-coupons/">/tigbuy-coupons/</a> and <a href="/tigbuy-shipping-guide/">/tigbuy-shipping-guide/</a>.</span></li>
+    <li><strong>Check coupons separately</strong><span> Offers change in the official app. This hub logs what we last verified on <a href="/tigbuy-coupons/">/tigbuy-coupons/</a>.</span></li>
+    <li><strong>QC, then a real country</strong><span> Accept warehouse photos in-app. Freight needs a real country on <a href="https://tigbuy.com/estimates" rel="noopener">tigbuy.com/estimates</a> — not this hostname.</span></li>
+  </ol>
+  <p class="pp">Register and pay only on the official site. This page does not take payment and does not coach a declared value.</p>
+</section>
+
+<div class="trust">
+  <div class="ti">
+    <div class="tit">Escrow stays on tigbuy.com</div>
+    <div class="tit">QC photos in-account</div>
+    <div class="tit">Freight form is /estimates</div>
+    <div class="tit">Register on tigbuy.com</div>
+  </div>
+</div>
+
+<section id="official-promo">
+  <div class="opromo">
+    <h2>Official TigBuy copy — 9 Oct 2026</h2>
+    <p class="ssub">Public English homepage on <a href="https://www.tigbuy.com/" rel="noopener">www.tigbuy.com</a>. Top banner the same day: <strong>tiGbuy Discord 10K Party</strong> — Join Our Discord, <strong>10KG Free Shipping</strong>, <strong>25% OFF Coupon</strong>, <strong>80% OFF Flash Sales</strong>. Chrome is the blue dolphin + TIGBUY wordmark at <strong>#038DFA</strong> (login button rgb(3,141,250)). Discord: <a href="https://discord.gg/dtQSvGTUjT" rel="noopener">discord.gg/dtQSvGTUjT</a>. Estimator: <a href="https://tigbuy.com/estimates" rel="noopener">tigbuy.com/estimates</a>. Help Storage Period of goods: <a href="https://www.tigbuy.com/help-10.html" rel="noopener">/help-10.html</a> — <strong>the free storage time is 90 days</strong>. Confirm that live article the morning you ship. Coupon 图文 also lives on <a href="/coupons.html">/coupons.html</a>. This desk does not print a register query and does not restore a $10 invite unique-base as the money title.</p>
+    <div class="oshots">
+      <figure>
+        <a href="https://www.tigbuy.com/" rel="noopener"><img src="/assets/official/official-promo.jpg" width="1920" height="85" alt="Official TigBuy Discord 10K Party banner: 10KG free shipping, 25% OFF coupon, 80% OFF flash sales"></a>
+        <figcaption>Official banner 9 Oct 2026: <strong>Discord 10K Party</strong>. <strong>10KG Free Shipping</strong>, <strong>25% OFF Coupon</strong>, <strong>80% OFF Flash Sales</strong>. Confirm the live banner.</figcaption>
+      </figure>
+      <figure>
+        <a href="https://www.tigbuy.com/help-10.html" rel="noopener"><img src="/assets/official/official-storage.jpg" width="1400" height="900" alt="Official TigBuy Help Storage Period of goods: free storage time is 90 days"></a>
+        <figcaption>Official Help <strong>Storage Period of goods</strong> (/help-10.html): <strong>The free storage time is 90 days.</strong> Extend or submit for shipment before expiry.</figcaption>
+      </figure>
+      <figure>
+        <a href="https://www.tigbuy.com/" rel="noopener"><img src="/assets/official/official-home.jpg" width="1400" height="875" alt="Official TigBuy homepage: dolphin TIGBUY wordmark, blue search, Discord 10K Party banner"></a>
+        <figcaption>Official chrome the same day: dolphin <strong>TIGBUY</strong> wordmark, Inter, login at <strong>#038DFA</strong>. This desk matches that blue.</figcaption>
+      </figure>
+    </div>
+    <div class="opfacts">
+      <div class="opfact"><b>Discord 10K Party</b><span>Homepage banner 9 Oct 2026: 10KG Free Shipping, 25% OFF Coupon, 80% OFF Flash Sales. Join discord.gg/dtQSvGTUjT. Confirm the live banner — this page is not checkout.</span></div>
+      <div class="opfact"><b>Storage: 90 days</b><span>Help-10 Storage Period of goods: free storage time is 90 days. Extend or submit for shipment before expiry. Confirm that live article the morning you ship.</span></div>
+      <div class="opfact"><b>Discord</b><span>Official Follow-us / homepage Discord is <strong>discord.gg/dtQSvGTUjT</strong>. This desk uses cnfd85269032661@gmail.com and WhatsApp +8615396628356.</span></div>
+      <div class="opfact"><b>Estimator</b><span>Live rates need a real country on tigbuy.com/estimates. This page does not take payment.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="not-excel">
+  <h2 class="ph">This TigBuy spreadsheet is not Excel</h2>
+  <p class="ssub">“Spreadsheet” here means a live finds index — Weidian, Taobao, 1688 and Yupoo rows — not a .xlsx you download and freeze, and not the community Google Sheet that Reddit threads keep recycling. Photos and CNY prices for this agent stay on ranked articles on this host and on tigbuy.com search. A separate catalog lives at <a href="https://w2clinks.com/spreadsheet/tigbuy/" target="_blank" rel="noopener">w2clinks.com/spreadsheet/tigbuy/</a> — that is not this host and is not a Google Sheet either. This host does not dump a products API. Category keys still match <a href="https://w2clinks.com/categories/" target="_blank" rel="noopener">w2clinks.com/categories/</a>. Women’s Fashion stays on this homepage.</p>
+</section>
+
+<section class="sec" id="cats">
+  <h2 class="stit">Browse by Category</h2>
+  <p class="ssub">English category keys from w2clinks.com/categories/. This homepage does not dump a products API.</p>
+  <div class="cg">
+    <a href="/tigbuy-spreadsheet/" class="ccard"><div class="cico">📋</div><p class="cname">TigBuy spreadsheet</p><p class="ccnt">Ranked 2026 article</p></a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/?category=SNEAKERS" class="ccard" target="_blank" rel="noopener"><div class="cico">👟</div><p class="cname">Sneakers &amp; Shoes</p><p class="ccnt">w2clinks TigBuy sheet</p></a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/?category=JACKET" class="ccard" target="_blank" rel="noopener"><div class="cico">🧥</div><p class="cname">Jackets &amp; Coats</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/?category=T-SHIRT" class="ccard" target="_blank" rel="noopener"><div class="cico">👕</div><p class="cname">T-Shirts</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/?category=TROUSERS" class="ccard" target="_blank" rel="noopener"><div class="cico">👖</div><p class="cname">Pants / Shorts</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/?category=HOODIE" class="ccard" target="_blank" rel="noopener"><div class="cico">🧤</div><p class="cname">Hoodies/Sweaters</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/?category=BAG" class="ccard" target="_blank" rel="noopener"><div class="cico">👜</div><p class="cname">Bags</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/?category=FEMALE%20STYLE" class="ccard" target="_blank" rel="noopener"><div class="cico">👗</div><p class="cname">Women's Fashion</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/?category=HAT" class="ccard" target="_blank" rel="noopener"><div class="cico">🧢</div><p class="cname">Headwear</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/?category=JEWELRY" class="ccard" target="_blank" rel="noopener"><div class="cico">⌚</div><p class="cname">Accessories</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/?category=Jersey" class="ccard" target="_blank" rel="noopener"><div class="cico">🏀</div><p class="cname">Sports Jerseys</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/tigbuy/?category=Electronics" class="ccard" target="_blank" rel="noopener"><div class="cico">🎧</div><p class="cname">Electronics</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SHORTS" class="ccard" target="_blank" rel="noopener"><div class="cico">🩳</div><p class="cname">Shorts</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=POLO" class="ccard" target="_blank" rel="noopener"><div class="cico">👔</div><p class="cname">Polos</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SWEATER" class="ccard" target="_blank" rel="noopener"><div class="cico">🧶</div><p class="cname">Sweaters</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=DOWN%20JACKETS" class="ccard" target="_blank" rel="noopener"><div class="cico">🧥</div><p class="cname">Down jackets</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=GLASSES%20WATCH" class="ccard" target="_blank" rel="noopener"><div class="cico">🕶️</div><p class="cname">Glasses / watches</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SOCKS" class="ccard" target="_blank" rel="noopener"><div class="cico">🧦</div><p class="cname">Socks</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=BELT" class="ccard" target="_blank" rel="noopener"><div class="cico">🔗</div><p class="cname">Belts</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=GLOVES" class="ccard" target="_blank" rel="noopener"><div class="cico">🧤</div><p class="cname">Gloves</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SCARF" class="ccard" target="_blank" rel="noopener"><div class="cico">🧣</div><p class="cname">Scarves</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=UNDERWEAR" class="ccard" target="_blank" rel="noopener"><div class="cico">🩲</div><p class="cname">Underwear</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SLIPPERS" class="ccard" target="_blank" rel="noopener"><div class="cico">🩴</div><p class="cname">Slippers</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=VEST" class="ccard" target="_blank" rel="noopener"><div class="cico">🦺</div><p class="cname">Vests</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SHIRT" class="ccard" target="_blank" rel="noopener"><div class="cico">👔</div><p class="cname">Shirts</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=FLEECE%20JACKET" class="ccard" target="_blank" rel="noopener"><div class="cico">🧸</div><p class="cname">Fleece jackets</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SHELL%20JACKET" class="ccard" target="_blank" rel="noopener"><div class="cico">🌧️</div><p class="cname">Shell jackets</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=LONG%20SLEEVED" class="ccard" target="_blank" rel="noopener"><div class="cico">👕</div><p class="cname">Long sleeve</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=SHAWL" class="ccard" target="_blank" rel="noopener"><div class="cico">🧣</div><p class="cname">Shawls</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=HEADGEAR" class="ccard" target="_blank" rel="noopener"><div class="cico">⛑️</div><p class="cname">Headgear</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=EARMUFF" class="ccard" target="_blank" rel="noopener"><div class="cico">🎧</div><p class="cname">Earmuffs</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/spreadsheet/?category=KNEEPAD" class="ccard" target="_blank" rel="noopener"><div class="cico">🦵</div><p class="cname">Kneepads</p><p class="ccnt">w2clinks category</p></a>
+    <a href="https://w2clinks.com/categories/" class="ccard" target="_blank" rel="noopener"><div class="cico">📦</div><p class="cname">All categories</p><p class="ccnt">w2clinks.com/categories/</p></a>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <h2 class="stit">Guides already on this host</h2>
+  <p class="ssub">Home only points at ranked coupon, shipping, QC and spreadsheet pages already on this host.</p>
+  <div class="guides">
+    <a href="/tigbuy-spreadsheet/" class="gc"><span class="gtg" style="background:var(--acl);color:var(--acd)">Spreadsheet</span><p class="gtit">TigBuy Spreadsheet 2026</p><p class="gdesc">Ranked unique article already on this host. Browse finds, then buy on tigbuy.com.</p><span class="glink">Open →</span></a>
+    <a href="/is-tigbuy-legit/" class="gc"><span class="gtg" style="background:var(--gnl);color:var(--gn)">Trust Review</span><p class="gtit">Is TigBuy Legit?</p><p class="gdesc">Independent desk — payment stays on tigbuy.com.</p><span class="glink">Read review →</span></a>
+    <a href="/tigbuy-shipping-guide/" class="gc"><span class="gtg" style="background:var(--bll);color:var(--bl)">Shipping</span><p class="gtit">Shipping Guide</p><p class="gdesc">Unique line article already on this host. Official freight form is tigbuy.com/estimates. Older body copy is not overwritten here.</p><span class="glink">Open →</span></a>
+    <a href="/tigbuy-coupons/" class="gc"><span class="gtg" style="background:#FEF3C7;color:#92400E">Coupons</span><p class="gtit">Ranked coupon article</p><p class="gdesc">Verify Discord 10K Party offers on a separate page. Extra 图文 on /coupons.html.</p><span class="glink">Get codes →</span></a>
+    <a href="/tigbuy-qc-guide/" class="gc"><span class="gtg" style="background:var(--pul);color:var(--pu)">QC Guide</span><p class="gtit">How to Review QC Photos</p><p class="gdesc">What to check on warehouse photos before you book freight.</p><span class="glink">Learn QC →</span></a>
+    <a href="/blog/" class="gc"><span class="gtg" style="background:#F3F4F6;color:#6B7280">Blog</span><p class="gtit">TigBuy Spreadsheet Blog</p><p class="gdesc">Guides already on this host.</p><span class="glink">Read blog →</span></a>
+    <a href="/coupons.html" class="gc"><span class="gtg" style="background:var(--rdl);color:var(--rd)">Offers</span><p class="gtit">Official Discord 10K 图文</p><p class="gdesc">10KG free shipping, 25% coupon, 80% flash. Help-10: 90 days. Discord dtQSvGTUjT.</p><span class="glink">See offers →</span></a>
+    <a href="/how-to-use-tigbuy/" class="gc"><span class="gtg" style="background:var(--bll);color:#1E40AF">How to</span><p class="gtit">How to use TigBuy</p><p class="gdesc">Paste a Weidian/Taobao/1688/Yupoo link into tigbuy.com, wait for warehouse photos, then book freight in /estimates.</p><span class="glink">Open →</span></a>
+    <a href="/tigbuy-shoes-spreadsheet/" class="gc"><span class="gtg" style="background:var(--acl);color:var(--acd)">Shoes</span><p class="gtit">Shoes spreadsheet</p><p class="gdesc">Shoes finds already on this host.</p><span class="glink">Open →</span></a>
+  </div>
+</section>
+
+<section class="sec">
+  <h2 class="ph">How a TigBuy order actually runs</h2>
+  <p class="pp">TigBuy is a purchasing agent, not a shop. You paste a product link from Taobao, 1688, Weidian or Yupoo, they buy, photograph, store, then you book an international line. tigspreadsheet.com never takes a card. Official checkout is <a href="https://www.tigbuy.com/" rel="noopener">www.tigbuy.com</a>. Freight estimate: <a href="https://tigbuy.com/estimates" rel="noopener">tigbuy.com/estimates</a>. Help Center: <a href="https://www.tigbuy.com/help-1-view.html" rel="noopener">/help-1-view.html</a>. Official Discord is discord.gg/dtQSvGTUjT. This desk uses cnfd85269032661@gmail.com and WhatsApp +8615396628356 and is not the company inbox.</p>
+  <p class="pp">Warehouse storage on official Help (Storage Period of goods, /help-10.html, measured 9 Oct 2026): <strong>the free storage time is 90 days</strong>. Please extend the storage time or submit it for shipment before the goods expire. Confirm that live article the morning you ship. Ranked shipping HTML stays at /tigbuy-shipping-guide/; this homepage does not overwrite it. This desk does not coach a declared value.</p>
+  <p class="pp">Official promotions the same day are the Discord 10K Party homepage banner (10KG Free Shipping, 25% OFF Coupon, 80% OFF Flash Sales), not a register query on this desk. This homepage does not print a register invite token. The unique-base $10 invite line is not treated as today’s live homepage offer. Confirm Wallet / Discord the morning you pay freight.</p>
+  <p class="pp">Pick the real ship-to country inside tigbuy.com. This desk does not coach customs values. Email cnfd85269032661@gmail.com. WhatsApp +8615396628356.</p>
+</section>
+
+<div class="waband">
+  <div class="wabi">
+    <h2>Need help with a TigBuy order?</h2>
+    <p>WhatsApp +8615396628356 — product links, sizing, shipping quotes, QC notes. Email cnfd85269032661@gmail.com.</p>
+    <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="wabb">Chat — +8615396628356</a>
+  </div>
+</div>
+<footer class="ft">
+  <div class="fti">
+    <div>
+      <div class="flo"><img src="/assets/images/official-logo.png" alt="TigBuy" width="220" height="66"> Spreadsheet</div>
+      <p class="ftg">Independent TigBuy spreadsheet desk on tigspreadsheet.com. Not the official app, not checkout, not tigbuyspreadsheets.com, not tigbuy-spreadsheet.com. Email cnfd85269032661@gmail.com. Orders stay on tigbuy.com.</p>
+      <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="fwa">+8615396628356</a>
+    </div>
+    <div class="fc"><h4>Spreadsheets</h4><ul>
+      <li><a href="/tigbuy-spreadsheet/">Ranked spreadsheet</a></li>
+      <li><a href="/tigbuy-shoes-spreadsheet/">Shoes</a></li>
+      <li><a href="#not-excel">Not Excel</a></li>
+      <li><a href="https://w2clinks.com/categories/" target="_blank" rel="noopener">Categories</a></li>
+    </ul></div>
+    <div class="fc"><h4>Guides</h4><ul>
+      <li><a href="/how-to-use-tigbuy/">How to Use TigBuy</a></li>
+      <li><a href="/is-tigbuy-legit/">Is TigBuy Legit?</a></li>
+      <li><a href="/tigbuy-shipping-guide/">Shipping Guide</a></li>
+      <li><a href="/tigbuy-coupons/">Coupon Codes</a></li>
+      <li><a href="/coupons.html">Official offers</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul></div>
+  </div>
+  <p class="ftg" style="max-width:1100px;margin:28px auto 0;padding-top:20px;border-top:1px solid #2D2D2D">tigspreadsheet.com does not take payment or see your TigBuy account. Official Discord 10K Party banner, Help-10 90-day storage, and Discord discord.gg/dtQSvGTUjT are on tigbuy.com — confirm Help and the live banner the morning you ship. Copy reviewed 9 Oct 2026. Contact cnfd85269032661@gmail.com.</p>
+</footer>
+<div class="waf">
+  <a href="https://wa.me/8615396628356" target="_blank" rel="noopener" class="wafb" aria-label="WhatsApp +8615396628356"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+</div>
+</body>
+</html>
