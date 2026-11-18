@@ -268,6 +268,7 @@ def patch_hipobuy() -> None:
       "@type": "Dataset",
       "@id": "{eyou:global name='web_basehost' /}/finds-dataset/#dataset",
       "name": "HipoBuy spreadsheet finds dataset",
+      "description": "Public, dated catalog of 8,600+ HipoBuy spreadsheet finds with row_count, sample SKUs and QC flags. JSON at /data/finds-dataset.json. Not a Google Sheet and not hipobuy.com checkout.",
       "url": "{eyou:global name='web_basehost' /}/finds-dataset/",
       "dateModified": "2026-11-18",
       "creator": {"@id": "{eyou:global name='web_basehost' /}/#organization"},
@@ -376,6 +377,22 @@ def patch_usfans() -> None:
     ss = ss.replace('"dateModified": "2026-11-03"', f'"dateModified": "{REVIEW_ISO}"')
     if "27 October 2026" in ss and REVIEW_LONG not in ss:
         raise SystemExit("usfans-spreadsheet dates not updated")
+    dataset_desc = (
+        '"description": "Public, dated catalog of 10,601 USFans spreadsheet finds '
+        'with row_count, sample SKUs and QC flags. JSON at /data/finds-dataset.json. '
+        'Not a Google Sheet and not usfans.com checkout."'
+    )
+    if '"@type": "Dataset"' in ss and dataset_desc not in ss:
+        old = '''      "@type": "Dataset",
+      "name": "USFans Independent Index",
+      "url": "https://usfansspreadsheet.net/finds-dataset/",'''
+        new = f'''      "@type": "Dataset",
+      "name": "USFans Independent Index",
+      {dataset_desc},
+      "url": "https://usfansspreadsheet.net/finds-dataset/",'''
+        if old not in ss:
+            raise SystemExit("usfans Dataset needle missing")
+        ss = ss.replace(old, new, 1)
     _write("usfans/usfans-spreadsheet.html", ss)
 
     data = json.loads(_read("usfans/finds-dataset.json"))
@@ -652,11 +669,17 @@ def verify_live() -> None:
             "HipoBuy Spreadsheet — Independent Index · 8,600+",
             "hippobuy spreadsheet",
             REVIEW_SHORT,
+            "Public, dated catalog of 8,600+ HipoBuy spreadsheet finds",
         ],
         "https://usfansspreadsheet.net/": [
             "USFans Spreadsheet — searchable QC catalog",
             "<h1>USFans Spreadsheet</h1>",
             REVIEW_LONG,
+        ],
+        "https://usfansspreadsheet.net/usfans-spreadsheet/": [
+            "Search the USFans spreadsheet",
+            '"@type": "Dataset"',
+            "Public, dated catalog of 10,601 USFans spreadsheet finds",
         ],
         "https://bbdbuy.it/": [
             "BBDBuy Spreadsheet per acquirenti in Italia",
