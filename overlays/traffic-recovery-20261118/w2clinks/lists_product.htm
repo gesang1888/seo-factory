@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{eyou:include file='seo.htm' /}
+</head>
+<body>
+{eyou:include file="header.htm" /}
+
+<main class="w2c-container w2c-list-layout" data-w2c-typeid="{$eyou.field.typeid}" data-w2c-category="{$eyou.field.typename}">
+  <aside class="w2c-sidebar">
+    <div class="sidebar-block">
+      <h3 data-i18n="sidebar_category">Category</h3>
+      <div class="sidebar-cat-grid">
+        {eyou:include file="sidebar_categories.htm" /}
+      </div>
+    </div>
+    <div class="sidebar-block">
+      <h3 data-i18n="sidebar_brand">Brand</h3>
+      <div class="brand-filter-list" id="brandFilterList">
+{eyou:include file="brands_filter.htm" /}
+{eyou:include file="brands_filter_other.htm" /}
+      </div>
+      <button type="button" class="brand-apply-btn" id="brandApplyBtn" data-i18n="apply_filters">Apply Filters</button>
+    </div>
+  </aside>
+
+  <div class="w2c-list-main">
+    <header class="w2c-list-header">
+      <h1>{eyou:notempty name='$eyou.field.englist_name'}{$eyou.field.englist_name}{eyou:else /}{$eyou.field.typename}{/eyou:notempty}</h1>
+      <p>{eyou:notempty name='$eyou.field.seo_description'}{$eyou.field.seo_description}{eyou:else /}Browse the W2C {$eyou.field.typename} spreadsheet with QC photos and agent-ready links.{/eyou:notempty}</p>
+    </header>
+    <div class="w2c-products w2c-products-category">
+      {eyou:list titlelen='20' orderby="id" ordermode="desc" pagesize='60' mod='3'}
+      <a href="{$field.arcurl}" class="w2c-product" data-title="{$field.title}">
+        <img src="{$field.litpic}" alt="{$field.title}" loading="lazy" decoding="async">
+        <div class="w2c-product-meta">
+          <div class="w2c-product-title">{$field.title}</div>
+          <div class="w2c-product-price" data-cny="{$field.users_price}">¥{$field.users_price}</div>
+        </div>
+      </a>
+      {/eyou:list}
+    </div>
+    <div class="pagination">{eyou:pagelist /}</div>
+    <aside class="w2c-next w2c-next-box" style="margin-top:28px">
+      <h2>After you pick a {$eyou.field.typename} find</h2>
+      <p data-traffic-recovery="20261118">This category page is the {$eyou.field.typename} spreadsheet. Search → compare QC on the card → copy the seller link into your agent. Estimate freight before you submit. This host does not take payment.</p>
+      <div class="w2c-next-links">
+        <a href="/spreadsheet/">Full spreadsheet</a>
+        <a href="/shipping-calculator/">Estimate shipping</a>
+        <a href="/track/">Track a parcel</a>
+        <a href="/agents/">Agent reviews</a>
+        <a href="/compare/">CNFans / JadeShip alternatives</a>
+      </div>
+    </aside>
+  </div>
+</main>
+
+{eyou:include file="footer.htm" /}
+</body>
+</html>
