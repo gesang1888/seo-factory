@@ -1,0 +1,72 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#141820">
+{eyou:include file="favicon-links.htm" /}
+
+{eyou:notempty name="$eyou.field.keywords"}
+<title>Search "{$eyou.field.keywords}" | W2C Links Spreadsheet</title>
+<meta name="description" content="Search results for {$eyou.field.keywords} on W2C Links — curated agent spreadsheet finds with QC photos and CNY pricing.">
+<meta name="robots" content="noindex,follow" />
+<meta name="googlebot" content="noindex,follow" />
+
+{eyou:else /}
+{eyou:if condition="$eyou.field.channel == 2 && $eyou.field.seo_keep neq 1"}
+<meta name="robots" content="noindex,follow" />
+<meta name="googlebot" content="noindex,follow" />
+{eyou:else /}
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="googlebot" content="index,follow,max-image-preview:large" />
+{/eyou:if}
+
+{eyou:empty name="$eyou.field.typeid"}
+<title>W2C Links — Independent Index · 11,300+ | Directory &amp; QC Hub</title>
+<meta name="description" content="W2C Links Independent Index · 11,300+ Weidian/Taobao/1688 finds. Multi-agent directory with categories, QC photos, and dataset proofs — not a Google Sheet clone.">
+<meta name="keywords" content="w2c links, independent index, w2c directory, qc finds, agent spreadsheet, weidian finds, categories">
+<link rel="canonical" href="https://w2clinks.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="W2C Links — Independent Index · 11,300+ | Directory & QC Hub">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="W2C Links">
+<meta property="og:title" content="W2C Links — Independent Index · 11,300+ | Directory & QC Hub">
+<meta property="og:description" content="W2C Links Independent Index · 11,300+ Weidian/Taobao/1688 finds. Multi-agent directory with categories, QC photos, and dataset proofs — not a Google Sheet clone.">
+<meta property="og:url" content="https://w2clinks.com/">
+<meta property="og:image" content="https://w2clinks.com/public/static/w2c/hero-warehouse-qc.webp?v=24">
+
+{eyou:else /}
+{eyou:notempty name="$eyou.field.aid"}
+<title>{$eyou.field.seo_title|default=$eyou.field.title} | W2C Links</title>
+<meta name="description" content="{eyou:empty name='$eyou.field.seo_description' /}{$eyou.field.title} — W2C Links spreadsheet find with QC context.{eyou:else /}{$eyou.field.seo_description}{/eyou:empty}">
+<link rel="canonical" href="{$eyou.field.arcurl}">
+<meta property="og:type" content="{eyou:if condition='$eyou.field.channel == 1'}article{eyou:else /}product{/eyou:if}">
+<meta property="og:site_name" content="W2C Links">
+<meta property="og:title" content="{$eyou.field.title}">
+<meta property="og:url" content="{$eyou.field.arcurl}">
+{eyou:notempty name="$eyou.field.litpic"}
+<meta property="og:image" content="{$eyou.field.litpic}">
+{/eyou:notempty}
+
+{eyou:else /}
+{eyou:notempty name="$eyou.field.seo_title"}
+<title>{$eyou.field.seo_title}</title>
+{eyou:else /}
+<title>W2C {$eyou.field.typename} Spreadsheet 2026 | W2C Links</title>
+{/eyou:notempty}
+<meta name="description" content="{eyou:notempty name='$eyou.field.seo_description'}{$eyou.field.seo_description}{eyou:else /}Browse the W2C {$eyou.field.typename} spreadsheet with QC photos and agent-ready links.{/eyou:notempty}">
+<link rel="canonical" href="{eyou:global name='web_basehost' /}{$eyou.field.typeurl}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="W2C Links">
+{eyou:notempty name="$eyou.field.seo_title"}
+<meta property="og:title" content="{$eyou.field.seo_title}">
+{eyou:else /}
+<meta property="og:title" content="W2C {$eyou.field.typename} Spreadsheet 2026 | W2C Links">
+{/eyou:notempty}
+<meta property="og:url" content="{eyou:global name='web_basehost' /}{$eyou.field.typeurl}">
+{eyou:notempty name="$eyou.field.litpic"}
+<meta property="og:image" content="{$eyou.field.litpic}">
+{/eyou:notempty}
+{/eyou:notempty}
+{/eyou:empty}
+{/eyou:notempty}
+{eyou:include file="analytics-51la.htm" /}

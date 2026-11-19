@@ -10,6 +10,9 @@ data/products/*
 output/*
 !output/.gitkeep
 
+# Live HTML snapshots (not source)
+work/
+
 # Site-specific generated content (optional local builds)
 sites/*/dist/
 sites/*/.cache/
