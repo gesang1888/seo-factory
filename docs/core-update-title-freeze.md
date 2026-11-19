@@ -19,7 +19,7 @@ Google’s November 2026 core update started **10 Nov 2026, 10:06 PT** and is st
 
 ## Allowed during the freeze
 
-- Body copy, FAQ, JSON-LD `alternateName` / `dateModified` / Dataset `description` (GSC Dataset rich-result required field; does not change organic Title/H1)
+- Body copy, FAQ, JSON-LD `alternateName` / `dateModified` / Dataset `description` / Dataset `license` (GSC Dataset fields; does not change organic Title/H1)
 - Dataset `last_verified` after a real re-check
 - Inner unique pages that currently 200 as stubs (not ranking Title/H1)
 - Conversion copy on w2clinks catalog (search → QC → paste into agent)

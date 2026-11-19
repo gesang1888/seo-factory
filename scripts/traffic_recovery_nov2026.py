@@ -74,6 +74,7 @@ REMOTE = {
     "hipobuy/qc-guide.html": "/www/wwwroot/hipobuyspreadsheet.net/hipobuy-qc-guide/index.html",
     "hipobuy/finds-dataset.json": "/www/wwwroot/hipobuyspreadsheet.net/data/finds-dataset.json",
     "hipobuy/coupons-truth.json": "/www/wwwroot/hipobuyspreadsheet.net/data/coupons-truth.json",
+    "hipobuy/terms.html": "/www/wwwroot/hipobuyspreadsheet.net/terms/index.html",
     "usfans/index.html": "/www/wwwroot/usfansspreadsheet.net/index.html",
     "usfans/llms.txt": "/www/wwwroot/usfansspreadsheet.net/llms.txt",
     "usfans/usfans-spreadsheet.html": "/www/wwwroot/usfansspreadsheet.net/usfans-spreadsheet/index.html",
@@ -269,6 +270,7 @@ def patch_hipobuy() -> None:
       "@id": "{eyou:global name='web_basehost' /}/finds-dataset/#dataset",
       "name": "HipoBuy spreadsheet finds dataset",
       "description": "Public, dated catalog of 8,600+ HipoBuy spreadsheet finds with row_count, sample SKUs and QC flags. JSON at /data/finds-dataset.json. Not a Google Sheet and not hipobuy.com checkout.",
+      "license": "https://hipobuyspreadsheet.net/terms/#dataset-license",
       "url": "{eyou:global name='web_basehost' /}/finds-dataset/",
       "dateModified": "2026-11-18",
       "creator": {"@id": "{eyou:global name='web_basehost' /}/#organization"},
@@ -329,6 +331,32 @@ def patch_hipobuy() -> None:
     )
     _write("hipobuy/coupons.html", coup_html)
 
+    license_url = "https://hipobuyspreadsheet.net/terms/#dataset-license"
+    fd = _read("hipobuy/finds-dataset.html")
+    if f'"license": "{license_url}"' not in fd:
+        old = '"description": "Public row counts, update frequency and sample SKUs for the independent HipoBuy spreadsheet hub.", "url":'
+        new = f'"description": "Public row counts, update frequency and sample SKUs for the independent HipoBuy spreadsheet hub.", "license": "{license_url}", "url":'
+        if old not in fd:
+            raise SystemExit("hipobuy finds-dataset license needle missing")
+        fd = fd.replace(old, new, 1)
+    if 'id="license"' not in fd:
+        marker = '<p><a class="btn" href="https://www.hipobuy.com/?inviteCode=SC3Y5G66Q"'
+        block = '''<section id="license">
+  <h2>Dataset license</h2>
+  <p>This Independent Index is published under the <a href="/terms/#dataset-license">HipoBuy Spreadsheet Terms of Use</a>. Cite <code>row_count</code>, <code>last_verified</code> and sample SKUs with a link to this host. Not hipobuy.com. Bulk harvesting beyond the published JSON is not licensed.</p>
+</section>
+
+'''
+        if marker not in fd:
+            raise SystemExit("hipobuy finds-dataset license section needle missing")
+        fd = fd.replace(marker, block + marker, 1)
+    _write("hipobuy/finds-dataset.html", fd)
+
+    terms_src = ROOT / "static" / "hipobuy-terms.html"
+    if not terms_src.exists():
+        raise SystemExit(f"missing {terms_src}")
+    _write("hipobuy/terms.html", terms_src.read_text(encoding="utf-8"))
+
 
 def _replace_if_present(rel: str, old: str, new: str) -> int:
     text = _read(rel)
@@ -382,17 +410,25 @@ def patch_usfans() -> None:
         'with row_count, sample SKUs and QC flags. JSON at /data/finds-dataset.json. '
         'Not a Google Sheet and not usfans.com checkout."'
     )
-    if '"@type": "Dataset"' in ss and dataset_desc not in ss:
-        old = '''      "@type": "Dataset",
+    dataset_license = '"license": "https://usfansspreadsheet.net/finds-dataset/#license"'
+    if '"@type": "Dataset"' in ss:
+        if dataset_desc not in ss:
+            old = '''      "@type": "Dataset",
       "name": "USFans Independent Index",
       "url": "https://usfansspreadsheet.net/finds-dataset/",'''
-        new = f'''      "@type": "Dataset",
+            new = f'''      "@type": "Dataset",
       "name": "USFans Independent Index",
       {dataset_desc},
       "url": "https://usfansspreadsheet.net/finds-dataset/",'''
-        if old not in ss:
-            raise SystemExit("usfans Dataset needle missing")
-        ss = ss.replace(old, new, 1)
+            if old not in ss:
+                raise SystemExit("usfans Dataset needle missing")
+            ss = ss.replace(old, new, 1)
+        if dataset_license not in ss:
+            old = dataset_desc + ',\n      "url": "https://usfansspreadsheet.net/finds-dataset/",'
+            new = dataset_desc + ',\n      ' + dataset_license + ',\n      "url": "https://usfansspreadsheet.net/finds-dataset/",'
+            if old not in ss:
+                raise SystemExit("usfans Dataset license needle missing")
+            ss = ss.replace(old, new, 1)
     _write("usfans/usfans-spreadsheet.html", ss)
 
     data = json.loads(_read("usfans/finds-dataset.json"))
@@ -670,6 +706,15 @@ def verify_live() -> None:
             "hippobuy spreadsheet",
             REVIEW_SHORT,
             "Public, dated catalog of 8,600+ HipoBuy spreadsheet finds",
+            "https://hipobuyspreadsheet.net/terms/#dataset-license",
+        ],
+        "https://hipobuyspreadsheet.net/finds-dataset/": [
+            "HipoBuy Finds Dataset — Row Counts, Sample SKUs",
+            "https://hipobuyspreadsheet.net/terms/#dataset-license",
+        ],
+        "https://hipobuyspreadsheet.net/terms/": [
+            "Terms of Use | Hipobuy Spreadsheet",
+            'id="dataset-license"',
         ],
         "https://usfansspreadsheet.net/": [
             "USFans Spreadsheet — searchable QC catalog",
@@ -680,6 +725,7 @@ def verify_live() -> None:
             "Search the USFans spreadsheet",
             '"@type": "Dataset"',
             "Public, dated catalog of 10,601 USFans spreadsheet finds",
+            "https://usfansspreadsheet.net/finds-dataset/#license",
         ],
         "https://bbdbuy.it/": [
             "BBDBuy Spreadsheet per acquirenti in Italia",
