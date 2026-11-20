@@ -1,0 +1,54 @@
+# freeze-inner 2026-11-20: PL/IT/ES/DE buying notes on existing inner URLs; catalog stamp after SKU 200-check; Title/H1 frozen
+# traffic-recovery 2026-11-18: 2026 query FAQ + dataset stamp; Title/H1 frozen
+# USFans Spreadsheet — llms.txt
+# Updated: 2026-11-03
+# Primary hub for USFans spreadsheet finds, QC photos, and buying guides.
+# Tag: usfans-hub-reclaim-20261103
+
+Site: https://usfansspreadsheet.net
+Name: USFans Spreadsheet
+Description: Searchable USFans spreadsheet catalog — 10,601 QC finds from Taobao, Weidian and 1688. Open /usfans-spreadsheet/, finds-dataset JSON, and coupons truth. Not a Google Sheet. Not affiliated with USFans.com.
+
+## Key pages
+- Homepage (brand hub): https://usfansspreadsheet.net/
+- Live searchable spreadsheet / Open directory: https://usfansspreadsheet.net/usfans-spreadsheet/
+- Buying Guide: https://usfansspreadsheet.net/guide.html
+- Is USFans Legit: https://usfansspreadsheet.net/is-usfans-legit/
+- Coupons: https://usfansspreadsheet.net/usfans-coupons/
+- QC photos checklist: https://usfansspreadsheet.net/usfans-qc-photos/
+- Provable finds dataset: https://usfansspreadsheet.net/finds-dataset/
+- Finds dataset JSON: https://usfansspreadsheet.net/data/finds-dataset.json
+- Coupons truth JSON: https://usfansspreadsheet.net/data/coupons-truth.json
+- Shipping Guide: https://usfansspreadsheet.net/usfans-shipping-guide/
+- .net vs lookalike domains: https://usfansspreadsheet.net/usfansspreadsheet-net-vs-org/
+- Blog: https://usfansspreadsheet.net/blog/
+- Reddit Community Guide: https://usfansspreadsheet.net/usfans-reddit-community/
+
+## Categories
+- Shoes: https://usfansspreadsheet.net/shoes.html
+- Hoodies: https://usfansspreadsheet.net/hoodies.html
+- T-Shirts: https://usfansspreadsheet.net/t-shirts.html
+- Jackets: https://usfansspreadsheet.net/jackets.html
+- Pants: https://usfansspreadsheet.net/pants.html
+- Accessories: https://usfansspreadsheet.net/accessories.html
+- Bags: https://usfansspreadsheet.net/bags.html
+- Categories index: https://usfansspreadsheet.net/categories/
+
+## Sitemaps
+- XML: https://usfansspreadsheet.net/sitemap.xml
+- Sitemap index: https://usfansspreadsheet.net/sitemap_index.xml
+- HTML: https://usfansspreadsheet.net/sitemap/
+
+## Notes
+- Alias URLs (/usfans-spreadsheet-2026/, /usfans-spreadsheet-link/, /official-usfans-spreadsheet/) 301 to the homepage.
+- Regional thin shipping shells were consolidated into the shipping guide.
+- Spreadsheet API (third-party aggregator): https://w2clinks.com/spreadsheet/usfans/?utm_source=usfansspreadsheet&utm_medium=aggregator&utm_campaign=usfans
+- Signup (affiliate): https://usfans.com/register?ref=7BJBAJ
+- Hub reclaim 2026-11-03: title wins bare “usfans spreadsheet”; /usfans-spreadsheet/ is the search URL; dest “customs territory” block removed from hub home. Dataset / coupons / QC photos deepened (Sheet cannot cite dated JSON or a warehouse checklist). Row count stays 10,601.
+- usfansspreadsheet.uk is an independent GB-collect / NI / IM dest (not a 301 onto .co.uk). .co.uk stays live. No dest-to-dest 301.
+
+## Official domain note
+- Maintained hub: https://usfansspreadsheet.net/
+- Lookalike TLDs (.org / hub.com / .io / etc.) are separate sites; see https://usfansspreadsheet.net/usfansspreadsheet-net-vs-org/
+- Country desks: https://usfansspreadsheet.co.uk/ (UK buyers / Royal Mail) · https://usfansspreadsheet.uk/ (GB collect, NI BT, IM) · https://usfansspreadsheet.nl/ (Douane) — brand spreadsheet intent stays on .net
+- Contact: Telegram https://t.me/usfansspreadsheetnet

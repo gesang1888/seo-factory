@@ -1,6 +1,8 @@
 # November 2026 core update — Title/H1 freeze
 
-Google’s November 2026 core update started **10 Nov 2026, 10:06 PT** and is still rolling as of **18 Nov 2026 (Asia/Shanghai)**. Google said the rollout may take up to two weeks (around **24 Nov 2026**). Do not retitle winning URLs until the Search Status Dashboard marks this incident complete, then wait at least a week before comparing.
+Google’s November 2026 core update started **10 Nov 2026, 10:06 PT** and is still rolling as of **20 Nov 2026 (Asia/Shanghai)**. Google said the rollout may take up to two weeks (around **24 Nov 2026**). Do not retitle winning URLs until the Search Status Dashboard marks this incident complete, then wait at least a week before comparing.
+
+USFans freeze-safe inner work on **20 Nov 2026** (catalog stamp after sample-SKU 200-check, PL/IT/ES/DE notes on existing `/guide.html`, `/usfans-shipping-guide/`, `/es/como-comprar-usfans/`, `/pl/jak-kupowac-usfans/`) does **not** change the Title/H1 rows below and does not open new country ccTLDs.
 
 ## Frozen Title / H1 (do not change)
 

@@ -1,0 +1,128 @@
+{
+  "schema": "seo-factory.finds-dataset.v1",
+  "brand": "USFans",
+  "host": "usfansspreadsheet.net",
+  "last_verified": "2026-11-20",
+  "generated_at": "2026-11-20T10:00:00Z",
+  "row_count": 10601,
+  "row_count_display": "10,601",
+  "update_frequency": "Homepage + searchable catalog share the same index; public dataset stamp reviewed when row count or sample prices change (target: weekly).",
+  "qc_field": "qc_photo",
+  "price_fields": [
+    "price_cny",
+    "price_usd_approx",
+    "price_display"
+  ],
+  "anti_sheet_note": "Public, citable row counts + dated sample SKUs — not another opaque Google Sheet dump.",
+  "endpoints": {
+    "html": "https://usfansspreadsheet.net/finds-dataset/",
+    "json": "https://usfansspreadsheet.net/data/finds-dataset.json",
+    "coupons_truth": "https://usfansspreadsheet.net/data/coupons-truth.json",
+    "catalog": "https://usfansspreadsheet.net/usfans-spreadsheet/",
+    "qc_photos": "https://usfansspreadsheet.net/usfans-qc-photos/"
+  },
+  "sample_skus": [
+    {
+      "sku": "wd_7854801519",
+      "title": "Audemars Piguet Rose Gold Automatic Watch",
+      "price_cny": 701.0,
+      "price_usd_approx": 97.44,
+      "price_display": "¥701≈ $97.44",
+      "source_url": "https://w2clinks.com/yupoo-jewelry/wd_7854801519.html",
+      "qc_photo": true,
+      "last_verified": "2026-11-20"
+    },
+    {
+      "sku": "wd_7855084441",
+      "title": "Nike Red and White Checkered Croatia Jersey",
+      "price_cny": 116.0,
+      "price_usd_approx": 16.12,
+      "price_display": "¥116≈ $16.12",
+      "source_url": "https://w2clinks.com/yupoo-jersey/wd_7855084441.html",
+      "qc_photo": true,
+      "last_verified": "2026-11-20"
+    },
+    {
+      "sku": "wd_7855094313",
+      "title": "Gold and Black Gradient Pilot Sunglasses with Case",
+      "price_cny": 108.0,
+      "price_usd_approx": 15.01,
+      "price_display": "¥108≈ $15.01",
+      "source_url": "https://w2clinks.com/yupoo-electronics/wd_7855094313.html",
+      "qc_photo": true,
+      "last_verified": "2026-11-20"
+    },
+    {
+      "sku": "wd_7858043442",
+      "title": "Brazil Blue Short Sleeve Soccer Jersey",
+      "price_cny": 128.0,
+      "price_usd_approx": 17.79,
+      "price_display": "¥128≈ $17.79",
+      "source_url": "https://w2clinks.com/yupoo-jersey/wd_7858043442.html",
+      "qc_photo": true,
+      "last_verified": "2026-11-20"
+    },
+    {
+      "sku": "wd_7858086734",
+      "title": "Louis Vuitton Monogram Crossbody Bag Set",
+      "price_cny": 180.0,
+      "price_usd_approx": 25.02,
+      "price_display": "¥180≈ $25.02",
+      "source_url": "https://w2clinks.com/yupoo-bag/wd_7858086734.html",
+      "qc_photo": true,
+      "last_verified": "2026-11-20"
+    },
+    {
+      "sku": "wd_7854859133",
+      "title": "Stussy Blue Canvas Wallet",
+      "price_cny": 58.0,
+      "price_usd_approx": 8.06,
+      "price_display": "¥58≈ $8.06",
+      "source_url": "https://w2clinks.com/yupoo-bag/wd_7854859133.html",
+      "qc_photo": true,
+      "last_verified": "2026-11-20"
+    },
+    {
+      "sku": "wd_7858116142",
+      "title": "Coach Blue Signature Jacquard Shoulder Bag",
+      "price_cny": 363.0,
+      "price_usd_approx": 50.46,
+      "price_display": "¥363≈ $50.46",
+      "source_url": "https://w2clinks.com/yupoo-bag/wd_7858116142.html",
+      "qc_photo": true,
+      "last_verified": "2026-11-20"
+    },
+    {
+      "sku": "wd_7858049450",
+      "title": "Chanel Black Quilted Mini Flap Bag",
+      "price_cny": 379.0,
+      "price_usd_approx": 52.68,
+      "price_display": "¥379≈ $52.68",
+      "source_url": "https://w2clinks.com/yupoo-bag/wd_7858049450.html",
+      "qc_photo": true,
+      "last_verified": "2026-11-20"
+    },
+    {
+      "sku": "wd_7855066871",
+      "title": "Burberry Black Plaid Slide Sandals 2.0",
+      "price_cny": 235.0,
+      "price_usd_approx": 32.67,
+      "price_display": "¥235≈ $32.67",
+      "source_url": "https://w2clinks.com/yupoo-slippers/wd_7855066871.html",
+      "qc_photo": true,
+      "last_verified": "2026-11-20"
+    },
+    {
+      "sku": "wd_7858029552",
+      "title": "Nike Black France Football Jersey",
+      "price_cny": 98.0,
+      "price_usd_approx": 13.62,
+      "price_display": "¥98≈ $13.62",
+      "source_url": "https://w2clinks.com/yupoo-jersey/wd_7858029552.html",
+      "qc_photo": true,
+      "last_verified": "2026-11-20"
+    }
+  ],
+  "sitemap_policy": "Sitemap lastmod for /finds-dataset/ and money URLs bumps when this stamp changes.",
+  "stamp": "catalog"
+}
